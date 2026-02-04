@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkerUnionDAO - Interactive Diagrams</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #334155;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid #334155;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+        nav a:hover {
+            background: #334155;
+            color: #e2e8f0;
+        }
+        .diagram-section {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+        .diagram-section h2 {
+            color: #f1f5f9;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        .diagram-section p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+        .mermaid {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            overflow: auto;
+        }
+        .toc {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #334155;
+        }
+        .toc h2 {
+            margin-bottom: 15px;
+            color: #f1f5f9;
+        }
+        .toc ul {
+            list-style: none;
+        }
+        .toc li {
+            padding: 8px 0;
+        }
+        .toc a {
+            color: #94a3b8;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .toc a:before {
+            content: "→";
+            margin-right: 10px;
+            color: #667eea;
+        }
+        .toc a:hover {
+            color: #667eea;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        .badge-overview { background: #3b82f6; color: white; }
+        .badge-flow { background: #10b981; color: white; }
+        .badge-state { background: #f59e0b; color: white; }
+        .badge-security { background: #ef4444; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏗️ WorkerUnionDAO</h1>
+            <p class="subtitle">Interactive Architecture Diagrams • DeFi x DAO Protocol for Worker-Level Unions</p>
+        </header>
+
+        <div class="toc">
+            <h2>📑 Table of Contents</h2>
+            <ul>
+                <li><a href="#overview">System Overview Diagrams</a></li>
+                <li><a href="#flows">User Flow Diagrams</a></li>
+                <li><a href="#states">State Machine Diagrams</a></li>
+                <li><a href="#sequence">Sequence Diagrams</a></li>
+                <li><a href="#contracts">Contract Architecture</a></li>
+                <li><a href="#security">Security & Access Control</a></li>
+            </ul>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#flows">Flows</a></li>
+                <li><a href="#states">State Machines</a></li>
+                <li><a href="#sequence">Sequences</a></li>
+                <li><a href="#contracts">Contracts</a></li>
+                <li><a href="#security">Security</a></li>
+            </ul>
+        </nav>
+
+        <section id="overview">
+            <div class="diagram-section">
+                <h2>🎯 High-Level System Overview <span class="badge badge-overview">Overview</span></h2>
+                <p>The complete WorkerUnionDAO ecosystem showing all components and their relationships.</p>
+                <div class="mermaid">
+graph TB
+    subgraph "Worker Union DAO Ecosystem"
+        Worker[Worker/Member]
+        Frontend[Web App]
+        Token[UnionToken<br/>ERC-20]
+        Vault[UnionVault<br/>Treasury]
+        DAO[UnionDAO<br/>Governance]
+        Loan[LoanDesk<br/>Emergency Loans]
+        Benefit[BenefitPayout<br/>Distribution]
+    end
+
+    Worker -->|Connect| Frontend
+    Frontend -->|Read/Write| Token
+    Frontend -->|Read/Write| Vault
+    Frontend -->|Read/Write| DAO
+    Frontend -->|Read/Write| Loan
+    Frontend -->|Read/Write| Benefit
+
+    Vault -.->|Funds| Loan
+    Vault -.->|Funds| Benefit
+    DAO -.->|Authorize| Vault
+    DAO -.->|Set Parameters| Loan
+    DAO -.->|Set Parameters| Benefit
+
+    Token -.->|Voting Power| DAO
+    Token -.->|Collateral| Loan
+
+    style Worker fill:#e1f5fe
+    style DAO fill:#f3e5f5
+    style Vault fill:#fff3e0
+    style Token fill:#e8f5e9
+    style Loan fill:#fce4ec
+    style Benefit fill:#fce4ec
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🏛️ Core Components <span class="badge badge-overview">Overview</span></h2>
+                <p>The five core smart contracts and their primary responsibilities.</p>
+                <div class="mermaid">
+graph LR
+    subgraph Core["Core Smart Contracts"]
+        T[UnionToken<br/><br/>🪙 Governance Token<br/><br/>• ERC-20 standard<br/>• Voting power<br/>• Collateral for loans]
+        V[UnionVault<br/><br/>💰 Treasury Management<br/><br/>• Holds stablecoins<br/>• Tracks contributions<br/>• Executes withdrawals]
+        D[UnionDAO<br/><br/>🗳️ Governance Engine<br/><br/>• Proposal creation<br/>• Token-weighted voting<br/>• Execution]
+        L[LoanDesk<br/><br/>🏦 Emergency Loans<br/><br/>• Loan requests<br/>• Collateral locking<br/>• Repayment tracking]
+        B[BenefitPayout<br/><br/>🎁 Benefits Distribution<br/><br/>• Claim processing<br/>• Limit enforcement<br/>• Automated payouts]
+    end
+
+    T -.->|Voting Power| D
+    T -.->|Collateral| L
+    V -.->|Disburse| L
+    V -.->|Payout| B
+    D -.->|Control| V
+    D -.->|Configure| L
+    D -.->|Configure| B
+
+    style T fill:#c8e6c9
+    style V fill:#ffcc80
+    style D fill:#ce93d8
+    style L fill:#f48fb1
+    style B fill:#f48fb1
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>📊 Token Economics <span class="badge badge-overview">Overview</span></h2>
+                <p>The dual token system showing purpose and value flow.</p>
+                <div class="mermaid">
+graph TD
+    subgraph Tokens["Dual Token System"]
+        UNT[UnionToken UNT<br/><br/>Purpose: Governance<br/>Value: Voting Power<br/>Distribution: Members<br/><br/>Use Cases:<br/>• Vote on proposals<br/>• Create proposals<br/>• Lock as collateral]
+        USDC[Mock USDC<br/><br/>Purpose: Treasury Funds<br/>Value: Stable Price<br/>Distribution: Vault<br/><br/>Use Cases:<br/>• Emergency loans<br/>• Benefit payouts<br/>• Community projects]
+    end
+
+    subgraph Flow["Value Flow"]
+        M[Members]
+        V[Vault]
+    end
+
+    M -->|Contribute| USDC
+    M -->|Receive| UNT
+    UNT -->|Voting| D[DAO Decisions]
+    USDC -->|Fund| L[Loans & Benefits]
+    D -->|Control| V
+
+    style UNT fill:#c8e6c9
+    style USDC fill:#ffcc80
+    style M fill:#e1f5fe
+                </div>
+            </div>
+        </section>
+
+        <section id="flows">
+            <div class="diagram-section">
+                <h2>🚶 Member Onboarding Flow <span class="badge badge-flow">User Journey</span></h2>
+                <p>Step-by-step process of a new member joining the union.</p>
+                <div class="mermaid">
+flowchart TD
+    A[Worker] -->|1. Register| B[Frontend]
+    B -->|2. Submit KYC| C{KYC Provider}
+    C -->|3. Verify| D{Approved?}
+    D -->|Yes| E[UnionToken.sol]
+    D -->|No| F[Reject]
+    E -->|4. Mint Tokens| G[Member]
+    G -->|5. Deposit| H[UnionVault.sol]
+    H -->|6. Issue Shares| I[Member Dashboard]
+    I -->|7. Welcome| J[Active Member]
+
+    style A fill:#e1f5fe
+    style E fill:#c8e6c9
+    style H fill:#ffcc80
+    style I fill:#e3f2fd
+    style J fill:#c8e6c9
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🗳️ Proposal & Voting Flow <span class="badge badge-flow">Governance</span></h2>
+                <p>How proposals are created, voted on, and executed.</p>
+                <div class="mermaid">
+flowchart TD
+    A[Member] -->|1. Create| B[UnionDAO.sol]
+    B -->|2. Validate| C{Valid?}
+    C -->|No| D[Reject]
+    C -->|Yes| E[Store Proposal]
+    E -->|3. Emit Event| F[All Members]
+    F -->|4. Vote| G[UnionDAO.sol]
+    G -->|5. Record Vote| H[Proposal State]
+    H -->|6. Check Quorum| I{Quorum Met?}
+    I -->|No| J[Continue Voting]
+    I -->|Yes| K{Passed?}
+    K -->|No| L[Defeated]
+    K -->|Yes| M[Queue for Execution]
+    M -->|7. 48hr Timelock| N[Execute]
+    N -->|8. Call Target| O[UnionVault.sol]
+    O -->|9. Transfer| P[Recipient]
+
+    style A fill:#e1f5fe
+    style B fill:#ce93d8
+    style O fill:#ffcc80
+    style P fill:#c8e6c9
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🏦 Emergency Loan Flow <span class="badge badge-flow">Financial</span></h2>
+                <p>Complete loan request, approval, and repayment process.</p>
+                <div class="mermaid">
+flowchart TD
+    A[Member] -->|1. Request| B[LoanDesk.sol]
+    B -->|2. Check Eligibility| C{Eligible?}
+    C -->|No| D[Reject]
+    C -->|Yes| E{Auto-approve?}
+    E -->|Yes| F[Lock Collateral]
+    E -->|No| G[Queue for DAO Vote]
+    G -->|3. DAO Review| H{Approved?}
+    H -->|No| I[Reject]
+    H -->|Yes| F
+    F -->|4. Disburse| J[UnionVault.sol]
+    J -->|5. Transfer| K[Member Receives Funds]
+    K -->|6. Repayment| L[Member Repays]
+    L -->|7. Return Funds| M[UnionVault.sol]
+    M -->|8. Unlock| N[UnionToken.sol]
+
+    style A fill:#e1f5fe
+    style B fill:#f48fb1
+    style J fill:#ffcc80
+    style N fill:#c8e6c9
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🎁 Benefit Claim Flow <span class="badge badge-flow">Financial</span></h2>
+                <p>How members claim and receive benefits.</p>
+                <div class="mermaid">
+flowchart LR
+    A[Member] -->|1. Submit Claim| B[BenefitPayout.sol]
+    B -->|2. Validate Eligibility| C{Eligible?}
+    C -->|No| D[Reject with Reason]
+    C -->|Yes| E{Auto-approve?}
+    E -->|Yes| F[Approve Claim]
+    E -->|No| G[Pending Manual Review]
+    G -->|3. Admin Review| H{Approved?}
+    H -->|No| I[Reject with Reason]
+    H -->|Yes| F
+    F -->|4. Request Payout| J[UnionVault.sol]
+    J -->|5. Transfer Funds| K[Member Receives]
+    K -->|6. Update Limits| L[Claim Complete]
+
+    style A fill:#e1f5fe
+    style B fill:#f48fb1
+    style J fill:#ffcc80
+    style K fill:#c8e6c9
+                </div>
+            </div>
+        </section>
+
+        <section id="states">
+            <div class="diagram-section">
+                <h2>📋 Proposal State Machine <span class="badge badge-state">Governance</span></h2>
+                <p>All possible states a proposal can go through.</p>
+                <div class="mermaid">
+stateDiagram-v2
+    [*] --> Draft: Member Creates
+    Draft --> Pending: Submit to DAO
+    Pending --> Active: Voting Starts
+
+    Active --> Active: Votes Cast
+    Active --> Canceled: Proposer Cancels
+    Active --> Defeated: Voting Ends<br/>For ≤ Against
+    Active --> Defeated: Voting Ends<br/>Quorum Not Met
+    Active --> Succeeded: Voting Ends<br/>For > Against<br/>Quorum Met
+
+    Succeeded --> Queued: Timelock Starts
+    Queued --> Expired: Deadline Passes
+    Queued --> Executed: Execute Called
+    Queued --> Canceled: Emergency Cancel
+
+    Executed --> [*]
+    Canceled --> [*]
+    Defeated --> [*]
+    Expired --> [*]
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>💰 Loan State Machine <span class="badge badge-state">Financial</span></h2>
+                <p>Loan lifecycle from request to completion.</p>
+                <div class="mermaid">
+stateDiagram-v2
+    [*] --> Requested: Member Requests
+    Requested --> Pending: Awaiting Review
+
+    Pending --> Approved: Under Threshold<br/>or DAO Approves
+    Pending --> Rejected: DAO Rejects
+
+    Approved --> Active: Disbursed<br/>Collateral Locked
+
+    Active --> Active: Partial Repayment
+    Active --> Repaid: Full Repayment
+    Active --> Defaulted: Deadline Missed
+
+    Repaid --> [*]: Collateral Returned
+    Defaulted --> Liquidated: Collateral Claimed
+    Rejected --> [*]
+    Liquidated --> [*]
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>👤 Member State Machine <span class="badge badge-state">Membership</span></h2>
+                <p>Member status throughout their lifecycle.</p>
+                <div class="mermaid">
+stateDiagram-v2
+    [*] --> NonMember: Not Registered
+    NonMember --> Pending: Submits Application
+    Pending --> Member: KYC Approved
+    Pending --> NonMember: KYC Rejected
+
+    Member --> Member: Normal Activity
+    Member --> Warning: Missed Payment<br/>or Violation
+    Warning --> Member: Resolved
+    Warning --> Suspended: Not Resolved
+
+    Member --> FormerMember: Voluntary Exit
+    Suspended --> FormerMember: Forced Exit
+    FormerMember --> [*]
+                </div>
+            </div>
+        </section>
+
+        <section id="sequence">
+            <div class="diagram-section">
+                <h2>🎬 Complete Member Onboarding Sequence <span class="badge badge-flow">Real-time</span></h2>
+                <p>Step-by-step interaction between all components.</p>
+                <div class="mermaid">
+sequenceDiagram
+    autonumber
+    participant W as Worker
+    participant F as Frontend
+    participant K as KYC System
+    participant T as UnionToken
+    participant V as UnionVault
+
+    W->>F: Click "Join Union"
+    F->>W: Show Registration Form
+    W->>F: Submit Personal Info
+
+    F->>K: Request Verification
+    K->>K: Process Verification
+    K->>F: Return Result
+
+    alt Approved
+        F->>T: Mint Tokens (100 UNT)
+        T->>F: Confirm Minting
+        F->>W: Request Initial Deposit
+        W->>V: Deposit USDC (e.g., 500)
+        V->>V: Calculate Shares
+        F->>W: Show Welcome Dashboard
+    else Rejected
+        F->>W: Show Rejection
+    end
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🗳️ Complete Proposal Lifecycle <span class="badge badge-flow">Real-time</span></h2>
+                <p>From creation to execution with all interactions.</p>
+                <div class="mermaid">
+sequenceDiagram
+    autonumber
+    participant P as Proposer
+    participant DAO as UnionDAO
+    participant All as Members
+    participant V as UnionVault
+    participant R as Recipient
+
+    P->>DAO: Create Proposal
+    DAO->>DAO: Validate & Store
+    DAO->>All: Emit ProposalCreated
+
+    Note over All: Voting Period (7 days)
+
+    loop For Each Member
+        All->>DAO: Cast Vote (For/Against)
+        DAO->>DAO: Record Vote Weight
+    end
+
+    Note over DAO: Voting Period Ends
+
+    DAO->>DAO: Tally Votes
+    DAO->>DAO: Check Quorum
+
+    alt Passed
+        DAO->>DAO: Mark Succeeded
+        Note over DAO: Timelock (48 hours)
+        P->>DAO: Execute Proposal
+        DAO->>V: Call Target Contract
+        V->>R: Send USDC
+        DAO->>All: Emit ProposalExecuted
+    else Failed
+        DAO->>All: Emit ProposalDefeated
+    end
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🏦 Complete Loan Lifecycle <span class="badge badge-flow">Real-time</span></h2>
+                <p>Full loan process with collateral locking and repayment.</p>
+                <div class="mermaid">
+sequenceDiagram
+    autonumber
+    participant B as Borrower
+    participant L as LoanDesk
+    participant T as UnionToken
+    participant V as UnionVault
+    participant D as DAO (optional)
+
+    B->>L: Request Loan (amount, duration)
+    L->>L: Check Eligibility
+    L->>L: Check Max LTV
+
+    alt Under Threshold
+        L->>L: Auto-approve
+    else Over Threshold
+        L->>D: Request DAO Approval
+        D->>L: Return Approval Decision
+    end
+
+    alt Approved
+        L->>T: Lock Collateral Tokens
+        T->>L: Confirm Locked
+        L->>V: Request Loan Disbursement
+        V->>B: Transfer USDC
+        L->>B: Confirm Loan Active
+
+        Note over B: Repayment Period
+
+        B->>L: Repay (principal + interest)
+        L->>V: Return Funds
+        V->>L: Confirm Receipt
+        L->>T: Unlock Collateral
+        T->>B: Return Tokens
+    else Rejected
+        L->>B: Notify Rejection
+    end
+                </div>
+            </div>
+        </section>
+
+        <section id="contracts">
+            <div class="diagram-section">
+                <h2>🔗 Contract Interaction Graph <span class="badge badge-overview">Architecture</span></h2>
+                <p>How all contracts interact with each other.</p>
+                <div class="mermaid">
+graph LR
+    subgraph Contracts["Smart Contract Layer"]
+        TOKEN[UnionToken]
+        VAULT[UnionVault]
+        DAO[UnionDAO]
+        LOAN[LoanDesk]
+        BENEFIT[BenefitPayout]
+        MEMBER[Member]
+    end
+
+    MEMBER -->|Hold| TOKEN
+    MEMBER -->|Deposit| VAULT
+    MEMBER -->|Propose| DAO
+    MEMBER -->|Borrow| LOAN
+    MEMBER -->|Claim| BENEFIT
+
+    TOKEN -->|Voting Weight| DAO
+    TOKEN -->|Collateral| LOAN
+
+    VAULT -->|Disburse| LOAN
+    VAULT -->|Pay| BENEFIT
+    VAULT -->|Spend| DAO
+
+    DAO -->|Authorize| VAULT
+    DAO -->|Set Rate| LOAN
+    DAO -->|Set Limits| BENEFIT
+    DAO -->|Mint/Burn| TOKEN
+
+    style TOKEN fill:#c8e6c9
+    style VAULT fill:#ffcc80
+    style DAO fill:#ce93d8
+    style LOAN fill:#f48fb1
+    style BENEFIT fill:#f48fb1
+    style MEMBER fill:#e1f5fe
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>📊 Data Flow: Treasury Operations <span class="badge badge-flow">Data Flow</span></h2>
+                <p>How funds flow through the UnionVault.</p>
+                <div class="mermaid">
+graph TD
+    A[Members] -->|1. Deposit| B[UnionVault]
+    C[DAO Proposals] -->|2. Authorize| D[Large Withdrawals]
+    D -->|3. Release Funds| E[Approved Recipients]
+    F[Loan Desk] -->|4. Disburse| G[Borrowers]
+    G -->|5. Repay| B
+    H[Benefits] -->|6. Payout| I[Claimants]
+    I -->|From| B
+
+    style A fill:#e1f5fe
+    style B fill:#ffcc80
+    style C fill:#ce93d8
+    style E fill:#c8e6c9
+    style F fill:#f48fb1
+    style I fill:#c8e6c9
+                </div>
+            </div>
+        </section>
+
+        <section id="security">
+            <div class="diagram-section">
+                <h2>🔒 Access Control Hierarchy <span class="badge badge-security">Security</span></h2>
+                <p>Role-based access control structure.</p>
+                <div class="mermaid">
+graph TB
+    subgraph Roles["Role Hierarchy"]
+        ROOT[DEFAULT_ADMIN_ROLE]
+
+        ADMIN[ADMIN_ROLE]
+        MINTER[MINTER_ROLE]
+        BURNER[BURNER_ROLE]
+        PAUSER[PAUSER_ROLE]
+        APPROVER[APPROVER_ROLE]
+
+        ROOT --> ADMIN
+        ROOT --> MINTER
+        ROOT --> BURNER
+        ROOT --> PAUSER
+        ROOT --> APPROVER
+    end
+
+    subgraph Permissions["Permissions"]
+        P1[Configure Contracts]
+        P2[Mint Tokens]
+        P3[Burn Tokens]
+        P4[Pause Operations]
+        P5[Approve Loans]
+        P6[Approve Claims]
+    end
+
+    ROOT --> P1
+    MINTER --> P2
+    BURNER --> P3
+    PAUSER --> P4
+    APPROVER --> P5
+    APPROVER --> P6
+
+    style ROOT fill:#ffcc80
+    style ADMIN fill:#c8e6c9
+    style MINTER fill:#c8e6c9
+    style BURNER fill:#c8e6c9
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>🛡️ Security Defense Layers <span class="badge badge-security">Security</span></h2>
+                <p>How threats are mitigated across the protocol.</p>
+                <div class="mermaid">
+graph TB
+    subgraph Attacks["Attack Vectors"]
+        A1[Reentrancy]
+        A2[Front-running]
+        A3[Flash Loans]
+    end
+
+    subgraph Defenses["Defense Layers"]
+        D1[ReentrancyGuard]
+        D2[Timelocks]
+        D3[Access Control]
+        D4[Quorum Requirements]
+    end
+
+    subgraph Monitoring["Monitoring"]
+        M1[Event Logs]
+        M2[Off-chain Analysis]
+        M3[Alert System]
+    end
+
+    A1 -->|Blocked by| D1
+    A2 -->|Prevented by| D2
+    A3 -->|Mitigated by| D3
+
+    D1 -->|Logged by| M1
+    D2 -->|Logged by| M1
+    D3 -->|Logged by| M1
+
+    M1 -->|Analyzed by| M2
+    M2 -->|Triggers| M3
+
+    style A1 fill:#ffebee
+    style A2 fill:#ffebee
+    style A3 fill:#ffebee
+    style D1 fill:#c8e6c9
+    style D2 fill:#c8e6c9
+    style D3 fill:#c8e6c9
+    style D4 fill:#c8e6c9
+                </div>
+            </div>
+
+            <div class="diagram-section">
+                <h2>⚠️ Threat Model <span class="badge badge-security">Security</span></h2>
+                <p>Identified threats and their mitigations.</p>
+                <div class="mermaid">
+graph TB
+    subgraph Threats["Potential Attack Vectors"]
+        direction TB
+        subgraph External["External Threats"]
+            E1[Reentrancy Attacks]
+            E2[Front-running]
+            E3[Flash Loan Attacks]
+        end
+        subgraph Internal["Internal Threats"]
+            I1[Malicious Proposals]
+            I2[Whale Dominance]
+            I3[Key Compromise]
+        end
+    end
+
+    subgraph Mitigations["Security Mitigations"]
+        M1[Reentrancy Guards]
+        M2[Time-locks]
+        M3[Quorum Requirements]
+        M4[Access Control]
+        M5[Multi-factor Auth]
+    end
+
+    E1 -->|Mitigated by| M1
+    E2 -->|Mitigated by| M2
+    E3 -->|Mitigated by| M2
+    I1 -->|Mitigated by| M3
+    I2 -->|Mitigated by| M3
+    I3 -->|Mitigated by| M4
+
+    style E1 fill:#ffcdd2
+    style E2 fill:#ffcdd2
+    style E3 fill:#ffcdd2
+    style I1 fill:#fff9c4
+    style I2 fill:#fff9c4
+    style I3 fill:#fff9c4
+    style M1 fill:#c8e6c9
+    style M2 fill:#c8e6c9
+    style M3 fill:#c8e6c9
+                </div>
+            </div>
+        </section>
+
+        <footer style="text-align: center; padding: 40px 0; color: #64748b; border-top: 1px solid #334155; margin-top: 40px;">
+            <p>WorkerUnionDAO Documentation • v1.0</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <a href="#" style="color: #667eea; text-decoration: none;">← Back to Top</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            securityLevel: 'loose',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis'
+            },
+            sequence: {
+                useMaxWidth: true,
+                wrap: true
+            },
+            stateDiagram: {
+                useMaxWidth: true
+            }
+        });
+    </script>
+</body>
+</html>

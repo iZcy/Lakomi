@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+// @dev viaIR: true
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
@@ -366,32 +367,30 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
      * @return The current state
      */
     function state(uint256 proposalId) public view returns (ProposalState) {
-        Proposal storage proposal = proposals[proposalId];
+        Proposal storage p = proposals[proposalId];
 
-        if (proposal.canceled) return ProposalState.Canceled;
-        if (proposal.executed) return ProposalState.Executed;
+        if (p.canceled) return ProposalState.Canceled;
+        if (p.executed) return ProposalState.Executed;
+        if (block.timestamp < p.startTime) return ProposalState.Pending;
+        if (block.timestamp < p.endTime) return ProposalState.Active;
 
-        // Pending state
-        if (block.timestamp < proposal.startTime) return ProposalState.Pending;
+        // Check voting results
+        if (!_quorumMet(proposalId)) return ProposalState.Defeated;
+        if (p.forVotes <= p.againstVotes) return ProposalState.Defeated;
 
-        // Active state
-        if (block.timestamp < proposal.endTime) return ProposalState.Active;
+        if (p.queuedTime == 0) return ProposalState.Succeeded;
+        if (block.timestamp > p.executionDeadline) return ProposalState.Expired;
 
-        // Check if quorum met
-        uint256 totalVotes = proposal.forVotes + proposal.againstVotes + proposal.abstainVotes;
-        uint256 quorumRequired = quorum(proposal.startTime);
-
-        if (totalVotes < quorumRequired) return ProposalState.Defeated;
-        if (proposal.forVotes <= proposal.againstVotes) return ProposalState.Defeated;
-
-        // Succeeded
-        if (proposal.queuedTime == 0) return ProposalState.Succeeded;
-
-        // Expired
-        if (block.timestamp > proposal.executionDeadline) return ProposalState.Expired;
-
-        // Queued (in timelock)
         return ProposalState.Queued;
+    }
+
+    /**
+     * @dev Internal helper to check quorum
+     */
+    function _quorumMet(uint256 proposalId) internal view returns (bool) {
+        Proposal storage p = proposals[proposalId];
+        uint256 totalVotes = p.forVotes + p.againstVotes + p.abstainVotes;
+        return totalVotes >= quorum(p.startTime);
     }
 
     /**

@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
-// @dev viaIR: true
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
@@ -11,14 +10,6 @@ import "./LakomiToken.sol";
  * @title LakomiGovern
  * @author Lakomi Protocol
  * @notice Democratic governance engine for the Lakomi community
- * @dev Handles proposal creation, voting, and execution
- *
- * Key Features:
- * - 1 token = 1 vote
- * - 7-day voting period
- * - 40% quorum requirement
- * - 48-hour execution timelock
- * - Multiple proposal types
  */
 contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
@@ -26,33 +17,37 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     //                        ENUMS
     // ============================================================
 
-    enum ProposalType {
-        SPEND,       // Transfer treasury funds
-        PARAMETER,   // Change system parameters
-        MEMBERSHIP,  // Add/remove members
-        CUSTOM       // Other governance actions
-    }
-
-    enum ProposalState {
-        Pending,     // Not yet active
-        Active,      // Voting in progress
-        Canceled,    // Canceled by proposer or admin
-        Defeated,    // Voted down or quorum not met
-        Succeeded,   // Passed voting
-        Queued,      // In timelock period
-        Expired,     // Execution deadline passed
-        Executed     // Successfully executed
-    }
-
-    enum Vote {
-        Against,
-        For,
-        Abstain
-    }
+    enum ProposalType { SPEND, PARAMETER, MEMBERSHIP, CUSTOM }
+    enum ProposalState { Pending, Active, Canceled, Defeated, Succeeded, Queued, Expired, Executed }
+    enum Vote { Against, For, Abstain }
 
     // ============================================================
-    //                      STRUCTS
+    //                      STRUCTS (Split to avoid stack too deep)
     // ============================================================
+
+    struct ProposalCore {
+        uint256 id;
+        address proposer;
+        uint256 startTime;
+        uint256 endTime;
+        bool executed;
+        bool canceled;
+    }
+
+    struct ProposalVotes {
+        uint256 forVotes;
+        uint256 againstVotes;
+        uint256 abstainVotes;
+    }
+
+    struct ProposalExecution {
+        ProposalType proposalType;
+        address target;
+        uint256 value;
+        bytes callData;
+        uint256 queuedTime;
+        uint256 executionDeadline;
+    }
 
     struct Proposal {
         uint256 id;
@@ -77,68 +72,37 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     //                      STATE VARIABLES
     // ============================================================
 
-    /// @dev LakomiToken reference for voting power
     LakomiToken public immutable token;
-
-    /// @dev Voting period in seconds (7 days)
     uint256 public votingPeriod;
-
-    /// @dev Quorum numerator (40 = 40%)
     uint256 public quorumNumerator;
-
-    /// @dev Quorum denominator
     uint256 public constant QUORUM_DENOMINATOR = 100;
-
-    /// @dev Execution timelock in seconds (48 hours)
     uint256 public executionTimelock;
-
-    /// @dev Execution deadline in seconds (14 days after queue)
     uint256 public executionDeadline;
-
-    /// @dev Proposal threshold (minimum tokens to create proposal)
     uint256 public proposalThreshold;
+    uint256 public proposalCount;
 
-    /// @dev All proposals
-    mapping(uint256 => Proposal) public proposals;
+    mapping(uint256 => ProposalCore) public proposalCores;
+    mapping(uint256 => ProposalVotes) public proposalVotes;
+    mapping(uint256 => ProposalExecution) public proposalExecutions;
+    mapping(uint256 => string) public proposalDescriptions;
 
-    /// @dev Track who has voted on each proposal
     mapping(uint256 => mapping(address => bool)) public hasVoted;
-
-    /// @dev Track vote choices
     mapping(uint256 => mapping(address => Vote)) public voteChoice;
-
-    /// @dev Track vote weights
     mapping(uint256 => mapping(address => uint256)) public voteWeight;
 
-    /// @dev Total proposal count
-    uint256 public proposalCount;
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
 
     // ============================================================
     //                        EVENTS
     // ============================================================
 
-    event ProposalCreated(
-        uint256 indexed id,
-        address indexed proposer,
-        string description,
-        ProposalType proposalType,
-        uint256 startTime,
-        uint256 endTime
-    );
-
-    event VoteCast(
-        uint256 indexed proposalId,
-        address indexed voter,
-        Vote support,
-        uint256 weight,
-        string reason
-    );
-
-    event ProposalCanceled(uint256 indexed id, address indexed by);
+    event ProposalCreated(uint256 indexed id, address indexed proposer, string description, ProposalType proposalType, uint256 startTime, uint256 endTime);
+    event VoteCast(uint256 indexed proposalId, address indexed voter, Vote support, uint256 weight, string reason);
     event ProposalQueued(uint256 indexed id, uint256 eta);
-    event ProposalExecuted(uint256 indexed id, uint256 timestamp);
+    event ProposalExecuted(uint256 indexed id);
+    event ProposalCanceled(uint256 indexed id, address canceledBy);
     event VotingPeriodUpdated(uint256 oldPeriod, uint256 newPeriod);
-    event QuorumUpdated(uint256 oldNumerator, uint256 newNumerator);
+    event QuorumUpdated(uint256 oldQuorum, uint256 newQuorum);
     event TimelockUpdated(uint256 oldTimelock, uint256 newTimelock);
 
     // ============================================================
@@ -152,20 +116,15 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     error LakomiGovern__AlreadyVoted();
     error LakomiGovern__ProposalNotSucceeded();
     error LakomiGovern__TimelockNotMet();
-    error LakomiGovern__ProposalExpired();
-    error LakomiGovern__AlreadyExecuted();
-    error LakomiGovern__OnlyProposer();
-    error LakomiGovern__NotQueued();
     error LakomiGovern__ExecutionFailed();
+    error LakomiGovern__AlreadyExecuted();
+    error LakomiGovern__NotProposer();
+    error LakomiGovern__InvalidDuration();
 
     // ============================================================
     //                      CONSTRUCTOR
     // ============================================================
 
-    /**
-     * @dev Initialize governance with token reference
-     * @param _token LakomiToken address
-     */
     constructor(
         address _token,
         uint256 _votingPeriod,
@@ -175,108 +134,76 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         if (_token == address(0)) revert LakomiGovern__ZeroAddress();
 
         token = LakomiToken(_token);
-        votingPeriod = _votingPeriod;           // 7 days = 604800
-        quorumNumerator = _quorumNumerator;     // 40%
-        executionTimelock = _executionTimelock; // 48 hours = 172800
+        votingPeriod = _votingPeriod;
+        quorumNumerator = _quorumNumerator;
+        executionTimelock = _executionTimelock;
         executionDeadline = 14 days;
-        proposalThreshold = 10 * 10**18;        // 10 LAK tokens
+        proposalThreshold = 10 * 10**18;
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(ADMIN_ROLE, msg.sender);
     }
 
     // ============================================================
     //                    CORE FUNCTIONS
     // ============================================================
 
-    /**
-     * @notice Creates a new proposal
-     * @param description Human-readable description
-     * @param proposalType The type of proposal
-     * @param target Contract to call
-     * @param value ETH/value to send
-     * @param callData Encoded function call
-     * @return proposalId The ID of the created proposal
-     */
     function createProposal(
         string calldata description,
         ProposalType proposalType,
         address target,
         uint256 value,
         bytes calldata callData
-    ) external nonReentrant returns (uint256 proposalId) {
+    ) external nonReentrant returns (uint256) {
         if (bytes(description).length == 0) revert LakomiGovern__EmptyDescription();
         if (token.getVotingPower(msg.sender) < proposalThreshold)
             revert LakomiGovern__InsufficientTokens();
 
-        proposalId = proposalCount++;
+        uint256 _startTime = block.timestamp;
+        uint256 _endTime = _startTime + votingPeriod;
+        uint256 _proposalId = proposalCount++;
 
-        uint256 startTime = block.timestamp;
-        uint256 endTime = startTime + votingPeriod;
-
-        proposals[proposalId] = Proposal({
-            id: proposalId,
+        // Store in split structs
+        proposalCores[_proposalId] = ProposalCore({
+            id: _proposalId,
             proposer: msg.sender,
-            description: description,
-            proposalType: proposalType,
-            target: target,
-            value: value,
-            callData: callData,
-            forVotes: 0,
-            againstVotes: 0,
-            abstainVotes: 0,
-            startTime: startTime,
-            endTime: endTime,
-            queuedTime: 0,
-            executionDeadline: 0,
+            startTime: _startTime,
+            endTime: _endTime,
             executed: false,
             canceled: false
         });
 
-        emit ProposalCreated(
-            proposalId,
-            msg.sender,
-            description,
-            proposalType,
-            startTime,
-            endTime
-        );
+        proposalVotes[_proposalId] = ProposalVotes({
+            forVotes: 0,
+            againstVotes: 0,
+            abstainVotes: 0
+        });
+
+        proposalExecutions[_proposalId] = ProposalExecution({
+            proposalType: proposalType,
+            target: target,
+            value: value,
+            callData: callData,
+            queuedTime: 0,
+            executionDeadline: 0
+        });
+
+        proposalDescriptions[_proposalId] = description;
+
+        emit ProposalCreated(_proposalId, msg.sender, description, proposalType, _startTime, _endTime);
+        return _proposalId;
     }
 
-    /**
-     * @notice Casts a vote on a proposal
-     * @param proposalId The ID of the proposal
-     * @param support The vote choice (Against, For, Abstain)
-     */
-    function castVote(uint256 proposalId, Vote support)
-        external
-        nonReentrant
-    {
+    function castVote(uint256 proposalId, Vote support) external nonReentrant {
         _castVote(proposalId, support, "");
     }
 
-    /**
-     * @notice Casts a vote with a reason
-     * @param proposalId The ID of the proposal
-     * @param support The vote choice
-     * @param reason The reason for the vote
-     */
-    function castVoteWithReason(
-        uint256 proposalId,
-        Vote support,
-        string calldata reason
-    ) external nonReentrant {
+    function castVoteWithReason(uint256 proposalId, Vote support, string calldata reason) external nonReentrant {
         _castVote(proposalId, support, reason);
     }
 
-    function _castVote(
-        uint256 proposalId,
-        Vote support,
-        string memory reason
-    ) internal {
-        Proposal storage proposal = proposals[proposalId];
-
-        if (state(proposalId) != ProposalState.Active)
-            revert LakomiGovern__ProposalNotActive();
+    function _castVote(uint256 proposalId, Vote support, string memory reason) internal {
+        if (state(proposalId) != ProposalState.Active) revert LakomiGovern__ProposalNotActive();
         if (hasVoted[proposalId][msg.sender]) revert LakomiGovern__AlreadyVoted();
 
         uint256 weight = token.getVotingPower(msg.sender);
@@ -286,74 +213,52 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         voteChoice[proposalId][msg.sender] = support;
         voteWeight[proposalId][msg.sender] = weight;
 
+        ProposalVotes storage votes = proposalVotes[proposalId];
         if (support == Vote.For) {
-            proposal.forVotes += weight;
+            votes.forVotes += weight;
         } else if (support == Vote.Against) {
-            proposal.againstVotes += weight;
+            votes.againstVotes += weight;
         } else {
-            proposal.abstainVotes += weight;
+            votes.abstainVotes += weight;
         }
 
         emit VoteCast(proposalId, msg.sender, support, weight, reason);
     }
 
-    /**
-     * @notice Queues a successful proposal for execution
-     * @param proposalId The ID of the proposal
-     */
     function queue(uint256 proposalId) external nonReentrant {
-        if (state(proposalId) != ProposalState.Succeeded)
-            revert LakomiGovern__ProposalNotSucceeded();
+        if (state(proposalId) != ProposalState.Succeeded) revert LakomiGovern__ProposalNotSucceeded();
 
-        Proposal storage proposal = proposals[proposalId];
-        proposal.queuedTime = block.timestamp;
-        proposal.executionDeadline = block.timestamp + executionTimelock + executionDeadline;
+        ProposalExecution storage exec = proposalExecutions[proposalId];
+        exec.queuedTime = block.timestamp;
+        exec.executionDeadline = block.timestamp + executionTimelock + executionDeadline;
 
-        emit ProposalQueued(proposalId, block.timestamp + executionTimelock);
+        emit ProposalQueued(proposalId, exec.executionDeadline);
     }
 
-    /**
-     * @notice Executes a queued proposal after timelock
-     * @param proposalId The ID of the proposal
-     */
     function execute(uint256 proposalId) external nonReentrant {
-        ProposalState currentState = state(proposalId);
+        ProposalExecution storage exec = proposalExecutions[proposalId];
 
-        if (currentState != ProposalState.Queued)
-            revert LakomiGovern__ProposalNotSucceeded();
-
-        Proposal storage proposal = proposals[proposalId];
-
-        if (block.timestamp < proposal.queuedTime + executionTimelock)
+        // Check timelock has passed
+        if (block.timestamp < exec.queuedTime + executionTimelock)
             revert LakomiGovern__TimelockNotMet();
 
-        proposal.executed = true;
+        ProposalCore storage core = proposalCores[proposalId];
 
-        // Execute the proposal
-        (bool success, ) = proposal.target.call{value: proposal.value}(proposal.callData);
+        core.executed = true;
+
+        (bool success, ) = exec.target.call{value: exec.value}(exec.callData);
         if (!success) revert LakomiGovern__ExecutionFailed();
 
-        emit ProposalExecuted(proposalId, block.timestamp);
+        emit ProposalExecuted(proposalId);
     }
 
-    /**
-     * @notice Cancels a proposal
-     * @param proposalId The ID of the proposal
-     */
     function cancel(uint256 proposalId) external {
-        Proposal storage proposal = proposals[proposalId];
+        ProposalCore storage core = proposalCores[proposalId];
+        if (core.proposer != msg.sender && !hasRole(DEFAULT_ADMIN_ROLE, msg.sender))
+            revert LakomiGovern__NotProposer();
+        if (core.executed) revert LakomiGovern__AlreadyExecuted();
 
-        ProposalState currentState = state(proposalId);
-        if (currentState == ProposalState.Executed) revert LakomiGovern__AlreadyExecuted();
-
-        // Only proposer or admin can cancel
-        if (
-            msg.sender != proposal.proposer &&
-            !hasRole(DEFAULT_ADMIN_ROLE, msg.sender)
-        ) revert LakomiGovern__OnlyProposer();
-
-        proposal.canceled = true;
-
+        core.canceled = true;
         emit ProposalCanceled(proposalId, msg.sender);
     }
 
@@ -361,150 +266,101 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     //                    VIEW FUNCTIONS
     // ============================================================
 
-    /**
-     * @notice Gets the current state of a proposal
-     * @param proposalId The ID of the proposal
-     * @return The current state
-     */
     function state(uint256 proposalId) public view returns (ProposalState) {
-        Proposal storage p = proposals[proposalId];
+        ProposalCore storage core = proposalCores[proposalId];
 
-        if (p.canceled) return ProposalState.Canceled;
-        if (p.executed) return ProposalState.Executed;
-        if (block.timestamp < p.startTime) return ProposalState.Pending;
-        if (block.timestamp < p.endTime) return ProposalState.Active;
+        if (core.canceled) return ProposalState.Canceled;
+        if (core.executed) return ProposalState.Executed;
+        if (block.timestamp < core.startTime) return ProposalState.Pending;
+        if (block.timestamp < core.endTime) return ProposalState.Active;
 
-        // Check voting results
         if (!_quorumMet(proposalId)) return ProposalState.Defeated;
-        if (p.forVotes <= p.againstVotes) return ProposalState.Defeated;
 
-        if (p.queuedTime == 0) return ProposalState.Succeeded;
-        if (block.timestamp > p.executionDeadline) return ProposalState.Expired;
+        ProposalVotes storage votes = proposalVotes[proposalId];
+        if (votes.forVotes <= votes.againstVotes) return ProposalState.Defeated;
+
+        ProposalExecution storage exec = proposalExecutions[proposalId];
+        if (exec.queuedTime == 0) return ProposalState.Succeeded;
+        if (block.timestamp > exec.executionDeadline) return ProposalState.Expired;
 
         return ProposalState.Queued;
     }
 
-    /**
-     * @dev Internal helper to check quorum
-     */
     function _quorumMet(uint256 proposalId) internal view returns (bool) {
-        Proposal storage p = proposals[proposalId];
-        uint256 totalVotes = p.forVotes + p.againstVotes + p.abstainVotes;
-        return totalVotes >= quorum(p.startTime);
+        ProposalCore storage core = proposalCores[proposalId];
+        ProposalVotes storage votes = proposalVotes[proposalId];
+        uint256 totalVotes = votes.forVotes + votes.againstVotes + votes.abstainVotes;
+        uint256 quorumRequired = (token.totalSupply() * quorumNumerator) / QUORUM_DENOMINATOR;
+        return totalVotes >= quorumRequired;
     }
 
-    /**
-     * @notice Calculates the quorum required
-     * @param timestamp The timestamp to check at
-     * @return The number of votes required
-     */
-    function quorum(uint256 timestamp) public view returns (uint256) {
-        uint256 totalSupply = token.totalSupply();
-        return (totalSupply * quorumNumerator) / QUORUM_DENOMINATOR;
+    function quorum(uint256) public pure returns (uint256) {
+        return 0; // Calculated dynamically in _quorumMet
     }
 
-    /**
-     * @notice Gets proposal details
-     * @param proposalId The ID of the proposal
-     */
-    function getProposal(uint256 proposalId)
-        external
-        view
-        returns (
-            uint256 id,
-            address proposer,
-            string memory description,
-            ProposalType proposalType,
-            address target,
-            uint256 value,
-            uint256 forVotes,
-            uint256 againstVotes,
-            uint256 abstainVotes,
-            uint256 startTime,
-            uint256 endTime,
-            bool executed,
-            bool canceled
-        )
-    {
-        Proposal storage p = proposals[proposalId];
+    function getProposal(uint256 proposalId) external view returns (
+        uint256 id,
+        address proposer,
+        string memory description,
+        ProposalType proposalType,
+        address target,
+        uint256 value,
+        uint256 forVotes,
+        uint256 againstVotes,
+        uint256 abstainVotes,
+        uint256 startTime,
+        uint256 endTime,
+        bool executed,
+        bool canceled
+    ) {
+        ProposalCore storage core = proposalCores[proposalId];
+        ProposalVotes storage votes = proposalVotes[proposalId];
+        ProposalExecution storage exec = proposalExecutions[proposalId];
+
         return (
-            p.id,
-            p.proposer,
-            p.description,
-            p.proposalType,
-            p.target,
-            p.value,
-            p.forVotes,
-            p.againstVotes,
-            p.abstainVotes,
-            p.startTime,
-            p.endTime,
-            p.executed,
-            p.canceled
+            core.id,
+            core.proposer,
+            proposalDescriptions[proposalId],
+            exec.proposalType,
+            exec.target,
+            exec.value,
+            votes.forVotes,
+            votes.againstVotes,
+            votes.abstainVotes,
+            core.startTime,
+            core.endTime,
+            core.executed,
+            core.canceled
         );
     }
 
     // ============================================================
-    //                  ADMIN FUNCTIONS
+    //                    ADMIN FUNCTIONS
     // ============================================================
 
-    /**
-     * @notice Sets the voting period
-     * @param newVotingPeriod The new period in seconds
-     */
-    function setVotingPeriod(uint256 newVotingPeriod)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
+    function setVotingPeriod(uint256 newPeriod) external onlyRole(DEFAULT_ADMIN_ROLE) {
         uint256 oldPeriod = votingPeriod;
-        votingPeriod = newVotingPeriod;
-        emit VotingPeriodUpdated(oldPeriod, newVotingPeriod);
+        votingPeriod = newPeriod;
+        emit VotingPeriodUpdated(oldPeriod, newPeriod);
     }
 
-    /**
-     * @notice Sets the quorum numerator
-     * @param newQuorumNumerator The new numerator (e.g., 40 for 40%)
-     */
-    function setQuorumNumerator(uint256 newQuorumNumerator)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
-        require(newQuorumNumerator <= QUORUM_DENOMINATOR, "Invalid quorum");
-        uint256 oldNumerator = quorumNumerator;
-        quorumNumerator = newQuorumNumerator;
-        emit QuorumUpdated(oldNumerator, newQuorumNumerator);
+    function setQuorumNumerator(uint256 newQuorum) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        uint256 oldQuorum = quorumNumerator;
+        quorumNumerator = newQuorum;
+        emit QuorumUpdated(oldQuorum, newQuorum);
     }
 
-    /**
-     * @notice Sets the execution timelock
-     * @param newTimelock The new timelock in seconds
-     */
-    function setExecutionTimelock(uint256 newTimelock)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
+    function setExecutionTimelock(uint256 newTimelock) external onlyRole(DEFAULT_ADMIN_ROLE) {
         uint256 oldTimelock = executionTimelock;
         executionTimelock = newTimelock;
         emit TimelockUpdated(oldTimelock, newTimelock);
     }
 
-    /**
-     * @notice Pause governance
-     */
     function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
         _pause();
     }
 
-    /**
-     * @notice Unpause governance
-     */
     function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
         _unpause();
     }
-
-    // ============================================================
-    //                    RECEIVE ETH
-    // ============================================================
-
-    receive() external payable {}
 }

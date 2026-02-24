@@ -1,6 +1,9 @@
 # Compiler artifacts
 out/
 
+# Dependencies
+lib/
+
 # Node modules
 node_modules/
 

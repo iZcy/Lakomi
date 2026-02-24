@@ -1,48 +1,14 @@
+# Compiler artifacts
+out/
+
 # Node modules
 node_modules/
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-venv/
-ENV/
-.venv/
+# Coverage
+coverage/
 
-# Foundry
-broadcast/
+# Cache
 cache/
-cache-zk/
-lib/
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
+# OSX
 .DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Environment
-.env
-.env.local
-
-# Build artifacts
-dist/
-build/
-
-# Temporary files
-tmp/
-temp/
-*.tmp
-
-# Scratchpad
-scratchpad/

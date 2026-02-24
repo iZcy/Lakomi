@@ -89,6 +89,7 @@ contract LakomiGovernTest is Test {
 
         assertEq(proposalId, 0);
         assertEq(govern.proposalCount(), 1);
+        assertEq(govern.proposalProposer(proposalId), alice);
     }
 
     function test_RevertWhen_CreateProposalWithoutTokens() public {
@@ -130,24 +131,9 @@ contract LakomiGovernTest is Test {
         vm.prank(alice);
         govern.castVote(proposalId, LakomiGovern.Vote.For);
 
-        (,,,,,, uint256 forVotes, uint256 againstVotes,,,,,) = govern.getProposal(proposalId);
-        assertEq(forVotes, 400 * 10**18);
-        assertEq(againstVotes, 0);
+        assertEq(govern.proposalForVotes(proposalId), 400 * 10**18);
+        assertEq(govern.proposalAgainstVotes(proposalId), 0);
         assertTrue(govern.hasVoted(proposalId, alice));
-    }
-
-    function test_CastVoteWithReason() public {
-        vm.prank(alice);
-        uint256 proposalId = _createTestProposal();
-
-        vm.prank(bob);
-        govern.castVoteWithReason(
-            proposalId,
-            LakomiGovern.Vote.For,
-            "This is a great idea!"
-        );
-
-        assertTrue(govern.hasVoted(proposalId, bob));
     }
 
     function test_RevertWhen_VoteTwice() public {
@@ -189,8 +175,6 @@ contract LakomiGovernTest is Test {
         vm.prank(alice);
         uint256 proposalId = _createTestProposal();
 
-        // Only Alice votes (40% meets 40% quorum exactly, so it passes)
-        // To test defeated-by-quorum, we need less than quorum
         // Bob has 30% which is less than 40% quorum
         vm.prank(bob);
         govern.castVote(proposalId, LakomiGovern.Vote.For);

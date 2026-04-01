@@ -1,0 +1,77 @@
+export const LAKOMI_TOKEN_ABI = [
+  "function name() view returns (string)",
+  "function symbol() view returns (string)",
+  "function decimals() view returns (uint8)",
+  "function totalSupply() view returns (uint256)",
+  "function balanceOf(address) view returns (uint256)",
+  "function transfer(address,uint256) returns (bool)",
+  "function registerMember(address)",
+  "function isRegisteredMember(address) view returns (bool)",
+  "function getMemberCount() view returns (uint256)",
+  "function getVotingPower(address) view returns (uint256)",
+  "event MemberRegistered(address indexed member, uint256 timestamp)",
+] as const
+
+export const LAKOMI_VAULT_ABI = [
+  "function deposit(uint256)",
+  "function withdraw(uint256)",
+  "function requestWithdrawal(uint256)",
+  "function approveWithdrawal(uint256)",
+  "function cancelWithdrawal(uint256)",
+  "function getContribution(address) view returns (uint256)",
+  "function getContributionTier(address) view returns (uint256)",
+  "function getAvailableLiquidity() view returns (uint256)",
+  "function getTotalContributions() view returns (uint256)",
+  "function TIER2_THRESHOLD() view returns (uint256)",
+  "function TIER3_THRESHOLD() view returns (uint256)",
+  "event Deposited(address indexed member, uint256 amount)",
+  "event Withdrawn(address indexed member, uint256 amount)",
+  "event WithdrawalRequested(address indexed member, uint256 amount, uint256 withdrawalId)",
+] as const
+
+export const LAKOMI_GOVERN_ABI = [
+  "function propose(address[] targets, uint256[] values, bytes[] calldatas, string description)",
+  "function castVote(uint256 proposalId, uint8 support)",
+  "function castVoteWithReason(uint256 proposalId, uint8 support, string reason)",
+  "function cancel(uint256 proposalId)",
+  "function execute(uint256 proposalId)",
+  "function state(uint256 proposalId) view returns (uint8)",
+  "function proposalVotes(uint256 proposalId) view returns (uint256 againstVotes, uint256 forVotes, uint256 abstainVotes)",
+  "function getProposalCount() view returns (uint256)",
+  "function getVotingPower(address) view returns (uint256)",
+  "function quorum(uint256 blockNumber) view returns (uint256)",
+  "function hasVoted(uint256 proposalId, address account) view returns (bool)",
+  "event ProposalCreated(uint256 proposalId, address proposer, address[] targets, uint256[] values, string description)",
+  "event VoteCast(address indexed voter, uint256 proposalId, uint8 support, uint256 weight)",
+] as const
+
+export const LAKOMI_LOANS_ABI = [
+  "function requestLoan(uint256 amount, uint256 collateralAmount)",
+  "function approveLoan(uint256 loanId)",
+  "function rejectLoan(uint256 loanId)",
+  "function repayLoan(uint256 loanId)",
+  "function liquidateLoan(uint256 loanId)",
+  "function getLoan(uint256 loanId) view returns (address borrower, uint256 amount, uint256 collateralAmount, uint256 repayAmount, uint256 startTime, bool isActive, bool isApproved)",
+  "function getActiveLoanCount() view returns (uint256)",
+  "function getMemberLTV(address member) view returns (uint256)",
+  "function TIER1_LTV() view returns (uint256)",
+  "function TIER2_LTV() view returns (uint256)",
+  "function TIER3_LTV() view returns (uint256)",
+  "event LoanRequested(uint256 loanId, address indexed borrower, uint256 amount, uint256 collateral)",
+  "event LoanApproved(uint256 loanId, address indexed borrower)",
+  "event LoanRepaid(uint256 loanId, address indexed borrower, uint256 amount)",
+  "event LoanLiquidated(uint256 loanId, address indexed borrower)",
+] as const
+
+export const USDC_ABI = [
+  "function name() view returns (string)",
+  "function symbol() view returns (string)",
+  "function decimals() view returns (uint8)",
+  "function totalSupply() view returns (uint256)",
+  "function balanceOf(address) view returns (uint256)",
+  "function transfer(address,uint256) returns (bool)",
+  "function approve(address,uint256) returns (bool)",
+  "function allowance(address,address) view returns (uint256)",
+  "event Transfer(address indexed from, address indexed to, uint256 value)",
+  "event Approval(address indexed owner, address indexed spender, uint256 value)",
+] as const

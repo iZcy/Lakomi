@@ -1,0 +1,8 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^python3 /home/izcy-tuf/Desktop/UGM/Skripsi/docs/website_snapshot/empatpillarmedika_2026-03-05/build_style_report\\.py$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

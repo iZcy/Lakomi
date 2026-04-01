@@ -6,7 +6,6 @@ import "../src/LakomiToken.sol";
 import "../src/LakomiVault.sol";
 import "../src/LakomiGovern.sol";
 import "../src/LakomiLoans.sol";
-import "../src/LakomiCare.sol";
 import "../src/mocks/MockUSDC.sol";
 
 /**
@@ -63,10 +62,6 @@ contract DeployLocal is Script {
         );
         console.log("LakomiLoans:", address(loans));
 
-        // 6. Deploy LakomiCare
-        LakomiCare care = new LakomiCare(address(vault));
-        console.log("LakomiCare:", address(care));
-
         console.log("");
         console.log("=== CONFIGURING CONNECTIONS ===");
 
@@ -76,11 +71,11 @@ contract DeployLocal is Script {
         token.setLakomiLoans(address(loans));
         token.grantRole(token.LOCKER_ROLE(), address(loans));
         token.grantRole(token.BURNER_ROLE(), address(loans));
+        token.grantRole(token.MEMBERSHIP_ROLE(), address(govern));
         console.log("Token connections configured");
 
         // Configure LakomiVault
         vault.grantRole(vault.GOVERN_ROLE(), address(govern));
-        vault.grantRole(vault.GOVERN_ROLE(), address(care));
         console.log("Vault configured");
 
         console.log("");
@@ -90,17 +85,9 @@ contract DeployLocal is Script {
         usdc.mint(deployer, 15000 * 10**6);
         console.log("Minted 15000 USDC to deployer");
 
-        // Mint LAK tokens to deployer
-        token.mint(deployer, 1000 * 10**18);
-        console.log("Minted 1000 LAK to deployer");
-
         // Fund Loans contract with USDC
         usdc.transfer(address(loans), 2000 * 10**6);
         console.log("Funded Loans with 2000 USDC");
-
-        // Fund Care contract with USDC
-        usdc.transfer(address(care), 10000 * 10**6);
-        console.log("Funded Care with 10000 USDC");
 
         console.log("");
         console.log("=== DEPLOYMENT COMPLETE ===");
@@ -112,7 +99,6 @@ contract DeployLocal is Script {
         console.log("LakomiToken:", address(token));
         console.log("LakomiGovern:", address(govern));
         console.log("LakomiLoans: ", address(loans));
-        console.log("LakomiCare:  ", address(care));
 
         vm.stopBroadcast();
     }

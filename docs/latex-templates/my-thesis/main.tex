@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%  Filename: main.tex
+%%%  ---
+%%%  Template for Bachelor Thesis at DTETI UGM
+%%%  Created using thesisdtetiugm.cls
+%%%  ---
+%%%  Original Written by Canggih Puspo Wibowo
+%%%  [canggihpw@gmail.com]
+%%%
+%%% Developed by Dr.-Ing. Yohan Fajar Sidik [DTETI FT UGM]
+%%% [yohanfajarsidik@ugm.ac.id]
+%%% Github repo: https://github.com/Dr-Sidik/template_thesis_latex_dteti
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Use option "bahasa" or "english"
+%%    to change the basic language used
+%% User option "bachelor", "master", or "doctoral"
+%% 	  to change the degree
+% \documentclass[<bachelor/master/doctoral>,<bahasa/english>]{thesisdtetiugm}
+\documentclass[bachelor,bahasa]{thesisdtetiugm}
+%\documentclass[bachelor,english]{thesisdtetiugm}
+%======================================
+% Information Input
+%======================================
+% Input author's name and ID number
+\author{Yitzhak Edmund Tio Manalu}{22/499769/TK/54763}
+% Input the thesis' title
+\title{Blockchain-Based Cooperative System: Studi Kasus Implementasi DAO pada Jaringan DChain}
+% Program and the head of the program
+\program{Teknologi Informasi}{<<Koordinator Program TI>>}{<<NIP>>}
+% Name of department head and NIP
+\departmenthead{<<Kepala Departemen>>}{<<NIP>>}
+\major{Teknologi Informasi}
+\yearsubmit{2025}
+\examdate{<<Tanggal Pendadaran>>}
+% Name of thesis supervisors/promotors
+\addsupervisor{<<Dosen Pembimbing 1, S.T., M.Eng., PhD.>>}{<<NIP>>}
+\addsupervisor{<<Dosen Pembimbing 2, S.T., M.Eng., PhD.>>}{<<NIP>>}
+%\addsupervisor{<<Supervisor 3>>}{<<NIP>>}
+% Name of examiners
+%\addexaminer{<<Examiner 1>>}{<<NIP 1>>}
+%\addexaminer{<<Examiner 2>>}{<<NIP 2>>}
+%\addexaminer{<<Examiner 3>>}{<<NIP 3>>}
+
+%======================================
+
+% correct bad hyphenation here [example]
+% \babelhyphenation[<<english/bahasa>>]{op-tical net-works semi-conduc-tor}
+%% Uncomment block of code below to disable hyphenation
+%\tolerance=1
+%\emergencystretch=\maxdimen
+%\hyphenpenalty=10000
+%\hbadness=10000
+
+\begin{document}
+%======================================
+% Create cover etc
+%======================================
+
+%---- COVER ----
+\printcover{sample/logougm.png}{Bachelor}
+
+%---- ENDORSEMENT PAGE ----
+\cleardoublepage \phantomsection
+\printendorsement
+
+%---- DEDICATION PAGE ----
+\cleardoublepage \phantomsection
+\chapterstatement{contents/statement/statement}
+
+\cleardoublepage \phantomsection
+\chapterdedication{contents/dedication/dedication}
+
+%---- PREFACE PAGE ----
+\cleardoublepage \phantomsection
+\chapterpreface{contents/preface/preface}
+
+%======================================
+% Create Table of Contents, List of Figures, List of Tables
+%======================================
+\cleardoublepage \phantomsection
+\thetoc
+\onehalfspacing
+\tableofcontents
+\singlespacing
+\cleardoublepage \phantomsection
+\thelot
+\listoftables
+\cleardoublepage \phantomsection
+\thelof
+\listoffigures
+
+%======================================
+
+%---- NOMENCLATURE PAGE ----
+\cleardoublepage \phantomsection
+\chapternomenclature{contents/nomenclature/nomenclature}
+
+%---- INTISARI PAGE----
+\cleardoublepage \phantomsection
+\chapterintisari{contents/abstract/intisari}
+
+%---- ABSTRACT PAGE----
+\cleardoublepage \phantomsection
+\chapterabstract{contents/abstract/abstract}
+
+%======================================
+
+%======================================
+%  MAIN TEXT
+%======================================
+\startmain
+\cleardoublepage \phantomsection
+\include{contents/chapter-1/chapter-1}
+\cleardoublepage \phantomsection
+\include{contents/chapter-2/chapter-2}
+\cleardoublepage \phantomsection
+\include{contents/chapter-3/chapter-3}
+\cleardoublepage \phantomsection
+\include{contents/chapter-4/chapter-4}
+\cleardoublepage \phantomsection
+\include{contents/chapter-5/chapter-5}
+
+%======================================
+
+%======================================
+%  References
+%======================================
+\cleardoublepage \phantomsection
+\thereferences
+\bibliography{references}
+
+%======================================
+
+%======================================
+%  Appendix
+%======================================
+\appendix
+\appendixtables
+\appendixfigures
+
+\cleardoublepage \phantomsection
+\chapterappendix{contents/appendix/appendix-isi-lampiran}
+\chapterappendixadd{contents/appendix/appendix-code}
+
+%======================================
+
+\end{document}

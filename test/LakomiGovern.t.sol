@@ -39,10 +39,13 @@ contract LakomiGovernTest is Test {
             TIMELOCK
         );
 
-        // Setup: Mint tokens to members
-        token.mint(alice, 400 * 10**18); // 40% voting power
-        token.mint(bob, 300 * 10**18);   // 30% voting power
-        token.mint(charlie, 300 * 10**18); // 30% voting power
+        // Grant membership role to admin for registering members
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        // Register members (1-member-1-vote)
+        token.registerMember(alice);
+        token.registerMember(bob);
+        token.registerMember(charlie);
 
         // Give USDC to members for deposits
         usdc.transfer(alice, 5000 * 10**6);
@@ -92,11 +95,11 @@ contract LakomiGovernTest is Test {
         assertEq(govern.proposalProposer(proposalId), alice);
     }
 
-    function test_RevertWhen_CreateProposalWithoutTokens() public {
-        address noTokens = address(0x999);
+    function test_RevertWhen_CreateProposalWithoutMembership() public {
+        address nonMember = address(0x999);
 
-        vm.prank(noTokens);
-        vm.expectRevert(LakomiGovern.LakomiGovern__InsufficientTokens.selector);
+        vm.prank(nonMember);
+        vm.expectRevert(LakomiGovern.LakomiGovern__NotRegisteredMember.selector);
         govern.createProposal(
             "Test proposal",
             LakomiGovern.ProposalType.CUSTOM,
@@ -127,11 +130,11 @@ contract LakomiGovernTest is Test {
         vm.prank(alice);
         uint256 proposalId = _createTestProposal();
 
-        // Alice votes for
+        // Alice votes for — 1 member = 1 vote
         vm.prank(alice);
         govern.castVote(proposalId, LakomiGovern.Vote.For);
 
-        assertEq(govern.proposalForVotes(proposalId), 400 * 10**18);
+        assertEq(govern.proposalForVotes(proposalId), 1);
         assertEq(govern.proposalAgainstVotes(proposalId), 0);
         assertTrue(govern.hasVoted(proposalId, alice));
     }
@@ -160,11 +163,21 @@ contract LakomiGovernTest is Test {
         govern.castVote(proposalId, LakomiGovern.Vote.For);
     }
 
+    function test_RevertWhen_NonMemberVotes() public {
+        vm.prank(alice);
+        uint256 proposalId = _createTestProposal();
+
+        address nonMember = address(0x999);
+        vm.prank(nonMember);
+        vm.expectRevert(LakomiGovern.LakomiGovern__NotRegisteredMember.selector);
+        govern.castVote(proposalId, LakomiGovern.Vote.For);
+    }
+
     // ============================================================
     //                    PROPOSAL STATE TESTS
     // ============================================================
 
-    function test_ProposalState_Pending() public {
+    function test_ProposalState_Active() public {
         vm.prank(alice);
         uint256 proposalId = _createTestProposal();
 
@@ -172,10 +185,20 @@ contract LakomiGovernTest is Test {
     }
 
     function test_ProposalState_Defeated_NoQuorum() public {
+        // Register a 4th member to make quorum = (4*40)/100 = 1
+        // With just 1 vote = meets quorum of 1, so need higher bar
+        // Let's set quorum to 60% — then quorum = (3*60)/100 = 1
+        // Still 1. Register more members to get quorum = 2.
+        address dave = address(0x4);
+        address eve = address(0x5);
+        token.registerMember(dave);
+        token.registerMember(eve);
+        // Now 5 members, quorum at 40% = 2
+
         vm.prank(alice);
         uint256 proposalId = _createTestProposal();
 
-        // Bob has 30% which is less than 40% quorum
+        // Only 1 vote out of 5 members, quorum needs 2
         vm.prank(bob);
         govern.castVote(proposalId, LakomiGovern.Vote.For);
 
@@ -189,7 +212,7 @@ contract LakomiGovernTest is Test {
         vm.prank(alice);
         uint256 proposalId = _createTestProposal();
 
-        // Alice and Bob vote (70% total, meets quorum)
+        // Alice and Bob vote (2 out of 3 members, meets 40% quorum)
         vm.prank(alice);
         govern.castVote(proposalId, LakomiGovern.Vote.For);
         vm.prank(bob);
@@ -205,7 +228,7 @@ contract LakomiGovernTest is Test {
         vm.prank(alice);
         uint256 proposalId = _createTestProposal();
 
-        // Alice votes for (40%), Bob and Charlie vote against (60%)
+        // Alice votes for (1), Bob and Charlie vote against (2)
         vm.prank(alice);
         govern.castVote(proposalId, LakomiGovern.Vote.For);
         vm.prank(bob);
@@ -216,6 +239,16 @@ contract LakomiGovernTest is Test {
         vm.warp(block.timestamp + VOTING_PERIOD + 1);
 
         assertEq(uint(govern.state(proposalId)), uint(LakomiGovern.ProposalState.Defeated));
+    }
+
+    // ============================================================
+    //                    QUORUM TESTS
+    // ============================================================
+
+    function test_QuorumBasedOnMemberCount() public view {
+        // 3 members, 40% quorum = 1
+        uint256 q = govern.quorum();
+        assertEq(q, 1); // (3 * 40) / 100 = 1
     }
 
     // ============================================================

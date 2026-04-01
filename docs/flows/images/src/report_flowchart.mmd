@@ -1,0 +1,22 @@
+flowchart TD
+    Start(("Mulai Filter"))
+    
+    A["MGT/SUPERADMIN Buka Menu Laporan"]
+    B["Pilih Input Tanggal Awal & Akhir"]
+    C["Pilih Outlet / Kota (Opsional)"]
+    D["Klik Tombol Tampilkan"]
+    E{"Query Pre-Aggregated DB"}
+    F["Tampilkan Grafik Keseluruhan"]
+    G["Tampilkan Data Breakdown Pembayaran"]
+    End(("Review Selesai"))
+    
+    Start --> A --> B --> C --> D --> E
+    E --> F --> G --> End
+    
+    classDef startend fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,rx:20px,ry:20px;
+    classDef proc fill:#bbdefb,stroke:#1976d2,stroke-width:2px,rx:5px,ry:5px;
+    classDef act fill:#ffcc80,stroke:#fbc02d,stroke-width:2px,rx:5px,ry:5px;
+    
+    class Start,End startend;
+    class A,B,C,F,G proc;
+    class D,E act;

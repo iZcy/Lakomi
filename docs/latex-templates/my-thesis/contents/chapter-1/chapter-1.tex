@@ -1,0 +1,50 @@
+\chapter{Pendahuluan}
+
+\section{Latar Belakang}
+
+Koperasi merupakan salah satu pilar ekonomi Indonesia yang berlandaskan prinsip gotong royong dan kebersamaan. Berdasarkan Undang-Undang Nomor 25 Tahun 1992 tentang Perkoperasian, koperasi didefinisikan sebagai badan usaha yang beranggotakan orang-seorang atau badan hukum koperasi dengan melandaskan kegiatannya berdasarkan prinsip koperasi sekaligus sebagai gerakan ekonomi rakyat yang berdasar atas asas kekeluargaan. Namun, dalam praktiknya, koperasi di Indonesia masih menghadapi berbagai tantangan seperti kurangnya transparansi dalam pengelolaan keuangan, rendahnya partisipasi anggota dalam pengambilan keputusan, serta proses administrasi yang masih bersifat manual dan birokratis.
+
+Perkembangan teknologi blockchain dan konsep Decentralized Autonomous Organization (DAO) menawarkan solusi potensial untuk mengatasi permasalahan tersebut. Blockchain memungkinkan pencatatan transaksi yang transparan, tidak dapat diubah (immutable), dan terdesentralisasi. Sementara itu, DAO memungkinkan pengelolaan organisasi secara kolektif melalui smart contract tanpa memerlukan perantara atau pihak sentral.
+
+Dalam konteks ini, peneliti mengembangkan sistem koperasi berbasis blockchain yang disebut \textbf{Lakomi} (Layanan Koperasi Digital). Lakomi mengimplementasikan fungsi-fungsi inti koperasi seperti pengelolaan treasury, voting tata kelola, pinjaman darurat, dan pinjaman berbasis tingkat kontribusi dalam bentuk smart contract. Studi kasus dilakukan pada jaringan DChain untuk mengevaluasi kelayakan dan efektivitas arsitektur yang diusulkan.
+
+\section{Rumusan Masalah}
+
+Berdasarkan latar belakang yang telah diuraikan, rumusan masalah dalam penelitian ini adalah sebagai berikut:
+
+\begin{enumerate}
+    \item Bagaimana merancang arsitektur sistem koperasi berbasis blockchain menggunakan prinsip DAO?
+    \item Bagaimana mengimplementasikan smart contract untuk fungsi-fungsi inti koperasi (treasury, governance, pinjaman, dan manfaat sosial)?
+    \item Sejauh mana sistem yang diimplementasikan dapat meningkatkan transparansi dan efisiensi pengelolaan koperasi dibandingkan sistem tradisional?
+\end{enumerate}
+
+\section{Tujuan Penelitian}
+
+Tujuan dari penelitian ini adalah:
+
+\begin{enumerate}
+    \item Merancang arsitektur sistem koperasi berbasis blockchain dengan pendekatan DAO pada jaringan DChain.
+    \item Mengimplementasikan smart contract untuk fungsi-fungsi koperasi meliputi LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans.
+    \item Menganalisis keamanan, efisiensi gas, dan perbandingan performa sistem terhadap koperasi tradisional.
+\end{enumerate}
+
+\section{Batasan Masalah}
+
+Untuk menjaga fokus penelitian, diberikan batasan sebagai berikut:
+
+\begin{enumerate}
+    \item Sistem diimplementasikan pada jaringan DChain dengan pengujian pada Base Sepolia testnet.
+    \item Smart contract dikembangkan menggunakan Solidity dengan framework Foundry.
+    \item Token governance menggunakan standar ERC-20.
+    \item Model governance menggunakan mekanisme 1-anggota-1-suara (one-member-one-vote) dengan quorum 40\% dari jumlah anggota terdaftar.
+    \item Pinjaman dibatasi pada pinjaman darurat dengan jaminan kolateral.
+    \item Sistem pinjaman menggunakan model LTV bertingkat berdasarkan tingkat kontribusi anggota (Tier 1: 30\%, Tier 2: 50\%, Tier 3: 70\%).
+\end{enumerate}
+
+\section{Manfaat Penelitian}
+
+\subsection{Manfaat Akademis}
+Penelitian ini diharapkan dapat memberikan kontribusi dalam bidang blockchain governance dan penerapan DAO pada konteks koperasi Indonesia.
+
+\subsection{Manfaat Praktis}
+Sistem Lakomi dapat menjadi referensi implementasi koperasi digital yang transparan, efisien, dan terdesentralisasi untuk diterapkan pada koperasi-koperasi di Indonesia.

@@ -10,7 +10,7 @@ import "./LakomiToken.sol";
  * @title LakomiGovern
  * @author Lakomi Protocol
  * @notice Democratic governance engine for the Lakomi community
- * @dev Simplified version for Remix compatibility - uses individual mappings
+ * @dev 1-member-1-vote governance with member-count-based quorum
  */
 contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
@@ -31,7 +31,6 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     uint256 public quorumNumerator;
     uint256 public constant QUORUM_DENOMINATOR = 100;
     uint256 public executionTimelock;
-    uint256 public proposalThreshold;
 
     uint256 public proposalCount;
 
@@ -53,14 +52,13 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
     mapping(uint256 => mapping(address => bool)) public hasVoted;
     mapping(uint256 => mapping(address => Vote)) public voteChoice;
-    mapping(uint256 => mapping(address => uint256)) public voteWeight;
 
     // ============================================================
     //                        EVENTS
     // ============================================================
 
     event ProposalCreated(uint256 indexed id, address indexed proposer, string description, uint256 startTime, uint256 endTime);
-    event VoteCast(uint256 indexed proposalId, address indexed voter, Vote support, uint256 weight);
+    event VoteCast(uint256 indexed proposalId, address indexed voter, Vote support);
     event ProposalQueued(uint256 indexed id, uint256 eta);
     event ProposalExecuted(uint256 indexed id);
     event ProposalCanceled(uint256 indexed id);
@@ -71,7 +69,7 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
     error LakomiGovern__ZeroAddress();
     error LakomiGovern__EmptyDescription();
-    error LakomiGovern__InsufficientTokens();
+    error LakomiGovern__NotRegisteredMember();
     error LakomiGovern__ProposalNotActive();
     error LakomiGovern__AlreadyVoted();
     error LakomiGovern__ProposalNotSucceeded();
@@ -96,7 +94,6 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         votingPeriod = _votingPeriod;
         quorumNumerator = _quorumNumerator;
         executionTimelock = _executionTimelock;
-        proposalThreshold = 10 * 10**18;
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
     }
@@ -113,8 +110,8 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         bytes calldata callData
     ) external nonReentrant returns (uint256) {
         if (bytes(description).length == 0) revert LakomiGovern__EmptyDescription();
-        if (token.getVotingPower(msg.sender) < proposalThreshold)
-            revert LakomiGovern__InsufficientTokens();
+        if (!token.isRegisteredMember(msg.sender))
+            revert LakomiGovern__NotRegisteredMember();
 
         uint256 _proposalId = proposalCount++;
         uint256 _startTime = block.timestamp;
@@ -148,23 +145,22 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     function _castVote(uint256 proposalId, Vote support) internal {
         if (state(proposalId) != ProposalState.Active) revert LakomiGovern__ProposalNotActive();
         if (hasVoted[proposalId][msg.sender]) revert LakomiGovern__AlreadyVoted();
-
-        uint256 weight = token.getVotingPower(msg.sender);
-        if (weight == 0) revert LakomiGovern__InsufficientTokens();
+        if (!token.isRegisteredMember(msg.sender))
+            revert LakomiGovern__NotRegisteredMember();
 
         hasVoted[proposalId][msg.sender] = true;
         voteChoice[proposalId][msg.sender] = support;
-        voteWeight[proposalId][msg.sender] = weight;
 
+        // 1 member = 1 vote
         if (support == Vote.For) {
-            proposalForVotes[proposalId] += weight;
+            proposalForVotes[proposalId] += 1;
         } else if (support == Vote.Against) {
-            proposalAgainstVotes[proposalId] += weight;
+            proposalAgainstVotes[proposalId] += 1;
         } else {
-            proposalAbstainVotes[proposalId] += weight;
+            proposalAbstainVotes[proposalId] += 1;
         }
 
-        emit VoteCast(proposalId, msg.sender, support, weight);
+        emit VoteCast(proposalId, msg.sender, support);
     }
 
     function queue(uint256 proposalId) external nonReentrant {
@@ -207,8 +203,9 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         if (block.timestamp < proposalStartTime[proposalId]) return ProposalState.Pending;
         if (block.timestamp < proposalEndTime[proposalId]) return ProposalState.Active;
 
+        // Quorum check: total votes must reach quorum percentage of member count
         uint256 totalVotes = proposalForVotes[proposalId] + proposalAgainstVotes[proposalId] + proposalAbstainVotes[proposalId];
-        uint256 quorumRequired = (token.totalSupply() * quorumNumerator) / QUORUM_DENOMINATOR;
+        uint256 quorumRequired = quorum();
         if (totalVotes < quorumRequired) return ProposalState.Defeated;
         if (proposalForVotes[proposalId] <= proposalAgainstVotes[proposalId]) return ProposalState.Defeated;
 
@@ -218,8 +215,10 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         return ProposalState.Queued;
     }
 
+    /// @notice Quorum based on registered member count, not token supply
     function quorum() public view returns (uint256) {
-        return (token.totalSupply() * quorumNumerator) / QUORUM_DENOMINATOR;
+        uint256 members = token.getMemberCount();
+        return (members * quorumNumerator) / QUORUM_DENOMINATOR;
     }
 
     // ============================================================

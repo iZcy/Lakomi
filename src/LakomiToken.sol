@@ -8,14 +8,15 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 /**
  * @title LakomiToken
  * @author Lakomi Protocol
- * @notice Governance token for the Lakomi community platform
- * @dev ERC-20 token with voting power, collateral locking, and access control
+ * @notice Membership token for the Lakomi community platform
+ * @dev ERC-20 token with membership registry, collateral locking, and access control
  *
  * Key Features:
- * - 1 token = 1 vote
+ * - 1 registered member = 1 vote (equal governance)
  * - Tokens can be locked as loan collateral
  * - Minted when members join, burned when they exit
  * - Role-based access control for minting/burning/locking
+ * - Membership registry for 1-member-1-vote governance
  */
 contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
 
@@ -31,6 +32,9 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
 
     /// @dev Role for locking/unlocking tokens (LakomiLoans contract)
     bytes32 public constant LOCKER_ROLE = keccak256("LOCKER_ROLE");
+
+    /// @dev Role for managing membership (admin or governance)
+    bytes32 public constant MEMBERSHIP_ROLE = keccak256("MEMBERSHIP_ROLE");
 
     // ============================================================
     //                      STATE VARIABLES
@@ -58,6 +62,16 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
     uint256 public constant DEFAULT_MINT_AMOUNT = 100 * 10**18;
 
     // ============================================================
+    //                  MEMBERSHIP REGISTRY
+    // ============================================================
+
+    /// @dev Tracks registered members for 1-member-1-vote governance
+    mapping(address => bool) public isRegisteredMember;
+
+    /// @dev Total count of registered members (for quorum calculation)
+    uint256 public memberCount;
+
+    // ============================================================
     //                        EVENTS
     // ============================================================
 
@@ -69,6 +83,8 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
     event VaultSet(address indexed vault);
     event GovernSet(address indexed govern);
     event LoansSet(address indexed loans);
+    event MemberRegistered(address indexed member, uint256 timestamp);
+    event MembershipRevoked(address indexed member, uint256 timestamp);
 
     // ============================================================
     //                        ERRORS
@@ -214,12 +230,75 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
     }
 
     /**
-     * @notice Gets voting power (same as available balance)
+     * @notice Gets voting power — 1 if registered member, 0 if not
      * @param account The address to query
-     * @return The voting power
+     * @return 1 for registered members, 0 otherwise
      */
     function getVotingPower(address account) external view returns (uint256) {
-        return balanceOf(account) - _lockedBalances[account];
+        return isRegisteredMember[account] ? 1 : 0;
+    }
+
+    // ============================================================
+    //                  MEMBERSHIP FUNCTIONS
+    // ============================================================
+
+    /**
+     * @notice Registers a new member for governance participation
+     * @dev Only callable by MEMBERSHIP_ROLE. Also mints default tokens.
+     * @param member The address to register
+     */
+    function registerMember(address member)
+        external
+        onlyRole(MEMBERSHIP_ROLE)
+        nonReentrant
+    {
+        if (member == address(0)) revert LakomiToken__ZeroAddress();
+        require(!isRegisteredMember[member], "Already registered");
+
+        isRegisteredMember[member] = true;
+        memberCount++;
+
+        // Mint default tokens to new member
+        if (totalSupply() + DEFAULT_MINT_AMOUNT <= MAX_SUPPLY) {
+            _mint(member, DEFAULT_MINT_AMOUNT);
+            emit TokensMinted(member, DEFAULT_MINT_AMOUNT, block.timestamp);
+        }
+
+        emit MemberRegistered(member, block.timestamp);
+    }
+
+    /**
+     * @notice Revokes membership from an existing member
+     * @dev Only callable by MEMBERSHIP_ROLE. Burns all tokens.
+     * @param member The address to revoke
+     */
+    function revokeMembership(address member)
+        external
+        onlyRole(MEMBERSHIP_ROLE)
+        nonReentrant
+    {
+        if (member == address(0)) revert LakomiToken__ZeroAddress();
+        require(isRegisteredMember[member], "Not a member");
+
+        isRegisteredMember[member] = false;
+        memberCount--;
+
+        // Burn all tokens from the member
+        uint256 balance = balanceOf(member);
+        if (balance > 0) {
+            _burn(member, balance);
+            emit TokensBurned(member, balance, block.timestamp);
+        }
+
+        emit MembershipRevoked(member, block.timestamp);
+    }
+
+    /**
+     * @notice Returns the total number of registered members
+     * @return The member count
+     */
+    function getMemberCount() external view returns (uint256) {
+        return memberCount;
     }
 
     // ============================================================

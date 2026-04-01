@@ -1,0 +1,15 @@
+sequenceDiagram
+    participant CS as CS / Agen
+    participant API as Backend API
+    participant Cache as Redis Cache
+    participant DB as Database
+
+    CS->>API: 1. Cari Jadwal (v-model=departureDate)
+    API-->>CS: Return Data Manifest
+    CS->>Cache: 2. @click="toggleSeatSelection"
+    Note right of Cache: POST /order/lock (LOCKED 15 Menit)
+    CS->>API: 3. Isi Biodata (customerName)
+    CS->>API: 4. POST /calculate-order
+    API-->>CS: Return Harga & Tuslah
+    CS->>API: 5. Pembayaran (@click="payPelunasan" / "bookTicketWithDP")
+    API->>DB: Update Status = PAID

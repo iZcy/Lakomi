@@ -1,0 +1,15 @@
+flowchart TD
+    A[Admin buka Dashboard Penjadwalan] --> B[Buat scheduler baru]
+    B --> C[Pilih route dan shuttle]
+    C --> D[Simpan DepartureScheduler]
+    D --> E[Generate departure harian 90 hari]
+    E --> F[Buka Jadwal Bus Harian]
+    F --> G[Pilih departure]
+    G --> H[Assign driver, driver2, crew, shuttle]
+    H --> I[Isi master cost manifest]
+    I --> J[Simpan manifest]
+    J --> K{Siap dijual?}
+    K -- Belum --> L[Status tetap INIT/DRIVER/SHUTTLE]
+    K -- Ya --> M[Klik Release]
+    M --> N[Remark RELEASE]
+    N --> O[Departure visible untuk outlet]

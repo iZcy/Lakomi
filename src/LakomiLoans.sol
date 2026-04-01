@@ -16,7 +16,7 @@ import "./LakomiVault.sol";
  * @dev Handles loan requests, approvals, disbursements, and repayments
  *
  * Key Features:
- * - Borrow up to 50% of contribution
+ * - Tiered LTV: 30% (Tier 1), 50% (Tier 2), 70% (Tier 3) based on contribution
  * - 5% APY interest rate
  * - 25% collateral in LAK tokens
  * - Auto-approval under threshold
@@ -69,7 +69,7 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
     /// @dev Interest rate in basis points (500 = 5%)
     uint256 public interestRate;
 
-    /// @dev Max loan-to-contribution ratio (5000 = 50%)
+    /// @dev Max loan-to-contribution ratio — now determined per-tier
     uint256 public maxLTV;
 
     /// @dev Collateral requirement (2500 = 25% of loan)
@@ -77,6 +77,11 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
 
     /// @dev Auto-approval threshold
     uint256 public autoApproveThreshold;
+
+    /// @dev Tiered LTV values in basis points
+    uint256 public constant TIER1_LTV = 3000; // 30%
+    uint256 public constant TIER2_LTV = 5000; // 50%
+    uint256 public constant TIER3_LTV = 7000; // 70%
 
     /// @dev Default loan duration in seconds
     uint256 public defaultLoanDuration;
@@ -206,7 +211,8 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
 
         // Check contribution
         uint256 contribution = vault.getMemberBalance(msg.sender);
-        uint256 maxLoan = (contribution * maxLTV) / 10000;
+        uint256 borrowerMaxLTV = _calculateMaxLTV(msg.sender);
+        uint256 maxLoan = (contribution * borrowerMaxLTV) / 10000;
 
         if (amount > maxLoan) revert LakomiLoans__ExceedsMaxLoan();
         if (contribution == 0) revert LakomiLoans__InsufficientContribution();
@@ -417,7 +423,8 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
      */
     function getMaxLoanAmount(address borrower) external view returns (uint256) {
         uint256 contribution = vault.getMemberBalance(borrower);
-        return (contribution * maxLTV) / 10000;
+        uint256 borrowerMaxLTV = _calculateMaxLTV(borrower);
+        return (contribution * borrowerMaxLTV) / 10000;
     }
 
     /**
@@ -481,6 +488,22 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
             loan.status,
             loan.reason
         );
+    }
+
+    // ============================================================
+    //              INTERNAL HELPERS
+    // ============================================================
+
+    /**
+     * @notice Calculates the max LTV for a borrower based on their contribution tier
+     * @param borrower The borrower's address
+     * @return The LTV in basis points
+     */
+    function _calculateMaxLTV(address borrower) internal view returns (uint256) {
+        uint8 tier = vault.getContributionTier(borrower);
+        if (tier == 3) return TIER3_LTV;
+        if (tier == 2) return TIER2_LTV;
+        return TIER1_LTV;
     }
 
     // ============================================================

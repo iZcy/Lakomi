@@ -289,4 +289,77 @@ contract LakomiVaultTest is Test {
         assertEq(vault.contributions(alice), amount);
         vm.stopPrank();
     }
+
+    // ============================================================
+    //              CONTRIBUTION TIER TESTS
+    // ============================================================
+
+    function test_ContributionTier_Tier1() public {
+        // Under 500 USDC = Tier 1
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 100 * 10**6);
+        vault.deposit(100 * 10**6);
+        vm.stopPrank();
+
+        assertEq(vault.getContributionTier(alice), 1);
+    }
+
+    function test_ContributionTier_Tier2() public {
+        // 500+ USDC = Tier 2
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 500 * 10**6);
+        vault.deposit(500 * 10**6);
+        vm.stopPrank();
+
+        assertEq(vault.getContributionTier(alice), 2);
+    }
+
+    function test_ContributionTier_Tier3() public {
+        // 2000+ USDC = Tier 3
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 2000 * 10**6);
+        vault.deposit(2000 * 10**6);
+        vm.stopPrank();
+
+        assertEq(vault.getContributionTier(alice), 3);
+    }
+
+    function test_ContributionTier_NoDeposit() public {
+        // No deposit = Tier 1
+        assertEq(vault.getContributionTier(alice), 1);
+    }
+
+    function test_ContributionScore() public {
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 1000 * 10**6);
+        vault.deposit(1000 * 10**6);
+        vm.stopPrank();
+
+        uint256 score = vault.contributionScore(alice);
+        // 1000 USDC = 1000 base score
+        assertEq(score, 1000);
+    }
+
+    function test_ContributionScore_WithDurationBonus() public {
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 1000 * 10**6);
+        vault.deposit(1000 * 10**6);
+        vm.stopPrank();
+
+        // Warp 30 days
+        vm.warp(block.timestamp + 30 days);
+
+        uint256 score = vault.contributionScore(alice);
+        // 1000 base + 10 (1 month * 10) = 1010
+        assertEq(score, 1010);
+    }
+
+    function test_FirstDepositTimeTracked() public {
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 500 * 10**6);
+        vault.deposit(500 * 10**6);
+        vm.stopPrank();
+
+        assertGt(vault.firstDepositTime(alice), 0);
+    }
 }

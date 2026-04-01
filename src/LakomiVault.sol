@@ -82,6 +82,17 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     address public lakomiGovern;
 
     // ============================================================
+    //               CONTRIBUTION TIER SYSTEM
+    // ============================================================
+
+    /// @dev Tier thresholds for contribution scoring (in USDC, 6 decimals)
+    uint256 public constant TIER2_THRESHOLD = 500 * 10**6;  // 500 USDC for Tier 2
+    uint256 public constant TIER3_THRESHOLD = 2000 * 10**6; // 2000 USDC for Tier 3
+
+    /// @dev Track first deposit timestamp per member for score calculation
+    mapping(address => uint256) public firstDepositTime;
+
+    // ============================================================
     //                        EVENTS
     // ============================================================
 
@@ -100,6 +111,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     event TimelockUpdated(uint256 oldTimelock, uint256 newTimelock);
     event TokenSet(address indexed token);
     event GovernSet(address indexed govern);
+    event ContributionTierUpdated(address indexed member, uint8 tier);
 
     // ============================================================
     //                        ERRORS
@@ -175,6 +187,11 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         shares[msg.sender] += sharesIssued;
         totalShares += sharesIssued;
         totalDeposited += amount;
+
+        // Track first deposit time
+        if (firstDepositTime[msg.sender] == 0) {
+            firstDepositTime[msg.sender] = block.timestamp;
+        }
 
         emit Deposited(msg.sender, amount, sharesIssued, block.timestamp);
     }
@@ -501,5 +518,44 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         uint256 amount
     ) external onlyRole(DEFAULT_ADMIN_ROLE) nonReentrant {
         IERC20(token).safeTransfer(to, amount);
+    }
+
+    // ============================================================
+    //              CONTRIBUTION SCORE & TIER
+    // ============================================================
+
+    /**
+     * @notice Calculates a composite contribution score for a member
+     * @dev Score factors in total deposited amount and membership duration
+     * @param member The member address
+     * @return The contribution score (higher = more trusted)
+     */
+    function contributionScore(address member) external view returns (uint256) {
+        uint256 deposited = contributions[member];
+        if (deposited == 0) return 0;
+
+        // Base score from deposit amount (in USDC units)
+        uint256 depositScore = deposited / 10**6; // normalize to whole USDC
+
+        // Duration bonus: 1 point per 30 days of membership
+        uint256 duration = 0;
+        if (firstDepositTime[member] > 0) {
+            duration = (block.timestamp - firstDepositTime[member]) / 30 days;
+        }
+
+        return depositScore + (duration * 10); // duration weighted at 10pts per month
+    }
+
+    /**
+     * @notice Gets the contribution tier for a member
+     * @dev Tier determines max LTV for loans
+     * @param member The member address
+     * @return tier 1 (new), 2 (moderate), or 3 (high contribution)
+     */
+    function getContributionTier(address member) external view returns (uint8) {
+        uint256 deposited = contributions[member];
+        if (deposited >= TIER3_THRESHOLD) return 3;
+        if (deposited >= TIER2_THRESHOLD) return 2;
+        return 1;
     }
 }

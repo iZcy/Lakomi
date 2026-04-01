@@ -1,0 +1,12 @@
+flowchart TD
+    A[Order PENDING dibuat] --> B[Enqueue order-expired-queue]
+    A --> C[Enqueue unlock-seat-expired-queue]
+    B --> D[Delay 1 jam]
+    C --> E[Delay 1 jam]
+    D --> F{Order sudah PAID?}
+    F -- Ya --> G[Skip cancel]
+    F -- Tidak --> H[Mark order expired/cancel]
+    E --> I{Seat masih terkunci?}
+    I -- Ya --> J[Unlock seat dari DepartureAvailability]
+    I -- Tidak --> K[Skip unlock]
+    H --> J

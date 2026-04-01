@@ -1,0 +1,271 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Lakomi: A Blockchain-Based Cooperative System with Contribution-Based Reputation and Equal-Member Governance}
+
+\author{\IEEEauthorblockN{Yitzhak Edmund Tio Manalu}
+\IEEEauthorblockA{\textit{Departemen Teknologi Informasi} \\
+\textit{Universitas Gadjah Mada}\\
+Yogyakarta, Indonesia \\
+22/499769/TK/54763}
+}
+
+\maketitle
+
+\begin{abstract}
+This paper presents the design, implementation, and evaluation of Lakomi, a blockchain-based cooperative (\textit{koperasi}) system built on Decentralized Autonomous Organization (DAO) principles. Unlike conventional DAOs that rely on token-weighted voting, Lakomi implements a one-member-one-vote governance model where every registered member holds equal voting power regardless of token holdings or financial contributions. The system comprises four smart contracts---LakomiToken, LakomiVault, LakomiGovern, and LakomiLoans---deployed on the Base Sepolia testnet. A key design decision separates \textit{reputation} from \textit{governance power}: members who contribute more USDC to the treasury earn higher contribution tiers that unlock progressively larger loan-to-value (LTV) ratios (30\%, 50\%, 70\%), while governance voting remains strictly egalitarian at one vote per member. The system was evaluated through 105 comprehensive tests (all passing) and gas profiling. Results demonstrate that the architecture is feasible for cooperative-scale deployment, with deployment costs ranging from 1.58M to 2.22M gas per contract.
+\end{abstract}
+
+\begin{IEEEkeywords}
+blockchain, DAO, cooperative, koperasi, smart contract, one-member-one-vote, contribution tier, governance, decentralized finance
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Indonesia's cooperative (\textit{koperasi}) movement, rooted in the principles of \textit{gotong royong} (mutual cooperation), has long served as a pillar of economic inclusion. However, traditional cooperatives face persistent challenges: opaque governance, manual treasury management, limited member participation in decision-making, and bureaucratic overhead in loan processing~\cite{hassan2021dao}.
+
+Blockchain technology and Decentralized Autonomous Organizations (DAOs) offer a compelling alternative~\cite{nakamoto2008bitcoin, wood2014ethereum}. By encoding cooperative rules into immutable smart contracts, DAOs can enforce transparent governance, automate financial operations, and ensure equitable participation among members~\cite{carata2024smart}.
+
+A fundamental challenge in DAO design is the tension between capital contribution and democratic governance. Many existing DAOs allocate voting power proportional to token holdings, which creates plutocratic dynamics where wealthy members dominate decision-making~\cite{tamai2024dao, sharma2024future}. This model conflicts with the cooperative principle of democratic member control, which mandates equal voting rights regardless of capital contribution.
+
+This paper presents \textbf{Lakomi}, a blockchain-based cooperative system designed to modernize the Indonesian \textit{koperasi} model while preserving its democratic ethos. Lakomi introduces a dual-track design: (1) a contribution-based reputation system that rewards financial participation with progressively higher loan-to-value (LTV) tiers, and (2) a one-member-one-vote governance model where every registered member holds exactly one vote regardless of tokens held or contributions made. The system implements core cooperative functions---membership management, treasury operations, democratic governance, and tiered microloans---as four smart contracts deployed on the Base Sepolia testnet.
+
+The remainder of this paper is organized as follows. Section~II reviews related work on blockchain cooperatives, DAO governance, and decentralized finance for social impact. Section~III describes the system architecture and design rationale. Section~IV details the implementation. Section~V presents evaluation results including test coverage, gas analysis, and a comparison with traditional cooperatives. Section~VI concludes the paper.
+
+\section{Related Work}
+
+\subsection{Blockchain-Based Cooperatives}
+
+The application of blockchain technology to cooperative organizations has gained increasing attention. El Amine and Sari~\cite{elamine2024blockchain} explored blockchain-based property registry management with decentralized decision-making for co-ownership, demonstrating that smart contracts can facilitate transparent multi-stakeholder governance. Their work highlights the potential of encoding organizational rules on-chain to reduce disputes and administrative overhead, which aligns with the cooperative sector's need for transparent operations.
+
+However, most existing blockchain cooperative implementations adopt token-weighted voting mechanisms inherited from DeFi protocols, which may not align with cooperative principles of democratic member control. The Lakomi system addresses this gap by implementing a one-member-one-vote model that preserves cooperative governance norms while leveraging blockchain transparency.
+
+\subsection{DAO Governance Mechanisms}
+
+DAO governance mechanisms have been studied extensively in the context of DeFi protocols. Sun et al.~\cite{sun2022multiparty} analyzed multi-party democracy in MakerDAO, revealing how token-weighted voting can lead to plutocratic governance outcomes. Messias et al.~\cite{messias2023understanding} examined decentralized voting for amending DeFi smart contracts, identifying voter apathy and whale dominance as systemic challenges.
+
+Tamai and Kasahara~\cite{tamai2024dao} proposed a DAO voting mechanism resistant to whale and collusion problems, arguing that egalitarian voting structures produce more resilient governance outcomes. Ma et al.~\cite{ma2023comprehensive} conducted a comprehensive study of governance issues in DeFi applications, finding that governance attacks and voter disengagement are prevalent in token-weighted systems.
+
+Sharma et al.~\cite{sharma2023unpacking} unpacked how DAOs work in practice through large-scale analysis, revealing that formal governance structures often diverge from actual decision-making patterns. Liu and Zhang~\cite{liu2024economics} evaluated the economics of blockchain governance through liquid democracy, providing a framework for understanding the trade-offs between delegation and direct voting.
+
+The Lakomi system's one-member-one-vote approach draws on these findings, deliberately avoiding token-weighted voting to prevent governance capture by large token holders.
+
+\subsection{Reputation Systems in Decentralized Governance}
+
+Saito and Rose~\cite{saito2023reputation} proposed a reputation-based DAO for the non-profit sector, demonstrating that reputation---rather than token holdings---can serve as an effective basis for organizational participation. Their work showed that reputation systems can incentivize positive contributions without concentrating governance power.
+
+Lakomi adopts a similar philosophy: contributions to the cooperative treasury build a member's \textit{reputation tier}, which determines loan privileges but does not confer additional governance power. This separation ensures that financial capacity influences only financial benefits (loan access) while governance remains democratic.
+
+\section{System Design}
+
+\subsection{Architecture Overview}
+
+The Lakomi system consists of four core smart contracts, each responsible for a distinct cooperative function. Fig.~\ref{fig:architecture} illustrates the contract relationships.
+
+\begin{figure}[htbp]
+\centerline{\fbox{\parbox{0.9\columnwidth}{\centering\vspace{0.3cm}
+\textbf{LakomiToken (LAK)}\\ERC-20 Membership Token\\{\small Member Registry $\mid$ Roles: MINTER, BURNER, LOCKER, MEMBERSHIP}\\\vspace{0.2cm}
+$\uparrow$ \quad $\downarrow$\\\vspace{0.1cm}
+\begin{tabular}{c|c}
+\textbf{LakomiVault} & \textbf{LakomiGovern} \\
+USDC Treasury & 1-Member-1-Vote \\
+Contribution Tiers & Proposal $\mid$ Voting \\
+$\uparrow$ & $\uparrow$ \\
+\multicolumn{2}{c}{$\downarrow$} \\
+\multicolumn{2}{c}{\textbf{LakomiLoans}} \\
+\multicolumn{2}{c}{Tiered LTV Microloans}
+\end{tabular}
+\vspace{0.2cm}}}}
+\caption{Lakomi system architecture showing the four smart contracts and their relationships. LakomiToken serves as the membership registry that both LakomiGovern and LakomiLoans depend on. LakomiVault tracks contribution tiers that determine loan LTV levels.}
+\label{fig:architecture}
+\end{figure}
+
+The design follows a layered architecture where LakomiToken serves as the foundational membership layer. LakomiVault manages treasury deposits and tracks contribution tiers. LakomiGovern handles proposal creation and democratic voting. LakomiLoans provides tiered microloans based on contribution reputation.
+
+\subsection{Smart Contract Design}
+
+\subsubsection{LakomiToken --- Membership and Registry}
+
+LakomiToken is an ERC-20 token~\cite{eip20} that doubles as the cooperative's membership registry. The contract maintains an \texttt{isRegisteredMember} mapping that tracks which addresses hold active membership status. When a new member is onboarded via \texttt{registerMember()}, the contract mints a default allocation of 100 LAK tokens and sets the member's registration status.
+
+The contract implements four role-based access levels using a role-based access control pattern:
+\begin{itemize}
+    \item \textbf{MINTER}: Authorized to mint additional tokens.
+    \item \textbf{BURNER}: Authorized to burn (destroy) tokens for membership revocation.
+    \item \textbf{LOCKER}: Authorized to lock tokens as collateral.
+    \item \textbf{MEMBERSHIP}: Authorized to register and manage members.
+\end{itemize}
+
+Critically, token balance does \textit{not} confer voting power. The membership registry (\texttt{isRegisteredMember}) is the sole determinant of voting eligibility, and each registered member receives exactly one vote in governance proceedings.
+
+\subsubsection{LakomiVault --- Treasury and Contribution Tiers}
+
+LakomiVault manages the cooperative's USDC treasury and implements a three-tier contribution scoring system. Members deposit USDC into the vault, and their cumulative deposits determine their contribution tier:
+
+\begin{itemize}
+    \item \textbf{Tier 1}: Less than 500 USDC contributed.
+    \item \textbf{Tier 2}: 500--1,999 USDC contributed.
+    \item \textbf{Tier 3}: 2,000 USDC or more contributed.
+\end{itemize}
+
+The \texttt{contributionScore()} function returns a member's total deposits, and \texttt{getContributionTier()} returns their current tier classification. Contribution tiers are used exclusively by LakomiLoans to determine loan-to-value ratios---they do \textit{not} affect governance voting power.
+
+\subsubsection{LakomiGovern --- One-Member-One-Vote DAO}
+
+LakomiGovern implements a democratic governance model where each registered member holds exactly one vote, regardless of token balance or contribution tier. This design directly reflects the cooperative principle of democratic member control.
+
+Key governance parameters:
+\begin{itemize}
+    \item \textbf{Eligibility}: Only addresses with \texttt{isRegisteredMember == true} in LakomiToken may create proposals or cast votes.
+    \item \textbf{Quorum}: 40\% of the total registered member count must participate for a proposal to pass.
+    \item \textbf{Voting period}: 7 days from proposal creation.
+    \item \textbf{Timelock}: 48-hour delay between proposal approval and execution, providing a safety window for review.
+\end{itemize}
+
+The proposal lifecycle consists of four stages: (1) proposal creation by a registered member, (2) community voting during the 7-day window, (3) quorum check and majority verification, and (4) timelocked execution after the 48-hour delay. This process ensures that decisions reflect the collective will of the membership while providing adequate time for deliberation.
+
+\subsubsection{LakomiLoans --- Tiered LTV Microloans}
+
+LakomiLoans provides microloan access with loan-to-value ratios determined by the borrower's contribution tier in LakomiVault:
+
+\begin{itemize}
+    \item \textbf{Tier 1} (less than 500 USDC): 30\% LTV.
+    \item \textbf{Tier 2} (500--1,999 USDC): 50\% LTV.
+    \item \textbf{Tier 3} (2,000+ USDC): 70\% LTV.
+\end{itemize}
+
+All loans carry a fixed 5\% annual percentage rate (APY) and require 25\% collateral in LAK tokens. Loans under 200 USDC are auto-approved without governance intervention, enabling rapid access to small emergency funds. Larger loans require governance approval through LakomiGovern.
+
+The tiered LTV model ensures that members who have demonstrated sustained commitment to the cooperative through deposits receive proportionally greater borrowing capacity, while still maintaining prudent risk management through collateral requirements.
+
+\subsection{Governance Model}
+
+The Lakomi governance model is designed around a core principle: \textit{contributions build reputation, not power}. This principle manifests in the following design decisions:
+
+\begin{enumerate}
+    \item \textbf{Equal voting power}: Every registered member holds exactly one vote in governance. Token balance, contribution amount, and membership duration do not affect voting weight.
+    \item \textbf{Contribution-based privileges}: Financial contributions unlock higher loan LTV tiers, creating a tangible incentive for treasury participation without concentrating governance power.
+    \item \textbf{Quorum-based legitimacy}: The 40\% quorum requirement ensures that governance decisions reflect meaningful member participation, preventing decisions by a small, unrepresentative minority.
+    \item \textbf{Timelocked execution}: The 48-hour timelock between proposal approval and execution provides a safety mechanism against hasty or malicious actions.
+\end{enumerate}
+
+This dual-track design separates the \textit{financial} incentive structure (contribution tiers and LTV) from the \textit{governance} structure (one-member-one-vote), addressing the common DAO pitfall where capital concentration leads to governance capture~\cite{tamai2024dao, sharma2024future}.
+
+\section{Implementation}
+
+\subsection{Technology Stack}
+
+\begin{itemize}
+    \item \textbf{Smart Contracts}: Solidity 0.8.x, developed with the Foundry framework.
+    \item \textbf{Blockchain}: Base Sepolia testnet for deployment and testing.
+    \item \textbf{Frontend}: React, Vite, TailwindCSS, RainbowKit, wagmi/viem for Web3 integration.
+    \item \textbf{Token Standard}: ERC-20 (LakomiToken)~\cite{eip20}.
+    \item \textbf{Testing}: Foundry's built-in Solidity test framework with Forge.
+\end{itemize}
+
+\subsection{Contract Deployment}
+
+The four contracts are deployed to the Base Sepolia testnet in dependency order: (1) LakomiToken, which serves as the foundational membership registry; (2) LakomiVault, which references the token contract for member verification; (3) LakomiGovern, which references both the token and vault contracts; and (4) LakomiLoans, which references the token and vault contracts for membership and tier verification.
+
+Each contract's deployment transaction and constructor parameters are recorded in the deployment scripts within the Foundry project, enabling reproducible deployments across environments.
+
+\subsection{Frontend Application}
+
+The Lakomi decentralized application (dApp) provides a Web3-enabled interface for members to interact with all four smart contracts. Built with React and Vite, the frontend integrates RainbowKit for wallet connectivity and wagmi/viem for contract interaction. Members can register their membership, deposit USDC to the vault, create and vote on governance proposals, and apply for microloans---all through a unified dashboard interface.
+
+\section{Evaluation}
+
+\subsection{Test Coverage}
+
+The Lakomi smart contracts were evaluated through a comprehensive test suite comprising 105 tests covering all four contracts. The tests verify functional correctness, access control enforcement, edge cases, and cross-contract interactions. All 105 tests pass successfully, confirming the correctness of the implementation.
+
+The test suite includes:
+\begin{itemize}
+    \item \textbf{LakomiToken}: Token minting, burning, locking, membership registration, and role-based access control.
+    \item \textbf{LakomiVault}: USDC deposits, withdrawal mechanics, contribution score calculation, and tier classification accuracy.
+    \item \textbf{LakomiGovern}: Proposal creation, one-member-one-vote enforcement, quorum verification, voting period enforcement, and timelock execution.
+    \item \textbf{LakomiLoans}: Tiered LTV calculation, collateral requirements, auto-approval thresholds, APY accrual, and cross-tier borrowing limits.
+\end{itemize}
+
+\subsection{Gas Analysis}
+
+Table~\ref{tab:gas} presents the gas costs for contract deployment and key operations.
+
+\begin{table}[htbp]
+\caption{Gas Costs for Contract Deployment and Key Operations}
+\begin{center}
+\begin{tabular}{|l|r|}
+\hline
+\textbf{Operation} & \textbf{Gas Cost} \\
+\hline
+LakomiToken deployment & 1.66M \\
+\hline
+LakomiVault deployment & 1.59M \\
+\hline
+LakomiGovern deployment & 1.58M \\
+\hline
+LakomiLoans deployment & 2.22M \\
+\hline
+\end{tabular}
+\label{tab:gas}
+\end{center}
+\end{table}
+
+Deployment gas costs range from 1.58M to 2.22M gas per contract, which translates to manageable transaction fees on Layer 2 networks like Base. The LakomiLoans contract has the highest deployment cost due to its cross-contract references to both the token and vault contracts for tier verification. At current Base Sepolia gas prices, the total deployment cost for all four contracts remains well within practical limits for cooperative-scale deployment.
+
+\subsection{Comparison with Traditional Cooperatives}
+
+Table~\ref{tab:comparison} compares the Lakomi system with traditional cooperative operations.
+
+\begin{table}[htbp]
+\caption{Comparison of Lakomi and Traditional Cooperative Operations}
+\begin{center}
+\begin{tabular}{|p{2.2cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Feature} & \textbf{Traditional Koperasi} & \textbf{Lakomi} \\
+\hline
+Governance & Manual meetings, paper ballots & On-chain 1-member-1-vote \\
+\hline
+Treasury & Manual bookkeeping & Smart contract, on-chain \\
+\hline
+Transparency & Limited to reports & Full on-chain auditability \\
+\hline
+Loan access & Committee review, variable criteria & Tiered LTV, auto-approval \\
+\hline
+Member verification & Paper-based registration & Blockchain identity + token \\
+\hline
+Voting power & 1 member = 1 vote & 1 member = 1 vote \\
+\hline
+\end{tabular}
+\label{tab:comparison}
+\end{center}
+\end{table}
+
+Notably, both the traditional \textit{koperasi} model and Lakomi share the one-member-one-vote governance principle. Lakomi's contribution is not in replacing this principle but in enforcing it through immutable smart contracts that prevent governance manipulation---a risk that exists even in traditional cooperatives where informal power dynamics can undermine democratic ideals.
+
+\section{Conclusion}
+
+This paper presented Lakomi, a blockchain-based cooperative system that implements a dual-track architecture separating contribution-based reputation from democratic governance. The system's four smart contracts---LakomiToken, LakomiVault, LakomiGovern, and LakomiLoans---demonstrate that it is feasible to build a cooperative-scale DAO where contributions unlock progressive loan privileges (tiered LTV of 30\%, 50\%, and 70\%) while governance remains strictly egalitarian at one vote per member.
+
+The evaluation through 105 passing tests and gas profiling confirms the correctness and practical deployability of the system. The gas costs, ranging from 1.58M to 2.22M for deployment, are manageable on Layer 2 networks, making the architecture suitable for real-world cooperative operations.
+
+Future work includes deploying the system to a production network, conducting user studies with cooperative members, and extending the contribution tier system to incorporate non-financial contributions such as community participation and volunteer work.
+
+\section*{Acknowledgment}
+% TODO: Acknowledge supervisors, DChain, etc.
+
+\bibliography{references}{}
+\bibliographystyle{IEEEtran}
+
+\end{document}

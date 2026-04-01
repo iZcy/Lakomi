@@ -1,0 +1,23 @@
+flowchart LR
+    SA[Superadmin / Manajemen] --> UC1[Kelola Master Data]
+    SA --> UC2[Kelola Tenant dan Admin]
+    SA --> UC3[Lihat Laporan Manajemen]
+    SA --> UC4[Audit Ledger dan Kas Harian]
+
+    AO[Admin Operasional] --> UC5[Buat Scheduler]
+    AO --> UC6[Generate dan Kelola Jadwal Harian]
+    AO --> UC7[Kelola Departure Manifest]
+
+    CS[CS / Kasir Loket] --> UC8[Cari Jadwal dan Lock Kursi]
+    CS --> UC9[Buat Reservasi dan Terbitkan Tiket]
+    CS --> UC10[Batalkan Tiket]
+    CS --> UC11[Mutasi Kursi / Trip]
+    CS --> UC12[Tutup Setoran Harian]
+
+    KG[Kasir Garasi] --> UC13[Catat Uang Saku]
+    KG --> UC14[Buat Realisasi Draft]
+
+    FI[Finance Pusat] --> UC15[Posting Realisasi]
+    FI --> UC16[Kelola TOP_UP/PULL/Jurnal]
+    FI --> UC17[Kelola Premi Driver]
+    FI --> UC18[Print Kas Harian]

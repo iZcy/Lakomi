@@ -1,0 +1,39 @@
+flowchart LR
+    Customer(["CUSTOMER"])
+    Agen(["AGEN"])
+    CS(["CS / KASIR"])
+    
+    subgraph System["Sistem Reservasi & Transaksi"]
+        direction TB
+        A((Cari Rute & Waktu))
+        B((Pilih Kursi visual))
+        C((Input Form Penumpang))
+        D((Pilih Mode Bayar DP/Lunas))
+        E((Kalkulasi Diskon / Order))
+    end
+    
+    Customer ---> A
+    Agen ---> A
+    CS ---> A
+    
+    Customer ---> B
+    Agen ---> B
+    CS ---> B
+    
+    Customer ---> C
+    Agen ---> C
+    CS ---> C
+    
+    Customer ---> D
+    Agen ---> D
+    CS ---> D
+    
+    System -.-> E
+    
+    classDef actor fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px;
+    classDef usecase fill:#e1f5fe,stroke:#039be5,stroke-width:2px;
+    classDef system fill:#ffffff,stroke:#bdbdbd,stroke-width:2px,stroke-dasharray: 5 5;
+    
+    class Customer,Agen,CS actor;
+    class A,B,C,D,E usecase;
+    class System system;

@@ -105,7 +105,6 @@ contract LakomiTokenTest is Test {
 
         assertEq(token.getLockedBalance(alice), 25 * 10**18);
         assertEq(token.getAvailableBalance(alice), 75 * 10**18);
-        assertEq(token.getVotingPower(alice), 75 * 10**18);
     }
 
     function test_UnlockTokens() public {
@@ -166,6 +165,85 @@ contract LakomiTokenTest is Test {
 
         token.setTransfersEnabled(true);
         assertTrue(token.transfersEnabled());
+    }
+
+    // ============================================================
+    //                MEMBERSHIP REGISTRY TESTS
+    // ============================================================
+
+    function test_RegisterMember() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        token.registerMember(alice);
+
+        assertTrue(token.isRegisteredMember(alice));
+        assertEq(token.memberCount(), 1);
+        assertEq(token.getMemberCount(), 1);
+        // Should mint default tokens
+        assertEq(token.balanceOf(alice), token.DEFAULT_MINT_AMOUNT());
+    }
+
+    function test_RegisterMultipleMembers() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        token.registerMember(alice);
+        token.registerMember(bob);
+
+        assertEq(token.getMemberCount(), 2);
+    }
+
+    function test_RevertWhen_RegisterTwice() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        token.registerMember(alice);
+
+        vm.expectRevert("Already registered");
+        token.registerMember(alice);
+    }
+
+    function test_RevertWhen_RegisterZeroAddress() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        vm.expectRevert(LakomiToken.LakomiToken__ZeroAddress.selector);
+        token.registerMember(address(0));
+    }
+
+    function test_RevokeMembership() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        token.registerMember(alice);
+        assertEq(token.getMemberCount(), 1);
+
+        token.revokeMembership(alice);
+
+        assertFalse(token.isRegisteredMember(alice));
+        assertEq(token.getMemberCount(), 0);
+        // Should burn all tokens
+        assertEq(token.balanceOf(alice), 0);
+    }
+
+    function test_RevertWhen_RevokeNonMember() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        vm.expectRevert("Not a member");
+        token.revokeMembership(alice);
+    }
+
+    function test_RevertWhen_UnauthorizedRegister() public {
+        vm.prank(alice);
+        vm.expectRevert();
+        token.registerMember(bob);
+    }
+
+    function test_GetVotingPower() public {
+        token.grantRole(token.MEMBERSHIP_ROLE(), admin);
+
+        // Not registered = 0 voting power
+        assertEq(token.getVotingPower(alice), 0);
+
+        // Registered = 1 voting power
+        token.registerMember(alice);
+        assertEq(token.getVotingPower(alice), 1);
     }
 
     // ============================================================

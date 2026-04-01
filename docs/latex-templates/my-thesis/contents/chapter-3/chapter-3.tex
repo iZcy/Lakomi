@@ -1,0 +1,67 @@
+\chapter{Metode Penelitian}
+
+Bab ini menjelaskan metode yang digunakan dalam penelitian ini untuk mencapai tujuan yang telah ditetapkan pada Bab 1.
+
+\section{Alat dan Bahan Penelitian}
+
+\subsection{Alat Penelitian}
+
+Alat-alat yang digunakan dalam penelitian ini meliputi:
+
+\begin{enumerate}
+    \item \textit{Notebook} dengan sistem operasi Linux, digunakan untuk pengembangan smart contract dan frontend.
+    \item Framework Foundry untuk pengembangan, pengujian, dan deployment smart contract Solidity.
+    \item Node.js dan npm untuk pengembangan frontend.
+    \item Browser dengan Web3 wallet (MetaMask) untuk interaksi dengan smart contract.
+    \item Base Sepolia testnet dan jaringan DChain untuk deployment dan pengujian.
+\end{enumerate}
+
+\subsection{Bahan Penelitian}
+
+Bahan penelitian yang digunakan meliputi:
+
+\begin{enumerate}
+    \item Pustaka akademis tentang blockchain, DAO, dan koperasi digital yang diperoleh melalui IEEE Xplore, ScienceDirect, dan SpringerLink.
+    \item Dokumentasi teknis Solidity, Foundry, dan OpenZeppelin.
+    \item Regulasi koperasi Indonesia (UU No. 25 Tahun 1992).
+\end{enumerate}
+
+\section{Metode yang Digunakan}
+
+Penelitian ini menggunakan metode \textit{Design Science Research} (DSR) yang terdiri dari tahapan berikut:
+
+\begin{enumerate}
+    \item \textbf{Identifikasi Masalah}: Menganalisis tantangan koperasi tradisional di Indonesia.
+    \item \textbf{Definisi Tujuan}: Menetapkan tujuan solusi berbasis blockchain.
+    \item \textbf{Desain dan Pengembangan}: Merancang dan mengimplementasikan arsitektur Lakomi.
+    \item \textbf{Demonstrasi}: Menjalankan sistem pada jaringan testnet.
+    \item \textbf{Evaluasi}: Menganalisis keamanan, efisiensi, dan perbandingan dengan sistem tradisional.
+    \item \textbf{Komunikasi}: Mendokumentasikan hasil penelitian.
+\end{enumerate}
+
+\section{Arsitektur Sistem Lakomi}
+
+% TODO: Tambahkan diagram arsitektur sistem
+
+Sistem Lakomi terdiri dari empat smart contract utama:
+
+\begin{enumerate}
+    \item \textbf{LakomiToken (LAK)}: Token keanggotaan ERC-20 dengan registry anggota (1 anggota = 1 suara), token locking, dan reputasi kontribusi.
+    \item \textbf{LakomiVault}: Pengelolaan treasury dengan deposit/penarikan USDC, pelacakan proporsi saham, dan sistem skor kontribusi (Tier 1/2/3).
+    \item \textbf{LakomiGovern}: Tata kelola DAO dengan 1-anggota-1-suara, pembuatan proposal (hanya anggota terdaftar), quorum berbasis jumlah anggota (40\%), dan eksekusi ter-timelock.
+    \item \textbf{LakomiLoans}: Sistem pinjaman darurat dengan bunga 5\% APY, LTV bertingkat berdasarkan kontribusi (Tier 1: 30\%, Tier 2: 50\%, Tier 3: 70\%), dan penguncian kolateral.
+\end{enumerate}
+
+\section{Alur Penelitian}
+
+% TODO: Tambahkan flowchart alur penelitian
+
+\begin{enumerate}
+    \item Studi literatur dan analisis kebutuhan koperasi digital.
+    \item Perancangan arsitektur sistem dan smart contract.
+    \item Implementasi smart contract menggunakan Solidity dan Foundry.
+    \item Pengujian unit test dan fuzz test pada smart contract.
+    \item Deployment pada Base Sepolia testnet dan jaringan DChain.
+    \item Pengembangan frontend dApp menggunakan React dan RainbowKit.
+    \item Evaluasi keamanan, efisiensi gas, dan perbandingan performa.
+\end{enumerate}

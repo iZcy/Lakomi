@@ -6,7 +6,6 @@ import "../src/LakomiToken.sol";
 import "../src/LakomiVault.sol";
 import "../src/LakomiGovern.sol";
 import "../src/LakomiLoans.sol";
-import "../src/LakomiCare.sol";
 
 /**
  * @title DeployBaseSepolia
@@ -61,10 +60,6 @@ contract DeployBaseSepolia is Script {
         );
         console.log("LakomiLoans:", address(loans));
 
-        // 5. Deploy LakomiCare
-        LakomiCare care = new LakomiCare(address(vault));
-        console.log("LakomiCare:", address(care));
-
         console.log("");
         console.log("=== CONFIGURING CONNECTIONS ===");
 
@@ -74,11 +69,11 @@ contract DeployBaseSepolia is Script {
         token.setLakomiLoans(address(loans));
         token.grantRole(token.LOCKER_ROLE(), address(loans));
         token.grantRole(token.BURNER_ROLE(), address(loans));
+        token.grantRole(token.MEMBERSHIP_ROLE(), address(govern));
         console.log("Token configured");
 
         // Configure LakomiVault
         vault.grantRole(vault.GOVERN_ROLE(), address(govern));
-        vault.grantRole(vault.GOVERN_ROLE(), address(care));
         console.log("Vault configured");
 
         console.log("");
@@ -91,7 +86,6 @@ contract DeployBaseSepolia is Script {
         console.log("LakomiToken:  ", address(token));
         console.log("LakomiGovern: ", address(govern));
         console.log("LakomiLoans:  ", address(loans));
-        console.log("LakomiCare:   ", address(care));
 
         vm.stopBroadcast();
     }

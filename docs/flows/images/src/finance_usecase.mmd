@@ -1,0 +1,27 @@
+flowchart LR
+    Finance(["FINANCE / MANAGEMENT"])
+    Cashier(["KASIR (CASHIER)"])
+    Superadmin(["SUPERADMIN"])
+    CS(["CS / OPS Lvl 1 & 2"])
+
+    subgraph System["Finance & Ledger System (Production)"]
+        direction TB
+        A((Manajemen Ledger & Sync Saldo))
+        B((Akses All Tab Keuangan & Cetak Kas))
+        C((Draft Uang Saku & Realisasi))
+        D((Hak Akses Daftar DP Saja))
+    end
+    
+    Finance --->|Full CRUD| B
+    Finance --->|Full CRUD| C
+    Cashier --->|Read/Create| C
+    Superadmin --->|Special Action| A
+    CS --->|Restricted| D
+
+    classDef actor fill:#f3e5f5,stroke:#8e24aa,stroke-width:2px;
+    classDef usecase fill:#e1f5fe,stroke:#039be5,stroke-width:2px;
+    classDef system fill:#ffffff,stroke:#bdbdbd,stroke-width:2px,stroke-dasharray: 5 5;
+    
+    class Finance,Cashier,Superadmin,CS actor;
+    class A,B,C,D usecase;
+    class System system;

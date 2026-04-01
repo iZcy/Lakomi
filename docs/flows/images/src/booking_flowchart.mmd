@@ -1,0 +1,22 @@
+flowchart TD
+    Start(("Mulai Booking"))
+    
+    A["CUSTOMER / AGEN: Akses Dashboard Reservasi"]
+    B["Button 'Cari Jadwal' & 'Pilih Kursi' -> API Lock"]
+    C{"Apakah Kursi Available?"}
+    D["CS/KASIR: Lanjut Bayar DP / Lunas"]
+    E["Sistem: POST /order/calculate-order & create-order-admin"]
+    F["Status Tiket Berubah (PARSIAL / PAID)"]
+    End(("Reservasi Sukses"))
+    
+    Start --> A --> B --> C
+    C -- "Tersedia" --> D --> E --> F --> End
+    C -- "Sudah Terisi" --> B
+    
+    classDef startend fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,rx:20px,ry:20px;
+    classDef proc fill:#bbdefb,stroke:#1976d2,stroke-width:2px,rx:5px,ry:5px;
+    classDef cond fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    
+    class Start,End startend;
+    class A,B,D,E,F proc;
+    class C cond;

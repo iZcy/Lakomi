@@ -57,7 +57,7 @@ contract LakomiLoansTest is Test {
         assertEq(address(loans.token()), address(token));
         assertEq(address(loans.vault()), address(vault));
         assertEq(loans.interestRate(), 500); // 5%
-        assertEq(loans.maxLTV(), 5000);       // 50%
+        assertEq(loans.maxLTV(), 5000);       // Legacy default, actual is tiered
         assertEq(loans.collateralRatio(), 2500); // 25%
     }
 
@@ -354,5 +354,54 @@ contract LakomiLoansTest is Test {
         vm.prank(alice);
         vm.expectRevert();
         loans.requestLoan(100 * 10**6, 30 days, "Test");
+    }
+
+    // ============================================================
+    //                  TIERED LTV TESTS
+    // ============================================================
+
+    function test_TieredLTV_Tier1() public {
+        // Bob has no deposit = Tier 1 (30% LTV)
+        // Give bob some USDC and deposit small amount (under 500 USDC)
+        usdc.transfer(bob, 100 * 10**6);
+        vm.prank(bob);
+        usdc.approve(address(vault), 100 * 10**6);
+        vm.prank(bob);
+        vault.deposit(100 * 10**6);
+
+        // Admin mints tokens to bob for collateral
+        token.mint(bob, 1000 * 10**18);
+
+        uint256 maxLoan = loans.getMaxLoanAmount(bob);
+        // Tier 1: 30% of 100 USDC = 30 USDC
+        assertEq(maxLoan, 30 * 10**6);
+    }
+
+    function test_TieredLTV_Tier2() public {
+        // Alice has 1000 USDC deposit = Tier 2 (50% LTV)
+        uint256 maxLoan = loans.getMaxLoanAmount(alice);
+        // Tier 2: 50% of 1000 USDC = 500 USDC
+        assertEq(maxLoan, 500 * 10**6);
+    }
+
+    function test_TieredLTV_Tier3() public {
+        // Give alice enough for Tier 3 (2000+ USDC)
+        usdc.transfer(alice, 2000 * 10**6);
+        vm.startPrank(alice);
+        usdc.approve(address(vault), 2000 * 10**6);
+        vault.deposit(2000 * 10**6);
+        vm.stopPrank();
+
+        uint256 maxLoan = loans.getMaxLoanAmount(alice);
+        // Tier 3: 70% of 3000 USDC = 2100 USDC
+        assertEq(maxLoan, 2100 * 10**6);
+    }
+
+    function test_RevertWhen_RequestOverTierMaxLTV() public {
+        // Alice: Tier 2 (1000 USDC deposit) = 50% LTV = max 500 USDC
+        // Try to request 550 USDC (55%)
+        vm.prank(alice);
+        vm.expectRevert(LakomiLoans.LakomiLoans__ExceedsMaxLoan.selector);
+        loans.requestLoan(550 * 10**6, 30 days, "Test");
     }
 }

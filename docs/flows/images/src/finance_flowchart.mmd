@@ -1,0 +1,29 @@
+flowchart TD
+    Start(("Mulai"))
+    
+    A["Operator Buat Manifest Perjalanan"]
+    B["KASIR Draft Uang Saku Sopir"]
+    C["FINANCE Post Uang Saku ke Kas Harian"]
+    D["Perjalanan Selesai"]
+    E["KASIR Draft Realisasi (Mencatat resi Toll/Bensin)"]
+    F{"Validasi Finance/Management"}
+    G["Biaya Tol Masuk Status Histori (Not Ledger)"]
+    H["Posting Realisasi & Hitung Premi"]
+    I["Ledger Tersinkronisasi (Append-Only)"]
+    J["SUPERADMIN Fitur Sync-Saldo Darurat"]
+    End(("Selesai"))
+    
+    Start --> A --> B --> C --> D --> E --> F
+    F -- "Disetujui" --> G --> H --> I --> End
+    F -- "Revisi" --> E
+    I -. "Jika terjadi Out-of-Sync" .-> J -. "Rebuild Chain" .-> I
+    
+    classDef startend fill:#c8e6c9,stroke:#388e3c,stroke-width:2px,rx:20px,ry:20px;
+    classDef proc fill:#bbdefb,stroke:#1976d2,stroke-width:2px,rx:5px,ry:5px;
+    classDef act fill:#ffcc80,stroke:#fbc02d,stroke-width:2px,rx:5px,ry:5px;
+    classDef cond fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    
+    class Start,End startend;
+    class A,D,G,I proc;
+    class B,C,E,H,J act;
+    class F cond;

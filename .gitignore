@@ -18,3 +18,6 @@ cache/
 
 # OSX
 .DS_Store
+docs/paper-downloader/venv/
+.claude/
+library.db

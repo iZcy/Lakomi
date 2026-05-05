@@ -36,7 +36,10 @@ export function DevFaucet() {
     if (!address) return
     setBusy('eth')
     try {
-      await rpcCall('anvil_setBalance', [address, '0x8AC7230489E80000'])
+      const currentHex: string = await rpcCall('eth_getBalance', [address, 'latest'])
+      const current = BigInt(currentHex)
+      const added = 10n * 10n ** 18n
+      await rpcCall('anvil_setBalance', [address, '0x' + (current + added).toString(16)])
       await refetchBalance()
       addToast('10 ETH berhasil ditambahkan!', 'success')
     } catch (e: any) {

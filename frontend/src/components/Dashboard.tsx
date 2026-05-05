@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { useIsMember, useVotingPower, useTokenBalance, useMemberCount, useSimpananSummary, useTotalAssets, usePendingSHU } from '../hooks/useContractRead'
 import { formatUSDCAmount, formatLAKAmount, shortenAddress } from '../lib/utils'
+import { decodeSummary } from '../types'
 import { MemberRegistration } from './MemberRegistration'
 import { DevFaucet } from './DevFaucet'
 
@@ -12,7 +13,8 @@ export function Dashboard() {
   const { data: votingPower } = useVotingPower(address)
   const { data: tokenBalance } = useTokenBalance(address)
   const { data: memberCount } = useMemberCount()
-  const { data: summary } = useSimpananSummary(address)
+  const { data: summaryRaw } = useSimpananSummary(address)
+  const s = decodeSummary(summaryRaw)
   const { data: totalAssets } = useTotalAssets()
   const { data: pendingSHU } = usePendingSHU(address)
 
@@ -36,7 +38,7 @@ export function Dashboard() {
     )
   }
 
-  if (isConnected && isMember === undefined) {
+  if (isConnected && isMember === undefined && !memberErr) {
     return (
       <div className="space-y-6">
         <Card className="border-primary/20 bg-primary/5">
@@ -80,7 +82,7 @@ export function Dashboard() {
         </CardContent>
       </Card>
 
-      <MemberRegistration />
+      {!isMember && <MemberRegistration />}
 
       <DevFaucet />
 
@@ -89,7 +91,7 @@ export function Dashboard() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
             <StatCard label="Hak Suara" value={votingPower !== undefined && votingPower > 0n ? '1 Suara' : '0'} desc="1 anggota = 1 suara" />
             <StatCard label="Saldo LAK" value={tokenBalance !== undefined ? formatLAKAmount(tokenBalance) : '0 LAK'} desc="Token keanggotaan" />
-            <StatCard label="Total Simpanan" value={summary ? formatUSDCAmount(summary.totalContribution) : '0 USDC'} desc="Pokok + Wajib + Sukarela" />
+            <StatCard label="Total Simpanan" value={s ? formatUSDCAmount(s.totalContribution) : '0 USDC'} desc="Pokok + Wajib + Sukarela" />
             <StatCard label="SHU Menunggu" value={pendingSHU !== undefined && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'} desc="Sisa Hasil Usaha" />
           </div>
 
@@ -110,14 +112,14 @@ export function Dashboard() {
             </Card>
           </div>
 
-          {summary && (
+          {s && (
             <Card>
               <CardContent className="">
                 <p className="text-sm font-semibold mb-3">Rincian Simpanan Anda</p>
                 <div className="grid grid-cols-3 gap-4">
-                  <div><p className="text-xs text-muted-foreground">Simpanan Pokok</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(summary.pokok)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(1)</p></div>
-                  <div><p className="text-xs text-muted-foreground">Simpanan Wajib</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(summary.wajibTotal)}</p><p className="text-[10px] text-muted-foreground">{summary.wajibPeriodsPaid.toString()}x dibayar</p></div>
-                  <div><p className="text-xs text-muted-foreground">Simpanan Sukarela</p><p className="text-lg font-bold text-emerald-500 mt-1">{formatUSDCAmount(summary.sukarela)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(3)</p></div>
+                  <div><p className="text-xs text-muted-foreground">Simpanan Pokok</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(s.pokok)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(1)</p></div>
+                  <div><p className="text-xs text-muted-foreground">Simpanan Wajib</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(s.wajibTotal)}</p><p className="text-[10px] text-muted-foreground">{s.wajibPeriodsPaid.toString()}x dibayar</p></div>
+                  <div><p className="text-xs text-muted-foreground">Simpanan Sukarela</p><p className="text-lg font-bold text-emerald-500 mt-1">{formatUSDCAmount(s.sukarela)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(3)</p></div>
                 </div>
               </CardContent>
             </Card>

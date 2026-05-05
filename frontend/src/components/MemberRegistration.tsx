@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
+import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -32,9 +33,17 @@ function getMemberData(address: string): MemberData | null {
 
 export function MemberRegistration() {
   const { address, isConnected } = useAccount()
-  const { data: isMember } = useIsMember(address)
+  const { data: isMember, refetch } = useIsMember(address)
   const { registerMember, isPending, isSuccess, error } = useRegisterMember()
   const { addToast } = useToast()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (isSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+      refetch()
+    }
+  }, [isSuccess])
 
   const [step, setStep] = useState<'form' | 'confirm'>('form')
   const existing = address ? getMemberData(address) : null

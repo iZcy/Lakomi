@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { useIsMember, useProposalCount, useProposal, useProposalState, useHasVoted } from '../hooks/useContractRead'
 import { useCreateProposal, useCastVote } from '../hooks/useContractWrite'
 import { getProposalStateName, getProposalStateColor, formatTimestampShort } from '../lib/utils'
+import { decodeProposal } from '../types'
 import { CONTRACTS } from '../config/contracts'
 import { MemberRegistration } from './MemberRegistration'
 
@@ -91,7 +92,8 @@ function ProposalListItem({ id, selected, onClick }: { id: number; selected: boo
 }
 
 function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }) {
-  const { data: proposal } = useProposal(id)
+  const { data: proposalRaw } = useProposal(id)
+  const proposal = decodeProposal(proposalRaw)
   const { data: state } = useProposalState(id)
   const { data: hasVoted } = useHasVoted(id, address)
   const { castVote, isPending, isSuccess } = useCastVote()

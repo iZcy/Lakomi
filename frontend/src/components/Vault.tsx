@@ -14,6 +14,7 @@ import {
   useDeposit, usePaySimpananPokok, usePaySimpananWajib, useClaimSHU, useApproveUsdc,
 } from '../hooks/useContractWrite'
 import { formatUSDCAmount, parseUnits } from '../lib/utils'
+import { decodeSummary } from '../types'
 import { CONTRACTS } from '../config/contracts'
 import { MemberRegistration, PaySimpananPokokPrompt } from './MemberRegistration'
 
@@ -21,7 +22,8 @@ export function Vault() {
   const { address, isConnected } = useAccount()
   const { data: isMember } = useIsMember(address)
   const { data: hasPaid } = useHasPaidPokok(address)
-  const { data: summary } = useSimpananSummary(address)
+  const { data: summaryRaw } = useSimpananSummary(address)
+  const s = decodeSummary(summaryRaw)
   const { data: totalAssets } = useTotalAssets()
   const { data: pendingSHU } = usePendingSHU(address)
   const { data: revenue } = useAccumulatedRevenue()
@@ -45,7 +47,7 @@ export function Vault() {
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Total Simpanan</p>
-            <p className="text-2xl font-bold text-emerald-500 mt-1">{summary ? formatUSDCAmount(summary.totalContribution) : '0 USDC'}</p>
+            <p className="text-2xl font-bold text-emerald-500 mt-1">{s ? formatUSDCAmount(s.totalContribution) : '0 USDC'}</p>
           </CardContent>
         </Card>
         <Card>
@@ -90,13 +92,13 @@ export function Vault() {
           <Card>
             <CardHeader><CardTitle className="text-sm">Rincian Simpanan</CardTitle></CardHeader>
             <CardContent>
-              {summary ? (
+              {s ? (
                 <div className="space-y-2">
-                  <Row label="Simpanan Pokok" value={formatUSDCAmount(summary.pokok)} sub="Pasal 41(1)" />
-                  <Row label="Simpanan Wajib" value={formatUSDCAmount(summary.wajibTotal)} sub={`${summary.wajibPeriodsPaid.toString()}x periode`} />
-                  <Row label="Simpanan Sukarela" value={formatUSDCAmount(summary.sukarela)} sub="Pasal 41(3)" />
+                  <Row label="Simpanan Pokok" value={formatUSDCAmount(s.pokok)} sub="Pasal 41(1)" />
+                  <Row label="Simpanan Wajib" value={formatUSDCAmount(s.wajibTotal)} sub={`${s.wajibPeriodsPaid.toString()}x periode`} />
+                  <Row label="Simpanan Sukarela" value={formatUSDCAmount(s.sukarela)} sub="Pasal 41(3)" />
                   <Separator />
-                  <Row label="Total" value={formatUSDCAmount(summary.totalContribution)} bold />
+                  <Row label="Total" value={formatUSDCAmount(s.totalContribution)} bold />
                 </div>
               ) : <p className="text-sm text-muted-foreground">Belum ada data</p>}
             </CardContent>

@@ -182,7 +182,7 @@ export function useProposal(proposalId: bigint) {
   return useReadContract({
     address: CONTRACTS.LAKOMI_GOVERN,
     abi: LAKOMI_GOVERN_ABI,
-    functionName: 'proposals',
+    functionName: 'getProposal',
     args: [proposalId],
     query: { enabled: proposalId >= 0n },
   })

@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useIsMember, useMaxLoanAmount, useBorrowerLoans, useLoan } from '../hooks/useContractRead'
 import { useRequestLoan, useRepayInFull, useApproveUsdc } from '../hooks/useContractWrite'
 import { formatUSDCAmount, parseUnits, formatTimestampShort, getLoanStateName } from '../lib/utils'
+import { decodeLoan } from '../types'
 import { CONTRACTS } from '../config/contracts'
 import { MemberRegistration } from './MemberRegistration'
 
@@ -119,7 +120,8 @@ function RequestLoanForm({ maxLoan }: { maxLoan?: bigint }) {
 }
 
 function LoanCard({ loanId }: { loanId: bigint }) {
-  const { data: loan } = useLoan(loanId)
+  const { data: loanRaw } = useLoan(loanId)
+  const loan = decodeLoan(loanRaw)
   const { repayInFull, isPending, isSuccess } = useRepayInFull()
   const { approve, isPending: ap } = useApproveUsdc()
 

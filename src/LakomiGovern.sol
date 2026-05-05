@@ -299,7 +299,6 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         if (block.timestamp < proposalStartTime[proposalId]) return ProposalState.Pending;
         if (block.timestamp < proposalEndTime[proposalId]) return ProposalState.Active;
 
-        // Quorum check: total votes must reach quorum percentage of member count
         uint256 totalVotes = proposalForVotes[proposalId] + proposalAgainstVotes[proposalId] + proposalAbstainVotes[proposalId];
         uint256 quorumRequired = quorum();
         if (totalVotes < quorumRequired) return ProposalState.Defeated;
@@ -309,6 +308,34 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         if (block.timestamp > proposalQueuedTime[proposalId] + executionTimelock + 14 days) return ProposalState.Expired;
 
         return ProposalState.Queued;
+    }
+
+    function getProposal(uint256 proposalId) external view returns (
+        address proposer,
+        string memory description,
+        ProposalType pType,
+        uint256 startTime,
+        uint256 endTime,
+        uint256 forVotes,
+        uint256 againstVotes,
+        uint256 abstainVotes,
+        bool executed,
+        bool canceled,
+        bool vetoed
+    ) {
+        return (
+            proposalProposer[proposalId],
+            proposalDescription[proposalId],
+            proposalType[proposalId],
+            proposalStartTime[proposalId],
+            proposalEndTime[proposalId],
+            proposalForVotes[proposalId],
+            proposalAgainstVotes[proposalId],
+            proposalAbstainVotes[proposalId],
+            proposalExecuted[proposalId],
+            proposalCanceled[proposalId],
+            proposalVetoed[proposalId]
+        );
     }
 
     /// @notice Quorum based on registered member count, not token supply

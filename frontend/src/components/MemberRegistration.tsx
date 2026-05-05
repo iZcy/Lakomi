@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAccount } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -34,16 +34,9 @@ function getMemberData(address: string): MemberData | null {
 export function MemberRegistration() {
   const { address, isConnected } = useAccount()
   const { data: isMember, refetch } = useIsMember(address)
-  const { registerMember, isPending, isSuccess, error } = useRegisterMember()
+  const { registerMember, isPending, error } = useRegisterMember()
   const { addToast } = useToast()
   const queryClient = useQueryClient()
-
-  useEffect(() => {
-    if (isSuccess) {
-      queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      refetch()
-    }
-  }, [isSuccess])
 
   const [step, setStep] = useState<'form' | 'confirm'>('form')
   const existing = address ? getMemberData(address) : null
@@ -70,8 +63,10 @@ export function MemberRegistration() {
     try {
       await registerMember()
       saveMemberData(address!, form)
+      await new Promise(r => setTimeout(r, 500))
+      await refetch()
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
       addToast('Berhasil terdaftar sebagai anggota koperasi!', 'success')
-      setStep('form')
     } catch (err: any) {
       const msg = err?.shortMessage || err?.message || 'Transaksi gagal'
       if (msg.includes('User rejected') || msg.includes('denied') || msg.includes('rejected')) {

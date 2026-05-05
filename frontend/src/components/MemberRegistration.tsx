@@ -71,6 +71,12 @@ export function MemberRegistration() {
       const msg = err?.shortMessage || err?.message || 'Transaksi gagal'
       if (msg.includes('User rejected') || msg.includes('denied') || msg.includes('rejected')) {
         addToast('Transaksi dibatalkan oleh pengguna', 'error')
+      } else if (msg.includes('already imported') || msg.includes('nonce')) {
+        addToast('Nonce dompet tidak sinkron. Buka MetaMask → Settings → Advanced → Clear activity tab data, lalu coba lagi.', 'error')
+      } else if (msg.includes('Already registered')) {
+        addToast('Anda sudah terdaftar sebagai anggota!', 'success')
+        await refetch()
+        queryClient.invalidateQueries({ queryKey: ['readContract'] })
       } else {
         addToast(`Gagal mendaftar: ${msg}`, 'error')
       }

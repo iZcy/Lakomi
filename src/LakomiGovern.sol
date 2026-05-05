@@ -9,8 +9,8 @@ import "./LakomiToken.sol";
 /**
  * @title LakomiGovern
  * @author Lakomi Protocol
- * @notice Democratic governance engine for the Lakomi community
- * @dev 1-member-1-vote governance with member-count-based quorum
+ * @notice Democratic governance engine for the Lakomi cooperative (koperasi)
+ * @dev UU 25/1992 compliant: 1-member-1-vote (Pasal 22), Rapat Anggota (Pasal 26-27), Pengawas (Pasal 38)
  */
 contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
@@ -18,9 +18,15 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     //                        ENUMS
     // ============================================================
 
-    enum ProposalType { SPEND, PARAMETER, MEMBERSHIP, CUSTOM }
-    enum ProposalState { Pending, Active, Canceled, Defeated, Succeeded, Queued, Expired, Executed }
+    enum ProposalType { SPEND, PARAMETER, MEMBERSHIP, RAT_ANNUAL, CUSTOM }
+    enum ProposalState { Pending, Active, Canceled, Defeated, Succeeded, Queued, Expired, Executed, Vetoed }
     enum Vote { Against, For, Abstain }
+
+    // ============================================================
+    //                    PENGAWAS (UU 25/1992 Pasal 38)
+    // ============================================================
+
+    bytes32 public constant PENGAWAS_ROLE = keccak256("PENGAWAS_ROLE");
 
     // ============================================================
     //                      STATE VARIABLES
@@ -34,7 +40,6 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
     uint256 public proposalCount;
 
-    // Individual mappings to avoid stack too deep
     mapping(uint256 => address) public proposalProposer;
     mapping(uint256 => string) public proposalDescription;
     mapping(uint256 => ProposalType) public proposalType;
@@ -49,9 +54,14 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     mapping(uint256 => uint256) public proposalQueuedTime;
     mapping(uint256 => bool) public proposalExecuted;
     mapping(uint256 => bool) public proposalCanceled;
+    mapping(uint256 => bool) public proposalVetoed;
 
     mapping(uint256 => mapping(address => bool)) public hasVoted;
     mapping(uint256 => mapping(address => Vote)) public voteChoice;
+
+    uint256 public ratPeriod;
+    uint256 public lastRATTime;
+    address public vaultAddress;
 
     // ============================================================
     //                        EVENTS
@@ -62,6 +72,8 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     event ProposalQueued(uint256 indexed id, uint256 eta);
     event ProposalExecuted(uint256 indexed id);
     event ProposalCanceled(uint256 indexed id);
+    event ProposalVetoed(uint256 indexed id, address indexed pengawas);
+    event RATScheduled(uint256 indexed proposalId, uint256 scheduledTime);
 
     // ============================================================
     //                        ERRORS
@@ -77,6 +89,9 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     error LakomiGovern__ExecutionFailed();
     error LakomiGovern__AlreadyExecuted();
     error LakomiGovern__NotProposer();
+    error LakomiGovern__ProposalVetoed();
+    error LakomiGovern__NotPengawas();
+    error LakomiGovern__RATNotDue();
 
     // ============================================================
     //                      CONSTRUCTOR
@@ -94,8 +109,10 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         votingPeriod = _votingPeriod;
         quorumNumerator = _quorumNumerator;
         executionTimelock = _executionTimelock;
+        ratPeriod = 365 days;
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _grantRole(PENGAWAS_ROLE, msg.sender);
     }
 
     // ============================================================
@@ -194,11 +211,90 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     }
 
     // ============================================================
+    //           PENGAWAS VETO (UU 25/1992 Pasal 38)
+    // ============================================================
+
+    /**
+     * @notice Pengawas can veto a proposal before execution
+     * @dev Implements UU 25/1992 Pasal 38 — pengawas supervises kebijaksanaan pengurus
+     */
+    function vetoProposal(uint256 proposalId) external onlyRole(PENGAWAS_ROLE) {
+        if (proposalExecuted[proposalId]) revert LakomiGovern__AlreadyExecuted();
+        if (proposalCanceled[proposalId]) revert LakomiGovern__AlreadyExecuted();
+
+        proposalVetoed[proposalId] = true;
+        emit ProposalVetoed(proposalId, msg.sender);
+    }
+
+    /**
+     * @notice Pengawas can trigger emergency pause on governance
+     */
+    function pengawasPause() external onlyRole(PENGAWAS_ROLE) {
+        _pause();
+    }
+
+    // ============================================================
+    //         RAT ANNUAL (UU 25/1992 Pasal 26-27)
+    // ============================================================
+
+    /**
+     * @notice Creates the annual Rapat Anggota Tahunan (RAT) proposal
+     * @dev UU 25/1992 Pasal 27 — RAT decides SHU, financial reports, elections
+     *      Can be called by any member once per year
+     */
+    function scheduleAnnualRAT(string calldata description) external nonReentrant returns (uint256) {
+        if (!token.isRegisteredMember(msg.sender))
+            revert LakomiGovern__NotRegisteredMember();
+
+        if (lastRATTime > 0 && block.timestamp < lastRATTime + ratPeriod) {
+            revert LakomiGovern__RATNotDue();
+        }
+
+        uint256 _proposalId = proposalCount++;
+        uint256 _startTime = block.timestamp;
+        uint256 _endTime = _startTime + votingPeriod;
+
+        proposalProposer[_proposalId] = msg.sender;
+        proposalDescription[_proposalId] = description;
+        proposalType[_proposalId] = ProposalType.RAT_ANNUAL;
+        proposalTarget[_proposalId] = address(0);
+        proposalValue[_proposalId] = 0;
+        proposalCallData[_proposalId] = "";
+        proposalStartTime[_proposalId] = _startTime;
+        proposalEndTime[_proposalId] = _endTime;
+
+        lastRATTime = block.timestamp;
+
+        emit ProposalCreated(_proposalId, msg.sender, description, _startTime, _endTime);
+        emit RATScheduled(_proposalId, block.timestamp);
+        return _proposalId;
+    }
+
+    /**
+     * @notice Check if RAT is due
+     */
+    function isRATDue() external view returns (bool) {
+        if (lastRATTime == 0) return true;
+        return block.timestamp >= lastRATTime + ratPeriod;
+    }
+
+    /**
+     * @notice Get time until next RAT
+     */
+    function timeUntilNextRAT() external view returns (uint256) {
+        if (lastRATTime == 0) return 0;
+        uint256 next = lastRATTime + ratPeriod;
+        if (block.timestamp >= next) return 0;
+        return next - block.timestamp;
+    }
+
+    // ============================================================
     //                    VIEW FUNCTIONS
     // ============================================================
 
     function state(uint256 proposalId) public view returns (ProposalState) {
         if (proposalCanceled[proposalId]) return ProposalState.Canceled;
+        if (proposalVetoed[proposalId]) return ProposalState.Vetoed;
         if (proposalExecuted[proposalId]) return ProposalState.Executed;
         if (block.timestamp < proposalStartTime[proposalId]) return ProposalState.Pending;
         if (block.timestamp < proposalEndTime[proposalId]) return ProposalState.Active;

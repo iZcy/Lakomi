@@ -38,7 +38,10 @@ contract DeployLocal is Script {
         LakomiVault vault = new LakomiVault(
             address(usdc),
             WITHDRAWAL_THRESHOLD,
-            TIMELOCK
+            TIMELOCK,
+            100 * 10**6,
+            10 * 10**6,
+            30 days
         );
         console.log("LakomiVault:", address(vault));
 

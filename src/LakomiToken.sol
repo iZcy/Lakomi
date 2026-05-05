@@ -243,11 +243,34 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
     // ============================================================
 
     /**
-     * @notice Registers a new member for governance participation
+     * @notice Self-registration for open membership (UU 25/1992 Pasal 5(1))
+     * @dev Any address can register themselves. Mints default governance tokens.
+     *      Simpanan Pokok payment to LakomiVault is handled separately.
+     */
+    function registerMember()
+        external
+        nonReentrant
+    {
+        if (msg.sender == address(0)) revert LakomiToken__ZeroAddress();
+        require(!isRegisteredMember[msg.sender], "Already registered");
+
+        isRegisteredMember[msg.sender] = true;
+        memberCount++;
+
+        if (totalSupply() + DEFAULT_MINT_AMOUNT <= MAX_SUPPLY) {
+            _mint(msg.sender, DEFAULT_MINT_AMOUNT);
+            emit TokensMinted(msg.sender, DEFAULT_MINT_AMOUNT, block.timestamp);
+        }
+
+        emit MemberRegistered(msg.sender, block.timestamp);
+    }
+
+    /**
+     * @notice Admin-assisted registration (for members without wallet access)
      * @dev Only callable by MEMBERSHIP_ROLE. Also mints default tokens.
      * @param member The address to register
      */
-    function registerMember(address member)
+    function registerMemberAdmin(address member)
         external
         onlyRole(MEMBERSHIP_ROLE)
         nonReentrant
@@ -258,7 +281,6 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
         isRegisteredMember[member] = true;
         memberCount++;
 
-        // Mint default tokens to new member
         if (totalSupply() + DEFAULT_MINT_AMOUNT <= MAX_SUPPLY) {
             _mint(member, DEFAULT_MINT_AMOUNT);
             emit TokensMinted(member, DEFAULT_MINT_AMOUNT, block.timestamp);
@@ -268,22 +290,24 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
     }
 
     /**
-     * @notice Revokes membership from an existing member
-     * @dev Only callable by MEMBERSHIP_ROLE. Burns all tokens.
+     * @notice Revokes membership — only via governance (UU 25/1992 Pasal 27)
+     * @dev Callable by MEMBERSHIP_ROLE (governance) or DEFAULT_ADMIN_ROLE
      * @param member The address to revoke
      */
     function revokeMembership(address member)
         external
-        onlyRole(MEMBERSHIP_ROLE)
         nonReentrant
     {
         if (member == address(0)) revert LakomiToken__ZeroAddress();
         require(isRegisteredMember[member], "Not a member");
+        require(
+            hasRole(MEMBERSHIP_ROLE, msg.sender) || hasRole(DEFAULT_ADMIN_ROLE, msg.sender),
+            "Not authorized"
+        );
 
         isRegisteredMember[member] = false;
         memberCount--;
 
-        // Burn all tokens from the member
         uint256 balance = balanceOf(member);
         if (balance > 0) {
             _burn(member, balance);

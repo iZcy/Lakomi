@@ -174,20 +174,19 @@ contract LakomiTokenTest is Test {
     function test_RegisterMember() public {
         token.grantRole(token.MEMBERSHIP_ROLE(), admin);
 
-        token.registerMember(alice);
+        token.registerMemberAdmin(alice);
 
         assertTrue(token.isRegisteredMember(alice));
         assertEq(token.memberCount(), 1);
         assertEq(token.getMemberCount(), 1);
-        // Should mint default tokens
         assertEq(token.balanceOf(alice), token.DEFAULT_MINT_AMOUNT());
     }
 
     function test_RegisterMultipleMembers() public {
         token.grantRole(token.MEMBERSHIP_ROLE(), admin);
 
-        token.registerMember(alice);
-        token.registerMember(bob);
+        token.registerMemberAdmin(alice);
+        token.registerMemberAdmin(bob);
 
         assertEq(token.getMemberCount(), 2);
     }
@@ -195,23 +194,23 @@ contract LakomiTokenTest is Test {
     function test_RevertWhen_RegisterTwice() public {
         token.grantRole(token.MEMBERSHIP_ROLE(), admin);
 
-        token.registerMember(alice);
+        token.registerMemberAdmin(alice);
 
         vm.expectRevert("Already registered");
-        token.registerMember(alice);
+        token.registerMemberAdmin(alice);
     }
 
     function test_RevertWhen_RegisterZeroAddress() public {
         token.grantRole(token.MEMBERSHIP_ROLE(), admin);
 
         vm.expectRevert(LakomiToken.LakomiToken__ZeroAddress.selector);
-        token.registerMember(address(0));
+        token.registerMemberAdmin(address(0));
     }
 
     function test_RevokeMembership() public {
         token.grantRole(token.MEMBERSHIP_ROLE(), admin);
 
-        token.registerMember(alice);
+        token.registerMemberAdmin(alice);
         assertEq(token.getMemberCount(), 1);
 
         token.revokeMembership(alice);
@@ -232,7 +231,7 @@ contract LakomiTokenTest is Test {
     function test_RevertWhen_UnauthorizedRegister() public {
         vm.prank(alice);
         vm.expectRevert();
-        token.registerMember(bob);
+        token.registerMemberAdmin(bob);
     }
 
     function test_GetVotingPower() public {
@@ -242,7 +241,7 @@ contract LakomiTokenTest is Test {
         assertEq(token.getVotingPower(alice), 0);
 
         // Registered = 1 voting power
-        token.registerMember(alice);
+        token.registerMemberAdmin(alice);
         assertEq(token.getVotingPower(alice), 1);
     }
 

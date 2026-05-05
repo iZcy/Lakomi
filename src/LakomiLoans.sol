@@ -327,18 +327,31 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
         if (remaining == 0) revert LakomiLoans__AlreadyRepaid();
         if (amount > remaining) revert LakomiLoans__Overpayment();
 
-        // Transfer repayment to vault
         IERC20 stableToken = IERC20(address(vault.stableToken()));
-        stableToken.safeTransferFrom(msg.sender, address(vault), amount);
+        stableToken.safeTransferFrom(msg.sender, address(this), amount);
+
+        uint256 interestPortion = 0;
+        if (loan.interest > 0 && totalOwed > 0) {
+            uint256 interestRatio = (loan.interest * 1e18) / totalOwed;
+            interestPortion = (amount * interestRatio) / 1e18;
+        }
+
+        if (interestPortion > 0) {
+            stableToken.safeTransfer(address(vault), interestPortion);
+            try vault.receiveRevenue(interestPortion) {} catch {}
+        }
+
+        uint256 principalPortion = amount - interestPortion;
+        if (principalPortion > 0) {
+            stableToken.safeTransfer(address(vault), principalPortion);
+        }
 
         loan.repaidAmount += amount;
 
-        // Check if fully repaid
         if (loan.repaidAmount >= totalOwed) {
             loan.status = LoanStatus.Repaid;
             activeLoanCount--;
 
-            // Unlock collateral
             token.unlockTokens(loan.borrower, loan.collateralTokens);
         }
 

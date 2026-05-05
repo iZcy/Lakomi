@@ -30,7 +30,7 @@ contract LakomiGovernTest is Test {
 
         // Deploy contracts
         usdc = new MockUSDC();
-        vault = new LakomiVault(address(usdc), 1000 * 10**6, 48 hours);
+        vault = new LakomiVault(address(usdc), 1000 * 10**6, 48 hours, 100 * 10**6, 10 * 10**6, 30 days);
         token = new LakomiToken();
         govern = new LakomiGovern(
             address(token),
@@ -43,9 +43,9 @@ contract LakomiGovernTest is Test {
         token.grantRole(token.MEMBERSHIP_ROLE(), admin);
 
         // Register members (1-member-1-vote)
-        token.registerMember(alice);
-        token.registerMember(bob);
-        token.registerMember(charlie);
+        token.registerMemberAdmin(alice);
+        token.registerMemberAdmin(bob);
+        token.registerMemberAdmin(charlie);
 
         // Give USDC to members for deposits
         usdc.transfer(alice, 5000 * 10**6);
@@ -191,8 +191,8 @@ contract LakomiGovernTest is Test {
         // Still 1. Register more members to get quorum = 2.
         address dave = address(0x4);
         address eve = address(0x5);
-        token.registerMember(dave);
-        token.registerMember(eve);
+        token.registerMemberAdmin(dave);
+        token.registerMemberAdmin(eve);
         // Now 5 members, quorum at 40% = 2
 
         vm.prank(alice);

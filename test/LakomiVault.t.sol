@@ -25,8 +25,11 @@ contract LakomiVaultTest is Test {
         usdc = new MockUSDC();
         vault = new LakomiVault(
             address(usdc),
-            1000 * 10**6,  // 1000 USDC threshold
-            48 hours       // 48 hour timelock
+            1000 * 10**6,
+            48 hours,
+            100 * 10**6,
+            10 * 10**6,
+            30 days
         );
         token = new LakomiToken();
 

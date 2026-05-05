@@ -10,15 +10,13 @@ import "@openzeppelin/contracts/utils/Pausable.sol";
 /**
  * @title LakomiVault
  * @author Lakomi Protocol
- * @notice Treasury management for the Lakomi community
- * @dev Handles deposits, withdrawals, share tracking, and fund management
+ * @notice Treasury management for the Lakomi cooperative (koperasi)
+ * @dev UU 25/1992 compliant: Simpanan Pokok, Simpanan Wajib, Simpanan Sukarela, SHU distribution
  *
- * Key Features:
- * - Members deposit USDC (stablecoin)
- * - Tracks ownership shares
- * - Timelocked large withdrawals
- * - Emergency pause functionality
- * - DAO-approved spending
+ * Compliance (UU 25/1992):
+ * - Pasal 22(2): Simpanan Pokok (one-time on join) + Simpanan Wajib (periodic mandatory)
+ * - Pasal 41: Three types of simpanan (Pokok, Wajib, Sukarela)
+ * - Pasal 45: SHU (Sisa Hasil Usaha) = Revenue - Costs, distributed by contribution
  */
 contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
 
@@ -28,41 +26,26 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     //                        ROLES
     // ============================================================
 
-    /// @dev Role for managing treasury operations
     bytes32 public constant TREASURER_ROLE = keccak256("TREASURER_ROLE");
-
-    /// @dev Role for governance-approved spending
     bytes32 public constant GOVERN_ROLE = keccak256("GOVERN_ROLE");
+    bytes32 public constant LOAN_ROLE = keccak256("LOAN_ROLE");
 
     // ============================================================
     //                      STATE VARIABLES
     // ============================================================
 
-    /// @dev USDC token (or other stablecoin)
     IERC20 public immutable stableToken;
 
-    /// @dev Total assets ever deposited
     uint256 public totalDeposited;
-
-    /// @dev Total assets ever withdrawn
     uint256 public totalWithdrawn;
 
-    /// @dev Member contributions
     mapping(address => uint256) public contributions;
-
-    /// @dev Total shares issued
     uint256 public totalShares;
-
-    /// @dev Member shares (ownership percentage)
     mapping(address => uint256) public shares;
 
-    /// @dev Threshold for auto-approval (withdrawals under this are instant)
     uint256 public withdrawalThreshold;
-
-    /// @dev Timelock duration for large withdrawals (in seconds)
     uint256 public withdrawalTimelock;
 
-    /// @dev Pending withdrawals awaiting timelock
     struct PendingWithdrawal {
         address recipient;
         uint256 amount;
@@ -75,22 +58,49 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     mapping(uint256 => PendingWithdrawal) public pendingWithdrawals;
     uint256 public nextWithdrawalId;
 
-    /// @dev LakomiToken contract address
     address public lakomiToken;
-
-    /// @dev LakomiGovern contract address
     address public lakomiGovern;
 
     // ============================================================
-    //               CONTRIBUTION TIER SYSTEM
+    //              SIMPANAN (UU 25/1992 Pasal 41)
     // ============================================================
 
-    /// @dev Tier thresholds for contribution scoring (in USDC, 6 decimals)
-    uint256 public constant TIER2_THRESHOLD = 500 * 10**6;  // 500 USDC for Tier 2
-    uint256 public constant TIER3_THRESHOLD = 2000 * 10**6; // 2000 USDC for Tier 3
+    uint256 public simpananPokokAmount;
+    uint256 public simpananWajibAmount;
+    uint256 public simpananWajibPeriod;
+    uint256 public constant TIER2_THRESHOLD = 500 * 10**6;
+    uint256 public constant TIER3_THRESHOLD = 2000 * 10**6;
 
-    /// @dev Track first deposit timestamp per member for score calculation
+    mapping(address => uint256) public simpananPokok;
+    mapping(address => uint256) public simpananWajibTotal;
+    mapping(address => uint256) public simpananWajibLastPaid;
+    mapping(address => uint256) public simpananWajibPeriodsPaid;
     mapping(address => uint256) public firstDepositTime;
+
+    // ============================================================
+    //              SHU (UU 25/1992 Pasal 45)
+    // ============================================================
+
+    uint256 public accumulatedRevenue;
+    uint256 public totalSHUDistributed;
+    uint256 public shuDistributionPeriod;
+    uint256 public lastSHUDistribution;
+    uint256 public operationalReserveBps;
+
+    struct SHUDistribution {
+        uint256 totalAmount;
+        uint256 memberCount;
+        uint256 timestamp;
+        uint256 perShare;
+    }
+
+    mapping(uint256 => SHUDistribution) public shuDistributions;
+    uint256 public shuDistributionCount;
+
+    mapping(address => uint256) public shuClaimed;
+    mapping(address => uint256) public shuPending;
+
+    mapping(uint256 => mapping(address => bool)) public shuClaimedForDistribution;
 
     // ============================================================
     //                        EVENTS
@@ -98,12 +108,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
 
     event Deposited(address indexed member, uint256 amount, uint256 shares, uint256 timestamp);
     event Withdrawn(address indexed member, uint256 amount, uint256 shares, uint256 timestamp);
-    event WithdrawalRequested(
-        uint256 indexed id,
-        address indexed recipient,
-        uint256 amount,
-        uint256 executableAt
-    );
+    event WithdrawalRequested(uint256 indexed id, address indexed recipient, uint256 amount, uint256 executableAt);
     event WithdrawalExecuted(uint256 indexed id, address recipient, uint256 amount);
     event WithdrawalCanceled(uint256 indexed id);
     event GovernanceSpend(address indexed to, uint256 amount, bytes reason);
@@ -112,6 +117,15 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     event TokenSet(address indexed token);
     event GovernSet(address indexed govern);
     event ContributionTierUpdated(address indexed member, uint8 tier);
+
+    event SimpananPokokPaid(address indexed member, uint256 amount, uint256 timestamp);
+    event SimpananWajibPaid(address indexed member, uint256 amount, uint256 periods, uint256 timestamp);
+    event SimpananPokokAmountUpdated(uint256 oldAmount, uint256 newAmount);
+    event SimpananWajibAmountUpdated(uint256 oldAmount, uint256 newAmount);
+
+    event RevenueReceived(uint256 amount, uint256 timestamp);
+    event SHUDistributed(uint256 indexed distributionId, uint256 totalAmount, uint256 memberCount, uint256 perShare);
+    event SHUClaimed(address indexed member, uint256 indexed distributionId, uint256 amount);
 
     // ============================================================
     //                        ERRORS
@@ -128,21 +142,24 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     error LakomiVault__InvalidWithdrawal();
     error LakomiVault__AlreadySet();
     error LakomiVault__TransferFailed();
+    error LakomiVault__NotMember();
+    error LakomiVault__SimpananPokokNotPaid();
+    error LakomiVault__SimpananPokokAlreadyPaid();
+    error LakomiVault__SimpananWajibNotDue();
+    error LakomiVault__NoSHUToClaim();
+    error LakomiVault__NoRevenueToDistribute();
 
     // ============================================================
     //                      CONSTRUCTOR
     // ============================================================
 
-    /**
-     * @dev Initialize vault with stable token
-     * @param _stableToken Address of USDC or other stablecoin
-     * @param _withdrawalThreshold Initial threshold for auto-approval
-     * @param _withdrawalTimelock Initial timelock in seconds (48 hours default)
-     */
     constructor(
         address _stableToken,
         uint256 _withdrawalThreshold,
-        uint256 _withdrawalTimelock
+        uint256 _withdrawalTimelock,
+        uint256 _simpananPokokAmount,
+        uint256 _simpananWajibAmount,
+        uint256 _simpananWajibPeriod
     ) {
         if (_stableToken == address(0)) revert LakomiVault__ZeroAddress();
 
@@ -150,19 +167,80 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         withdrawalThreshold = _withdrawalThreshold;
         withdrawalTimelock = _withdrawalTimelock;
 
+        simpananPokokAmount = _simpananPokokAmount;
+        simpananWajibAmount = _simpananWajibAmount;
+        simpananWajibPeriod = _simpananWajibPeriod;
+
+        operationalReserveBps = 1000; // 10% reserve
+        shuDistributionPeriod = 365 days;
+
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(TREASURER_ROLE, msg.sender);
     }
 
     // ============================================================
-    //                    CORE FUNCTIONS
+    //               SIMPANAN POKOK (UU 25/1992 Pasal 41(1))
     // ============================================================
 
-    /**
-     * @notice Deposits stablecoins into the vault
-     * @param amount The amount to deposit
-     * @return sharesIssued The number of shares issued
-     */
+    function paySimpananPokok(address member) external nonReentrant {
+        if (simpananPokok[member] > 0) revert LakomiVault__SimpananPokokAlreadyPaid();
+
+        stableToken.safeTransferFrom(member, address(this), simpananPokokAmount);
+
+        simpananPokok[member] = simpananPokokAmount;
+        contributions[member] += simpananPokokAmount;
+        totalDeposited += simpananPokokAmount;
+
+        if (firstDepositTime[member] == 0) {
+            firstDepositTime[member] = block.timestamp;
+        }
+
+        emit SimpananPokokPaid(member, simpananPokokAmount, block.timestamp);
+    }
+
+    function hasPaidSimpananPokok(address member) external view returns (bool) {
+        return simpananPokok[member] > 0;
+    }
+
+    // ============================================================
+    //               SIMPANAN WAJIB (UU 25/1992 Pasal 41(2))
+    // ============================================================
+
+    function paySimpananWajib() external nonReentrant whenNotPaused {
+        if (simpananPokok[msg.sender] == 0) revert LakomiVault__SimpananPokokNotPaid();
+
+        stableToken.safeTransferFrom(msg.sender, address(this), simpananWajibAmount);
+
+        simpananWajibTotal[msg.sender] += simpananWajibAmount;
+        simpananWajibPeriodsPaid[msg.sender]++;
+        simpananWajibLastPaid[msg.sender] = block.timestamp;
+        contributions[msg.sender] += simpananWajibAmount;
+        totalDeposited += simpananWajibAmount;
+
+        emit SimpananWajibPaid(msg.sender, simpananWajibAmount, simpananWajibPeriodsPaid[msg.sender], block.timestamp);
+    }
+
+    function getSimpananWajibPeriodsOwed(address member) external view returns (uint256) {
+        if (simpananPokok[member] == 0) return 0;
+        if (firstDepositTime[member] == 0) return 0;
+
+        uint256 elapsed = block.timestamp - firstDepositTime[member];
+        uint256 periodsElapsed = elapsed / simpananWajibPeriod;
+        if (periodsElapsed > simpananWajibPeriodsPaid[member]) {
+            return periodsElapsed - simpananWajibPeriodsPaid[member];
+        }
+        return 0;
+    }
+
+    function isSimpananWajibCurrent(address member) external view returns (bool) {
+        uint256 owed = this.getSimpananWajibPeriodsOwed(member);
+        return owed == 0;
+    }
+
+    // ============================================================
+    //            SIMPANAN SUKARELA (UU 25/1992 Pasal 41(3))
+    // ============================================================
+
     function deposit(uint256 amount)
         external
         whenNotPaused
@@ -170,8 +248,8 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         returns (uint256 sharesIssued)
     {
         if (amount == 0) revert LakomiVault__ZeroAmount();
+        if (simpananPokok[msg.sender] == 0) revert LakomiVault__SimpananPokokNotPaid();
 
-        // Calculate shares
         uint256 totalAssets = getTotalAssets();
         if (totalShares == 0) {
             sharesIssued = amount;
@@ -179,16 +257,13 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
             sharesIssued = (amount * totalShares) / totalAssets;
         }
 
-        // Transfer tokens
         stableToken.safeTransferFrom(msg.sender, address(this), amount);
 
-        // Update state
         contributions[msg.sender] += amount;
         shares[msg.sender] += sharesIssued;
         totalShares += sharesIssued;
         totalDeposited += amount;
 
-        // Track first deposit time
         if (firstDepositTime[msg.sender] == 0) {
             firstDepositTime[msg.sender] = block.timestamp;
         }
@@ -196,11 +271,6 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         emit Deposited(msg.sender, amount, sharesIssued, block.timestamp);
     }
 
-    /**
-     * @notice Withdraws stablecoins from the vault (under threshold)
-     * @param amount The amount to withdraw
-     * @return actualAmount The actual amount withdrawn
-     */
     function withdraw(uint256 amount)
         external
         whenNotPaused
@@ -209,23 +279,21 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     {
         if (amount == 0) revert LakomiVault__ZeroAmount();
         if (amount >= withdrawalThreshold) revert LakomiVault__ExceedsThreshold();
-
-        // Check member has enough contribution
         if (contributions[msg.sender] < amount) revert LakomiVault__InsufficientBalance();
 
-        // Calculate shares to burn
+        uint256 sukarela = contributions[msg.sender] - simpananPokok[msg.sender] - simpananWajibTotal[msg.sender];
+        if (amount > sukarela) revert LakomiVault__InsufficientBalance();
+
         uint256 totalAssets = getTotalAssets();
         uint256 sharesToBurn = (amount * totalShares) / totalAssets;
 
         if (shares[msg.sender] < sharesToBurn) revert LakomiVault__InsufficientShares();
 
-        // Update state
         contributions[msg.sender] -= amount;
         shares[msg.sender] -= sharesToBurn;
         totalShares -= sharesToBurn;
         totalWithdrawn += amount;
 
-        // Transfer tokens
         stableToken.safeTransfer(msg.sender, amount);
 
         emit Withdrawn(msg.sender, amount, sharesToBurn, block.timestamp);
@@ -233,12 +301,6 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         return amount;
     }
 
-    /**
-     * @notice Requests a withdrawal above threshold (requires timelock)
-     * @param recipient The address to receive funds
-     * @param amount The amount to withdraw
-     * @return withdrawalId The ID of the pending withdrawal
-     */
     function requestWithdrawal(address recipient, uint256 amount)
         external
         whenNotPaused
@@ -248,7 +310,9 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         if (recipient == address(0)) revert LakomiVault__ZeroAddress();
         if (amount == 0) revert LakomiVault__ZeroAmount();
         if (amount < withdrawalThreshold) revert LakomiVault__ExceedsThreshold();
-        if (contributions[msg.sender] < amount) revert LakomiVault__InsufficientBalance();
+
+        uint256 sukarela = contributions[msg.sender] - simpananPokok[msg.sender] - simpananWajibTotal[msg.sender];
+        if (sukarela < amount) revert LakomiVault__InsufficientBalance();
 
         uint256 executableAt = block.timestamp + withdrawalTimelock;
 
@@ -265,14 +329,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         emit WithdrawalRequested(withdrawalId, recipient, amount, executableAt);
     }
 
-    /**
-     * @notice Approves a pending withdrawal (governance only)
-     * @param withdrawalId The ID of the withdrawal
-     */
-    function approveWithdrawal(uint256 withdrawalId)
-        external
-        onlyRole(GOVERN_ROLE)
-    {
+    function approveWithdrawal(uint256 withdrawalId) external onlyRole(GOVERN_ROLE) {
         PendingWithdrawal storage w = pendingWithdrawals[withdrawalId];
         if (w.recipient == address(0)) revert LakomiVault__InvalidWithdrawal();
         if (w.executed) revert LakomiVault__AlreadyExecuted();
@@ -280,15 +337,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         w.approved = true;
     }
 
-    /**
-     * @notice Executes an approved withdrawal after timelock
-     * @param withdrawalId The ID of the withdrawal
-     */
-    function executeWithdrawal(uint256 withdrawalId)
-        external
-        whenNotPaused
-        nonReentrant
-    {
+    function executeWithdrawal(uint256 withdrawalId) external whenNotPaused nonReentrant {
         PendingWithdrawal storage w = pendingWithdrawals[withdrawalId];
 
         if (w.recipient == address(0)) revert LakomiVault__InvalidWithdrawal();
@@ -296,27 +345,20 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         if (!w.approved) revert LakomiVault__NotApproved();
         if (block.timestamp < w.executableAt) revert LakomiVault__TimelockNotMet();
 
-        // Calculate shares to burn
         uint256 totalAssets = getTotalAssets();
         uint256 sharesToBurn = (w.amount * totalShares) / totalAssets;
 
-        // Update state
         contributions[w.recipient] -= w.amount;
         shares[w.recipient] -= sharesToBurn;
         totalShares -= sharesToBurn;
         totalWithdrawn += w.amount;
         w.executed = true;
 
-        // Transfer tokens
         stableToken.safeTransfer(w.recipient, w.amount);
 
         emit WithdrawalExecuted(withdrawalId, w.recipient, w.amount);
     }
 
-    /**
-     * @notice Cancels a pending withdrawal
-     * @param withdrawalId The ID of the withdrawal
-     */
     function cancelWithdrawal(uint256 withdrawalId) external {
         PendingWithdrawal storage w = pendingWithdrawals[withdrawalId];
 
@@ -325,24 +367,10 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         if (msg.sender != w.recipient && !hasRole(DEFAULT_ADMIN_ROLE, msg.sender))
             revert LakomiVault__InvalidWithdrawal();
 
-        w.executed = true; // Mark as processed
+        w.executed = true;
         emit WithdrawalCanceled(withdrawalId);
     }
 
-    // ============================================================
-    //                    VIEW FUNCTIONS
-    // ============================================================
-
-    /**
-     * @notice Gets a pending withdrawal details
-     * @param withdrawalId The withdrawal ID
-     * @return recipient The recipient address
-     * @return amount The withdrawal amount
-     * @return timestamp The request timestamp
-     * @return executableAt When it can be executed
-     * @return executed Whether it has been executed
-     * @return approved Whether it has been approved
-     */
     function getPendingWithdrawal(uint256 withdrawalId)
         external
         view
@@ -356,27 +384,84 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         )
     {
         PendingWithdrawal storage w = pendingWithdrawals[withdrawalId];
-        return (
-            w.recipient,
-            w.amount,
-            w.timestamp,
-            w.executableAt,
-            w.executed,
-            w.approved
-        );
+        return (w.recipient, w.amount, w.timestamp, w.executableAt, w.executed, w.approved);
     }
 
     // ============================================================
-    //                 GOVERNANCE SPENDING
+    //         SHU DISTRIBUTION (UU 25/1992 Pasal 45)
     // ============================================================
 
-    /**
-     * @notice Spend funds approved by governance
-     * @dev Only callable by GOVERN_ROLE (LakomiGovern)
-     * @param to The recipient address
-     * @param amount The amount to spend
-     * @param reason Description of the spending
-     */
+    function receiveRevenue(uint256 amount) external nonReentrant {
+        if (amount == 0) revert LakomiVault__ZeroAmount();
+
+        stableToken.safeTransferFrom(msg.sender, address(this), amount);
+        accumulatedRevenue += amount;
+
+        emit RevenueReceived(amount, block.timestamp);
+    }
+
+    function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
+        if (accumulatedRevenue == 0) revert LakomiVault__NoRevenueToDistribute();
+
+        uint256 reserve = (accumulatedRevenue * operationalReserveBps) / 10000;
+        uint256 distributable = accumulatedRevenue - reserve;
+
+        if (distributable == 0) revert LakomiVault__NoRevenueToDistribute();
+        if (totalShares == 0) revert LakomiVault__NoRevenueToDistribute();
+
+        uint256 perShare = distributable / totalShares;
+
+        uint256 distId = shuDistributionCount++;
+        shuDistributions[distId] = SHUDistribution({
+            totalAmount: distributable,
+            memberCount: 0,
+            timestamp: block.timestamp,
+            perShare: perShare
+        });
+
+        totalSHUDistributed += distributable;
+        accumulatedRevenue = reserve;
+
+        lastSHUDistribution = block.timestamp;
+
+        emit SHUDistributed(distId, distributable, shuDistributions[distId].memberCount, perShare);
+    }
+
+    function claimSHU(uint256 distributionId) external nonReentrant {
+        if (shuClaimedForDistribution[distributionId][msg.sender])
+            revert LakomiVault__NoSHUToClaim();
+
+        SHUDistribution storage dist = shuDistributions[distributionId];
+        if (dist.totalAmount == 0) revert LakomiVault__NoSHUToClaim();
+
+        uint256 memberShares = shares[msg.sender];
+        if (memberShares == 0) revert LakomiVault__NoSHUToClaim();
+
+        uint256 amount = memberShares * dist.perShare;
+        if (amount == 0) revert LakomiVault__NoSHUToClaim();
+
+        shuClaimedForDistribution[distributionId][msg.sender] = true;
+        shuClaimed[msg.sender] += amount;
+
+        stableToken.safeTransfer(msg.sender, amount);
+
+        emit SHUClaimed(msg.sender, distributionId, amount);
+    }
+
+    function getPendingSHU(address member) external view returns (uint256) {
+        uint256 pending = 0;
+        for (uint256 i = 0; i < shuDistributionCount; i++) {
+            if (!shuClaimedForDistribution[i][member] && shares[member] > 0) {
+                pending += shares[member] * shuDistributions[i].perShare;
+            }
+        }
+        return pending;
+    }
+
+    // ============================================================
+    //                  GOVERNANCE SPENDING
+    // ============================================================
+
     function governanceSpend(
         address to,
         uint256 amount,
@@ -396,166 +481,121 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     //                    VIEW FUNCTIONS
     // ============================================================
 
-    /**
-     * @notice Gets the current total assets in the vault
-     * @return Total stablecoin balance
-     */
     function getTotalAssets() public view returns (uint256) {
         return stableToken.balanceOf(address(this));
     }
 
-    /**
-     * @notice Gets a member's contribution balance
-     * @param member The member address
-     * @return The contribution amount
-     */
     function getMemberBalance(address member) external view returns (uint256) {
         return contributions[member];
     }
 
-    /**
-     * @notice Gets a member's ownership percentage
-     * @param member The member address
-     * @return The percentage in basis points (10000 = 100%)
-     */
     function getMemberSharePercent(address member) external view returns (uint256) {
         if (totalShares == 0) return 0;
         return (shares[member] * 10000) / totalShares;
     }
 
-    /**
-     * @notice Gets a member's proportional value
-     * @param member The member address
-     * @return The value in stablecoins
-     */
     function getMemberValue(address member) external view returns (uint256) {
         if (totalShares == 0) return 0;
         return (shares[member] * getTotalAssets()) / totalShares;
+    }
+
+    function contributionScore(address member) external view returns (uint256) {
+        uint256 deposited = contributions[member];
+        if (deposited == 0) return 0;
+
+        uint256 depositScore = deposited / 10**6;
+
+        uint256 duration = 0;
+        if (firstDepositTime[member] > 0) {
+            duration = (block.timestamp - firstDepositTime[member]) / 30 days;
+        }
+
+        return depositScore + (duration * 10);
+    }
+
+    function getContributionTier(address member) external view returns (uint8) {
+        uint256 deposited = contributions[member];
+        if (deposited >= TIER3_THRESHOLD) return 3;
+        if (deposited >= TIER2_THRESHOLD) return 2;
+        return 1;
+    }
+
+    function getSimpananSummary(address member) external view returns (
+        uint256 pokok,
+        uint256 wajibTotal,
+        uint256 wajibPeriodsPaid,
+        uint256 wajibPeriodsOwed,
+        uint256 sukarela,
+        uint256 totalContribution
+    ) {
+        pokok = simpananPokok[member];
+        wajibTotal = simpananWajibTotal[member];
+        wajibPeriodsPaid = simpananWajibPeriodsPaid[member];
+        wajibPeriodsOwed = this.getSimpananWajibPeriodsOwed(member);
+        totalContribution = contributions[member];
+        sukarela = totalContribution - pokok - wajibTotal;
     }
 
     // ============================================================
     //                  ADMIN FUNCTIONS
     // ============================================================
 
-    /**
-     * @notice Sets the withdrawal threshold
-     * @param newThreshold The new threshold amount
-     */
-    function setWithdrawalThreshold(uint256 newThreshold)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
+    function setWithdrawalThreshold(uint256 newThreshold) external onlyRole(DEFAULT_ADMIN_ROLE) {
         uint256 oldThreshold = withdrawalThreshold;
         withdrawalThreshold = newThreshold;
         emit ThresholdUpdated(oldThreshold, newThreshold);
     }
 
-    /**
-     * @notice Sets the withdrawal timelock
-     * @param newTimelock The new timelock in seconds
-     */
-    function setWithdrawalTimelock(uint256 newTimelock)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
+    function setWithdrawalTimelock(uint256 newTimelock) external onlyRole(DEFAULT_ADMIN_ROLE) {
         uint256 oldTimelock = withdrawalTimelock;
         withdrawalTimelock = newTimelock;
         emit TimelockUpdated(oldTimelock, newTimelock);
     }
 
-    /**
-     * @notice Sets the LakomiToken contract address
-     * @param token The token address
-     */
-    function setLakomiToken(address token)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
+    function setLakomiToken(address token) external onlyRole(DEFAULT_ADMIN_ROLE) {
         if (token == address(0)) revert LakomiVault__ZeroAddress();
         if (lakomiToken != address(0)) revert LakomiVault__AlreadySet();
         lakomiToken = token;
         emit TokenSet(token);
     }
 
-    /**
-     * @notice Sets the LakomiGovern contract address
-     * @param govern The governance address
-     */
-    function setLakomiGovern(address govern)
-        external
-        onlyRole(DEFAULT_ADMIN_ROLE)
-    {
+    function setLakomiGovern(address govern) external onlyRole(DEFAULT_ADMIN_ROLE) {
         if (govern == address(0)) revert LakomiVault__ZeroAddress();
         if (lakomiGovern != address(0)) revert LakomiVault__AlreadySet();
         lakomiGovern = govern;
         emit GovernSet(govern);
     }
 
-    /**
-     * @notice Emergency pause
-     */
+    function setSimpananPokokAmount(uint256 newAmount) external onlyRole(GOVERN_ROLE) {
+        uint256 old = simpananPokokAmount;
+        simpananPokokAmount = newAmount;
+        emit SimpananPokokAmountUpdated(old, newAmount);
+    }
+
+    function setSimpananWajibAmount(uint256 newAmount) external onlyRole(GOVERN_ROLE) {
+        uint256 old = simpananWajibAmount;
+        simpananWajibAmount = newAmount;
+        emit SimpananWajibAmountUpdated(old, newAmount);
+    }
+
+    function setOperationalReserveBps(uint256 newBps) external onlyRole(GOVERN_ROLE) {
+        require(newBps <= 5000, "Max 50% reserve");
+        operationalReserveBps = newBps;
+    }
+
     function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {
         _pause();
     }
 
-    /**
-     * @notice Unpause
-     */
     function unpause() external onlyRole(DEFAULT_ADMIN_ROLE) {
         _unpause();
     }
 
-    /**
-     * @notice Emergency withdrawal of any token
-     * @dev For recovery of mistakenly sent tokens
-     * @param token The token address
-     * @param to The recipient
-     * @param amount The amount
-     */
     function emergencyWithdraw(
         address token,
         address to,
         uint256 amount
     ) external onlyRole(DEFAULT_ADMIN_ROLE) nonReentrant {
         IERC20(token).safeTransfer(to, amount);
-    }
-
-    // ============================================================
-    //              CONTRIBUTION SCORE & TIER
-    // ============================================================
-
-    /**
-     * @notice Calculates a composite contribution score for a member
-     * @dev Score factors in total deposited amount and membership duration
-     * @param member The member address
-     * @return The contribution score (higher = more trusted)
-     */
-    function contributionScore(address member) external view returns (uint256) {
-        uint256 deposited = contributions[member];
-        if (deposited == 0) return 0;
-
-        // Base score from deposit amount (in USDC units)
-        uint256 depositScore = deposited / 10**6; // normalize to whole USDC
-
-        // Duration bonus: 1 point per 30 days of membership
-        uint256 duration = 0;
-        if (firstDepositTime[member] > 0) {
-            duration = (block.timestamp - firstDepositTime[member]) / 30 days;
-        }
-
-        return depositScore + (duration * 10); // duration weighted at 10pts per month
-    }
-
-    /**
-     * @notice Gets the contribution tier for a member
-     * @dev Tier determines max LTV for loans
-     * @param member The member address
-     * @return tier 1 (new), 2 (moderate), or 3 (high contribution)
-     */
-    function getContributionTier(address member) external view returns (uint8) {
-        uint256 deposited = contributions[member];
-        if (deposited >= TIER3_THRESHOLD) return 3;
-        if (deposited >= TIER2_THRESHOLD) return 2;
-        return 1;
     }
 }

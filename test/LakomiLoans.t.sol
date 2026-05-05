@@ -26,7 +26,7 @@ contract LakomiLoansTest is Test {
 
         // Deploy contracts
         usdc = new MockUSDC();
-        vault = new LakomiVault(address(usdc), 1000 * 10**6, 48 hours);
+        vault = new LakomiVault(address(usdc), 1000 * 10**6, 48 hours, 100 * 10**6, 10 * 10**6, 30 days);
         token = new LakomiToken();
         loans = new LakomiLoans(address(token), address(vault));
 

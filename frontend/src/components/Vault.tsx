@@ -1,276 +1,194 @@
 import { useState } from 'react'
 import { useAccount } from 'wagmi'
-import { useIsMember, useContribution, useContributionTier, useAvailableLiquidity } from '../hooks/useContractRead'
-import { useDeposit, useRequestWithdrawal } from '../hooks/useContractWrite'
-import { useApproveUsdc } from '../hooks/useContractWrite'
-import { formatUnits, parseUnits, getTierInfo } from '../lib/utils'
-import { TrendingUp, ArrowDown, ArrowUp, Wallet, Gem, Coins } from 'lucide-react'
-import { MemberRegistration } from './MemberRegistration'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
+import {
+  useIsMember, useHasPaidPokok, useSimpananSummary, useTotalAssets,
+  usePendingSHU, useAccumulatedRevenue, useUsdcBalance, useSimpananPokokAmount, useSimpananWajibAmount,
+} from '../hooks/useContractRead'
+import {
+  useDeposit, usePaySimpananPokok, usePaySimpananWajib, useClaimSHU, useApproveUsdc,
+} from '../hooks/useContractWrite'
+import { formatUSDCAmount, parseUnits } from '../lib/utils'
+import { CONTRACTS } from '../config/contracts'
+import { MemberRegistration, PaySimpananPokokPrompt } from './MemberRegistration'
 
 export function Vault() {
   const { address, isConnected } = useAccount()
-  const [depositAmount, setDepositAmount] = useState('')
-  const [withdrawAmount, setWithdrawAmount] = useState('')
-
   const { data: isMember } = useIsMember(address)
-  const { data: contribution } = useContribution(address)
-  const { data: contributionTier } = useContributionTier(address)
-  const { data: availableLiquidity } = useAvailableLiquidity()
+  const { data: hasPaid } = useHasPaidPokok(address)
+  const { data: summary } = useSimpananSummary(address)
+  const { data: totalAssets } = useTotalAssets()
+  const { data: pendingSHU } = usePendingSHU(address)
+  const { data: revenue } = useAccumulatedRevenue()
+  const { data: usdcBal } = useUsdcBalance(address)
+  const { data: pokokAmount } = useSimpananPokokAmount()
+  const { data: wajibAmount } = useSimpananWajibAmount()
 
-  const { deposit, isPending: isDepositing, isSuccess: depositSuccess } = useDeposit()
-  const { requestWithdrawal, isPending: isWithdrawing, isSuccess: withdrawSuccess } = useRequestWithdrawal()
-  const { approve: approveUsdc, isPending: isApproving } = useApproveUsdc()
-
-  const tierInfo = contributionTier !== undefined ? getTierInfo(contributionTier) : null
-
-  const handleDeposit = async () => {
-    if (!depositAmount) return
-
-    try {
-      const amount = parseUnits(depositAmount)
-      await approveUsdc(amount)
-      await deposit(amount)
-      setDepositAmount('')
-    } catch (error) {
-      console.error('Error depositing:', error)
-    }
-  }
-
-  const handleWithdraw = async () => {
-    if (!withdrawAmount) return
-
-    try {
-      const amount = parseUnits(withdrawAmount)
-      await requestWithdrawal(amount)
-      setWithdrawAmount('')
-    } catch (error) {
-      console.error('Error withdrawing:', error)
-    }
-  }
-
-  if (!isConnected) {
-    return (
-      <div className="flex items-center justify-center min-h-[500px]">
-        <div className="glass-card p-12 text-center">
-          <Wallet className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-          <p className="text-gray-400 text-lg">Please connect your wallet to manage contributions</p>
-        </div>
-      </div>
-    )
-  }
+  if (!isConnected) return <EmptyState />
+  if (!isMember) return <MemberRegistration />
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="glass-card p-8 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl" />
-        <div className="relative">
-          <h2 className="text-3xl font-bold gradient-text mb-2">Vault</h2>
-          <p className="text-gray-400 text-lg">Contribute USDC to earn reputation and unlock better loan terms.</p>
-        </div>
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-xl font-bold">Simpanan</h2>
+        <p className="text-sm text-muted-foreground mt-1">Kelola simpanan sesuai Pasal 41 UU 25/1992</p>
       </div>
 
-      {!isMember ? (
-        <MemberRegistration />
-      ) : (
-        <>
-          {/* Stats Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Your Contribution */}
-            <div className="glass-card p-6 group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-sky-500/20 rounded-xl group-hover:scale-110 transition-transform">
-                  <Coins className="w-6 h-6 text-sky-400" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-400">Your Contribution</h3>
-              </div>
-              <div className="text-3xl font-bold text-white mb-1">
-                {contribution !== undefined ? `${Number(formatUnits(contribution, 6)).toLocaleString()} USDC` : '0 USDC'}
-              </div>
-              <p className="text-xs text-gray-500">Total deposited</p>
-            </div>
+      <PaySimpananPokokPrompt />
 
-            {/* Contribution Tier */}
-            <div className="glass-card p-6 group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-purple-500/20 rounded-xl group-hover:scale-110 transition-transform">
-                  <Gem className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-400">Contribution Tier</h3>
-              </div>
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-lg font-bold ${tierInfo?.color || 'bg-gray-500/20 text-gray-400'}`}>
-                {tierInfo?.name || 'None'}
-              </div>
-              <p className="text-xs text-gray-500 mt-2">{tierInfo ? `${tierInfo.ltv * 100}% max LTV` : 'Not a member'}</p>
-            </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <Card>
+          <CardContent className="">
+            <p className="text-xs text-muted-foreground">Total Simpanan</p>
+            <p className="text-2xl font-bold text-emerald-500 mt-1">{summary ? formatUSDCAmount(summary.totalContribution) : '0 USDC'}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="">
+            <p className="text-xs text-muted-foreground">Saldo USDC</p>
+            <p className="text-2xl font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="">
+            <p className="text-xs text-muted-foreground">SHU Menunggu</p>
+            <p className="text-2xl font-bold text-amber-500 mt-1">{pendingSHU && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'}</p>
+            {pendingSHU && pendingSHU > 0n && <ClaimSHUButton />}
+          </CardContent>
+        </Card>
+      </div>
 
-            {/* Available Liquidity */}
-            <div className="glass-card p-6 group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-emerald-500/20 rounded-xl group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6 text-emerald-400" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-400">Available Liquidity</h3>
-              </div>
-              <div className="text-3xl font-bold text-white mb-1">
-                {availableLiquidity !== undefined ? `${Number(formatUnits(availableLiquidity, 6)).toLocaleString()} USDC` : '0 USDC'}
-              </div>
-              <p className="text-xs text-gray-500">Protocol liquidity</p>
-            </div>
-          </div>
-
-          {/* Tier Progress */}
-          {tierInfo && (
-            <div className="glass-card p-8">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-purple-400" />
-                Tier Progress
-              </h3>
-              <div className="space-y-4">
-                <TierProgress
-                  tier={1}
-                  current={contribution !== undefined ? Number(formatUnits(contribution, 6)) : 0}
-                  threshold={500}
-                  active={contributionTier !== undefined && contributionTier >= 1}
-                />
-                <TierProgress
-                  tier={2}
-                  current={contribution !== undefined ? Number(formatUnits(contribution, 6)) : 0}
-                  threshold={2000}
-                  active={contributionTier !== undefined && contributionTier >= 2}
-                />
-                <TierProgress
-                  tier={3}
-                  current={contribution !== undefined ? Number(formatUnits(contribution, 6)) : 0}
-                  threshold={Infinity}
-                  active={contributionTier !== undefined && contributionTier >= 3}
-                  isHighest
-                />
-              </div>
-            </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="space-y-4">
+          {!hasPaid && pokokAmount && (
+            <Card className="border-amber-500/20">
+              <CardHeader><CardTitle className="text-sm text-amber-500">Bayar Simpanan Pokok</CardTitle></CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground mb-3">Sekali seumur hidup ({formatUSDCAmount(pokokAmount)})</p>
+                <PaySimpananPokokButton address={address} amount={pokokAmount} />
+              </CardContent>
+            </Card>
           )}
+          {hasPaid && wajibAmount && (
+            <Card>
+              <CardHeader><CardTitle className="text-sm">Bayar Simpanan Wajib</CardTitle></CardHeader>
+              <CardContent>
+                <p className="text-xs text-muted-foreground mb-3">Periodik ({formatUSDCAmount(wajibAmount)}/periode)</p>
+                <PaySimpananWajibButton />
+              </CardContent>
+            </Card>
+          )}
+          {hasPaid && <DepositForm usdcBal={usdcBal} />}
+        </div>
 
-          {/* Deposit & Withdraw */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Deposit */}
-            <div className="glass-card p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-green-500/20 rounded-xl">
-                  <ArrowDown className="w-6 h-6 text-green-400" />
+        <div className="space-y-4">
+          <Card>
+            <CardHeader><CardTitle className="text-sm">Rincian Simpanan</CardTitle></CardHeader>
+            <CardContent>
+              {summary ? (
+                <div className="space-y-2">
+                  <Row label="Simpanan Pokok" value={formatUSDCAmount(summary.pokok)} sub="Pasal 41(1)" />
+                  <Row label="Simpanan Wajib" value={formatUSDCAmount(summary.wajibTotal)} sub={`${summary.wajibPeriodsPaid.toString()}x periode`} />
+                  <Row label="Simpanan Sukarela" value={formatUSDCAmount(summary.sukarela)} sub="Pasal 41(3)" />
+                  <Separator />
+                  <Row label="Total" value={formatUSDCAmount(summary.totalContribution)} bold />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Deposit USDC</h3>
-                  <p className="text-sm text-gray-400">Increase your contribution tier</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Amount (USDC)</label>
-                  <input
-                    type="number"
-                    value={depositAmount}
-                    onChange={(e) => setDepositAmount(e.target.value)}
-                    placeholder="Enter amount..."
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-500/20"
-                  />
-                </div>
-                <button
-                  onClick={handleDeposit}
-                  disabled={!depositAmount || isDepositing || isApproving}
-                  className="glow-button w-full px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  <ArrowDown className="w-4 h-4" />
-                  {isApproving ? 'Approving...' : isDepositing ? 'Depositing...' : 'Deposit'}
-                </button>
-                {depositSuccess && (
-                  <p className="text-green-400 text-sm text-center">Deposit successful!</p>
-                )}
-              </div>
-            </div>
-
-            {/* Withdraw */}
-            <div className="glass-card p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-red-500/20 rounded-xl">
-                  <ArrowUp className="w-6 h-6 text-red-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Withdraw USDC</h3>
-                  <p className="text-sm text-gray-400">Request withdrawal (may have timelock)</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-2">Amount (USDC)</label>
-                  <input
-                    type="number"
-                    value={withdrawAmount}
-                    onChange={(e) => setWithdrawAmount(e.target.value)}
-                    placeholder="Enter amount..."
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
-                  />
-                </div>
-                <button
-                  onClick={handleWithdraw}
-                  disabled={!withdrawAmount || isWithdrawing}
-                  className="glow-button w-full px-6 py-4 bg-gradient-to-r from-red-500 to-pink-500 text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                  <ArrowUp className="w-4 h-4" />
-                  {isWithdrawing ? 'Withdrawing...' : 'Withdraw'}
-                </button>
-                {withdrawSuccess && (
-                  <p className="text-green-400 text-sm text-center">Withdrawal requested!</p>
-                )}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+              ) : <p className="text-sm text-muted-foreground">Belum ada data</p>}
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="">
+              <p className="text-xs text-muted-foreground">Pendapatan Koperasi</p>
+              <p className="text-xl font-bold text-primary mt-1">{revenue ? formatUSDCAmount(revenue) : '0 USDC'}</p>
+              <p className="text-[10px] text-muted-foreground mt-1">Akan didistribusikan sebagai SHU (Pasal 45)</p>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   )
 }
 
-function TierProgress({
-  tier,
-  current,
-  threshold,
-  active,
-  isHighest = false,
-}: {
-  tier: number
-  current: number
-  threshold: number
-  active: boolean
-  isHighest?: boolean
-}) {
-  const progress = isHighest
-    ? (active ? 100 : 0)
-    : Math.min((current / threshold) * 100, 100)
+function DepositForm({ usdcBal }: { usdcBal?: bigint }) {
+  const [amount, setAmount] = useState('')
+  const { deposit, isPending: d1, isSuccess: s1 } = useDeposit()
+  const { approve, isPending: d2 } = useApproveUsdc()
+
+  const handle = async () => {
+    if (!amount) return
+    const a = parseUnits(amount)
+    await approve(CONTRACTS.LAKOMI_VAULT, a)
+    await deposit(a)
+    setAmount('')
+  }
 
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between text-sm">
-        <span className={`font-semibold ${active ? 'text-white' : 'text-gray-500'}`}>
-          Tier {tier}
-        </span>
-        <span className="text-gray-400">
-          {!isHighest && `${current.toLocaleString()} / ${threshold.toLocaleString()} USDC`}
-          {isHighest && active && `${current.toLocaleString()}+ USDC`}
-          {isHighest && !active && `${current.toLocaleString()} / 2000+ USDC`}
-        </span>
+    <Card>
+      <CardHeader><CardTitle className="text-sm">Simpanan Sukarela</CardTitle></CardHeader>
+      <CardContent className="space-y-3">
+        <p className="text-xs text-muted-foreground">Setor kapan saja, eligible untuk SHU</p>
+        <div className="space-y-1.5">
+          <Label htmlFor="deposit">Jumlah USDC</Label>
+          <Input id="deposit" type="number" placeholder="0" value={amount} onChange={(e) => setAmount(e.target.value)} />
+          {usdcBal !== undefined && <p className="text-[10px] text-muted-foreground">Saldo: {formatUSDCAmount(usdcBal)}</p>}
+        </div>
+        <Button onClick={handle} disabled={!amount || d1 || d2} className="w-full">
+          {d2 ? 'Menyetujui...' : d1 ? 'Menyetor...' : 'Setor'}
+        </Button>
+        {s1 && <p className="text-xs text-emerald-500">Berhasil disetor!</p>}
+      </CardContent>
+    </Card>
+  )
+}
+
+function PaySimpananPokokButton({ address, amount }: { address?: `0x${string}`; amount: bigint }) {
+  const { paySimpananPokok, isPending, isSuccess } = usePaySimpananPokok()
+  return (
+    <>
+      <Button onClick={() => address && paySimpananPokok(address)} disabled={isPending} className="w-full">
+        {isPending ? 'Memproses...' : `Bayar ${formatUSDCAmount(amount)}`}
+      </Button>
+      {isSuccess && <p className="text-xs text-emerald-500 mt-2">Simpanan Pokok berhasil dibayar!</p>}
+    </>
+  )
+}
+
+function PaySimpananWajibButton() {
+  const { paySimpananWajib, isPending, isSuccess } = usePaySimpananWajib()
+  return (
+    <>
+      <Button onClick={() => paySimpananWajib()} disabled={isPending} className="w-full">Bayar</Button>
+      {isSuccess && <p className="text-xs text-emerald-500 mt-2">Simpanan Wajib berhasil!</p>}
+    </>
+  )
+}
+
+function ClaimSHUButton() {
+  const { claimSHU, isPending, isSuccess } = useClaimSHU()
+  return (
+    <Button variant="outline" size="sm" className="mt-2 text-xs" onClick={() => claimSHU(0n)} disabled={isPending}>
+      {isPending ? 'Mengklaim...' : isSuccess ? 'Sudah Diklaim' : 'Klaim SHU'}
+    </Button>
+  )
+}
+
+function Row({ label, value, sub, bold }: { label: string; value: string; sub?: string; bold?: boolean }) {
+  return (
+    <div className="flex items-center justify-between">
+      <div>
+        <p className={`text-sm ${bold ? 'font-semibold' : 'text-muted-foreground'}`}>{label}</p>
+        {sub && <p className="text-[10px] text-muted-foreground">{sub}</p>}
       </div>
-      <div className="h-3 bg-white/10 rounded-full overflow-hidden">
-        <div
-          className={`h-full transition-all duration-500 ${
-            active
-              ? 'bg-gradient-to-r from-purple-500 to-pink-500'
-              : 'bg-gradient-to-r from-gray-600 to-gray-700'
-          }`}
-          style={{ width: `${progress}%` }}
-        />
-      </div>
+      <p className={`text-sm ${bold ? 'font-bold text-emerald-500' : ''}`}>{value}</p>
     </div>
   )
+}
+
+function EmptyState() {
+  return <div className="flex items-center justify-center min-h-[400px]"><p className="text-muted-foreground">Hubungkan dompet untuk mengelola simpanan</p></div>
 }

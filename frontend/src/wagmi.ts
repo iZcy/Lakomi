@@ -1,10 +1,9 @@
 import { http, createConfig } from 'wagmi'
-import { injected, walletConnect } from 'wagmi/connectors'
+import { injected } from 'wagmi/connectors'
 
-// Define Anvil local chain
 export const anvil = {
   id: 31337,
-  name: 'Anvil',
+  name: 'Anvil Lokal',
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {
     default: { http: ['http://127.0.0.1:8545'] },
@@ -12,17 +11,16 @@ export const anvil = {
   testnet: true,
 } as const
 
+export const anvilRpc = http('http://127.0.0.1:8545', {
+  timeout: 10_000,
+  retryCount: 2,
+})
+
 export const wagmiConfig = createConfig({
   chains: [anvil],
-  connectors: [
-    injected(),
-    walletConnect({
-      projectId: 'YOUR_WALLETCONNECT_PROJECT_ID', // Optional: Get from https://cloud.walletconnect.com
-      showQrModal: false,
-    }),
-  ],
+  connectors: [injected()],
   transports: {
-    [anvil.id]: http(),
+    [anvil.id]: anvilRpc,
   },
-  ssr: true,
+  ssr: false,
 })

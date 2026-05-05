@@ -8,12 +8,49 @@ import { Dashboard } from './components/Dashboard'
 import { Governance } from './components/Governance'
 import { Vault } from './components/Vault'
 import { Loans } from './components/Loans'
+import { Compliance } from './components/Compliance'
+import { WrongChainGuard } from './components/WrongChainGuard'
+import { ToastProvider } from './components/Toast'
+import { cn } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { Separator } from '@/components/ui/separator'
 import '@rainbow-me/rainbowkit/styles.css'
 import './index.css'
 
 const queryClient = new QueryClient()
 
-type Tab = 'dashboard' | 'governance' | 'vault' | 'loans'
+type Tab = 'dashboard' | 'simpanan' | 'pinjaman' | 'tata-kelola' | 'kepatuhan'
+
+const NAV_ITEMS: { key: Tab; label: string; badge?: string; icon: React.ReactNode }[] = [
+  {
+    key: 'dashboard',
+    label: 'Beranda',
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>,
+  },
+  {
+    key: 'simpanan',
+    label: 'Simpanan',
+    badge: 'Pasal 41',
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  },
+  {
+    key: 'pinjaman',
+    label: 'Pinjaman',
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>,
+  },
+  {
+    key: 'tata-kelola',
+    label: 'Tata Kelola',
+    badge: 'Pasal 22',
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>,
+  },
+  {
+    key: 'kepatuhan',
+    label: 'Kepatuhan Hukum',
+    badge: 'UU 25/1992',
+    icon: <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>,
+  },
+]
 
 function App() {
   const [activeTab, setActiveTab] = useState<Tab>('dashboard')
@@ -22,101 +59,62 @@ function App() {
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
-          theme={darkTheme({
-            accentColor: '#0ea5e9',
-            accentColorForeground: 'white',
-            borderRadius: 'large',
-          })}
+          theme={darkTheme({ accentColor: 'hsl(217, 91%, 60%)', borderRadius: 'medium' })}
           initialChain={anvil}
         >
-          <div className="min-h-screen">
+          <ToastProvider>
+          <div className="min-h-screen bg-background">
             <Navbar />
+            <div className="container mx-auto px-4 py-6">
+              <div className="flex gap-6">
+                <aside className="w-56 flex-shrink-0 hidden lg:block">
+                  <div className="sticky top-24 space-y-1">
+                    {NAV_ITEMS.map((item) => (
+                      <button
+                        key={item.key}
+                        onClick={() => setActiveTab(item.key)}
+                        className={cn(
+                          'w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors text-left',
+                          activeTab === item.key
+                            ? 'bg-primary/10 text-primary font-medium'
+                            : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                        )}
+                      >
+                        {item.icon}
+                        <span className="flex-1">{item.label}</span>
+                        {item.badge && (
+                          <Badge variant="outline" className="text-[10px] px-1.5 py-0 h-5 font-normal">
+                            {item.badge}
+                          </Badge>
+                        )}
+                      </button>
+                    ))}
 
-            <div className="container mx-auto px-6 py-8">
-              <div className="flex gap-8">
-                {/* Sidebar */}
-                <aside className="w-72 flex-shrink-0">
-                  <div className="glass-card p-6 sticky top-28 space-y-3">
-                    <div className="mb-6">
-                      <h2 className="gradient-text text-2xl font-bold mb-1">Lakomi</h2>
-                      <p className="text-gray-400 text-sm">Cooperative Protocol</p>
-                    </div>
+                    <Separator className="my-4" />
 
-                    <NavButton
-                      active={activeTab === 'dashboard'}
-                      onClick={() => setActiveTab('dashboard')}
-                      icon="📊"
-                      label="Dashboard"
-                    />
-                    <NavButton
-                      active={activeTab === 'governance'}
-                      onClick={() => setActiveTab('governance')}
-                      icon="🗳️"
-                      label="Governance"
-                    />
-                    <NavButton
-                      active={activeTab === 'vault'}
-                      onClick={() => setActiveTab('vault')}
-                      icon="🏦"
-                      label="Vault"
-                    />
-                    <NavButton
-                      active={activeTab === 'loans'}
-                      onClick={() => setActiveTab('loans')}
-                      icon="💰"
-                      label="Loans"
-                    />
-
-                    {/* Info Card */}
-                    <div className="mt-6 pt-6 border-t border-white/10">
-                      <h3 className="text-sm font-semibold text-gray-300 mb-2">About Lakomi</h3>
-                      <p className="text-xs text-gray-400 leading-relaxed">
-                        A democratic cooperative where contribution builds reputation, not power.
-                        Every member has equal voting rights.
-                      </p>
+                    <div className="px-3 py-2.5 rounded-lg bg-emerald-500/5 border border-emerald-500/20">
+                      <p className="text-[10px] font-semibold text-emerald-500 uppercase tracking-wider">Sesuai</p>
+                      <p className="text-[11px] text-muted-foreground mt-0.5 leading-tight">UU 25/1992 Perkoperasian</p>
                     </div>
                   </div>
                 </aside>
 
-                {/* Main Content */}
-                <main className="flex-1">
-                  {activeTab === 'dashboard' && <Dashboard />}
-                  {activeTab === 'governance' && <Governance />}
-                  {activeTab === 'vault' && <Vault />}
-                  {activeTab === 'loans' && <Loans />}
+                <main className="flex-1 min-w-0">
+                  <WrongChainGuard>
+                    {activeTab === 'dashboard' && <Dashboard />}
+                    {activeTab === 'simpanan' && <Vault />}
+                    {activeTab === 'pinjaman' && <Loans />}
+                    {activeTab === 'tata-kelola' && <Governance />}
+                    {activeTab === 'kepatuhan' && <Compliance />}
+                  </WrongChainGuard>
                 </main>
               </div>
             </div>
           </div>
+          </ToastProvider>
         </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
-  )
-}
-
-function NavButton({
-  active,
-  onClick,
-  icon,
-  label,
-}: {
-  active: boolean
-  onClick: () => void
-  icon: string
-  label: string
-}) {
-  return (
-    <button
-      onClick={onClick}
-      className={`nav-item w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left ${
-        active
-          ? 'active text-white font-medium'
-          : 'text-gray-400 hover:text-white'
-      }`}
-    >
-      <span className="text-xl">{icon}</span>
-      <span>{label}</span>
-    </button>
   )
 }
 

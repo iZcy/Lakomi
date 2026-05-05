@@ -1,175 +1,141 @@
 import { useAccount } from 'wagmi'
-import { useIsMember, useVotingPower, useContribution, useContributionTier, useMemberLTV, useTokenBalance, useMemberCount, useTotalContributions } from '../hooks/useContractRead'
-import { formatUnits, getTierInfo, shortenAddress } from '../lib/utils'
-import { Users, TrendingUp, Wallet, Vote, Zap, Shield, Sparkles } from 'lucide-react'
+import { Card, CardContent } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { useIsMember, useVotingPower, useTokenBalance, useMemberCount, useSimpananSummary, useTotalAssets, usePendingSHU } from '../hooks/useContractRead'
+import { formatUSDCAmount, formatLAKAmount, shortenAddress } from '../lib/utils'
 import { MemberRegistration } from './MemberRegistration'
+import { DevFaucet } from './DevFaucet'
 
 export function Dashboard() {
-  const { address, isConnected } = useAccount()
-
-  const { data: isMember } = useIsMember(address)
+  const { address, isConnected, chainId } = useAccount()
+  const { data: isMember, error: memberErr } = useIsMember(address)
   const { data: votingPower } = useVotingPower(address)
-  const { data: contribution } = useContribution(address)
-  const { data: contributionTier } = useContributionTier(address)
-  const { data: ltv } = useMemberLTV(address)
   const { data: tokenBalance } = useTokenBalance(address)
   const { data: memberCount } = useMemberCount()
-  const { data: totalContributions } = useTotalContributions()
+  const { data: summary } = useSimpananSummary(address)
+  const { data: totalAssets } = useTotalAssets()
+  const { data: pendingSHU } = usePendingSHU(address)
 
-  const tierInfo = contributionTier !== undefined ? getTierInfo(contributionTier) : null
+  console.log('Dashboard state:', { address, isConnected, chainId, isMember, memberErr: memberErr?.message, memberCount: memberCount?.toString() })
+
+  if (memberErr) {
+    console.error('Member check error:', memberErr)
+  }
+
+  if (isConnected && memberErr) {
+    return (
+      <div className="space-y-4">
+        <Card className="border-destructive/20 bg-destructive/5">
+          <CardContent className="">
+            <h3 className="text-sm font-semibold text-destructive mb-2">Gagal Membaca Kontrak</h3>
+            <p className="text-xs text-muted-foreground mb-2">{memberErr.message}</p>
+            <p className="text-xs text-muted-foreground">Pastikan dompet terhubung ke jaringan Anvil (Chain ID 31337, RPC http://127.0.0.1:8545)</p>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
+
+  if (isConnected && isMember === undefined) {
+    return (
+      <div className="space-y-6">
+        <Card className="border-primary/20 bg-primary/5">
+          <CardContent className="">
+            <p className="text-sm text-muted-foreground">Selamat datang</p>
+            <p className="text-lg font-bold font-mono mt-0.5">{shortenAddress(address || '')}</p>
+          </CardContent>
+        </Card>
+        <p className="text-xs text-muted-foreground animate-pulse">Memuat data koperasi...</p>
+      </div>
+    )
+  }
 
   if (!isConnected) {
     return (
-      <div className="flex items-center justify-center min-h-[500px]">
-        <div className="text-center glass-card p-12 rounded-3xl">
-          <div className="relative inline-block mb-6">
-            <Wallet className="w-20 h-20 text-sky-400 mx-auto animate-float" />
-            <div className="absolute inset-0 blur-xl bg-sky-400/30 rounded-full" />
-          </div>
-          <h2 className="text-2xl font-bold gradient-text mb-3">Connect Your Wallet</h2>
-          <p className="text-gray-400">Please connect your wallet to view your dashboard</p>
-        </div>
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <Card className="w-full max-w-md">
+          <CardContent className="flex flex-col items-center py-12">
+            <div className="p-4 bg-muted rounded-2xl mb-4">
+              <svg className="w-8 h-8 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+            </div>
+            <h2 className="text-lg font-semibold mb-1">Hubungkan Dompet</h2>
+            <p className="text-sm text-muted-foreground text-center">Hubungkan dompet Anda untuk mengakses layanan koperasi digital</p>
+          </CardContent>
+        </Card>
       </div>
     )
   }
 
   return (
-    <div className="space-y-8">
-      {/* Welcome Section */}
-      <div className="glass-card p-8 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-sky-500/20 to-purple-500/20 rounded-full blur-3xl" />
-        <div className="relative">
-          <div className="flex items-center gap-3 mb-2">
-            <Sparkles className="w-6 h-6 text-sky-400" />
-            <h2 className="text-3xl font-bold gradient-text">Welcome back!</h2>
+    <div className="space-y-6">
+      <Card className="border-primary/20 bg-primary/5">
+        <CardContent className="flex items-center justify-between">
+          <div>
+            <p className="text-sm text-muted-foreground">Selamat datang</p>
+            <p className="text-lg font-bold font-mono mt-0.5">{shortenAddress(address || '')}</p>
           </div>
-          <p className="text-gray-400 text-lg">{shortenAddress(address || '')}</p>
-        </div>
-      </div>
+          {isMember && <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20 hover:bg-emerald-500/20">Anggota Terdaftar</Badge>}
+        </CardContent>
+      </Card>
 
-      {/* Member Registration */}
       <MemberRegistration />
 
-      {/* Member Status Banner */}
-      {isMember === true && (
-        <div className="glass-card p-6 border border-green-500/30 bg-gradient-to-r from-green-500/10 to-emerald-500/10">
-          <div className="flex items-center gap-3">
-            <div className="p-3 bg-green-500/20 rounded-xl">
-              <Shield className="w-6 h-6 text-green-400" />
-            </div>
-            <div>
-              <p className="text-green-400 font-semibold text-lg">Active Member</p>
-              <p className="text-gray-400 text-sm">You have full voting rights and can access all services</p>
-            </div>
+      <DevFaucet />
+
+      {isMember && (
+        <>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <StatCard label="Hak Suara" value={votingPower !== undefined && votingPower > 0n ? '1 Suara' : '0'} desc="1 anggota = 1 suara" />
+            <StatCard label="Saldo LAK" value={tokenBalance !== undefined ? formatLAKAmount(tokenBalance) : '0 LAK'} desc="Token keanggotaan" />
+            <StatCard label="Total Simpanan" value={summary ? formatUSDCAmount(summary.totalContribution) : '0 USDC'} desc="Pokok + Wajib + Sukarela" />
+            <StatCard label="SHU Menunggu" value={pendingSHU !== undefined && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'} desc="Sisa Hasil Usaha" />
           </div>
-        </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <Card>
+              <CardContent className="">
+                <p className="text-sm text-muted-foreground">Total Anggota</p>
+                <p className="text-3xl font-bold text-primary mt-1">{memberCount?.toString() || '0'}</p>
+                <p className="text-xs text-muted-foreground mt-1">Anggota terdaftar</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="">
+                <p className="text-sm text-muted-foreground">Total Aset Koperasi</p>
+                <p className="text-3xl font-bold text-emerald-500 mt-1">{totalAssets !== undefined ? formatUSDCAmount(totalAssets) : '0 USDC'}</p>
+                <p className="text-xs text-muted-foreground mt-1">Dana yang dikelola</p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {summary && (
+            <Card>
+              <CardContent className="">
+                <p className="text-sm font-semibold mb-3">Rincian Simpanan Anda</p>
+                <div className="grid grid-cols-3 gap-4">
+                  <div><p className="text-xs text-muted-foreground">Simpanan Pokok</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(summary.pokok)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(1)</p></div>
+                  <div><p className="text-xs text-muted-foreground">Simpanan Wajib</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(summary.wajibTotal)}</p><p className="text-[10px] text-muted-foreground">{summary.wajibPeriodsPaid.toString()}x dibayar</p></div>
+                  <div><p className="text-xs text-muted-foreground">Simpanan Sukarela</p><p className="text-lg font-bold text-emerald-500 mt-1">{formatUSDCAmount(summary.sukarela)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(3)</p></div>
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </>
       )}
-
-      {/* Personal Stats */}
-      <div>
-        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-          <Zap className="w-5 h-5 text-sky-400" />
-          Your Overview
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Voting Power */}
-          <StatCard
-            title="Voting Power"
-            value={votingPower !== undefined && votingPower > 0n ? '1' : '0'}
-            subtitle="1 member = 1 vote"
-            icon={<Vote className="w-5 h-5 text-sky-400" />}
-          />
-
-          {/* Contribution Tier */}
-          <StatCard
-            title="Contribution Tier"
-            value={tierInfo?.name || 'None'}
-            subtitle={tierInfo ? `${tierInfo.ltv * 100}% max LTV` : 'Not a member'}
-            icon={<TrendingUp className="w-5 h-5 text-purple-400" />}
-            badgeColor={tierInfo?.color}
-          />
-
-          {/* Your Deposits */}
-          <StatCard
-            title="Your Deposits"
-            value={contribution !== undefined ? `${Number(formatUnits(contribution, 6)).toFixed(2)} USDC` : '0 USDC'}
-            subtitle="Total contributed"
-            icon={<Wallet className="w-5 h-5 text-emerald-400" />}
-          />
-
-          {/* Token Balance */}
-          <StatCard
-            title="Token Balance"
-            value={tokenBalance !== undefined ? `${Number(formatUnits(tokenBalance, 18)).toFixed(2)} LAK` : '0 LAK'}
-            subtitle="Membership tokens"
-            icon={<Sparkles className="w-5 h-5 text-pink-400" />}
-          />
-        </div>
-      </div>
-
-      {/* Protocol Stats */}
-      <div>
-        <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-          <Users className="w-5 h-5 text-sky-400" />
-          Protocol Statistics
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Total Members */}
-          <div className="glass-card p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-sky-500/20 rounded-xl">
-                <Users className="w-6 h-6 text-sky-400" />
-              </div>
-              <span className="text-3xl font-bold text-sky-400">
-                {memberCount !== undefined ? memberCount.toString() : '0'}
-              </span>
-            </div>
-            <h4 className="text-lg font-semibold text-white mb-1">Total Members</h4>
-            <p className="text-gray-400 text-sm">Registered cooperative members</p>
-          </div>
-
-          {/* Total Contributions */}
-          <div className="glass-card p-6">
-            <div className="flex items-center justify-between mb-4">
-              <div className="p-3 bg-purple-500/20 rounded-xl">
-                <TrendingUp className="w-6 h-6 text-purple-400" />
-              </div>
-              <span className="text-3xl font-bold text-purple-400">
-                {totalContributions !== undefined ? `${Number(formatUnits(totalContributions, 6)).toLocaleString()} USDC` : '0 USDC'}
-              </span>
-            </div>
-            <h4 className="text-lg font-semibold text-white mb-1">Total Contributions</h4>
-            <p className="text-gray-400 text-sm">Combined member deposits</p>
-          </div>
-        </div>
-      </div>
     </div>
   )
 }
 
-function StatCard({
-  title,
-  value,
-  subtitle,
-  icon,
-  badgeColor,
-}: {
-  title: string
-  value: string
-  subtitle: string
-  icon: React.ReactNode
-  badgeColor?: string
-}) {
+function StatCard({ label, value, desc }: { label: string; value: string; desc: string }) {
   return (
-    <div className="glass-card p-6 group">
-      <div className="flex items-center gap-3 mb-4">
-        <div className="p-2 bg-white/5 rounded-lg group-hover:scale-110 transition-transform">
-          {icon}
-        </div>
-        <h4 className="text-sm font-medium text-gray-400">{title}</h4>
-      </div>
-      <div className="stat-value text-2xl mb-1">{value}</div>
-      <p className="text-xs text-gray-500">{subtitle}</p>
-    </div>
+    <Card>
+      <CardContent className="">
+        <p className="text-xs text-muted-foreground">{label}</p>
+        <p className="text-xl font-bold mt-1">{value}</p>
+        <p className="text-[10px] text-muted-foreground mt-0.5">{desc}</p>
+      </CardContent>
+    </Card>
   )
 }

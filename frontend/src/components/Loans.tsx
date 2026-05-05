@@ -1,241 +1,166 @@
 import { useState } from 'react'
 import { useAccount } from 'wagmi'
-import { useIsMember, useContribution, useContributionTier, useMemberLTV, useActiveLoanCount, useLoan } from '../hooks/useContractRead'
-import { useRepayLoan } from '../hooks/useContractWrite'
-import { formatUnits, parseUnits, getTierInfo } from '../lib/utils'
-import { DollarSign, TrendingUp, AlertCircle, Shield, Calculator } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Badge } from '@/components/ui/badge'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useIsMember, useMaxLoanAmount, useBorrowerLoans, useLoan } from '../hooks/useContractRead'
+import { useRequestLoan, useRepayInFull, useApproveUsdc } from '../hooks/useContractWrite'
+import { formatUSDCAmount, parseUnits, formatTimestampShort, getLoanStateName } from '../lib/utils'
+import { CONTRACTS } from '../config/contracts'
 import { MemberRegistration } from './MemberRegistration'
 
 export function Loans() {
   const { address, isConnected } = useAccount()
-  const [loanAmount, setLoanAmount] = useState('')
-  const [collateralAmount, setCollateralAmount] = useState('')
-
   const { data: isMember } = useIsMember(address)
-  const { data: contribution } = useContribution(address)
-  const { data: contributionTier } = useContributionTier(address)
-  const { data: ltv } = useMemberLTV(address)
-  const { data: activeLoanCount } = useActiveLoanCount()
+  const { data: maxLoan } = useMaxLoanAmount(address)
+  const { data: loanIds } = useBorrowerLoans(address)
 
-  const tierInfo = contributionTier !== undefined ? getTierInfo(contributionTier) : null
-  const maxLoan = collateralAmount && ltv
-    ? parseUnits(collateralAmount) * BigInt(ltv) / 100n
-    : 0n
-
-  if (!isConnected) {
-    return (
-      <div className="flex items-center justify-center min-h-[500px]">
-        <div className="glass-card p-12 text-center">
-          <DollarSign className="w-16 h-16 text-gray-500 mx-auto mb-4" />
-          <p className="text-gray-400 text-lg">Please connect your wallet to manage loans</p>
-        </div>
-      </div>
-    )
-  }
+  if (!isConnected) return <EmptyState />
+  if (!isMember) return <MemberRegistration />
 
   return (
-    <div className="space-y-8">
-      {/* Header */}
-      <div className="glass-card p-8 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-3xl" />
-        <div className="relative">
-          <h2 className="text-3xl font-bold gradient-text mb-2">Emergency Loans</h2>
-          <p className="text-gray-400 text-lg">Borrow against your collateral. Higher tiers get better LTV ratios.</p>
-        </div>
+    <div className="space-y-6">
+      <div>
+        <h2 className="text-xl font-bold">Pinjaman</h2>
+        <p className="text-sm text-muted-foreground mt-1">Ajukan pinjaman dengan jaminan token LAK</p>
       </div>
 
-      {!isMember ? (
-        <MemberRegistration />
-      ) : (
-        <>
-          {/* Stats Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* LTV Ratio */}
-            <div className="glass-card p-6 group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-emerald-500/20 rounded-xl group-hover:scale-110 transition-transform">
-                  <TrendingUp className="w-6 h-6 text-emerald-400" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-400">Your LTV Ratio</h3>
-              </div>
-              <div className="text-3xl font-bold text-emerald-400 mb-1">
-                {ltv !== undefined ? `${ltv.toString()}%` : '0%'}
-              </div>
-              <p className="text-xs text-gray-500">Based on {tierInfo?.name || 'Unknown'}</p>
-            </div>
+      <div className="grid grid-cols-2 gap-3">
+        <Card>
+          <CardContent className="">
+            <p className="text-xs text-muted-foreground">Plafon Maksimal</p>
+            <p className="text-2xl font-bold text-emerald-500 mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 USDC'}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardContent className="">
+            <p className="text-xs text-muted-foreground">Total Pinjaman</p>
+            <p className="text-2xl font-bold text-primary mt-1">{loanIds?.length?.toString() || '0'}</p>
+          </CardContent>
+        </Card>
+      </div>
 
-            {/* Contribution */}
-            <div className="glass-card p-6 group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-purple-500/20 rounded-xl group-hover:scale-110 transition-transform">
-                  <Shield className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-400">Your Contribution</h3>
-              </div>
-              <div className="text-3xl font-bold text-white mb-1">
-                {contribution !== undefined ? `${Number(formatUnits(contribution, 6)).toLocaleString()} USDC` : '0 USDC'}
-              </div>
-              <p className="text-xs text-gray-500">Total deposited</p>
-            </div>
+      <RequestLoanForm maxLoan={maxLoan} />
 
-            {/* Active Loans */}
-            <div className="glass-card p-6 group">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 bg-pink-500/20 rounded-xl group-hover:scale-110 transition-transform">
-                  <Calculator className="w-6 h-6 text-pink-400" />
-                </div>
-                <h3 className="text-sm font-medium text-gray-400">Active Loans</h3>
-              </div>
-              <div className="text-3xl font-bold text-white mb-1">
-                {activeLoanCount?.toString() || '0'}
-              </div>
-              <p className="text-xs text-gray-500">Currently active</p>
-            </div>
-          </div>
-
-          {/* Tiered LTV Info */}
-          <div className="glass-card p-8">
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-emerald-400" />
-              Tiered LTV System
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <LTVTier
-                tier={1}
-                name="Starter"
-                ltv={30}
-                color="from-slate-500 to-gray-500"
-                current={contributionTier !== undefined && contributionTier >= 1}
-              />
-              <LTVTier
-                tier={2}
-                name="Moderate"
-                ltv={50}
-                color="from-sky-500 to-blue-500"
-                current={contributionTier !== undefined && contributionTier >= 2}
-              />
-              <LTVTier
-                tier={3}
-                name="Premium"
-                ltv={70}
-                color="from-purple-500 to-pink-500"
-                current={contributionTier !== undefined && contributionTier >= 3}
-              />
-            </div>
-          </div>
-
-          {/* Loan Calculator */}
-          <div className="glass-card p-8">
-            <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-              <Calculator className="w-5 h-5 text-sky-400" />
-              Loan Calculator
-            </h3>
-            <div className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Collateral Amount (USDC)
-                </label>
-                <input
-                  type="number"
-                  value={collateralAmount}
-                  onChange={(e) => setCollateralAmount(e.target.value)}
-                  placeholder="Enter collateral amount..."
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
-                />
-              </div>
-
-              {maxLoan > 0n && (
-                <div className="glass-card p-6 bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-gray-400 mb-1">Maximum Loan Amount</p>
-                      <p className="text-2xl font-bold text-emerald-400">
-                        {Number(formatUnits(maxLoan, 6)).toLocaleString()} USDC
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm text-gray-400 mb-1">At {ltv}% LTV</p>
-                      <p className="text-xs text-gray-500">Based on your tier</p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Loan Amount (USDC)
-                </label>
-                <input
-                  type="number"
-                  value={loanAmount}
-                  onChange={(e) => setLoanAmount(e.target.value)}
-                  placeholder="Enter loan amount..."
-                  max={maxLoan > 0n ? Number(formatUnits(maxLoan, 6)) : undefined}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
-                />
-                {maxLoan > 0n && (
-                  <p className="text-xs text-gray-500 mt-2">
-                    Maximum: {Number(formatUnits(maxLoan, 6)).toLocaleString()} USDC
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Info Alert */}
-          <div className="glass-card p-6 border border-amber-500/30 bg-gradient-to-r from-amber-500/10 to-orange-500/10">
-            <div className="flex items-start gap-3">
-              <div className="p-2 bg-amber-500/20 rounded-lg">
-                <AlertCircle className="w-5 h-5 text-amber-400 flex-shrink-0" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-amber-400 mb-1">Loan Terms</h4>
-                <ul className="text-sm text-gray-400 space-y-1">
-                  <li>• Interest rate: 5% APY</li>
-                  <li>• Collateral locked until repayment</li>
-                  <li>• Auto-approval for eligible members</li>
-                  <li>• Partial repayments allowed</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </>
+      {loanIds && loanIds.length > 0 && (
+        <div className="space-y-3">
+          <h3 className="text-sm font-semibold">Pinjaman Saya</h3>
+          {[...loanIds].reverse().map((id) => <LoanCard key={id.toString()} loanId={id} />)}
+        </div>
       )}
+
+      <Card className="border-amber-500/20 bg-amber-500/5">
+        <CardContent className="">
+          <h4 className="text-sm font-semibold text-amber-500 mb-2">Ketentuan</h4>
+          <ul className="text-xs text-muted-foreground space-y-1">
+            <li>Bunga berlaku sesuai suku bunga koperasi</li>
+            <li>Jaminan (LAK) dikunci sampai lunas</li>
+            <li>Pinjaman kecil disetujui otomatis</li>
+            <li>Gagal bayar: jaminan dapat disita</li>
+          </ul>
+        </CardContent>
+      </Card>
     </div>
   )
 }
 
-function LTVTier({
-  tier,
-  name,
-  ltv,
-  color,
-  current,
-}: {
-  tier: number
-  name: string
-  ltv: number
-  color: string
-  current: boolean
-}) {
+function RequestLoanForm({ maxLoan }: { maxLoan?: bigint }) {
+  const [amount, setAmount] = useState('')
+  const [duration, setDuration] = useState('30')
+  const [reason, setReason] = useState('')
+  const { requestLoan, isPending, isSuccess } = useRequestLoan()
+  const { approve, isPending: ap } = useApproveUsdc()
+
+  const handle = async () => {
+    if (!amount || !reason) return
+    const a = parseUnits(amount)
+    const secs = BigInt(duration) * 86400n
+    await approve(CONTRACTS.LAKOMI_LOANS, a)
+    await requestLoan(a, secs, reason)
+    setAmount(''); setReason('')
+  }
+
   return (
-    <div className={`glass-card p-6 ${current ? 'border-2 border-sky-500/50' : ''}`}>
-      <div className="flex items-center justify-between mb-4">
-        <div className={`px-3 py-1 rounded-full text-xs font-bold ${current ? 'bg-sky-500 text-white' : 'bg-gray-500/20 text-gray-400'}`}>
-          Tier {tier}
+    <Card>
+      <CardHeader><CardTitle className="text-sm">Ajukan Pinjaman</CardTitle></CardHeader>
+      <CardContent className="space-y-3">
+        <div className="space-y-1.5">
+          <Label>Jumlah (USDC)</Label>
+          <Input type="number" placeholder="0" value={amount} onChange={(e) => setAmount(e.target.value)} />
+          {maxLoan && <p className="text-[10px] text-muted-foreground">Maks: {formatUSDCAmount(maxLoan)}</p>}
         </div>
-        {current && (
-          <div className="flex items-center gap-1 text-sky-400 text-xs font-semibold">
-            <Shield className="w-3 h-3" />
-            Current
+        <div className="space-y-1.5">
+          <Label>Jangka Waktu</Label>
+          <Select value={duration} onValueChange={setDuration}>
+            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="30">30 hari</SelectItem>
+              <SelectItem value="60">60 hari</SelectItem>
+              <SelectItem value="90">90 hari</SelectItem>
+              <SelectItem value="180">180 hari</SelectItem>
+              <SelectItem value="365">1 tahun</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="space-y-1.5">
+          <Label>Keperluan</Label>
+          <Input placeholder="Modal usaha, Biaya pendidikan..." value={reason} onChange={(e) => setReason(e.target.value)} />
+        </div>
+        <Button onClick={handle} disabled={!amount || !reason || isPending || ap} className="w-full">
+          {ap ? 'Menyetujui...' : isPending ? 'Mengajukan...' : 'Ajukan Pinjaman'}
+        </Button>
+        {isSuccess && <p className="text-xs text-emerald-500">Berhasil diajukan!</p>}
+      </CardContent>
+    </Card>
+  )
+}
+
+function LoanCard({ loanId }: { loanId: bigint }) {
+  const { data: loan } = useLoan(loanId)
+  const { repayInFull, isPending, isSuccess } = useRepayInFull()
+  const { approve, isPending: ap } = useApproveUsdc()
+
+  if (!loan) return null
+  const s = Number(loan.status)
+  const colors = ['bg-yellow-500/10 text-yellow-500', 'bg-blue-500/10 text-blue-500', 'bg-emerald-500/10 text-emerald-500', 'bg-muted text-muted-foreground', 'bg-red-500/10 text-red-500']
+
+  const handleRepay = async () => {
+    await approve(CONTRACTS.LAKOMI_LOANS, loan.totalOwed)
+    await repayInFull(loanId)
+  }
+
+  return (
+    <Card>
+      <CardContent className="">
+        <div className="flex items-start justify-between mb-3">
+          <div>
+            <p className="font-medium text-sm">Pinjaman #{loanId.toString()}</p>
+            <p className="text-xs text-muted-foreground">{loan.reason}</p>
+          </div>
+          <Badge variant="outline" className={colors[s]}>{getLoanStateName(s)}</Badge>
+        </div>
+        <div className="grid grid-cols-4 gap-3 text-sm">
+          <div><p className="text-[10px] text-muted-foreground">Pokok</p><p className="font-medium">{formatUSDCAmount(loan.principal)}</p></div>
+          <div><p className="text-[10px] text-muted-foreground">Bunga</p><p className="font-medium">{formatUSDCAmount(loan.interest)}</p></div>
+          <div><p className="text-[10px] text-muted-foreground">Total</p><p className="font-medium text-amber-500">{formatUSDCAmount(loan.totalOwed)}</p></div>
+          <div><p className="text-[10px] text-muted-foreground">Jatuh Tempo</p><p className="font-medium">{formatTimestampShort(loan.dueTime)}</p></div>
+        </div>
+        {s === 2 && (
+          <div className="mt-3 pt-3 border-t">
+            <Button onClick={handleRepay} disabled={isPending || ap} className="w-full" size="sm">
+              {ap ? 'Menyetujui...' : isPending ? 'Membayar...' : `Lunasi ${formatUSDCAmount(loan.totalOwed)}`}
+            </Button>
+            {isSuccess && <p className="text-xs text-emerald-500 mt-2">Lunas!</p>}
           </div>
         )}
-      </div>
-      <h4 className="text-lg font-bold text-white mb-2">{name}</h4>
-      <div className={`text-3xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent mb-2`}>
-        {ltv}%
-      </div>
-      <p className="text-xs text-gray-500">Maximum LTV</p>
-    </div>
+      </CardContent>
+    </Card>
   )
+}
+
+function EmptyState() {
+  return <div className="flex items-center justify-center min-h-[400px]"><p className="text-muted-foreground">Hubungkan dompet untuk mengajukan pinjaman</p></div>
 }

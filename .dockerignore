@@ -1,0 +1,14 @@
+node_modules
+.git
+.next
+dist
+artifacts
+cache
+broadcast
+*.pyc
+__pycache__
+.env
+checkpoint.md
+.playwright-mcp
+downloads
+docs

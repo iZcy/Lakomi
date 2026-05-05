@@ -22,7 +22,7 @@ module.exports = {
       chainId: 31337,
     },
     localhost: {
-      url: "http://127.0.0.1:8545",
+      url: process.env.RPC_URL || "http://127.0.0.1:8545",
     },
     dchainTestnet: {
       url: "https://dchaintestnet-2713017997578000-1.jsonrpc.testnet.sagarpc.io",

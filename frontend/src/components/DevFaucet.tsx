@@ -1,12 +1,14 @@
 import { useState } from 'react'
-import { useAccount, useBalance } from 'wagmi'
+import { useAccount, useBalance, useWalletClient } from 'wagmi'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
 import { anvil } from '../wagmi'
 import { CONTRACTS } from '../config/contracts'
 
-const RPC = 'http://127.0.0.1:8545'
+const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
+  ? import.meta.env.VITE_RPC_URL
+  : 'http://127.0.0.1:8545'
 
 async function rpcCall(method: string, params: unknown[]) {
   const res = await fetch(RPC, {
@@ -28,9 +30,10 @@ function encodeMint(to: string, amount: bigint): string {
 
 export function DevFaucet() {
   const { address, chainId } = useAccount()
+  const { data: walletClient } = useWalletClient()
   const { refetch: refetchBalance } = useBalance({ address })
   const { addToast } = useToast()
-  const [busy, setBusy] = useState<'eth' | 'usdc' | null>(null)
+  const [busy, setBusy] = useState<'eth' | 'usdc' | 'reset' | null>(null)
 
   const requestEth = async () => {
     if (!address) return
@@ -70,6 +73,26 @@ export function DevFaucet() {
     }
   }
 
+  const resetWallet = async () => {
+    setBusy('reset')
+    try {
+      await walletClient?.request({
+        method: 'wallet_addEthereumChain',
+        params: [{
+          chainId: `0x${anvil.id.toString(16)}`,
+          chainName: 'Anvil Local',
+          nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
+          rpcUrls: ['http://127.0.0.1:8545'],
+        }],
+      })
+      addToast('Jaringan ditambahkan ulang — nonce dompet sudah direset!', 'success')
+    } catch (e: any) {
+      addToast('Gagal: ' + (e?.message || 'Unknown error'), 'error')
+    } finally {
+      setBusy(null)
+    }
+  }
+
   if (chainId !== anvil.id) return null
 
   return (
@@ -88,6 +111,9 @@ export function DevFaucet() {
           </Button>
           <Button variant="outline" size="sm" onClick={requestUsdc} disabled={!!busy}>
             {busy === 'usdc' ? 'Mencetak...' : '1,000 USDC'}
+          </Button>
+          <Button variant="outline" size="sm" onClick={resetWallet} disabled={!!busy}>
+            {busy === 'reset' ? 'Reset...' : 'Reset Nonce'}
           </Button>
         </div>
       </CardContent>

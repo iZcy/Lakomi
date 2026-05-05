@@ -1,277 +1,30 @@
 \chapter{Hasil dan Pembahasan}
 
-Bab ini menyajikan hasil implementasi dan analisis sistem Lakomi berdasarkan tujuan penelitian yang telah ditetapkan.
+Berikut ini adalah yang perlu diperhatikan untuk mengisi bab hasil dan pembahasan:
 
-\section{Implementasi Smart Contract}
-
-\subsection{LakomiToken (LAK)}
-
-LakomiToken adalah smart contract yang mengimplementasikan standar ERC-20 dengan modifikasi untuk kebutuhan sistem keanggotaan koperasi. Kontrak ini bertanggung jawab atas manajemen keanggotaan melalui mekanisme registry dan pencatatan token simpanan anggota.
-
-Keputusan desain utama pada LakomiToken adalah pemisahan antara status keanggotaan (\textit{membership}) dan token balance. Setiap anggota yang terdaftar memiliki satu suara dalam governance terlepas dari besaran token yang dimilikinya. Pendaftaran anggota dilakukan melalui fungsi \texttt{registerMember()} yang hanya dapat dipanggil oleh akun dengan peran \texttt{MEMBERSHIP_ROLE}.
-
-\begin{lstlisting}[language=Solidity, caption={Fungsi \texttt{getVotingPower} pada LakomiToken}]
-function getVotingPower(address account) external view returns (uint256) {
-    return isRegisteredMember[account] ? 1 : 0;
-}
-\end{lstlisting}
-
-Kode di atas menunjukkan implementasi 1-member-1-vote, di mana fungsi \texttt{getVotingPower} mengembalikan nilai 1 jika alamat terdaftar sebagai anggota, dan 0 jika tidak. Pendekatan ini berbeda dengan implementasi DAO konvensional yang umumnya mengembalikan \texttt{balanceOf(account)}.
-
-Selain itu, LakomiToken juga mengimplementasikan mekanisme token locking untuk keperluan collateral pada pinjaman. Token yang dikunci tidak dapat ditransfer namun tetap dihitung sebagai bagian dari total supply, memastikan integritas sistem pada saat penentuan kuorum governance.
-
-\subsection{LakomiVault}
-
-LakomiVault berfungsi sebagai pengelola treasury koperasi, menerima deposit USDC dari anggota dan melacak kepemilikan saham melalui mekanisme \textit{shares}. Kontrak ini juga mengimplementasikan sistem skor kontribusi dan penentuan tingkat reputasi anggota.
-
-Inovasi utama pada LakomiVault adalah implementasi sistem tiering berdasarkan besaran kontribusi anggota. Terdapat tiga tingkat kontribusi:
-\begin{itemize}
-    \item \textbf{Tier 1} (< 500 USDC): Kontributor tingkat pemula
-    \item \textbf{Tier 2} (500--1999 USDC): Kontributor tingkat menengah
-    \item \textbf{Tier 3} ($\geq$ 2000 USDC): Kontributor tingkat tinggi
-\end{itemize}
-
-\begin{lstlisting}[language=Solidity, caption={Fungsi penentuan tingkat kontribusi}]
-function getContributionTier(address member) external view returns (uint8) {
-    uint256 deposited = contributions[member];
-    if (deposited >= TIER3_THRESHOLD) return 3;
-    if (deposited >= TIER2_THRESHOLD) return 2;
-    return 1;
-}
-\end{lstlisting}
-
-Fungsi di atas menentukan tingkat kontribusi berdasarkan total deposit USDC anggota. Tingkat ini kemudian digunakan oleh kontrak LakomiLoans untuk menentukan \textit{Loan-to-Value} (LTV) maksimal yang dapat diakses anggota.
-
-LakomiVault juga mengimplementasikan mekanisme penarikan dengan \textit{timelock} untuk penarikan besar (di atas threshold tertentu). Fitur ini memberikan perlindungan terhadap \textit{rug pull} dan memungkinkan governance untuk meninjau ulang permintaan penarikan yang mencurigakan.
-
-\subsection{LakomiGovern}
-
-LakomiGovern adalah kontrak yang mengimplementasikan mekanisme governance DAO dengan prinsip 1-anggota-1-suara. Kontrak ini memungkinkan anggota terdaftar untuk membuat proposal, melakukan voting, dan mengeksekusi keputusan yang telah disetujui.
-
-Alur proposal governance dimulai dari tahap \textit{Pending}, di mana proposal baru dibuat. Setelah masa voting dimulai, proposal masuk ke tahap \textit{Active} dan anggota dapat memberikan suara (For, Against, atau Abstain). Setelah masa voting berakhir, proposal dievaluasi berdasarkan kuorum dan mayoritas suara. Proposal yang memenuhi kuorum dan mayoritas For masuk ke tahap \textit{Succeeded}, kemudian di-\textit{queue} untuk eksekusi setelah masa timelock.
-
-\begin{lstlisting}[language=Solidity, caption={Mekanisme penentuan kuorum berbasis jumlah anggota}]
-function quorum() public view returns (uint256) {
-    uint256 members = token.getMemberCount();
-    return (members * quorumNumerator) / QUORUM_DENOMINATOR;
-}
-\end{lstlisting}
-
-Implementasi kuorum di atas berbeda dengan DAO konvensional yang menghitung kuorum berdasarkan persentase dari total supply token. Pada Lakomi, kuorum dihitung berdasarkan persentase dari jumlah anggota terdaftar, memastikan bahwa keputusan governance mencerminkan kehendak mayoritas anggota, bukan mayoritas token.
-
-\subsection{LakomiLoans}
-
-LakomiLoans adalah kontrak yang mengelola fungsi pinjaman darurat dengan sistem LTV bertingkat. Inovasi utama pada kontrak ini adalah integrasi dengan sistem reputasi dari LakomiVault untuk menentukan LTV yang berbeda berdasarkan tingkat kontribusi anggota.
-
-Tabel~\ref{tab:ltv-tiers} menunjukkan skema LTV bertingkat yang diterapkan.
-
-\begin{table}[htbp]
-\centering
-\caption{Skema LTV Bertingkat}
-\label{tab:ltv-tiers}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Tier} & \textbf{Kontribusi} & \textbf{LTV Maksimal} \\
-\hline
-Tier 1 & < 500 USDC & 30\% \\
-\hline
-Tier 2 & 500--1999 USDC & 50\% \\
-\hline
-Tier 3 & $\geq$ 2000 USDC & 70\% \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{lstlisting}[language=Solidity, caption={Fungsi perhitungan LTV maksimal}]
-function _calculateMaxLTV(address borrower) internal view returns (uint256) {
-    uint8 tier = vault.getContributionTier(borrower);
-    if (tier == 3) return TIER3_LTV;  // 70%
-    if (tier == 2) return TIER2_LTV;  // 50%
-    return TIER1_LTV;                  // 30%
-}
-\end{lstlisting}
-
-Skema ini memberikan insentif bagi anggota untuk meningkatkan kontribusinya, karena kontributor tingkat tinggi dapat mengakses pinjaman dengan nilai yang lebih besar relatif terhadap jaminan yang diberikan.
-
-\section{Hasil Pengujian Smart Contract}
-
-\subsection{Unit Testing}
-
-Pengujian smart contract dilakukan menggunakan framework Foundry dengan 105 \textit{unit test} yang mencakup berbagai skenario. Tabel~\ref{tab:test-results} merangkum hasil pengujian per kontrak.
-
-\begin{table}[htbp]
-\centering
-\caption{Hasil Pengujian Smart Contract}
-\label{tab:test-results}
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Kontrak} & \textbf{Jumlah Test} & \textbf{Status} \\
-\hline
-LakomiToken & 30 & \textcolor{green}{Passed} \\
-\hline
-LakomiVault & 26 & \textcolor{green}{Passed} \\
-\hline
-LakomiGovern & 20 & \textcolor{green}{Passed} \\
-\hline
-LakomiLoans & 29 & \textcolor{green}{Passed} \\
-\hline
-\textbf{Total} & \textbf{105} & \textbf{\textcolor{green}{All Passed}} \\
-\hline
-\end{tabular}
-\end{table}
-
-Pengujian mencakup skenario \textit{happy path}, \textit{edge cases}, dan \textit{revert conditions}. Selain itu, pengujian \textit{fuzz testing} juga dilakukan untuk fungsi-fungsi kritikal seperti \texttt{deposit()}, \texttt{mint()}, dan \texttt{lockAndUnlock()} untuk memastikan robustness terhadap input yang tidak terduga.
-
-Framework Foundry menyediakan \textit{cheatcodes} seperti \texttt{vm.prank} untuk simulasi pemanggilan fungsi dari akun tertentu, \texttt{vm.warp} untuk manipulasi waktu block, dan \texttt{vm.expectRevert} untuk verifikasi \textit{error conditions}. Fitur-fitur ini memungkinkan pengujian skenario kompleks seperti voting governance dengan variasi jumlah peserta dan penjadwalan eksekusi proposal.
-
-\subsection{Gas Analysis}
-
-Analisis konsumsi gas dilakukan untuk mengukur efisiensi operasi smart contract. Tabel~\ref{tab:gas-analysis} menyajikan biaya deployment dan operasi utama.
-
-\begin{table}[htbp]
-\centering
-\caption{Analisis Konsumsi Gas}
-\label{tab:gas-analysis}
-\begin{tabular}{|l|c|c|}
-\hline
-\textbf{Operasi} & \textbf{Gas (Avg)} & \textbf{Kategori} \\
-\hline
-\multicolumn{3}{|c|}{\textit{Deployment Cost}} \\
-\hline
-LakomiToken & 1,658,277 & High \\
-\hline
-LakomiVault & 1,589,720 & High \\
-\hline
-LakomiGovern & 1,577,587 & High \\
-\hline
-LakomiLoans & 2,215,396 & Very High \\
-\hline
-\multicolumn{3}{|c|}{\textit{Operational Cost}} \\
-\hline
-registerMember() & 145,000 & Medium \\
-\hline
-deposit() & 177,000 & Medium \\
-\hline
-createProposal() & 187,000 & Medium \\
-\hline
-castVote() & 88,000 & Low \\
-\hline
-requestLoan() & 168,000 & Medium \\
-\hline
-disburse() & 166,000 & Medium \\
-\hline
-repay() & 60,000 & Low \\
-\hline
-\end{tabular}
-\end{table}
-
-Biaya deployment tertinggi terdapat pada LakomiLoans (2.22 juta gas) dikarenakan kompleksitas logika perhitungan LTV bertingkat dan interaksi dengan dua kontrak eksternal (LakomiToken dan LakomiVault). Untuk operasi runtime, biaya tertinggi terdapat pada \texttt{requestLoan()} dan \texttt{createProposal()} karena kedua fungsi tersebut melibatkan validasi yang kompleks dan \textit{event emission}.
-
-Secara umum, biaya operasional Lakomi sebanding dengan aplikasi DeFi serupa yang berjalan pada jaringan EVM-compatible. Penggunaan teknik \textit{storage packing} dan \textit{event indexing} membantu mengoptimalkan konsumsi gas pada operasi yang sering dipanggil.
-
-\section{Deployment pada Jaringan DChain}
-
-\subsection{Konfigurasi Deployment}
-
-Deployment smart contract dilakukan dengan urutan sebagai berikut untuk memastikan ketergantungan antar kontrak terpenuhi:
 \begin{enumerate}
-    \item \textbf{LakomiVault}: Deploy terlebih dahulu sebagai kontrak independen
-    \item \textbf{LakomiToken}: Deploy dan konfigurasi referensi ke LakomiVault
-    \item \textbf{LakomiGovern}: Deploy dengan referensi ke LakomiToken
-    \item \textbf{LakomiLoans}: Deploy terakhir dengan referensi ke LakomiToken dan LakomiVault
+	\item Setiap rumusan masalah boleh memiliki lebih dari 1 tujuan.
+	\item Setiap subbab harus spesifik menjawab setiap tujuan yang dituliskan.
+	\item Setiap rumusan masalah boleh dijawab dengan 1 subbab atau lebih.
 \end{enumerate}
 
-Setelah semua kontrak ter-deploy, dilakukan konfigurasi peran (\textit{role grants}) untuk memungkinkan interaksi antar kontrak:
-\begin{itemize}
-    \item LakomiGovern diberikan \texttt{MEMBERSHIP\_ROLE} pada LakomiToken untuk mendaftarkan anggota
-    \item LakomiGovern dan LakomiLoans diberikan \texttt{LOCKER\_ROLE} dan \texttt{BURNER\_ROLE} pada LakomiToken
-    \item LakomiGovern diberikan \texttt{GOVERN\_ROLE} pada LakomiVault untuk pengeluaran dana governance
-\end{itemize}
+Berikut ini adalah contoh sub bab untuk menjelaskan tujuan penelitian.
 
-\subsection{Alamat Kontrak}
+\section{Pembahasan Tujuan 1 dengan Hasil Penelitian 1 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}
 
-Tabel~\ref{tab:deployment-addresses} menyajikan alamat kontrak pada jaringan Base Sepolia testnet.
+Sub bab pertama adalah membahas tujuan penelitian pertama dengan hasil penelitian ke-1. 
+Dapat ditambahkan beberapa sub bab jika diperlukan.
 
-\begin{table}[htbp]
-\centering
-\caption{Alamat Kontrak pada Base Sepolia}
-\label{tab:deployment-addresses}
-\begin{tabular}{|l|c|}
-\hline
-\textbf{Kontrak} & \textbf{Alamat (Base Sepolia)} \\
-\hline
-LakomiToken & 0x... (Deployment scheduled) \\
-\hline
-LakomiVault & 0x... (Deployment scheduled) \\
-\hline
-LakomiGovern & 0x... (Deployment scheduled) \\
-\hline
-LakomiLoans & 0x... (Deployment scheduled) \\
-\hline
-\end{tabular}
-\end{table}
+\section{Pembahasan Tujuan 1 dengan Hasil Penelitian 2 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}
 
-\section{Implementasi Frontend}
+Sub bab kedua adalah membahas tujuan penelitian pertama dengan hasil penelitian ke-2. Sub bab ini merupakan contoh tambahan sub bab pertama.
 
-\subsection{Arsitektur Frontend}
+\section{Pembahasan Tujuan 2 dengan Hasil Penelitian 3 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}
 
-Frontend Lakomi dibangun menggunakan arsitektur web3 traditional dengan stack React + ethers.js. Komunikasi dengan smart contract dilakukan melalui \textit{JSON-RPC} ke node Base Sepolia testnet, dengan transaksi yang ditandatangani oleh dompet Web3 (MetaMask).
+Sub bab ketiga adalah membahas tujuan penelitian kedua. Dapat ditambahkan beberapa sub bab jika diperlukan.
 
-\subsection{Fitur Utama}
+\section{Perbandingan Hasil Penelitian dengan Hasil Terdahulu}
 
-Frontend menyediakan antarmuka untuk:
-\begin{itemize}
-    \item Pendaftaran anggota dan manajemen profil
-    \item Deposit dan penarikan USDC
-    \item Pembuatan dan voting proposal governance
-    \item Pengajuan, pencairan, dan pengembalian pinjaman
-    \item Dashboard monitoring kontribusi dan reputasi
-\end{itemize}
-
-\section{Analisis Keamanan}
-
-\subsection{Access Control}
-
-Seluruh smart contract menggunakan pola \texttt{AccessControl} dari OpenZeppelin untuk manajemen peran berbasis RBAC (\textit{Role-Based Access Control}). Setiap fungsi yang sensitif dilindungi dengan modifier \texttt{onlyRole}, memastikan hanya akun yang berwenang yang dapat memanggil fungsi tersebut.
-
-\begin{lstlisting}[language=Solidity, caption={Contoh implementasi access control}]
-function grantRole(bytes32 role, address account)
-    public
-    onlyRole(getRoleAdmin(role))
-{
-    _grantRole(role, account);
-}
-\end{lstlisting}
-
-\subsection{Reentrancy Protection}
-
-Seluruh fungsi yang melakukan transfer token atau eksternal call dilindungi dengan modifier \texttt{nonReentrant} dari OpenZeppelin. Modifier ini memastikan bahwa reentrancy attack tidak dapat dieksploitasi, meskipun hal ini menambah sedikit overhead gas.
-
-\section{Perbandingan dengan Koperasi Tradisional}
-
-Tabel~\ref{tab:koperasi-comparison} menyajikan perbandingan antara sistem Lakomi dan koperasi tradisional.
-
-\begin{table}[htbp]
-\centering
-\caption{Perbandingan Lakomi dan Koperasi Tradisional}
-\label{tab:koperasi-comparison}
-\begin{tabular}{|l|p{5cm}|p{5cm}|}
-\hline
-\textbf{Aspek} & \textbf{Koperasi Tradisional} & \textbf{Lakomi} \\
-\hline
-Transparansi & Terbatas, manual & Immutable, on-chain \\
-\hline
-Voting & Fisik, rentan manipulasi & Otomatis, terverifikasi \\
-\hline
-Pencairan Pinjaman & Manual, 1--3 hari & Otomatis, menit \\
-\hline
-Biaya Operasional & Tinggi (SDM, infrastruktur) & Rendah (gas only) \\
-\hline
-Akses Audit & Terbatas pengurus & Terbuka untuk semua anggota \\
-\hline
-Ketersediaan & Jam kerja & 24/7 \\
-\hline
-\end{tabular}
-\end{table}
-
-Keunggulan utama Lakomi adalah transparansi penuh melalui pencatatan on-chain, otomasi proses governance dan pinjaman, dan biaya operasional yang lebih rendah dalam jangka panjang. Namun, sistem ini memiliki keterbatasan dalam hal biaya gas untuk setiap transaksi dan kurangnya familiarity pengguna dengan teknologi blockchain.
+Pembahasan penutup dapat menjelaskan mengenai kelebihan hasil pengembangan / 
+penelitian dan kekurangan dibandingkan dengan skripsi atau penelitian terdahulu atau
+perbandingan terhadap produk lain yang ada di pasaran. Penulis dapat menggunakan tabel untuk membandingkan secara gamblang dan menjelaskannya.

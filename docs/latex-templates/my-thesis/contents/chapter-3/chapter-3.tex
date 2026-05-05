@@ -1,67 +1,54 @@
 \chapter{Metode Penelitian}
 
-Bab ini menjelaskan metode yang digunakan dalam penelitian ini untuk mencapai tujuan yang telah ditetapkan pada Bab 1.
+Bab ini menjelaskan metode atau cara yang digunakan dalam penelitian ini untuk 
+mencapai maksud dan tujuan seperti yang tertulis dalam sub-bab 1.3 [jika diinginkan, kalian dapat menuliskan Kembali tujuan penelitian yang ingin dicapai di sini].
 
-\section{Alat dan Bahan Penelitian}
+\section{Alat dan Bahan Tugas akhir (Opsional)}
 
-\subsection{Alat Penelitian}
+\subsection{Alat Tugas akhir}
 
-Alat-alat yang digunakan dalam penelitian ini meliputi:
-
-\begin{enumerate}
-    \item \textit{Notebook} dengan sistem operasi Linux, digunakan untuk pengembangan smart contract dan frontend.
-    \item Framework Foundry untuk pengembangan, pengujian, dan deployment smart contract Solidity.
-    \item Node.js dan npm untuk pengembangan frontend.
-    \item Browser dengan Web3 wallet (MetaMask) untuk interaksi dengan smart contract.
-    \item Base Sepolia testnet dan jaringan DChain untuk deployment dan pengujian.
-\end{enumerate}
-
-\subsection{Bahan Penelitian}
-
-Bahan penelitian yang digunakan meliputi:
+Alat-alat yang digunakan pada tugas akhir ini berupa perangkat keras maupun perangkat lunak sebagai sarana pendukung antara lain. Kemukakan secara detail sesuai dengan kebutuhan tugas akhir dan juga tambahkan spesifikasi minumum sehingga peneliti lain yang hendak melakukan hal yang sama bisa melakukannya :
 
 \begin{enumerate}
-    \item Pustaka akademis tentang blockchain, DAO, dan koperasi digital yang diperoleh melalui IEEE Xplore, ScienceDirect, dan SpringerLink.
-    \item Dokumentasi teknis Solidity, Foundry, dan OpenZeppelin.
-    \item Regulasi koperasi Indonesia (UU No. 25 Tahun 1992).
+	\item \textit{Notebook} dengan spesifikasi minumum sistem operasi Windows 8, \textit{processor} Intel Core i3 2330M CPU @ 2,2 GHz, memori 4GB DDR3, grafis NVIDIA GeForce GT 610 (4GB), hardisk 500GB. Pada tugas akhir ini digunakan Windows 10, Intel Core i7 4570M CPU, Memori 4GB DDR 3, grafis Intel HD4300. 
+	\item \textit{Smartphone} dengan spesifikasi tipe minimum, OS Android OS v4.1.2 (Jelly Bean),CPU Dual-core 800 MHz, GPU Mali-400, Internal 4 GB, 768 MB RAM. Pada tugas akhir ini digunakan ....
+	\item \textit{Game creation platform} versi 3.3.2 untuk Stencyl dan Construct2.
+	\item CORELDRAW X7, Tiled dan GIMP 2
 \end{enumerate}
+
+\subsection{Bahan Tugas akhir}
+
+Bahan tugas akhir adalah segala sesuatu yang bersifat fisik atau digital yang digunakan untuk kebutuhan tugas akhir. Bahan tugas akhir dapat berupa:
+
+\begin{enumerate}
+	\item Bahan habis pakai. Bahan yang digunakan untuk tugas akhir. Sebagai contoh 
+	mungkin dibutuhkan kertas transparansi, baterai, atau yang lain 
+	\item Bahan yang berupa data atau informasi yang menjadi dataset tugas akhir. Dataset tugas akhir dapat berupa:
+	\begin{itemize}
+		\item Dataset pihak lain yang diperoleh dengan izin atau dalam lisensi yang diizinkan untuk digunakan secara langsung 
+		\item Dataset pihak pertama yang disusun sendiri melalui quisioner, observasi, atau interview 
+		\item Dokumen panduan yang mengacu pada standar, hasil tugas akhir, atau artikel yang disitasi dan digunakan.
+	\end{itemize}
+	
+\end{enumerate}
+
+
 
 \section{Metode yang Digunakan}
 
-Penelitian ini menggunakan metode \textit{Design Science Research} (DSR) yang terdiri dari tahapan berikut:
+Bagian ini membahas metode atau cara yang akan digunakan dalam penelitian, tahapan 
+penerapan metode, dan desain penelitian (misalnya apakah penelitian akan menggunakan 
+eksperimen di Laboratorium atau di lapangan, misalkan saja penelitian biomedis atau 
+penelitian alat ukur hama yang dapat dilakukan di laboratorium ataupun di lapangan, atau menggunakan metode survei (misalnya untuk teknologi Informasi), studi kasus, atau analisis dengan perangkat lunak (ETAP, LTSpice, dst), atau \textit{prototyping} (pembuatan perangkat keras).
 
-\begin{enumerate}
-    \item \textbf{Identifikasi Masalah}: Menganalisis tantangan koperasi tradisional di Indonesia.
-    \item \textbf{Definisi Tujuan}: Menetapkan tujuan solusi berbasis blockchain.
-    \item \textbf{Desain dan Pengembangan}: Merancang dan mengimplementasikan arsitektur Lakomi.
-    \item \textbf{Demonstrasi}: Menjalankan sistem pada jaringan testnet.
-    \item \textbf{Evaluasi}: Menganalisis keamanan, efisiensi, dan perbandingan dengan sistem tradisional.
-    \item \textbf{Komunikasi}: Mendokumentasikan hasil penelitian.
-\end{enumerate}
+Bagian ini juga membahas bagaimana data [akan] dianalisis, apakah dengan membandingkan keluaran beberapa alat ukur, membandingkan dengan standar atau bagaimana.
 
-\section{Arsitektur Sistem Lakomi}
+\section{Alur Tugas Akhir}
 
-% TODO: Tambahkan diagram arsitektur sistem
+Menguraikan prosedur yang akan digunakan dan jadwal atau alur penyelesaian setiap 
+tahap. Alur penelian ini dapat disajikan dalam bentuk diagram. Diagram dapat disusun dengan aturan yang baik semisal menggunakan \textit{flowchart}. Aturan dan tutorial pembuatan \textit{flowchart} dapat dilihat di \textcolor{blue}{http://ugm.id/flowcharttutorial}. Setelah menggambarkannya, penulis wajib menjelaskan langkah-langkah setiap alur tugas akhir dalam sub bab tersendiri sesuai dengan kebutuhan.
 
-Sistem Lakomi terdiri dari empat smart contract utama:
+\section{Etika, Masalah, dan Keterbatasan Penelitian (Opsional))}
 
-\begin{enumerate}
-    \item \textbf{LakomiToken (LAK)}: Token keanggotaan ERC-20 dengan registry anggota (1 anggota = 1 suara), token locking, dan reputasi kontribusi.
-    \item \textbf{LakomiVault}: Pengelolaan treasury dengan deposit/penarikan USDC, pelacakan proporsi saham, dan sistem skor kontribusi (Tier 1/2/3).
-    \item \textbf{LakomiGovern}: Tata kelola DAO dengan 1-anggota-1-suara, pembuatan proposal (hanya anggota terdaftar), quorum berbasis jumlah anggota (40\%), dan eksekusi ter-timelock.
-    \item \textbf{LakomiLoans}: Sistem pinjaman darurat dengan bunga 5\% APY, LTV bertingkat berdasarkan kontribusi (Tier 1: 30\%, Tier 2: 50\%, Tier 3: 70\%), dan penguncian kolateral.
-\end{enumerate}
-
-\section{Alur Penelitian}
-
-% TODO: Tambahkan flowchart alur penelitian
-
-\begin{enumerate}
-    \item Studi literatur dan analisis kebutuhan koperasi digital.
-    \item Perancangan arsitektur sistem dan smart contract.
-    \item Implementasi smart contract menggunakan Solidity dan Foundry.
-    \item Pengujian unit test dan fuzz test pada smart contract.
-    \item Deployment pada Base Sepolia testnet dan jaringan DChain.
-    \item Pengembangan frontend dApp menggunakan React dan RainbowKit.
-    \item Evaluasi keamanan, efisiensi gas, dan perbandingan performa.
-\end{enumerate}
+Bagian ini membahas pertimbangan etis penelitian dan [potensi] masalah serta
+keterbatasannya. Jika menyangkut penelitian dengan makhluk hidup, maka dibutuhkan adanya \textit{ethical clearance}, di bagian ini hal itu akan dibahas. Demikian juga tentang keterbatasan ataupun masalah yang akan timbul.

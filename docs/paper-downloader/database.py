@@ -114,6 +114,10 @@ class Library:
                 paper.bibtex_raw, paper.abstract, paper.url, paper.pdf_url, status
             ))
 
+    def update_paper_pdf(self, title: str, pdf_path: str):
+        with sqlite3.connect(self.db_path) as conn:
+            conn.execute("UPDATE papers SET pdf_path = ?, status = 'downloaded' WHERE title = ?", (pdf_path, title))
+
     def log_search(self, query: str, topic: str, database: str,
                    found: int, downloaded: int):
         """Log a search operation."""

@@ -21,3 +21,10 @@ cache/
 docs/paper-downloader/venv/
 .claude/
 library.db
+
+# Paper downloads
+docs/paper-downloader/downloads/
+docs/paper-downloader/*.db
+docs/paper-downloader/__pycache__/
+docs/paper-downloader/scrapers/__pycache__/
+docs/paper-downloader/*.log

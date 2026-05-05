@@ -20,7 +20,9 @@ from bibtex import BibTexMerger
 from exporter import CSVExporter, BrowserOpener
 from interactive import InteractiveMenu
 from session import EzproxySession
-from scrapers import IEEEScraper, ScienceDirectScraper, SpringerScraper
+from scrapers import IEEEScraper, ScienceDirectScraper, SpringerScraper, ACMScraper, ScholarScraper, ArxivScraper
+from scrapers.generic import GenericJournalScraper
+from scrapers.jstor import JSTORScraper
 
 
 class PaperDownloader:
@@ -52,13 +54,30 @@ class PaperDownloader:
             'ieee': IEEEScraper,
             'sciencedirect': ScienceDirectScraper,
             'springer': SpringerScraper,
+            'acm': ACMScraper,
+            'scholar': ScholarScraper,
+            'arxiv': ArxivScraper,
+            'jstor': JSTORScraper,
         }
 
-    def get_scraper(self, name: str, page):
+    def get_scraper(self, name: str, page, use_ezproxy: bool = True):
         """Get scraper instance by name."""
         scraper_class = self.scrapers.get(name)
         if scraper_class:
-            return scraper_class(page, self.config)
+            return scraper_class(page, self.config, use_ezproxy=use_ezproxy, console=self.console)
+
+        # Generic scraper for any database not in the dedicated list
+        domain = ""
+        for db in self.config.get('databases', []):
+            if db.get('name') == name:
+                domain = db.get('domain', '')
+                break
+        if domain:
+            return GenericJournalScraper(
+                page, self.config, use_ezproxy=use_ezproxy, console=self.console,
+                domain=domain, db_name=name
+            )
+
         raise ValueError(f"Unknown scraper: {name}")
 
     async def search_and_download(
@@ -69,7 +88,8 @@ class PaperDownloader:
         databases: List[str] = None,
         dry_run: bool = False,
         no_download: bool = False,
-        session: EzproxySession = None
+        session: EzproxySession = None,
+        no_proxy: bool = False
     ) -> dict:
         """Search and download papers for a query."""
 
@@ -97,7 +117,7 @@ class PaperDownloader:
             self.console.print(f"\n[bold cyan]Searching {db_name.upper()}:[/] {query}")
 
             try:
-                scraper = self.get_scraper(db_name, session.page)
+                scraper = self.get_scraper(db_name, session.page, use_ezproxy=not no_proxy)
                 papers = await scraper.search(query, max_results)
 
                 db_results = {
@@ -111,6 +131,11 @@ class PaperDownloader:
 
                 for i, paper in enumerate(papers):
                     paper.topic = topic
+
+                    if not paper.title or paper.title.lower() in ('404 not found', 'search results', 'access denied', 'forbidden'):
+                        self.console.print(f"  [dim]⏭️  [{i+1}/{len(papers)}] Skipped (bad title): {paper.title[:60]}...[/dim]")
+                        db_results['skipped'] += 1
+                        continue
 
                     # Check for duplicates
                     if self.library.paper_exists(paper):
@@ -139,29 +164,34 @@ class PaperDownloader:
 
                     # Download and save
                     try:
-                        # Create topic directory
                         topic_dir = self.download_dir / topic
                         topic_dir.mkdir(parents=True, exist_ok=True)
 
-                        # Try to download PDF
                         pdf_path = None
-                        if paper.pdf_url:
-                            pdf_path = await scraper.download_pdf(paper, topic_dir)
-                            if pdf_path:
-                                self.console.print(f"  [dim]    PDF saved: {Path(pdf_path).name}[/dim]")
-                        else:
-                            self.console.print(f"  [dim]    No direct PDF URL available[/dim]")
 
-                        # Merge BibTeX
+                        # Navigate to the paper page first so download_pdf can find buttons
+                        if paper.url:
+                            try:
+                                await session.page.goto(paper.url, wait_until='domcontentloaded', timeout=60000)
+                                await asyncio.sleep(2)
+                            except Exception as e:
+                                self.console.print(f"  [dim]    Navigation for download failed: {e}[/dim]")
+
+                            pdf_path = await scraper.download_pdf(paper, topic_dir)
+                        elif paper.pdf_url:
+                            pdf_path = await scraper.download_pdf(paper, topic_dir)
+
                         status, key = self.bibtex_merger.merge(paper)
 
                         if status == "added":
                             self.console.print(f"  [green]✓ [{i+1}/{len(papers)}] Saved: {paper.title[:60]}...[/green]")
                             self.console.print(f"    [dim]BibTeX key: {key}[/dim]")
-
-                            # Save to database
                             self.library.add_paper(paper, pdf_path=pdf_path, status='downloaded')
                             db_results['downloaded'] += 1
+                        elif status == "duplicate":
+                            self.console.print(f"  [yellow]⏭️  [{i+1}/{len(papers)}] Skipped (BibTeX duplicate): {paper.title[:60]}...[/yellow]")
+                            self.library.add_paper(paper, pdf_path=pdf_path, status='duplicate')
+                            db_results['skipped'] += 1
                         else:
                             self.console.print(f"  [red]✗ [{i+1}/{len(papers)}] Failed: {paper.title[:60]}...[/red]")
                             db_results['failed'] += 1
@@ -194,17 +224,21 @@ class PaperDownloader:
         max_results: int = None,
         databases: List[str] = None,
         dry_run: bool = False,
-        no_download: bool = False
+        no_download: bool = False,
+        no_proxy: bool = False
     ):
         """Run interactive download session."""
 
-        async with EzproxySession(self.config, self.console) as session:
-            await session.wait_for_login()
+        async with EzproxySession(self.config, self.console, connect_cdp=True) as session:
+            if not no_proxy:
+                await session.wait_for_login()
+            else:
+                self.console.print("[dim]Skipping ezproxy login (direct mode)[/dim]")
 
             if query:
                 # Single search
                 results = await self.search_and_download(
-                    query, topic, max_results, databases, dry_run, no_download, session
+                    query, topic, max_results, databases, dry_run, no_download, session, no_proxy=no_proxy
                 )
                 self._print_summary([results])
             else:
@@ -221,14 +255,15 @@ class PaperDownloader:
                     search_query = search_config['query']
                     search_topic = search_config.get('topic')
                     search_max = search_config.get('max_results', max_results)
+                    search_dbs = search_config.get('databases', databases)
 
                     results = await self.search_and_download(
-                        search_query, search_topic, search_max, databases, dry_run, no_download, session
+                        search_query, search_topic, search_max, search_dbs, dry_run, no_download, session, no_proxy=no_proxy
                     )
                     all_results.append(results)
 
-                    # Delay between searches
-                    await asyncio.sleep(random.uniform(3, 5))
+                    # Delay between searches (longer to avoid Google CAPTCHA)
+                    await asyncio.sleep(random.uniform(10, 20))
 
                 self._print_summary(all_results)
 

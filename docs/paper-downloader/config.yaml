@@ -4,6 +4,8 @@
 # Ezproxy settings
 ezproxy:
   url: "https://ezproxy.ugm.ac.id/login"
+  username: "yitzhakedmundtiomanalu"
+  password: "Z@cky4UGMAcc2022"
   login_timeout: 300  # 5 minutes max for manual login
   login_check_url: "https://ieeexplore.ieee.org"  # URL to check if logged in
 
@@ -11,89 +13,224 @@ ezproxy:
 databases:
   - name: ieee
     enabled: true
-    search_url: "https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={query}"
+    domain: "ieeexplore.ieee.org"
 
   - name: sciencedirect
     enabled: true
-    search_url: "https://www.sciencedirect.com/search?qs={query}"
+    domain: "sciencedirect.com"
 
   - name: springer
     enabled: true
-    search_url: "https://link.springer.com/search?query={query}"
+    domain: "link.springer.com"
+
+  - name: wiley
+    enabled: true
+    domain: "onlinelibrary.wiley.com"
+
+  - name: emerald
+    enabled: true
+    domain: "emerald.com"
+
+  - name: taylorfrancis
+    enabled: true
+    domain: "tandfonline.com"
+
+  - name: sage
+    enabled: true
+    domain: "journals.sagepub.com"
+
+  - name: cambridge
+    enabled: true
+    domain: "cambridge.org"
+
+  - name: oxford
+    enabled: true
+    domain: "academic.oup.com"
+
+  - name: jstor
+    enabled: true
+    domain: "jstor.org"
 
 # Download settings
 download:
-  max_per_database: 5      # Max papers to download per database per search
-  delay_min: 2             # Minimum delay between requests (seconds)
-  delay_max: 4             # Maximum delay between requests (seconds)
-  retry_max: 3             # Max retry attempts
-  timeout: 30              # Page load timeout (seconds)
+  max_per_database: 3      # Max papers to download per database per search
+  delay_min: 5             # Minimum delay between requests (seconds)
+  delay_max: 12            # Maximum delay between requests (seconds)
+  delay_page_min: 8        # Minimum delay between page navigations (seconds)
+  delay_page_max: 15       # Maximum delay between page navigations (seconds)
+  retry_max: 2             # Max retry attempts
+  timeout: 45              # Page load timeout (seconds)
   headless: false          # Show browser window (set true for background)
 
 # Storage paths
 paths:
   downloads: "./downloads"
   database: "./library.db"
-  bibtex: "../template-skripsi/daftar-pustaka.bib"
+  bibtex: "../latex-templates/my-thesis/daftar-pustaka.bib"
   logs: "./logs"
 
-# Predefined searches for blockchain RWA thesis
+# Predefined searches for Lakomi cooperative governance thesis
+# Strategy: each query targets specific databases to avoid Google CAPTCHA
+# ~3 databases per query, ~6 queries per database, 60+ total papers
+# Scrapers auto-add site: filter, so don't include it here
 # Run with: python download.py --all
 searches:
-  # RWA Tokenization
-  - query: "blockchain real world assets tokenization"
-    topic: "blockchain-rwa"
-    max_results: 10
+  # ── IEEE (3 queries, broader) ──────────────────────────────
+  - query: "blockchain voting security"
+    topic: "governance-voting"
+    databases: [ieee]
+    max_results: 5
 
-  - query: "asset tokenization ERC-721 smart contract"
-    topic: "blockchain-rwa"
-    max_results: 10
+  - query: "smart contract vulnerability detection"
+    topic: "smart-contract-security"
+    databases: [ieee]
+    max_results: 5
 
-  # NFT Asset Tracking
-  - query: "NFT asset tracking supply chain"
-    topic: "nft-asset-tracking"
-    max_results: 10
+  - query: "decentralized finance governance"
+    topic: "tokenomics"
+    databases: [ieee]
+    max_results: 5
 
-  - query: "ERC-721 provenance tracking blockchain"
-    topic: "nft-asset-tracking"
-    max_results: 10
+  # ── Springer (3 queries, broader) ──────────────────────────
+  - query: "blockchain financial inclusion"
+    topic: "financial-inclusion"
+    databases: [springer]
+    max_results: 5
 
-  # Smart Contract & RBAC
-  - query: "smart contract access control RBAC"
-    topic: "smart-contract-rbac"
-    max_results: 10
+  - query: "smart contract security audit"
+    topic: "smart-contract-security"
+    databases: [springer]
+    max_results: 5
 
-  - query: "OpenZeppelin AccessControl role-based"
-    topic: "smart-contract-rbac"
-    max_results: 10
+  - query: "DAO governance reputation"
+    topic: "governance-voting"
+    databases: [springer]
+    max_results: 5
 
-  # IPFS & Decentralized Storage
-  - query: "IPFS decentralized storage blockchain"
-    topic: "ipfs-storage"
-    max_results: 10
+  # ── ScienceDirect (3 queries) ──────────────────────────────
+  - query: "blockchain cooperative"
+    topic: "cooperative-dao"
+    databases: [sciencedirect]
+    max_results: 5
 
-  - query: "IPFS document certification blockchain"
-    topic: "ipfs-storage"
-    max_results: 10
+  - query: "smart contract lending"
+    topic: "credit-union-defi"
+    databases: [sciencedirect]
+    max_results: 5
 
-  # Supply Chain Traceability
-  - query: "supply chain traceability blockchain"
-    topic: "supply-chain-traceability"
-    max_results: 10
+  - query: "decentralized finance microfinance"
+    topic: "financial-inclusion"
+    databases: [sciencedirect]
+    max_results: 5
 
-  - query: "product authentication blockchain NFT"
-    topic: "supply-chain-traceability"
-    max_results: 10
+  # ── Wiley (3 queries) ─────────────────────────────────────
+  - query: "blockchain governance"
+    topic: "governance-voting"
+    databases: [wiley]
+    max_results: 5
 
-  # Calibration & Quality (specific to thesis)
-  - query: "calibration tracking blockchain"
-    topic: "calibration-tracking"
-    max_results: 10
+  - query: "smart contract security"
+    topic: "smart-contract-security"
+    databases: [wiley]
+    max_results: 5
 
-  - query: "laboratory equipment certification blockchain"
-    topic: "calibration-tracking"
-    max_results: 10
+  - query: "DAO token voting"
+    topic: "tokenomics"
+    databases: [wiley]
+    max_results: 5
 
-  - query: "immutable records quality assurance"
-    topic: "calibration-tracking"
-    max_results: 10
+  # ── Emerald (3 queries) ───────────────────────────────────
+  - query: "blockchain cooperative"
+    topic: "cooperative-dao"
+    databases: [emerald]
+    max_results: 5
+
+  - query: "financial inclusion fintech"
+    topic: "financial-inclusion"
+    databases: [emerald]
+    max_results: 5
+
+  - query: "smart contract transparency"
+    topic: "smart-contract-security"
+    databases: [emerald]
+    max_results: 5
+
+  # ── Taylor & Francis (3 queries) ──────────────────────────
+  - query: "blockchain governance"
+    topic: "governance-voting"
+    databases: [taylorfrancis]
+    max_results: 5
+
+  - query: "decentralized autonomous organization"
+    topic: "cooperative-dao"
+    databases: [taylorfrancis]
+    max_results: 5
+
+  - query: "smart contract access control"
+    topic: "smart-contract-security"
+    databases: [taylorfrancis]
+    max_results: 5
+
+  # ── Sage (3 queries) ──────────────────────────────────────
+  - query: "blockchain governance"
+    topic: "governance-voting"
+    databases: [sage]
+    max_results: 5
+
+  - query: "financial inclusion"
+    topic: "financial-inclusion"
+    databases: [sage]
+    max_results: 5
+
+  - query: "cooperative digital platform"
+    topic: "cooperative-dao"
+    databases: [sage]
+    max_results: 5
+
+  # ── Cambridge (3 queries) ─────────────────────────────────
+  - query: "blockchain governance"
+    topic: "governance-voting"
+    databases: [cambridge]
+    max_results: 5
+
+  - query: "decentralized autonomous organization"
+    topic: "cooperative-dao"
+    databases: [cambridge]
+    max_results: 5
+
+  - query: "smart contract law"
+    topic: "smart-contract-security"
+    databases: [cambridge]
+    max_results: 5
+
+  # ── Oxford (3 queries) ────────────────────────────────────
+  - query: "decentralized autonomous organization"
+    topic: "cooperative-dao"
+    databases: [oxford]
+    max_results: 5
+
+  - query: "blockchain finance"
+    topic: "treasury-defi"
+    databases: [oxford]
+    max_results: 5
+
+  - query: "financial inclusion technology"
+    topic: "financial-inclusion"
+    databases: [oxford]
+    max_results: 5
+
+  # ── JSTOR (3 queries) ─────────────────────────────────────
+  - query: "blockchain cooperative"
+    topic: "cooperative-dao"
+    databases: [jstor]
+    max_results: 5
+
+  - query: "decentralized governance"
+    topic: "governance-voting"
+    databases: [jstor]
+    max_results: 5
+
+  - query: "microfinance cooperative"
+    topic: "financial-inclusion"
+    databases: [jstor]
+    max_results: 5

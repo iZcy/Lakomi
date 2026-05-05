@@ -30,11 +30,13 @@ databases:
     search_url: "https://link.springer.com/search?query={query}"
 
 download:
-  max_per_database: 5
-  delay_min: 2
-  delay_max: 4
-  retry_max: 3
-  timeout: 30
+  max_per_database: 3
+  delay_min: 5
+  delay_max: 12
+  delay_page_min: 8
+  delay_page_max: 15
+  retry_max: 2
+  timeout: 45
   headless: false
 
 paths:

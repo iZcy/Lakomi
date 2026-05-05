@@ -64,7 +64,8 @@ Examples:
     parser.add_argument('--max', type=int, default=5,
                         help='Max papers per database')
     parser.add_argument('--database', '-d', type=str,
-                        choices=['ieee', 'sciencedirect', 'springer'],
+                        choices=['ieee', 'sciencedirect', 'springer', 'acm', 'scholar', 'arxiv',
+                                 'wiley', 'emerald', 'taylorfrancis', 'sage', 'cambridge', 'oxford', 'jstor'],
                         help='Search only this database')
 
     # Filters (for --list)
@@ -78,6 +79,8 @@ Examples:
                         help='Preview without downloading')
     parser.add_argument('--no-download', action='store_true',
                         help='Save papers without downloading PDFs')
+    parser.add_argument('--no-proxy', action='store_true',
+                        help='Skip ezproxy login (access databases directly)')
     parser.add_argument('--config', '-c', type=str, default='config.yaml',
                         help='Path to config file')
 
@@ -109,14 +112,25 @@ Examples:
     # Handle search/download mode
     databases = [args.database] if args.database else None
 
-    if args.interactive or args.search:
+    if args.all:
+        asyncio.run(downloader.run_interactive(
+            query=None,
+            topic=None,
+            max_results=args.max,
+            databases=databases,
+            dry_run=args.dry_run,
+            no_download=args.no_download,
+            no_proxy=args.no_proxy
+        ))
+    elif args.interactive or args.search:
         asyncio.run(downloader.run_interactive(
             query=args.search,
             topic=args.topic,
             max_results=args.max,
             databases=databases,
             dry_run=args.dry_run,
-            no_download=args.no_download
+            no_download=args.no_download,
+            no_proxy=args.no_proxy
         ))
     else:
         parser.print_help()

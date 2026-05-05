@@ -65,7 +65,7 @@ function App() {
           <ToastProvider>
           <div className="min-h-screen bg-background">
             <Navbar />
-            <div className="container mx-auto px-4 py-6">
+            <div className="container mx-auto px-3 sm:px-4 pt-4 sm:pt-6 pb-24 lg:pb-6">
               <div className="flex gap-6">
                 <aside className="w-56 flex-shrink-0 hidden lg:block">
                   <div className="sticky top-24 space-y-1">
@@ -110,6 +110,26 @@ function App() {
                 </main>
               </div>
             </div>
+
+            <nav className="fixed bottom-0 inset-x-0 lg:hidden bg-background/95 backdrop-blur border-t z-50 safe-area-bottom">
+              <div className="flex justify-around py-1 px-1">
+                {NAV_ITEMS.map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => setActiveTab(item.key)}
+                    className={cn(
+                      'flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg text-[10px] transition-colors min-w-0 flex-1',
+                      activeTab === item.key
+                        ? 'text-primary'
+                        : 'text-muted-foreground'
+                    )}
+                  >
+                    {item.icon}
+                    <span className="truncate w-full text-center">{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </nav>
           </div>
           </ToastProvider>
         </RainbowKitProvider>

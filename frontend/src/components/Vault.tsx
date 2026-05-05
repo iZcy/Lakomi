@@ -43,23 +43,23 @@ export function Vault() {
 
       <PaySimpananPokokPrompt />
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Total Simpanan</p>
-            <p className="text-2xl font-bold text-emerald-500 mt-1">{s ? formatUSDCAmount(s.totalContribution) : '0 USDC'}</p>
+            <p className="text-xl sm:text-2xl font-bold text-emerald-500 mt-1">{s ? formatUSDCAmount(s.totalContribution) : '0 USDC'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Saldo USDC</p>
-            <p className="text-2xl font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
+            <p className="text-xl sm:text-2xl font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">SHU Menunggu</p>
-            <p className="text-2xl font-bold text-amber-500 mt-1">{pendingSHU && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'}</p>
+            <p className="text-xl sm:text-2xl font-bold text-amber-500 mt-1">{pendingSHU && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'}</p>
             {pendingSHU && pendingSHU > 0n && <ClaimSHUButton />}
           </CardContent>
         </Card>

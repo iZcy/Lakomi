@@ -28,10 +28,10 @@ export function Compliance() {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-3 gap-3">
-        <Card><CardContent className="text-center"><p className="text-3xl font-bold text-emerald-500">{ITEMS.length}</p><p className="text-xs text-muted-foreground mt-1">Pasal Diimplementasikan</p></CardContent></Card>
-        <Card><CardContent className="text-center"><p className="text-3xl font-bold text-primary">4</p><p className="text-xs text-muted-foreground mt-1">Kontrak Pintar</p></CardContent></Card>
-        <Card><CardContent className="text-center"><p className="text-3xl font-bold text-purple-500">25</p><p className="text-xs text-muted-foreground mt-1">Pengujian Berhasil</p></CardContent></Card>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <Card><CardContent className="text-center"><p className="text-2xl sm:text-3xl font-bold text-emerald-500">{ITEMS.length}</p><p className="text-xs text-muted-foreground mt-1">Pasal Diimplementasikan</p></CardContent></Card>
+        <Card><CardContent className="text-center"><p className="text-2xl sm:text-3xl font-bold text-primary">4</p><p className="text-xs text-muted-foreground mt-1">Kontrak Pintar</p></CardContent></Card>
+        <Card><CardContent className="text-center"><p className="text-2xl sm:text-3xl font-bold text-purple-500">25</p><p className="text-xs text-muted-foreground mt-1">Pengujian Berhasil</p></CardContent></Card>
       </div>
 
       <div className="space-y-3">

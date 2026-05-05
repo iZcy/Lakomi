@@ -29,17 +29,17 @@ export function Loans() {
         <p className="text-sm text-muted-foreground mt-1">Ajukan pinjaman dengan jaminan token LAK</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Plafon Maksimal</p>
-            <p className="text-2xl font-bold text-emerald-500 mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 USDC'}</p>
+            <p className="text-xl sm:text-2xl font-bold text-emerald-500 mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 USDC'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Total Pinjaman</p>
-            <p className="text-2xl font-bold text-primary mt-1">{loanIds?.length?.toString() || '0'}</p>
+            <p className="text-xl sm:text-2xl font-bold text-primary mt-1">{loanIds?.length?.toString() || '0'}</p>
           </CardContent>
         </Card>
       </div>
@@ -144,7 +144,7 @@ function LoanCard({ loanId }: { loanId: bigint }) {
           </div>
           <Badge variant="outline" className={colors[s]}>{getLoanStateName(s)}</Badge>
         </div>
-        <div className="grid grid-cols-4 gap-3 text-sm">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
           <div><p className="text-[10px] text-muted-foreground">Pokok</p><p className="font-medium">{formatUSDCAmount(loan.principal)}</p></div>
           <div><p className="text-[10px] text-muted-foreground">Bunga</p><p className="font-medium">{formatUSDCAmount(loan.interest)}</p></div>
           <div><p className="text-[10px] text-muted-foreground">Total</p><p className="font-medium text-amber-500">{formatUSDCAmount(loan.totalOwed)}</p></div>

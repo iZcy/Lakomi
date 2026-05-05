@@ -29,7 +29,7 @@ export function Governance() {
 
       <CreateProposalForm />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div>
           <Card>
             <CardHeader><CardTitle className="text-sm">Daftar Usulan ({proposalCount?.toString() || '0'})</CardTitle></CardHeader>
@@ -42,7 +42,7 @@ export function Governance() {
             </CardContent>
           </Card>
         </div>
-        <div className="lg:col-span-2">
+        <div className="md:col-span-1 lg:col-span-2">
           {selectedId !== null ? <ProposalDetail id={BigInt(selectedId)} address={address} /> : (
             <Card className="flex items-center justify-center min-h-[300px]">
               <p className="text-sm text-muted-foreground">Pilih usulan untuk melihat detail</p>
@@ -145,12 +145,12 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
 function VoteBar({ label, votes, total, color }: { label: string; votes: bigint; total: bigint; color: string }) {
   const pct = total > 0n ? Number((votes * 100n) / total) : 0
   return (
-    <div className="flex items-center gap-3">
-      <span className="text-xs text-muted-foreground w-14">{label}</span>
+    <div className="flex items-center gap-2 sm:gap-3">
+      <span className="text-xs text-muted-foreground w-12 sm:w-14 flex-shrink-0">{label}</span>
       <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
         <div className={`h-full ${color} rounded-full transition-all`} style={{ width: `${pct}%` }} />
       </div>
-      <span className="text-xs font-medium w-16 text-right">{votes.toString()} ({pct}%)</span>
+      <span className="text-xs font-medium w-14 sm:w-20 text-right flex-shrink-0">{votes.toString()} ({pct}%)</span>
     </div>
   )
 }

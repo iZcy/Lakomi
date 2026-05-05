@@ -178,7 +178,7 @@ function FieldGroup({ children, className }: { children: React.ReactNode; classN
 
 function DataPreview({ form }: { form: MemberData }) {
   return (
-    <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 text-sm">
       <div><p className="text-[10px] text-muted-foreground">Nama</p><p className="font-medium">{form.namaLengkap}</p></div>
       <div><p className="text-[10px] text-muted-foreground">NIK</p><p className="font-mono text-xs">{form.nik}</p></div>
       <div><p className="text-[10px] text-muted-foreground">TTL</p><p>{form.tempatLahir}, {form.tanggalLahir}</p></div>

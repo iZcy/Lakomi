@@ -82,7 +82,7 @@ export function DevFaucet() {
           <p className="text-sm font-medium text-blue-400">Dev Faucet</p>
         </div>
         <p className="text-xs text-muted-foreground">Ambil ETH dan USDC untuk testing (tanpa konfirmasi dompet)</p>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={requestEth} disabled={!!busy}>
             {busy === 'eth' ? 'Mengirim...' : '10 ETH'}
           </Button>

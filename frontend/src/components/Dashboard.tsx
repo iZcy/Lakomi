@@ -73,10 +73,10 @@ export function Dashboard() {
   return (
     <div className="space-y-6">
       <Card className="border-primary/20 bg-primary/5">
-        <CardContent className="flex items-center justify-between">
+        <CardContent className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <p className="text-sm text-muted-foreground">Selamat datang</p>
-            <p className="text-lg font-bold font-mono mt-0.5">{shortenAddress(address || '')}</p>
+            <p className="text-base sm:text-lg font-bold font-mono mt-0.5">{shortenAddress(address || '')}</p>
           </div>
           {isMember && <Badge className="bg-emerald-500/10 text-emerald-500 border-emerald-500/20 hover:bg-emerald-500/20">Anggota Terdaftar</Badge>}
         </CardContent>
@@ -99,14 +99,14 @@ export function Dashboard() {
             <Card>
               <CardContent className="">
                 <p className="text-sm text-muted-foreground">Total Anggota</p>
-                <p className="text-3xl font-bold text-primary mt-1">{memberCount?.toString() || '0'}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-primary mt-1">{memberCount?.toString() || '0'}</p>
                 <p className="text-xs text-muted-foreground mt-1">Anggota terdaftar</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="">
                 <p className="text-sm text-muted-foreground">Total Aset Koperasi</p>
-                <p className="text-3xl font-bold text-emerald-500 mt-1">{totalAssets !== undefined ? formatUSDCAmount(totalAssets) : '0 USDC'}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-emerald-500 mt-1">{totalAssets !== undefined ? formatUSDCAmount(totalAssets) : '0 USDC'}</p>
                 <p className="text-xs text-muted-foreground mt-1">Dana yang dikelola</p>
               </CardContent>
             </Card>
@@ -116,7 +116,7 @@ export function Dashboard() {
             <Card>
               <CardContent className="">
                 <p className="text-sm font-semibold mb-3">Rincian Simpanan Anda</p>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div><p className="text-xs text-muted-foreground">Simpanan Pokok</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(s.pokok)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(1)</p></div>
                   <div><p className="text-xs text-muted-foreground">Simpanan Wajib</p><p className="text-lg font-bold text-foreground mt-1">{formatUSDCAmount(s.wajibTotal)}</p><p className="text-[10px] text-muted-foreground">{s.wajibPeriodsPaid.toString()}x dibayar</p></div>
                   <div><p className="text-xs text-muted-foreground">Simpanan Sukarela</p><p className="text-lg font-bold text-emerald-500 mt-1">{formatUSDCAmount(s.sukarela)}</p><p className="text-[10px] text-muted-foreground">Pasal 41(3)</p></div>
@@ -135,7 +135,7 @@ function StatCard({ label, value, desc }: { label: string; value: string; desc: 
     <Card>
       <CardContent className="">
         <p className="text-xs text-muted-foreground">{label}</p>
-        <p className="text-xl font-bold mt-1">{value}</p>
+        <p className="text-base sm:text-xl font-bold mt-1">{value}</p>
         <p className="text-[10px] text-muted-foreground mt-0.5">{desc}</p>
       </CardContent>
     </Card>

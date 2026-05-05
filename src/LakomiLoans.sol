@@ -288,10 +288,8 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
         if (loan.borrower == address(0)) revert LakomiLoans__LoanNotFound();
         if (loan.status != LoanStatus.Approved) revert LakomiLoans__LoanNotApproved();
 
-        // Lock collateral
         token.lockTokens(loan.borrower, loan.collateralTokens);
 
-        // Update loan state
         loan.status = LoanStatus.Active;
         loan.startTime = block.timestamp;
         loan.dueTime = block.timestamp + defaultLoanDuration;
@@ -299,9 +297,8 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
         activeLoanCount++;
         totalBorrowed[loan.borrower] += loan.principal;
 
-        // Transfer funds from vault
         IERC20 stableToken = IERC20(address(vault.stableToken()));
-        stableToken.safeTransfer(loan.borrower, loan.principal);
+        stableToken.safeTransferFrom(address(vault), loan.borrower, loan.principal);
 
         emit LoanDisbursed(loanId, loan.borrower, loan.principal);
     }

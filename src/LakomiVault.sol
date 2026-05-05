@@ -598,4 +598,8 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     ) external onlyRole(DEFAULT_ADMIN_ROLE) nonReentrant {
         IERC20(token).safeTransfer(to, amount);
     }
+
+    function approveUSDCSpending(address spender, uint256 amount) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        stableToken.forceApprove(spender, amount);
+    }
 }

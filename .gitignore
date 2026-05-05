@@ -22,9 +22,9 @@ docs/paper-downloader/venv/
 .claude/
 library.db
 
-# Paper downloads
-docs/paper-downloader/downloads/
+# Paper downloader cache
 docs/paper-downloader/*.db
 docs/paper-downloader/__pycache__/
 docs/paper-downloader/scrapers/__pycache__/
 docs/paper-downloader/*.log
+docs/paper-downloader/downloads/koperasi-indonesia/search_results.json

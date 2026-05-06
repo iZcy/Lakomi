@@ -6,7 +6,7 @@ const RPC_URL = typeof import.meta.env.VITE_RPC_URL === 'string'
   : 'http://127.0.0.1:8545'
 
 export const anvil = {
-  id: 31337,
+  id: 313377,
   name: 'Anvil Lokal',
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: {

@@ -20,7 +20,7 @@ export function WrongChainGuard({ children }: { children: React.ReactNode }) {
             <h2 className="text-lg font-semibold mb-1">Jaringan Salah</h2>
             <p className="text-sm text-muted-foreground mb-4">
               Dompet Anda terhubung ke Chain ID {chainId}.<br />
-              Lakomi membutuhkan jaringan <strong>Anvil Lokal</strong> (Chain ID 31337).
+              Lakomi membutuhkan jaringan <strong>Anvil Lokal</strong> (Chain ID 313377).
             </p>
             <Button onClick={() => switchChain({ chainId: anvil.id })}>
               Ganti ke Anvil Lokal

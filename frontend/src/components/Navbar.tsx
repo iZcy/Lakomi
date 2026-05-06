@@ -9,7 +9,7 @@ const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
   : 'http://127.0.0.1:8545'
 
 const ANVIL_CHAIN = {
-  chainId: '0x7a69',
+  chainId: '0x4c831',
   chainName: 'Anvil Lokal',
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
   rpcUrls: [RPC],

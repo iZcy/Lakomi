@@ -115,10 +115,11 @@ export function DevFaucet() {
       addToast('Redeploying contracts...', 'info')
       const res = await fetch(`${DEPLOYER}/redeploy`, { method: 'POST', signal: AbortSignal.timeout(60_000) })
       if (!res.ok) throw new Error(await res.text())
-      addToast('Anvil direset dan kontrak dideploy ulang!', 'success')
+      addToast('Anvil direset dan kontrak dideploy ulang! Memuat ulang halaman...', 'success')
+      await new Promise(r => setTimeout(r, 1500))
+      window.location.reload()
     } catch (e: any) {
       addToast('Gagal reset: ' + (e?.message || 'Unknown error'), 'error')
-    } finally {
       setBusy(null)
     }
   }

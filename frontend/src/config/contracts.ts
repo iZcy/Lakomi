@@ -6,7 +6,7 @@ export const CONTRACTS = {
   LAKOMI_LOANS: '0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9' as const,
 } as const
 
-export const CHAIN_ID = 31337
+export const CHAIN_ID = 313377
 
 export const PROPOSAL_STATES = [
   'Menunggu',

@@ -1,8 +1,11 @@
 import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi'
+import { parseGwei } from 'viem'
 import { LAKOMI_TOKEN_ABI, LAKOMI_VAULT_ABI, LAKOMI_GOVERN_ABI, LAKOMI_LOANS_ABI, USDC_ABI } from '../abis'
 import { CONTRACTS } from '../config/contracts'
 
 type WriteResult = { hash: `0x${string}` }
+
+const GAS_OVERRIDES = { maxFeePerGas: parseGwei('100'), maxPriorityFeePerGas: parseGwei('1') }
 
 export function useRegisterMember() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
@@ -14,6 +17,7 @@ export function useRegisterMember() {
       abi: LAKOMI_TOKEN_ABI,
       functionName: 'registerMember',
       args: [],
+      ...GAS_OVERRIDES,
     })
   }
 

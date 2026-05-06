@@ -253,3 +253,63 @@ export function useUsdcBalance(address?: `0x${string}`) {
     query: { enabled: !!address && CONTRACTS.MOCK_USDC !== '0x0000000000000000000000000000000000000000' },
   })
 }
+
+export function useExecutionTimelock() {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'executionTimelock',
+  })
+}
+
+export function useProposalQueuedTime(proposalId: bigint) {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'proposalQueuedTime',
+    args: [proposalId],
+    query: { enabled: proposalId >= 0n },
+  })
+}
+
+export function useLoanCount() {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_LOANS,
+    abi: LAKOMI_LOANS_ABI,
+    functionName: 'loanCount',
+  })
+}
+
+export function useRequiredCollateral(amount: bigint) {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_LOANS,
+    abi: LAKOMI_LOANS_ABI,
+    functionName: 'getRequiredCollateral',
+    args: [amount],
+    query: { enabled: amount > 0n },
+  })
+}
+
+export function useInterestRate() {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_LOANS,
+    abi: LAKOMI_LOANS_ABI,
+    functionName: 'interestRate',
+  })
+}
+
+export function useCollateralRatio() {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_LOANS,
+    abi: LAKOMI_LOANS_ABI,
+    functionName: 'collateralRatio',
+  })
+}
+
+export function useGracePeriod() {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_LOANS,
+    abi: LAKOMI_LOANS_ABI,
+    functionName: 'gracePeriod',
+  })
+}

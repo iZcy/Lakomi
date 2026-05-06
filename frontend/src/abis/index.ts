@@ -54,10 +54,10 @@ export const LAKOMI_VAULT_ABI = [
     type: "function", name: "shuDistributions", stateMutability: "view",
     inputs: [{ type: "uint256", name: "index" }],
     outputs: [
-      { type: "uint256", name: "timestamp" },
       { type: "uint256", name: "totalAmount" },
+      { type: "uint256", name: "memberCount" },
+      { type: "uint256", name: "timestamp" },
       { type: "uint256", name: "perShare" },
-      { type: "uint256", name: "reserveDeducted" },
     ],
   },
   { type: "function", name: "accumulatedRevenue", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
@@ -106,6 +106,9 @@ export const LAKOMI_GOVERN_ABI = [
     ],
   },
   { type: "function", name: "hasVoted", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }, { type: "address", name: "account" }], outputs: [{ type: "bool" }] },
+  { type: "function", name: "executionTimelock", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "proposalQueuedTime", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "votingPeriod", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
 ] as const
 
 export const LAKOMI_LOANS_ABI = [
@@ -141,6 +144,11 @@ export const LAKOMI_LOANS_ABI = [
     ],
   },
   { type: "function", name: "activeLoanCount", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "loanCount", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "markDefaulted", stateMutability: "nonpayable", inputs: [{ type: "uint256", name: "loanId" }], outputs: [] },
+  { type: "function", name: "claimCollateral", stateMutability: "nonpayable", inputs: [{ type: "uint256", name: "loanId" }], outputs: [] },
+  { type: "function", name: "interestRate", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "collateralRatio", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
 ] as const
 
 export const USDC_ABI = [

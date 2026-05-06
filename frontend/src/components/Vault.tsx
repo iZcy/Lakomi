@@ -9,11 +9,12 @@ import { Separator } from '@/components/ui/separator'
 import {
   useIsMember, useHasPaidPokok, useSimpananSummary, useTotalAssets,
   usePendingSHU, useAccumulatedRevenue, useUsdcBalance, useSimpananPokokAmount, useSimpananWajibAmount,
+  useShuDistributionCount, useShuDistribution,
 } from '../hooks/useContractRead'
 import {
-  useDeposit, usePaySimpananPokok, usePaySimpananWajib, useClaimSHU, useApproveUsdc,
+  useDeposit, usePaySimpananPokok, usePaySimpananWajib, useClaimSHU, useApproveUsdc, useDistributeSHU,
 } from '../hooks/useContractWrite'
-import { formatUSDCAmount, parseUnits } from '../lib/utils'
+import { formatUSDCAmount, parseUnits, formatTimestamp } from '../lib/utils'
 import { decodeSummary } from '../types'
 import { CONTRACTS } from '../config/contracts'
 import { MemberRegistration, PaySimpananPokokPrompt } from './MemberRegistration'
@@ -60,7 +61,6 @@ export function Vault() {
           <CardContent className="">
             <p className="text-xs text-muted-foreground">SHU Menunggu</p>
             <p className="text-xl sm:text-2xl font-bold text-amber-500 mt-1">{pendingSHU && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'}</p>
-            {pendingSHU && pendingSHU > 0n && <ClaimSHUButton />}
           </CardContent>
         </Card>
       </div>
@@ -108,11 +108,77 @@ export function Vault() {
               <p className="text-xs text-muted-foreground">Pendapatan Koperasi</p>
               <p className="text-xl font-bold text-primary mt-1">{revenue ? formatUSDCAmount(revenue) : '0 USDC'}</p>
               <p className="text-[10px] text-muted-foreground mt-1">Akan didistribusikan sebagai SHU (Pasal 45)</p>
+              {revenue && revenue > 0n && <DistributeSHUButton />}
             </CardContent>
           </Card>
         </div>
       </div>
+
+      <SHUHistory address={address} />
     </div>
+  )
+}
+
+function SHUHistory({ address }: { address?: `0x${string}` }) {
+  const { data: count } = useShuDistributionCount()
+  const distCount = count ? Number(count) : 0
+
+  if (distCount === 0) return null
+
+  return (
+    <Card>
+      <CardHeader><CardTitle className="text-sm">Riwayat Distribusi SHU</CardTitle></CardHeader>
+      <CardContent>
+        <div className="space-y-2">
+          {[...Array(distCount)].reverse().map((_, i) => (
+            <SHUDistributionRow key={i} distId={BigInt(distCount - 1 - i)} address={address} />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+function SHUDistributionRow({ distId, address }: { distId: bigint; address?: `0x${string}` }) {
+  const { data: distRaw } = useShuDistribution(distId)
+  const { claimSHU, isPending, isSuccess } = useClaimSHU()
+
+  if (!distRaw) return null
+  const d = distRaw as [bigint, bigint, bigint, bigint, bigint]
+  const totalAmount = d[0]
+  const memberCount = d[1]
+  const timestamp = d[2]
+  const perShare = d[3]
+  const claimedCount = d[4]
+
+  return (
+    <div className="flex items-center justify-between p-2 rounded-lg bg-muted/50 text-sm">
+      <div>
+        <p className="font-medium">SHU #{Number(distId) + 1}</p>
+        <p className="text-[10px] text-muted-foreground">{formatTimestamp(timestamp)} | {memberCount.toString()} anggota</p>
+      </div>
+      <div className="text-right">
+        <p className="text-xs text-muted-foreground">Total: {formatUSDCAmount(totalAmount)}</p>
+        <Button
+          variant="outline"
+          size="sm"
+          className="mt-1 text-[10px] h-6 px-2"
+          onClick={() => claimSHU(distId)}
+          disabled={isPending || isSuccess}
+        >
+          {isPending ? 'Mengklaim...' : isSuccess ? 'Sudah' : 'Klaim'}
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+function DistributeSHUButton() {
+  const { distributeSHU, isPending, isSuccess } = useDistributeSHU()
+  return (
+    <Button variant="outline" size="sm" className="mt-2 text-xs" onClick={() => distributeSHU()} disabled={isPending}>
+      {isPending ? 'Mendistribusikan...' : isSuccess ? 'Terdistribusi' : 'Distribusikan SHU'}
+    </Button>
   )
 }
 
@@ -167,15 +233,6 @@ function PaySimpananWajibButton() {
       <Button onClick={() => paySimpananWajib()} disabled={isPending} className="w-full">Bayar</Button>
       {isSuccess && <p className="text-xs text-emerald-500 mt-2">Simpanan Wajib berhasil!</p>}
     </>
-  )
-}
-
-function ClaimSHUButton() {
-  const { claimSHU, isPending, isSuccess } = useClaimSHU()
-  return (
-    <Button variant="outline" size="sm" className="mt-2 text-xs" onClick={() => claimSHU(0n)} disabled={isPending}>
-      {isPending ? 'Mengklaim...' : isSuccess ? 'Sudah Diklaim' : 'Klaim SHU'}
-    </Button>
   )
 }
 

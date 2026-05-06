@@ -82,14 +82,20 @@ async function main() {
   await govern.grantRole(PENGAWAS_ROLE, deployer.address);
   console.log("Govern: PENGAWAS_ROLE granted to deployer");
 
+  const addresses = {
+    MOCK_USDC: usdcAddr,
+    LAKOMI_TOKEN: tokenAddr,
+    LAKOMI_VAULT: vaultAddr,
+    LAKOMI_GOVERN: governAddr,
+    LAKOMI_LOANS: loansAddr,
+  };
+
   console.log("\n--- Deployment Complete ---");
-  console.log({
-    USDC: usdcAddr,
-    LakomiToken: tokenAddr,
-    LakomiVault: vaultAddr,
-    LakomiGovern: governAddr,
-    LakomiLoans: loansAddr,
-  });
+  console.log(addresses);
+
+  const fs = require("fs");
+  fs.writeFileSync("/app/contract-addresses.json", JSON.stringify(addresses, null, 2));
+  console.log("Addresses written to /app/contract-addresses.json");
 }
 
 main().catch((error) => {

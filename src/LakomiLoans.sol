@@ -371,7 +371,7 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
      * @notice Marks a loan as defaulted
      * @param loanId The ID of the loan
      */
-    function markDefaulted(uint256 loanId) external nonReentrant {
+    function markDefaulted(uint256 loanId) external onlyRole(APPROVER_ROLE) nonReentrant {
         Loan storage loan = loans[loanId];
 
         if (loan.borrower == address(0)) revert LakomiLoans__LoanNotFound();
@@ -390,7 +390,7 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
      * @notice Claims collateral from a defaulted loan
      * @param loanId The ID of the loan
      */
-    function claimCollateral(uint256 loanId) external nonReentrant {
+    function claimCollateral(uint256 loanId) external onlyRole(APPROVER_ROLE) nonReentrant {
         Loan storage loan = loans[loanId];
 
         if (loan.borrower == address(0)) revert LakomiLoans__LoanNotFound();

@@ -1,7 +1,22 @@
 import http from 'node:http'
 import { execSync } from 'node:child_process'
+import fs from 'node:fs'
+import path from 'node:path'
 
 const PORT = 3030
+const ADDR_FILE = '/app/contract-addresses.json'
+
+let cachedAddresses = null
+
+function loadAddresses() {
+  try {
+    const raw = fs.readFileSync(ADDR_FILE, 'utf-8')
+    cachedAddresses = JSON.parse(raw)
+    return cachedAddresses
+  } catch {
+    return null
+  }
+}
 
 async function redeploy() {
   const deploy = execSync(
@@ -9,6 +24,7 @@ async function redeploy() {
     { cwd: '/app/hardhat', timeout: 120_000, encoding: 'utf-8' }
   )
   console.log(deploy)
+  cachedAddresses = loadAddresses()
 
   execSync(
     `npx hardhat console --network localhost --no-compile --config /app/hardhat/hardhat.config.js <<'SCRIPT'
@@ -22,6 +38,8 @@ SCRIPT`,
     { cwd: '/app/hardhat', timeout: 60_000, encoding: 'utf-8' }
   )
 }
+
+cachedAddresses = loadAddresses()
 
 const server = http.createServer(async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
@@ -37,12 +55,21 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'GET' && req.url === '/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' })
     res.end(JSON.stringify({ ok: true }))
+  } else if (req.method === 'GET' && req.url === '/contracts') {
+    const addrs = cachedAddresses || loadAddresses()
+    if (!addrs) {
+      res.writeHead(503, { 'Content-Type': 'application/json' })
+      res.end(JSON.stringify({ error: 'Contracts not deployed yet' }))
+      return
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json' })
+    res.end(JSON.stringify(addrs))
   } else if (req.method === 'POST' && req.url === '/redeploy') {
     try {
       console.log('Redeploying contracts...')
       await redeploy()
       res.writeHead(200, { 'Content-Type': 'application/json' })
-      res.end(JSON.stringify({ ok: true }))
+      res.end(JSON.stringify({ ok: true, addresses: cachedAddresses }))
     } catch (e) {
       console.error('Redeploy failed:', e)
       res.writeHead(500, { 'Content-Type': 'application/json' })

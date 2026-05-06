@@ -221,3 +221,147 @@ export function useMintUsdc() {
 
   return { mintUsdc, hash, error, isPending, isConfirming, isSuccess }
 }
+
+export function useQueueProposal() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const queueProposal = (proposalId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_GOVERN,
+      abi: LAKOMI_GOVERN_ABI,
+      functionName: 'queue',
+      args: [proposalId],
+    })
+  }
+
+  return { queueProposal, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useExecuteProposal() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const executeProposal = (proposalId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_GOVERN,
+      abi: LAKOMI_GOVERN_ABI,
+      functionName: 'execute',
+      args: [proposalId],
+    })
+  }
+
+  return { executeProposal, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useCancelProposal() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const cancelProposal = (proposalId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_GOVERN,
+      abi: LAKOMI_GOVERN_ABI,
+      functionName: 'cancel',
+      args: [proposalId],
+    })
+  }
+
+  return { cancelProposal, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useDistributeSHU() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const distributeSHU = (): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_VAULT,
+      abi: LAKOMI_VAULT_ABI,
+      functionName: 'distributeSHU',
+      args: [],
+    })
+  }
+
+  return { distributeSHU, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useDisburseLoan() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const disburseLoan = (loanId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_LOANS,
+      abi: LAKOMI_LOANS_ABI,
+      functionName: 'disburse',
+      args: [loanId],
+    })
+  }
+
+  return { disburseLoan, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useApproveLoan() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const approveLoan = (loanId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_LOANS,
+      abi: LAKOMI_LOANS_ABI,
+      functionName: 'approveLoan',
+      args: [loanId],
+    })
+  }
+
+  return { approveLoan, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useMarkDefaulted() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const markDefaulted = (loanId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_LOANS,
+      abi: LAKOMI_LOANS_ABI,
+      functionName: 'markDefaulted',
+      args: [loanId],
+    })
+  }
+
+  return { markDefaulted, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useClaimCollateral() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const claimCollateral = (loanId: bigint): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_LOANS,
+      abi: LAKOMI_LOANS_ABI,
+      functionName: 'claimCollateral',
+      args: [loanId],
+    })
+  }
+
+  return { claimCollateral, hash, error, isPending, isConfirming, isSuccess }
+}
+
+export function useScheduleRAT() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const scheduleRAT = (description: string): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_GOVERN,
+      abi: LAKOMI_GOVERN_ABI,
+      functionName: 'scheduleAnnualRAT',
+      args: [description],
+    })
+  }
+
+  return { scheduleRAT, hash, error, isPending, isConfirming, isSuccess }
+}

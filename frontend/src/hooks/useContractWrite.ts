@@ -34,6 +34,7 @@ export function usePaySimpananPokok() {
       abi: LAKOMI_VAULT_ABI,
       functionName: 'paySimpananPokok',
       args: [member],
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -50,6 +51,7 @@ export function usePaySimpananWajib() {
       abi: LAKOMI_VAULT_ABI,
       functionName: 'paySimpananWajib',
       args: [],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -66,6 +68,7 @@ export function useDeposit() {
       abi: LAKOMI_VAULT_ABI,
       functionName: 'deposit',
       args: [amount],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -82,6 +85,7 @@ export function useClaimSHU() {
       abi: LAKOMI_VAULT_ABI,
       functionName: 'claimSHU',
       args: [distributionId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -98,6 +102,7 @@ export function useRequestWithdrawal() {
       abi: LAKOMI_VAULT_ABI,
       functionName: 'requestWithdrawal',
       args: [recipient, amount],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -120,6 +125,7 @@ export function useCreateProposal() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'createProposal',
       args: [description, proposalType, target, value, callData],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -136,6 +142,7 @@ export function useCastVote() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'castVote',
       args: [proposalId, support],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -152,6 +159,7 @@ export function useRequestLoan() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'requestLoan',
       args: [amount, duration, reason],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -168,6 +176,7 @@ export function useRepayLoan() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'repay',
       args: [loanId, amount],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -184,6 +193,7 @@ export function useRepayInFull() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'repayInFull',
       args: [loanId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -200,6 +210,7 @@ export function useApproveUsdc() {
       abi: USDC_ABI,
       functionName: 'approve',
       args: [spender, amount],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -216,6 +227,7 @@ export function useMintUsdc() {
       abi: USDC_ABI,
       functionName: 'mint',
       args: [to, amount],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -232,6 +244,7 @@ export function useQueueProposal() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'queue',
       args: [proposalId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -248,6 +261,7 @@ export function useExecuteProposal() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'execute',
       args: [proposalId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -264,6 +278,7 @@ export function useCancelProposal() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'cancel',
       args: [proposalId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -280,6 +295,7 @@ export function useDistributeSHU() {
       abi: LAKOMI_VAULT_ABI,
       functionName: 'distributeSHU',
       args: [],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -296,6 +312,7 @@ export function useDisburseLoan() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'disburse',
       args: [loanId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -312,6 +329,7 @@ export function useApproveLoan() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'approveLoan',
       args: [loanId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -328,6 +346,7 @@ export function useMarkDefaulted() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'markDefaulted',
       args: [loanId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -344,6 +363,7 @@ export function useClaimCollateral() {
       abi: LAKOMI_LOANS_ABI,
       functionName: 'claimCollateral',
       args: [loanId],
+    ...GAS_OVERRIDES,
     })
   }
 
@@ -360,6 +380,7 @@ export function useScheduleRAT() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'scheduleAnnualRAT',
       args: [description],
+    ...GAS_OVERRIDES,
     })
   }
 

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
+import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -53,10 +54,7 @@ export function Loans() {
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Pinjaman Aktif</p>
-            <p className="text-lg font-bold text-amber-500 mt-1">{loanIds ? loanIds.filter((_, i) => {
-              const s = decodeLoan(useLoan(loanIds[i]).data)
-              return s && s.status === 2
-            }).length : 0}</p>
+            <p className="text-lg font-bold text-amber-500 mt-1">{loanIds ? loanIds.length : 0}</p>
           </CardContent>
         </Card>
       </div>
@@ -150,6 +148,13 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
   const { claimCollateral, isPending: ccPending, isSuccess: ccSuccess } = useClaimCollateral()
   const { data: collateralNeeded } = useRequiredCollateral(loan?.principal ?? 0n)
   const { data: lockedBal } = useLockedBalance(address)
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (dSuccess || alSuccess || rSuccess || rpSuccess || mdSuccess || ccSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+    }
+  }, [dSuccess, alSuccess, rSuccess, rpSuccess, mdSuccess, ccSuccess, queryClient])
 
   const [partialAmount, setPartialAmount] = useState('')
   const [showPartial, setShowPartial] = useState(false)
@@ -190,7 +195,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
         </div>
         {collateralNeeded && (
           <p className="text-[10px] text-muted-foreground mt-2">
-            Jaminan: {formatLAKAmount(collateralNeeded)} {lockedBal !== undefined && `(Terkunci: {formatLAKAmount(lockedBal)})`}
+            Jaminan: {formatLAKAmount(collateralNeeded)}{lockedBal !== undefined && <span> (Terkunci: {formatLAKAmount(lockedBal)})</span>}
           </p>
         )}
         {loan.repaidAmount > 0n && (

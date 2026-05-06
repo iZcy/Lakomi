@@ -1,0 +1,59 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - link "Universitas Gadjah Mada" [ref=e5] [cursor=pointer]:
+          - /url: http://ugm.ac.id
+          - img [ref=e6]
+          - text: Universitas Gadjah Mada
+        - text: 
+      - list [ref=e8]:
+        - listitem [ref=e9]:
+          - link "Academic Portal" [ref=e10] [cursor=pointer]:
+            - /url: http://akademika.ugm.ac.id
+        - listitem [ref=e11]:
+          - link "IT Center" [ref=e12] [cursor=pointer]:
+            - /url: http://dti.ugm.ac.id
+        - listitem [ref=e13]:
+          - link "Library" [ref=e14] [cursor=pointer]:
+            - /url: http://lib.ugm.ac.id
+        - listitem [ref=e15]:
+          - link "Research" [ref=e16] [cursor=pointer]:
+            - /url: http://lppm.ugm.ac.id
+        - listitem [ref=e17]:
+          - link "Support" [ref=e18] [cursor=pointer]:
+            - /url: http://aspirasi.ugm.ac.id
+        - listitem
+  - generic [ref=e21]:
+    - generic [ref=e22]:
+      - link "Single Sign On" [ref=e23] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e24]:
+        - strong [ref=e26]: Enter your UGM ID and Password
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic [ref=e29]: "UGM ID (without @*.ugm.ac.id):"
+            - textbox [active] [ref=e30]
+          - generic [ref=e31]:
+            - generic [ref=e32]: "Password:"
+            - textbox [ref=e33]
+          - generic [ref=e35] [cursor=pointer]:
+            - checkbox "Warn me before logging me into other sites." [ref=e36]
+            - text: Warn me before logging me into other sites.
+          - generic [ref=e38] [cursor=pointer]:
+            - checkbox "Remember Me" [ref=e39]
+            - text: Remember Me
+          - link "Forgot password?" [ref=e40] [cursor=pointer]:
+            - /url: https://simaster.ugm.ac.id/ftpass
+          - button "LOGIN" [ref=e41] [cursor=pointer]
+          - button "CLEAR" [ref=e42] [cursor=pointer]
+          - paragraph [ref=e44]: Do not have an account?
+          - link "Create an account" [ref=e45] [cursor=pointer]:
+            - /url: https://simaster.ugm.ac.id/portal/registrasi/view
+    - paragraph [ref=e47]: For security reasons, please Log Out and Exit your web browser when you are done accessing services that require authentication!
+  - contentinfo [ref=e48]:
+    - paragraph [ref=e50]:
+      - generic [ref=e51]:
+        - link "DTI" [ref=e52] [cursor=pointer]:
+          - /url: http://dti.ugm.ac.id
+        - text: Universitas Gadjah Mada

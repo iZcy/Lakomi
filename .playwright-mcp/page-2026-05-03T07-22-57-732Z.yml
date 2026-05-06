@@ -1,0 +1,16 @@
+- generic [ref=e1]:
+  - main
+  - alert [ref=e3]
+  - alert [ref=e4]
+  - region "Cookie banner" [active] [ref=e5]:
+    - dialog "Privacy" [ref=e6]:
+      - generic [ref=e8]:
+        - generic [ref=e11]:
+          - text: ITHAKA websites, which ITHAKA manages from its location in the United States, use cookies for different purposes, such as to ensure web site function, display non-targeted ads, provide social media features, and track usage, engaging with third party service providers such as Google Analytics. You may manage non-essential cookies in “Cookie Settings”. For more information, please see our
+          - link "Cookie Policy" [ref=e12] [cursor=pointer]:
+            - /url: https://www.ithaka.org/cookies
+          - text: .
+        - generic [ref=e14]:
+          - button "Cookie Settings" [ref=e15] [cursor=pointer]
+          - button "OK, proceed" [ref=e16] [cursor=pointer]
+      - button "Close" [ref=e18] [cursor=pointer]

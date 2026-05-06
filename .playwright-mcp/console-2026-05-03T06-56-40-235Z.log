@@ -1,0 +1,3 @@
+[    2509ms] [WARNING] Error monitoring has already been initialized. @ https://www-jstor-org.ezproxy.ugm.ac.id/assets/terms-and-conditions_20260115T233123/build/terms-and-conditions/js/terms-and-conditions.min.js:1
+[    3144ms] [WARNING] Error monitoring has already been initialized. @ https://www-jstor-org.ezproxy.ugm.ac.id/mfe-copper-roof/header/400df7e5/ithaka-sentry-monitoring_2_5_1.2548da0420554fe47192.js:0
+[    4844ms] [WARNING] Must provide flagList argument. @ https://www-jstor-org.ezproxy.ugm.ac.id/mfe-copper-roof/access-workflow/8e13cdaf/src_styles_index_scss-src_plugins_loggerPlugin_ts-src_sentry_ts-src_types_Flags_ts-src_compon-9cf5ba.642b5a4936ea762dac6b.js:7

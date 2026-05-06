@@ -1,0 +1,156 @@
+- generic [ref=e4]:
+  - navigation [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - img [ref=e10]
+        - generic [ref=e12]:
+          - heading "Lakomi" [level=1] [ref=e13]
+          - paragraph [ref=e14]: Koperasi Digital Berbasis Blockchain
+      - generic [ref=e15]:
+        - button "Tambah Jaringan ke Dompet" [ref=e16] [cursor=pointer]:
+          - img
+          - text: Tambah Jaringan ke Dompet
+        - button "Connect Wallet" [ref=e18] [cursor=pointer]
+  - generic [ref=e20]:
+    - complementary [ref=e21]:
+      - generic [ref=e22]:
+        - button "Beranda" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+          - generic [ref=e26]: Beranda
+        - button "Simpanan Pasal 41" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e30]: Simpanan
+          - generic [ref=e31]: Pasal 41
+        - button "Pinjaman" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+          - generic [ref=e35]: Pinjaman
+        - button "Tata Kelola Pasal 22" [ref=e36] [cursor=pointer]:
+          - img [ref=e37]
+          - generic [ref=e39]: Tata Kelola
+          - generic [ref=e40]: Pasal 22
+        - button "Kepatuhan Hukum UU 25/1992" [active] [ref=e41] [cursor=pointer]:
+          - img [ref=e42]
+          - generic [ref=e44]: Kepatuhan Hukum
+          - generic [ref=e45]: UU 25/1992
+        - separator
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Sesuai
+          - paragraph [ref=e48]: UU 25/1992 Perkoperasian
+    - main [ref=e49]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - heading "Kepatuhan Hukum" [level=2] [ref=e60]
+          - paragraph [ref=e61]: Kepatuhan kontrak pintar terhadap UU No. 25 Tahun 1992
+        - generic [ref=e63]:
+          - img [ref=e64]
+          - paragraph [ref=e66]: Setiap item menunjukkan pasal UU 25/1992, fungsi kontrak terkait, dan bukti implementasi yang telah diuji.
+        - generic [ref=e67]:
+          - generic [ref=e69]:
+            - paragraph [ref=e70]: "6"
+            - paragraph [ref=e71]: Pasal Diimplementasikan
+          - generic [ref=e73]:
+            - paragraph [ref=e74]: "4"
+            - paragraph [ref=e75]: Kontrak Pintar
+          - generic [ref=e77]:
+            - paragraph [ref=e78]: "25"
+            - paragraph [ref=e79]: Pengujian Berhasil
+        - generic [ref=e80]:
+          - generic [ref=e82]:
+            - generic [ref=e83]: Pasal 5(1)
+            - generic [ref=e84]:
+              - heading "Keanggotaan Terbuka dan Sukarela" [level=3] [ref=e85]
+              - paragraph [ref=e86]: Setiap orang dapat menjadi anggota tanpa diskriminasi melalui registerMember().
+              - generic [ref=e87]:
+                - generic [ref=e88]:
+                  - generic [ref=e89]: Kontrak
+                  - code [ref=e90]: LakomiToken.registerMember()
+                - generic [ref=e91]:
+                  - generic [ref=e92]: Bukti
+                  - paragraph [ref=e93]: Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.
+              - generic [ref=e94]:
+                - img [ref=e95]
+                - text: Terimplementasi & Teruji
+          - generic [ref=e98]:
+            - generic [ref=e99]: Pasal 22(1)
+            - generic [ref=e100]:
+              - heading "Satu Anggota Satu Suara" [level=3] [ref=e101]
+              - paragraph [ref=e102]: Setiap anggota memiliki hak suara yang sama (1 suara), terlepas dari jumlah simpanan.
+              - generic [ref=e103]:
+                - generic [ref=e104]:
+                  - generic [ref=e105]: Kontrak
+                  - code [ref=e106]: LakomiToken.getVotingPower() → 1
+                - generic [ref=e107]:
+                  - generic [ref=e108]: Bukti
+                  - paragraph [ref=e109]: Mengembalikan 1 untuk setiap anggota, bukan berdasarkan token.
+              - generic [ref=e110]:
+                - img [ref=e111]
+                - text: Terimplementasi & Teruji
+          - generic [ref=e114]:
+            - generic [ref=e115]: Pasal 26-27
+            - generic [ref=e116]:
+              - heading "Rapat Anggota Tahunan (RAT)" [level=3] [ref=e117]
+              - paragraph [ref=e118]: Koperasi wajib menyelenggarakan RAT tahunan.
+              - generic [ref=e119]:
+                - generic [ref=e120]:
+                  - generic [ref=e121]: Kontrak
+                  - code [ref=e122]: LakomiGovern.scheduleAnnualRAT()
+                - generic [ref=e123]:
+                  - generic [ref=e124]: Bukti
+                  - paragraph [ref=e125]: Fungsi khusus dengan pengecekan hanya 1x per tahun.
+              - generic [ref=e126]:
+                - img [ref=e127]
+                - text: Terimplementasi & Teruji
+          - generic [ref=e130]:
+            - generic [ref=e131]: Pasal 38
+            - generic [ref=e132]:
+              - heading "Pengawas (Supervisor)" [level=3] [ref=e133]
+              - paragraph [ref=e134]: Pengawas dapat memveto keputusan yang merugikan.
+              - generic [ref=e135]:
+                - generic [ref=e136]:
+                  - generic [ref=e137]: Kontrak
+                  - code [ref=e138]: LakomiGovern.vetoProposal() + PENGAWAS_ROLE
+                - generic [ref=e139]:
+                  - generic [ref=e140]: Bukti
+                  - paragraph [ref=e141]: Role khusus dengan kemampuan veto dan pause.
+              - generic [ref=e142]:
+                - img [ref=e143]
+                - text: Terimplementasi & Teruji
+          - generic [ref=e146]:
+            - generic [ref=e147]: Pasal 41
+            - generic [ref=e148]:
+              - heading "Simpanan (Pokok, Wajib, Sukarela)" [level=3] [ref=e149]
+              - paragraph [ref=e150]: "Tiga jenis simpanan: Pokok, Wajib, dan Sukarela."
+              - generic [ref=e151]:
+                - generic [ref=e152]:
+                  - generic [ref=e153]: Kontrak
+                  - code [ref=e154]: LakomiVault.paySimpananPokok/Wajib/deposit()
+                - generic [ref=e155]:
+                  - generic [ref=e156]: Bukti
+                  - paragraph [ref=e157]: Tiga fungsi terpisah dengan validasi sesuai jenis.
+              - generic [ref=e158]:
+                - img [ref=e159]
+                - text: Terimplementasi & Teruji
+          - generic [ref=e162]:
+            - generic [ref=e163]: Pasal 45
+            - generic [ref=e164]:
+              - heading "Sisa Hasil Usaha (SHU)" [level=3] [ref=e165]
+              - paragraph [ref=e166]: SHU didistribusikan berdasarkan proporsi simpanan sukarela.
+              - generic [ref=e167]:
+                - generic [ref=e168]:
+                  - generic [ref=e169]: Kontrak
+                  - code [ref=e170]: LakomiVault.distributeSHU() → claimSHU()
+                - generic [ref=e171]:
+                  - generic [ref=e172]: Bukti
+                  - paragraph [ref=e173]: Cadangan 10%, pembagian berdasarkan kepemilikan saham.
+              - generic [ref=e174]:
+                - img [ref=e175]
+                - text: Terimplementasi & Teruji
+        - generic [ref=e177]:
+          - generic [ref=e179]: Referensi Hukum
+          - list [ref=e181]:
+            - listitem [ref=e182]: UU No. 25 Tahun 1992 — Tentang Perkoperasian
+            - listitem [ref=e183]: Arisudhana et al. (2025) — Prinsip Koperasi pada Blockchain
+            - listitem [ref=e184]: Sailana et al. (2023) — Simpanan dan SHU via Smart Contract
+            - listitem [ref=e185]: Kartika et al. (2024) — Peran Pengawas Koperasi
+            - listitem [ref=e186]: Maryam (2025) — Analisis Yuridis UU 25/1992
+            - listitem [ref=e187]: Antoni & Razaga (2024) — Permasalahan Hukum KSP

@@ -1,0 +1,337 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Ethereum Improvement Proposals" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - generic [ref=e6]:
+          - link "All" [ref=e7] [cursor=pointer]:
+            - /url: /all
+          - link "Core" [ref=e8] [cursor=pointer]:
+            - /url: /core
+          - link "Networking" [ref=e9] [cursor=pointer]:
+            - /url: /networking
+          - link "Interface" [ref=e10] [cursor=pointer]:
+            - /url: /interface
+          - link "ERC" [ref=e11] [cursor=pointer]:
+            - /url: /erc
+          - link "Meta" [ref=e12] [cursor=pointer]:
+            - /url: /meta
+          - link "Informational" [ref=e13] [cursor=pointer]:
+            - /url: /informational
+  - main "Content" [ref=e14]:
+    - generic [ref=e16]:
+      - 'link "Standards Track: ERC" [ref=e18] [cursor=pointer]':
+        - /url: ../erc
+      - 'heading "ERC-20: Token Standard Discuss Source" [level=1] [ref=e19]':
+        - text: "ERC-20: Token Standard"
+        - link "Discuss" [ref=e20] [cursor=pointer]:
+          - /url: ""
+          - img "Discuss" [ref=e21]
+        - link "Source" [ref=e23] [cursor=pointer]:
+          - /url: https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
+          - img "Source" [ref=e24]
+      - heading [level=3]
+      - table [ref=e26]:
+        - rowgroup [ref=e27]:
+          - row "Authors Fabian Vogelsteller < fabian@ethereum.org >, Vitalik Buterin < vitalik.buterin@ethereum.org >" [ref=e28]:
+            - rowheader "Authors" [ref=e29]
+            - cell "Fabian Vogelsteller < fabian@ethereum.org >, Vitalik Buterin < vitalik.buterin@ethereum.org >" [ref=e30]:
+              - text: Fabian Vogelsteller <
+              - link "fabian@ethereum.org" [ref=e31] [cursor=pointer]:
+                - /url: mailto:fabian@ethereum.org
+              - text: ">, Vitalik Buterin <"
+              - link "vitalik.buterin@ethereum.org" [ref=e32] [cursor=pointer]:
+                - /url: mailto:vitalik.buterin@ethereum.org
+              - text: ">"
+          - row "Created 2015-11-19" [ref=e33]:
+            - rowheader "Created" [ref=e34]
+            - cell "2015-11-19" [ref=e35]
+      - generic [ref=e36]:
+        - heading "Table of Contents" [level=2] [ref=e37]
+        - list [ref=e38]:
+          - listitem [ref=e39]:
+            - link "Simple Summary" [ref=e40] [cursor=pointer]:
+              - /url: "#simple-summary"
+          - listitem [ref=e41]:
+            - link "Abstract" [ref=e42] [cursor=pointer]:
+              - /url: "#abstract"
+          - listitem [ref=e43]:
+            - link "Motivation" [ref=e44] [cursor=pointer]:
+              - /url: "#motivation"
+          - listitem [ref=e45]:
+            - link "Specification" [ref=e46] [cursor=pointer]:
+              - /url: "#specification"
+          - listitem [ref=e47]:
+            - link "Token" [ref=e48] [cursor=pointer]:
+              - /url: "#token"
+            - list [ref=e49]:
+              - listitem [ref=e50]:
+                - link "Methods" [ref=e51] [cursor=pointer]:
+                  - /url: "#methods"
+              - listitem [ref=e52]:
+                - link "Events" [ref=e53] [cursor=pointer]:
+                  - /url: "#events"
+          - listitem [ref=e54]:
+            - link "Implementation" [ref=e55] [cursor=pointer]:
+              - /url: "#implementation"
+          - listitem [ref=e56]:
+            - link "History" [ref=e57] [cursor=pointer]:
+              - /url: "#history"
+          - listitem [ref=e58]:
+            - link "Copyright" [ref=e59] [cursor=pointer]:
+              - /url: "#copyright"
+      - heading "Simple Summary" [level=2] [ref=e60]:
+        - link [ref=e61] [cursor=pointer]:
+          - /url: "#simple-summary"
+        - text: Simple Summary
+      - paragraph [ref=e62]: A standard interface for tokens.
+      - heading "Abstract" [level=2] [ref=e63]:
+        - link [ref=e64] [cursor=pointer]:
+          - /url: "#abstract"
+        - text: Abstract
+      - paragraph [ref=e65]: The following standard allows for the implementation of a standard API for tokens within smart contracts. This standard provides basic functionality to transfer tokens, as well as allow tokens to be approved so they can be spent by another on-chain third party.
+      - heading "Motivation" [level=2] [ref=e66]:
+        - link [ref=e67] [cursor=pointer]:
+          - /url: "#motivation"
+        - text: Motivation
+      - paragraph [ref=e68]: "A standard interface allows any tokens on Ethereum to be re-used by other applications: from wallets to decentralized exchanges."
+      - heading "Specification" [level=2] [ref=e69]:
+        - link [ref=e70] [cursor=pointer]:
+          - /url: "#specification"
+        - text: Specification
+      - heading "Token" [level=2] [ref=e71]:
+        - link [ref=e72] [cursor=pointer]:
+          - /url: "#token"
+        - text: Token
+      - heading "Methods" [level=3] [ref=e73]:
+        - link [ref=e74] [cursor=pointer]:
+          - /url: "#methods"
+        - text: Methods
+      - paragraph [ref=e75]:
+        - strong [ref=e76]: NOTES
+        - text: ":"
+      - list [ref=e77]:
+        - listitem [ref=e78]:
+          - text: The following specifications use syntax from Solidity
+          - code [ref=e79]: 0.4.17
+          - text: (or above)
+        - listitem [ref=e80]:
+          - text: Callers MUST handle
+          - code [ref=e81]: "false"
+          - text: from
+          - code [ref=e82]: returns (bool success)
+          - text: . Callers MUST NOT assume that
+          - code [ref=e83]: "false"
+          - text: is never returned!
+      - heading "name" [level=4] [ref=e84]:
+        - link [ref=e85] [cursor=pointer]:
+          - /url: "#name"
+        - text: name
+      - paragraph [ref=e86]:
+        - text: Returns the name of the token - e.g.
+        - code [ref=e87]: "\"MyToken\""
+        - text: .
+      - paragraph [ref=e88]: OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.
+      - code [ref=e92]: function name() public view returns (string)
+      - heading "symbol" [level=4] [ref=e93]:
+        - link [ref=e94] [cursor=pointer]:
+          - /url: "#symbol"
+        - text: symbol
+      - paragraph [ref=e95]: Returns the symbol of the token. E.g. “HIX”.
+      - paragraph [ref=e96]: OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.
+      - code [ref=e100]: function symbol() public view returns (string)
+      - heading "decimals" [level=4] [ref=e101]:
+        - link [ref=e102] [cursor=pointer]:
+          - /url: "#decimals"
+        - text: decimals
+      - paragraph [ref=e103]:
+        - text: Returns the number of decimals the token uses - e.g.
+        - code [ref=e104]: "8"
+        - text: ", means to divide the token amount by"
+        - code [ref=e105]: "100000000"
+        - text: to get its user representation.
+      - paragraph [ref=e106]: OPTIONAL - This method can be used to improve usability, but interfaces and other contracts MUST NOT expect these values to be present.
+      - code [ref=e110]: function decimals() public view returns (uint8)
+      - heading "totalSupply" [level=4] [ref=e111]:
+        - link [ref=e112] [cursor=pointer]:
+          - /url: "#totalsupply"
+        - text: totalSupply
+      - paragraph [ref=e113]: Returns the total token supply.
+      - code [ref=e117]: function totalSupply() public view returns (uint256)
+      - heading "balanceOf" [level=4] [ref=e118]:
+        - link [ref=e119] [cursor=pointer]:
+          - /url: "#balanceof"
+        - text: balanceOf
+      - paragraph [ref=e120]:
+        - text: Returns the account balance of another account with address
+        - code [ref=e121]: _owner
+        - text: .
+      - code [ref=e125]: function balanceOf(address _owner) public view returns (uint256 balance)
+      - heading "transfer" [level=4] [ref=e126]:
+        - link [ref=e127] [cursor=pointer]:
+          - /url: "#transfer"
+        - text: transfer
+      - paragraph [ref=e128]:
+        - text: Transfers
+        - code [ref=e129]: _value
+        - text: amount of tokens to address
+        - code [ref=e130]: _to
+        - text: ", and MUST fire the"
+        - code [ref=e131]: Transfer
+        - text: event. The function SHOULD
+        - code [ref=e132]: throw
+        - text: if the message caller’s account balance does not have enough tokens to spend.
+      - paragraph [ref=e133]:
+        - emphasis [ref=e134]: Note
+        - text: Transfers of 0 values MUST be treated as normal transfers and fire the
+        - code [ref=e135]: Transfer
+        - text: event.
+      - code [ref=e139]: function transfer(address _to, uint256 _value) public returns (bool success)
+      - heading "transferFrom" [level=4] [ref=e140]:
+        - link [ref=e141] [cursor=pointer]:
+          - /url: "#transferfrom"
+        - text: transferFrom
+      - paragraph [ref=e142]:
+        - text: Transfers
+        - code [ref=e143]: _value
+        - text: amount of tokens from address
+        - code [ref=e144]: _from
+        - text: to address
+        - code [ref=e145]: _to
+        - text: ", and MUST fire the"
+        - code [ref=e146]: Transfer
+        - text: event.
+      - paragraph [ref=e147]:
+        - text: The
+        - code [ref=e148]: transferFrom
+        - text: method is used for a withdraw workflow, allowing contracts to transfer tokens on your behalf. This can be used for example to allow a contract to transfer tokens on your behalf and/or to charge fees in sub-currencies. The function SHOULD
+        - code [ref=e149]: throw
+        - text: unless the
+        - code [ref=e150]: _from
+        - text: account has deliberately authorized the sender of the message via some mechanism.
+      - paragraph [ref=e151]:
+        - emphasis [ref=e152]: Note
+        - text: Transfers of 0 values MUST be treated as normal transfers and fire the
+        - code [ref=e153]: Transfer
+        - text: event.
+      - code [ref=e157]: function transferFrom(address _from, address _to, uint256 _value) public returns (bool success)
+      - heading "approve" [level=4] [ref=e158]:
+        - link [ref=e159] [cursor=pointer]:
+          - /url: "#approve"
+        - text: approve
+      - paragraph [ref=e160]:
+        - text: Allows
+        - code [ref=e161]: _spender
+        - text: to withdraw from your account multiple times, up to the
+        - code [ref=e162]: _value
+        - text: amount. If this function is called again it overwrites the current allowance with
+        - code [ref=e163]: _value
+        - text: .
+      - paragraph [ref=e164]:
+        - strong [ref=e165]: NOTE
+        - text: ": To prevent attack vectors like the one"
+        - link "described here" [ref=e166] [cursor=pointer]:
+          - /url: https://docs.google.com/document/d/1YLPtQxZu1UAvO9cZ1O2RPXBbT0mooh4DYKjA_jp-RLM/
+        - text: and discussed
+        - link "here" [ref=e167] [cursor=pointer]:
+          - /url: https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+        - text: ", clients SHOULD make sure to create user interfaces in such a way that they set the allowance first to"
+        - code [ref=e168]: "0"
+        - text: before setting it to another value for the same spender. THOUGH The contract itself shouldn’t enforce it, to allow backwards compatibility with contracts deployed before
+      - code [ref=e172]: function approve(address _spender, uint256 _value) public returns (bool success)
+      - heading "allowance" [level=4] [ref=e173]:
+        - link [ref=e174] [cursor=pointer]:
+          - /url: "#allowance"
+        - text: allowance
+      - paragraph [ref=e175]:
+        - text: Returns the amount which
+        - code [ref=e176]: _spender
+        - text: is still allowed to withdraw from
+        - code [ref=e177]: _owner
+        - text: .
+      - code [ref=e181]: function allowance(address _owner, address _spender) public view returns (uint256 remaining)
+      - heading "Events" [level=3] [ref=e182]:
+        - link [ref=e183] [cursor=pointer]:
+          - /url: "#events"
+        - text: Events
+      - heading "Transfer" [level=4] [ref=e184]:
+        - link [ref=e185] [cursor=pointer]:
+          - /url: "#transfer-1"
+        - text: Transfer
+      - paragraph [ref=e186]: MUST trigger when tokens are transferred, including zero value transfers.
+      - paragraph [ref=e187]:
+        - text: A token contract which creates new tokens SHOULD trigger a Transfer event with the
+        - code [ref=e188]: _from
+        - text: address set to
+        - code [ref=e189]: "0x0"
+        - text: when tokens are created.
+      - code [ref=e193]: event Transfer(address indexed _from, address indexed _to, uint256 _value)
+      - heading "Approval" [level=4] [ref=e194]:
+        - link [ref=e195] [cursor=pointer]:
+          - /url: "#approval"
+        - text: Approval
+      - paragraph [ref=e196]:
+        - text: MUST trigger on any successful call to
+        - code [ref=e197]: approve(address _spender, uint256 _value)
+        - text: .
+      - code [ref=e201]: event Approval(address indexed _owner, address indexed _spender, uint256 _value)
+      - heading "Implementation" [level=2] [ref=e202]:
+        - link [ref=e203] [cursor=pointer]:
+          - /url: "#implementation"
+        - text: Implementation
+      - paragraph [ref=e204]: "There are already plenty of ERC20-compliant tokens deployed on the Ethereum network. Different implementations have been written by various teams that have different trade-offs: from gas saving to improved security."
+      - heading "Example implementations are available at" [level=4] [ref=e205]:
+        - link [ref=e206] [cursor=pointer]:
+          - /url: "#example-implementations-are-available-at"
+        - text: Example implementations are available at
+      - list [ref=e207]:
+        - listitem [ref=e208]:
+          - link "OpenZeppelin implementation" [ref=e209] [cursor=pointer]:
+            - /url: /assets/eip-20/OpenZeppelin-ERC20.sol
+        - listitem [ref=e210]:
+          - link "ConsenSys implementation" [ref=e211] [cursor=pointer]:
+            - /url: /assets/eip-20/Consensys-EIP20.sol
+      - heading "History" [level=2] [ref=e212]:
+        - link [ref=e213] [cursor=pointer]:
+          - /url: "#history"
+        - text: History
+      - paragraph [ref=e214]: "Historical links related to this standard:"
+      - list [ref=e215]:
+        - listitem [ref=e216]: "Original proposal from Vitalik Buterin: https://github.com/ethereum/wiki/wiki/Standardized_Contract_APIs/499c882f3ec123537fc2fccd57eaa29e6032fe4a"
+        - listitem [ref=e217]: "Reddit discussion: https://www.reddit.com/r/ethereum/comments/3n8fkn/lets_talk_about_the_coin_standard/"
+        - listitem [ref=e218]: "Original Issue #20: https://github.com/ethereum/EIPs/issues/20"
+      - heading "Copyright" [level=2] [ref=e219]:
+        - link [ref=e220] [cursor=pointer]:
+          - /url: "#copyright"
+        - text: Copyright
+      - paragraph [ref=e221]:
+        - text: Copyright and related rights waived via
+        - link "CC0" [ref=e222] [cursor=pointer]:
+          - /url: /LICENSE
+        - text: .
+      - heading "Citation" [level=2] [ref=e223]
+      - paragraph [ref=e224]: "Please cite this document as:"
+      - paragraph [ref=e225]:
+        - text: Fabian Vogelsteller <
+        - link "fabian@ethereum.org" [ref=e226] [cursor=pointer]:
+          - /url: mailto:fabian@ethereum.org
+        - text: ">, Vitalik Buterin <"
+        - link "vitalik.buterin@ethereum.org" [ref=e227] [cursor=pointer]:
+          - /url: mailto:vitalik.buterin@ethereum.org
+        - text: ">, \"ERC-20: Token Standard,\""
+        - emphasis [ref=e228]: Ethereum Improvement Proposals
+        - text: ", no. 20, November 2015. Available: https://eips.ethereum.org/EIPS/eip-20."
+  - contentinfo [ref=e229]:
+    - generic [ref=e230]:
+      - heading "Ethereum Improvement Proposals" [level=2] [ref=e231]
+      - generic [ref=e232]:
+        - list [ref=e234]:
+          - listitem [ref=e235]: Ethereum Improvement Proposals
+        - list [ref=e237]:
+          - listitem [ref=e238]:
+            - link "ethereum/EIPs" [ref=e239] [cursor=pointer]:
+              - /url: https://github.com/ethereum/EIPs
+              - img [ref=e240]
+              - text: ethereum/EIPs
+        - paragraph [ref=e243]: Ethereum Improvement Proposals (EIPs) describe standards for the Ethereum platform, such as core protocol specifications.

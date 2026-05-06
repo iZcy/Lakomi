@@ -1,0 +1,80 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - button [ref=e4] [cursor=pointer]
+    - link "Beranda" [ref=e6] [cursor=pointer]:
+      - /url: /schhp?hl=id&as_sdt=0,5
+    - generic [ref=e9]:
+      - textbox "Telusuri" [ref=e11]: "\"blockchain for member-based organizations\" enhancing transparency accountability cooperatives"
+      - button "Telusuri" [ref=e12] [cursor=pointer]
+    - link "Login" [ref=e16] [cursor=pointer]:
+      - /url: https://accounts.google.com/Login?hl=id&continue=https://scholar.google.com/scholar%3Fq%3D%2522blockchain%2Bfor%2Bmember-based%2Borganizations%2522%2Benhancing%2Btransparency%2Baccountability%2Bcooperatives
+  - generic [ref=e17]:
+    - generic [ref=e21]: Artikel
+    - generic [ref=e23]:
+      - link "Profil saya" [ref=e24] [cursor=pointer]:
+        - /url: /citations?hl=id
+        - generic [ref=e26]: Profil saya
+      - link "Koleksi saya" [ref=e27] [cursor=pointer]:
+        - /url: /scholar?scilib=1&scioq=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5
+        - generic [ref=e29]: Koleksi saya
+  - generic [ref=e30]:
+    - navigation [ref=e31]:
+      - generic [ref=e32]:
+        - list [ref=e34]:
+          - listitem [ref=e35]:
+            - link "Kapan saja" [ref=e36] [cursor=pointer]:
+              - /url: /scholar?q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5
+          - listitem [ref=e37]:
+            - link "Sejak 2026" [ref=e38] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2026&q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5
+          - listitem [ref=e39]:
+            - link "Sejak 2025" [ref=e40] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2025&q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5
+          - listitem [ref=e41]:
+            - link "Sejak 2022" [ref=e42] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2022&q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5
+          - listitem [ref=e43]:
+            - link "Rentang khusus..." [ref=e44] [cursor=pointer]:
+              - /url: javascript:void(0)
+        - list [ref=e45]:
+          - listitem [ref=e46]:
+            - link "Urutkan menurut relevansi" [ref=e47] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives
+          - listitem [ref=e48]:
+            - link "Urutkan menurut tanggal" [ref=e49] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&scisbd=1
+        - list [ref=e50]:
+          - listitem [ref=e51]:
+            - link "Semua jenis" [ref=e52] [cursor=pointer]:
+              - /url: /scholar?q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5
+          - listitem [ref=e53]:
+            - link "Artikel kajian" [ref=e54] [cursor=pointer]:
+              - /url: /scholar?q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&hl=id&as_sdt=0,5&as_rr=1
+        - list [ref=e55]:
+          - listitem [ref=e56]:
+            - checkbox "sertakan paten" [ref=e57] [cursor=pointer]:
+              - generic [ref=e58]: sertakan paten
+          - listitem [ref=e61]:
+            - checkbox "mencakup kutipan" [checked] [ref=e62] [cursor=pointer]:
+              - generic [ref=e63]: mencakup kutipan
+        - link "Buat notifikasi" [ref=e67] [cursor=pointer]:
+          - /url: /scholar_alerts?view_op=create_alert_options&hl=id&alert_query=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives&alert_params=%3Fhl%3Did%26as_sdt%3D0,5
+          - generic [ref=e69]: Buat notifikasi
+    - main [ref=e70]:
+      - generic [ref=e73]:
+        - text: Penelusuran Anda - "blockchain for member-based organizations" enhancing transparency accountability cooperativesS - tak cocok dengan artikel mana pun.
+        - text: "Saran:"
+        - generic [ref=e74]:
+          - text: Pastikan semua kata dieja dengan benar.
+          - text: Coba kata kunci yang lain.
+          - text: Coba kata kunci yang lebih umum.
+          - text: Coba kurangi kata kunci.
+          - link "Coba kueri Anda di semua halaman web yang ada" [ref=e75] [cursor=pointer]:
+            - /url: //www.google.com/search?hl=id&q=%22blockchain+for+member-based+organizations%22+enhancing+transparency+accountability+cooperatives
+  - contentinfo [ref=e76]:
+    - generic [ref=e77]:
+      - link "Privasi" [ref=e78] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/privacy/
+      - link "Persyaratan" [ref=e79] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/terms/
+      - button "Bantuan" [ref=e80] [cursor=pointer]

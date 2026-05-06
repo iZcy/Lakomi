@@ -1,0 +1,27 @@
+- generic [active] [ref=e1]:
+  - link "JSTOR Home" [ref=e3] [cursor=pointer]:
+    - /url: /
+    - img "JSTOR Home" [ref=e4]
+  - main [ref=e5]:
+    - generic [ref=e8]:
+      - heading "Access Check" [level=2] [ref=e9]
+      - paragraph [ref=e10]:
+        - text: Our systems have detected unusual traffic activity from your network. Please complete this reCAPTCHA to demonstrate that it's you making the requests and not a robot. If you are having trouble seeing or completing this challenge,
+        - link "this page" [ref=e11] [cursor=pointer]:
+          - /url: https://support-jstor-org.ezproxy.ugm.ac.id/hc/en-us/articles/115011068868-Troubleshooting-CAPTCHA-
+        - text: may help. If you continue to experience issues, you can
+        - link "contact JSTOR support" [ref=e12] [cursor=pointer]:
+          - /url: https://support-jstor-org.ezproxy.ugm.ac.id/
+        - text: .
+      - iframe [ref=e17]:
+        
+      - paragraph [ref=e18]:
+        - text: "Block Reference: #e11239a0-46bc-11f1-9ab5-5d6ebc64bdcd"
+        - text: "VID: #80175d17-45df-11f1-bd98-5c7a42fc7804"
+        - text: "IP: 202.43.95.117"
+        - text: "Date and time: Sun, 03 May 2026 06:55:46 GMT"
+      - paragraph [ref=e19]:
+        - text: Go back to
+        - link "JSTOR" [ref=e20] [cursor=pointer]:
+          - /url: /
+  - generic [ref=e23]: ©2000- 2026 ITHAKA. All Rights Reserved. JSTOR®, the JSTOR logo, JPASS®, and ITHAKA® are registered trademarks of ITHAKA.

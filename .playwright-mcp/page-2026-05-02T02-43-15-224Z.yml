@@ -1,0 +1,671 @@
+- generic [active] [ref=e1]:
+  - navigation:
+    - list:
+      - listitem:
+        - button "Skip to Article Content" [ref=e2]
+      - listitem:
+        - button "Skip to Article Information" [ref=e3]
+  - generic [ref=e5]:
+    - banner [ref=e7]:
+      - generic [ref=e11]:
+        - generic [ref=e12]:
+          - link "Wiley Online Library" [ref=e14] [cursor=pointer]:
+            - /url: /
+            - img "Wiley Online Library" [ref=e15]
+          - generic [ref=e20]: Universitas Gadjah Mada
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - generic:
+              - text: 
+              - generic [ref=e25]:
+                - searchbox "Search" [ref=e26]
+                - generic [ref=e27]: Search within
+                - combobox "Search within" [ref=e28]:
+                  - option "This Journal" [selected]
+                  - option "Anywhere"
+                - list [ref=e29]:
+                  - listitem [ref=e30]:
+                    - search "Quick Search" [ref=e31]:
+                      - generic [ref=e32]:
+                        - generic [ref=e33]: Search term
+                        - combobox "search text" [ref=e34]
+                        - status [ref=e35]
+                      - button "Submit Search" [ref=e36]: 
+                  - text: 
+          - generic [ref=e39]:
+            - button "Log in or Register" [ref=e41]:
+              - text: 
+              - generic [ref=e42]: Login / Register
+            - text:  
+    - main [ref=e44]:
+      - generic [ref=e46]:
+        - complementary [ref=e50]:
+          - generic [ref=e51]:
+            - text: Advertisement
+            - iframe [ref=e53]:
+              - iframe [ref=f46e4]:
+                
+        - generic [ref=e58]:
+          - article [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]:
+                - generic [ref=e63]:
+                  - generic [ref=e64]:
+                    - generic:
+                      - 'link "Corporate Governance: An International Review"':
+                        - /url: /journal/14678683
+                    - 'link "Corporate Governance: An International Review" [ref=e65] [cursor=pointer]':
+                      - /url: /journal/14678683
+                      - 'img "Corporate Governance: An International Review" [ref=e66]'
+                  - generic [ref=e67]:
+                    - generic [ref=e68]: COMMENTARY
+                    - generic [ref=e70]:
+                      - generic [ref=e71]: 
+                      - generic [ref=e72]: Open Access
+                    - link "Creative Commons license information" [ref=e74] [cursor=pointer]:
+                      - /url: http://creativecommons.org/licenses/by/4.0/
+                      - generic [ref=e75]: 
+                      - generic [ref=e76]: 
+                  - heading "The Myths of Blockchain Governance" [level=1] [ref=e77]
+                  - text:    
+                  - generic [ref=e82]:
+                    - button "Daniel Ferreira" [ref=e83] [cursor=pointer]:
+                      - generic [ref=e84]:
+                        - text: Daniel Ferreira
+                        - generic [ref=e85]: 
+                      - text: 
+                    - text:  
+                  - generic [ref=e86]:
+                    - generic [ref=e87]: "First published: 28 October 2025 |"
+                    - generic [ref=e88]:
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1111/corg.70008 Digital Object Identifier (DOI)" [ref=e89] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111/corg.70008
+                        - text: https://doi-org.ezproxy.ugm.ac.id/10.1111/corg.70008
+                        - generic [ref=e90]: Digital Object Identifier (DOI)
+                      - text: "|"
+                    - button "view metrics" [ref=e92]:
+                      - generic [ref=e93]: 
+                      - text: view metrics
+                  - paragraph [ref=e97]: "Funding: The author received no specific funding for this work."
+                - navigation "Article navigation and tools" [ref=e99]:
+                  - generic [ref=e100]:
+                    - generic [ref=e101]:
+                      - generic:     
+                      - button " Sections" [ref=e103] [cursor=pointer]:
+                        - generic [ref=e104]: 
+                        - text: Sections
+                    - generic [ref=e105]:
+                      - link "PDF" [ref=e108] [cursor=pointer]:
+                        - /url: /doi/epdf/10.1111/corg.70008
+                      - button "CITE" [ref=e110] [cursor=pointer]:
+                        - generic [ref=e111]: 
+                        - generic [ref=e112]: CITE
+                      - generic [ref=e113]:
+                        - button "Tools" [ref=e114] [cursor=pointer]:
+                          - generic [ref=e115]: 
+                          - text: Tools
+                        - text:   
+                      - generic [ref=e116]:
+                        - button "Share" [ref=e117] [cursor=pointer]:
+                          - generic [ref=e118]: 
+                          - text: Share
+                        - text:           
+                - article [ref=e120]:
+                  - generic [ref=e122]:
+                    - heading "ABSTRACT" [level=2] [ref=e123]
+                    - generic [ref=e124]:
+                      - generic [ref=e125]:
+                        - heading "Research Question/Issue" [level=3] [ref=e126]
+                        - paragraph [ref=e127]: Blockchain technology promises to revolutionize governance through strong commitments, trustlessness, and transparency. This paper examines how these promises have failed to materialize in practice.
+                      - generic [ref=e128]:
+                        - heading "Research Findings/Insights" [level=3] [ref=e129]
+                        - paragraph [ref=e130]: Drawing on case evidence from major blockchains, including Bitcoin and Ethereum, I argue that blockchains have evolved into technocracies where developers, foundations, and companies exercise disproportionate control. Rather than being exceptional, blockchain governance suffers from the same coordination problems, collective action failures, and centralization tendencies that plague traditional governance systems.
+                      - generic [ref=e131]:
+                        - heading "Theoretical/Academic Implications" [level=3] [ref=e132]
+                        - paragraph [ref=e133]: The paper concludes that while blockchains offer valuable experiments in governance design, their alleged advantages over traditional institutions remain largely mythical.
+                      - generic [ref=e134]:
+                        - heading "Practitioner/Policy Implications" [level=3] [ref=e135]
+                        - paragraph [ref=e136]: Blockchain organizations should acknowledge their reliance on off-chain coordination and informal authority. Investors must understand that blockchain governance depends on trusting technical elites, while regulators should recognize that decentralization claims often mask concentrated power structures requiring traditional oversight.
+                  - generic [ref=e137]:
+                    - generic [ref=e138]:
+                      - heading "1 Introduction" [level=2] [ref=e139]
+                      - paragraph [ref=e140]:
+                        - text: The emergence of blockchain-based organizational forms has often been hailed as a revolution in governance. Both foundational blockchains (such as Bitcoin and Ethereum) and the organizations built on them have governance structures that significantly differ from traditional modes of corporate and public governance. These differences are often viewed favorably as the consequence of technological and contractual innovations that reduce transaction costs. For example, Catalini and Gans (
+                        - link "2020" [ref=e142] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0004"
+                        - text: ", 89) state:"
+                      - blockquote [ref=e144]:
+                        - paragraph [ref=e145]: Through blockchain-based networks, individuals and organizations can source ideas, information, capital and labor, and enforce contracts for digital assets with substantially reduced frictions. These changes allow for the design of novel types of networks that blend features of competitive markets with the more nuanced forms of governance used within vertically integrated firms and online platforms.
+                      - paragraph [ref=e146]:
+                        - text: Blockchain organizations are supposed to be decentralized. This decentralization is allegedly associated with three important features. First, because they rely on immutable code, blockchains can make strong, software-enforced commitments. Second, blockchains enable cooperation among a large number of network members without the need to trust anyone. Finally, the public nature of blockchain code and data makes blockchain organizations more transparent than traditional ones. Blockchains purportedly achieve immutability, trustlessness, and transparency through “mathematical guarantees involving cryptography (the science of secure communication) and game theory (the study of strategic decision-making)” (Dixon
+                        - link "2024" [ref=e148] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0007"
+                        - text: ", 57). Such features have led some to argue that “governance in the blockchain economy might radically depart from established notions of governance” (Beck et al."
+                        - link "2018" [ref=e150] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0002"
+                        - text: ).
+                      - paragraph [ref=e151]:
+                        - text: In this article, I argue that the three pillars of blockchain governance are myths. Contrary to popular accounts, blockchain rules and data can change, and numerous examples exist in which this has occurred. Moreover, no truly trust-free transaction can be sustained by “a clever combination of cryptography and game theory” (Catalini and Gans
+                        - link "2020" [ref=e153] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0004"
+                        - text: ). Far from eliminating the need for trust, blockchains have shifted trust from traditional intermediaries to new power brokers, such as core developers, corporations and foundations. As I demonstrate below, large players have significant influence even in the most decentralized crypto projects, such as Bitcoin and Ethereum. Finally, the combination of opaque control structures and the need for highly specialized knowledge often makes blockchain organizations much less transparent than traditional organizations.
+                      - paragraph [ref=e154]: "These governance issues are not mere growing pains of a nascent technology. Rather, they reflect fundamental economic forces that economists and governance scholars understand well: agency problems, network effects, collective action, specialization and economies of scale, complexity, and human fallibility. Blockchain enthusiasts have paid scant attention to these traditional sources of governance problems, preferring to believe that clever cryptography (and often not-so-clever game theory) can solve problems that have plagued human societies for millennia. Instead, I argue here that to understand blockchain governance, we must draw on insights from both corporate and public governance research."
+                    - generic [ref=e155]:
+                      - heading "2 The Economics of Blockchain Governance" [level=2] [ref=e156]
+                      - paragraph [ref=e157]: Blockchain technology offers numerous promising applications, including payment systems, contracts, and financial services. However, blockchains also possess a darker aspect, encompassing gambling, tax evasion, money laundering, and environmental impacts. In essence, a blockchain represents a public good with both social benefits and costs. These characteristics make the study of blockchains a compelling new field for governance researchers.
+                      - generic [ref=e158]:
+                        - text: "In a narrow sense, a blockchain is a series of records—referred to as blocks—that are connected through cryptographic methods. Rather than this narrow definition of blockchain, here, I use the term in a broader sense to denote a system consisting of three core components:"
+                        - list [ref=e159]:
+                          - listitem [ref=e160]: A database containing blocks of transactions.
+                          - listitem [ref=e161]: A collection of rules (a protocol) and source code governing block creation and validation.
+                          - listitem [ref=e162]: A governance framework for allocating decision-making authority.
+                      - paragraph [ref=e163]:
+                        - text: Blockchains vary in their technical features, uses, and rules. I will use the term blockchain organization to refer to a network of actors that coordinate around a particular blockchain.
+                        - link "Note" [ref=e164] [cursor=pointer]:
+                          - /url: "#corg70008-note-0002_7"
+                          - superscript [ref=e165]: "1"
+                        - text: This definition includes “Layer 1” foundational blockchains, such as Bitcoin and Ethereum, as well as narrower applications built on these foundational blockchains (mainly Ethereum), such as Decentralized Finance (DeFi) platforms, which offer “on-chain” financial services, and Decentralized Autonomous Organizations (DAOs), which are organizations partly managed and governed through a blockchain.
+                      - generic [ref=e166]:
+                        - heading "2.1 What Is Blockchain Governance?" [level=3] [ref=e167]
+                        - paragraph [ref=e168]: "Three related but distinct notions of governance are relevant to blockchain organizations: corporate governance, public governance, and contractual governance."
+                        - paragraph [ref=e169]: Corporate governance in blockchain contexts concerns how to ensure that blockchain organizations are run in the interest of their narrowly defined stakeholders—users, members, investors, developers, and so forth. The central challenge is how to prevent powerful parties from extracting excessive private benefits at the expense of weaker stakeholders. Equally important is ensuring that governance is not captured by special interests.
+                        - paragraph [ref=e170]: Public governance addresses how to ensure that blockchain organizations benefit society at large. This encompasses making the decision-making process democratic and representative, stimulating participation and civic engagement, ensuring decision makers internalize potential externalities, and coordinating agents in decentralized settings.
+                        - paragraph [ref=e171]:
+                          - text: Contractual governance focuses on designing mechanisms that support particular contractual relationships (Williamson
+                          - link "2002" [ref=e173] [cursor=pointer]:
+                            - /url: "#corg70008-bib-0015"
+                          - text: ). For example, when A buys from B and pays through the blockchain network, how should disputes be settled when they disagree about the quality of the service or goods supplied?
+                        - paragraph [ref=e174]: "From the perspective of contractual governance, there are three classes of contractual relationships: externally enforced contracts, relational contracts (not formally enforced but sustained by repeated interactions among parties), and self-executing contracts (automatically enforced under specific conditions). Blockchain organizations rely primarily on a combination of self-executing and relational contracts, with limited use of externally enforced contracts. Self-executing contracts (also known in blockchain contexts as smart contracts) can expand the scope of on-chain governance. While these contracts can be powerful, their application is limited to on-chain actions. Anything that requires interaction with off-chain actors cannot be fully automated and is therefore subject to governance risk."
+                        - paragraph [ref=e175]: The “constitution” of a blockchain organization is typically called its protocol. Blockchain protocols encompass both on-chain rules (i.e., rules determined by code) and off-chain rules. For example, the Bitcoin protocol stipulates that, when two competing chains of blocks exist, the longest chain should prevail. This “longest-chain rule” is a vital component of the protocol. It is, however, off-chain (i.e., not embedded in code) and thus purely relational (i.e., there is no formal contract enforcing it).
+                      - generic [ref=e176]:
+                        - heading "2.2 Blockchain Organizations Versus Traditional Organizations" [level=3] [ref=e177]
+                        - paragraph [ref=e178]: Blockchain organizations differ from traditional corporations in four key respects. First, they are typically not legal personalities and thus cannot enter into formal contracts. Second, their key assets are protocols and “treasury funds” (i.e., cryptoasset balances), rather than traditional forms of capital. Third, similar to nonprofits, they typically have no owners of residual cash flow rights. Fourth, they lack official lines of authority.
+                        - paragraph [ref=e179]: A DAO is a specific type of blockchain organization that decides how to use its assets through blockchain-enabled voting. The key assets “owned” by a DAO are protocols of other blockchain organizations and treasury funds. Many DeFi protocols are governed by DAOs with formal voting mechanisms. Uniswap, a decentralized exchange that enables automated trading of cryptocurrencies, is governed by UNI token holders who can propose and vote on changes to the protocol. Compound, a lending platform that allows users to borrow and lend cryptocurrencies, follows a similar model with COMP tokens. MakerDAO, which operates a lending system and maintains the Dai stablecoin (a cryptocurrency designed to maintain a stable value relative to the US dollar), uses MKR tokens for governance. These DAOs typically control protocol parameters, treasury funds, and upgrade decisions through on-chain voting, though much of the actual deliberation occurs off-chain in forums and Discord channels.
+                        - paragraph [ref=e180]: Not all protocols are governed by DAOs. For example, despite being one of the largest foundational blockchain platforms, Ethereum is not managed by a (formal) DAO. Ethereum governance is fully off-chain, with no formal mechanism in place for someone to take over the protocol. To implement changes, one must convince core developers to adopt a proposal through informal channels. These include many rounds of discussions in forums and conference calls, in a process coordinated by individuals associated with the Ethereum Foundation. The process of approving Ethereum Improvement Proposals is called “rough consensus.” If this sounds vague, it is because it is—Ethereum's governance structure is deliberately informal and undefined.
+                      - generic [ref=e181]:
+                        - 'heading "2.3 Decentralization: Formal and Real" [level=3] [ref=e182]'
+                        - paragraph [ref=e183]:
+                          - text: "The term “decentralization” in blockchain contexts typically refers to decision-making authority not being concentrated in the hands of a small group. In practice, decentralization often means the absence of formal authority. But real authority obviously exists: agents with better information, expertise, resources, or connections typically have more power over crucial decisions. Thus, a formally decentralized organization can be centralized in real authority."
+                          - link "Note" [ref=e184] [cursor=pointer]:
+                            - /url: "#corg70008-note-0003_9"
+                            - superscript [ref=e185]: "2"
+                        - paragraph [ref=e186]: Alternatively, one might define decentralization as formal authority being allocated symmetrically across a large number of members, in proportion to their committed resources. Since corporations also allocate voting rights to shareholders proportionally, the key difference appears to be that DAOs over-rely on direct democracy rather than the “representative governance” of traditional corporations, in which shareholders delegate most of the governance functions to an elected board of directors. Additionally, foundational blockchain platforms tend to have only informal governance processes, with no formal allocation of authority whatsoever.
+                        - paragraph [ref=e187]: The following examples illustrate how the gap between formal decentralization and real authority manifests in practice and creates governance risks.
+                      - generic [ref=e188]:
+                        - heading "2.4 The Oracle Problem" [level=3] [ref=e189]
+                        - paragraph [ref=e190]: In a blockchain context, an oracle is an agent that provides external data to the blockchain. For example, consider a (hypothetical) DeFi application that creates a derivative product that automatically pays out some amount of ether (ETH) if the price of ETH (in USD) exceeds a particular threshold. While it is possible to write a smart contract that self-executes this transaction, the contract must interact with an oracle that records the current price of ETH in real time. The price of ETH exists off-chain and varies across different exchanges at any given moment. Thus, we need to trust the oracle to behave predictably and fairly, rather than misrepresenting the price or altering its rules to suit its own interests. That is, we need to understand how the oracle itself is governed.
+                      - generic [ref=e191]:
+                        - heading "2.5 Off-Chain Governance and Voting Participation" [level=3] [ref=e192]
+                        - paragraph [ref=e193]:
+                          - text: In DAOs, self-executing contracts complement relational contracts, while externally enforced contracts are rarely used. Consider a DAO that raises funds to invest in new ventures. Unless these ventures are completely on-chain (and on the same chain), some off-chain actions will need to be taken. Even if all actions are on-chain, members will likely debate and share information on off-chain forums. Whoever has the power to moderate these forums will therefore have significant influence over decisions (see Ferreira and Li
+                          - link "2024" [ref=e195] [cursor=pointer]:
+                            - /url: "#corg70008-bib-0008"
+                          - text: ).
+                          - link "Note" [ref=e196] [cursor=pointer]:
+                            - /url: "#corg70008-note-0004_11"
+                            - superscript [ref=e197]: "3"
+                        - paragraph [ref=e198]: Off-chain voting represents a critical component of DAO governance. Online platforms, such as Snapshot, allow DAO members to signal their voting intentions for specific proposals. Off-chain actions can be put on-chain through oracles, but this merely shifts the trust problem rather than solving it.
+                        - paragraph [ref=e199]:
+                          - text: Another problem is voter turnout. As is well known in the political science literature, direct democracy is often associated with low voter turnout. See, for example, Hall and Oak (
+                          - link "2023" [ref=e201] [cursor=pointer]:
+                            - /url: "#corg70008-bib-0010"
+                          - text: ", 1): “Users of online systems expect convenience and are generally uninterested in participating in governing the platforms that they use. Rates of voting in online communities in the web3 space are generally quite low.” Indeed, Cong et al. ("
+                          - link "2025" [ref=e203] [cursor=pointer]:
+                            - /url: "#corg70008-bib-0006"
+                          - text: ) show that voting participation in DAOs averages about 6.3%, which is much lower than voting participation in large corporations (approximately 70%–80%). Given low participation, DAOs are effectively controlled by large token holders, core developers, and foundations.
+                      - generic [ref=e204]:
+                        - heading "2.6 Protocol Entrenchment" [level=3] [ref=e205]
+                        - paragraph [ref=e206]:
+                          - text: "Most participants in the blockchain development community implicitly assume that any potential benefit of centralization is temporary. For example, in blockchains based on proof-of-work (PoW) consensus protocols, such as Bitcoin, if an agent acquires more than 50% of the “hash rate” (a measure of the computational power directed to block creation, or “mining”), they can corrupt the chain and “double-spend” by making illegitimate transactions. This benefit is supposed to be short-lived: Once other users become aware of the double spending, they are expected to leave (or “fork”) the chain, making any further double spending futile. Thus, developers have focused on making the cost of such one-time benefits prohibitively high."
+                          - link "Note" [ref=e207] [cursor=pointer]:
+                            - /url: "#corg70008-note-0005_14"
+                            - superscript [ref=e208]: "4"
+                        - paragraph [ref=e209]: The situation changes if powerful parties can enjoy long-term benefits from selfish acts. This would occur if an organization or network remains valuable even when inefficient. Network externalities and coordination problems make it difficult for small participants to punish large actors who misbehave. In most cases, rather than punishment, there will be accommodation or acceptance.
+                        - paragraph [ref=e210]: As an example, suppose that most parties believe protocol B is superior to protocol A. However, protocol A is more profitable for a particular powerful party. Thus, this party may veto any attempt to move from A to B. If the network remains valuable under A, small players have no incentive to leave unilaterally. Thus, an inefficient protocol becomes entrenched—a phenomenon I like to call “protocol entrenchment.”
+                      - generic [ref=e211]:
+                        - heading "2.7 Narrative Control" [level=3] [ref=e212]
+                        - paragraph [ref=e213]: While protocol entrenchment places hard constraints on participants, equally important are the informal mechanisms through which influential actors shape blockchain governance.
+                        - paragraph [ref=e214]: Many blockchain organizations have influential “foundations,” which are typically under the formal or informal control of a few individuals or companies. An example is the Ethereum Foundation and its influential leader, Vitalik Buterin. Although the foundation controls various key aspects of Ethereum's development, from logistics to capital allocation, it also exerts soft power by controlling the narrative through its charismatic leader. This influence manifests through blog posts, conference keynotes, and social media presence, shaping community consensus without a formal decision-making role. This phenomenon of “narrative monopolies” represents a subtle but powerful form of governance influence that operates entirely off-chain yet significantly affects on-chain outcomes.
+                    - generic [ref=e215]:
+                      - heading "3 The Immutability Myth" [level=2] [ref=e216]
+                      - paragraph [ref=e217]: "There are two types of alleged blockchain immutability. First, the ledger is supposed to be immutable: Once blocks are added to the chain, they cannot be modified or deleted. Second, rules are also immutable: Core protocol parameters (such as Bitcoin's 21 million coin limit) are supposedly fixed forever."
+                      - paragraph [ref=e218]: Both types of immutability are myths. Blockchains can and do change both their history and their rules when sufficient consensus exists among powerful stakeholders. The question is not whether blockchains are immutable, but who has the power to mutate them.
+                      - paragraph [ref=e219]: "Ethereum's handling of the DAO hack in 2016 is the best-known example of ledger mutability. A decentralized autonomous organization called The DAO raised $150 million through a token sale. A bug in its smart contract allowed an attacker to drain $50 million. The Ethereum community faced a choice: accept the theft as the price of “code is law,” or intervene to reverse the transactions. Core developers, led by Vitalik Buterin, pushed for intervention. They implemented a hard fork that effectively rewrote history, returning the stolen funds."
+                      - paragraph [ref=e220]: Not everyone agreed with this decision. A significant minority continued running the original chain, now called Ethereum Classic, which preserved the hack. This schism demonstrated two important points. First, blockchain history is mutable when powerful stakeholders agree to change it. Second, even when the ledger splits, the economic consequences are limited—the price of ether did not collapse despite the violation of immutability. The fork's success depended not on cryptographic guarantees but on the social consensus of core developers and major stakeholders.
+                      - paragraph [ref=e221]: Protocol rules have proven equally mutable. Ethereum's transition from proof-of-work to proof-of-stake in 2022—marketed as “The Merge”—fundamentally changed how the network operates. This was not a minor technical adjustment but a complete overhaul of the consensus mechanism.
+                      - paragraph [ref=e222]:
+                        - text: Incredible as it may sound, even Bitcoin's 21 million cap is not truly set in stone. Bitcoin evangelists frequently proclaim that “there will never be more than twenty-one million bitcoin” (Dixon
+                        - link "2024" [ref=e224] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0007"
+                        - text: ", 57), asserting this limit is “encoded in Bitcoin's source code and enforced by nodes on the network.”"
+                        - link "Note" [ref=e225] [cursor=pointer]:
+                          - /url: "#corg70008-note-0006_16"
+                          - superscript [ref=e226]: "5"
+                        - text: "But this is not literally true: Source code can be changed. If enough miners and nodes agree to run modified software, the 21 million cap could be increased to 21.5 million or any other number. It may well be that code is law, but laws do change, and so does code."
+                      - paragraph [ref=e227]:
+                        - text: When challenged on this point, true believers quickly switch from technological to behavioral explanations for the hard cap. They warn that any attempt to change the hard cap would result in “a catastrophic and irreversible price collapse.”
+                        - link "Note" [ref=e228] [cursor=pointer]:
+                          - /url: "#corg70008-note-0007_17"
+                          - superscript [ref=e229]: "6"
+                        - text: This “price collapse theory” relies on several dubious assumptions. First, it assumes everyone believes Bitcoin becomes worthless if its supply increases even marginally. This is equivalent to claiming that if the Federal Reserve overshoots its inflation target by half a percent, the value of the dollar would collapse to zero. Governments worldwide benefit from controlled inflation through seigniorage (the “inflation tax”), yet their currencies do not instantly vaporize.
+                      - paragraph [ref=e230]: Second, the theory presupposes a hyper-efficient market where Bitcoin's price reflects only fundamental information about the protocol. This ignores the reality that a single tweet by a well-known celebrity CEO or politician can send Bitcoin's price soaring or crashing by double-digit percentages. Third, for the threat to work, the price would need to collapse so rapidly that miners who colluded to increase the cap could not cash out their holdings before the crash.
+                      - paragraph [ref=e231]: Finally, and perhaps most obviously, this is not how asset markets work. To a large extent, Bitcoin is a speculative meme asset. Like other such assets, Bitcoin's price depends on the buying and selling behavior of a large number of players who follow coordinated signals (e.g., a single Elon Musk tweet about accepting Bitcoin for Tesla purchases sent the price up 20%). In game-theoretical terms, the price collapse threat represents a “trigger strategy”—a punishment mechanism that only works if everyone coordinates to execute it simultaneously. But trigger strategies have massive coordination problems. They require a universal belief that everyone else will punish defectors, and that belief itself is fragile.
+                      - paragraph [ref=e232]: To clarify, I am not suggesting that Bitcoin's hard cap will ever be altered. I have no reason to bet on this. I am simply observing that if, for whatever reason, someone who is very influential among Bitcoin investors wants to change the maximum Bitcoin supply, there are no technical impediments to it, and the price of Bitcoin will almost certainly not collapse to zero.
+                    - generic [ref=e233]:
+                      - heading "4 The Trustlessness Myth" [level=2] [ref=e234]
+                      - paragraph [ref=e235]:
+                        - text: Satoshi Nakamoto described trust in intermediaries as “the root problem with conventional currency” and promised Bitcoin would be “a system for electronic transactions without relying on trust” (Nakamoto
+                        - link "2008" [ref=e237] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0012"
+                        - text: ). This vision of trustlessness has become the central value proposition of most crypto projects.
+                      - paragraph [ref=e238]:
+                        - text: The proof-of-work (PoW) system envisioned by Satoshi Nakamoto was supposed to democratize Bitcoin block production. As Nakamoto (
+                        - link "2008" [ref=e240] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0012"
+                        - text: ) wrote, “Proof-of-work is essentially one-CPU-one-vote.” That is, any computer could participate in block production (called mining in PoW blockchains), preventing any single entity from controlling the network. This vision died with the rise of specialized mining hardware. Since 2015, all Bitcoin mining has been conducted using application-specific integrated circuits (ASICs), which are significantly more efficient than general-purpose computers. Bitmain Technologies, a private Chinese company, controls approximately 75% of the global market for Bitcoin mining hardware. Bitmain also dominates other segments of the mining ecosystem, including mining pools (firms that provide insurance to miners), mining farms (custodians of mining equipment), and cloud mining services (rental of mining power).
+                      - paragraph [ref=e241]:
+                        - text: In joint work with Jin Li and Radoslawa Nikolowa (Ferreira et al.
+                        - link "2023" [ref=e243] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0009"
+                        - text: "), I have studied the theory behind the emergence of blockchain conglomerates: firms that combine hardware manufacturing, mining pool operation, and other services for miners in proof-of-work blockchains. Intuitively, by controlling the supply of multiple complementary services, blockchain conglomerates can leverage their market power in one market to fend off competition in others. Because blockchain protocol changes can affect demand for their services, blockchain conglomerates have a keen interest in blockchain governance. Consequently, these conglomerates have both the incentives and means to capture blockchain governance."
+                      - paragraph [ref=e244]: The disproportionate influence of key stakeholders on crypto ecosystems often conflicts with their official “trust-free” narratives. The crypto winter following FTX's collapse in 2022 offers another teachable moment. Sam Bankman-Fried's empire was not merely a failure of traditional corporate governance—though the tunneling of customer assets to Alameda Research certainly fits that description. It was equally a failure of blockchain governance, exposing how supposedly decentralized networks (like the Solana blockchain) were effectively captured by a conglomerate of crypto companies, this time including exchanges and investment funds.
+                      - paragraph [ref=e245]: Blockchain conglomerates are not the only problem. Every blockchain user must also trust the small group of developers who maintain the protocol. These developers write the code and decide which changes to implement, which bugs to fix, and which features to prioritize. Users must trust that developers are competent, honest, and aligned with their interests. The problem is compounded by the technical expertise required to become a blockchain developer. This creates a natural barrier to entry, limiting the pool of potential developers to a small technical elite. The result is technocracy—rule by technical experts—rather than the democracy or market competition that blockchain advocates envision.
+                      - paragraph [ref=e246]: "The Bitcoin “block size wars” of 2016–2017 illustrate how supposedly trustless systems still require trust in key stakeholders. The conflict centered on whether to increase Bitcoin's 1 MB block size limit. Two camps emerged with fundamentally different visions for Bitcoin: mining companies and businesses generally supported larger blocks, while core developers and their supporters preferred keeping blocks small."
+                      - paragraph [ref=e247]:
+                        - text: Roger Ver offers an entertaining account of these disputes (Ver and Patterson
+                        - link "2024" [ref=e249] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0014"
+                        - text: ). He frames it as a fight between “Big Blockers,” who hoped to turn Bitcoin into an electronic payment system (“digital cash”), and “Small Blockers,” who preferred to promote Bitcoin mainly as a store of value (“digital gold”). Ver is not an impartial observer; he openly supported the losing side—the Big Blockers who argued that larger block size limits were needed for Bitcoin to scale while maintaining fast and inexpensive transactions. He laments that “virtually all the biggest companies in the industry tried, on multiple occasions, to increase the limit, but the Core developers refused, even after publicly agreeing to an increase” (Ver and Patterson
+                        - link "2024" [ref=e251] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0014"
+                        - text: ", 41)."
+                      - paragraph [ref=e252]: The conflict was resolved not through trustless consensus mechanisms but through control of key institutions. The Bitcoin Core development team opposed increasing the block size. This episode reveals that even in Bitcoin—the archetypal decentralized system—critical decisions depend on trust in specific groups. Rather than eliminating the need for trust, the system merely shifted it from traditional institutions to developers, forum moderators, and other influential actors. The resolution of the block size debate was ultimately political, not technological.
+                      - paragraph [ref=e253]: "Having discussed how companies in the mining ecosystem have incentives to capture the governance of Bitcoin, I should also present the opposing view:"
+                      - blockquote [ref=e255]:
+                        - paragraph [ref=e256]:
+                          - text: Miners have strong incentives. Users have the correct incentives. But developers' incentives are murky and can result in conflicts of interest. In the case of Bitcoin Core, the structure of their decision-making process was flawed and ultimately derailed the entire project. (Ver and Patterson
+                          - link "2024" [ref=e258] [cursor=pointer]:
+                            - /url: "#corg70008-bib-0014"
+                          - text: ", 70)"
+                      - paragraph [ref=e259]: "My view is a bit different: In a truly trust-free system, we would not need to rely on parties having “strong” or “correct” incentives. How do we know such incentives align with our goals? How do we know they will not change? Trusting the incentive structure instead of people requires relocating our trust one level up: we must trust an infallible mechanism designer (perhaps Nakamoto or Buterin?) with infinite knowledge of computer science and game theory."
+                      - paragraph [ref=e260]: Ethereum stakeholders depend even more heavily on trusting powerful actors, as the ProgPoW debate of 2018–2020 illustrates. ProgPoW (Programmatic Proof-of-Work) was a proposed algorithm change designed to reduce the advantage of ASIC miners over GPU miners. Two camps emerged. GPU miners and some core developers supported ProgPoW, arguing it would preserve decentralization. Leading DeFi projects like MakerDAO and Compound opposed it, fearing that any contentious change could threaten the billions locked in their protocols.
+                      - paragraph [ref=e261]:
+                        - text: Despite a “community vote” in April 2019 showing 93% support among participating ETH holders and core developers marking the proposal as “accepted” in February 2020, the backlash was immediate. Stakeholders launched petitions, social media campaigns, and even floated the possibility of contentious forks (Shevchenko
+                        - link "2020" [ref=e263] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0013"
+                        - text: ).
+                      - paragraph [ref=e264]:
+                        - text: Vitalik Buterin's role in this episode underscores the tension between Ethereum's aspirational decentralization and its practical reliance on charismatic leadership. While Buterin did not explicitly dictate the outcome, his public statements carried disproportionate weight. In interviews and blog posts, he criticized the approval process as hasty and lacking broad consensus, warning that pushing through such a contentious change could damage Ethereum's legitimacy.
+                        - link "Note" [ref=e265] [cursor=pointer]:
+                          - /url: "#corg70008-note-0008_25"
+                          - superscript [ref=e266]: "7"
+                      - paragraph [ref=e267]: Ultimately, ProgPoW was shelved—not through any formal governance mechanism, but through the informal influence of key stakeholders. The episode reveals that even technical decisions with apparent community support can be blocked when powerful actors object, demonstrating once again that trust in specific individuals and institutions remains essential in supposedly trustless systems.
+                    - generic [ref=e268]:
+                      - heading "5 The Transparency Myth" [level=2] [ref=e269]
+                      - paragraph [ref=e270]:
+                        - text: Blockchain advocates claim their technology enables unprecedented transparency. Every transaction is recorded on a public ledger, visible to all participants. Smart contracts are “open source,” their logic supposedly accessible to anyone with technical knowledge. As Ethereum's website proclaims, services are now “handled by code that anyone can inspect and scrutinize.”
+                        - link "Note" [ref=e271] [cursor=pointer]:
+                          - /url: "#corg70008-note-0009_26"
+                          - superscript [ref=e272]: "8"
+                      - paragraph [ref=e273]: This narrative of radical transparency appeals to those frustrated with the opacity of traditional institutions, from central banks' monetary policy deliberations to corporations' backroom dealings. Yet blockchain transparency is far more limited than advocates suggest.
+                      - paragraph [ref=e274]:
+                        - text: "The most obvious limitation is technical: Reading smart contract code requires highly specialized skills. Cohney et al. ("
+                        - link "2019" [ref=e276] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0005"
+                        - text: ) document this problem in their study of Initial Coin Offerings (ICO) prospectuses, finding significant discrepancies between what white papers promised and what the underlying code actually implemented. Smart contracts on Ethereum are deployed as bytecode—machine language incomprehensible to all but a tiny technical elite. As the authors observe, “Without spending a large sum of money purchasing the time and know-how of a very motivated and talented reverse engineer, an investor would have to rely on vernacular promises.”
+                      - paragraph [ref=e277]: Even when projects publish their source code in higher-level languages, verification remains problematic. Users must trust that the published source matches the deployed bytecode. They must understand complex programming concepts to evaluate the code's behavior. They must anticipate how the code will interact with other smart contracts in often unpredictable ways.
+                      - paragraph [ref=e278]:
+                        - text: The Terra/Luna collapse of May 2022 illustrates this opacity problem. The Anchor protocol promised 19.5% annual yields through an algorithmic mechanism that few users understood (Liu et al.
+                        - link "2023" [ref=e280] [cursor=pointer]:
+                          - /url: "#corg70008-bib-0011"
+                        - text: ). The subsidies required to maintain these yields reached $6 million daily by April 2022, with approximately 75% of UST's supply locked in Anchor chasing these unsustainable returns.
+                        - link "Note" [ref=e281] [cursor=pointer]:
+                          - /url: "#corg70008-note-0010_29"
+                          - superscript [ref=e282]: "9"
+                        - text: The result was a $50 billion collapse that caught most participants by surprise, despite the warning signs being recorded on the blockchain for all to see.
+                      - paragraph [ref=e283]: But technical opacity is only part of the problem. Beyond technical opacity lies organizational opacity. Who controls major blockchains? Who funds their development? How are decisions made? These questions often have no clear answers.
+                      - paragraph [ref=e284]: Consider the Ethereum Foundation, which plays a crucial role in Ethereum's development. Despite its importance, the foundation discloses little about its operations, funding sources, or decision-making processes. Core developers are selected through opaque processes, and their compensation arrangements remain undisclosed.
+                      - paragraph [ref=e285]: Bitcoin presents similar challenges. The dominant implementation, Bitcoin Core, is maintained by a small group of developers. Who selects these developers? How are they funded? Some receive support from corporations like Block (formerly Square), raising questions about corporate influence. Yet these relationships remain largely undisclosed.
+                      - paragraph [ref=e286]: Mining infrastructure adds another layer of opacity. While blockchain transactions are public, the ownership and control of mining operations are not. Chinese mining pools have historically dominated Bitcoin mining, yet their ultimate ownership remains murky. Hardware manufacturers that produce ASICs often operate their own mining pools, creating vertical integration that concentrates power in ways difficult to observe or measure.
+                      - paragraph [ref=e287]: "Blockchains have achieved the opposite of their transparency promise: public data and code that few can interpret, and governance structures often more opaque than the traditional institutions they claim to replace."
+                    - generic [ref=e288]:
+                      - heading "6 The EOS Constitutional Crisis" [level=2] [ref=e289]
+                      - paragraph [ref=e290]: EOS—a smart-contract platform—was once dubbed the “Ethereum killer” for its promise to deliver high-speed, low-cost transactions. EOS raised $4 billion in 2017 in the largest ICO ever. The blockchain operates on a “delegated proof-of-stake” consensus mechanism where coin holders vote for block producers. The top 21 block producers are elected to produce blocks and oversee governance.
+                      - paragraph [ref=e291]:
+                        - text: EOS's governance problems began immediately after its 2018 launch. In the early days, seven individuals lost access to their EOS tokens through scams and theft. The block producers unanimously voted to freeze the affected accounts without an official order from the designated arbitration body.
+                        - link "Note" [ref=e292] [cursor=pointer]:
+                          - /url: "#corg70008-note-0011_30"
+                          - superscript [ref=e293]: "10"
+                        - text: Critics called this “consensus by conference call.”
+                        - link "Note" [ref=e294] [cursor=pointer]:
+                          - /url: "#corg70008-note-0012_31"
+                          - superscript [ref=e295]: "11"
+                      - paragraph [ref=e296]:
+                        - text: The crisis peaked in March and April 2019. The original EOS constitution required a minimum of 15% voter turnout for amendments. However, when a proposal for a new constitution was put forward in March–April 2019, it attracted only 1.74% turnout. Despite the constitutional requirement, 15 out of 21 block producers agreed to adopt the new constitution on the last day of the vote. The new EOS User Agreement replaced the interim constitution and, crucially, omitted the clause explicitly forbidding vote-buying.
+                        - link "Note" [ref=e297] [cursor=pointer]:
+                          - /url: "#corg70008-note-0013_32"
+                          - superscript [ref=e298]: "12"
+                        - text: Almost immediately, markets for lending “stakes” emerged, where votes could be bought and sold. Figure
+                        - link "1" [ref=e299] [cursor=pointer]:
+                          - /url: "#corg70008-fig-0001"
+                        - text: illustrates the pattern of block producer vote concentration (measured by the HHI index) in the first years of EOS.
+                        - link "Note" [ref=e300] [cursor=pointer]:
+                          - /url: "#corg70008-note-0014_34"
+                          - superscript [ref=e301]: "13"
+                        - text: The figure shows that the legalization of vote buying was followed by a sharp increase in vote concentration.
+                      - 'figure "FIGURE 1 Open in figure viewer PowerPoint EOS vote concentration: 2018–2021. [Colour figure can be viewed at wileyonlinelibrary.com]" [ref=e303]':
+                        - link "Details are in the caption following the image" [ref=e304] [cursor=pointer]:
+                          - /url: /cms/asset/1eea07e9-1c56-4567-82dc-299f0d5b4233/corg70008-fig-0001-m.jpg
+                          - img "Details are in the caption following the image" [ref=e306]
+                        - generic [ref=e307]:
+                          - generic [ref=e308]:
+                            - strong [ref=e309]: FIGURE 1
+                            - generic [ref=e310]:
+                              - link "Open in figure viewer" [ref=e311] [cursor=pointer]:
+                                - /url: "#"
+                              - link "PowerPoint" [ref=e312] [cursor=pointer]:
+                                - /url: /action/downloadFigures?id=corg70008-fig-0001&partId=&doi=10.1111%2Fcorg.70008
+                                - generic [ref=e313]: 
+                                - text: PowerPoint
+                          - generic [ref=e314]:
+                            - text: "EOS vote concentration: 2018–2021. [Colour figure can be viewed at"
+                            - link "wileyonlinelibrary.com" [ref=e315] [cursor=pointer]:
+                              - /url: http://wileyonlinelibrary.com.ezproxy.ugm.ac.id
+                            - text: "]"
+                      - paragraph [ref=e316]:
+                        - text: Companies associated with crypto exchanges soon became the dominant block producers. Crypto exchanges, which have custody over vast amounts of user cryptocurrency, can vote the tokens of users who do not care to vote. Voting patterns of major exchanges suggested collusive behavior.
+                        - link "Note" [ref=e317] [cursor=pointer]:
+                          - /url: "#corg70008-note-0015_35"
+                          - superscript [ref=e318]: "14"
+                        - text: For example, voting data reveal that the top two block producers at the end of the sample in Figure
+                        - link "1" [ref=e319] [cursor=pointer]:
+                          - /url: "#corg70008-fig-0001"
+                        - text: (March 2020) were Newdex (a “decentralized exchange” running on EOS) and OkEx (a large “traditional” crypto exchange). The data show that 90% of Newdex votes went to OkEx and 95% of OkEx votes went to Newdex.
+                      - paragraph [ref=e320]: "While EOS still operates, it never fulfilled its initial promise. Crypto enthusiasts will undoubtedly blame flaws in EOS's original governance design. But this misses the deeper point: blockchain governance inevitably depends on off-chain power structures—from conference calls among block producers to exchanges controlling user votes. The case of EOS illustrates that clever on-chain mechanism design is typically no match for the realities of off-chain politics."
+                    - generic [ref=e321]:
+                      - heading "7 Conclusion" [level=2] [ref=e322]
+                      - paragraph [ref=e323]: Despite their failures to deliver on often utopian promises, blockchains remain valuable as governance experiments. They are attempting to solve real problems—reducing transaction costs, eliminating rent-seeking intermediaries, and enabling new forms of organization. Their failures are as instructive as their successes would have been.
+                      - paragraph [ref=e324]: "I have argued that blockchains face the same fundamental governance challenges as traditional organizations: collective action problems, principal-agent conflicts, and centralizing tendencies. Cryptography cannot solve these problems any more than constitutions or corporate charters can. They require ongoing negotiation among stakeholders with divergent interests—the very human element that blockchain technology was supposed to eliminate."
+                      - paragraph [ref=e325]: "Governance scholars have much to contribute to understanding these systems. Models of voting, contracting, and competition developed for traditional settings can be applied to blockchain contexts. One advantage for researchers is that blockchain governance happens largely in public, providing unprecedented data for empirical study. Every vote, every protocol change, every fork is recorded on-chain or documented in public forums. Yet this transparency has limits: backroom deals, private communications among core developers, and corporate influence often remain hidden."
+                      - paragraph [ref=e326]: "The stark reality of crypto governance is the contradiction between the democratic ideals these systems promise and the technocratic structures they embody. Despite claims of decentralization, blockchains remain dependent on small groups of technical elites—core developers who control protocol implementation, mining pools that dominate block production, and foundations that coordinate development. These actors often overlap with traditional corporate structures: hardware manufacturers frequently own mining pools, and for-profit companies fund developers."
+                      - paragraph [ref=e327]: As in corporate governance, the mechanisms meant to empower blockchain stakeholders are imperfect. Exit options—the ability to fork or switch chains—are constrained by network effects and coordination failures that make collective action nearly impossible. Voice mechanisms—such as improvement proposals and on-chain voting—suffer from the same participation problems that plague direct democracy, with the added burden of technical complexity that excludes most users from meaningful participation. Token-based voting has devolved into plutocracy, where large holders dictate outcomes while small holders remain rationally apathetic.
+                      - paragraph [ref=e328]: "Rather than revolutionary new forms of organization, blockchains have evolved to resemble traditional corporate structures with their own barriers to entry, concentration of power, and reliance on off-chain coordination. Yet this parallel offers opportunity: the extensive literature on corporate governance can illuminate both the failures we observe and potential remedies. The tools developed to analyze board capture, shareholder activism, and regulatory oversight can be adapted to study developer influence, token holder governance, and protocol evolution."
+                      - paragraph [ref=e329]: Ultimately, blockchains should be understood not as finished governance solutions but as ongoing experiments—messy, imperfect laboratories that may yet yield valuable lessons for both digital and traditional governance systems. Their value lies not in having solved governance problems but in making them explicit and observable. By stripping away the institutional infrastructure we take for granted, blockchains reveal the fundamental challenges that all governance systems must address. Technology alone cannot solve these challenges, but studying attempts to do so may deepen our understanding of governance itself.
+                    - generic [ref=e330]:
+                      - heading "Acknowledgments" [level=2] [ref=e331]
+                      - paragraph [ref=e332]: This paper is based on a keynote address given at the CGIR workshop on Corporate Governance and Evolving Corporate Disclosures, 2023.
+                      - list
+                    - generic [ref=e333]:
+                      - heading "Conflicts of Interest" [level=2] [ref=e334]
+                      - paragraph [ref=e335]: The author declares no conflicts of interest.
+                    - heading "Endnotes" [level=2] [ref=e336]
+                    - listitem "Footnote 1" [ref=e337]:
+                      - superscript [ref=e339]: "1"
+                      - text: Some prefer the term “blockchain network” (Dixon
+                      - link "2024" [ref=e341] [cursor=pointer]:
+                        - /url: "#corg70008-bib-0007"
+                      - text: ).
+                    - listitem "Footnote 2" [ref=e342]:
+                      - superscript [ref=e344]: "2"
+                      - text: See Aghion and Tirole (
+                      - link "1997" [ref=e346] [cursor=pointer]:
+                        - /url: "#corg70008-bib-0001"
+                      - text: ) for a theory of formal and real authority.
+                    - listitem "Footnote 3" [ref=e347]:
+                      - superscript [ref=e349]: "3"
+                      - text: An example of DAO governance risk is the “rug pull,” which occurs when the founder of a DAO disappears from social media and steals the DAO's treasury funds (
+                      - link "https://specbranch.com/posts/who-controls-a-dao/" [ref=e350] [cursor=pointer]:
+                        - /url: https://specbranch.com/posts/who-controls-a-dao/
+                      - text: ).
+                    - listitem "Footnote 4" [ref=e351]:
+                      - superscript [ref=e353]: "4"
+                      - text: Budish (
+                      - link "2025" [ref=e355] [cursor=pointer]:
+                        - /url: "#corg70008-bib-0003"
+                      - text: ) shows that Bitcoin's resilience to double-spending attacks requires increasingly higher mining costs if the system is to scale up.
+                    - listitem "Footnote 5" [ref=e356]:
+                      - superscript [ref=e358]: "5"
+                      - link "https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed/" [ref=e359] [cursor=pointer]:
+                        - /url: https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed/
+                      - text: .
+                    - listitem "Footnote 6" [ref=e360]:
+                      - superscript [ref=e362]: "6"
+                      - link "https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed/" [ref=e363] [cursor=pointer]:
+                        - /url: https://river.com/learn/can-bitcoins-hard-cap-of-21-million-be-changed/
+                      - text: .
+                    - listitem "Footnote 7" [ref=e364]:
+                      - superscript [ref=e366]: "7"
+                      - text: See
+                      - link "https://decrypt.co/20543/vitalik-buterin-weighs-in-on-progpow-row" [ref=e367] [cursor=pointer]:
+                        - /url: https://decrypt.co/20543/vitalik-buterin-weighs-in-on-progpow-row
+                      - text: .
+                    - listitem "Footnote 8" [ref=e368]:
+                      - superscript [ref=e370]: "8"
+                      - link "https://ethereum.org/en/defi/" [ref=e371] [cursor=pointer]:
+                        - /url: https://ethereum.org/en/defi/
+                      - text: .
+                    - listitem "Footnote 9" [ref=e372]:
+                      - superscript [ref=e374]: "9"
+                      - link "https://www.bitstamp.net/en-gb/learn/crypto-101/terra-network-collapse/" [ref=e375] [cursor=pointer]:
+                        - /url: https://www.bitstamp.net/en-gb/learn/crypto-101/terra-network-collapse/
+                      - text: .
+                    - listitem "Footnote 10" [ref=e376]:
+                      - superscript [ref=e378]: "10"
+                      - link "medium.com/coinmonks/a-deep-dive-into-eos-governance-49e892eeb4a2" [ref=e379] [cursor=pointer]:
+                        - /url: https://medium.com/coinmonks/a-deep-dive-into-eos-governance-49e892eeb4a2
+                      - text: .
+                    - listitem "Footnote 11" [ref=e380]:
+                      - superscript [ref=e382]: "11"
+                      - link "www.ccn.com/eos-faces-constitutional-crisis-over-frozen-accounts/" [ref=e383] [cursor=pointer]:
+                        - /url: https://www.ccn.com/eos-faces-constitutional-crisis-over-frozen-accounts/
+                      - text: .
+                    - listitem "Footnote 12" [ref=e384]:
+                      - superscript [ref=e386]: "12"
+                      - link "cryptoslate.com/block-producers-change-eos-constitution-following-voting-gridlock" [ref=e387] [cursor=pointer]:
+                        - /url: http://cryptoslate.com/block-producers-change-eos-constitution-following-voting-gridlock
+                      - text: /.
+                    - listitem "Footnote 13" [ref=e388]:
+                      - superscript [ref=e390]: "13"
+                      - text: The Herfindahl–Hirschman Index (HHI) is a measure of concentration calculated by summing the squares of each producer's vote share percentage. The data were provided by EOS Authority, one of the original block producers. I thank Marcus Gomes de Castro for assisting with data processing.
+                    - listitem "Footnote 14" [ref=e391]:
+                      - superscript [ref=e393]: "14"
+                      - link "http://eosforce.medium.com/eliminate-block-producer-collusion-in-eos-voting-3a7846039454" [ref=e394] [cursor=pointer]:
+                        - /url: https://eosforce.medium.com/eliminate-block-producer-collusion-in-eos-voting-3a7846039454
+                      - text: .
+                    - generic [ref=e395]:
+                      - heading "Biography" [level=2] [ref=e396]
+                      - list [ref=e398]:
+                        - listitem [ref=e399]:
+                          - paragraph [ref=e400]: Daniel Ferreira is a Professor of Finance at the London School of Economics and Political Science. He is also a fellow at the Centre for Economic Policy Research and at the European Corporate Governance Institute. His research interests are in corporate finance, corporate governance, and organizational economics.
+                    - generic [ref=e401]:
+                      - heading "Data Availability Statement" [level=2] [ref=e402]
+                      - paragraph [ref=e403]: This article uses only data from publicly available sources.
+                    - generic [ref=e405]:
+                      - heading "References" [level=2] [ref=e406]:
+                        - button "References" [ref=e407] [cursor=pointer]:
+                          - generic [ref=e408]: References
+                          - generic [ref=e409]: 
+                      - text:                     
+              - generic [ref=e410]:
+                - generic [ref=e411]:
+                  - link "View Volume 34, Issue 1" [ref=e413] [cursor=pointer]:
+                    - /url: /toc/14678683/2026/34/1
+                  - generic [ref=e414]:
+                    - paragraph [ref=e415]:
+                      - link "Volume34, Issue1" [ref=e416] [cursor=pointer]:
+                        - /url: /toc/14678683/2026/34/1
+                    - paragraph [ref=e417]: January 2026
+                    - paragraph [ref=e418]: Pages 154-162
+                - generic [ref=e420]:
+                  - text: Advertisement
+                  - iframe [ref=e422]:
+                    - iframe [ref=f50e4]:
+                      
+                - generic [ref=e424]:
+                  - tablist "Article Information" [ref=e425]:
+                    - tab "Figures" [ref=e426] [cursor=pointer]:
+                      - generic [ref=e427]: 
+                      - heading "Figures" [level=2] [ref=e428]
+                    - tab "References" [ref=e429] [cursor=pointer]:
+                      - generic [ref=e430]: 
+                      - heading "References" [level=2] [ref=e431]
+                    - tab "Related" [ref=e432] [cursor=pointer]:
+                      - generic [ref=e433]: 
+                      - heading "Related" [level=2] [ref=e434]
+                    - tab "Information" [ref=e435] [cursor=pointer]:
+                      - generic [ref=e436]: 
+                      - heading "Information" [level=2] [ref=e437]
+                  - tabpanel "Related" [ref=e438]:
+                    - generic [ref=e441]:
+                      - heading "Recommended" [level=3] [ref=e442]
+                      - list [ref=e444]:
+                        - listitem [ref=e445]:
+                          - generic [ref=e446]:
+                            - paragraph [ref=e447]:
+                              - link "Corporate Governance in a Crypto‐World" [ref=e448] [cursor=pointer]:
+                                - /url: /doi/full/10.1111/rego.12661
+                            - link "Sinclair Davidson" [ref=e452] [cursor=pointer]:
+                              - /url: /authored-by/Davidson/Sinclair
+                            - link "Regulation & Governance" [ref=e455] [cursor=pointer]:
+                              - /url: /journal/17485991
+                        - listitem [ref=e456]:
+                          - generic [ref=e457]:
+                            - paragraph [ref=e458]:
+                              - 'link "In the shadow of bureaucratic governance: A framework for internal governance in government organisations" [ref=e459] [cursor=pointer]':
+                                - /url: /doi/full/10.1111/1467-8500.70006
+                            - link "Rick Anderson" [ref=e463] [cursor=pointer]:
+                              - /url: /authored-by/Anderson/Rick
+                            - link "Australian Journal of Public Administration" [ref=e466] [cursor=pointer]:
+                              - /url: /journal/14678500
+                        - listitem [ref=e467]:
+                          - generic [ref=e468]:
+                            - paragraph [ref=e469]:
+                              - 'link "Experimentalist governance in the EU: The emperor''s new clothes?" [ref=e470] [cursor=pointer]':
+                                - /url: /doi/full/10.1111/j.1748-5991.2012.01159.x
+                            - link "Tanja A. Börzel" [ref=e474] [cursor=pointer]:
+                              - /url: /authored-by/B%C3%B6rzel/Tanja+A.
+                            - link "Regulation & Governance" [ref=e477] [cursor=pointer]:
+                              - /url: /journal/17485991
+                        - listitem [ref=e478]:
+                          - generic [ref=e479]:
+                            - paragraph [ref=e480]:
+                              - 'link "Corporate Governance Reporting, Disclosures, Monitoring, and Decision‐Making: The Role of Big Data Analytics and Technological Tools" [ref=e481] [cursor=pointer]':
+                                - /url: /doi/full/10.1111/corg.12646
+                            - generic [ref=e482]:
+                              - generic [ref=e484]:
+                                - link "Georgios Karamatzanis" [ref=e485] [cursor=pointer]:
+                                  - /url: /authored-by/Karamatzanis/Georgios
+                                - text: ","
+                              - generic [ref=e487]:
+                                - link "Anna Tilba" [ref=e488] [cursor=pointer]:
+                                  - /url: /authored-by/Tilba/Anna
+                                - text: ","
+                              - link "Konstantinos Nikolopoulos" [ref=e491] [cursor=pointer]:
+                                - /url: /authored-by/Nikolopoulos/Konstantinos
+                            - 'link "Corporate Governance: An International Review" [ref=e494] [cursor=pointer]':
+                              - /url: /journal/14678683
+                        - listitem [ref=e495]:
+                          - generic [ref=e496]:
+                            - paragraph [ref=e497]:
+                              - link "The Rise of Environmental, Social, and Governance Rating Agencies and Stock Price Crash Risk" [ref=e498] [cursor=pointer]:
+                                - /url: /doi/full/10.1111/corg.70005
+                            - generic [ref=e499]:
+                              - generic [ref=e501]:
+                                - link "Rui Hu" [ref=e502] [cursor=pointer]:
+                                  - /url: /authored-by/Hu/Rui
+                                - text: ","
+                              - generic [ref=e504]:
+                                - link "Karen Jingrong Lin" [ref=e505] [cursor=pointer]:
+                                  - /url: /authored-by/Lin/Karen%C2%A0Jingrong
+                                - text: ","
+                              - link "Albert Tsang" [ref=e508] [cursor=pointer]:
+                                - /url: /authored-by/Tsang/Albert
+                            - 'link "Corporate Governance: An International Review" [ref=e511] [cursor=pointer]':
+                              - /url: /journal/14678683
+                - complementary [ref=e517]:
+                  - generic [ref=e518]:
+                    - text: Advertisement
+                    - iframe [ref=e520]:
+                      
+          - generic:         
+          - generic:      
+          - generic:       
+          - text:       |
+          - link "Download PDF" [ref=e523] [cursor=pointer]:
+            - /url: /doi/pdf/10.1111/corg.70008
+      - link "back" [ref=e526] [cursor=pointer]:
+        - /url: javascript:void(0)
+        - generic [ref=e527]: 
+        - text: back
+    - contentinfo [ref=e530]:
+      - generic [ref=e532]:
+        - generic [ref=e533]:
+          - heading "Additional links" [level=2] [ref=e534]
+          - generic [ref=e536]:
+            - generic [ref=e538]:
+              - heading "About Wiley Online Library" [level=3] [ref=e539]
+              - list [ref=e540]:
+                - listitem [ref=e541]:
+                  - link "Privacy Policy" [ref=e542] [cursor=pointer]:
+                    - /url: https://www-wiley-com.ezproxy.ugm.ac.id/privacy
+                - listitem [ref=e543]:
+                  - link "Terms of Use" [ref=e544] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/terms-and-conditions
+                - listitem [ref=e545]:
+                  - link "About Cookies" [ref=e546] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/cookies
+                - listitem [ref=e547]:
+                  - button "Manage Cookies" [ref=e548] [cursor=pointer]
+                - listitem [ref=e549]:
+                  - link "Accessibility" [ref=e550] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/accessibility
+                - listitem [ref=e551]:
+                  - link "Wiley Research DE&I Statement and Publishing Policies" [ref=e552] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/publishing-policies
+            - generic [ref=e554]:
+              - heading "Help & Support" [level=3] [ref=e555]
+              - list [ref=e556]:
+                - listitem [ref=e557]:
+                  - link "Contact Us" [ref=e558] [cursor=pointer]:
+                    - /url: https://hub-wiley-com.ezproxy.ugm.ac.id/community/support/onlinelibrary
+                - listitem [ref=e559]:
+                  - link "Training and Support" [ref=e560] [cursor=pointer]:
+                    - /url: https://www-wiley-com.ezproxy.ugm.ac.id/customer-success/wiley-online-library-training-hub
+                - listitem [ref=e561]:
+                  - link "DMCA & Reporting Piracy" [ref=e562] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/dmca-notification-policy
+                - listitem [ref=e563]:
+                  - link "Sitemap" [ref=e564] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/sitemap
+            - generic [ref=e566]:
+              - heading "Opportunities" [level=3] [ref=e567]
+              - list [ref=e568]:
+                - listitem [ref=e569]:
+                  - link "Subscription Agents" [ref=e570] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/agents
+                - listitem [ref=e571]:
+                  - link "Advertisers & Corporate Partners" [ref=e572] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/advertisers
+            - generic [ref=e574]:
+              - heading "Connect with Wiley" [level=3] [ref=e575]
+              - list [ref=e576]:
+                - listitem [ref=e577]:
+                  - link "The Wiley Network" [ref=e578] [cursor=pointer]:
+                    - /url: https://www-wiley-com.ezproxy.ugm.ac.id/network
+                - listitem [ref=e579]:
+                  - link "Wiley Press Room" [ref=e580] [cursor=pointer]:
+                    - /url: https://newsroom-wiley-com.ezproxy.ugm.ac.id/
+        - generic [ref=e584]:
+          - generic [ref=e585]:
+            - paragraph [ref=e586]:
+              - text: Copyright © 1999-2026
+              - link "John Wiley & Sons, Inc" [ref=e587] [cursor=pointer]:
+                - /url: https://www-wiley-com.ezproxy.ugm.ac.id
+              - text: or related companies. All rights reserved, including rights for text and data mining and training of artificial intelligence technologies or similar technologies.
+            - paragraph
+          - link "Wiley" [ref=e589] [cursor=pointer]:
+            - /url: https://www-wiley-com.ezproxy.ugm.ac.id
+            - img "Wiley Home Page" [ref=e590]
+    - text:      ▲     
+    - generic:
+      - generic "col-0"

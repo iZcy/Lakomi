@@ -1,0 +1,391 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - button [ref=e4] [cursor=pointer]
+    - link "Beranda" [ref=e6] [cursor=pointer]:
+      - /url: /schhp?hl=id&as_sdt=0,5
+    - generic [ref=e9]:
+      - textbox "Telusuri" [ref=e11]: elamine blockchain cooperative member organization 2024
+      - button "Telusuri" [ref=e12] [cursor=pointer]
+    - link "Login" [ref=e16] [cursor=pointer]:
+      - /url: https://accounts.google.com/Login?hl=id&continue=https://scholar.google.com/scholar%3Fq%3Delamine%2Bblockchain%2Bcooperative%2Bmember%2Borganization%2B2024
+  - generic [ref=e17]:
+    - generic [ref=e21]: Artikel
+    - generic [ref=e23]: Sekitar 304 hasil (0,20 dtk)
+    - generic [ref=e24]:
+      - link "Profil saya" [ref=e25] [cursor=pointer]:
+        - /url: /citations?hl=id
+        - generic [ref=e27]: Profil saya
+      - link "Koleksi saya" [ref=e28] [cursor=pointer]:
+        - /url: /scholar?scilib=1&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+        - generic [ref=e30]: Koleksi saya
+  - generic [ref=e31]:
+    - navigation [ref=e32]:
+      - generic [ref=e33]:
+        - list [ref=e35]:
+          - listitem [ref=e36]:
+            - link "Kapan saja" [ref=e37] [cursor=pointer]:
+              - /url: /scholar?q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e38]:
+            - link "Sejak 2026" [ref=e39] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2026&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e40]:
+            - link "Sejak 2025" [ref=e41] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2025&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e42]:
+            - link "Sejak 2022" [ref=e43] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2022&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e44]:
+            - link "Rentang khusus..." [ref=e45] [cursor=pointer]:
+              - /url: javascript:void(0)
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "Urutkan menurut relevansi" [ref=e48] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=elamine+blockchain+cooperative+member+organization+2024
+          - listitem [ref=e49]:
+            - link "Urutkan menurut tanggal" [ref=e50] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=elamine+blockchain+cooperative+member+organization+2024&scisbd=1
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Semua jenis" [ref=e53] [cursor=pointer]:
+              - /url: /scholar?q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e54]:
+            - link "Artikel kajian" [ref=e55] [cursor=pointer]:
+              - /url: /scholar?q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5&as_rr=1
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - checkbox "sertakan paten" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: sertakan paten
+          - listitem [ref=e62]:
+            - checkbox "mencakup kutipan" [checked] [ref=e63] [cursor=pointer]:
+              - generic [ref=e64]: mencakup kutipan
+        - link "Buat notifikasi" [ref=e68] [cursor=pointer]:
+          - /url: /scholar_alerts?view_op=create_alert_options&hl=id&alert_query=elamine+blockchain+cooperative+member+organization+2024&alert_params=%3Fhl%3Did%26as_sdt%3D0,5
+          - generic [ref=e70]: Buat notifikasi
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e75]:
+            - 'heading "Leveraging Blockchain Technology for Secure and Transparent Property Registry Management: Exploring Applications in Logistics Management, with Decentralized …" [level=3] [ref=e76]':
+              - 'link "Leveraging Blockchain Technology for Secure and Transparent Property Registry Management: Exploring Applications in Logistics Management, with Decentralized …" [ref=e77] [cursor=pointer]':
+                - /url: https://ieeexplore.ieee.org/abstract/document/11037097/
+            - generic [ref=e78]:
+              - link "BM El Amine" [ref=e79] [cursor=pointer]:
+                - /url: /citations?user=xDh_DF8AAAAJ&hl=id&oi=sra
+              - text: ","
+              - link "ST Lamia" [ref=e80] [cursor=pointer]:
+                - /url: /citations?user=cmEz8FwAAAAJ&hl=id&oi=sra
+              - text: "- 2024 International Conference of the …, 2024 - ieeexplore.ieee.org"
+            - generic [ref=e81]:
+              - text: … This study presents an innovative method using blockchain technology to create a secure, …
+              - text: on the Ethereum blockchain and integrates a Decentralized Autonomous Organization (DAO) …
+            - generic [ref=e82]:
+              - button "Simpan" [ref=e83] [cursor=pointer]:
+                - img [ref=e84]
+                - text: Simpan
+              - button "Kutip" [ref=e86] [cursor=pointer]:
+                - img [ref=e87]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e89] [cursor=pointer]:
+                - /url: /scholar?q=related:qK2v0DJD7VEJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - generic [ref=e90]:
+            - link "[PDF] ssrn.com" [ref=e94] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5046952
+            - generic [ref=e95]:
+              - 'heading "Equichain: A Robust and Lightweight Framework for Permissioned Blockchains" [level=3] [ref=e96]':
+                - 'link "Equichain: A Robust and Lightweight Framework for Permissioned Blockchains" [ref=e97] [cursor=pointer]':
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5046952
+              - generic [ref=e98]:
+                - link "K RIAHI" [ref=e99] [cursor=pointer]:
+                  - /url: /citations?user=fm3IiOQAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "MA Brahmia" [ref=e100] [cursor=pointer]:
+                  - /url: /citations?user=9M3L2ZUAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "A Abouaissa" [ref=e101] [cursor=pointer]:
+                  - /url: /citations?user=dTK_NzUAAAAJ&hl=id&oi=sra
+                - text: … - Available at SSRN … - papers.ssrn.com
+              - generic [ref=e102]:
+                - text: … • A consortium blockchain restricts access to a … of blockchain requires authentication for
+                - text: nodes that wish to join the network. Consortium blockchains are often used by organizations or …
+              - generic [ref=e103]:
+                - button "Simpan" [ref=e104] [cursor=pointer]:
+                  - img [ref=e105]
+                  - text: Simpan
+                - button "Kutip" [ref=e107] [cursor=pointer]:
+                  - img [ref=e108]
+                  - text: Kutip
+                - link "Artikel terkait" [ref=e110] [cursor=pointer]:
+                  - /url: /scholar?q=related:KLx_UOUocSkJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e111] [cursor=pointer]:
+                  - img [ref=e112]
+          - generic [ref=e114]:
+            - link "[PDF] brighton.ac.uk" [ref=e118] [cursor=pointer]:
+              - /url: https://research.brighton.ac.uk/files/59284274/Shima_Esfandiari-_full_thesis_Redacted.pdf
+            - generic [ref=e119]:
+              - heading "[PDF] The impact of blockchain technology on fraud prevention and risk reduction in Mexican food supply chains" [level=3] [ref=e120]:
+                - generic [ref=e121]: "[PDF]"
+                - link "The impact of blockchain technology on fraud prevention and risk reduction in Mexican food supply chains" [ref=e122] [cursor=pointer]:
+                  - /url: https://research.brighton.ac.uk/files/59284274/Shima_Esfandiari-_full_thesis_Redacted.pdf
+              - generic [ref=e123]: S ESFANDIARI - 2025 - research.brighton.ac.uk
+              - generic [ref=e124]:
+                - text: Blockchain Technology (BCT) has emerged as a transformative force in supply chain (SC)
+                - text: operations, offering new ways to address critical challenges such as food fraud, traceability …
+              - generic [ref=e125]:
+                - button "Simpan" [ref=e126] [cursor=pointer]:
+                  - img [ref=e127]
+                  - text: Simpan
+                - button "Kutip" [ref=e129] [cursor=pointer]:
+                  - img [ref=e130]
+                  - text: Kutip
+                - link "Artikel terkait" [ref=e132] [cursor=pointer]:
+                  - /url: /scholar?q=related:ayj6thY3LOgJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e133] [cursor=pointer]:
+                  - img [ref=e134]
+          - generic [ref=e136]:
+            - link "[PDF] hal.science" [ref=e140] [cursor=pointer]:
+              - /url: https://theses.hal.science/tel-05034940/file/2024MULH7119_these_RIAHI.pdf
+            - generic [ref=e141]:
+              - heading "Towards a Robust and Lightweight Consensus Protocol for Permissioned Blockchains" [level=3] [ref=e142]:
+                - link "Towards a Robust and Lightweight Consensus Protocol for Permissioned Blockchains" [ref=e143] [cursor=pointer]:
+                  - /url: https://theses.hal.science/tel-05034940/
+              - generic [ref=e144]:
+                - link "K Riahi" [ref=e145] [cursor=pointer]:
+                  - /url: /citations?user=fm3IiOQAAAAJ&hl=id&oi=sra
+                - text: "- 2024 - theses.hal.science"
+              - generic [ref=e146]:
+                - text: … MohamedEl-Amine BRAHMIA pour son suivi constant et ses conseils constructifs qui ont …
+                - text: Additionally, we introduce a reputationbased scoring system that fosters cooperation among …
+              - generic [ref=e147]:
+                - button "Simpan" [ref=e148] [cursor=pointer]:
+                  - img [ref=e149]
+                  - text: Simpan
+                - button "Kutip" [ref=e151] [cursor=pointer]:
+                  - img [ref=e152]
+                  - text: Kutip
+                - link "Artikel terkait" [ref=e154] [cursor=pointer]:
+                  - /url: /scholar?q=related:uvQnx5TrrYIJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                - link "3 versi" [ref=e155] [cursor=pointer]:
+                  - /url: /scholar?cluster=9416441420130546874&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e156] [cursor=pointer]:
+                  - img [ref=e157]
+          - generic [ref=e159]:
+            - generic [ref=e162]:
+              - link "[PDF] emerald.com" [ref=e163] [cursor=pointer]:
+                - /url: https://www.emerald.com/scm/article-pdf/29/4/706/9560027/scm-08-2023-0383.pdf
+              - link "Full View" [ref=e164] [cursor=pointer]:
+                - /url: /scholar?output=instlink&q=info:Fc_vKzDxH_4J:scholar.google.com/&hl=id&as_sdt=0,5&scillfp=14590946756345969525&oi=lle
+            - generic [ref=e165]:
+              - 'heading "Blockchain technology for supply chain provenance: increasing supply chain efficiency and consumer trust" [level=3] [ref=e166]':
+                - 'link "Blockchain technology for supply chain provenance: increasing supply chain efficiency and consumer trust" [ref=e167] [cursor=pointer]':
+                  - /url: https://www.emerald.com/scm/article-abstract/29/4/706/1229633
+              - generic [ref=e168]:
+                - link "EI Vazquez Melendez" [ref=e169] [cursor=pointer]:
+                  - /url: /citations?user=_UDT_EAAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "P Bergey" [ref=e170] [cursor=pointer]:
+                  - /url: /citations?user=3y6nyGgAAAAJ&hl=id&oi=sra
+                - text: … - Supply chain management …, 2024 - emerald.com
+              - generic [ref=e171]:
+                - text: … This study consolidates current knowledge on blockchain’s capacity and identifies the
+                - text: specific drivers and business values associated with early blockchain adoption in supply chain …
+              - generic [ref=e172]:
+                - button "Simpan" [ref=e173] [cursor=pointer]:
+                  - img [ref=e174]
+                  - text: Simpan
+                - button "Kutip" [ref=e176] [cursor=pointer]:
+                  - img [ref=e177]
+                  - text: Kutip
+                - link "Dirujuk 201 kali" [ref=e179] [cursor=pointer]:
+                  - /url: /scholar?cites=18311619799109586709&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e180] [cursor=pointer]:
+                  - /url: /scholar?q=related:Fc_vKzDxH_4J:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                - link "4 versi" [ref=e181] [cursor=pointer]:
+                  - /url: /scholar?cluster=18311619799109586709&hl=id&as_sdt=0,5
+          - generic [ref=e183]:
+            - heading "Challenges to the adoption of blockchain technology (BT) in the gulf cooperation council countries (GCC)" [level=3] [ref=e184]:
+              - link "Challenges to the adoption of blockchain technology (BT) in the gulf cooperation council countries (GCC)" [ref=e185] [cursor=pointer]:
+                - /url: https://link.springer.com/chapter/10.1007/978-3-031-67437-2_34
+            - generic [ref=e186]:
+              - link "M Alshhadat" [ref=e187] [cursor=pointer]:
+                - /url: /citations?user=nz9IvvMAAAAJ&hl=id&oi=sra
+              - text: "- International Conference on Business and Technology, 2024 - Springer"
+            - generic [ref=e188]:
+              - text: … technology implementation; I cannot overlook the possible disputes when I consider
+              - text: application of blockchain. Suppose I have a problem with other counterpart or peer; how can this …
+            - generic [ref=e189]:
+              - button "Simpan" [ref=e190] [cursor=pointer]:
+                - img [ref=e191]
+                - text: Simpan
+              - button "Kutip" [ref=e193] [cursor=pointer]:
+                - img [ref=e194]
+                - text: Kutip
+              - link "Dirujuk 1 kali" [ref=e196] [cursor=pointer]:
+                - /url: /scholar?cites=622182964443434720&as_sdt=2005&sciodt=0,5&hl=id
+              - link "Artikel terkait" [ref=e197] [cursor=pointer]:
+                - /url: /scholar?q=related:4E7zFBxwoggJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - generic [ref=e198]:
+            - link "[HTML] mdpi.com" [ref=e202] [cursor=pointer]:
+              - /url: https://www.mdpi.com/2078-2489/16/12/1096
+            - generic [ref=e203]:
+              - heading "[HTML] A Data-Driven Topic Modeling Analysis of Blockchain in Food Supply Chain Traceability" [level=3] [ref=e204]:
+                - generic [ref=e205]: "[HTML]"
+                - link "A Data-Driven Topic Modeling Analysis of Blockchain in Food Supply Chain Traceability" [ref=e206] [cursor=pointer]:
+                  - /url: https://www.mdpi.com/2078-2489/16/12/1096
+              - generic [ref=e207]:
+                - link "A Rejeb" [ref=e208] [cursor=pointer]:
+                  - /url: /citations?user=qtwa1w0AAAAJ&hl=id&oi=sra
+                - text: ", K Rejeb,"
+                - link "H Molavi" [ref=e209] [cursor=pointer]:
+                  - /url: /citations?user=UuM8IDIAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "JG Keogh" [ref=e210] [cursor=pointer]:
+                  - /url: /citations?user=PwhvZA0AAAAJ&hl=id&oi=sra
+                - text: "- Information, 2025 - mdpi.com"
+              - generic [ref=e211]:
+                - text: … in Europe and the melamine contamination in China [… blockchain-FSC traceability has
+                - text: emerged as a prominent research domain [18,22]. The surge in publications during 2023 and 2024…
+              - generic [ref=e212]:
+                - button "Simpan" [ref=e213] [cursor=pointer]:
+                  - img [ref=e214]
+                  - text: Simpan
+                - button "Kutip" [ref=e216] [cursor=pointer]:
+                  - img [ref=e217]
+                  - text: Kutip
+                - link "Dirujuk 3 kali" [ref=e219] [cursor=pointer]:
+                  - /url: /scholar?cites=10640971864045339206&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e220] [cursor=pointer]:
+                  - /url: /scholar?q=related:RkJZNYhTrJMJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                - link "3 versi" [ref=e221] [cursor=pointer]:
+                  - /url: /scholar?cluster=10640971864045339206&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e222] [cursor=pointer]:
+                  - img [ref=e223]
+          - generic [ref=e226]:
+            - 'heading "Blockchain-driven adaptive streaming for iot: redefining security in video delivery" [level=3] [ref=e227]':
+              - 'link "Blockchain-driven adaptive streaming for iot: redefining security in video delivery" [ref=e228] [cursor=pointer]':
+                - /url: https://ieeexplore.ieee.org/abstract/document/10541235/
+            - generic [ref=e229]:
+              - link "MEA Kheraifia" [ref=e230] [cursor=pointer]:
+                - /url: /citations?user=9GY8nXMAAAAJ&hl=id&oi=sra
+              - text: ","
+              - link "A Sahraoui" [ref=e231] [cursor=pointer]:
+                - /url: /citations?user=4-OgsZwAAAAJ&hl=id&oi=sra
+              - text: … - 2024 6th International …, 2024 - ieeexplore.ieee.org
+            - generic [ref=e232]:
+              - text: … Zhang et al [13] designed a blockchain-based collaborative edge intelligence approach for
+              - text: reliable, real-time video surveillance. Dave et al [14] proposed a fog node-based distributed …
+            - generic [ref=e233]:
+              - button "Simpan" [ref=e234] [cursor=pointer]:
+                - img [ref=e235]
+                - text: Simpan
+              - button "Kutip" [ref=e237] [cursor=pointer]:
+                - img [ref=e238]
+                - text: Kutip
+              - link "Dirujuk 7 kali" [ref=e240] [cursor=pointer]:
+                - /url: /scholar?cites=4196979496239603611&as_sdt=2005&sciodt=0,5&hl=id
+              - link "Artikel terkait" [ref=e241] [cursor=pointer]:
+                - /url: /scholar?q=related:m5_1gp2qPjoJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+          - generic [ref=e242]:
+            - link "[HTML] mdpi.com" [ref=e246] [cursor=pointer]:
+              - /url: https://www.mdpi.com/2071-1050/16/1/297?utm_campaign=releaseissue_sustainabilityutm_medium=emailutm_source=releaseissueutm_term=titlelink410
+            - generic [ref=e247]:
+              - 'heading "[HTML] Collaborative green innovation of livestock product three-level supply chain traceability system: a value co-creation perspective" [level=3] [ref=e248]':
+                - generic [ref=e249]: "[HTML]"
+                - 'link "Collaborative green innovation of livestock product three-level supply chain traceability system: a value co-creation perspective" [ref=e250] [cursor=pointer]':
+                  - /url: https://www.mdpi.com/2071-1050/16/1/297?utm_campaign=releaseissue_sustainabilityutm_medium=emailutm_source=releaseissueutm_term=titlelink410
+              - generic [ref=e251]: Y Ding, D Zheng, X Niu - Sustainability, 2024 - mdpi.com
+              - generic [ref=e252]:
+                - text: … , blockchain technology can label and record each livestock product on the blockchain, while
+                - text: … This information is then stored in a distributed blockchain ledger. Consumers can scan QR …
+              - generic [ref=e253]:
+                - button "Simpan" [ref=e254] [cursor=pointer]:
+                  - img [ref=e255]
+                  - text: Simpan
+                - button "Kutip" [ref=e257] [cursor=pointer]:
+                  - img [ref=e258]
+                  - text: Kutip
+                - link "Dirujuk 17 kali" [ref=e260] [cursor=pointer]:
+                  - /url: /scholar?cites=2053050107739627918&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e261] [cursor=pointer]:
+                  - /url: /scholar?q=related:juHlCTLmfRwJ:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                - link "7 versi" [ref=e262] [cursor=pointer]:
+                  - /url: /scholar?cluster=2053050107739627918&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e263] [cursor=pointer]:
+                  - img [ref=e264]
+          - generic [ref=e267]:
+            - heading "Blockchain-Based Supply Chain Tracking System" [level=3] [ref=e268]:
+              - link "Blockchain-Based Supply Chain Tracking System" [ref=e269] [cursor=pointer]:
+                - /url: https://ieeexplore.ieee.org/abstract/document/10829186/
+            - generic [ref=e270]:
+              - link "V Rathod" [ref=e271] [cursor=pointer]:
+                - /url: /citations?user=0QXgMAQAAAAJ&hl=id&oi=sra
+              - text: ","
+              - link "A Deshmukh" [ref=e272] [cursor=pointer]:
+                - /url: /citations?user=LRiGIjsAAAAJ&hl=id&oi=sra
+              - text: ", R Smith… - 2024 International …, 2024 - ieeexplore.ieee.org"
+            - generic [ref=e273]:
+              - text: … , warehouses, shipping companies and retailers, creating a collaborative network and
+              - text: managing blockchain permissions. Regulators also have the right to participate and expand this …
+            - generic [ref=e274]:
+              - button "Simpan" [ref=e275] [cursor=pointer]:
+                - img [ref=e276]
+                - text: Simpan
+              - button "Kutip" [ref=e278] [cursor=pointer]:
+                - img [ref=e279]
+                - text: Kutip
+              - link "Dirujuk 3 kali" [ref=e281] [cursor=pointer]:
+                - /url: /scholar?cites=10226954288549706312&as_sdt=2005&sciodt=0,5&hl=id
+              - link "Artikel terkait" [ref=e282] [cursor=pointer]:
+                - /url: /scholar?q=related:SLopn71w7Y0J:scholar.google.com/&scioq=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+        - navigation [ref=e284]:
+          - table [ref=e286]:
+            - rowgroup [ref=e287]:
+              - row "1 2 3 4 5 6 7 8 9 10 Berikutnya" [ref=e288]:
+                - cell [ref=e289]
+                - cell "1" [ref=e291]: "1"
+                - cell "2" [ref=e293]:
+                  - link "2" [ref=e294] [cursor=pointer]:
+                    - /url: /scholar?start=10&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "2"
+                - cell "3" [ref=e296]:
+                  - link "3" [ref=e297] [cursor=pointer]:
+                    - /url: /scholar?start=20&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "3"
+                - cell "4" [ref=e299]:
+                  - link "4" [ref=e300] [cursor=pointer]:
+                    - /url: /scholar?start=30&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "4"
+                - cell "5" [ref=e302]:
+                  - link "5" [ref=e303] [cursor=pointer]:
+                    - /url: /scholar?start=40&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "5"
+                - cell "6" [ref=e305]:
+                  - link "6" [ref=e306] [cursor=pointer]:
+                    - /url: /scholar?start=50&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "6"
+                - cell "7" [ref=e308]:
+                  - link "7" [ref=e309] [cursor=pointer]:
+                    - /url: /scholar?start=60&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "7"
+                - cell "8" [ref=e311]:
+                  - link "8" [ref=e312] [cursor=pointer]:
+                    - /url: /scholar?start=70&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "8"
+                - cell "9" [ref=e314]:
+                  - link "9" [ref=e315] [cursor=pointer]:
+                    - /url: /scholar?start=80&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "9"
+                - cell "10" [ref=e317]:
+                  - link "10" [ref=e318] [cursor=pointer]:
+                    - /url: /scholar?start=90&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - text: "10"
+                - cell "Berikutnya" [ref=e320]:
+                  - link "Berikutnya" [ref=e321] [cursor=pointer]:
+                    - /url: /scholar?start=10&q=elamine+blockchain+cooperative+member+organization+2024&hl=id&as_sdt=0,5
+                    - generic [ref=e323]: Berikutnya
+  - contentinfo [ref=e324]:
+    - generic [ref=e325]:
+      - link "Privasi" [ref=e326] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/privacy/
+      - link "Persyaratan" [ref=e327] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/terms/
+      - button "Bantuan" [ref=e328] [cursor=pointer]

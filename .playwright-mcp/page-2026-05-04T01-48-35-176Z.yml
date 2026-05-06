@@ -1,0 +1,18 @@
+- generic [ref=e2]:
+  - separator [ref=e3]
+  - iframe [ref=e8]:
+    - generic [ref=f11e2]:
+      - generic [ref=f11e3]:
+        - checkbox "I'm not a robot" [ref=f11e7]
+        - generic [ref=f11e11]: I'm not a robot
+      - generic [ref=f11e15]: reCAPTCHA
+  - separator [ref=e9]
+  - generic [ref=e10]:
+    - text: About this page
+    - text: Our systems have detected unusual traffic from your computer network. This page checks to see if it's really you sending the requests, and not a robot.
+    - link "Why did this happen?" [ref=e11] [cursor=pointer]:
+      - /url: "#"
+    - generic [ref=e12]:
+      - text: "IP address: 157.85.206.162"
+      - text: "Time: 2026-05-04T01:48:34Z"
+      - text: "URL: https://www.google.com/search?q=blockchain+governance+cooperative+site%3Aemerald.com&sei=8fr3aci5OLSO4-EP7svikA0"

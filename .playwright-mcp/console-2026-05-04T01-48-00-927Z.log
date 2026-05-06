@@ -1,0 +1,19 @@
+[   12385ms] [ERROR] Mixed Content: The page at 'https://login.ezproxy.ugm.ac.id/menu' was loaded over HTTPS, but requested an insecure font 'http://ezproxy.ugm.ac.id/public/glyphicons-halflings-regular.woff2'. This request has been blocked; the content must be served over HTTPS. @ https://login.ezproxy.ugm.ac.id/menu:823
+[   12385ms] [ERROR] Mixed Content: The page at 'https://login.ezproxy.ugm.ac.id/menu' was loaded over HTTPS, but requested an insecure font 'http://ezproxy.ugm.ac.id/public/glyphicons-halflings-regular.woff'. This request has been blocked; the content must be served over HTTPS. @ https://login.ezproxy.ugm.ac.id/menu:823
+[   12385ms] [ERROR] Mixed Content: The page at 'https://login.ezproxy.ugm.ac.id/menu' was loaded over HTTPS, but requested an insecure font 'http://ezproxy.ugm.ac.id/public/glyphicons-halflings-regular.ttf'. This request has been blocked; the content must be served over HTTPS. @ https://login.ezproxy.ugm.ac.id/menu:823
+[   12428ms] [LOG] a @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12429ms] [LOG] c @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12429ms] [LOG] e @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12429ms] [LOG] g @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12430ms] [LOG] h @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12430ms] [LOG] i @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12430ms] [LOG] j @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12430ms] [LOG] l @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12430ms] [LOG] n @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12430ms] [LOG] o @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12431ms] [LOG] p @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12431ms] [LOG] s @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12431ms] [LOG] t @ https://login.ezproxy.ugm.ac.id/menu:15
+[   12431ms] [LOG] w @ https://login.ezproxy.ugm.ac.id/menu:15
+[   13294ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not found) @ https://login.ezproxy.ugm.ac.id/public/ijdh_icon.png:0
+[   14898ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not found) @ https://login.ezproxy.ugm.ac.id/favicon.ico:0

@@ -1,0 +1,19 @@
+[    9037ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://sso.ugm.ac.id/cas/fonts/opensans/opensans-bold-webfont.woff @ https://sso.ugm.ac.id/cas/login?service=https%3a%2f%2flogin.ezproxy.ugm.ac.id%2flogin:0
+[    9038ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://sso.ugm.ac.id/cas/fonts/opensans/opensans-webfont.woff @ https://sso.ugm.ac.id/cas/login?service=https%3a%2f%2flogin.ezproxy.ugm.ac.id%2flogin:0
+[   20554ms] [ERROR] Mixed Content: The page at 'https://login.ezproxy.ugm.ac.id/menu' was loaded over HTTPS, but requested an insecure font 'http://ezproxy.ugm.ac.id/public/glyphicons-halflings-regular.woff2'. This request has been blocked; the content must be served over HTTPS. @ https://login.ezproxy.ugm.ac.id/menu:823
+[   20554ms] [ERROR] Mixed Content: The page at 'https://login.ezproxy.ugm.ac.id/menu' was loaded over HTTPS, but requested an insecure font 'http://ezproxy.ugm.ac.id/public/glyphicons-halflings-regular.woff'. This request has been blocked; the content must be served over HTTPS. @ https://login.ezproxy.ugm.ac.id/menu:823
+[   20555ms] [ERROR] Mixed Content: The page at 'https://login.ezproxy.ugm.ac.id/menu' was loaded over HTTPS, but requested an insecure font 'http://ezproxy.ugm.ac.id/public/glyphicons-halflings-regular.ttf'. This request has been blocked; the content must be served over HTTPS. @ https://login.ezproxy.ugm.ac.id/menu:823
+[   20587ms] [LOG] a @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20587ms] [LOG] c @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20587ms] [LOG] e @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20587ms] [LOG] g @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] h @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] i @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] j @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] l @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] n @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] o @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] p @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20588ms] [LOG] s @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20589ms] [LOG] t @ https://login.ezproxy.ugm.ac.id/menu:15
+[   20589ms] [LOG] w @ https://login.ezproxy.ugm.ac.id/menu:15

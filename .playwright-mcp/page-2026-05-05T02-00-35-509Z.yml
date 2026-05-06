@@ -1,0 +1,213 @@
+- generic [active] [ref=e1]:
+  - text: ⚠
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - link "Skip to main content":
+        - /url: "#screen-reader-main-content"
+        - generic [ref=e7] [cursor=pointer]: Skip to main content
+      - link "Skip to article":
+        - /url: "#screen-reader-main-title"
+        - generic [ref=e8] [cursor=pointer]: Skip to article
+      - banner [ref=e9]:
+        - generic [ref=e12]:
+          - text: "Brought to you by:"
+          - link "Universitas Gadjah Mada" [ref=e13] [cursor=pointer]:
+            - /url: http://lib.ugm.ac.id
+            - generic [ref=e14]: Universitas Gadjah Mada
+        - generic [ref=e15]:
+          - link "ScienceDirect home page" [ref=e16] [cursor=pointer]:
+            - /url: /
+            - img "Elsevier logo" [ref=e17]
+            - img [ref=e18]
+          - generic [ref=e26]:
+            - navigation "links" [ref=e27]:
+              - list [ref=e28]:
+                - listitem [ref=e29]:
+                  - link "Journals & Books" [ref=e30] [cursor=pointer]:
+                    - /url: /browse/journals-and-books
+                    - generic [ref=e31]: Journals & Books
+            - navigation "utilities" [ref=e32]:
+              - list [ref=e33]:
+                - listitem [ref=e34]:
+                  - button "Help" [ref=e38] [cursor=pointer]:
+                    - img [ref=e39]
+                    - generic [ref=e41]: Help
+                - listitem [ref=e42]:
+                  - button "Search" [ref=e44] [cursor=pointer]:
+                    - img [ref=e45]
+                    - generic [ref=e47]: Search
+          - link "My account" [ref=e49] [cursor=pointer]:
+            - /url: /user/login?targetURL=%2Fscience%2Farticle%2Fpii%2FS2213297X26000054&from=globalheader
+            - img [ref=e50]
+            - generic [ref=e52]: My account
+          - button "Gadjah Mada University Institutional Access" [ref=e56] [cursor=pointer]:
+            - img [ref=e57]
+            - generic [ref=e59]: Gadjah Mada University
+      - main [ref=e60]:
+        - region "Download options and search" [ref=e62]:
+          - list "PDF Options" [ref=e64]:
+            - listitem [ref=e65]:
+              - generic "View PDF. Opens in a new window." [ref=e66] [cursor=pointer]:
+                - img [ref=e67]
+                - generic [ref=e74]:
+                  - text: View
+                  - strong [ref=e75]: PDF
+            - listitem [ref=e76]:
+              - button "Download full issue" [ref=e77] [cursor=pointer]:
+                - generic [ref=e79]: Download full issue
+        - generic [ref=e80]:
+          - navigation "Table of contents" [ref=e81]
+          - article [ref=e82]:
+            - generic [ref=e83]:
+              - link "Elsevier" [ref=e85] [cursor=pointer]:
+                - /url: /journal/journal-of-co-operative-organization-and-management
+                - img "Elsevier" [ref=e88]
+              - generic [ref=e89]:
+                - heading "Journal of Co-operative Organization and Management" [level=2] [ref=e90]:
+                  - link "Journal of Co-operative Organization and Management" [ref=e91] [cursor=pointer]:
+                    - /url: /journal/journal-of-co-operative-organization-and-management
+                    - generic [ref=e92]: Journal of Co-operative Organization and Management
+                - generic [ref=e93]:
+                  - link "Volume 14, Issue 1" [ref=e94] [cursor=pointer]:
+                    - /url: /journal/journal-of-co-operative-organization-and-management/vol/14/issue/1
+                    - generic [ref=e95]: Volume 14, Issue 1
+                  - text: ", June 2026, 100284"
+              - link "Homepage for Journal of Co-operative Organization and Management" [ref=e97] [cursor=pointer]:
+                - /url: /journal/journal-of-co-operative-organization-and-management/vol/14/issue/1
+                - img "Journal of Co-operative Organization and Management" [ref=e100]
+            - 'heading "Corporate Platforms to Cooperative DAOs: Understanding the potential and problems of a plurality of digital labor platform archetypes" [level=1] [ref=e101]'
+            - generic [ref=e102]:
+              - generic [ref=e105]:
+                - generic [ref=e106]: Author links open overlay panel
+                - button "Morshed Mannan aCorrespondence author iconAuthor email or social media contact details icon" [ref=e107] [cursor=pointer]:
+                  - generic [ref=e109]:
+                    - generic [ref=e110]: Morshed Mannan
+                    - superscript [ref=e112]: a
+                    - img "Correspondence author icon" [ref=e113]
+                    - img "Author email or social media contact details icon" [ref=e115]
+                - text: ","
+                - button "Simon Pek bAuthor email or social media contact details icon" [ref=e117] [cursor=pointer]:
+                  - generic [ref=e119]:
+                    - generic [ref=e120]: Simon Pek
+                    - superscript [ref=e122]: b
+                    - img "Author email or social media contact details icon" [ref=e123]
+              - button "Show more" [ref=e125] [cursor=pointer]:
+                - generic [ref=e126]: Show more
+                - img [ref=e127]
+              - generic [ref=e129]:
+                - button "Add to Mendeley" [ref=e130] [cursor=pointer]:
+                  - img [ref=e131]
+                  - generic [ref=e133]: Add to Mendeley
+                - button "Share" [ref=e137] [cursor=pointer]:
+                  - img [ref=e138]
+                  - generic [ref=e140]: Share
+                - button "Cite" [ref=e144] [cursor=pointer]:
+                  - img [ref=e145]
+                  - generic [ref=e147]: Cite
+            - generic [ref=e148]:
+              - link "Persistent link using digital object identifier" [ref=e149] [cursor=pointer]:
+                - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jcom.2026.100284
+                - generic [ref=e150]:
+                  - text: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jcom.2026.100284
+                  - img "Opens in new window" [ref=e151]
+              - link "Get rights and contentOpens in new window" [ref=e153] [cursor=pointer]:
+                - /url: https://s100.copyright.com/AppDispatchServlet?publisherName=ELS&contentID=S2213297X26000054&orderBeanReset=true
+                - generic [ref=e154]:
+                  - text: Get rights and content
+                  - img "Opens in new window" [ref=e155]
+            - generic [ref=e157]:
+              - generic [ref=e158]:
+                - text: Under a Creative Commons
+                - link "licenseOpens in new window" [ref=e159] [cursor=pointer]:
+                  - /url: http://creativecommons.org/licenses/by/4.0/
+                  - generic [ref=e160]:
+                    - text: license
+                    - img "Opens in new window" [ref=e161]
+              - generic [ref=e163]: Open access
+            - generic [ref=e166]:
+              - generic [ref=e167]:
+                - heading "Highlights" [level=2] [ref=e168]
+                - list [ref=e171]:
+                  - listitem [ref=e172]:
+                    - generic [ref=e173]: •
+                    - generic [ref=e175]: Calls for regulating a plurality of organisational archetypes in the digital economy to mitigate harms and risks to workers.
+                  - listitem [ref=e176]:
+                    - generic [ref=e177]: •
+                    - generic [ref=e179]: "Evaluates the harms and entrepreneurial risks of workers across 3 archetypes: Corporate DLPs, Cooperative DLPs, and DAO DLPs."
+                  - listitem [ref=e180]:
+                    - generic [ref=e181]: •
+                    - generic [ref=e183]: Identifies two variants of DAO DLPs, the Non-Cooperative DAO DLP and the Cooperative DAO DLP.
+                  - listitem [ref=e184]:
+                    - generic [ref=e185]: •
+                    - generic [ref=e187]: Furthers our conceptual understanding of the benefits, risks, and harms of the burgeoning digital solidarity economy.
+              - generic [ref=e188]:
+                - heading "Abstract" [level=2] [ref=e189]
+                - generic [ref=e191]: Academic, practitioner, and policy interest in digital labor platforms (DLPs)–businesses that use their digital infrastructure to intermediate transactions between workers and clients who need their services–is surging. While these transformational platforms have brought many benefits, there are growing concerns about the harms and entrepreneurial risks they create for workers. As such, there is a growing interest in problematizing the ownership and governance of DLPs. Our paper critically compares three increasingly common archetypes–Corporate DLPs, Cooperative DLPs, and Decentralized Autonomous Organization (DAO) DLPs–to discern their likelihood of addressing or exacerbating platform workers’ exposure to harms and entrepreneurial risks. Our analysis identifies promising new opportunities for those interested in cultivating a digital solidarity economy by highlighting the merits and demerits of different alternatives to Corporate DLPs, as well as promising new hybrids like Cooperative DAO DLPs. Furthermore, it advances our understanding of factors that contribute to DLPs’ being structured in particular ways and how choices about DLPs’ structures, in turn, prompt the evolution of organizational archetypes.
+            - list [ref=e192]:
+              - listitem [ref=e193]:
+                - button "Previous article in issue" [disabled] [ref=e194]:
+                  - img [ref=e195]
+                  - generic [ref=e198]: Previous article in issue
+              - listitem [ref=e199]:
+                - button "Next article in issue" [disabled] [ref=e200]:
+                  - generic [ref=e202]: Next article in issue
+                  - img [ref=e203]
+            - generic [ref=e206]:
+              - heading "Keywords" [level=2] [ref=e207]
+              - generic [ref=e208]: Digital labor platforms;
+              - generic [ref=e209]: Platform cooperatives;
+              - generic [ref=e210]: Decentralized autonomous organizations;
+              - generic [ref=e211]: Cooperative governance
+            - generic [ref=e213]:
+              - heading "Data availability" [level=2] [ref=e214]
+              - generic [ref=e215]: No data was used for the research described in the article.
+            - region "Cited by" [ref=e217]:
+              - heading "Cited by (0)" [level=2] [ref=e220]
+            - generic [ref=e221]: © 2026 The Authors. Published by Elsevier Ltd.
+          - complementary "Related content" [ref=e223]:
+            - generic [ref=e224]:
+              - button "Recommended articles" [expanded] [ref=e226] [cursor=pointer]:
+                - heading "Recommended articles" [level=2] [ref=e229]
+                - img [ref=e230]
+              - generic [ref=e233]: No articles found.
+    - contentinfo [ref=e234]:
+      - link "Elsevier home page (opens in a new tab)" [ref=e236] [cursor=pointer]:
+        - /url: https://www-elsevier-com.ezproxy.ugm.ac.id/
+        - img "Elsevier logo with wordmark" [ref=e237]
+      - generic [ref=e238]:
+        - list [ref=e240]:
+          - listitem [ref=e241]:
+            - link "About ScienceDirectOpens in new window" [ref=e242] [cursor=pointer]:
+              - /url: https://www-elsevier-com.ezproxy.ugm.ac.id/solutions/sciencedirect
+              - generic [ref=e243]:
+                - text: About ScienceDirect
+                - img "Opens in new window" [ref=e244]
+          - listitem [ref=e246]:
+            - link "Remote access" [ref=e247] [cursor=pointer]:
+              - /url: /user/institution/login?targetURL=%2Fscience%2Farticle%2Fpii%2FS2213297X26000054
+              - generic [ref=e248]: Remote access
+          - listitem [ref=e249]:
+            - link "Contact and supportOpens in new window" [ref=e250] [cursor=pointer]:
+              - /url: https://service-elsevier-com.ezproxy.ugm.ac.id/app/contact/supporthub/sciencedirect/
+              - generic [ref=e251]:
+                - text: Contact and support
+                - img "Opens in new window" [ref=e252]
+          - listitem [ref=e254]:
+            - link "Terms and conditionsOpens in new window" [ref=e255] [cursor=pointer]:
+              - /url: https://www-elsevier-com.ezproxy.ugm.ac.id/legal/elsevier-website-terms-and-conditions
+              - generic [ref=e256]:
+                - text: Terms and conditions
+                - img "Opens in new window" [ref=e257]
+          - listitem [ref=e259]:
+            - link "Privacy policyOpens in new window" [ref=e260] [cursor=pointer]:
+              - /url: https://www-elsevier-com.ezproxy.ugm.ac.id/legal/privacy-policy
+              - generic [ref=e261]:
+                - text: Privacy policy
+                - img "Opens in new window" [ref=e262]
+          - listitem [ref=e264]:
+            - button "Cookie settings" [ref=e265] [cursor=pointer]:
+              - generic [ref=e266]: Cookie settings
+        - paragraph [ref=e267]: "All content on this site: Copyright © 2026 Elsevier B.V., its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the relevant licensing terms apply."
+      - link "RELX home page (opens in a new tab)" [ref=e269] [cursor=pointer]:
+        - /url: https://www.relx.com/
+        - img "RELX group home page" [ref=e270]

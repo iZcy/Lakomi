@@ -1,0 +1,122 @@
+[     738ms] [ERROR] Failed to load resource: the server responded with a status of 429 () @ https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dblockchain%2Bgovernance%2Bcooperative%2Bsite%253Aemerald.com%26sei%3D8fr3aci5OLSO4-EP7svikA0&q=EgSdVc6iGPL1388GIjDfoUfR-h1rbqOHQ3Y2-JZl1eLYA6vFEU3FrhVKWL57K-aY3VYiJP14EXv3iOrL5qcyAVJaAUM:0
+[    1033ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://www.google.com/recaptcha/enterprise/anchor?ar=1&k=6LdLLIMbAAAAAIl-KLj9p1ePhM-4LCCDbjtJLqRO&co=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbTo0NDM.&hl=en&v=gTpTIWhbKpxADzTzkcabhXN4&size=normal&s=U5GmzzYUhN_F0fBJZDpbOfHj5ga8Ny9PSkYbxPabBFKzaBDpduSPopq77HOWd1kUbaGem4gD9tXJNk-sWiZyKYjU98aesJGY3Doqq-sOWy1KXXC5sx6hMvGB4swYoNY9KrRkK_eB6LXjqlX4IAehWppD0GzsFWhEp9AWZUFg_jizGIoEvsXBc4kzBhJmljMivN7rFli0T6an67mH6nNhv5O_qHvOJrJ_aur7c9QU2Wh9UOoTl2R0ZzSPSGthEfFlj__W9kID5ucS55qpeDPSRxooFekseQY&anchor-ms=20000&execute-ms=30000&cb=2g8ucgydk7ic:0
+[    1236ms] ReferenceError: solveSimpleChallenge is not defined
+    at onload (https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dblockchain%2Bgovernance%2Bcooperative%2Bsite%253Aemerald.com%26sei%3D8fr3aci5OLSO4-EP7svikA0&q=EgSdVc6iGPL1388GIjDfoUfR-h1rbqOHQ3Y2-JZl1eLYA6vFEU3FrhVKWL57K-aY3VYiJP14EXv3iOrL5qcyAVJaAUM:4:316)
+[    1769ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://www.google.com/recaptcha/enterprise/bframe?hl=en&v=gTpTIWhbKpxADzTzkcabhXN4&k=6LdLLIMbAAAAAIl-KLj9p1ePhM-4LCCDbjtJLqRO&bft=0dAFcWeA7R8_KFHa6qWOdnzOtpWF-dI_bZYI3zp8Oa5Yky6gdHCOWaSQ8ZbxJxrlC-MqEH5OnZ6_MQjBKuaLUn-s3E3b8TTmqbBw:0
+[   16886ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://www.emerald.com/acg/article/5/2/101/1319315/Decentralized-Corporate-Governance-via-Blockchain:0
+[   17079ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://www.emerald.com/favicon.ico:0
+[   17249ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://www.emerald.com/favicon.ico:0
+[   18222ms] [ERROR] This document requires 'TrustedHTML' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18222ms] [ERROR] This document requires 'TrustedHTML' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18224ms] [ERROR] This document requires 'TrustedScript' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18224ms] [ERROR] This document requires 'TrustedScript' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18224ms] [ERROR] This document requires 'TrustedScriptURL' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18225ms] [ERROR] This document requires 'TrustedScriptURL' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18236ms] [ERROR] Executing inline script violates the following Content Security Policy directive 'script-src 'nonce-1qMWOZnpKhgXFwYRVS8MGS' 'unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-eJGI0Ik4oYe/PKLDOt4wcN76wYs8h+Ew05pMzdY6xG8='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked. @ about:srcdoc:0
+[   18236ms] [ERROR] Executing inline script violates the following Content Security Policy directive 'script-src 'nonce-1qMWOZnpKhgXFwYRVS8MGS' 'unsafe-eval''. Either the 'unsafe-inline' keyword, a hash ('sha256-eJGI0Ik4oYe/PKLDOt4wcN76wYs8h+Ew05pMzdY6xG8='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked. @ about:srcdoc:0
+[   18237ms] [ERROR] This document requires 'TrustedScript' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18237ms] [ERROR] This document requires 'TrustedScript' assignment. The action has been blocked. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18337ms] [LOG] The next request for the Private Access Token challenge may return a 401 and show a warning in console. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18387ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/pat/9f63d873cbf5bff8/1777859331533/2d31645d06a4f55986a05c707f1f79879bb58ddb7c2864bf5474732c9b8bf231/E-2-Eq2LX4JeAaf:0
+[   18420ms] [WARNING] Form submission canceled because the form is not connected @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18520ms] [WARNING] Failed to parse audio contentType: audio/mp4; codecs=ac-3 @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18520ms] [WARNING] Failed to parse audio contentType: audio/mp4; codecs=ec-3 @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18524ms] [WARNING] Invalid (ambiguous) video codec string: video/webm; codecs=vp9 @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18525ms] [WARNING] Failed to parse video contentType: video/ogg; codecs=theora @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18866ms] [ERROR] Permissions policy violation: xr-spatial-tracking is not allowed in this document. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   18867ms] [ERROR] Permissions policy violation: xr-spatial-tracking is not allowed in this document. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   19295ms] [WARNING] No available adapters. @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20219ms] [LOG] /.*.*=.*/ @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20219ms] [LOG] /.*.*=.*/ @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20219ms] [LOG] function () { [native code] } @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20220ms] [LOG] function () { [native code] } @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20220ms] [LOG] JSHandle@node @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20220ms] [LOG] JSHandle@node @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20220ms] [COUNT]  : 1 @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20221ms] [COUNT]  : 1 @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20222ms] [DIR]  Error @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20222ms] [DIR]  Error @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20222ms] [DIRXML] %c%d font-size:0;color:transparent Error @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20222ms] [DIRXML] %c%d font-size:0;color:transparent Error @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20223ms] [ERROR] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20223ms] [ERROR] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20223ms] [INFO] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20223ms] [INFO] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20224ms] [LOG] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20224ms] [LOG] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20224ms] [TABLE] %c%d font-size:0;color:transparent Error @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20225ms] [TABLE] %c%d font-size:0;color:transparent Error @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20226ms] [WARNING] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   20226ms] [WARNING] %c%d font-size:0;color:transparent NaN @ https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/f/ov2/av0/rch/23z4m/0x4AAAAAAADnPIDROrmt1Wwj/light/fbE/new/normal?lang=auto:0
+[   22643ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.emerald.com/favicon.ico:0
+[   25637ms] [LOG] CMPL All Scripts:  Cadmore All Scripts. @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:1
+[   25637ms] [LOG] CMPL ALL: Root Url -- https://play.cadmore.media @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:18
+[   25637ms] [LOG] CMPL All Scripts:  EMBED.js not detected.  Adding... @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:33
+[   25638ms] [LOG] CMPL All Scripts:  GALLERY_V2.js not detected.  Adding... @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:44
+[   25638ms] [LOG] CMPL All Scripts:  PLAYLIST_V2.js not detected.  Adding... @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:55
+[   25638ms] [LOG] CMPL All Scripts:  POPUP.js not detected.  Adding... @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:66
+[   25638ms] [LOG] CMPL All Scripts:  GALLERYEMBED_HOST.js not detected.  Adding... @ https://play.cadmore.media/js/CADMORE_ALL_JS.js:77
+[   25654ms] [LOG] JQMIGRATE: Migrate is installed, version 3.1.0 @ https://emer.silverchair-cdn.com/Themes/Silver/app/vendor/v-639102489972463725/jquery-migrate-3.1.0.min.js:1
+[   26114ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ https://www.emerald.com/acg/article-abstract/5/2/101/1319315/Decentralized-Corporate-Governance-via-Blockchain?redirectedFrom=fulltext:0
+[   26395ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://emer.silverchair-cdn.com/Themes/Client/app/img/favicons/manifest.json:0
+[   26396ms] [ERROR] Manifest fetch from https://emer.silverchair-cdn.com/Themes/Client/app/img/favicons/manifest.json failed, code 404 @ https://www.emerald.com/acg/article-abstract/5/2/101/1319315/Decentralized-Corporate-Governance-via-Blockchain?redirectedFrom=fulltext:0
+[   26554ms] TypeError: Cannot read properties of null (reading 'removeAttribute')
+    at <anonymous>:1:41
+    at f.ba (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:240:229)
+    at f.ka (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:239:427)
+    at f.Y (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:237:407)
+    at f.F (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:235:445)
+    at f.write (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:235:70)
+    at f (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:242:215)
+    at e (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:241:279)
+    at q.streams (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:243:30)
+    at d (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:859:303)
+[   26554ms] Uncaught [object Object]
+    at error (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:232:503)
+    at c.l.onerror (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:241:160)
+    at f.ba (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:239:228)
+    at f.ka (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:238:426)
+    at f.Y (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:236:406)
+    at f.F (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:234:444)
+    at f.write (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:234:69)
+    at f (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:241:214)
+    at e (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:240:278)
+    at q.streams (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:242:29)
+    at d (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:858:302)
+    at WQ (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:858:331)
+    at UQ (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:858:0)
+    at TQ (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:855:91)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:380:186)
+    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:306:465)
+    at hb (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:269:718)
+    at gb (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:269:469)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:330:472)
+    at k.apply (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:306:465)
+    at hb (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:269:718)
+    at k.Uq (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:269:1285)
+    at pf (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:341:959)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:750:314)
+    at Pz (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:670:0)
+    at Uz.evaluate (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:674:721)
+    at e (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:693:217)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:274:124)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:694:390)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:694:130)
+    at hB (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:694:772)
+    at kB (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:699:28)
+    at oC (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:723:208)
+    at c.push (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:727:208)
+    at <anonymous> (https://www.googletagmanager.com/gtm.js?id=GTM-W9XTGPJQ:727:462)
+[   26564ms] [LOG] CMPL POPUP: Root Url -- https://play.cadmore.media @ https://play.cadmore.media/js/POPUP.js:16
+[   26567ms] [LOG] CMPL Play List: Cadmore Media Play List @ https://play.cadmore.media/js/PLAYLIST_V2.js:1
+[   26567ms] [LOG] CMPL PLAYLIST: Root Url -- https://play.cadmore.media @ https://play.cadmore.media/js/PLAYLIST_V2.js:18
+[   26621ms] [LOG] CMPL Gallery:  Cadmore Media Gallery. @ https://play.cadmore.media/js/GALLERY_V2.js:1
+[   26621ms] [LOG] CMPL GALLERY: Root Url -- https://play.cadmore.media @ https://play.cadmore.media/js/GALLERY_V2.js:18
+[   27143ms] [WARNING] [GPT] PubAdsService.disableInitialLoad is deprecated, use googletag.setConfig({disableInitialLoad: ...}) instead.
+https://goo.gle/gpt-message#170 @ https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202604280101/pubads_impl.js?cb=31098181:18
+[   27359ms] [WARNING] [Meta Pixel] - Removed URL query parameters due to potential violations. @ https://connect.facebook.net/en_US/fbevents.js:181
+[   27749ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://emer.silverchair-cdn.com/Themes/Client/app/img/favicons/manifest.json:0
+[   27749ms] [ERROR] Manifest fetch from https://emer.silverchair-cdn.com/Themes/Client/app/img/favicons/manifest.json failed, code 404 @ https://www.emerald.com/acg/article-abstract/5/2/101/1319315/Decentralized-Corporate-Governance-via-Blockchain?redirectedFrom=fulltext:0
+[   31693ms] [WARNING] SweetAlert2: The parameter "allowOutsideClick" is incompatible with toasts @ https://emerald.hum.works/js/main.js:0
+[   31964ms] [LOG] CMPL Play List: No play lists detected. @ https://play.cadmore.media/js/PLAYLIST_V2.js:41
+[   31965ms] [LOG] CMPL Gallery: No galleries detected. @ https://play.cadmore.media/js/GALLERY_V2.js:36

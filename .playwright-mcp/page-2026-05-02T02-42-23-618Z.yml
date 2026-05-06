@@ -1,0 +1,1422 @@
+- generic [ref=e1]:
+  - dialog "Cookie Consent Banner" [ref=e2]:
+    - button "Close this dialog" [active] [ref=e3] [cursor=pointer]:
+      - img "Close this dialog" [ref=e4]
+    - generic [ref=e5]:
+      - generic [ref=e6]: "This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. To learn more, view the following link:"
+      - link "Privacy Policy" [ref=e7] [cursor=pointer]:
+        - /url: https://www.wiley.com/privacy
+  - navigation:
+    - list:
+      - listitem:
+        - button "Skip to Article Content" [ref=e8]
+      - listitem:
+        - button "Skip to Article Information" [ref=e9]
+  - generic [ref=e11]:
+    - banner [ref=e13]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - link "Wiley Online Library" [ref=e20] [cursor=pointer]:
+            - /url: /
+            - img "Wiley Online Library" [ref=e21]
+          - generic [ref=e26]: Universitas Gadjah Mada
+        - generic [ref=e27]:
+          - generic [ref=e28]:
+            - generic:
+              - text: 
+              - generic [ref=e31]:
+                - searchbox "Search" [ref=e32]
+                - generic [ref=e33]: Search within
+                - combobox "Search within" [ref=e34]:
+                  - option "This Journal" [selected]
+                  - option "Anywhere"
+                - list [ref=e35]:
+                  - listitem [ref=e36]:
+                    - search "Quick Search" [ref=e37]:
+                      - generic [ref=e38]:
+                        - generic [ref=e39]: Search term
+                        - combobox "search text" [ref=e40]
+                        - status [ref=e41]
+                      - button "Submit Search" [ref=e42]: 
+                  - text: 
+          - generic [ref=e45]:
+            - button "Log in or Register" [ref=e47]:
+              - text: 
+              - generic [ref=e48]: Login / Register
+            - text:  
+    - main [ref=e50]:
+      - generic [ref=e52]:
+        - generic:
+          - generic:
+            - generic:
+              - complementary: Advertisement
+        - generic [ref=e57]:
+          - article [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]:
+                - generic [ref=e62]:
+                  - generic [ref=e63]:
+                    - generic:
+                      - link "Business Strategy and the Environment":
+                        - /url: /journal/10990836
+                    - link "Business Strategy and the Environment" [ref=e64] [cursor=pointer]:
+                      - /url: /journal/10990836
+                      - img "Business Strategy and the Environment" [ref=e65]
+                  - generic [ref=e66]:
+                    - generic [ref=e67]: RESEARCH ARTICLE
+                    - generic [ref=e69]:
+                      - generic [ref=e70]: 
+                      - generic [ref=e71]: Open Access
+                    - link "Creative Commons license information" [ref=e73] [cursor=pointer]:
+                      - /url: http://creativecommons.org/licenses/by/4.0/
+                      - generic [ref=e74]: 
+                      - generic [ref=e75]: 
+                  - 'heading "Policy stimulation for the electric vehicle industry: An analysis of mainstream media discourse" [level=1] [ref=e76]'
+                  - text:          
+                  - generic [ref=e80]:
+                    - generic [ref=e81]:
+                      - button "Monika Jain" [ref=e82] [cursor=pointer]: Monika Jain 
+                      - generic [ref=e83]: ","
+                      - text: 
+                    - generic [ref=e84]:
+                      - button "Shalini Talwar" [ref=e85] [cursor=pointer]: Shalini Talwar 
+                      - generic [ref=e86]: ","
+                    - generic [ref=e87]:
+                      - button "Rashmi Rastogi" [ref=e88] [cursor=pointer]:
+                        - generic [ref=e89]:
+                          - text: Rashmi Rastogi
+                          - generic [ref=e90]: 
+                        - text: 
+                      - generic [ref=e91]: ","
+                      - text: 
+                    - generic [ref=e92]:
+                      - button "Puneet Kaur" [ref=e93] [cursor=pointer]: Puneet Kaur 
+                      - generic [ref=e94]: ","
+                    - generic [ref=e95]:
+                      - button "Amandeep Dhir" [ref=e96] [cursor=pointer]:
+                        - generic [ref=e97]:
+                          - text: Amandeep Dhir
+                          - generic [ref=e98]: 
+                        - text: 
+                      - text: 
+                  - generic [ref=e99]:
+                    - generic [ref=e100]: "First published: 01 April 2024 |"
+                    - generic [ref=e101]:
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1002/bse.3750 Digital Object Identifier (DOI)" [ref=e102] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1002/bse.3750
+                        - text: https://doi-org.ezproxy.ugm.ac.id/10.1002/bse.3750
+                        - generic [ref=e103]: Digital Object Identifier (DOI)
+                      - text: "|"
+                    - button "view metrics" [ref=e105]:
+                      - generic [ref=e106]: 
+                      - text: view metrics
+                - navigation "Article navigation and tools" [ref=e108]:
+                  - generic [ref=e109]:
+                    - generic [ref=e110]:
+                      - generic:     
+                      - button " Sections" [ref=e112] [cursor=pointer]:
+                        - generic [ref=e113]: 
+                        - text: Sections
+                    - generic [ref=e114]:
+                      - link "PDF" [ref=e117] [cursor=pointer]:
+                        - /url: /doi/epdf/10.1002/bse.3750
+                      - button "CITE" [ref=e119] [cursor=pointer]:
+                        - generic [ref=e120]: 
+                        - generic [ref=e121]: CITE
+                      - generic [ref=e122]:
+                        - button "Tools" [ref=e123] [cursor=pointer]:
+                          - generic [ref=e124]: 
+                          - text: Tools
+                        - text:   
+                      - generic [ref=e125]:
+                        - button "Share" [ref=e126] [cursor=pointer]:
+                          - generic [ref=e127]: 
+                          - text: Share
+                        - text:           
+                - article [ref=e129]:
+                  - generic [ref=e131]:
+                    - heading "Abstract" [level=2] [ref=e132]
+                    - paragraph [ref=e134]: "Motivated by the indisputable relevance of comprehensively understanding and portraying multiple facets of ongoing conversations on electric vehicles (EVs), we employ critical discourse analysis (CDA) to go beyond the how and why of these discussions and fathom the complex interplays and subtleties. Operationally, we inductively analyze 718 popular media articles published from 2020 through 2023 to distill four cumulative dimensions of the discourse on EVs: industry-level enabling cues for EV adoption, economy-level motivations and motivators, impediments to diffusion, and harbingers of change. These four dimensions are further unpacked into 16 themes to provide a more granular interpretation of media discourse on EVs. We provide an exhaustive perspective, navigating several macro and micro aspects to offer tangible theoretical and practical outcomes. In addition to creating a comprehensive point of reference for future research, the study offers substantial inputs for driving the policy agenda in terms of subsidies, start-ups, and buy-side barriers."
+                  - generic [ref=e135]:
+                    - heading "Abbreviations" [level=3] [ref=e136]
+                    - table [ref=e138]:
+                      - rowgroup [ref=e139]:
+                        - row "CDA critical discourse analysis" [ref=e140]:
+                          - rowheader "CDA" [ref=e141]:
+                            - listitem [ref=e142]: CDA
+                          - cell "critical discourse analysis" [ref=e143]:
+                            - listitem [ref=e144]: critical discourse analysis
+                        - row "CO2 carbon dioxide" [ref=e145]:
+                          - rowheader "CO2" [ref=e146]:
+                            - listitem [ref=e147]:
+                              - text: CO
+                              - subscript [ref=e148]: "2"
+                          - cell "carbon dioxide" [ref=e149]:
+                            - listitem [ref=e150]: carbon dioxide
+                        - row "EU European Union" [ref=e151]:
+                          - rowheader "EU" [ref=e152]:
+                            - listitem [ref=e153]: EU
+                          - cell "European Union" [ref=e154]:
+                            - listitem [ref=e155]: European Union
+                        - row "EV electric vehicles" [ref=e156]:
+                          - rowheader "EV" [ref=e157]:
+                            - listitem [ref=e158]: EV
+                          - cell "electric vehicles" [ref=e159]:
+                            - listitem [ref=e160]: electric vehicles
+                        - row "R&D research and development" [ref=e161]:
+                          - rowheader "R&D" [ref=e162]:
+                            - listitem [ref=e163]: R&D
+                          - cell "research and development" [ref=e164]:
+                            - listitem [ref=e165]: research and development
+                    - generic [ref=e166]:
+                      - heading "1 INTRODUCTION" [level=2] [ref=e167]
+                      - paragraph [ref=e168]:
+                        - text: Climate change is real and, without any doubt, a serious threat. The evidence of its extensive and unprecedented outcomes has mounted, leading scholars to express an immense degree of concern about resultant climate risks over the past two decades (Hausfather & Moore,
+                        - link "2022" [ref=e170] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0055"
+                        - text: ; Nieto,
+                        - link "2022" [ref=e172] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0088"
+                        - text: ). One of the key triggers of climate change has been the release of carbon dioxide (CO
+                        - subscript [ref=e173]: "2"
+                        - text: ) into the atmosphere, leading to global calls for decarbonization and achieving carbon neutrality (Talwar et al.,
+                        - link "2023" [ref=e175] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0118"
+                        - text: ). With the transportation sector being one of the major carbon emitters, electric vehicles (EVs) have emerged as a cleaner alternative to conventional combustion-powered vehicles, offering a promising solution to mitigate pollution and climate change (Khurana et al.,
+                        - link "2019" [ref=e177] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0066"
+                        - text: ; Richter,
+                        - link "2022" [ref=e179] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0099"
+                        - text: ; Siragusa et al.,
+                        - link "2020" [ref=e181] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0116"
+                        - text: ; Zhao et al.,
+                        - link "2021" [ref=e183] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0140"
+                        - text: ).
+                      - paragraph [ref=e184]:
+                        - text: Scholars and industry professionals have duly acknowledged several benefits offered by EVs, including lowering emissions and decreasing fuel expenses (Ercan et al.,
+                        - link "2022" [ref=e186] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0043"
+                        - text: ; Guo et al.,
+                        - link "2023" [ref=e188] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0054"
+                        - text: ; Xia et al.,
+                        - link "2022" [ref=e190] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0135"
+                        - text: ). It is becoming increasingly clear that a shift to EVs is imminent and inevitable to achieve climate goals (Binsted,
+                        - link "2022" [ref=e192] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0023"
+                        - text: ; Breschi et al.,
+                        - link "2023" [ref=e194] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0026"
+                        - text: ; Richter,
+                        - link "2022" [ref=e196] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0099"
+                        - text: ). However, the present status of the adoption and diffusion of EVs globally is rather skewed. While Europe and China account for 85% of global electric car sales, the pattern of EV sales is quite dismal for developing and emerging countries, wherein acceptance and adoption of EVs is low (Krishna,
+                        - link "2021" [ref=e198] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0068"
+                        - text: ; Kumar & Alok,
+                        - link "2020" [ref=e200] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0070"
+                        - text: ; Tarei et al.,
+                        - link "2021" [ref=e202] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0119"
+                        - text: ). Although colloquially it is argued that the low diffusion of EVs in developing and emerging countries is primarily due to cost consideration, a comprehensive understanding of what has driven the adoption of EVs to the current level and what has impeded the anticipated extent of adoption is essential to formulate viable solutions to improve adoption.
+                      - paragraph [ref=e203]:
+                        - text: We reviewed the literature to acquire a keener grasp of drivers and barriers to EV adoption in developing and emerging countries. Our investigation revealed several visible gaps in the extant literature, both at the conceptual and methodological levels. Conceptually, we observed that despite being voluminous, the literature offers shallow insights with routine elucidations. In particular, past findings have remained confined to a specific set of factors, such as the role of consumer perception (Asadi et al.,
+                        - link "2021" [ref=e205] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0009"
+                        - text: ; Austmann & Vigne,
+                        - link "2021" [ref=e207] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0011"
+                        - text: ), demographic profiles (Huang et al.,
+                        - link "2021" [ref=e209] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0058"
+                        - text: ; Jou et al.,
+                        - link "2022" [ref=e211] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0063"
+                        - text: ), vehicle attributes (Bansal et al.,
+                        - link "2021" [ref=e213] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0016"
+                        - text: ; Benzidia et al.,
+                        - link "2021" [ref=e215] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0021"
+                        - text: ), and environmental awareness (Beak et al.,
+                        - link "2020" [ref=e217] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0018"
+                        - text: ; Das & Bhat,
+                        - link "2022" [ref=e219] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0036"
+                        - text: ; Shanmugavel & Balakrishnan,
+                        - link "2023" [ref=e221] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0109"
+                        - text: ; Singh et al.,
+                        - link "2021" [ref=e223] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0112"
+                        - text: ). Given the multiple conversations and complexities associated with EVs, such a simplistic rendition of factors driving the adoption of EVs is unsatisfactory. Several dimensions of the EV adoption/non-adoption debate have not been fully probed, and as a result, we currently lack a comprehensive understanding of the current position of multiple stakeholders, to EVs, including the end users.
+                      - paragraph [ref=e224]:
+                        - text: Our review also indicated that not only are the insights limited, but they are also largely based on limited methodological approaches. Specifically, we observed that most prior studies rely on primary data reflecting consumer's perception of EVs (e.g., Globisch et al.,
+                        - link "2018" [ref=e226] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0050"
+                        - text: ; Masiero et al.,
+                        - link "2016" [ref=e228] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0077"
+                        - text: ). Although these studies based on primary data have significantly advanced our understanding of the subject under consideration, there are inherent issues and biases associated with primary data that cannot be overlooked. For instance, prior consumer behavior studies have shown that consumers often do not foresee or anticipate the future of a given technology when interviewed (Hausman,
+                        - link "2000" [ref=e230] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0056"
+                        - text: ; Sahi et al.,
+                        - link "2013" [ref=e232] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0104"
+                        - text: ) or surveyed (Crotts et al.,
+                        - link "2008" [ref=e234] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0033"
+                        - text: ; Singh et al.,
+                        - link "2011" [ref=e236] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0115"
+                        - text: ), making their responses less insightful. Finally, products like EVs, which arouse substantial public interest and debate, are frequently discussed in depth in the media. These media discussions, which cover a wide range of publications, including opinion pieces and news stories, reflect and capture the perspectives of various relevant and prominent stakeholders. As a result, they hold a wealth of knowledge that can be very useful strategically. However, there has yet to be a study on EVs using popular media publications as a potential data source.
+                      - paragraph [ref=e237]: "Taking note of the narrowness of the existing academic literature at the conceptual level, we propose to extensively probe different dimensions of the EV adoption/non-adoption dynamics in developing/and emerging countries, for example, India. At the methodological level, we propose to undertake a qualitative study to analyze articles published on EVs in the popular media. Exploring EVs through a popular media lens represents a novel and valuable research endeavor, which will not only add to the current body of literature but also yield a fresh perspective on the EV ecosystem based on public perception, industry trends, and the policy landscape. We formalized our primary research objectives through three key research questions: RQ1. What factors positively influence the diffusion of EVs? RQ2. What factors have a negative bearing on the adoption of EVs? RQ3. What future-oriented initiatives have been introduced to catalyze the wider diffusion and faster adoption of EVs?"
+                      - paragraph [ref=e238]:
+                        - text: Specifically, we employed critical discourse analysis (CDA) to respond to the above-mentioned research questions. Our choice of CDA as a methodological anchor is motivated by its proven efficacy in examining opaque relationships underlying complex social phenomena (Fairclough,
+                        - link "1995" [ref=e240] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0044"
+                        - text: ; Wodak & Meyer,
+                        - link "2009" [ref=e242] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0131"
+                        - text: ). Operationally, the study used the Gioia approach (Gioia et al.,
+                        - link "2012" [ref=e244] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0047"
+                        - text: ) to inductively analyze 718 media articles and identify key concepts, themes, and dimensions.
+                      - paragraph [ref=e245]:
+                        - text: The study contributes to the literature by comprehensively mapping the drivers and barriers affecting EV adoption and green initiatives in both the government and private sectors that play a significant role in the formulation of strategies and innovation of new technologies conducive to the environment (Awan et al.,
+                        - link "2020a" [ref=e247] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0013"
+                        - text: ; Awan et al.,
+                        - link "2020b" [ref=e249] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0012"
+                        - text: ; Awan et al.,
+                        - link "2021" [ref=e251] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0014"
+                        - text: ; Begum et al.,
+                        - link "2021" [ref=e253] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0020"
+                        - text: ; Begum et al.,
+                        - link "2023" [ref=e255] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0019"
+                        - text: ).
+                    - generic [ref=e256]:
+                      - heading "2 LITERATURE REVIEW" [level=2] [ref=e257]
+                      - paragraph [ref=e258]:
+                        - text: A comparatively large body of literature exists on EVs discussing barriers and drivers affecting consumers' adoption drivers (e.g., Asadi et al.,
+                        - link "2021" [ref=e260] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0009"
+                        - text: ; Austmann & Vigne,
+                        - link "2021" [ref=e262] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0011"
+                        - text: ; Corradi et al.,
+                        - link "2023" [ref=e264] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0032"
+                        - text: ; Konstantinou & Gkritza,
+                        - link "2023" [ref=e266] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0067"
+                        - text: ), government and private sector initiatives to promote EV adoption (Decrinis et al.,
+                        - link "2023" [ref=e268] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0039"
+                        - text: ; Rostad Sæther,
+                        - link "2022" [ref=e270] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0101"
+                        - text: ; Zheng et al.,
+                        - link "2022" [ref=e272] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0142"
+                        - text: ), and policy direction to encourage EV penetration (Jiang et al.,
+                        - link "2022" [ref=e274] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0061"
+                        - text: ; Zhang & Huang,
+                        - link "2021" [ref=e276] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0139"
+                        - text: ). In particular, past literature has discussed the role of government incentives, consumer perceptions, demographic profiles, and vehicle attributes in influencing purchase decisions (Asadi et al.,
+                        - link "2021" [ref=e278] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0009"
+                        - text: ; Decrinis et al.,
+                        - link "2023" [ref=e280] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0039"
+                        - text: ; Munshi et al.,
+                        - link "2022" [ref=e282] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0085"
+                        - text: ; Rostad Sæther,
+                        - link "2022" [ref=e284] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0101"
+                        - text: ; Singh et al.,
+                        - link "2023" [ref=e286] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0113"
+                        - text: ; Zhao et al.,
+                        - link "2022" [ref=e288] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0141"
+                        - text: ).
+                      - generic [ref=e289]:
+                        - heading "2.1 Drivers of EV adoption" [level=3] [ref=e290]
+                        - paragraph [ref=e291]:
+                          - text: The transition to e-mobility has led to a plethora of initiatives by governments all over the world, including providing producer and consumer subsidies, setting up EV infrastructure, offering ownership tax benefits, and enhancing production capabilities (Altenburg et al.,
+                          - link "2022" [ref=e293] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0006"
+                          - text: ; Rostad Sæther,
+                          - link "2022" [ref=e295] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0101"
+                          - text: ; Zheng et al.,
+                          - link "2022" [ref=e297] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0142"
+                          - text: ). Government initiatives for producers and consumers—especially the human-centric policies (Breschi et al.,
+                          - link "2023" [ref=e299] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0026"
+                          - text: )—have facilitated EV penetration (Rostad Sæther,
+                          - link "2022" [ref=e301] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0101"
+                          - text: ; Zheng et al.,
+                          - link "2022" [ref=e303] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0142"
+                          - text: ); however, the impact on the two groups of stakeholders has varied from country to country. For instance, a strong policy push by the Chinese government helped the country lead in some segments, including electric buses and lithium batteries, and catch up in passenger vehicle segments (Altenburg et al.,
+                          - link "2022" [ref=e305] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0006"
+                          - text: ). At the same time, comparing producer-oriented and consumer-oriented policies reveals that some policies are relatively effective in some countries than others. For example, the producer-centric policy of setting up charging infrastructure has played an important role in the penetration of Plug-in-EVs in the EU (Rostad Sæther,
+                          - link "2022" [ref=e307] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0101"
+                          - text: ), and policies such as specialized lanes and reserved parking slots have expedited consumer preference for EVs in India (Bansal et al.,
+                          - link "2021" [ref=e309] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0016"
+                          - text: ). Similarly, consumer subsidies have encouraged respondents in emerging economies like Indonesia (Murtiningrum et al.,
+                          - link "2022" [ref=e311] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0086"
+                          - text: ) and India (Munshi et al.,
+                          - link "2022" [ref=e313] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0085"
+                          - text: ) to purchase EVs. The private sector has also provided several initiatives to influence purchase decisions and investment in the EV industry (Decrinis et al.,
+                          - link "2023" [ref=e315] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0039"
+                          - text: ; Melander & Wallström,
+                          - link "2022" [ref=e317] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0080"
+                          - text: ; Wu,
+                          - link "2022" [ref=e319] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0133"
+                          - text: ).
+                        - paragraph [ref=e320]:
+                          - text: Moving to the consumers' perspective, perceived usefulness, attitudes, peer feedback, personal norms, perceived consumer effectiveness, technology readiness, convenience, and the country of residence have all been found to have a substantial effect on people's EV purchase decisions (Asadi et al.,
+                          - link "2021" [ref=e322] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0009"
+                          - text: ; Ashfaq et al.,
+                          - link "2022" [ref=e324] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0010"
+                          - text: ; Austmann & Vigne,
+                          - link "2021" [ref=e326] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0011"
+                          - text: ; Bas et al.,
+                          - link "2021" [ref=e328] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0017"
+                          - text: ; Benzidia et al.,
+                          - link "2021" [ref=e330] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0021"
+                          - text: ; Jaiswal et al.,
+                          - link "2021" [ref=e332] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0060"
+                          - text: ; Murtiningrum et al.,
+                          - link "2022" [ref=e334] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0086"
+                          - text: ; Salari,
+                          - link "2022" [ref=e336] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0105"
+                          - text: ; Shanmugavel & Balakrishnan,
+                          - link "2023" [ref=e338] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0109"
+                          - text: ; Zhao et al.,
+                          - link "2022" [ref=e340] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0141"
+                          - text: ). Existing scholarship argues that the demographic profile of consumers is also an important factor influencing their purchase decisions. Age is essential in determining purchase decisions, as observed in the case of China and Taiwan, where the younger generation was found to prefer EVs (Jou et al.,
+                          - link "2022" [ref=e342] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0063"
+                          - text: ; Zhao et al.,
+                          - link "2022" [ref=e344] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0141"
+                          - text: ). In addition to age, income, education, and family size are considered as other key factors affecting EV demand. For instance, in China, high-net-worth consumers prefer to buy EVs while people with large families do not (Yang et al.,
+                          - link "2023" [ref=e346] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0137"
+                          - text: ; Zhao et al.,
+                          - link "2022" [ref=e348] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0141"
+                          - text: ). Also, highly educated women in China prefer to adopt EVs (Huang et al.,
+                          - link "2021" [ref=e350] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0058"
+                          - text: ).
+                        - paragraph [ref=e351]:
+                          - text: Although environmental gains arising from EVs are known, the evidence on the effect of any such gains on consumers' EV purchase decision is mixed (Murtiningrum et al.,
+                          - link "2022" [ref=e353] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0086"
+                          - text: ; Salari,
+                          - link "2022" [ref=e355] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0105"
+                          - text: ; Shanmugavel & Balakrishnan,
+                          - link "2023" [ref=e357] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0109"
+                          - text: ; Singh et al.,
+                          - link "2021" [ref=e359] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0112"
+                          - text: ). Again, country-related differences can be observed, with environmental awareness playing a positive role in driving consumers' EV purchase decisions in countries such as India (Shanmugavel & Balakrishnan,
+                          - link "2023" [ref=e361] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0109"
+                          - text: ; Singh et al.,
+                          - link "2021" [ref=e363] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0112"
+                          - text: ) and Indonesia (Murtiningrum et al.,
+                          - link "2022" [ref=e365] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0086"
+                          - text: ) but not in the UK (Salari,
+                          - link "2022" [ref=e367] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0105"
+                          - text: ).
+                        - paragraph [ref=e368]:
+                          - text: Vehicular attributes and EV infrastructure have also been found to positively influence consumers' purchase decisions (Bansal et al.,
+                          - link "2021" [ref=e370] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0016"
+                          - text: ; Benzidia et al.,
+                          - link "2021" [ref=e372] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0021"
+                          - text: ; Cabigiosu,
+                          - link "2022" [ref=e374] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0028"
+                          - text: ; Jaiswal et al.,
+                          - link "2022" [ref=e376] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0059"
+                          - text: ; Li et al.,
+                          - link "2023" [ref=e378] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0074"
+                          - text: ; Munshi et al.,
+                          - link "2022" [ref=e380] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0085"
+                          - text: ; Paradies et al.,
+                          - link "2023" [ref=e382] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0090"
+                          - text: ). For instance, an analysis of e-rickshaw adoption in India by Singh et al. (
+                          - link "2021" [ref=e384] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0112"
+                          - text: ) showed that specific characteristics such as reliability, safety, affordability, last-mile connectivity, accessibility, employability, comfort, healthfulness, and profitability were major drivers in the acceptance of e-rickshaws in the country.
+                      - generic [ref=e385]:
+                        - heading "2.2 Barriers to EV adoption" [level=3] [ref=e386]
+                        - paragraph [ref=e387]:
+                          - text: Although EV adoption has shown a consistent upward trajectory, the adoption curve has not been as steep as interested stakeholders would like it to be. The diffusion and subsequent adoption of EVs have been hindered by various barriers that continue to impede their expected proliferation. A review of past literature reveals several hindering factors identified by scholars in the area including high initial cost (Chhikara et al.,
+                          - link "2021" [ref=e389] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0030"
+                          - text: ; Paradies et al.,
+                          - link "2023" [ref=e391] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0090"
+                          - text: ; Virmani et al.,
+                          - link "2023" [ref=e393] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0129"
+                          - text: ), limited driving range (Paradies et al.,
+                          - link "2023" [ref=e395] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0090"
+                          - text: ), issues with the charging infrastructure (Corradi et al.,
+                          - link "2023" [ref=e397] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0032"
+                          - text: ; Tarei et al.,
+                          - link "2021" [ref=e399] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0119"
+                          - text: ; Wu et al.,
+                          - link "2023" [ref=e401] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0134"
+                          - text: ), long charging times (Konstantinou & Gkritza,
+                          - link "2023" [ref=e403] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0067"
+                          - text: ), resale value concerns (Tarei et al.,
+                          - link "2021" [ref=e405] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0119"
+                          - text: ), regulatory hurdles (Chhikara et al.,
+                          - link "2021" [ref=e407] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0030"
+                          - text: ; Gonzalez Venegas et al.,
+                          - link "2021" [ref=e409] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0051"
+                          - text: ), high battery costs (Candra,
+                          - link "2022" [ref=e411] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0029"
+                          - text: ), and multiple socio-economic factors (Yang et al.,
+                          - link "2023" [ref=e413] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0137"
+                          - text: ). At the same time, perceptions of EV risks and a lack of awareness also act as obstacles preventing EV adoption (Almansour,
+                          - link "2022" [ref=e415] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0005"
+                          - text: ; Jaiswal et al.,
+                          - link "2021" [ref=e417] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0060"
+                          - text: ).
+                        - paragraph [ref=e418]:
+                          - text: To elucidate, the lack of adequate charging infrastructure, particularly in public places and rural regions, gives rise to range anxiety and poses challenges for prospective EV buyers (Anosike et al.,
+                          - link "2021" [ref=e420] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0007"
+                          - text: ; Tarei et al.,
+                          - link "2021" [ref=e422] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0119"
+                          - text: ; Virmani et al.,
+                          - link "2023" [ref=e424] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0129"
+                          - text: ). Similarly, the initial expense associated with EVs may discourage cost-conscious buyers from considering them as a feasible choice (Paradies et al.,
+                          - link "2023" [ref=e426] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0090"
+                          - text: ; Virmani et al.,
+                          - link "2023" [ref=e428] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0129"
+                          - text: ). In addition, the limited appeal and decelerated adoption rate of EVs have been attributed by scholars to the presence of inconsistent or insufficient government incentives, subsidies, and tax refunds (Gonzalez Venegas et al.,
+                          - link "2021" [ref=e430] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0051"
+                          - text: ; Li et al.,
+                          - link "2023" [ref=e432] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0074"
+                          - text: ; Peng & Bai,
+                          - link "2023" [ref=e434] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0091"
+                          - text: ).
+                        - paragraph [ref=e435]:
+                          - text: Bringing the preceding discussion together, we recognize that scholars have indeed expended extensive efforts to unpack the drivers of and barriers to EV adoption. The findings are quite informative when seen in aggregate. However, despite acknowledging country-specific differences, an in-depth analysis of key geographies is missing in the past literature. Particularly, even though it is apparent that EV diffusion has been limited in developing/emerging countries, wide-ranging efforts to diagnose country-specific motivators and inhibitors are missing. For instance, although India is an emerging economy at the center of the pollution debate as one of the highest global carbon emitters (Garrett,
+                          - link "2022" [ref=e437] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0046"
+                          - text: ), the literature exploring the country's low EV adoption lacks the contours essential to make it more informative and useful. Existing studies on India have analyzed the EV industry using policy documents (Singh et al.,
+                          - link "2021" [ref=e439] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0112"
+                          - text: ), a survey of the literature (Singh et al.,
+                          - link "2021" [ref=e441] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0112"
+                          - text: ), surveys of consumers (Bansal et al.,
+                          - link "2021" [ref=e443] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0016"
+                          - text: ; Jaiswal et al.,
+                          - link "2021" [ref=e445] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0060"
+                          - text: ), a survey of automobile dealers (Shanmugavel & Balakrishnan,
+                          - link "2023" [ref=e447] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0109"
+                          - text: ), and a survey of experts from industry and academia (Digalwar et al.,
+                          - link "2022" [ref=e449] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0041"
+                          - text: ). As mentioned above, the insights from such studies are largely based on self-report surveys and, therefore, are limited in robustness. In comparison to these survey-based studies, we found no prior research drawing upon the wealth of knowledge and information amassed in popular media articles to map the current status of drivers and barriers to EV adoption in India. As a result, our study makes the dual effort of (a) adding depth to the conversation on drivers of and barriers to EV adoption in India and (b) capturing the qualitative data in the available media articles to present a comprehensive view of the drivers of and barriers to EV adoption in India the country that is robust and useful from a policy perspective.
+                    - generic [ref=e450]:
+                      - heading "3 DATA AND METHODOLOGY" [level=2] [ref=e451]
+                      - generic [ref=e452]:
+                        - heading "3.1 Methodological choices" [level=3] [ref=e453]
+                        - paragraph [ref=e454]: The primary objective of this study is to present an exhaustive perspective on the various facets surrounding the adoption or non-adoption of EVs. Towards this end, we navigated several macro and micro contours of the EV debate unfolding in the popular media. Specifically, we endeavored to untangle the interplay of multiple actors, policies, strategies, and individual perceptions to present an evocative portrayal of the enabling factors and impeding forces that cumulatively shape the EV ecosystem.
+                        - paragraph [ref=e455]:
+                          - text: From the methodological standpoint, we employed CDA to address the proposed research questions embodying the objective of our study. In simple words, CDA is an approach that fundamentally entails a systematic examination of opaque relationships underlying complex social phenomena to determine their holistic implications, discursive practices, and wider structures and processes (Fairclough,
+                          - link "1995" [ref=e457] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0044"
+                          - text: ; Wodak & Meyer,
+                          - link "2009" [ref=e459] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0131"
+                          - text: ). Although CDA is an approach primarily intended to analyze discourse in social and political contexts, it has been applied in several multi-disciplinary settings, comprising a variety of analyses (Jorgensen & Phillips,
+                          - link "2002" [ref=e461] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0062"
+                          - text: ; Van Dijk,
+                          - link "2009" [ref=e463] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0126"
+                          - text: ). For instance, it was used recently to analyze online discourse on crowdfunded systems development projects (Gleasure et al.,
+                          - link "2019" [ref=e465] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0049"
+                          - text: ).
+                        - paragraph [ref=e466]:
+                          - text: Our choice of CDA is predominantly motivated by the notion that EVs are not just a mobility solution. Rather, they have sustainability implications that make them relevant from not only economic but also social and environmental perspectives. Since CDA inherently aims to build larger social discourses on the studied phenomenon by uncovering atypical or prevailing discourses in addition to the obvious ones (Gleasure et al.,
+                          - link "2019" [ref=e468] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0049"
+                          - text: ), we consider it suitable for probing the complexities that underlie the EV adoption/non-adoption dynamics. Methodologically, discourse analysis makes our findings robust against researcher and participant biases. Furthermore, since CDA subsumes a multitude of approaches for discourse analysis depending on the research issues at hand (Fairclough,
+                          - link "2005" [ref=e470] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0045"
+                          - text: ), it allows us the flexibility to make data-related and analysis-related choices.
+                        - generic [ref=e471]:
+                          - heading "3.1.1 The source of data" [level=4] [ref=e472]
+                          - paragraph [ref=e473]:
+                            - text: "We operationalized our broad philosophical choice of CDA by making two further choices: one related to the data and its source and the other to the method of analysis. CDA is appreciably cosmopolitan in regard to what documents may be applicable, and it can be applied to text and speech available in both the public and private domains. Given the objectives of our study, we chose to analyze articles published in popular media sources. Our choice of popular media is motivated by the fact that it is known for its faster dissemination of news compared to traditional print media (Mitchelstein & Boczkowski,"
+                            - link "2009" [ref=e475] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0082"
+                            - text: ) and its rational and critical presentation (Schweinsberg et al.,
+                            - link "2017" [ref=e477] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0108"
+                            - text: ). Over the years, popular media has become a significant source for expediting data (Mitchelstein & Boczkowski,
+                            - link "2009" [ref=e479] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0082"
+                            - text: ; Piselli et al.,
+                            - link "2022" [ref=e481] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0092"
+                            - text: ). It is also acknowledged to play a vital role in decision-making by customers and suppliers and is given serious consideration by governments.
+                        - generic [ref=e482]:
+                          - heading "3.1.2 Data analysis method" [level=4] [ref=e483]
+                          - paragraph [ref=e484]:
+                            - text: Since the data set under study comprises qualitative data, we used an inductive approach to analyze content. By compressing and categorizing textual data using the abstraction process, the inductive content analysis method enables researchers to use concepts, categories, or topics to accomplish their research goals (Graneheim et al.,
+                            - link "2017" [ref=e486] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0053"
+                            - text: ; Kyngäs,
+                            - link "2019" [ref=e488] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0071"
+                            - text: ; Lindgren et al.,
+                            - link "2020" [ref=e490] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0075"
+                            - text: ; Vears & Gillam,
+                            - link "2022" [ref=e492] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0128"
+                            - text: ). Specifically, we used the Gioia method (Gioia et al.,
+                            - link "2012" [ref=e494] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0047"
+                            - text: ), which is affiliated with the grounded theory approach and has become a popular method of qualitative data analysis, as seen in many recent studies (e.g., Dhir et al.,
+                            - link "2023" [ref=e496] [cursor=pointer]:
+                              - /url: "#bse3750-bib-0040"
+                            - text: ).
+                      - generic [ref=e497]:
+                        - heading "3.2 Data collection" [level=3] [ref=e498]
+                        - paragraph [ref=e499]:
+                          - text: The current study explores articles on EVs in India published in popular media from January 2020 through July 2023; 2020 was used as the starting year since the usage of online platforms has gained the desired depth and traction in the post-COVID-19 period (De’ et al.,
+                          - link "2020" [ref=e501] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0037"
+                          - text: ; OECD,
+                          - link "2021" [ref=e503] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0089"
+                          - text: ; UNCTAD,
+                          - link "2021" [ref=e505] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0122"
+                          - text: "). The data were acquired from Google News, media house websites (e.g., Economic Times and LiveMint), and Google platforms (including magazines, online news channels, and online auto news portals). Using multiple sources enabled broader access since most of the news available on Google News covered the ongoing year (2023) only. A search of headlines was executed using the following keywords: “electric vehicle India,” “EV,” “E-vehicle,” “vehicles,” “green mobility,” “green vehicles,” “electric vehicle,” “e-vehicle,” “e-two wheeler,” “e-four wheeler,” “e-three wheelers,” “e-cars,” “electric cars,” and “sustainable vehicle.” We found a total of 718 articles published across the chosen time horizon, as presented in Table"
+                          - link "1" [ref=e506] [cursor=pointer]:
+                            - /url: "#bse3750-tbl-0001"
+                          - text: . The source-wise distribution of articles is presented in Table
+                          - link "2" [ref=e507] [cursor=pointer]:
+                            - /url: "#bse3750-tbl-0002"
+                          - text: .
+                        - generic [ref=e508]:
+                          - generic [ref=e509]: TABLE 1. Year-wise distribution of articles on EVs (January 2020 through July 2023).
+                          - table [ref=e511]:
+                            - rowgroup [ref=e512]:
+                              - row "Year Number of articles" [ref=e513]:
+                                - columnheader "Year" [ref=e514]
+                                - columnheader "Number of articles" [ref=e515]
+                            - rowgroup [ref=e516]:
+                              - row "2023 234" [ref=e517]:
+                                - cell "2023" [ref=e518]
+                                - cell "234" [ref=e519]
+                              - row "2022 420" [ref=e520]:
+                                - cell "2022" [ref=e521]
+                                - cell "420" [ref=e522]
+                              - row "2021 50" [ref=e523]:
+                                - cell "2021" [ref=e524]
+                                - cell "50" [ref=e525]
+                              - row "2020 14" [ref=e526]:
+                                - cell "2020" [ref=e527]
+                                - cell "14" [ref=e528]
+                        - generic [ref=e529]:
+                          - generic [ref=e530]: TABLE 2. Source-wise distribution of articles.
+                          - table [ref=e532]:
+                            - rowgroup [ref=e533]:
+                              - row "Popular media Number of articles on electric vehicles" [ref=e534]:
+                                - columnheader "Popular media" [ref=e535]
+                                - columnheader "Number of articles on electric vehicles" [ref=e536]
+                            - rowgroup [ref=e537]:
+                              - row "Newspapers 558" [ref=e538]:
+                                - cell "Newspapers" [ref=e539]
+                                - cell "558" [ref=e540]
+                              - row "Magazines 58" [ref=e541]:
+                                - cell "Magazines" [ref=e542]
+                                - cell "58" [ref=e543]
+                              - row "News channels 23" [ref=e544]:
+                                - cell "News channels" [ref=e545]
+                                - cell "23" [ref=e546]
+                              - row "Online portals 38" [ref=e547]:
+                                - cell "Online portals" [ref=e548]
+                                - cell "38" [ref=e549]
+                              - row "Online auto-news portals 41" [ref=e550]:
+                                - cell "Online auto-news portals" [ref=e551]
+                                - cell "41" [ref=e552]
+                              - row "Total 718" [ref=e553]:
+                                - cell "Total" [ref=e554]
+                                - cell "718" [ref=e555]
+                          - list [ref=e557]:
+                            - listitem [ref=e558]: "Note: News articles are obtained mainly from the Economic Times and LiveMint. Magazine-published articles on EVs include The Print, Business Insider, and Business Today. News channels include Times Drive, ABC News, and CNBC. Online portals from where information was collected are E-Vehicles Info and Inc42. Online auto-news portals include Express Mobility and The Auto Car."
+                      - generic [ref=e559]:
+                        - heading "3.3 Data analysis" [level=3] [ref=e560]
+                        - paragraph [ref=e561]:
+                          - text: The corpus of 718 articles, representing a set of 1002 pages and approximately 388,866 words, was analyzed inductively to identify themes and dominant discourses. To elaborate, each popular media article was coded individually, and the findings were then compared and contrasted (Leung et al.,
+                          - link "2019" [ref=e563] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0073"
+                          - text: ). Basic information such as the article's title, the name of the media entity, publication date, the names of the authors (wherever mentioned), and weblinks were collated in an Excel spreadsheet. Thereafter, the Gioia approach was used to analyze the data through open, axial, and aggregate coding (Adu,
+                          - link "2019" [ref=e565] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0003"
+                          - text: ; Azungah,
+                          - link "2018" [ref=e567] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0015"
+                          - text: ; Glaser & Strauss,
+                          - link "2017" [ref=e569] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0048"
+                          - text: ).
+                        - paragraph [ref=e570]:
+                          - text: As the first step of the manual coding process, two authors independently read the articles line-by-line, generating open codes. The entire author team then met to discuss the open codes thus generated, ironing out the differences to reach a consensus on 61 open codes, called first-order concepts in the Gioia approach. Thereafter, two authors clubbed the codes based on their understanding formed through the review of prior literature, moving back and forth between codes and theoretical insights (Schreieck et al.,
+                          - link "2022" [ref=e572] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0107"
+                          - text: ) while simultaneously comparing the codes to generate axial codes, or second-order themes in Gioia parlance. Repeating the practice of taking a consensus view, all authors met again to discuss the generated axial codes, deciding to take 16 axial codes forward. Finally, we generated aggregate codes, called aggregate dimensions in the Gioia approach, by consolidating the 16 axial codes to synthesize four aggregate dimensions.
+                        - paragraph [ref=e573]:
+                          - text: An overview of methodological steps is provided in Figure
+                          - link "1" [ref=e574] [cursor=pointer]:
+                            - /url: "#bse3750-fig-0001"
+                          - text: .
+                        - figure "FIGURE 1 Open in figure viewer PowerPoint Overview of methodological steps." [ref=e576]:
+                          - link "Details are in the caption following the image" [ref=e577] [cursor=pointer]:
+                            - /url: /cms/asset/fcdfa6b0-8a82-44be-9e49-c98513c494b6/bse3750-fig-0001-m.jpg
+                            - img "Details are in the caption following the image" [ref=e579]
+                          - generic [ref=e580]:
+                            - generic [ref=e581]:
+                              - strong [ref=e582]: FIGURE 1
+                              - generic [ref=e583]:
+                                - link "Open in figure viewer" [ref=e584] [cursor=pointer]:
+                                  - /url: "#"
+                                - link "PowerPoint" [ref=e585] [cursor=pointer]:
+                                  - /url: /action/downloadFigures?id=bse3750-fig-0001&partId=&doi=10.1002%2Fbse.3750
+                                  - generic [ref=e586]: 
+                                  - text: PowerPoint
+                            - generic [ref=e587]: Overview of methodological steps.
+                      - generic [ref=e588]:
+                        - heading "3.4 Validity and reliability" [level=3] [ref=e589]
+                        - paragraph [ref=e590]:
+                          - text: Validity and reliability are as important in CDA as they are in any other empirical research methodology. While CDA primarily concentrates on the critical investigation of power relations, ideologies, and social structures inside discourse, guaranteeing the validity and trustworthiness of its conclusions is essential to upholding the analysis's integrity (Meyer,
+                          - link "2001" [ref=e592] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0081"
+                          - text: ). To establish credibility, the current study followed systematic and rigorous analytical procedures.
+                        - paragraph [ref=e593]:
+                          - text: In order to augment the validity of the current research, various data sources (117 media units) were employed to triangulate the results and authenticate research findings. Triangulation entails scrutinizing diverse forms of discourse, such as written texts, interviews, and visual materials, while also seeking insights from multiple viewpoints to establish coherence and agreement in the interpretations. CDA encompasses comprehensive descriptions of texts, coding frameworks, standards for recognizing discursive components, and guidelines for making findings. These elements provide transparency and lead to the attainment of data saturation, which involves rigorously analyzing the data until no further novel insights or themes can be extracted. The CDA methodology aids in guaranteeing a thorough and dependable analysis by reducing the likelihood of disregarding pertinent elements of discourse (Wodak,
+                          - link "2004" [ref=e595] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0130"
+                          - text: ). Hence, CDA ensures that the analysis is exhaustive and dependable, as it reduces the likelihood of disregarding relevant elements of discourse. It is noteworthy that CDA is predominantly a qualitative research methodology that prioritizes critical interpretation. Although validity and reliability are important factors, the emphasis of CDA lies in comprehending power dynamics and social structures (Rogers,
+                          - link "2011" [ref=e597] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0100"
+                          - text: ). This approach prioritizes critical insights obtained through thorough contextual analysis over statistical measures of reliability.
+                        - paragraph [ref=e598]: "We used three approaches: (i) data source triangulation by extracting data from 117 media units to ensure that no data points were missed and there was not a skew towards a small number of sources; (ii) careful documentation and transparency along with adherence to systematic and rigorous analytical procedures to offer robust results; and (iii) independent coding by two authors at each step followed by discussions to converge on a consensus view and eliminate researcher bias."
+                    - generic [ref=e599]:
+                      - heading "4 FINDINGS" [level=2] [ref=e600]
+                      - paragraph [ref=e601]:
+                        - text: "Based on the content analysis of popular media articles on EVs, we identified four main themes: industry-level enabling cues for EV adoption, economy-level motivations and motivators, impediments to the diffusion of EVs, and harbingers of change. Each aggregate dimension had underlying second-order themes and first-order concepts, as illustrated in the data structure diagram of each aggregate dimension (see Figures"
+                        - link "2" [ref=e602] [cursor=pointer]:
+                          - /url: "#bse3750-fig-0002"
+                        - text: "-"
+                        - link "5" [ref=e603] [cursor=pointer]:
+                          - /url: "#bse3750-fig-0005"
+                        - text: ).
+                      - figure "FIGURE 2 Open in figure viewer PowerPoint Industry-level enabling cues for EV adoption." [ref=e605]:
+                        - link "Details are in the caption following the image" [ref=e606] [cursor=pointer]:
+                          - /url: /cms/asset/8facd513-51c4-4233-a5ac-92eb6bc2f05c/bse3750-fig-0002-m.jpg
+                          - img "Details are in the caption following the image" [ref=e608]
+                        - generic [ref=e609]:
+                          - generic [ref=e610]:
+                            - strong [ref=e611]: FIGURE 2
+                            - generic [ref=e612]:
+                              - link "Open in figure viewer" [ref=e613] [cursor=pointer]:
+                                - /url: "#"
+                              - link "PowerPoint" [ref=e614] [cursor=pointer]:
+                                - /url: /action/downloadFigures?id=bse3750-fig-0002&partId=&doi=10.1002%2Fbse.3750
+                                - generic [ref=e615]: 
+                                - text: PowerPoint
+                          - generic [ref=e616]: Industry-level enabling cues for EV adoption.
+                      - figure "FIGURE 3 Open in figure viewer PowerPoint Economy-level motivations and motivators." [ref=e618]:
+                        - link "Details are in the caption following the image" [ref=e619] [cursor=pointer]:
+                          - /url: /cms/asset/96101c97-38b0-4097-8400-0c194c471641/bse3750-fig-0003-m.jpg
+                          - img "Details are in the caption following the image" [ref=e621]
+                        - generic [ref=e622]:
+                          - generic [ref=e623]:
+                            - strong [ref=e624]: FIGURE 3
+                            - generic [ref=e625]:
+                              - link "Open in figure viewer" [ref=e626] [cursor=pointer]:
+                                - /url: "#"
+                              - link "PowerPoint" [ref=e627] [cursor=pointer]:
+                                - /url: /action/downloadFigures?id=bse3750-fig-0003&partId=&doi=10.1002%2Fbse.3750
+                                - generic [ref=e628]: 
+                                - text: PowerPoint
+                          - generic [ref=e629]: Economy-level motivations and motivators.
+                      - figure "FIGURE 4 Open in figure viewer PowerPoint Impediments to the diffusion of EVs." [ref=e631]:
+                        - link "Details are in the caption following the image" [ref=e632] [cursor=pointer]:
+                          - /url: /cms/asset/65e0ab29-f62c-4533-9cec-53614d7cb19c/bse3750-fig-0004-m.jpg
+                          - img "Details are in the caption following the image" [ref=e634]
+                        - generic [ref=e635]:
+                          - generic [ref=e636]:
+                            - strong [ref=e637]: FIGURE 4
+                            - generic [ref=e638]:
+                              - link "Open in figure viewer" [ref=e639] [cursor=pointer]:
+                                - /url: "#"
+                              - link "PowerPoint" [ref=e640] [cursor=pointer]:
+                                - /url: /action/downloadFigures?id=bse3750-fig-0004&partId=&doi=10.1002%2Fbse.3750
+                                - generic [ref=e641]: 
+                                - text: PowerPoint
+                          - generic [ref=e642]: Impediments to the diffusion of EVs.
+                      - figure "FIGURE 5 Open in figure viewer PowerPoint Harbingers of change." [ref=e644]:
+                        - link "Details are in the caption following the image" [ref=e645] [cursor=pointer]:
+                          - /url: /cms/asset/d9695a64-3931-4edd-a255-a49ae467263d/bse3750-fig-0005-m.jpg
+                          - img "Details are in the caption following the image" [ref=e647]
+                        - generic [ref=e648]:
+                          - generic [ref=e649]:
+                            - strong [ref=e650]: FIGURE 5
+                            - generic [ref=e651]:
+                              - link "Open in figure viewer" [ref=e652] [cursor=pointer]:
+                                - /url: "#"
+                              - link "PowerPoint" [ref=e653] [cursor=pointer]:
+                                - /url: /action/downloadFigures?id=bse3750-fig-0005&partId=&doi=10.1002%2Fbse.3750
+                                - generic [ref=e654]: 
+                                - text: PowerPoint
+                          - generic [ref=e655]: Harbingers of change.
+                      - generic [ref=e656]:
+                        - heading "4.1 Industry-level enabling cues for EV adoption" [level=3] [ref=e657]
+                        - paragraph [ref=e658]:
+                          - text: "EVs are more than just a consumer product since they are seen as a plausible mobility solution to counter emissions and the resultant climate risk. As a result, the efforts to drive EV sales have a larger motivation of manifesting pro-environmental behavior. The reviewed media articles confirm the private sector's keen awareness of the environmental aspect of EV adoption, in addition to looking at EVs as a commercial opportunity. More specifically, content analysis of selected popular media articles published since 2020 uncovered several enabling cues emanating from the private sector, including not only the sub-sectors involved directly in the manufacture and sale of EVs but also other sectors. These enabling cues can be categorized as follows: product-centric improvements by manufacturers, customer-centric initiatives of manufacturers, sustainability-oriented impetus by the private sector, and consumers' positive disposition towards EVs, as presented in Figure"
+                          - link "2" [ref=e659] [cursor=pointer]:
+                            - /url: "#bse3750-fig-0002"
+                          - text: .
+                        - paragraph [ref=e660]: "First and foremost, EVs perform the important function of meeting the mobility needs of their owners. Naturally, EV manufacturers are cognizant of this and have devoted substantial time and effort to making product-centric improvements to their vehicles, which has driven their adoption noticeably. Coding of the narrative indicates that product-centric improvements can be largely captured through the following activities: EV manufacturers working together to reduce cost, launching new products with improved battery range, reducing ownership costs within the supply chain, and lowering prices to reflect a fall in the cost of raw materials."
+                        - paragraph [ref=e661]:
+                          - text: EV manufacturers' efforts have been focused on providing technologically superior products, launching new variants in different segments, improving battery range and ease of charging, and lowering maintenance costs. Price has been a central theme of many discussions on EVs in the past, and the media articles included in our study have noted several efforts made by manufacturers to lower prices by reducing costs. The approaches used for this purpose include collaborating with other EV manufacturers, improving supply chain efficiency, and controlling the cost of raw materials. Discussing the efforts of EV manufacturers to work together to reduce costs, Dalvi (
+                          - link "2023" [ref=e663] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0034"
+                          - text: ") noted that:"
+                        - blockquote [ref=e665]:
+                          - paragraph [ref=e666]: Concurrently, recognizing its enormous commercial potential, component manufacturers are stepping up their efforts to localize EV parts, either by granting technical licenses or by conducting comprehensive ground-up development, leading to reduced cost and increased affordability of EVs.
+                        - paragraph [ref=e667]:
+                          - text: Similarly, Blenkinsop (
+                          - link "2023" [ref=e669] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0024"
+                          - text: ") has observed the efforts expended by manufacturers to reduce the cost of batteries and related raw materials:"
+                        - blockquote [ref=e671]:
+                          - paragraph [ref=e672]: With the cost of raw materials like lithium used in battery manufacture falling, the price of batteries, which once made up as much as 40% of the cost of an electric car, is also going down. This benefit is being passed on to customers by automakers.
+                        - paragraph [ref=e673]: EV manufacturers have also shown an equal and opposite outward orientation by introducing several customer-centric initiatives to better engage with potential EV buyers. To ensure ease of buying, EV manufacturers have made significant efforts to facilitate online sales and have tried to boost sales through promotional activities such as buyback options that allow consumers to trade in their existing vehicles, attractive pricing, and GPS services to locate charging stations.
+                        - paragraph [ref=e674]:
+                          - text: Highlighting the anticipated hyperactivity by online platforms selling e-cars, Mukherjee (
+                          - link "2022" [ref=e676] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0084"
+                          - text: ") shared the following:"
+                        - blockquote [ref=e678]:
+                          - paragraph [ref=e679]: Given the momentum in the local market, the business anticipates electric cars to account for roughly two-thirds of its sales in the next three years, up from less than 2% currently, according to founder and CEO Sandeep Aggarwal. For sales on its platform, the firm has agreements with 45 EV manufacturers, including Hero Electric, Okinawa, and Kinetic.
+                        - paragraph [ref=e680]:
+                          - text: Analysis of selected articles revealed a clear sustainability-oriented impetus given to the adoption of EVs by the private sector. There appears to be a distinct effort by the private sector at large to adopt EVs themselves and to encourage their vendors and employees to do the same. This apparent affection for EVs as mobility solutions is an expression of the entire private sector's heightened sustainability orientation and conscious effort to mitigate climate risk. Private firms have underlined their intent in this regard by launching EV policies that include not only recommendations for their employees to use EVs for their mobility but also several incentives to encourage their purchase. Some companies have gone to the extent of mandating that a certain proportion of their vendors' fleets to be electric. At the same time, most private sector players have transitioned to EVs as cleaner solutions for their cargo movement. In this regard, the movement of e-commerce firms to green mobility has been visibly extensive, successfully showcasing the efforts of corporations to incorporate sustainability in their operations. Citing Amazon as an example, Vankipuram (
+                          - link "2020" [ref=e682] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0127"
+                          - text: ") made the following observation:"
+                        - blockquote [ref=e684]:
+                          - paragraph [ref=e685]: By deploying electric cars, Amazon India hopes to lower carbon emissions and the negative effects of delivery operations on the environment.
+                        - paragraph [ref=e686]:
+                          - text: "EV adoption has also been driven by the enabling cues emanating from changing consumer dispositions and profiles. Analysis of discourse in the selected media articles indicates two main enablers in this context: consumers' growing awareness of climate change issues and rising consumer buying power. The media has also observed a pent-up demand for EVs that is riding on the back of a healthy appetite for new technology in the premium segment and a desire for cost-effective transportation in the face of rising fossil fuel prices in the economy segment. Media articles have underscored this aspect as a key driver of EV adoption, as is apparent from the following text penned by Dalvi ("
+                          - link "2023" [ref=e688] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0034"
+                          - text: "):"
+                        - blockquote [ref=e690]:
+                          - paragraph [ref=e691]: The adoption of electric mobility is being greatly accelerated by rising consumer awareness of the importance of using environmentally friendly transportation and the long-term affordability of EV ownership.
+                      - generic [ref=e692]:
+                        - heading "4.2 Economy-level motivations and motivators" [level=3] [ref=e693]
+                        - paragraph [ref=e694]:
+                          - text: Governments across the world have shown a deep commitment to promoting electric mobility and related renewable energy solutions. As a result, they have instituted several policy-level reforms and promulgated various regulatory measures to establish an ecosystem that supports responsible EV manufacturing and use. A tertiary, albeit significant motivation for governments to encourage EV manufacturing and promotion is the macroeconomic gain in terms of economic growth. Analysis of selected articles indicated a significant set of economy-level motivations and motivators that have driven the adoption of EVs so far—and can be expected to drive it further. These factors, presented in Figure
+                          - link "3" [ref=e695] [cursor=pointer]:
+                            - /url: "#bse3750-fig-0003"
+                          - text: ", encompass the efforts of the government to create a supportive and well-regulated environment fostered through funding support, infrastructural support, and policy and regulatory thrust. These efforts encapsulate the motivators that governments use to promote EVs. In addition, positive economy-wide outcomes that are anticipated to accrue from the widespread adoption of EVs have served as a motivation for policymakers to create a conducive environment for EV diffusion."
+                        - paragraph [ref=e696]:
+                          - text: The economy-level motivation via funding support has manifested through multi-pronged measures that the media have noted. These include several national and cross-border funding facilities such as a $1 billion USD tripartite partnership, a migration fund to reduce borrowing costs for non-banking finance companies, attractive loan schemes offered by banks, lease financing solutions, World Bank support for EV financing, and a priority sector lending policy formulated by the central bank to reduce financing costs. A very encouraging element of the efforts to make the necessary funds available is the private sector's attempts to collaborate for internal and external funding. The highlight of these funding efforts is the success of EV start-ups in raising capital through IPOs and agreements between private banks, finance retailers, and EV dealers. Such partnerships have emerged as a go-to solution, as shared by Das (
+                          - link "2023" [ref=e698] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0035"
+                          - text: "):"
+                        - blockquote [ref=e700]:
+                          - paragraph [ref=e701]: The collaboration between the Government of India with the World Bank, the Asian Development Bank, and the Small Industries Development Bank of India aims to foster the adoption of electric vehicles in commercial and fleet operations by reducing the cost of financing.
+                        - paragraph [ref=e702]:
+                          - text: In addition to the phenomenal facilitation provided by varied funding options, economy-level enabling cues also emerge from creating the right infrastructural support, which can ease the way for EV manufacturers and users. Content analysis of the selected media articles reveals that the infrastructural support created for EVs rests on the tripod of charging infrastructure, battery and testing infrastructure, and infrastructure for promoting private investment. With regard to charging infrastructure, charging stations using solar panels have been constructed along with several new charging hubs housing both fast and slow chargers. The government has also introduced key initiatives for the installation of battery swapping stations and standing chargers for various EV segments. Specifically, a provision has been created for fast DC connectors at charging stations, and public chargers have been provided on highways and at bus depots. Plans for setting up charging stations at airports have also been unveiled. An excerpt from Raghuvanshi's (
+                          - link "2023" [ref=e704] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0093"
+                          - text: ") article showcases the targeted efforts made in this direction:"
+                        - blockquote [ref=e706]:
+                          - paragraph [ref=e707]: To strengthen the battery infrastructure in the country, the government has taken multiple actions. One of those initiatives is the PLI-Advanced Chemistry Cell Battery Storage scheme, under which the government has allocated US$ 2.45 billion in funds, which will be distributed to recipients for five years after the establishment of the manufacturing unit.
+                        - paragraph [ref=e708]: Parallel to the efforts to boost charging infrastructure, the government has introduced several schemes for promoting battery infrastructure and announced plans to set up facilities for testing EVs. In addition to these direct measures to improve infrastructural support, the government has also eased procedural aspects and funded infrastructure to encourage the flow of private investment into the EV sector. A significant step in this direction has been the opening up of the sector to 100% foreign direct investment.
+                        - paragraph [ref=e709]:
+                          - text: While funding and infrastructural support have also been propelled by several policy initiatives, we have identified policy and regulatory thrust as separate themes to provide a more nuanced elucidation of economy-level motivations and motivators. Herein, we have encapsulated all policy measures and regulatory enforcements that strongly underscore the government's commitment to not only promote EVs but to ensure that as a relatively new technology, EVs meet all quality and safety requirements, as well as fulfill the climate risk-countering potential they are perceived to have. The objective of policy initiatives from this perspective is to inspire the confidence of consumers and investors in EVs, and the focus of regulatory thrust is to ensure compliance with norms and standards by EV manufacturers. Many regulatory requirements in this regard are related to charging infrastructure and battery swapping. The government has mandated battery certification, required the recall of vehicles from the market in the case of any fire accidents, and ensured a high degree of vigilance to check EVs with a high battery capacity. Several norms have also been introduced for performance, and testing criteria have been laid out. Moreover, guidelines have been issued mandating that all EVs comply with established noise standards. As an additional safety measure, regulations preventing the registration of vehicles without pre-installed batteries have been released. Unni and Shah (
+                          - link "2023" [ref=e711] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0123"
+                          - text: ") discussed further initiatives in their article:"
+                        - blockquote [ref=e713]:
+                          - paragraph [ref=e714]: In the budget 23-24, one of the focus areas was the EV mobility. In addition to the extension of the subsidy amount for one more year, the government also focused on vehicle scrappage policy for the replacement of old polluting vehicles with electric vehicles. The move will accelerate the transition towards electric vehicles.
+                        - paragraph [ref=e715]: Not only has the government been proactive in floating initiatives, but it has also been firm in enforcing compliance. There is a clearly spelled-out provision for legal action against EVs that do not follow the guidelines. The violating EV manufacturers are also liable to be suspended from the government scheme after violating the norms, and subsidies would also be withdrawn.
+                        - paragraph [ref=e716]:
+                          - text: Finally, our analysis indicates that an important part of the government's all-encompassing efforts to advance EV diffusion has been its interest in using the entire EV ecosystem to drive its globally strategic and domestically high-priority objectives. In this regard, we have categorized macro-level positive outcomes. Herein, the globally strategic outcomes come from aligning EVs with the climate-related priority of progressive decarbonization and the ultimate achievement of net zero. The key idea here is that the transition to EVs at the institutional and individual levels can help the country deliver on its international pledges to battle global climate change and address the challenges of sustainable urbanization. Over and above the attractiveness of EVs for reducing carbon emissions, they also present the government with an opportunity to promote economic growth by (a) replacing expensive fossil fuels to improve the balance of payment situation, (b) making the country a manufacturing hub, (c) generating employment opportunities, and (d) creating business opportunities. The following thoughts expressed by Bhardwaj (
+                          - link "2022" [ref=e718] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0022"
+                          - text: ") highlight the positive outcomes of EV adoption:"
+                        - blockquote [ref=e720]:
+                          - paragraph [ref=e721]: Transitioning to electric vehicles not only reduces carbon emissions and thus helps the country to meet its commitment towards climate change but also positively contributes towards economic growth. In case India maintains steady progress towards its 2030 target, the EV market in India will be a US$206 billion opportunity. The industry has attracted investment from private equity/venture capital investors.
+                      - generic [ref=e722]:
+                        - heading "4.3 Impediments to the diffusion of EVs" [level=3] [ref=e723]
+                        - paragraph [ref=e724]:
+                          - text: "EVs have received significant attention and a seemingly intensive effort on the part of all stakeholders to support their diffusion and adoption. As discussed in the preceding two themes, comprehensive industry-level and economy-level measures have been taken to make EVs attractive as a technologically advanced product that offers a win-win situation by also delivering on the carbon neutrality dimension. However, these efforts notwithstanding, the diffusion of EVs has been sluggish and has trailed expectations. As a result, popular media has focused substantial attention on what could be the potential reasons behind the less-than-anticipated adoption of EVs. Analysis of shortlisted articles revealed several factors that have obstructed the desired diffusion of EVs. We have identified four key sources of such obstruction: buy-side barriers, evolving technology, sell-side barriers, and systemic bottlenecks. These factors, as presented in Figure"
+                          - link "4" [ref=e725] [cursor=pointer]:
+                            - /url: "#bse3750-fig-0004"
+                          - text: ", represent the issues and challenges that create friction in the EV ecosystem and impede their diffusion."
+                        - paragraph [ref=e726]:
+                          - text: The buy-side barriers are an expression of consumers' resistance towards EVs based on their perceptions of EVs as a mobility solution. The key sources of consumers' resistance towards EVs include their high price, limited choice in terms of variants and customization, long waiting times for the vehicles to be delivered, unestablished resale value, and operational issues related to charging. These broad factors can be unpacked to reveal a host of intricacies. For instance, concern for high prices has been expressed in many articles trying to diagnose the underlying causes, which include EV manufacturers not being able to reap the benefits of economies of scale, the suspension of government schemes, third-party motor insurance, and imported battery components. For example, Rawat (
+                          - link "2022" [ref=e728] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0095"
+                          - text: ") observed that:"
+                        - blockquote [ref=e730]:
+                          - paragraph [ref=e731]: The high price of electric vehicles is a barrier to adoption. The consumers, however, choose EVs for other factors, including low maintenance cost, high prices of other fuels, lower registration cost and Goods and Service Tax (GST) for EV buyers, and low cost of electricity.
+                        - paragraph [ref=e732]: In addition to the above, barriers constituting consumer resistance towards EVs arise from issues with charging infrastructure and the time required for charging. In exploring the reasons, the media articles observe reasons such as issues with distribution companies involved in charger installation, investment challenges in creating the required charging infrastructure, and limited facilities in rural areas. Furthermore, barriers to EV adoption arise from a lack of variety in the product range from low to premium segments. Prospective buyers are also discouraged by the limited number of customization possibilities and the fact that they have to book their EV and wait for quite some time for its delivery.
+                        - paragraph [ref=e733]: The fact that EVs are still an outcome of evolving technology acts as a barrier to their diffusion due to both perception-related concerns and tangible issues. The media articles analyzed herein have largely noted that the nascence of the technology has raised concerns about the reliability and safety of EVs; allowed testing to not be as rigorous as required; caused several issues related to efficiency, performance, and costs; and raised challenges related to the lack of development of bigger batteries and battery capacity.
+                        - paragraph [ref=e734]:
+                          - text: In unpacking these barriers created by the newness of the technology, it is apparent that EV makers have not been able to master the reliability and safety of their products. There are reports of accidents involving battery fires, especially when atmospheric temperatures are high, leading to overheating batteries. Batteries have been in the eye of the storm, not only due to safety concerns but also due to challenges related to developing batteries with a higher capacity. The fears about safety are further compounded by news that many manufacturers, particularly start-ups, do not have the facilities to conduct testing as rigorously as required and expected. Furthermore, due to the technology still being new, issues related to vehicle efficiency and performance on several parameters coupled with high initial costs and maintenance costs arise. For example, Kumar (
+                          - link "2023" [ref=e736] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0069"
+                          - text: ") brought forth some of the related issues:"
+                        - blockquote [ref=e738]:
+                          - paragraph [ref=e739]: The main reason EVs are expensive is the high cost of batteries, which constitute 40–50% of the overall cost of production. Batteries are made up of several materials which are imported from several countries like Australia, Chile, Russia, etc. In order to make India self-reliant in battery manufacturing, the government offers a scheme, and only three players are selected to receive those incentives.
+                        - paragraph [ref=e740]: The sell-side barriers encompass the challenges faced by EV manufacturers that prevent them from stepping up production and quality. These include raw material shortages, lack of availability of skilled manpower, battery-related issues, difficulties in complying with strictly reinforced norms, and inconsistent and delayed subsidies. Discussing the underlying challenges in detail, the media articles analyzed in our study have uncovered wide-ranging impediments arising from internal and external factors, as well as from the micro and macro environments. Resource shortfalls stand out as a critical challenge, whether in terms of raw materials, manpower, or funding. Specifically, EV manufacturers have faced a shortage of chips, semiconductors, and lithium. Battery-related problems again acted as a major bottleneck in production due to a shortage of good-quality vendors. Operationally, there have been production delays, and the volume of pending orders has risen due to supply chain disruptions, first by the COVID-19 pandemic and then by the Ukraine war. Demand for battery swapping has further impacted logistics and last-mile delivery.
+                        - paragraph [ref=e741]:
+                          - text: In addition to the above-mentioned operational challenges, the sell-side challenges have become more complex due to policy developments, which have resulted in the withdrawal of several benefits and subsidies announced to support EVs. Even where the schemes are not withdrawn, there are delays resulting in pending subsidies. At the same time, the government has been tightening the norms by the day to enforce quality and safety standards, which are becoming difficult for manufacturers to follow. This increases the impediments multi-fold since a stringent legal and regulatory stance is taken for any violation. Subsidies are also not released on time due to compliance issues, causing a financial crunch. Dinakar (
+                          - link "2023" [ref=e743] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0042"
+                          - text: ") noted:"
+                        - blockquote [ref=e745]:
+                          - paragraph [ref=e746]: Subsidies are inconsistent and irregular. The government has reduced the subsidies, and the subsidy provided under FAME-II will be discontinued in the year 2024. In addition, the subsidy is pending due to which small producers have shut down the manufacturing units.
+                        - paragraph [ref=e747]:
+                          - text: Finally, there are persistent systemic bottlenecks that impede the diffusion of EVs. One of the bottlenecks mentioned in the articles included in our analysis is that EVs might never reach a larger scale of production since they are considered less fit for public transport and commercial vehicles by regulators. At the same time, in the wake of the COVID-19 pandemic, the economy, particularly the rural part, is still weak, and inflation is rising. Buying an expensive EV, which will bring with it challenges of charging, is unlikely to be a preference for a large population spread over rural geographies. Last-mile connectivity is another systemic hurdle impeding EV diffusion in rural areas. Another systemic impediment that has substantially affected EV diffusion is concern about its environmentally friendly claims. End-of-life options, handling e-waste, and battery recycling are issues that the government is worried about, causing it to be cautious in lending too much support and motivation to EV manufacturers. Lastly, a major and perhaps insurmountable barrier is that the funds available to drive growth in the sector are drying up, with the government providing inadequate fiscal support. On the one hand, financial institutions are hesitant to provide funds due to concerns about resale value or durability, and on the other, the government is suspending subsidy-related schemes. The fund crunch has become a serious problem for start-ups and micro, small, and medium-sized enterprises operating in the sector. In their article, Sampath (
+                          - link "2022" [ref=e749] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0106"
+                          - text: ") expressed concern about the state of the rural economy:"
+                        - blockquote [ref=e751]:
+                          - paragraph [ref=e752]: A weak rural economy and rising inflation negatively impacted demand for electric two-wheelers. Although electric two-wheeler sales have increased, the overall demand has remained muted. The rise in rural income due to a normal monsoon is expected to boost the demand for electric two-wheelers.
+                      - generic [ref=e753]:
+                        - heading "4.4 Harbingers of change" [level=3] [ref=e754]
+                        - paragraph [ref=e755]:
+                          - text: Being mindful of the potential of EVs to offer a climate-friendly mobility solution, media articles included in this CDA have given sufficient and commensurate attention to how the positive forces driving EV diffusion and adoption so far can be strengthened and the impeding factors can be potentially countered. We have categorized the recurrent themes in this regard under the umbrella term/aggregate dimension of harbingers of change. To elaborate, content analysis of shortlisted media articles published since 2020 has revealed several initiatives and actions at the policy level as well as at the private sector level that are planned, initiated, or recommended for ensuring broad-based adoption of EVs by individuals and organizations. Specifically, the factors that can propel change can be categorized as focused policy support, strategic green shoots, collaborative mindset, and technological innovations, as presented in Figure
+                          - link "5" [ref=e756] [cursor=pointer]:
+                            - /url: "#bse3750-fig-0005"
+                          - text: .
+                        - paragraph [ref=e757]: One of the key factors in the entire EV adoption dynamics is the extensive need for funding support through loans and subsidies. This is corroborated by the media discourse and is evident in the preceding discussions on how the initial announcements and grant of subsidies acted as a strong enabling cue for EV adoption whereas their subsequent withdrawal acted as an impediment to EV diffusion. In their discussions on the path ahead, media articles have strongly argued the need for a well-functioning and frictionless fiscal incentivization system through low-cost financing, timely subsidies, and rationalization of taxes.
+                        - paragraph [ref=e758]:
+                          - text: Fiscal incentives are critical to increase EV adoption. Suggesting that EV financing should be treated as a priority sector, the articles have strongly emphasized the importance of low-cost financing for accelerating the transition to e-mobility. At the same time, subsidies are unavoidable and need to be granted as well as disbursed on time. A substantial majority of articles have highlighted subsidies as a key imperative to forging an accelerated path for the diffusion and adoption of EVs. Not only are more subsidies required, but there is also a need to extend them to all segments, including micro-mobility vehicles, benefiting low-income groups. There is also debate on the rationalization of taxes on batteries and battery swapping infrastructure to incentivize the concerned stakeholders. At the same time, it is suggested that taxes should be uniform for all EVs, with some rebate on capital expenditures for creating charging infrastructure. Several steps in the right direction have been introduced, as noted by Rudra (
+                          - link "2023" [ref=e760] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0102"
+                          - text: "):"
+                        - blockquote [ref=e762]:
+                          - paragraph [ref=e763]: India has opened up the ecosystem to international investors and EV firms while supporting domestic EV players with a range of subsidies and incentives. Foreign players have already begun to invest in domestic talents.
+                        - paragraph [ref=e764]: Equal emphasis has been given to evolving a comprehensive, long-term, and uniform EV policy covering all vehicles, passenger and commercial, with extensive coverage of safety norms. The discussion herein spans several aspects that require policy attention, such as the extension of guarantees for different segments of commercial vehicles, the coordinated effort of different departments to build the required infrastructure, leveraging digitalization for enhancing the sustainability of EV processes, the provision of parking incentives, and logistics services for a smoother supply chain.
+                        - paragraph [ref=e765]: Furthermore, the articles on policy perspective have underscored the need for promoting advances in battery technology, battery-swapping, second-life batteries, scrappage policies, and the recycling of batteries to address one of the most burning issues impeding the adoption of EVs.
+                        - paragraph [ref=e766]:
+                          - text: Another issue highlighted for concentrated policy attention is facilitating charging infrastructure, planning parking incentives, and battery-swapping infrastructure. The relevant articles also offer interesting commentary on several strategic green shoots that are harbingers of positive changes in the EV sector. Some forerunners in this regard are the active involvement of start-ups in the EV space, cross-border green investment, and business model innovations. A very encouraging feature of the EV market has been the role of start-ups in driving the sector. Many start-ups in this space have already challenged the monopoly of large firms. They have shown initiative to manufacture e-vans, set up solar-powered battery swapping stations, develop the charging segment through battery swapping and manufacturing, and manufacture retrofitting kits. Trivedi's (
+                          - link "2022" [ref=e768] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0121"
+                          - text: ") article offers a lucid narrative of the expanding role of start-ups:"
+                        - blockquote [ref=e770]:
+                          - paragraph [ref=e771]: Battery swapping has gained momentum thanks to Indian entrepreneurs. Electric autorickshaw drivers can pay for their usage of the batteries up front or at retail establishments by using the technological platform Sheru. It collaborates with several energy storage value chain parties. Additionally, in the state of Maharashtra, which is home to Mumbai, the financial hub, Sun Mobility is collaborating with Amazon India to install switching stations at its warehouses.
+                        - paragraph [ref=e772]:
+                          - text: At the same time, cross-border green investment has started flowing into the sector, indicating positive sentiment and upcoming expansion. Foreign investment has taken several forms, including setting up production units, the acquisition of domestic firms, foreign direct investment, and joint ventures. The focus of foreign investments has been all-encompassing, covering manufacturing lines, charging stations, and R&D centers. As Rekhi (
+                          - link "2023" [ref=e774] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0097"
+                          - text: ) mentioned in their article,
+                        - blockquote [ref=e776]:
+                          - paragraph [ref=e777]: The company Foxconn, well known for creating the renowned Apple iPhone, wants to get into the Indian EV production market. This is the first time the Taiwanese corporation has made it clear that it intends to pursue its goals of expanding electric vehicle manufacturing in India.
+                        - paragraph [ref=e778]: Finally, the articles discussing strategic green shots have noted some business model innovations that are a portent of positive developments in the sector. The notable efforts in this direction include the diversification of source companies, aggregators, and target players working together to establish charging stations, the development of second-life battery solutions, and the movement towards sustainable mobility. Some successful initiatives include the subscription model of battery swapping, which has generated higher revenue, and the pay-per-use model.
+                        - paragraph [ref=e779]: The collaborative mindset is the next prominent stream in the discussion on harbingers of change. The articles included in our analysis have discussed the collaborative mindset of multiple stakeholders in the EV sector to bring forth their willingness to work together synergistically for the growth and expansion of the sector. The key collaborative relationships that have fruition in the sector are public and private sector collaborations, private–private partnerships through alliances and joint ventures, and a memorandum of understanding (MOU) for charging infrastructure and battery swapping.
+                        - paragraph [ref=e780]:
+                          - text: Public–private collaborations have been undertaken to evolve a symbiotic relationship. Such link-ups have been mainly forged for installing charging stations. Collaborative initiatives are more visible and in higher volume within the private sector. Herein, collaborations take the form of partnerships, alliances, and joint ventures for swapping and recycling batteries, providing shared mobility services, setting up charging zones, and supporting components. Some typical partnerships have also evolved, such as that of e-commerce companies with EV suppliers, multi-brand small EV dealerships, distribution companies with real estate developers, and so on. The last form of collaborative association, MOUs for charging infrastructure and battery swapping, have been witnessed in both public–private and private–private settings. Highlighting the importance of collaborations, Rana (
+                          - link "2023" [ref=e782] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0094"
+                          - text: ") opined:"
+                        - blockquote [ref=e784]:
+                          - paragraph [ref=e785]: The installation of EV charging infrastructure and the provision of incentives for fleet electrification can be facilitated by public organizations such as municipal corporations and transportation agencies. It is important for EV manufacturers, utility companies, and suppliers of charging infrastructure to collaborate to build a strong nationwide charging network.
+                        - paragraph [ref=e786]:
+                          - text: We have classified the last significant stream of discussion on harbingers of change under the heading of technological innovation. Technological innovations encompass all efforts initiated or planned to be initiated for the evolution of EVs as a novel technology, improvements in batteries, and possibilities of enhancing charging speed and efficiency. The key initiatives identified by the media articles include technology hubs and innovations to develop lithium-ion cells, smaller, longer-lasting, and more affordable batteries, premium features in EVs, a one-stop app for charging stations, and testing of the feasibility of solar-powered charging and electric highways. These initiatives encapsulate many small and unique efforts, such as start-ups working solely on low-cost EV technology development, equipping EVs in public spaces with panic buttons, GPS, and cameras, and policy support for R&D. Mehta (
+                          - link "2022" [ref=e788] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0079"
+                          - text: ") discussed the following regarding the formation of technological clusters:"
+                        - blockquote [ref=e790]:
+                          - paragraph [ref=e791]: Several months ago, a group of acid battery manufacturers created a technological cluster in Andhra Pradesh with the objective of developing lithium-ion cells and then commencing local production of lithium-ion batteries.
+                    - generic [ref=e792]:
+                      - heading "5 DISCUSSION" [level=2] [ref=e793]
+                      - paragraph [ref=e794]:
+                        - text: The primary objective of this study was to examine the contours of the unfolding discussions and actions taken to promote and support the use of EVs, not only as a potentially cost-effective mobility solution in the long run but also as an immediate counter to the mounting climate risk and the failure of the world as a whole to remain on track to achieve its committed carbon neutrality targets. Stated formally, we sought answers to three research questions. In response to RQ1, in which we sought to examine all potential factors that have positively influenced the diffusion of EVs, our comprehensive analysis of 718 popular media articles helped us uncover a comprehensive set of enablers. Broadly speaking, we found two categories of enablers—industry-level enabling cues for EV adoption and economy-level motivations and motivators—presented in Figures
+                        - link "2" [ref=e795] [cursor=pointer]:
+                          - /url: "#bse3750-fig-0002"
+                        - text: and
+                        - link "3" [ref=e796] [cursor=pointer]:
+                          - /url: "#bse3750-fig-0003"
+                        - text: as respective aggregate dimensions. The first dimension captures the facilitating conditions created or supported by the private sector, including EV manufacturers, other sectors, and individual consumers.
+                      - paragraph [ref=e797]:
+                        - text: With regard to the efforts made by the EV manufacturers, we found a conscious effort to introduce both product-centric improvements and customer-centric initiatives. Our findings corroborate the accumulated evidence on how product features, among other things, drive EV adoption (e.g., Bansal et al.,
+                        - link "2021" [ref=e799] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0016"
+                        - text: ; Benzidia et al.,
+                        - link "2021" [ref=e801] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0021"
+                        - text: ). Moving to findings related to the industry as a whole, we found that manufacturers introduced several measures to promote EV use, proving a tangible sustainability-oriented impetus. Past studies have also noted the role of environmental awareness in driving EV adoption (e.g., Das & Bhat,
+                        - link "2022" [ref=e803] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0036"
+                        - text: ; Shanmugavel & Balakrishnan,
+                        - link "2023" [ref=e805] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0109"
+                        - text: ). Our analysis also revealed how, at an individual level, consumers showed a positive disposition towards EVs, motivated by a diverse set of enablers hinging on environmental concerns as well as perceptions about EVs as a mobility solution. Our findings are aligned with prior studies that have listed several motivators from the consumer perspective (e.g., Liu et al.,
+                        - link "2021" [ref=e807] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0076"
+                        - text: ; Yadlapalli et al.,
+                        - link "2022" [ref=e809] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0136"
+                        - text: ). To elaborate, the findings for consumer behavior are consistent with the green buying behavior research, which suggests that factors like environmental concerns, price, and status consciousness affect consumer purchase decisions (e.g., Adnan et al.,
+                        - link "2022" [ref=e811] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0002"
+                        - text: ; Sharma et al.,
+                        - link "2022" [ref=e813] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0110"
+                        - text: ).
+                      - paragraph [ref=e814]:
+                        - text: The second set of enablers that were identified through the coding of the media discourse encapsulates the supportive conditions created or encouraged by the government. With regard to the efforts made by the government, we found a strategic mix of provisions for resource support, comprehensive policy initiatives, stringent regulatory enforcement, and efforts to capitalize on the mega growth opportunity that transitioning to EVs represents. Our findings reiterate existing findings on the role of government initiatives in facilitating EV penetration (e.g., Rostad Sæther,
+                        - link "2022" [ref=e816] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0101"
+                        - text: ; Zheng et al.,
+                        - link "2022" [ref=e818] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0142"
+                        - text: ). As revealed by our analysis, past studies have noted how governments encourage the transition to e-mobility by setting up the right infrastructure, subsidies, support for manufacturers, and so on (e.g., Altenburg et al.,
+                        - link "2022" [ref=e820] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0006"
+                        - text: ; Rostad Sæther,
+                        - link "2022" [ref=e822] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0101"
+                        - text: ). However, in contrast with our findings, the existing scholarship has not discussed government schemes, regulatory compliance requirements, and the macroeconomic perspective in the desired depth or projected them as pertinent enablers of EV diffusion.
+                      - paragraph [ref=e823]: On the whole, our study goes beyond the existing insights to present a more comprehensive set of enablers compared to that of most past studies. Succinctly, we identified and discussed product-centric improvements by manufacturers, customer-centric initiatives of manufacturers, sustainability-oriented impetus by the private sector, and consumers' positive dispositions as industry-level enabling cues for EV adoption and funding support, infrastructural support, policy and regulatory thrust, and positive economy-wide outcomes as economy-level motivations and motivators.
+                      - paragraph [ref=e824]:
+                        - text: RQ2 sought to map the factors that can have a negative bearing on the adoption of EVs. Based on our inductive approach to analyzing articles published in popular media, we identified a reasonably exhaustive set of impediments and barriers that have tempered the initial euphoric anticipations about the runaway success and adoption of EVs. Underscoring the seriousness of the impediments, our findings indicated that the barriers obstructing the higher diffusion of EVs exist on the buy-side (i.e., the consumers); the sell-side (i.e., the EV manufacturers); the systemic bottlenecks (i.e., the government policies); and the technology-side (i.e., its nascent state). Our findings build up on the existing literature where scholars have discussed barriers such as poor incentives (e.g., Singh et al.,
+                        - link "2021" [ref=e826] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0112"
+                        - text: ), costs (e.g., Zhuge et al.,
+                        - link "2020" [ref=e828] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0143"
+                        - text: ), charging infrastructure (e.g., Tal et al.,
+                        - link "2018" [ref=e830] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0117"
+                        - text: ), lack of successful business models (e.g., Maybury et al.,
+                        - link "2022" [ref=e832] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0078"
+                        - text: ), non-reliability for long-distance trips (e.g., Murugan & Marisamynathan,
+                        - link "2022" [ref=e834] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0087"
+                        - text: ), and so on.
+                      - paragraph [ref=e835]:
+                        - text: We responded to RQ3 querying about future-oriented initiatives that have been introduced to catalyze the wider diffusion and faster adoption of EVs by analyzing the short-listed articles to uncover discourse on the steps taken by multiple stakeholders in the EV ecosystem to drive the sector's growth. As a result, we identified several strategic and operational steps already initiated and others that are planned to be introduced by the government as well as the private sector. Under the primary heading of harbingers of change, we found four broad sets of future-oriented initiatives—focused policy support, strategic green shoots, collaborative mindset, and technological innovations. Our findings are in concordance with prior literature, which has discussed factors such as the impact of subsidies (e.g., Zhang & Huang,
+                        - link "2021" [ref=e837] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0139"
+                        - text: ) and government and private sector collaboration (e.g., Melander & Wallström,
+                        - link "2022" [ref=e839] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0080"
+                        - text: ; Wu,
+                        - link "2022" [ref=e841] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0133"
+                        - text: ). However, our study differs from past endeavors in two ways. First, no prior study has discussed the future-oriented initiatives explicitly, and second, no study has curated such an extensive set of initiatives from the perspective of all key players in the EV ecosystem.
+                      - generic [ref=e842]:
+                        - heading "5.1 Conceptual framework" [level=3] [ref=e843]
+                        - paragraph [ref=e844]:
+                          - text: Scholars have noted time and again the visible signs of escalating global temperatures, elevating sea levels, thawing glaciers and ice caps, and intensified weather patterns, including but not limited to droughts, floods, and heatwaves, which are ubiquitous and widely experienced (e.g., Leal Filho et al.,
+                          - link "2018" [ref=e846] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0072"
+                          - text: ; Redvers et al.,
+                          - link "2022" [ref=e848] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0096"
+                          - text: ). One of the few options to address the issues of climate change and global warming in the transportation sector is adopting EVs as a cleaner alternative to conventional combustion-powered vehicles (Requia et al.,
+                          - link "2018" [ref=e850] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0098"
+                          - text: ; Zhao et al.,
+                          - link "2021" [ref=e852] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0140"
+                          - text: ). However, the ground reality is that EVs have not been accepted and adopted with alacrity, particularly in developing and emerging countries. Our findings offer an in-depth analysis of factors that impact EV adoption in these economies, both positive and negative. Through a CDA of popular media articles on EVs published in India since 2020, we map the drivers of and barriers to EV adoption, bringing forth the facilitators and the inhibitors from the perspective of manufacturers, government, and consumers. Consolidating our results, we develop a conceptual framework to provide a bird's eye view of critical aspects of the EV adoption/non-adoption dynamics. We visualize the entire debate as a chain of change, starting with a concern that requires a response and ending with a universally sought outcome, calling our framework a C-R-O (concern-response-outcome) chain of change, as presented in Figure
+                          - link "6" [ref=e853] [cursor=pointer]:
+                            - /url: "#bse3750-fig-0006"
+                          - text: .
+                        - figure "FIGURE 6 Open in figure viewer PowerPoint C-R-O chain of change." [ref=e855]:
+                          - link "Details are in the caption following the image" [ref=e856] [cursor=pointer]:
+                            - /url: /cms/asset/73aa8edd-b474-4b1e-8a13-c17672b9d2b6/bse3750-fig-0006-m.jpg
+                            - img "Details are in the caption following the image" [ref=e858]
+                          - generic [ref=e859]:
+                            - generic [ref=e860]:
+                              - strong [ref=e861]: FIGURE 6
+                              - generic [ref=e862]:
+                                - link "Open in figure viewer" [ref=e863] [cursor=pointer]:
+                                  - /url: "#"
+                                - link "PowerPoint" [ref=e864] [cursor=pointer]:
+                                  - /url: /action/downloadFigures?id=bse3750-fig-0006&partId=&doi=10.1002%2Fbse.3750
+                                  - generic [ref=e865]: 
+                                  - text: PowerPoint
+                            - generic [ref=e866]: C-R-O chain of change.
+                        - paragraph [ref=e867]: The first part of our framework, concerns, represents the anteceding factors in our chain of change, comprising the issue of resistance to the adoption/acceptance of EVs and the need for a multi-level resolution. This part of our conceptual model essentially underscores the point that the slower-than-anticipated diffusion of EVs, which is driven by several barriers, is not just a consumer phenomenon that requires resolution through resolute action at different levels. It reinforces the notion that EV adoption/non-adoption is not simply the case of consumers' lukewarm response to a disruptive innovation. Rather, several other dimensions and stakeholder groups play substantial roles in the entire dynamics.
+                        - paragraph [ref=e868]: "The second part of the framework, a multi-pronged response, is its pivotal part, embodying the actors and actions required to overcome the anteceding concerns. The first set of actors includes manufacturers, who we envisage as initiators of change and responsible for taking the onus to turn things around. While our findings show that several actions are required on the part of manufacturers to spur EV sales; however, three actions stand out distinctly and require urgent response: (a) propelling technological advances to offer better models and customized variants and developing longer-life batteries with shorter charging times; (b) driving business model innovation to achieve revenue targets through a combination of low cost and best value strategies, maneuvering focus on product differentiation while keeping cost under control at all times; and (c) forming symbiotic associations through partnerships and joint ventures for funding, joint marketing, shared charging resources, the supply of raw materials, and shared technical expertise."
+                        - paragraph [ref=e869]: The second set of actors includes governments, whom we envision as catalyzers of change, formulating policy guidelines to mandate the changes required to overcome resistance to EV adoption. We consider governments as catalysts since they have the power to facilitate changes in EV-related processes and policies without changing themselves. Our findings revealed the fulcral role that governments can play in shaping the entire EV ecosystem. However, of the several actions that governments can take to stimulate EV adoption, three that are likely to be the most effective are (a) issuance of legally enforceable policy mandates for EV use by government departments and, where possible, by the private sector; (b) fiscal incentives for both manufacturers and consumers from their respective perspectives (e.g., tax breaks for the manufacturers and subsidies for consumers); and (c) the visible creation of extensive infrastructure to overcome the fundamental EV usage apprehensions related to batteries and charging.
+                        - paragraph [ref=e870]: "The third set of actors includes consumers, who hold the power to make or break any innovative offering through their resistive or supportive response. We posit consumers as acceptors of change, exhibiting overt motivation to adopt EVs. Herein, we envisage consumers as new-age citizens aware of their responsibility for the greater good without compromising their quality of life. We offer the following suggestions in this regard: (a) with EVs offering a technologically advanced mobility solution, consumers need to consciously condition themselves to overcome the inherent instinct of maintaining the status quo and finding reasons to resist change to EVs; (b) the focus on the environmental aspect of EVs is the key, so efforts should be made to engage consumers and motivate them to fully appreciate the immenseness of the climate challenge and how they can potentially make a significant difference through EV adoption; and (c) consumers need to cultivate a long-term perspective, trying to overcome their apprehensions about the initial cost of EV acquisition and related concerns to accept that EVs are not only an environmentally viable mobility solution but also an economically viable alternative to fossil-fuel-based vehicles."
+                        - paragraph [ref=e871]: The third part of our framework, overarching outcomes, formalizes the idea that EVs are mobility game-changers since they are aligned with the ultimate outcomes being pursued globally. We split the overarching outcomes into immediate and anticipated outcomes to suggest that the transition to EVs offers the immediate benefit of reducing climate-changing emissions, which can aggregate over time to tangibly drive the achievement of national carbon neutrality targets.
+                    - generic [ref=e872]:
+                      - heading "6 CONCLUSION" [level=2] [ref=e873]
+                      - paragraph [ref=e874]:
+                        - text: Climate change is an unignorable truth resulting from increasing carbon emissions in the atmosphere. One of the main contributors to greenhouse gas emissions is the transport industry (Upadhyay et al.,
+                        - link "2021" [ref=e876] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0124"
+                        - text: ). Therefore, the electrification of the transportation sector is crucial for reducing carbon emissions, with EVs in passenger as well as commercial segments being considered a potentially effective and long-term mobility solution for transitioning away from fossil fuels. Academic research on EVs is voluminous and offers a multitude of perspectives (Asadi et al.,
+                        - link "2021" [ref=e878] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0009"
+                        - text: ; Rostad Sæther,
+                        - link "2022" [ref=e880] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0101"
+                        - text: ). The vast literature encompasses a variety of studies, with many based on primary data (e.g., Beak et al.,
+                        - link "2020" [ref=e882] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0018"
+                        - text: ; Decrinis et al.,
+                        - link "2023" [ref=e884] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0039"
+                        - text: ) offering a piecemeal analysis of issues (e.g., Bohnsack et al.,
+                        - link "2020" [ref=e886] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0025"
+                        - text: ; Cabigiosu,
+                        - link "2022" [ref=e888] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0028"
+                        - text: ; He et al.,
+                        - link "2020" [ref=e890] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0057"
+                        - text: ). A review of the literature, particularly of limitations and future research direction, confirms that despite being wide in breadth, the literature lacks wholesomeness. To elaborate, to our knowledge, there is no prior study offering a comprehensive analysis and 360° perspective of EV adoption. More specifically, the literature is completely devoid of the insights contained in popular media articles, which are high in volume, given the global and mass interest in EVs. These articles have highlighted many critical issues and initiated debates that provide valuable policy inputs for regulators. As a result, the knowledge contained in media discourse and discussions remains fragmented and dispersed. Motivated by the fact that media articles not only give facts but also influence their readers' beliefs through their content (Broadbent et al.,
+                        - link "2021" [ref=e892] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0027"
+                        - text: ; Yin,
+                        - link "2018" [ref=e894] [cursor=pointer]:
+                          - /url: "#bse3750-bib-0138"
+                        - text: ), our study has used the CDA approach to inductively analyze the contents of 718 popular media articles published between January 2020 and July 2023. We executed the process by analyzing 1002 pages and 388,866 words, generating 16 axial codes from 2128 open codes. Given its comprehensive coverage, the study offers useful theoretical and practical insights, as discussed below.
+                      - generic [ref=e895]:
+                        - heading "6.1 Theoretical implications" [level=3] [ref=e896]
+                        - paragraph [ref=e897]:
+                          - text: "Our findings offer three theoretical insights: first, the study makes a tangible addition to the literature on EV adoption, which has so far offered almost singular insights on consumer behavior towards EVs that are based on the analysis of primary data (e.g., Globisch et al.,"
+                          - link "2018" [ref=e899] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0050"
+                          - text: ; Masiero et al.,
+                          - link "2016" [ref=e901] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0077"
+                          - text: ). While studies offering empirical comprehension of the given phenomenon through primary data—both quantitative and qualitative—enjoy popularity in the seminal and recent literature, the fundamental issues of bias and questionable universality of findings based on such data cannot be denied. In comparison, there are very few studies that have used sources other than self-report data to study EVs (e.g., Agusdinata & Liu,
+                          - link "2023" [ref=e903] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0004"
+                          - text: ; Debnath et al.,
+                          - link "2021" [ref=e905] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0038"
+                          - text: ). At the same time, the available studies have focused mainly on consumers, leaving other stakeholder groups under-explored in this context. Since past research on consumer behavior has demonstrated that consumers frequently fail to predict or anticipate the future trajectory of a particular technology during interviews (e.g., Hausman,
+                          - link "2000" [ref=e907] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0056"
+                          - text: ; Sahi et al.,
+                          - link "2013" [ref=e909] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0104"
+                          - text: ) or surveys (e.g., Crotts et al.,
+                          - link "2008" [ref=e911] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0033"
+                          - text: ; Singh et al.,
+                          - link "2011" [ref=e913] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0115"
+                          - text: ), the narrowness of research on EV adoption using secondary data constitutes a gap in knowledge. Our study remedies it by undertaking a content analysis of popular media articles and considering the multi-stakeholder perspective.
+                        - paragraph [ref=e914]:
+                          - text: Second, our findings deepen the understanding of EV adoption and diffusion to counterbalance the skew in the accumulated literature on EVs, which has predominantly concentrated on a limited set of variables or characteristics associated with adoption or acceptance (Das & Bhat,
+                          - link "2022" [ref=e916] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0036"
+                          - text: ; Liu et al.,
+                          - link "2021" [ref=e918] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0076"
+                          - text: ). Despite being rigorous, such a focused approach has created a gap in understanding, indicating a need for a more comprehensive assessment of facilitators and impediments, particularly since the product under consideration, EVs, has a substantial regulatory and policy connection. By covering all aspects of EV adoption in one space and drawing information from credible public sources, we present a valuable comprehensive picture that is unarguably useful for multiple stakeholders, including researchers planning to further examine the unfolding landscape.
+                        - paragraph [ref=e919]:
+                          - text: Finally, we make methodological contributions, both in terms of data sources and our data analysis approach. With regard to data sources, we collected data for analysis from online news media sources. This helps us capture the rich information offered by popular media, reinforcing the value of narrative analysis (Adams,
+                          - link "2008" [ref=e921] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0001"
+                          - text: ). At the same time, the information contained in popular media is considered a rational and critical presentation of the phenomenon under discussion (Schweinsberg et al.,
+                          - link "2017" [ref=e923] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0108"
+                          - text: ), which has allowed us to offer robust and authentic findings. With regard to data analysis, we utilized the novel method of CDA (Fairclough,
+                          - link "1995" [ref=e925] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0044"
+                          - text: ; Wodak & Meyer,
+                          - link "2009" [ref=e927] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0131"
+                          - text: ) along with the Gioia method (Gioia et al.,
+                          - link "2012" [ref=e929] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0047"
+                          - text: ) for analyzing the content through coding. Our choice of CDA has enabled us to critically consider the popular media discourse surrounding the adoption and diffusion of EVs, and our choice of the Gioia method has allowed us to present the media discourse through a robust data structure interpretation. Given the robustness of our process and the output that the clubbing of the two methods allowed us, future researchers can confidently use them in their respective research contexts.
+                      - generic [ref=e930]:
+                        - heading "6.2 Practical implications" [level=3] [ref=e931]
+                        - paragraph [ref=e932]:
+                          - text: "Our study offers three managerial implications: first, we provide a sound argument for why subsidies are important for the sector. Our findings indicate how the initial introduction of subsidies boosted the sector (PTI,"
+                          - link "2023" [ref=e934] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0083"
+                          - text: ; Trade Brains,
+                          - link "2023" [ref=e936] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0120"
+                          - text: ) and their withdrawal/delay has adversely impacted the adoption of EVs (Government move kill India's EV boom,
+                          - link "2023" [ref=e938] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0052"
+                          - text: ; Vadera,
+                          - link "2023" [ref=e940] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0125"
+                          - text: ). Consolidating evidence to show the criticality of subsidies is strategically important not only from the point of view of domestic policy direction but also because subsidies granted to EV manufacturers have taken a controversial turn internationally. Recently, the EU and China had a conflict in this regard (Blenkinsop,
+                          - link "2023" [ref=e942] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0024"
+                          - text: ). Discussion against subsidies and their effect internationally are also a part of the World Trade Organization agreement that calls for the disciplined use of subsidies (WTO,
+                          - link "2022" [ref=e944] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0132"
+                          - text: ).
+                        - paragraph [ref=e945]:
+                          - text: Second, our findings uncover the growing and pivotal role of start-ups in the sector, in all key activities, including EV manufacturing, charging, and battery swapping stations (Sharma,
+                          - link "2023" [ref=e947] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0111"
+                          - text: ; Singh,
+                          - link "2023" [ref=e949] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0114"
+                          - text: ). The involvement of start-ups can help make low-cost variants and energize the sector by unleashing disruptive innovations and introducing unique business models. Based on our findings, we recommend that the government formulate specific policies to nurture start-ups in the sector through (a) establishing special funding schemes, (b) designating a nodal government agency to support MOUs of start-ups with foreign companies for the supply of raw materials, funding, and the exchange of technology, (c) setting-up special purpose incubators for start-ups in the EV sector, and (d) formulating laws to protect the start-ups against the bigger players with large resources.
+                        - paragraph [ref=e950]:
+                          - text: Finally, we bring forth the buy-side concerns, which offer inputs for strategic planning by EV manufacturers and policy formulation by the government. The buy-side barriers reveal the resistance that consumers have towards EV adoption. By highlighting limited choices in the product range, customization possibilities, and long waiting times for vehicle delivery (Choudhury,
+                          - link "2021" [ref=e952] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0031"
+                          - text: ; Sachdev,
+                          - link "2022" [ref=e954] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0103"
+                          - text: ) as the key factors influencing consumers' resistance towards EVs, we provide actionable inputs to EV manufacturers to channel their R&D efforts and improve supply chain management. In fact, offering low booking–delivery time intervals can be a potential marketing strategy for manufacturers who are able to ensure production cycle efficiency to support a better speed to market. Operationalizing this strategy would also require them to have their supply chain models oriented to end-to-end efficiency, delivering the right value proposition in a timely manner. Our study also confirmed that consumers had concerns about the safety and reliability of the evolving EV technology, which impeded their EV adoption. We suggest that to address this barrier, manufacturers should not only initiate specific design improvements and rigorous testing and quality check procedures but also ensure that these measures are communicated to the consumers.
+                        - paragraph [ref=e955]:
+                          - text: Consumers' resistance also arises from inadequate charging infrastructure and the high cost of EVs (Dalvi,
+                          - link "2023" [ref=e957] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0034"
+                          - text: ; Kamath,
+                          - link "2023" [ref=e959] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0064"
+                          - text: ). Based on this finding, we suggest that policy efforts need to be more focused on instituting fiscal and non-fiscal measures that, on the one hand, enable manufacturers to lower the cost and, on the other hand, provide a frictionless boost to the charging infrastructure. Specifically, we suggest that charging infrastructure should be established through the public–private partnership model, which has been very effective in creating infrastructure such as roads, ports, and so on in the recent past.
+                      - generic [ref=e960]:
+                        - heading "6.3 Limitations and future research directions" [level=3] [ref=e961]
+                        - paragraph [ref=e962]:
+                          - text: The current study has three key limitations that pave the way for future research. First, the study is focused on India, which is a developing economy. In addition, it has a unique cultural and demographic profile that is different from even other developing countries, as noted by existing scholarship (e.g., Kaur et al.,
+                          - link "2021" [ref=e964] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0065"
+                          - text: ). As a result, the findings of our study are not easily generalizable. However, India-specific insights are in themselves universal in appeal, with India's shift to EVs giving many foreign car manufacturers a second chance after their traditional fossil fuel cars failed to gain market share in India. At the same time, while our study is currently restricted to India, however, future research can expand the scope by evaluating EV adoption in other developing countries and identifying similarities and differences among them.
+                        - paragraph [ref=e965]:
+                          - text: Second, although popular media articles present an authentic and easily verifiable source of data, the review of such articles is a relatively new phenomenon, which is still being debated by scholars for its usefulness from an academic perspective. However, popular media is well-acknowledged for its rational and critical presentation and accessibility (Piselli et al.,
+                          - link "2022" [ref=e967] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0092"
+                          - text: ; Schweinsberg et al.,
+                          - link "2017" [ref=e969] [cursor=pointer]:
+                            - /url: "#bse3750-bib-0108"
+                          - text: ). Future studies can make methodological contributions by further delving into the usefulness and suitability of such data for products like EVs that are more than just a mobility solution.
+                        - paragraph [ref=e970]: Finally, the coding process was undertaken manually by researchers. It is quite possible that due to inadvertent human error or differences in perception, there might be some loss of information. It is also possible that the coding might reflect the researchers' bias, leading to a skewed interpretation and choice of data. However, the risk of such an error is low since we followed all stringent processes recommended for coding data in inductive content analysis.
+                        - paragraph [ref=e971]: To conclude, its limitations notwithstanding, the current study provides valuable insights into the evolving interplay between the enablers and impediments that influence the adoption and diffusion of EVs, thereby shaping the entire EV ecosystem. The results of this study emphasize the importance of addressing these factors to expedite the shift towards sustainable transportation and accomplish the ambitious objectives of decreasing greenhouse gas emissions and improving energy self-sufficiency.
+                    - generic [ref=e972]:
+                      - heading "AUTHOR CONTRIBUTIONS" [level=2] [ref=e973]
+                      - paragraph [ref=e974]: MJ and RR participated in the conceptualization, formal analysis, methodology, validation, writing—original draft preparation, and writing—review & editing. ST, PK, and AD participated methodology, validation, writing—original draft preparation, and writing—review & editing.
+                    - generic [ref=e975]:
+                      - heading "CONFLICT OF INTEREST STATEMENT" [level=2] [ref=e976]
+                      - paragraph [ref=e977]: The authors do not have any competing interests to declare.
+                    - generic [ref=e979]:
+                      - heading "REFERENCES" [level=2] [ref=e980]:
+                        - button "REFERENCES" [ref=e981] [cursor=pointer]:
+                          - generic [ref=e982]: REFERENCES
+                          - generic [ref=e983]: 
+                      - text:                                                                                                                                                                                                                                               
+                  - generic [ref=e984]:
+                    - list
+                  - heading "Citing Literature" [level=2] [ref=e988]:
+                    - button "Citing Literature" [ref=e989] [cursor=pointer]:
+                      - generic [ref=e990]: Citing Literature
+                      - generic [ref=e991]: 
+              - generic [ref=e992]:
+                - generic [ref=e993]:
+                  - link "View Volume 33, Issue 6" [ref=e995] [cursor=pointer]:
+                    - /url: /toc/10990836/2024/33/6
+                  - generic [ref=e996]:
+                    - paragraph [ref=e997]:
+                      - link "Volume33, Issue6" [ref=e998] [cursor=pointer]:
+                        - /url: /toc/10990836/2024/33/6
+                    - paragraph [ref=e999]: September 2024
+                    - paragraph [ref=e1000]: Pages 5303-5324
+                - generic: Advertisement
+                - tablist "Article Information" [ref=e1003]:
+                  - tab "Figures" [ref=e1004] [cursor=pointer]:
+                    - generic [ref=e1005]: 
+                    - heading "Figures" [level=2] [ref=e1006]
+                  - tab "References" [ref=e1007] [cursor=pointer]:
+                    - generic [ref=e1008]: 
+                    - heading "References" [level=2] [ref=e1009]
+                  - tab "Related" [ref=e1010] [cursor=pointer]:
+                    - generic [ref=e1011]: 
+                    - heading "Related" [level=2] [ref=e1012]
+                  - tab "Information" [ref=e1013] [cursor=pointer]:
+                    - generic [ref=e1014]: 
+                    - heading "Information" [level=2] [ref=e1015]
+                - generic:
+                  - generic:
+                    - complementary: Advertisement
+          - generic:         
+          - generic:      
+          - generic:       
+          - text:       |
+          - link "Download PDF" [ref=e1020] [cursor=pointer]:
+            - /url: /doi/pdf/10.1002/bse.3750
+      - link "back" [ref=e1023] [cursor=pointer]:
+        - /url: javascript:void(0)
+        - generic [ref=e1024]: 
+        - text: back
+    - contentinfo [ref=e1027]:
+      - generic [ref=e1029]:
+        - generic [ref=e1030]:
+          - heading "Additional links" [level=2] [ref=e1031]
+          - generic [ref=e1033]:
+            - generic [ref=e1035]:
+              - heading "About Wiley Online Library" [level=3] [ref=e1036]
+              - list [ref=e1037]:
+                - listitem [ref=e1038]:
+                  - link "Privacy Policy" [ref=e1039] [cursor=pointer]:
+                    - /url: https://www-wiley-com.ezproxy.ugm.ac.id/privacy
+                - listitem [ref=e1040]:
+                  - link "Terms of Use" [ref=e1041] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/terms-and-conditions
+                - listitem [ref=e1042]:
+                  - link "About Cookies" [ref=e1043] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/cookies
+                - listitem [ref=e1044]:
+                  - button "Manage Cookies" [ref=e1045] [cursor=pointer]
+                - listitem [ref=e1046]:
+                  - link "Accessibility" [ref=e1047] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/accessibility
+                - listitem [ref=e1048]:
+                  - link "Wiley Research DE&I Statement and Publishing Policies" [ref=e1049] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/publishing-policies
+            - generic [ref=e1051]:
+              - heading "Help & Support" [level=3] [ref=e1052]
+              - list [ref=e1053]:
+                - listitem [ref=e1054]:
+                  - link "Contact Us" [ref=e1055] [cursor=pointer]:
+                    - /url: https://hub-wiley-com.ezproxy.ugm.ac.id/community/support/onlinelibrary
+                - listitem [ref=e1056]:
+                  - link "Training and Support" [ref=e1057] [cursor=pointer]:
+                    - /url: https://www-wiley-com.ezproxy.ugm.ac.id/customer-success/wiley-online-library-training-hub
+                - listitem [ref=e1058]:
+                  - link "DMCA & Reporting Piracy" [ref=e1059] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/dmca-notification-policy
+                - listitem [ref=e1060]:
+                  - link "Sitemap" [ref=e1061] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/sitemap
+            - generic [ref=e1063]:
+              - heading "Opportunities" [level=3] [ref=e1064]
+              - list [ref=e1065]:
+                - listitem [ref=e1066]:
+                  - link "Subscription Agents" [ref=e1067] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/agents
+                - listitem [ref=e1068]:
+                  - link "Advertisers & Corporate Partners" [ref=e1069] [cursor=pointer]:
+                    - /url: https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/advertisers
+            - generic [ref=e1071]:
+              - heading "Connect with Wiley" [level=3] [ref=e1072]
+              - list [ref=e1073]:
+                - listitem [ref=e1074]:
+                  - link "The Wiley Network" [ref=e1075] [cursor=pointer]:
+                    - /url: https://www-wiley-com.ezproxy.ugm.ac.id/network
+                - listitem [ref=e1076]:
+                  - link "Wiley Press Room" [ref=e1077] [cursor=pointer]:
+                    - /url: https://newsroom-wiley-com.ezproxy.ugm.ac.id/
+        - generic [ref=e1081]:
+          - generic [ref=e1082]:
+            - paragraph [ref=e1083]:
+              - text: Copyright © 1999-2026
+              - link "John Wiley & Sons, Inc" [ref=e1084] [cursor=pointer]:
+                - /url: https://www-wiley-com.ezproxy.ugm.ac.id
+              - text: or related companies. All rights reserved, including rights for text and data mining and training of artificial intelligence technologies or similar technologies.
+            - paragraph
+          - link "Wiley" [ref=e1086] [cursor=pointer]:
+            - /url: https://www-wiley-com.ezproxy.ugm.ac.id
+            - img "Wiley Home Page" [ref=e1087]
+    - text:      ▲     
+    - generic:
+      - generic "col-0"

@@ -1,0 +1,279 @@
+- generic [ref=e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic: Log in to a free account
+        - generic:
+          - generic:
+            - generic: SHOW
+          - generic: Forgot password?
+          - generic: Register for free
+          - generic: Find your institution
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e4] [cursor=pointer]:
+      - /url: "#content"
+      - generic: Skip to main content
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - alert "Content is loading..." [ref=e10]:
+          - img [ref=e11]
+        - generic [ref=e13]:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Get support
+                  - generic: Help logging in
+                  - generic: Contact us
+          - button "Help center" [ref=e15] [cursor=pointer]:
+            - img [ref=e17]
+      - generic [ref=e22]:
+        - link "JSTOR Home" [ref=e24] [cursor=pointer]:
+          - /url: /
+          - img "JSTOR Home" [ref=e25]
+        - search [ref=e27]:
+          - generic [ref=e29]:
+            - link "Advanced Search" [ref=e33] [cursor=pointer]:
+              - /url: /action/showAdvancedSearch
+              - strong [ref=e34]: Advanced Search
+            - generic [ref=e35]:
+              - button "All Content" [ref=e37] [cursor=pointer]:
+                - generic: All Content
+                - img [ref=e39]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: All Content
+                      - generic: Images
+              - generic [ref=e42]:
+                - generic [ref=e43]:
+                  - generic: Search all content
+                - generic [ref=e44]:
+                  - textbox "Search all content" [ref=e45]:
+                    - /placeholder: Search journals, books, images, and primary sources
+                  - button "Submit search" [ref=e49] [cursor=pointer]:
+                    - img [ref=e51]
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - button "Register" [ref=e57] [cursor=pointer]:
+              - generic: Register
+            - button "Log in" [ref=e60] [cursor=pointer]:
+              - img [ref=e62]
+              - generic: Log in
+          - navigation [ref=e65]:
+            - generic [ref=e66]:
+              - button "Browse" [ref=e68] [cursor=pointer]:
+                - generic [ref=e69]: Browse
+                - img [ref=e71]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: By subject
+                      - generic: By title
+                      - generic: Publishers
+                      - generic: Collections
+                      - generic: Images
+            - link "workspace icon Workspace" [ref=e74] [cursor=pointer]:
+              - /url: /workspace
+              - generic:
+                - img "workspace icon" [ref=e76]
+                - text: Workspace
+  - main [ref=e78]:
+    - alert "Content is loading..." [ref=e83]:
+      - img [ref=e84]
+  - alert [ref=e86]
+  - alert [ref=e87]
+  - contentinfo [ref=e90]:
+    - generic [ref=e91]:
+      - heading "Explore JSTOR" [level=2] [ref=e94]:
+        - generic: Explore JSTOR
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - heading "ABOUT US" [level=3] [ref=e99]:
+              - generic: ABOUT US
+            - list [ref=e100]:
+              - listitem [ref=e101]:
+                - link "About JSTOR" [ref=e102] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id
+                  - generic: About JSTOR
+              - listitem [ref=e103]:
+                - link "Mission and History" [ref=e104] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/mission-history/
+                  - generic: Mission and History
+              - listitem [ref=e105]:
+                - link "JSTOR Labs" [ref=e106] [cursor=pointer]:
+                  - /url: https://labs-jstor-org.ezproxy.ugm.ac.id/
+                  - generic: JSTOR Labs
+              - listitem [ref=e107]:
+                - link "JSTOR Daily" [ref=e108] [cursor=pointer]:
+                  - /url: https://daily-jstor-org.ezproxy.ugm.ac.id/
+                  - generic: JSTOR Daily
+              - listitem [ref=e109]:
+                - link "News" [ref=e110] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/news/
+                  - generic: News
+              - listitem [ref=e111]:
+                - link "Webinars" [ref=e112] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/webinars/
+                  - generic: Webinars
+              - listitem [ref=e113]:
+                - link "Careers" [ref=e114] [cursor=pointer]:
+                  - /url: https://www.ithaka.org/careers/
+                  - generic: Careers
+          - generic [ref=e115]:
+            - heading "EXPLORE CONTENT" [level=3] [ref=e117]:
+              - generic: EXPLORE CONTENT
+            - list [ref=e118]:
+              - listitem [ref=e119]:
+                - link "What's in JSTOR" [ref=e120] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/whats-in-jstor/
+                  - generic: What's in JSTOR
+              - listitem [ref=e121]:
+                - link "Advanced Search" [ref=e122] [cursor=pointer]:
+                  - /url: /action/showAdvancedSearch
+                  - generic: Advanced Search
+              - listitem [ref=e123]:
+                - link "By Subject" [ref=e124] [cursor=pointer]:
+                  - /url: /subjects
+                  - generic: By Subject
+              - listitem [ref=e125]:
+                - link "By Title" [ref=e126] [cursor=pointer]:
+                  - /url: /action/showJournals?browseType=title
+                  - generic: By Title
+              - listitem [ref=e127]:
+                - link "Collections" [ref=e128] [cursor=pointer]:
+                  - /url: /site/collection-list
+                  - generic: Collections
+              - listitem [ref=e129]:
+                - link "Publisher" [ref=e130] [cursor=pointer]:
+                  - /url: /publishers
+                  - generic: Publisher
+              - listitem [ref=e131]:
+                - link "Images" [ref=e132] [cursor=pointer]:
+                  - /url: /images
+                  - generic: Images
+          - generic [ref=e133]:
+            - heading "RESEARCH TOOLS" [level=3] [ref=e135]:
+              - generic: RESEARCH TOOLS
+            - list [ref=e136]:
+              - listitem [ref=e137]:
+                - link "Text Analysis Support" [ref=e138] [cursor=pointer]:
+                  - /url: https://www-jstor-org.ezproxy.ugm.ac.id/ta-support
+                  - generic: Text Analysis Support
+              - listitem [ref=e139]:
+                - link "The JSTOR Understanding Series" [ref=e140] [cursor=pointer]:
+                  - /url: https://labs-jstor-org.ezproxy.ugm.ac.id/understand
+                  - generic: The JSTOR Understanding Series
+          - generic [ref=e141]:
+            - heading "HELP CENTER" [level=3] [ref=e143]:
+              - generic: HELP CENTER
+            - list [ref=e144]:
+              - listitem [ref=e145]:
+                - link "Get Support" [ref=e146] [cursor=pointer]:
+                  - /url: https://support-jstor-org.ezproxy.ugm.ac.id
+                  - generic: Get Support
+              - listitem [ref=e147]:
+                - link "Get Access" [ref=e148] [cursor=pointer]:
+                  - /url: https://support-jstor-org.ezproxy.ugm.ac.id/hc/en-us/articles/360000313328-Need-Help-Logging-in-To-JSTOR
+                  - generic: Get Access
+              - listitem [ref=e149]:
+                - link "LibGuides" [ref=e150] [cursor=pointer]:
+                  - /url: https://guides-jstor-org.ezproxy.ugm.ac.id
+                  - generic: LibGuides
+              - listitem [ref=e151]:
+                - link "Research Basics" [ref=e152] [cursor=pointer]:
+                  - /url: https://guides-jstor-org.ezproxy.ugm.ac.id/researchbasics
+                  - generic: Research Basics
+              - listitem [ref=e153]:
+                - link "Contact Us" [ref=e154] [cursor=pointer]:
+                  - /url: /contact-us/
+                  - generic: Contact Us
+              - listitem [ref=e155]:
+                - link "License JSTOR Content" [ref=e156] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/products/jstor-platform/
+                  - generic: License JSTOR Content
+        - list [ref=e158]:
+          - listitem [ref=e159]:
+            - button "For Librarians" [ref=e161] [cursor=pointer]:
+              - generic: For Librarians
+          - listitem [ref=e162]:
+            - button "For Publishers" [ref=e164] [cursor=pointer]:
+              - generic: For Publishers
+          - listitem [ref=e165]:
+            - button "Teaching Resources" [ref=e167] [cursor=pointer]:
+              - generic: Teaching Resources
+        - generic [ref=e168]:
+          - list [ref=e169]:
+            - listitem [ref=e170]:
+              - link "instagram - This link opens in a new window" [ref=e172] [cursor=pointer]:
+                - /url: https://www.instagram.com/jstor_org
+                - img [ref=e174]
+            - listitem [ref=e178]:
+              - link "linkedin - This link opens in a new window" [ref=e180] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/ithaka
+                - img [ref=e182]
+            - listitem [ref=e184]:
+              - link "facebook - This link opens in a new window" [ref=e186] [cursor=pointer]:
+                - /url: https://www.facebook.com/JSTOR.org
+                - img [ref=e188]
+            - listitem [ref=e190]:
+              - link "youtube - This link opens in a new window" [ref=e192] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCQM-7sUBV6Z-PVas0S4k0lw
+                - img [ref=e194]
+            - listitem [ref=e196]:
+              - link "tumblr - This link opens in a new window" [ref=e198] [cursor=pointer]:
+                - /url: https://jstor.tumblr.com
+                - img [ref=e200]
+            - listitem [ref=e202]:
+              - link "bluesky - This link opens in a new window" [ref=e204] [cursor=pointer]:
+                - /url: https://bsky.app/profile/jstor.bsky.social
+                - img [ref=e206]
+            - listitem [ref=e208]:
+              - link "threads - This link opens in a new window" [ref=e210] [cursor=pointer]:
+                - /url: https://www.threads.com/@jstor_org
+                - img [ref=e212]
+          - paragraph [ref=e214]:
+            - generic [ref=e215]:
+              - text: JSTOR is part of
+              - link "ITHAKA" [ref=e216] [cursor=pointer]:
+                - /url: https://www.ithaka.org
+                - generic: ITHAKA
+              - text: ", a not-for-profit organization helping the academic community use digital technologies to preserve the scholarly record and to advance research and teaching in sustainable ways."
+          - paragraph [ref=e217]:
+            - generic: ©2000‍–2026 ITHAKA. All Rights Reserved. JSTOR®, the JSTOR logo, JPASS®, Artstor®, Reveal Digital™ and ITHAKA® are registered trademarks of ITHAKA.
+      - list [ref=e219]:
+        - listitem [ref=e220]:
+          - link "Terms & Conditions of Use" [ref=e221] [cursor=pointer]:
+            - /url: https://about-jstor-org.ezproxy.ugm.ac.id/terms/
+            - generic: Terms & Conditions of Use
+        - listitem [ref=e222]:
+          - link "Privacy Policy" [ref=e223] [cursor=pointer]:
+            - /url: https://www-jstor-org.ezproxy.ugm.ac.id/privacy-policy/
+            - generic: Privacy Policy
+        - listitem [ref=e224]:
+          - link "Accessibility" [ref=e225] [cursor=pointer]:
+            - /url: https://about-jstor-org.ezproxy.ugm.ac.id/accessibility/
+            - generic: Accessibility
+        - listitem [ref=e226]:
+          - link "Cookie Policy" [ref=e227] [cursor=pointer]:
+            - /url: https://www.ithaka.org/cookies/
+            - generic: Cookie Policy
+        - listitem [ref=e228]:
+          - link "Cookie Settings" [ref=e229] [cursor=pointer]:
+            - /url: javascript:void(0)
+            - generic: Cookie Settings
+  - region "Cookie banner" [active] [ref=e230]:
+    - dialog "Privacy" [ref=e231]:
+      - generic [ref=e233]:
+        - generic [ref=e236]:
+          - text: ITHAKA websites, which ITHAKA manages from its location in the United States, use cookies for different purposes, such as to ensure web site function, display non-targeted ads, provide social media features, and track usage, engaging with third party service providers such as Google Analytics. You may manage non-essential cookies in “Cookie Settings”. For more information, please see our
+          - link "Cookie Policy" [ref=e237] [cursor=pointer]:
+            - /url: https://www.ithaka.org/cookies
+          - text: .
+        - generic [ref=e239]:
+          - button "Cookie Settings" [ref=e240] [cursor=pointer]
+          - button "OK, proceed" [ref=e241] [cursor=pointer]
+      - button "Close" [ref=e243] [cursor=pointer]

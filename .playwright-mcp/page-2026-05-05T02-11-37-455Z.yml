@@ -1,0 +1,361 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - button [ref=e4] [cursor=pointer]
+    - link "Beranda" [ref=e6] [cursor=pointer]:
+      - /url: /schhp?hl=id&as_sdt=0,5
+    - generic [ref=e9]:
+      - textbox "Telusuri" [ref=e11]: "\"Future of Algorithmic Organization\" DAOs Sharma"
+      - button "Telusuri" [ref=e12] [cursor=pointer]
+    - link "Login" [ref=e16] [cursor=pointer]:
+      - /url: https://accounts.google.com/Login?hl=id&continue=https://scholar.google.com/scholar%3Fq%3D%2522Future%2Bof%2BAlgorithmic%2BOrganization%2522%2BDAOs%2BSharma
+  - generic [ref=e17]:
+    - generic [ref=e21]: Artikel
+    - generic [ref=e23]: Sekitar 34 hasil (0,10 dtk)
+    - generic [ref=e24]:
+      - link "Profil saya" [ref=e25] [cursor=pointer]:
+        - /url: /citations?hl=id
+        - generic [ref=e27]: Profil saya
+      - link "Koleksi saya" [ref=e28] [cursor=pointer]:
+        - /url: /scholar?scilib=1&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+        - generic [ref=e30]: Koleksi saya
+  - generic [ref=e31]:
+    - navigation [ref=e32]:
+      - generic [ref=e33]:
+        - list [ref=e35]:
+          - listitem [ref=e36]:
+            - link "Kapan saja" [ref=e37] [cursor=pointer]:
+              - /url: /scholar?q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+          - listitem [ref=e38]:
+            - link "Sejak 2026" [ref=e39] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2026&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+          - listitem [ref=e40]:
+            - link "Sejak 2025" [ref=e41] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2025&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+          - listitem [ref=e42]:
+            - link "Sejak 2022" [ref=e43] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2022&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+          - listitem [ref=e44]:
+            - link "Rentang khusus..." [ref=e45] [cursor=pointer]:
+              - /url: javascript:void(0)
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "Urutkan menurut relevansi" [ref=e48] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma
+          - listitem [ref=e49]:
+            - link "Urutkan menurut tanggal" [ref=e50] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&scisbd=1
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Semua jenis" [ref=e53] [cursor=pointer]:
+              - /url: /scholar?q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+          - listitem [ref=e54]:
+            - link "Artikel kajian" [ref=e55] [cursor=pointer]:
+              - /url: /scholar?q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5&as_rr=1
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - checkbox "sertakan paten" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: sertakan paten
+          - listitem [ref=e62]:
+            - checkbox "mencakup kutipan" [checked] [ref=e63] [cursor=pointer]:
+              - generic [ref=e64]: mencakup kutipan
+        - link "Buat notifikasi" [ref=e68] [cursor=pointer]:
+          - /url: /scholar_alerts?view_op=create_alert_options&hl=id&alert_query=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&alert_params=%3Fhl%3Did%26as_sdt%3D0,5
+          - generic [ref=e70]: Buat notifikasi
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e74]:
+          - text: "Mungkin maksud Anda adalah:"
+          - link "\"Future of Algorithmic Organizations\" DAOs Sharma" [ref=e75] [cursor=pointer]:
+            - /url: /scholar?hl=id&as_sdt=0,5&q=%22Future+of+Algorithmic+Organizations%22+DAOs+Sharma
+            - text: "\"Future of Algorithmic"
+            - generic [ref=e76]: Organizations
+            - text: "\" DAOs Sharma"
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - link "[PDF] acm.org" [ref=e82] [cursor=pointer]:
+              - /url: https://dl.acm.org/doi/pdf/10.1145/3796547
+            - generic [ref=e83]:
+              - 'heading "Future of algorithmic organization: Large scale analysis of decentralized autonomous organizations (DAOs)" [level=3] [ref=e84]':
+                - 'link "Future of algorithmic organization: Large scale analysis of decentralized autonomous organizations (DAOs)" [ref=e85] [cursor=pointer]':
+                  - /url: https://dl.acm.org/doi/abs/10.1145/3796547
+              - generic [ref=e86]:
+                - link "T Sharma" [ref=e87] [cursor=pointer]:
+                  - /url: /citations?user=U_iQbMIAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "Y Potter" [ref=e88] [cursor=pointer]:
+                  - /url: /citations?user=ZDG9RD8AAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "K Pongmala" [ref=e89] [cursor=pointer]:
+                  - /url: /citations?user=I2fhMnQAAAAJ&hl=id&oi=sra
+                - text: ", H Wang… - ACM Transactions on …, 2024 - dl.acm.org"
+              - generic [ref=e90]:
+                - text: … DAOs revealed statistically significant results between DAO properties—such as token market
+                - text: value, DAO … the selected 100 DAOs against the full population of 2,391 DAOs to ensure …
+              - generic [ref=e91]:
+                - button "Simpan" [ref=e92] [cursor=pointer]:
+                  - img [ref=e93]
+                  - text: Simpan
+                - button "Kutip" [ref=e95] [cursor=pointer]:
+                  - img [ref=e96]
+                  - text: Kutip
+                - link "Dirujuk 19 kali" [ref=e98] [cursor=pointer]:
+                  - /url: /scholar?cites=14128454795894195626&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e99] [cursor=pointer]:
+                  - /url: /scholar?q=related:qgVw9sdaEsQJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                - link "2 versi" [ref=e100] [cursor=pointer]:
+                  - /url: /scholar?cluster=14128454795894195626&hl=id&as_sdt=0,5
+          - generic [ref=e101]:
+            - link "[PDF] nature.com" [ref=e105] [cursor=pointer]:
+              - /url: https://www.nature.com/articles/s41598-026-40180-8_reference.pdf
+            - generic [ref=e106]:
+              - 'heading "Democratic governance through DAO-based deliberation and voting for inclusive decision making in AI models: T. Sharma et al." [level=3] [ref=e107]':
+                - 'link "Democratic governance through DAO-based deliberation and voting for inclusive decision making in AI models: T. Sharma et al." [ref=e108] [cursor=pointer]':
+                  - /url: https://www.nature.com/articles/s41598-026-40180-8
+              - generic [ref=e109]:
+                - link "T Sharma" [ref=e110] [cursor=pointer]:
+                  - /url: /citations?user=U_iQbMIAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "Y Potter" [ref=e111] [cursor=pointer]:
+                  - /url: /citations?user=ZDG9RD8AAAAJ&hl=id&oi=sra
+                - text: ", J Park, Y Liu, Y Huang,"
+                - link "S Liu" [ref=e112] [cursor=pointer]:
+                  - /url: /citations?user=noWUmp0AAAAJ&hl=id&oi=sra
+                - text: … - Scientific Reports, 2026 - nature.com
+              - generic [ref=e113]:
+                - text: … The rise of decentralized autonomous organizations (DAOs) introduces … The separation of
+                - text: powers in DAOs helps prevent power … In this work, we examine DAO-based frameworks for …
+              - generic [ref=e114]:
+                - button "Simpan" [ref=e115] [cursor=pointer]:
+                  - img [ref=e116]
+                  - text: Simpan
+                - button "Kutip" [ref=e118] [cursor=pointer]:
+                  - img [ref=e119]
+                  - text: Kutip
+                - link "Artikel terkait" [ref=e121] [cursor=pointer]:
+                  - /url: /scholar?q=related:IbPJhYxrD6EJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                - link "5 versi" [ref=e122] [cursor=pointer]:
+                  - /url: /scholar?cluster=11605613016041239329&hl=id&as_sdt=0,5
+          - generic [ref=e123]:
+            - link "[PDF] ssrn.com" [ref=e127] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5473706
+            - generic [ref=e128]:
+              - 'heading "Decentralized Autonomous Not-for-Profit Organization: Mechanism and Social Experiment" [level=3] [ref=e129]':
+                - 'link "Decentralized Autonomous Not-for-Profit Organization: Mechanism and Social Experiment" [ref=e130] [cursor=pointer]':
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5473706
+              - generic [ref=e131]:
+                - link "S Jiang" [ref=e132] [cursor=pointer]:
+                  - /url: /citations?user=kXa2gU8AAAAJ&hl=id&oi=sra
+                - text: "- Available at SSRN 5473706, 2025 - papers.ssrn.com"
+              - generic [ref=e133]:
+                - text: … Communities such as Friends With Benefits DAO (FWB) or Gitcoin DAO illustrate how
+                - text: members build social capital through collaboration, cultural production, and collective problem-…
+              - generic [ref=e134]:
+                - button "Simpan" [ref=e135] [cursor=pointer]:
+                  - img [ref=e136]
+                  - text: Simpan
+                - button "Kutip" [ref=e138] [cursor=pointer]:
+                  - img [ref=e139]
+                  - text: Kutip
+                - link "Artikel terkait" [ref=e141] [cursor=pointer]:
+                  - /url: /scholar?q=related:WRivJy_kPyAJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e142] [cursor=pointer]:
+                  - img [ref=e143]
+          - generic [ref=e145]:
+            - link "[PDF] ssrn.com" [ref=e149] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=6072046
+            - generic [ref=e150]:
+              - 'heading "Decentralized Autonomous Organizations and the Anti-Money Laundering Challenge: Rethinking Global Frameworks for a Leaderless World" [level=3] [ref=e151]':
+                - 'link "Decentralized Autonomous Organizations and the Anti-Money Laundering Challenge: Rethinking Global Frameworks for a Leaderless World" [ref=e152] [cursor=pointer]':
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6072046
+              - generic [ref=e153]:
+                - text: U Volovelsky,
+                - link "S Shlomo Agon" [ref=e154] [cursor=pointer]:
+                  - /url: /citations?user=KNiZZRgAAAAJ&hl=id&oi=sra
+                - text: "- … for a Leaderless World (August 14 …, 2025 - papers.ssrn.com"
+              - generic [ref=e155]:
+                - text: … operation of DAOs regardless of their jurisdiction or physical presence. However, DAOs also
+                - text: … structure of DAOs may be exploited for unlawful purposes, most notably money laundering. …
+              - generic [ref=e156]:
+                - button "Simpan" [ref=e157] [cursor=pointer]:
+                  - img [ref=e158]
+                  - text: Simpan
+                - button "Kutip" [ref=e160] [cursor=pointer]:
+                  - img [ref=e161]
+                  - text: Kutip
+                - link "Artikel terkait" [ref=e163] [cursor=pointer]:
+                  - /url: /scholar?q=related:us6teFS4Mz0J:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e164] [cursor=pointer]:
+                  - img [ref=e165]
+          - generic [ref=e168]:
+            - heading "Shaping Decentralized Collaboration in DAOs with a Requirements Engineering Framework" [level=3] [ref=e169]:
+              - link "Shaping Decentralized Collaboration in DAOs with a Requirements Engineering Framework" [ref=e170] [cursor=pointer]:
+                - /url: https://ieeexplore.ieee.org/abstract/document/11190237/
+            - generic [ref=e171]:
+              - link "E Dahan" [ref=e172] [cursor=pointer]:
+                - /url: /citations?user=9WX0X08AAAAJ&hl=id&oi=sra
+              - text: "- 2025 IEEE 33rd International Requirements …, 2025 - ieeexplore.ieee.org"
+            - generic [ref=e173]:
+              - text: … Engineering Framework tailored to DAO-based multi-stakeholder … adaptations specifically
+              - text: "tailored to DAO environments: (1) … complex DAO models (eg, protocol governance DAOs with …"
+            - generic [ref=e174]:
+              - button "Simpan" [ref=e175] [cursor=pointer]:
+                - img [ref=e176]
+                - text: Simpan
+              - button "Kutip" [ref=e178] [cursor=pointer]:
+                - img [ref=e179]
+                - text: Kutip
+              - link "Dirujuk 1 kali" [ref=e181] [cursor=pointer]:
+                - /url: /scholar?cites=11662564484536914520&as_sdt=2005&sciodt=0,5&hl=id
+              - link "Artikel terkait" [ref=e182] [cursor=pointer]:
+                - /url: /scholar?q=related:WNLolpvA2aEJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+              - link "2 versi" [ref=e183] [cursor=pointer]:
+                - /url: /scholar?cluster=11662564484536914520&hl=id&as_sdt=0,5
+          - generic [ref=e184]:
+            - link "[PDF] frontiersin.org" [ref=e188] [cursor=pointer]:
+              - /url: https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1598283/pdf
+            - generic [ref=e189]:
+              - 'heading "Delegated voting in decentralized autonomous organizations: a scoping review" [level=3] [ref=e190]':
+                - 'link "Delegated voting in decentralized autonomous organizations: a scoping review" [ref=e191] [cursor=pointer]':
+                  - /url: https://www.frontiersin.org/journals/blockchain/articles/10.3389/fbloc.2025.1598283/full
+              - generic [ref=e192]:
+                - link "L Weidener" [ref=e193] [cursor=pointer]:
+                  - /url: /citations?user=YIlZncQAAAAJ&hl=id&oi=sra
+                - text: ", F Laredo, K Kumar, K Compton - Frontiers in Blockchain, 2025 - frontiersin.org"
+              - generic [ref=e194]:
+                - text: … This study conducts a systematic scoping review of DV in DAOs, synthesizing the existing
+                - text: scientific literature to assess its governance implications. Specifically, it examines how DV …
+              - generic [ref=e195]:
+                - button "Simpan" [ref=e196] [cursor=pointer]:
+                  - img [ref=e197]
+                  - text: Simpan
+                - button "Kutip" [ref=e199] [cursor=pointer]:
+                  - img [ref=e200]
+                  - text: Kutip
+                - link "Dirujuk 13 kali" [ref=e202] [cursor=pointer]:
+                  - /url: /scholar?cites=5313199254592047581&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e203] [cursor=pointer]:
+                  - /url: /scholar?q=related:3UnUTpJGvEkJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                - link "3 versi" [ref=e204] [cursor=pointer]:
+                  - /url: /scholar?cluster=5313199254592047581&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e205] [cursor=pointer]:
+                  - img [ref=e206]
+          - generic [ref=e209]:
+            - heading "A Framework for Enhancing Supply Chain Resilience Through Metaverse and Blockchain Technologies" [level=3] [ref=e210]:
+              - link "A Framework for Enhancing Supply Chain Resilience Through Metaverse and Blockchain Technologies" [ref=e211] [cursor=pointer]:
+                - /url: https://link.springer.com/chapter/10.1007/978-3-032-01218-0_12
+            - generic [ref=e212]: "Y Cui, PJ Singh - Emerging Technologies in Supply Chains: Towards …, 2026 - Springer"
+            - generic [ref=e213]:
+              - text: … (DAO) … features of DAO mechanisms. It proposes a novel conceptualization of a decentralized
+              - text: Metaverse predicated on supply chain resilience within the Web 3.0 ecosystem, with DAO …
+            - generic [ref=e214]:
+              - button "Simpan" [ref=e215] [cursor=pointer]:
+                - img [ref=e216]
+                - text: Simpan
+              - button "Kutip" [ref=e218] [cursor=pointer]:
+                - img [ref=e219]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e221] [cursor=pointer]:
+                - /url: /scholar?q=related:QtAlJYlEoGYJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+              - link "5 versi" [ref=e222] [cursor=pointer]:
+                - /url: /scholar?cluster=7394985943966797890&hl=id&as_sdt=0,5
+          - generic [ref=e224]:
+            - 'heading "Decentralized Autonomous Organizations in the Pharmaceutical Sector: A Paradigm Shift in Research, Development, and Governance" [level=3] [ref=e225]':
+              - 'link "Decentralized Autonomous Organizations in the Pharmaceutical Sector: A Paradigm Shift in Research, Development, and Governance" [ref=e226] [cursor=pointer]':
+                - /url: https://ieeexplore.ieee.org/abstract/document/11412467/
+            - generic [ref=e227]:
+              - link "RV Patil" [ref=e228] [cursor=pointer]:
+                - /url: /citations?user=NXjrFrYAAAAJ&hl=id&oi=sra
+              - text: ", GM Poddar, SM Rajput… - 2026 7th …, 2026 - ieeexplore.ieee.org"
+            - generic [ref=e229]:
+              - text: … (DAOs) in addressing these challenges. It reviews … Despite its several benefits, DAOs also
+              - text: face significant challenges, … pharmaceutical DAOs, privacy-enhanced DAOs, and cross-DAO …
+            - generic [ref=e230]:
+              - button "Simpan" [ref=e231] [cursor=pointer]:
+                - img [ref=e232]
+                - text: Simpan
+              - button "Kutip" [ref=e234] [cursor=pointer]:
+                - img [ref=e235]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e237] [cursor=pointer]:
+                - /url: /scholar?q=related:RFgnnc6lVroJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+          - generic [ref=e238]:
+            - link "[PDF] ssrn.com" [ref=e242] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5332134
+            - generic [ref=e243]:
+              - heading "DAO Governance Models for Social Impact and the Potential for a Human Rights Token for the Global Amnesty International Movement on the Cardano Blockchain" [level=3] [ref=e244]:
+                - link "DAO Governance Models for Social Impact and the Potential for a Human Rights Token for the Global Amnesty International Movement on the Cardano Blockchain" [ref=e245] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5332134
+              - generic [ref=e246]: G Farry - Available at SSRN 5332134, 2025 - papers.ssrn.com
+              - generic [ref=e247]:
+                - text: This paper introduces a pioneering governance and digital coordination framework for
+                - text: Amnesty International through the creation of a Human Rights Decentralised Autonomous …
+              - generic [ref=e248]:
+                - button "Simpan" [ref=e249] [cursor=pointer]:
+                  - img [ref=e250]
+                  - text: Simpan
+                - button "Kutip" [ref=e252] [cursor=pointer]:
+                  - img [ref=e253]
+                  - text: Kutip
+                - link "Dirujuk 1 kali" [ref=e255] [cursor=pointer]:
+                  - /url: /scholar?cites=4223671178994837929&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e256] [cursor=pointer]:
+                  - /url: /scholar?q=related:qekKMI9-nToJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e257] [cursor=pointer]:
+                  - img [ref=e258]
+          - generic [ref=e261]:
+            - heading "Evaluating Systemic Risk in DAO Networks" [level=3] [ref=e262]:
+              - link "Evaluating Systemic Risk in DAO Networks" [ref=e263] [cursor=pointer]:
+                - /url: https://ieeexplore.ieee.org/abstract/document/11418065/
+            - generic [ref=e264]:
+              - link "A Satybaldy" [ref=e265] [cursor=pointer]:
+                - /url: /citations?user=g9dFkDUAAAAJ&hl=id&oi=sra
+              - text: ", KJ Tylinski, MA Javarone… - 2025 Annual …, 2025 - ieeexplore.ieee.org"
+            - generic [ref=e266]:
+              - text: … risks, we model the DAO landscape as a dynamic bipartite graph connecting addresses
+              - text: and DAOs via governance token holdings. Focusing on the top token holders of each DAO, we …
+            - generic [ref=e267]:
+              - button "Simpan" [ref=e268] [cursor=pointer]:
+                - img [ref=e269]
+                - text: Simpan
+              - button "Kutip" [ref=e271] [cursor=pointer]:
+                - img [ref=e272]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e274] [cursor=pointer]:
+                - /url: /scholar?q=related:J9E1Z2AlQFMJ:scholar.google.com/&scioq=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+        - generic [ref=e275]:
+          - generic [ref=e276]:
+            - text: "Mungkin ini maksud Anda:"
+            - link "\"Future of Algorithmic Organizations\" DAOs Sharma" [ref=e277] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=%22Future+of+Algorithmic+Organizations%22+DAOs+Sharma
+              - text: "\"Future of Algorithmic"
+              - generic [ref=e278]: Organizations
+              - text: "\" DAOs Sharma"
+          - navigation [ref=e279]:
+            - table [ref=e281]:
+              - rowgroup [ref=e282]:
+                - row "1 2 3 4 Berikutnya" [ref=e283]:
+                  - cell [ref=e284]
+                  - cell "1" [ref=e286]: "1"
+                  - cell "2" [ref=e288]:
+                    - link "2" [ref=e289] [cursor=pointer]:
+                      - /url: /scholar?start=10&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                      - text: "2"
+                  - cell "3" [ref=e291]:
+                    - link "3" [ref=e292] [cursor=pointer]:
+                      - /url: /scholar?start=20&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                      - text: "3"
+                  - cell "4" [ref=e294]:
+                    - link "4" [ref=e295] [cursor=pointer]:
+                      - /url: /scholar?start=30&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                      - text: "4"
+                  - cell "Berikutnya" [ref=e297]:
+                    - link "Berikutnya" [ref=e298] [cursor=pointer]:
+                      - /url: /scholar?start=10&q=%22Future+of+Algorithmic+Organization%22+DAOs+Sharma&hl=id&as_sdt=0,5
+                      - generic [ref=e300]: Berikutnya
+  - contentinfo [ref=e301]:
+    - generic [ref=e302]:
+      - link "Privasi" [ref=e303] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/privacy/
+      - link "Persyaratan" [ref=e304] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/terms/
+      - button "Bantuan" [ref=e305] [cursor=pointer]

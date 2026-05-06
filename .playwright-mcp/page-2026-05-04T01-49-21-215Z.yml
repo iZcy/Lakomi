@@ -1,0 +1,581 @@
+- generic [active] [ref=e1]:
+  - link "Skip to Main Content" [ref=e2] [cursor=pointer]:
+    - /url: "#skipNav"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e6]:
+        - generic [ref=e7]:
+          - text: 
+          - generic [ref=e8]:
+            - link "Emerald Insight logo" [ref=e9] [cursor=pointer]:
+              - /url: /
+              - img "Emerald Insight logo" [ref=e11]
+            - list [ref=e12]:
+              - listitem [ref=e13]:
+                - link "Journals" [ref=e14] [cursor=pointer]:
+                  - /url: /journals
+              - listitem [ref=e15]:
+                - link "Books" [ref=e16] [cursor=pointer]:
+                  - /url: /books
+              - listitem [ref=e17]:
+                - link "Case Studies" [ref=e18] [cursor=pointer]:
+                  - /url: /case-studies
+              - listitem [ref=e19]:
+                - link "Collections" [ref=e20] [cursor=pointer]:
+                  - /url: /emerald-collections
+              - listitem [ref=e21]:
+                - link "Open Access" [ref=e22] [cursor=pointer]:
+                  - /url: /open-access
+              - listitem [ref=e23]:
+                - link "Citation Manager" [ref=e24] [cursor=pointer]:
+                  - /url: /citation-manager
+        - button " Search Dropdown Menu" [ref=e26] [cursor=pointer]:
+          - generic [ref=e27]:
+            - text: 
+            - generic [ref=e28]: Search Dropdown Menu
+        - text:   
+        - generic [ref=e29]:
+          - link "Cart" [ref=e31] [cursor=pointer]:
+            - /url: https://www-emerald-com.ezproxy.ugm.ac.id/store/cart
+            - generic [ref=e32]: Cart
+            - generic [ref=e33]: 
+          - link "Register" [ref=e35] [cursor=pointer]:
+            - /url: /my-account/register?siteId=1001099&returnUrl=%2facg%2farticle-abstract%2f5%2f2%2f101%2f1319315%2fDecentralized-Corporate-Governance-via-Blockchain
+          - button "Universitas Gadjah Mada " [ref=e37] [cursor=pointer]:
+            - text: Universitas Gadjah Mada
+            - generic [ref=e38]: 
+          - button "Sign In  Open Menu" [ref=e40] [cursor=pointer]:
+            - text: Sign In
+            - generic [ref=e41]:
+              - text: 
+              - generic [ref=e42]: Open Menu
+      - generic [ref=e44]:
+        - link "Annals of Corporate Governance" [ref=e46] [cursor=pointer]:
+          - /url: //www-emerald-com.ezproxy.ugm.ac.id/acg
+          - img "Annals of Corporate Governance" [ref=e48]
+        - generic [ref=e49]:
+          - text: 
+          - navigation "Primary navigation" [ref=e50]:
+            - list [ref=e51]:
+              - listitem [ref=e52]:
+                - link "Journal Home" [ref=e53] [cursor=pointer]:
+                  - /url: /acg
+              - listitem [ref=e54]:
+                - link "Issues" [ref=e55] [cursor=pointer]:
+                  - /url: /acg/issue
+              - listitem [ref=e56]:
+                - link "Earlycite Articles" [ref=e57] [cursor=pointer]:
+                  - /url: /acg/earlycite
+              - listitem [ref=e58]:
+                - button "About this Journal  Open Menu" [ref=e59] [cursor=pointer]:
+                  - text: About this Journal
+                  - generic [ref=e60]:
+                    - text: 
+                    - generic [ref=e61]: Open Menu
+  - main [ref=e62]:
+    - generic [ref=e64]:
+      - link "Skip Nav Destination" [ref=e65] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e66]:
+        - generic [ref=e68]:
+          - text: 
+          - generic [ref=e69]:
+            - generic [ref=e71]:
+              - generic [ref=e72]:
+                - link "Volume 5, Issue 2" [ref=e74] [cursor=pointer]:
+                  - /url: /acg/issue/5/2
+                - generic [ref=e75]: 10 June 2020
+              - link "Annals of Corporate Governance Cover Image for Volume 5, Issue 2" [ref=e77] [cursor=pointer]:
+                - /url: /acg/issue/5/2
+                - img "Annals of Corporate Governance Cover Image for Volume 5, Issue 2" [ref=e78]
+            - generic [ref=e80]:
+              - generic [ref=e81]: Article Contents
+              - list [ref=e82]:
+                - listitem [ref=e83]:
+                  - link "1 Introduction" [ref=e85] [cursor=pointer]:
+                    - /url: "#111181627"
+                - listitem [ref=e86]:
+                  - link "2 Business Organization Revisited" [ref=e88] [cursor=pointer]:
+                    - /url: "#111181642"
+                - listitem [ref=e89]:
+                  - link "2.1 Distinguishing Features of Decentralized Systems" [ref=e91] [cursor=pointer]:
+                    - /url: "#111181644"
+                - listitem [ref=e92]:
+                  - link "2.2 Original 2016 DAO" [ref=e94] [cursor=pointer]:
+                    - /url: "#111181648"
+                - listitem [ref=e95]:
+                  - link "2.3 The Theory of the Firm Revisited" [ref=e97] [cursor=pointer]:
+                    - /url: "#111181654"
+                - listitem [ref=e98]:
+                  - link "3 Governance Shortcomings in DAOs" [ref=e100] [cursor=pointer]:
+                    - /url: "#111181660"
+                - listitem [ref=e101]:
+                  - link "3.1 Centralized Design Elements in the Original 2016 DAO" [ref=e103] [cursor=pointer]:
+                    - /url: "#111181664"
+                - listitem [ref=e104]:
+                  - link "3.2 Lack of Proper Incentivization" [ref=e106] [cursor=pointer]:
+                    - /url: "#111181673"
+                - listitem [ref=e107]:
+                  - link "3.3 Lack of Default Rules" [ref=e109] [cursor=pointer]:
+                    - /url: "#111181679"
+                - listitem [ref=e110]:
+                  - link "3.4 Lacking On-Chain Voting Mechanism" [ref=e112] [cursor=pointer]:
+                    - /url: "#111181686"
+                - listitem [ref=e113]:
+                  - link "3.5 Socially Optimal Forks" [ref=e115] [cursor=pointer]:
+                    - /url: "#111181691"
+                - listitem [ref=e116]:
+                  - link "3.6 Decentralized Infrastructure Requirements" [ref=e118] [cursor=pointer]:
+                    - /url: "#111181698"
+                - listitem [ref=e119]:
+                  - link "4 Dynamic Governance in Decentralized Systems" [ref=e121] [cursor=pointer]:
+                    - /url: "#111181704"
+                - listitem [ref=e122]:
+                  - link "4.1 Shortcomings of Centralized Governance in Decentralized Systems" [ref=e124] [cursor=pointer]:
+                    - /url: "#111181706"
+                - listitem [ref=e125]:
+                  - link "4.2 Benefits of Dynamic Decentralized Governance" [ref=e127] [cursor=pointer]:
+                    - /url: "#111181717"
+                - listitem [ref=e128]:
+                  - link "5 Optimizing DAO Governance" [ref=e130] [cursor=pointer]:
+                    - /url: "#111181724"
+                - listitem [ref=e131]:
+                  - link "5.1 Dynamic DAO Governance" [ref=e133] [cursor=pointer]:
+                    - /url: "#111181729"
+                - listitem [ref=e134]:
+                  - link "5.2 Level of Decentralization" [ref=e136] [cursor=pointer]:
+                    - /url: "#111181737"
+                - listitem [ref=e137]:
+                  - link "5.3 Incentive Alignment" [ref=e139] [cursor=pointer]:
+                    - /url: "#111181741"
+                - listitem [ref=e140]:
+                  - link "5.4 On-Chain DAO Governance" [ref=e142] [cursor=pointer]:
+                    - /url: "#111181747"
+                - listitem [ref=e143]:
+                  - link "5.5 Reputation-Based Governance" [ref=e145] [cursor=pointer]:
+                    - /url: "#111181756"
+                - listitem [ref=e146]:
+                  - link "6 Reforming Corporate Governance" [ref=e148] [cursor=pointer]:
+                    - /url: "#111181765"
+                - listitem [ref=e149]:
+                  - link "7 Conclusion" [ref=e151] [cursor=pointer]:
+                    - /url: "#111181776"
+        - generic [ref=e153]:
+          - generic [ref=e155]:
+            - generic [ref=e157]:
+              - generic [ref=e158]: Research Article| June 10 2020
+              - generic [ref=e159]:
+                - heading "Decentralized Corporate Governance via Blockchain Technology  Available to Purchase" [level=1] [ref=e160]:
+                  - text: Decentralized Corporate Governance via Blockchain Technology
+                  - generic "Available to Purchase" [ref=e161]:
+                    - text: 
+                    - generic [ref=e162]: Available to Purchase
+                - link "Wulf A. Kaal" [ref=e166] [cursor=pointer]:
+                  - /url: javascript:;
+                - link " Author & Article Information" [ref=e168] [cursor=pointer]:
+                  - /url: javascript:;
+                  - generic [ref=e169]: 
+                  - text: Author & Article Information
+                - generic [ref=e170]:
+                  - generic [ref=e172]: "Annals of Corporate Governance (2020) 5 (2): 101–147."
+                  - link "https://doi-org.ezproxy.ugm.ac.id/10.1561/109.00000025" [ref=e176] [cursor=pointer]:
+                    - /url: https://doi-org.ezproxy.ugm.ac.id/10.1561/109.00000025
+            - generic [ref=e177]:
+              - navigation [ref=e178]:
+                - generic [ref=e179]:
+                  - list [ref=e181]:
+                    - text:  
+                    - listitem [ref=e182]:
+                      - link " Share Icon Share " [ref=e183] [cursor=pointer]:
+                        - /url: javascript:;
+                        - generic [ref=e184]:
+                          - text: 
+                          - generic [ref=e185]: Share Icon
+                        - generic [ref=e186]:
+                          - text: Share
+                          - generic [ref=e187]: 
+                    - listitem [ref=e188]:
+                      - link " Get Permissions" [ref=e191] [cursor=pointer]:
+                        - /url: https://marketplace.copyright.com/rs-ui-web/mp/search/all/10.1561%2F109.00000025
+                        - text: 
+                        - generic [ref=e192]: Get Permissions
+                    - text: 
+                    - listitem [ref=e193]:
+                      - link " Cite  Open Menu" [ref=e194] [cursor=pointer]:
+                        - /url: javascript:;
+                        - generic [ref=e195]: 
+                        - generic [ref=e196]:
+                          - text: Cite
+                          - generic [ref=e197]:
+                            - text: 
+                            - generic [ref=e198]: Open Menu
+                  - text:  
+              - generic [ref=e200]:
+                - generic [ref=e203]:
+                  - region "Main abstract" [ref=e205]:
+                    - paragraph [ref=e206]: Corporations and other forms of business organizations can be supplemented with blockchain-based agency constructs. Blockchain-based decentralized autonomous organizations (DAOs) expand the definition of the firm. On-chain DAO governance enables dynamic regulatory features that facilitate unprecedented decentralized regulatory solutions.
+                  - generic [ref=e209]:
+                    - generic [ref=e210]: "Keywords:"
+                    - link "decentralized autonomous organization" [ref=e211] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"decentralized+autonomous+organization\"}"
+                    - text: ","
+                    - link "blockchain" [ref=e212] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"blockchain\"}"
+                    - text: ","
+                    - link "distributed ledger technology" [ref=e213] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"distributed+ledger+technology\"}"
+                    - text: ","
+                    - link "regulation" [ref=e214] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"regulation\"}"
+                    - text: ","
+                    - link "protocols" [ref=e215] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"protocols\"}"
+                    - text: ","
+                    - link "optimization" [ref=e216] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"optimization\"}"
+                    - text: ","
+                    - link "efficiency" [ref=e217] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"efficiency\"}"
+                    - text: ","
+                    - link "governance" [ref=e218] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"governance\"}"
+                    - text: ","
+                    - link "dynamic regulation" [ref=e219] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"dynamic+regulation\"}"
+                    - text: ","
+                    - link "principal-agent" [ref=e220] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"principal-agent\"}"
+                    - text: ","
+                    - link "emerging technology" [ref=e221] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"emerging+technology\"}"
+                    - text: ","
+                    - link "agency cost" [ref=e222] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"agency+cost\"}"
+                    - text: ","
+                    - link "monitoring" [ref=e223] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"monitoring\"}"
+                    - text: ","
+                    - link "feedback effects" [ref=e224] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"feedback+effects\"}"
+                    - text: ","
+                    - link "K20" [ref=e225] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"K20\"}"
+                    - text: ","
+                    - link "K23" [ref=e226] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"K23\"}"
+                    - text: ","
+                    - link "K32" [ref=e227] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"K32\"}"
+                    - text: ","
+                    - link "L43" [ref=e228] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"L43\"}"
+                    - text: ","
+                    - link "L5" [ref=e229] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"L5\"}"
+                    - text: ","
+                    - link "O31" [ref=e230] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"O31\"}"
+                    - text: ","
+                    - link "O32" [ref=e231] [cursor=pointer]:
+                      - /url: "/acg/search-results?qb={\"Keywords1\":\"O32\"}"
+                  - generic [ref=e232]:
+                    - generic [ref=e233]: © 2020 Wulf A. Kaal
+                    - generic [ref=e235]: Licensed re-use rights only
+                - generic [ref=e236]: You do not currently have access to this content.
+          - generic [ref=e237]:
+            - generic [ref=e238]:
+              - heading "Sign in" [level=2] [ref=e239]
+              - generic [ref=e241]:
+                - text: Don't already have an account?
+                - link "Register" [ref=e242] [cursor=pointer]:
+                  - /url: /my-account/register?siteId=1001099&returnUrl=https%3a%2f%2fwww.emerald.com%2facg%2farticle-abstract%2f5%2f2%2f101%2f1319315%2fDecentralized-Corporate-Governance-via-Blockchain
+              - generic [ref=e243]:
+                - generic [ref=e247]:
+                  - generic [ref=e248]:
+                    - heading "Client Account" [level=3] [ref=e250]
+                    - generic [ref=e251]:
+                      - generic [ref=e253]: Email address / Username
+                      - textbox "Email address / Username" [ref=e254]
+                    - generic [ref=e255]:
+                      - generic [ref=e256]: Password
+                      - textbox "Password" [ref=e257]
+                    - iframe [ref=e264]:
+                      - generic [ref=f49e2]:
+                        - generic [ref=f49e6]:
+                          - text: "ERROR for site owner:"
+                          - text: Invalid domain for site key
+                        - generic [ref=f49e7]:
+                          - generic [ref=f49e10]: reCAPTCHA
+                          - generic [ref=f49e11]:
+                            - link "Privacy" [ref=f49e12] [cursor=pointer]:
+                              - /url: https://www.google.com/intl/en/policies/privacy/
+                            - text: "-"
+                            - link "Terms" [ref=f49e13] [cursor=pointer]:
+                              - /url: https://www.google.com/intl/en/policies/terms/
+                    - generic [ref=e265]:
+                      - button "Sign In" [ref=e266] [cursor=pointer]
+                      - link "Reset password" [ref=e268] [cursor=pointer]:
+                        - /url: /my-account/reset-password
+                      - link "Register" [ref=e270] [cursor=pointer]:
+                        - /url: /my-account/register?siteId=1001099&returnUrl=https%3a%2f%2fwww.emerald.com%2facg%2farticle-abstract%2f5%2f2%2f101%2f1319315%2fDecentralized-Corporate-Governance-via-Blockchain
+                  - generic [ref=e273]:
+                    - heading "ICE Member Sign In" [level=3] [ref=e274]
+                    - link "Log in" [ref=e275] [cursor=pointer]:
+                      - /url: https://www-emerald-com.ezproxy.ugm.ac.id/ExternalAuthentication/OIDCLogin?returnUrl=https%3a%2f%2fwww.emerald.com%2facg%2farticle-abstract%2f5%2f2%2f101%2f1319315%2fDecentralized-Corporate-Governance-via-Blockchain
+                  - generic [ref=e278]:
+                    - iframe [ref=e279]:
+                      
+                    - iframe [ref=e280]:
+                      - link "Access through your institution" [ref=f54e2] [cursor=pointer]:
+                        - /url: "#"
+                        - generic [ref=f54e4]:
+                          - img [ref=f54e6]
+                          - generic [ref=f54e8]: Access through your institution
+                - generic [ref=e282]:
+                  - paragraph [ref=e284]: Purchased this content as a guest? Enter your email address to restore access.
+                  - generic [ref=e285]:
+                    - text: Email Address
+                    - textbox [ref=e286]
+                  - button "Restore access" [ref=e288] [cursor=pointer]
+            - generic [ref=e291]:
+              - generic [ref=e292]:
+                - generic [ref=e293]: Pay-Per-View Access
+                - generic [ref=e294]: £50.00
+              - link " Buy This Article" [ref=e296] [cursor=pointer]:
+                - /url: https://www-emerald-com.ezproxy.ugm.ac.id/store/add/1319315/3
+                - generic [ref=e297]: 
+                - text: Buy This Article
+          - generic [ref=e299]:
+            - generic [ref=e300]: Rental
+            - generic [ref=e301]:
+              - text: This article is also available for rental through DeepDyve.
+              - link "Read this now at DeepDyve" [ref=e303] [cursor=pointer]:
+                - /url: https://www.deepdyve.com/doc-view?docId=10.1561/109.00000025&fieldName=journal_doi&affiliateId=EMER
+                - img "Read this now at DeepDyve" [ref=e304]
+        - generic [ref=e312]:
+          - generic [ref=e318]:
+            - generic [ref=e320]:
+              - link "Article has an altmetric score of 5" [ref=e324] [cursor=pointer]:
+                - /url: https://www.altmetric.com/details.php?domain=www-emerald-com.ezproxy.ugm.ac.id&citation_id=83792009
+                - img "Article has an altmetric score of 5" [ref=e325]
+              - link "25 total citations on Dimensions." [ref=e329] [cursor=pointer]:
+                - /url: https://badge.dimensions.ai/details/doi/10.1561/109.00000025?domain=https://www-emerald-com.ezproxy.ugm.ac.id
+                - generic [ref=e331]:
+                  - img [ref=e332]
+                  - img [ref=e335]
+                  - generic [ref=e337]: "25"
+                  - img "25 total citations on Dimensions."
+            - link "View Metrics" [ref=e339] [cursor=pointer]:
+              - /url: javascript:;
+              - text: View Metrics
+          - generic [ref=e344]:
+            - list [ref=e345]:
+              - listitem [ref=e346]:
+                - link "Latest" [ref=e347] [cursor=pointer]:
+                  - /url: javascript:;
+              - listitem [ref=e348]:
+                - link "Most Read" [ref=e349] [cursor=pointer]:
+                  - /url: javascript:;
+              - listitem [ref=e350]:
+                - link "Most Cited" [ref=e351] [cursor=pointer]:
+                  - /url: javascript:;
+            - generic [ref=e354]:
+              - link "AI and ESG" [ref=e357] [cursor=pointer]:
+                - /url: /acg/article/9/4/280/1334801/AI-and-ESG
+              - 'link "Corporate governance and environmental innovation: an interdisciplinary literature review with bibliometric analysis" [ref=e360] [cursor=pointer]':
+                - /url: /acg/article/9/3/207/1335065/Corporate-governance-and-environmental-innovation
+              - 'link "State capitalisms in Southern Africa: colonial rule, capitalist development, and class formation in Namibia, South Africa, and Zimbabwe, 1880s-2020s" [ref=e363] [cursor=pointer]':
+                - /url: /acg/article/9/1-2/1/1321531/State-capitalisms-in-Southern-Africa-colonial-rule
+              - 'link "Diversity in the Boardroom: A Systematic and Interdisciplinary Review of the Literature" [ref=e366] [cursor=pointer]':
+                - /url: /acg/article/8/4/250/1321530/Diversity-in-the-Boardroom-A-Systematic-and
+          - generic [ref=e371]:
+            - heading "Email Alerts" [level=3] [ref=e372]
+            - generic [ref=e373]:
+              - link "Article Activity Alert" [ref=e375] [cursor=pointer]:
+                - /url: javascript:;
+              - link "Earlycite Alert" [ref=e377] [cursor=pointer]:
+                - /url: javascript:;
+              - link "Closed Issue Alert" [ref=e379] [cursor=pointer]:
+                - /url: javascript:;
+              - link "Latest Published Articles Alert" [ref=e381] [cursor=pointer]:
+                - /url: javascript:;
+              - text: 
+          - generic [ref=e386]:
+            - heading "Suggested Reading" [level=3] [ref=e387]
+            - generic [ref=e388]:
+              - link "Decentralized autonomous organizations market meta analysis" [ref=e390] [cursor=pointer]:
+                - /url: /ftisy/article/9/2/53/1334787/Decentralized-autonomous-organizations-market-meta
+              - generic [ref=e391]:
+                - 'link "Caught in the middle?: Strategic information governance disruptions in the era of blockchain and distributed trust" [ref=e392] [cursor=pointer]':
+                  - /url: /rmj/article/30/3/301/373475/Caught-in-the-middle-Strategic-information
+                - generic [ref=e393]: Records Management Journal (April,2020)
+              - generic [ref=e394]:
+                - 'link "Agency costs, board structure and institutional investors: case of India" [ref=e395] [cursor=pointer]':
+                  - /url: /ajar/article/7/1/44/60023/Agency-costs-board-structure-and-institutional
+                - generic [ref=e396]: Asian Journal of Accounting Research (May,2021)
+              - generic [ref=e397]:
+                - link "Implications of blockchain distributed ledger technology for records management and information governance programs" [ref=e398] [cursor=pointer]:
+                  - /url: /rmj/article/30/3/287/373498/Implications-of-blockchain-distributed-ledger
+                - generic [ref=e399]: Records Management Journal (February,2020)
+              - generic [ref=e400]:
+                - 'link "“The margin between the edge of the world and infinite possibility”: Blockchain, GDPR and information governance" [ref=e401] [cursor=pointer]':
+                  - /url: /rmj/article/29/1-2/240/373159/The-margin-between-the-edge-of-the-world-and
+                - generic [ref=e402]: Records Management Journal (February,2019)
+          - generic [ref=e407]:
+            - heading "Related Chapters" [level=3] [ref=e408]
+            - generic [ref=e409]:
+              - generic [ref=e410]:
+                - 'link "The Digital Euro From a Geopolitical Perspective: Will Europe Lag Behind?" [ref=e411] [cursor=pointer]':
+                  - /url: https://www-emerald-com.ezproxy.ugm.ac.id/books/edited-volume/13646/chapter/84360021/The-Digital-Euro-From-a-Geopolitical-Perspective
+                - generic [ref=e412]: "Fintech, Pandemic, and the Financial System: Challenges and Opportunities"
+              - generic [ref=e413]:
+                - link "Trade Settlements" [ref=e414] [cursor=pointer]:
+                  - /url: https://www-emerald-com.ezproxy.ugm.ac.id/books/edited-volume/13021/chapter/83434613/Trade-Settlements
+                - generic [ref=e415]: "The Emerald Handbook on Cryptoassets: Investment Opportunities and Challenges"
+              - generic [ref=e416]:
+                - 'link "Revamping Indian Non-Life Insurance Industry with a Trusted Network: Blockchain Technology" [ref=e417] [cursor=pointer]':
+                  - /url: https://www-emerald-com.ezproxy.ugm.ac.id/books/edited-volume/10695/chapter/80314311/Revamping-Indian-Non-Life-Insurance-Industry-with
+                - generic [ref=e418]: "Big Data: A Game Changer for Insurance Industry"
+          - generic [ref=e423]:
+            - heading "Recommended for you" [level=3] [ref=e424]
+            - generic [ref=e425]: These recommendations are informed by your reading behaviors and indicated interests.
+          - generic [ref=e430]:
+            - heading "Cited By" [level=3] [ref=e431]
+            - generic [ref=e432]:
+              - link "Google Scholar" [ref=e434] [cursor=pointer]:
+                - /url: http://scholar.google.com/scholar?q=link:https%3A%2F%2Fwww.emerald.com%2Facg%2Farticle%2F5%2F2%2F101%2F1319315
+              - link "CrossRef (18)" [ref=e436] [cursor=pointer]:
+                - /url: https://www-emerald-com.ezproxy.ugm.ac.id/acg/crossref-citedby/1319315
+  - contentinfo [ref=e438]:
+    - generic [ref=e440]:
+      - generic [ref=e441]:
+        - list [ref=e443]:
+          - listitem [ref=e444]:
+            - link "About this Journal" [ref=e445] [cursor=pointer]:
+              - /url: /acg/pages/about
+          - listitem [ref=e446]:
+            - link "Editorial Team" [ref=e447] [cursor=pointer]:
+              - /url: /acg/pages/editorial-board
+          - listitem [ref=e448]:
+            - link "Write for this Journal" [ref=e449] [cursor=pointer]:
+              - /url: https://www-emerald-com.ezproxy.ugm.ac.id/acg/pages/author-guidelines
+          - listitem [ref=e450]:
+            - link "Author Guidelines" [ref=e451] [cursor=pointer]:
+              - /url: /acg/pages/author-guidelines
+        - link "Annals of Corporate Governance" [ref=e453] [cursor=pointer]:
+          - /url: /
+          - img "Annals of Corporate Governance" [ref=e454]
+      - list [ref=e456]:
+        - listitem [ref=e457]: Online ISSN 2381-6732
+        - listitem [ref=e458]: Print ISSN 2381-6724
+    - generic [ref=e461]:
+      - generic [ref=e463]:
+        - generic [ref=e464]:
+          - link "Emerald Publishing logo" [ref=e466] [cursor=pointer]:
+            - /url: "#"
+            - img "Emerald Publishing logo" [ref=e467]
+          - list [ref=e469]:
+            - listitem [ref=e470]:
+              - link " Bluesky" [ref=e471] [cursor=pointer]:
+                - /url: https://bsky.app/profile/emeraldpublishing.bsky.social
+                - generic [ref=e472]: 
+                - generic [ref=e473]: Bluesky
+            - listitem [ref=e474]:
+              - link " Facebook" [ref=e475] [cursor=pointer]:
+                - /url: https://www.facebook.com/EmeraldPublishingImpact/
+                - generic [ref=e476]: 
+                - generic [ref=e477]: Facebook
+            - listitem [ref=e478]:
+              - link " LinkedIn" [ref=e479] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/emeraldpublishing/
+                - generic [ref=e480]: 
+                - generic [ref=e481]: LinkedIn
+            - listitem [ref=e482]:
+              - link " YouTube" [ref=e483] [cursor=pointer]:
+                - /url: https://www.youtube.com/user/EmeraldPublishing67
+                - generic [ref=e484]: 
+                - generic [ref=e485]: YouTube
+            - listitem [ref=e486]:
+              - link " Instagram" [ref=e487] [cursor=pointer]:
+                - /url: https://www.instagram.com/emerald_publishing/
+                - generic [ref=e488]: 
+                - generic [ref=e489]: Instagram
+          - generic [ref=e490]: © 2025 Emerald Publishing Limited
+        - generic [ref=e492]:
+          - list [ref=e495]:
+            - listitem [ref=e496]:
+              - link "Authors " [ref=e497] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/author-services
+            - listitem [ref=e498]:
+              - link "Editors " [ref=e499] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/editors
+            - listitem [ref=e500]:
+              - link "Librarians " [ref=e501] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/librarians
+            - listitem [ref=e502]:
+              - link "Researchers " [ref=e503] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/researchers
+            - listitem [ref=e504]:
+              - link "Reviewers " [ref=e505] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/reviewers
+          - list [ref=e508]:
+            - listitem [ref=e509]:
+              - link "Open Access" [ref=e510] [cursor=pointer]:
+                - /url: /open-access
+            - listitem [ref=e511]:
+              - link "How-to Guides " [ref=e512] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/how-to
+            - listitem [ref=e513]:
+              - link "Emerald Publishing Services " [ref=e514] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/discover-our-services/emerald-publishing-services
+          - list [ref=e517]:
+            - listitem [ref=e518]:
+              - link "Contact us " [ref=e519] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/contact-us
+            - listitem [ref=e520]:
+              - link "Help " [ref=e521] [cursor=pointer]:
+                - /url: https://emeraldpublishinggroup.freshdesk.com/support/home
+            - listitem [ref=e522]:
+              - link "About Emerald " [ref=e523] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/who-we-are/about-us?distinct_id=74ee1e3b-4e70-40c6-be08-d06abd155adf&_ga=2.145614326.33409777.1714473076-993168562.1710334523
+            - listitem [ref=e524]:
+              - link "Working for Emerald " [ref=e525] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/who-we-are/about-us/work-with-us
+      - list [ref=e528]:
+        - listitem [ref=e529]:
+          - link "Cookie Policy" [ref=e530] [cursor=pointer]:
+            - /url: /pages/cookie_policy
+        - listitem [ref=e531]:
+          - link "Accessibility" [ref=e532] [cursor=pointer]:
+            - /url: https://www.emeraldgrouppublishing.com/emerald-accessibility-statement
+        - listitem [ref=e533]:
+          - link "Site policies" [ref=e534] [cursor=pointer]:
+            - /url: /pages/site_policies
+        - listitem [ref=e535]:
+          - link "Privacy notice" [ref=e536] [cursor=pointer]:
+            - /url: /pages/privacy_notice
+        - listitem [ref=e537]:
+          - link "Modern Slavery Act" [ref=e538] [cursor=pointer]:
+            - /url: /pages/modern_slavery_act
+        - listitem [ref=e539]: © 2025 Emerald Publishing Limited
+  - generic:
+    - text:  
+    - text:  
+  - region "Advertisement"
+  - generic:
+    - region "Cookie banner" [ref=e541]:
+      - dialog "Privacy" [ref=e542]:
+        - generic [ref=e543]:
+          - button "Close" [ref=e545] [cursor=pointer]
+          - generic [ref=e546]:
+            - generic [ref=e549]:
+              - text: By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
+              - link "More information about your privacy, opens in a new tab" [ref=e550] [cursor=pointer]:
+                - /url: https://www.emerald.com/pages/cookie_policy
+                - text: Visit our cookie policy page
+            - generic [ref=e552]:
+              - button "Accept All Cookies" [ref=e554] [cursor=pointer]
+              - button "Reject All" [ref=e556] [cursor=pointer]
+              - button "Cookies Settings, Opens the preference center dialog" [ref=e558] [cursor=pointer]: Cookies Settings
+    - text: Cookies Settings
+  - status [ref=e559]

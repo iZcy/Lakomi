@@ -1,0 +1,1885 @@
+- generic [ref=e1]:
+  - img [ref=e3]
+  - link "Skip to main content" [ref=e4] [cursor=pointer]:
+    - /url: "#main"
+  - complementary "Advertisement" [ref=e5]:
+    - paragraph [ref=e8]: Advertisement
+  - banner [ref=e10]:
+    - generic [ref=e11]:
+      - link "Springer Nature Link" [ref=e13] [cursor=pointer]:
+        - /url: https://link-springer-com.ezproxy.ugm.ac.id
+        - img "Springer Nature Link" [ref=e14]
+      - link "Log in" [ref=e15] [cursor=pointer]:
+        - /url: https://idp-springer-com.ezproxy.ugm.ac.id/auth/personal/springernature?redirect_uri=https://link.springer.com/article/10.1007/s10257-023-00659-7
+    - navigation "Site" [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - link "Find a journal" [ref=e19] [cursor=pointer]:
+            - /url: https://link-springer-com.ezproxy.ugm.ac.id/journals/
+          - link "Publish with us" [ref=e20] [cursor=pointer]:
+            - /url: https://www.springernature.com/gp/authors
+          - link "Track your research" [ref=e21] [cursor=pointer]:
+            - /url: https://link.springernature.com/home/
+        - generic [ref=e22]:
+          - button "Search" [ref=e24] [cursor=pointer]:
+            - img [ref=e25]
+            - text: Search
+          - generic [ref=e27]:
+            - link "Saved research" [ref=e29] [cursor=pointer]:
+              - /url: /saved-research
+              - img [ref=e30]
+              - text: Saved research
+            - link "Cart" [ref=e33] [cursor=pointer]:
+              - /url: https://order-springer-com.ezproxy.ugm.ac.id/public/cart
+              - img [ref=e34]
+              - text: Cart
+  - article [ref=e36]:
+    - region "About this article" [ref=e37]:
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - navigation "breadcrumbs" [ref=e41]:
+            - list [ref=e42]:
+              - listitem [ref=e43]:
+                - link "Home" [ref=e44] [cursor=pointer]:
+                  - /url: /
+                - img [ref=e45]
+              - listitem [ref=e47]:
+                - link "Information Systems and e-Business Management" [ref=e48] [cursor=pointer]:
+                  - /url: /journal/10257
+                - img [ref=e49]
+              - listitem [ref=e51]: Article
+          - 'heading "Facilitating cooperation of smallholders in developing countries: design principles for a cooperative-oriented decentralized autonomous organization" [level=1] [ref=e52]'
+          - list [ref=e53]:
+            - listitem [ref=e54]: Original Article
+            - listitem [ref=e55]:
+              - link "Open access" [ref=e56] [cursor=pointer]:
+                - /url: https://www.springernature.com/gp/open-science/about/the-fundamentals-of-open-access-and-open-research
+            - listitem [ref=e57]:
+              - text: "Published:"
+              - time [ref=e58]: 09 November 2023
+          - list [ref=e59]:
+            - listitem [ref=e60]: Volume 22, pages 1–31, (2024)
+            - listitem [ref=e61]:
+              - link "Cite this article" [ref=e62] [cursor=pointer]:
+                - /url: "#citeas"
+          - generic [ref=e63]:
+            - paragraph [ref=e64]:
+              - img [ref=e65]
+              - text: You have full access to this
+              - link "open access" [ref=e67] [cursor=pointer]:
+                - /url: https://www.springernature.com/gp/open-science/about/the-fundamentals-of-open-access-and-open-research
+              - text: article
+            - generic [ref=e68]:
+              - link "Download PDF" [ref=e71] [cursor=pointer]:
+                - /url: /content/pdf/10.1007/s10257-023-00659-7.pdf
+                - generic [ref=e72]: Download PDF
+                - img [ref=e73]
+              - link "Save article" [ref=e76] [cursor=pointer]:
+                - /url: /article/10.1007/s10257-023-00659-7/save-research?_csrf=F7Prgo3zeFvgsEvt3uKvCzeN0-Y_vXoc
+                - img [ref=e77]
+                - text: Save article
+        - generic [ref=e79]:
+          - link "Information Systems and e-Business Management" [ref=e80] [cursor=pointer]:
+            - /url: /journal/10257
+            - generic [ref=e82]: Information Systems and e-Business Management
+          - link "Aims and scope" [ref=e83] [cursor=pointer]:
+            - /url: /journal/10257/aims-and-scope
+            - text: Aims and scope
+            - img [ref=e84]
+          - link "Submit manuscript" [ref=e86] [cursor=pointer]:
+            - /url: https://submission.springernature.com/new-submission/10257/3
+            - text: Submit manuscript
+            - img [ref=e87]
+    - generic [ref=e89]:
+      - main [ref=e90]:
+        - generic [ref=e92]:
+          - list [ref=e93]:
+            - listitem [ref=e94]:
+              - link "Julia Amend" [ref=e95] [cursor=pointer]:
+                - /url: "#auth-Julia-Amend-Aff1-Aff2-Aff3"
+                - text: Julia Amend
+                - img [ref=e96]
+              - text: ","
+            - listitem [ref=e98]:
+              - link "Patrick Troglauer" [ref=e99] [cursor=pointer]:
+                - /url: "#auth-Patrick-Troglauer-Aff4-Aff5"
+              - text: ","
+            - listitem [ref=e100]:
+              - link "Tobias Guggenberger" [ref=e101] [cursor=pointer]:
+                - /url: "#auth-Tobias-Guggenberger-Aff1-Aff2-Aff3"
+              - text: ","
+            - listitem [ref=e102]:
+              - link "Nils Urbach" [ref=e103] [cursor=pointer]:
+                - /url: "#auth-Nils-Urbach-Aff1-Aff2-Aff6"
+              - text: "&"
+            - listitem [ref=e104]:
+              - link "Martin Weibelzahl" [ref=e105] [cursor=pointer]:
+                - /url: "#auth-Martin-Weibelzahl-Aff1-Aff2-Aff3"
+          - list [ref=e107]:
+            - listitem [ref=e108]:
+              - paragraph [ref=e109]:
+                - img [ref=e110]
+                - text: 3548 Accesses
+            - listitem [ref=e112]:
+              - paragraph [ref=e113]:
+                - img [ref=e114]
+                - text: 12 Citations
+            - listitem [ref=e116]:
+              - paragraph [ref=e117]:
+                - link "Explore all metrics" [ref=e118] [cursor=pointer]:
+                  - /url: /article/10.1007/s10257-023-00659-7/metrics
+                  - text: Explore all metrics
+                  - img [ref=e119]
+        - generic [ref=e121]:
+          - region "Abstract" [ref=e122]:
+            - generic [ref=e123]:
+              - heading "Abstract" [level=2] [ref=e124]
+              - paragraph [ref=e126]: Climate change and an increasing food demand due to a growing world population pose significant challenges for agriculture. Smallholders play a decisive role in establishing a sustainable and efficient future agricultural system since they already provide up to 80% of food in developing countries. However, they often face severe obstacles, especially in developing countries, hampering effective and efficient cooperation and productivity. Even though organizations in the form of cooperatives could help overcome some of the challenges of facilitating smallholders’ cooperation, they still suffer from structural problems. Further, in many countries, a lack of formal mechanisms to enforce contractual agreements exists. Given such challenges, decentralized autonomous organizations (DAOs) have already proven to provide alternative forms of governance independent of formal contracts or intermediaries. Therefore, this study follows the design science research paradigm to design, develop, and evaluate a decentralized autonomous organization in the agricultural sector that makes use of cooperative principles. This cooperative-oriented DAO is governed by smart contracts and technically enabled by blockchain technology as the underlying infrastructure. Through our developed and evaluated artifact, the AgriDAO, we guide researchers and practitioners on how such a cooperative-oriented DAO could look to solve existing problems related to smallholders and cooperatives. Additionally, we present eight design principles that will guide the development of cooperative-oriented DAOs. Finally, our research shall initiate lively discussion and extensive exploration of this new form of organization.
+          - region "Similar content being viewed by others" [ref=e127]:
+            - heading "Similar content being viewed by others" [level=3] [ref=e128]
+            - generic [ref=e129]:
+              - article [ref=e131]:
+                - generic [ref=e133]:
+                  - 'heading "Farmchain: Empowering Smallholder Farmers Through Blockchain and DAOs: Cryptournomic Approach" [level=3] [ref=e134]':
+                    - 'link "Farmchain: Empowering Smallholder Farmers Through Blockchain and DAOs: Cryptournomic Approach" [ref=e135] [cursor=pointer]':
+                      - /url: https://link-springer-com.ezproxy.ugm.ac.id/10.1007/978-3-031-86644-9_12?fromPaywallRec=false
+                  - generic [ref=e136]: Chapter © 2025
+              - article [ref=e138]:
+                - generic [ref=e140]:
+                  - 'heading "DAO as Rhizome: Reimagining Rules, Governance and Organisations" [level=3] [ref=e141]':
+                    - 'link "DAO as Rhizome: Reimagining Rules, Governance and Organisations" [ref=e142] [cursor=pointer]':
+                      - /url: https://link-springer-com.ezproxy.ugm.ac.id/10.1007/s10978-025-09432-w?fromPaywallRec=false
+                  - generic [ref=e143]:
+                    - text: Article Open access
+                    - generic [ref=e144]: 26 September 2025
+              - article [ref=e146]:
+                - generic [ref=e148]:
+                  - heading "Agroecological principles and elements and their implications for transitioning to sustainable food systems. A review" [level=3] [ref=e149]:
+                    - link "Agroecological principles and elements and their implications for transitioning to sustainable food systems. A review" [ref=e150] [cursor=pointer]:
+                      - /url: https://link-springer-com.ezproxy.ugm.ac.id/10.1007/s13593-020-00646-z?fromPaywallRec=false
+                  - generic [ref=e151]:
+                    - text: Article Open access
+                    - generic [ref=e152]: 27 October 2020
+          - region "Explore related subjects" [ref=e153]:
+            - heading "Explore related subjects" [level=3] [ref=e154]
+            - generic [ref=e155]: Discover the latest articles, books and news in related subjects, suggested using machine learning.
+            - list [ref=e156]:
+              - listitem [ref=e157]:
+                - link "Agriculture" [ref=e158] [cursor=pointer]:
+                  - /url: /subjects/agriculture
+              - listitem [ref=e159]:
+                - link "Agricultural Ethics" [ref=e160] [cursor=pointer]:
+                  - /url: /subjects/agricultural-ethics
+              - listitem [ref=e161]:
+                - link "Food Security" [ref=e162] [cursor=pointer]:
+                  - /url: /subjects/food-security
+              - listitem [ref=e163]:
+                - link "Organization Theory" [ref=e164] [cursor=pointer]:
+                  - /url: /subjects/organization-theory
+              - listitem [ref=e165]:
+                - link "Subsistence Agriculture" [ref=e166] [cursor=pointer]:
+                  - /url: /subjects/subsistence-agriculture
+              - listitem [ref=e167]:
+                - link "Blockchain" [ref=e168] [cursor=pointer]:
+                  - /url: /subjects/blockchain
+              - listitem [ref=e169]:
+                - link "Sustainable Agricultural Practices for Food Security" [ref=e170] [cursor=pointer]:
+                  - /url: /subjects/sustainable-agricultural-practices-for-food-security
+          - generic [ref=e171]:
+            - generic [ref=e173]:
+              - heading "1 Introduction" [level=2] [ref=e174]
+              - generic [ref=e175]:
+                - paragraph [ref=e176]:
+                  - text: Already today, the devastating effects of climate change challenge agriculture and put pressure on sustainable agricultural solutions. At the same time, with a world population expected to reach 9.7 billion by 2050 (United Nations
+                  - link "Reference 2019" [ref=e177] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR66
+                    - text: "2019"
+                  - text: ), agricultural production must keep pace with the growing demand for food and the ongoing fight against hunger. Smallholders will be essential in establishing future agricultural systems, especially in African, Asian, and American economies. However, to meet the ever-rising level of food demand and allow for sustainable as well as more efficient food production, the structural deficits of smallholders must be overcome (Johansen et al.
+                  - link "Reference 2012" [ref=e178] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR29
+                    - text: "2012"
+                  - text: ; FAO
+                  - link "Reference 2012" [ref=e179] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR16
+                    - text: "2012"
+                  - text: ). For instance, smallholders lack access to capital, legal services, and information, limiting their investment volume and agricultural expertise. Consequently, strategic and sustainable development in these countries is restrained (FAO
+                  - link "Reference 2012" [ref=e180] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR16
+                    - text: "2012"
+                  - text: ; Poole
+                  - link "Reference 2017" [ref=e181] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR52
+                    - text: "2017"
+                  - text: ).
+                - paragraph [ref=e182]:
+                  - text: However, the enforcement of such contractual agreements can be problematic, especially in countries that lack formal enforcement mechanisms (ASFG
+                  - link "Reference 2013" [ref=e183] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR2
+                    - text: "2013"
+                  - text: ). This limitation can undermine the effectiveness of these governance methods. As a result, these organizations often rely heavily on trust among members in an environment predominantly characterized by skepticism and opportunism. This trust issue can lead to an atmosphere of uncertainty and aversion to investment among smallholders, which is a major obstacle to effective collaboration and growth in the agricultural sector (Romero Granja and Wollni
+                  - link "Reference 2019" [ref=e184] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR55
+                    - text: "2019"
+                  - text: ).
+                - paragraph [ref=e185]:
+                  - text: Decentralized autonomous organizations (DAOs), underpinned by smart contracts and blockchain technology, have been proposed by other researchers as an innovative solution to such governance challenges (Ding et al.
+                  - link "Reference 2021" [ref=e186] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR77
+                    - text: "2021"
+                  - text: ). DAOs, functioning on the “code-is-law” principle, create a platform that enables a wholly decentralized, democratic, and trustworthy method of organizational administration. Unlike conventional organizations, DAOs are entirely governed by pre-set codes, thus eliminating potential human errors or biases in decision-making. This unique model promises to bring about a new level of transparency and fairness often lacking in traditional structures.
+                - paragraph [ref=e187]: "Against this background, we pose the following research question:"
+                - paragraph [ref=e188]: How to design an information system that facilitates cooperation of smallholders in developing countries?
+                - paragraph [ref=e189]:
+                  - text: To answer our research question, we adhered to the Design Science Research (DSR) paradigm (Gregor and Hevner
+                  - link "Reference 2013" [ref=e190] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR20
+                    - text: "2013"
+                  - text: ; March and Smith
+                  - link "Reference 1995" [ref=e191] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR40
+                    - text: "1995"
+                  - text: "), resulting in the design, development, and evaluation of a unique artifact: a DAO in the agricultural sector that makes use of cooperative principles, our so-named cooperative-oriented DAO in the agricultural sector or AgriDAO in short. The AgriDAO harnesses the principles of existing DAOs but introduces key adjustments to better harmonize the decentralized framework with cooperative ethos. Specifically, we have incorporated a reputation-based system to mitigate the free-rider issue and established a fully democratic voting structure as an alternative to the traditional plutocratic system frequently observed in DAOs. This initiative aims to enhance the current understanding of the design principles needed for an effective DAO, especially in the agricultural sector (Beck et al."
+                  - link "Reference 2018" [ref=e192] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR4
+                    - text: "2018"
+                  - text: ; Hsieh et al.
+                  - link "Reference 2017" [ref=e193] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR25
+                    - text: "2017"
+                  - text: ). The idea of such a model finds support in recent academic discourse. Risius and Spohrer (
+                  - link "Reference 2017" [ref=e194] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR54
+                    - text: "2017"
+                  - text: ) had previously suggested the necessity of probing the feasibility of emergent organizational forms like DAOs. Moverover, Beck et al. (
+                  - link "Reference 2018" [ref=e195] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR4
+                    - text: "2018"
+                  - text: ) have asserted that smart contracts and blockchain technology may offer an apt infrastructure for the execution of novel governance mechanisms, covering crucial aspects like decision rights, accountability, and incentives.
+                - paragraph [ref=e196]:
+                  - text: Through our research, we seek to enrich existing design knowledge by both introducing a novel artifact and proposing eight design principles (Seckler et al.
+                  - link "Reference 2021" [ref=e197] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR58
+                    - text: "2021"
+                  - text: ). First, our artifact, the AgriDAO, serves as a practical blueprint, providing foundational guidance for building a cooperative-oriented DAO tailored to the unique challenges faced by smallholder farmers and cooperatives. Second, we evaluate our artifact’s effectiveness and technical feasibility, providing a rigorous assessment of its potential and limitations. The evaluation not only provides further insight into the future development of such organizations but also establishes a springboard for deeper investigation. Third, we present eight guiding design principles that serve as navigational beacons for researchers and practitioners seeking to successfully design and implement cooperative-oriented DAOs beyond this study’s designated application area. As these design insights are, to our knowledge, unprecedented, they lay the groundwork for lively discussion and extensive exploration of this new form of organization by both researchers and practitioners.
+                - paragraph [ref=e198]:
+                  - text: "The paper is structured as follows: Sect."
+                  - link "2" [ref=e199] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec1
+                  - text: provides the background on the core challenges of smallholders and cooperatives on the one hand and DAOs as a technical solution approach on the other. Through this section, we target creating a common knowledge base and understanding of the key concepts. Section
+                  - link "3" [ref=e200] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec5
+                  - text: describes our research design based on the Design Science Research (DSR) approach. Following this research approach, we add exemplary cases to underline the practical relevance of the identified problem areas in Sect.
+                  - link "4" [ref=e201] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec6
+                  - text: . Subsequently, we determine adequate solution objectives for our AgriDAO. In Sect.
+                  - link "5" [ref=e202] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec5
+                  - text: ", we then describe the design and development of the actual artifact. Afterward, we evaluate the artifact based on both evaluation criteria and expert interviews in the fields of DAOs, blockchain technology, cooperatives, and agricultural development in Sect."
+                  - link "6" [ref=e203] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec11
+                  - text: . In Sect.
+                  - link "7" [ref=e204] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec14
+                  - text: ", we discuss our main findings and derive design principles for cooperative-oriented DAOs. Finally, in Sect."
+                  - link "8" [ref=e205] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec17
+                  - text: ", we outline limitations and future research opportunities."
+            - generic [ref=e207]:
+              - heading "2 Background" [level=2] [ref=e208]
+              - generic [ref=e209]:
+                - heading "2.1 Core challenges of smallholders" [level=3] [ref=e210]
+                - paragraph [ref=e211]:
+                  - text: The Food and Agriculture Organization of the United Nations (FAO) defines smallholders as farmers who “manage areas varying from less than one hectare to 10 hectares (…) characterized by family-focused motives such as favouring the stability of the farm household system, using mainly family labour for production and using part of the produce for family consumption” (FAO
+                  - link "Reference 2012" [ref=e212] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR16
+                    - text: "2012"
+                  - text: ). Information and experience sharing among smallholders are on the agendas of many smallholder organizations, predominantly interacting in developing countries. Since the African Smallholder Farmers Group (ASFG) is one prominent example of such an organization, we believe that the ASFG may represent how such organizations can support smallholders concerning their needs. According to ASFG, smallholders face severe obstacles that limit their productivity, sustainability, and efficiency (ASFG
+                  - link "Reference 2013" [ref=e213] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR2
+                    - text: "2013"
+                  - text: "). In particular, three core challenges exist for smallholders: (1) Smallholders significantly lack access to resources such as capital, legal services, and information. Those resource restrictions constrain their investment volumes, the expenditure of their agricultural expertise, or the possibility of enforcing contracts. Ultimately, they are confronted with limited productivity and underdeveloped agriculture, leading to a weak market position (ASFG"
+                  - link "Reference 2013" [ref=e214] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR2
+                    - text: "2013"
+                  - text: ; Hellin et al.
+                  - link "Reference 2009" [ref=e215] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR23
+                    - text: "2009"
+                  - text: ; Kamara
+                  - link "Reference 2004" [ref=e216] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR30
+                    - text: "2004"
+                  - text: ; Mutero et al.
+                  - link "Reference 2016" [ref=e217] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR47
+                    - text: "2016"
+                  - text: ; Omiti et al.
+                  - link "Reference 2009" [ref=e218] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR50
+                    - text: "2009"
+                  - text: ; Poole
+                  - link "Reference 2017" [ref=e219] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR52
+                    - text: "2017"
+                  - text: ; Salami et al.
+                  - link "Reference 2010" [ref=e220] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR79
+                    - text: "2010"
+                  - text: ; Schalkwyk et al.
+                  - link "Reference 2012" [ref=e221] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR57
+                    - text: "2012"
+                  - text: ). (2) Cooperation is required but still not used to its full potential in many African, Asian, and American countries. The reasons are insufficient capacity and experience to shape an effective and efficient organization (ASFG
+                  - link "Reference 2013" [ref=e222] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR2
+                    - text: "2013"
+                  - text: ; Hellin et al.
+                  - link "Reference 2009" [ref=e223] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR23
+                    - text: "2009"
+                  - text: ; Jelsma et al.
+                  - link "Reference 2017" [ref=e224] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR27
+                    - text: "2017"
+                  - text: ; Montiflor et al.
+                  - link "Reference 2011" [ref=e225] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR46
+                    - text: "2011"
+                  - text: ; Romero Granja and Wollni
+                  - link "Reference 2019" [ref=e226] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR55
+                    - text: "2019"
+                  - text: ; Salami et al.
+                  - link "Reference 2010" [ref=e227] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR79
+                    - text: "2010"
+                  - text: ). (3) This unleveraged cooperation potential is additionally rooted in the conditions in which smallholders operate since the environment is mainly characterized by distrust and opportunistic behavior, preventing them from concluding contracts and cooperating in the long term (Romero Granja and Wollni
+                  - link "Reference 2019" [ref=e228] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR55
+                    - text: "2019"
+                  - text: ).
+                - paragraph [ref=e229]:
+                  - text: To overcome the resulting market imperfections, smallholders tend to interact with intermediaries, even though this collaboration may constrain their profits (Abebe et al.
+                  - link "Reference 2016" [ref=e230] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR1
+                    - text: "2016"
+                  - text: ). Thus, it seems worth analyzing ways of enabling cooperation solely among smallholders and without intermediaries.
+                - heading "2.2 Cooperatives as a potential organization form and their structural deficits" [level=3] [ref=e231]
+                - paragraph [ref=e232]:
+                  - text: Enabling effective and efficient cooperation among smallholders may positively affect the social and economic aspects of smallholders. For instance, there might be improvements regarding their market power and bargaining position, exchange of (technological) knowledge, or access to equipment and machines. Hereby, cooperation among smallholders might be realized in the form of a cooperative. LeVay (
+                  - link "Reference 1983" [ref=e233] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR38
+                    - text: "1983"
+                  - text: ) defines a cooperative as “an association of persons (either individual people or institutions) who work together to achieve certain commercial objectives” (p.3). This definition does not include a guideline on how such cooperatives should be organizationally designed. However, a multitude of organizational designs for a cooperative exists. Since the intention for forming a cooperative is relevant to us, we stay with the term ‘cooperative’ and do not further distinguish cooperative regarding its organizational design.
+                - paragraph [ref=e234]:
+                  - text: Even though it is promising to form a cooperative to solve some severe smallholder problems, cooperatives suffer from structural problems. Those may lead to members’ discouragement of investing capital or inability to make efficient collective decisions (Tortia et al.
+                  - link "Reference 2013" [ref=e235] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR64
+                    - text: "2013"
+                  - text: "). In particular, five core problems exist: (1) First, the free-rider problem considers the unequal benefit of undertaken investments between the members. As a result, conflicts and disincentivizing of members can arise (Cook"
+                  - link "Reference 1995" [ref=e236] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR9
+                    - text: "1995"
+                  - text: ; Tortia et al.
+                  - link "Reference 2013" [ref=e237] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR64
+                    - text: "2013"
+                  - text: ). (2) Second, the horizon problem describes that the residual claims of members on the asset-generated net income are shorter than the asset life. Due to transferability restrictions and the constrained financial liquidity of residual rights, members hesitate to invest strategically and, therefore, miss chances for growth (Cook
+                  - link "Reference 1995" [ref=e238] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR9
+                    - text: "1995"
+                  - text: ; Porter and Scully
+                  - link "Reference 1987" [ref=e239] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR53
+                    - text: "1987"
+                  - text: ; Tortia et al.
+                  - link "Reference 2013" [ref=e240] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR64
+                    - text: "2013"
+                  - text: ; Zigran et al.
+                  - link "Reference 2015" [ref=e241] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR75
+                    - text: "2015"
+                  - text: ). (3) Third, the portfolio problem refers to the members’ inability to tailor their cooperative asset portfolio concerning their personal risk preferences. Since the investment decision in cooperatives is typically linked to the patronage decision, members may hold not risk-optimized and, thus, potentially underperforming investment portfolios (Cook
+                  - link "Reference 1995" [ref=e242] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR9
+                    - text: "1995"
+                  - text: ; Tortia et al.
+                  - link "Reference 2013" [ref=e243] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR64
+                    - text: "2013"
+                  - text: ). (4) Fourth, the control problem implicates high transaction costs resulting from monitoring management decisions, lacking options to sanctify managerial misbehavior, and diverging interests (Cook
+                  - link "Reference 1994" [ref=e244] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR76
+                    - text: "1994"
+                  - text: ; Staatz
+                  - link "Reference 1987" [ref=e245] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR60
+                    - text: "1987"
+                  - text: ; Tortia et al.
+                  - link "Reference 2013" [ref=e246] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR64
+                    - text: "2013"
+                  - text: ). (5) Lastly, the influence costs problem refers to the members’ attempts to influence the collective decisions to their advantage, which causes inefficiencies and unnecessary costs (Cook
+                  - link "Reference 1995" [ref=e247] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR9
+                    - text: "1995"
+                  - text: ; Milgrom and Roberts
+                  - link "Reference 1990" [ref=e248] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR45
+                    - text: "1990"
+                  - text: ; Tortia et al.
+                  - link "Reference 2013" [ref=e249] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR64
+                    - text: "2013"
+                  - text: ).
+                - paragraph [ref=e250]:
+                  - text: To solve these problems, Poole and Frece (
+                  - link "Reference 2010" [ref=e251] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR78
+                    - text: "2010"
+                  - text: ) stress the necessity of “a new generation of dynamic and alternative forms of commercial organization” (p.13). Against this backdrop, they proposed to consider the essential organizational principles initiated by the International Cooperative Alliance (ICA) as a guideline to set up a framework for smallholders’ cooperatives based on Watkins (
+                  - link "Reference 1986" [ref=e252] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR70
+                    - text: "1986"
+                  - text: ) and Fairbairn (
+                  - link "Reference 1994" [ref=e253] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR706
+                    - text: "1994"
+                  - text: ). Given this general framework, an open question remains about how a promising, new, and dynamic smallholder organization could look.
+                - heading "2.3 Decentralized autonomous organizations for facilitating smallholders’ cooperation" [level=3] [ref=e254]
+                - paragraph [ref=e255]:
+                  - text: In 2014, Vitalik Buterin published his famous Ethereum whitepaper, describing the idea of a decentralized autonomous organization based on smart contracts, specifically a DAO. The paper defines a DAO as “a virtual entity that has a certain set of members or shareholders which (…) have the right to spend the entity’s funds and modify its code” (Buterin
+                  - link "Reference 2014" [ref=e256] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR5
+                    - text: "2014"
+                  - text: ", p.23). In specifics, smart contracts are computer programs that automatically execute decisions when certain conditions are met (Kõlvart et al."
+                  - link "Reference 2016" [ref=e257] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR33
+                    - text: "2016"
+                  - text: ). Therefore, smart contracts can use external information as input, triggering specific actions according to the pre-defined rules stored in the contract (Truesta et al.
+                  - link "Reference 2015" [ref=e258] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR65
+                    - text: "2015"
+                  - text: ). In contrast to traditional forms of organizations, a DAO does not rely on formal or informal contracts but rather on a “code-is-law” basis. This property allows for a high level of automation, differentiating a DAO from a decentralized organization.
+                - paragraph [ref=e259]:
+                  - text: DAOs typically leverage blockchain as a foundation for their smart contracts, creating an environment for fully decentralized, democratic, and trustworthy collaborative structures. Blockchain is a particular distributed ledger technology working as a decentralized data management and transaction technology (Yli-Huumo et al.
+                  - link "Reference 2016" [ref=e260] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR73
+                    - text: "2016"
+                  - text: ), enabling data exchange over multi-party networks (Xu et al.
+                  - link "Reference 2017" [ref=e261] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR72
+                    - text: "2017"
+                  - text: ). The origin of its name stems from the fact that transactions between users are grouped into cryptographically and chronologically ordered, chained blocks. Consensus algorithms secure the correctness and proper order of these transactions, so no central intermediary is required. Given its properties, blockchain technology offers a suitable medium for implementing smart contracts (Szabo
+                  - link "Reference 1997" [ref=e262] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR62
+                    - text: "1997"
+                  - text: ) for the first time (DeRose
+                  - link "Reference 2016" [ref=e263] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR11
+                    - text: "2016"
+                  - text: ; Wright and Filippi
+                  - link "Reference 2015" [ref=e264] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR71
+                    - text: "2015"
+                  - text: ).
+                - paragraph [ref=e265]: While current literature emphasizes the benefits of DAOs in various domains, knowledge of leveraging a DAO that makes use of cooperative principles is still missing. Since blockchain technology is the most suitable technological alternative to technically implement a DAO at the time of writing, we used blockchain technology to design and develop a cooperative-oriented DAO in the agricultural sector, the AgriDAO, as our artifact. However, we cannot exclude that other technologies might also be suitable, e.g., other distributed ledger technologies that successively mature and might become an alternative someday.
+            - generic [ref=e267]:
+              - heading "3 Method" [level=2] [ref=e268]
+              - generic [ref=e269]:
+                - paragraph [ref=e270]:
+                  - text: To answer our research question, we followed the Design Science Research (DSR) paradigm (March and Smith
+                  - link "Reference 1995" [ref=e271] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR40
+                    - text: "1995"
+                  - text: ; March and Storey
+                  - link "Reference 2008" [ref=e272] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR41
+                    - text: "2008"
+                  - text: ; Nunamaker et al.
+                  - link "Reference 1990" [ref=e273] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR49
+                    - text: "1990"
+                  - text: ). Its principles originate back to the field of engineering science (Gregor and Hevner
+                  - link "Reference 2013" [ref=e274] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR20
+                    - text: "2013"
+                  - text: ). DSR generally seeks to solve problems with practical relevance (Hevner et al.
+                  - link "Reference 2004" [ref=e275] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR24
+                    - text: "2004"
+                  - text: ) by designing new and innovative information technology artifacts (March and Smith
+                  - link "Reference 1995" [ref=e276] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR40
+                    - text: "1995"
+                  - text: ). Thus, we designed, developed, and evaluated a DAO in the agricultural sector that makes use of cooperative principles to control smallholder cooperation in the AgriDAO. In particular, this paper follows the widely accepted design science research approach by Peffers et al. (
+                  - link "Reference 2007" [ref=e277] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR51
+                    - text: "2007"
+                  - text: ) (see Fig.
+                  - link "1" [ref=e278] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Fig1
+                  - text: ).
+                - figure "Fig. 1" [ref=e280]:
+                  - generic [ref=e282]: Fig. 1
+                  - generic [ref=e283]:
+                    - generic [ref=e284]:
+                      - img "Fig. 1" [ref=e286]
+                      - generic [ref=e287]: The alternative text for this image may have been generated using AI.
+                      - link "Full size image figure 1" [ref=e289] [cursor=pointer]:
+                        - /url: /article/10.1007/s10257-023-00659-7/figures/1
+                        - text: Full size image
+                        - img [ref=e290]
+                    - paragraph [ref=e293]: DSR process for the use case of smallholders in Africa, Asia, and America
+                - paragraph [ref=e294]:
+                  - text: At first, the research project started with identifying a practically relevant problem (1). Based on our literature findings, which we presented in Sect.
+                  - link "2" [ref=e295] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec1
+                  - text: ", smallholders struggle to fully seize the potential of cooperation, and cooperatives suffer from structural problems. Aiming to solve the identified problem areas, we derived design objectives that a potential solution must provide (2). For determining the final set of design objectives, we used literature from the field of DAOs, blockchain technology, organization theory, development study, and agriculture research. First, all authors reflected on these literature findings separately to generate a set of design objectives, which were later discussed and challenged in a joint workshop session. The result of this workshop session was the final set of design objectives, which all authors had agreed on. To allow for rigorous evaluation, we used the same method to identify evaluation criteria for each of the 16 design objectives. Since the design objectives were rather aggregated to ensure broader applicability going beyond the AgriDAO as an example of a cooperative-oriented DAO, we stayed on this abstraction level and decided not to concretize the evaluation criteria any further. We employed these design objectives as a starting point for the development of our artifact, which we see as an initial technical prototype, implying that the User Interface only needs to be viable and not yet appealing (3). First, we developed a general system architecture based on blockchain technology. Afterward, we used the Ethereum blockchain to instantiate the artifact (4). The research team iteratively evaluated and refined the design and the instantiation until all members agreed on the artifact’s maturity. Through a presentation, we presented our artifact to technical and domain experts and discussed it, which was part of the evaluation. This circumstance enabled us to validate our artifact’s effectiveness and technical feasibility. (5). Finally, we discuss the contribution of this paper in the context of smart contract-based governance. Afterward, we propose eight design principles for cooperative-oriented DAOs to support researchers and practitioners in future developments of such a new form of organization. We acknowledge this part as the last step of the DSR approach, namely communication (6). We note that steps (3) to (5) were highly iterative, allowing us to include feedback from the interviews in the development. In the following sections, we will explicitly address these six steps. The overarching research process was also highly iterative, allowing for evaluation, design, and development loops."
+                - paragraph [ref=e296]:
+                  - text: For the evaluation and refinement of the design artifact, we first assessed the artifact based on different evaluation criteria. Second, we conducted expert interviews with relevant stakeholder groups to verify the criteria-based evaluation. Specifically, we conducted semi-structured interviews (March and Smith
+                  - link "Reference 1995" [ref=e297] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR40
+                    - text: "1995"
+                  - text: ) with technical experts (DAO, blockchain) and domain experts (cooperatives, agricultural development). Since our artifact is a prototype, we did not interview smallholders as end users because this would not have been purposeful against the defined evaluation targets. Through Table
+                  - link "1" [ref=e298] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Tab1
+                  - text: ", we provide an overview of our selected interview partners. Each interview took around 60 min and was initiated with a short presentation by the interviewer to provide basic information about blockchain and DAO in general and the AgriDAO in specific. We did so to ensure a common understanding among the interviewees. For the analysis of the interviews, we used qualitative techniques, which included the transcription and coding of the interviews (Mayring"
+                  - link "Reference 2014" [ref=e299] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR42
+                    - text: "2014"
+                  - text: ). Regarding the latter, our design objectives functioned as initial codes to which we assigned the interviewees’ statements.
+                - figure "Table 1 Overview of interviewees" [ref=e301]:
+                  - generic [ref=e302]: Table 1 Overview of interviewees
+                  - link "Full size table 1" [ref=e304] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7/tables/1
+                    - text: Full size table
+                    - img [ref=e305]
+            - generic [ref=e308]:
+              - heading "4 Problem identification and design objectives" [level=2] [ref=e309]
+              - generic [ref=e310]:
+                - paragraph [ref=e311]:
+                  - text: Following the DSR approach, we analyzed the specific obstacles of smallholders and the challenges of cooperatives. In addition to our problem identification in the
+                  - link "background" [ref=e312] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec1
+                  - text: section, we added exemplary cases to underline the practical relevance of the respective problem area (PA), primarily since DSR aims to solve practical problems. Thus, we provide an overview of our results in Table
+                  - link "2" [ref=e313] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Tab2
+                  - text: .
+                - figure "Table 2 Exemplary cases for identified problem areas of smallholders and cooperatives" [ref=e315]:
+                  - generic [ref=e316]: Table 2 Exemplary cases for identified problem areas of smallholders and cooperatives
+                  - link "Full size table 2" [ref=e318] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7/tables/2
+                    - text: Full size table
+                    - img [ref=e319]
+                - paragraph [ref=e321]: After identifying the problem areas, we derived design objectives for a cooperative-oriented DAO in the agricultural sector to solve our practical problem, consisting of the challenges of smallholders and cooperatives. Due to this problem division, we provide smallholder- and cooperative-specific design objectives.
+                - paragraph [ref=e322]:
+                  - text: "On the one hand, we identified nine smallholder-specific design objectives: Provide sufficient incentives to prevent free-riders (DO-S1): There need to be working incentive mechanisms to balance the profit inequality between members with more investment efforts and members with fewer investment efforts (Giannakas et al."
+                  - link "Reference 2016" [ref=e323] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR19
+                    - text: "2016"
+                  - text: "). Allow for exit including getting some funding back (DO-S2): Allowing members to leave the cooperative under permission to get some funding back is an essential enabler for long-term investments or investments in intangible assets due to the minimized risk of benefit losses (Nganwa et al."
+                  - link "Reference 2010" [ref=e324] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR48
+                    - text: "2010"
+                  - text: "). Ensure low operative running costs (DO-S3): The organization’s running costs (e.g., for monitoring) need to be low to reduce transaction costs and guarantee cooperative productivity (Poole"
+                  - link "Reference 2017" [ref=e325] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR52
+                    - text: "2017"
+                  - text: "). Prevent managerial misbehavior (DO-S4): Managerial misbehavior can be prevented through transparency, adequate governance mechanisms, and the members’ ability to sanctify misbehavior (Nganwa et al."
+                  - link "Reference 2010" [ref=e326] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR48
+                    - text: "2010"
+                  - text: "). Provide objective decision-making mechanisms (DO-S5): The provision of objective decision-making is required to counter potential influence costs (Cook and Iliopoulos"
+                  - link "Reference 2016" [ref=e327] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR10
+                    - text: "2016"
+                  - text: ; Poole
+                  - link "Reference 2017" [ref=e328] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR52
+                    - text: "2017"
+                  - text: "). Provide options for secure property rights management (DO-S6): Agricultural productivity is limited due to the high insecurity of property rights of land tenure. Thus, enabling this security will positively impact agricultural performance (Cook and Iliopoulos"
+                  - link "Reference 2016" [ref=e329] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR10
+                    - text: "2016"
+                  - text: "). Provide means of contract enforcement (DO-S7): The solution should provide means of contract enforcement to reduce insecurities in land tenure and stabilize agricultural development (Poole"
+                  - link "Reference 2017" [ref=e330] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR52
+                    - text: "2017"
+                  - text: "). Allow for resource pooling and access to finance (DO-S8): Resource pooling is necessary to enable smallholders’ access to inputs and credits (Kelly"
+                  - link "Reference 2012" [ref=e331] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR707
+                    - text: "2012"
+                  - text: ). Besides, to prevent portfolio underperformance, allowing investments based on the individual risk attitude is reasonable (Cook
+                  - link "Reference 1995" [ref=e332] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR9
+                    - text: "1995"
+                  - text: "). Provide transparency on decision-making and execution (DO-S9): The solution should provide transparency to foster trust to support contract conclusions between members and between the organization and external stakeholders as well as long-term cooperation (Romero Granja and Wollni"
+                  - link "Reference 2019" [ref=e333] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR55
+                    - text: "2019"
+                  - text: ).
+                - paragraph [ref=e334]:
+                  - text: On the other hand, we found seven cooperative-specific design objectives based on the principles of the ICA (
+                  - link "Reference 2018" [ref=e335] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR26
+                    - text: "2018"
+                  - text: "): Provide a voluntary and open membership (DO-C1): The joining of the organization should be possible for everyone willing to accept the rights and duties of such membership. Guarantee democratic member control (DO-C2): Due to the democratic framework of the organization, members should have the same chance to participate. Also, the organization has to ensure the equality of power distribution among gender and wealth. Enable member economic participation (DO-C3): The organization’s capital should be a shared property that might be invested in further developing the organization and its members. Guarantee autonomy and independence (DO-C4): The organization should be driven by its members and, therefore, be autonomous and independent from other organizations’ interests. Provide education, training, and information (DO-C5): The organization should provide education and training to its members to foster reasoned decisions on the organizations’ development and to enable appropriate cooperation. Enable cooperation among cooperatives (DO-C6): Cooperation within and outside the organization is vital for the organization’s development. Enable concern for the community (DO-C7): To guarantee the execution of the members’ interests, the members shape the organization through member-approved policies."
+                - paragraph [ref=e336]:
+                  - text: In the second step, we determined the criteria of how those identified design objectives can be evaluated and which problem area would be resolved by the respective design objective. Therefore, Table
+                  - link "3" [ref=e337] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Tab3
+                  - text: summarizes the design objectives and their evaluation criteria concerning the relevant problem areas.
+                - figure "Table 3 Design objectives for a cooperative-oriented DAO in the agricultural sector" [ref=e339]:
+                  - generic [ref=e340]: Table 3 Design objectives for a cooperative-oriented DAO in the agricultural sector
+                  - link "Full size table 3" [ref=e342] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7/tables/3
+                    - text: Full size table
+                    - img [ref=e343]
+            - generic [ref=e346]:
+              - heading "5 Design, development, and demonstration" [level=2] [ref=e347]
+              - generic [ref=e348]:
+                - paragraph [ref=e349]:
+                  - text: The design objectives were the foundation for developing our artifact, a cooperative-oriented DAO, the so-called AgriDAO. The AgriDAO is a DAO in the agricultural sector that makes use of cooperative principles allowing its members to control cooperation. Its primary purpose is to facilitate smallholders’ collaborative activities. Subsequently, the AgriDAO shall enable financial inclusion (i.e., access to inputs and credits) and coordinate long-term sales and corresponding sales contracts. Coordination uses a propose-and-vote approach, thus, providing a democratic decision-making process. The entire proposal-making and -voting process as well as all services are backed by smart contracts and the underlying blockchain infrastructure. This setup allows for automation (Fridgen et al.
+                  - link "Reference 2018" [ref=e350] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR18
+                    - text: "2018"
+                  - text: ), interoperability (Korpela et al.
+                  - link "Reference 2017" [ref=e351] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR35
+                    - text: "2017"
+                  - text: ), as well as security and trust building (Beck et al.
+                  - link "Reference 2016" [ref=e352] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR3
+                    - text: "2016"
+                  - text: ). Besides, all interactions between a member and the AgriDAO, including its services, can be executed using a user interface that a web frontend or smartphone application can provide.
+                - heading "5.1 Smart contracts and AgriDAO design" [level=3] [ref=e353]
+                - paragraph [ref=e354]:
+                  - text: We developed various smart contracts that implement functionalities. For instance, those exist for the organization’s founding, adding new members, creating proposals like buying a new machine, voting for proposals, and, eventually, leaving the organization. We adapted design decisions from existing DAO concepts, such as The DAO (Jentzsch
+                  - link "Reference 2016" [ref=e355] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR28
+                    - text: "2016"
+                  - text: ) and DAOStack (Dounas and Lombardi
+                  - link "Reference 2019" [ref=e356] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR13
+                    - text: "2019"
+                  - text: ). Those concepts primarily include the idea of having a modular set of smart contracts, providing long-term adaptability. However, due to the specific use case scenario, we had to make various adaptions to existing designs. In the following, we briefly describe the main implemented functionalities, for which Fig.
+                  - link "2" [ref=e357] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Fig2
+                  - text: summarizes the smart contract design of the AgriDAO.
+                - paragraph [ref=e358]: To become a new member of the AgriDAO, existing members must first decide whether they agree on the new member. More specifically, a potential member (e.g., a smallholder) requests to join the AgriDAO. Then, all existing members can vote on allowing the smallholder to enter the AgriDAO democratically. If joining the AgriDAO is denied, the underlying smart contract refuses to accept any new applications from that person for a specified period.
+                - figure "Fig. 2" [ref=e360]:
+                  - generic [ref=e362]: Fig. 2
+                  - generic [ref=e363]:
+                    - generic [ref=e364]:
+                      - img "Fig. 2" [ref=e366]
+                      - generic [ref=e367]: The alternative text for this image may have been generated using AI.
+                      - link "Full size image figure 2" [ref=e369] [cursor=pointer]:
+                        - /url: /article/10.1007/s10257-023-00659-7/figures/2
+                        - text: Full size image
+                        - img [ref=e370]
+                    - paragraph [ref=e373]: Smart contract design of the AgriDAO
+                - paragraph [ref=e374]:
+                  - text: Performing a new business transaction in the AgriDAO builds on a corresponding proposal for action. Proposals include necessary information on the planned activity and may optionally refer to a smart contract, formally describing the appropriate action. Based on such a proposal, other members can discuss the raised topic and eventually employ the ”VotingMachine” contract to give their votes. Following this approach, the AgriDAO follows a grassroots democracy, where potentially every decision is made by the organization’s members (Merkle
+                  - link "Reference 2016" [ref=e375] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR44
+                    - text: "2016"
+                  - text: ). Only when the majority of members of the AgriDAO accept a proposal, the related activities are performed, and the proposed business transaction can be executed.
+                - paragraph [ref=e376]:
+                  - text: Existing DAO designs use the token amount of a member to calculate the voting weight. However, such an approach would result in a plutocracy, where the individual’s power is directly based on their economic power, i.e., the tokens the individual owns (Beck et al.
+                  - link "Reference 2018" [ref=e377] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR4
+                    - text: "2018"
+                  - text: ; Dupont
+                  - link "Reference 2017" [ref=e378] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR14
+                    - text: "2017"
+                  - text: ; Jentzsch
+                  - link "Reference 2016" [ref=e379] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR28
+                    - text: "2016"
+                  - text: ). Therefore, to fulfill the requirement of a democratic approach, we decided against such a design and favored a reputation-based voting system. In the beginning, each member has the same weight but can accumulate additional weight by taking an active role in the AgriDAO (e.g., by voting on proposals). Hence, participation is directly rewarded with higher voting power managed by the “ReputationManager” contract, potentially providing additional incentives to use the system (Beck et al.
+                  - link "Reference 2016" [ref=e380] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR3
+                    - text: "2016"
+                  - text: ).
+                - paragraph [ref=e381]: We implemented an “Avatar” contract to establish identification and interaction with other parties (e.g., investors or retailers). The Avatar features basic meta-information about the organization, such as its name and mission. Furthermore, it manages the wallet of the AgriDAO and appropriate assets. Consequently, any financial transaction origins from the Avatar. The actions mentioned above regularly make use of the Avatar to run transactions. For example, an approved action can take control of the Avatar and then carries out business transactions in the name of the AgriDAO and with the respective assets.
+                - heading "5.2 Implementation" [level=3] [ref=e382]
+                - paragraph [ref=e383]:
+                  - text: Based on the above design, we implemented an artifact instantiation on the Ethereum test environment. Ethereum is a public permissionless blockchain with low entry barriers and offers Turing-complete smart contracts, which we use for developing business logic (Buterin
+                  - link "Reference 2014" [ref=e384] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR5
+                    - text: "2014"
+                  - text: ). The prototype helped us to understand the feasibility of the design better. In particular, we employed the Infura service to gain access to the Blockchain. Employing such a gateway, smallholders can use the Ethereum network without hosting their own nodes. Smart contract programming was performed using Solidity and Truffle for deployment. Five smart contracts represent the main AgriDAO functionalities. Two additional smart contracts are used for the mintable ERC20 token implementation and further five smart contracts are employed for additional helping functions, including access and roles management as well as safe math features.
+                - paragraph [ref=e385]:
+                  - text: While the AgriDAO resides on the Blockchain, interaction with it differs from traditional organizations. Therefore, the underlying blockchain network is used for conducting business transactions. However, to reduce barriers to accessing the AgriDAO services, our artifact also provides a graphical user interface. This interface augments our AgriDAO with a decentralized application (see Fig.
+                  - link "3" [ref=e386] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Fig3
+                  - text: ). Users can employ the interface to interact with the AgriDAO, without programming code-level calls of smart contract functions. We implemented the graphical user interface using the ReactJS and Ionic framework, which allows for hybrid app development, providing not only native app support for Android and iOS but also a web-based representation. Therefore, any user owning a respective device with access to the Internet can use the underlying AgriDAO, ensuring broad applicability. The app also supports wallet functions by employing Metamask for managing crypto materials and, hence, authentication when using the decentralized application.
+                - figure "Fig. 3" [ref=e388]:
+                  - generic [ref=e390]: Fig. 3
+                  - generic [ref=e391]:
+                    - generic [ref=e392]:
+                      - img "Fig. 3" [ref=e394]
+                      - generic [ref=e395]: The alternative text for this image may have been generated using AI.
+                      - link "Full size image figure 3" [ref=e397] [cursor=pointer]:
+                        - /url: /article/10.1007/s10257-023-00659-7/figures/3
+                        - text: Full size image
+                        - img [ref=e398]
+                    - paragraph [ref=e401]: Architecture of the AgriDAO decentralized application
+                - heading "5.3 Demonstration" [level=3] [ref=e402]
+                - paragraph [ref=e403]:
+                  - text: For the demonstration of our artifact, we refer to an exemplary use case where the members of the AgriDAO seek funding for a new harvesting machine. Figure
+                  - link "4" [ref=e404] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Fig4
+                  - text: provides a simplified Unified Modeling Language sequence diagram, giving an overview of the involved stakeholders and activities.
+                - paragraph [ref=e405]: The process starts with a proposal from a member, i.e., a proposal creator publishes the proposal of buying a new harvesting machine using createProposal(). Once the proposal is created, members will receive a newProposalEvent, notifying them about the new proposal. This proposal includes general information such as the proposal name or description and an action, referencing the smart contract that consists of the formal representation of the proposal. In the example, the smart contract contains functions for collecting funding from investors and payment transfers to the harvesting machine’s eventual seller. The members of the AgriDAO can now individually vote and decide whether they would like to accept the proposal or decline it. As soon as the pre-defined voting time elapses, the proposal creator receives a notification. It must be noted that the time is globally set in the Avatar smart contract and can be changed by vote. If the proposal was successful, the member could register the action using registerAction(). The appropriate action now becomes an integral part of the AgriDAO so that corresponding actions in the organization’s name can be performed.
+                - figure "Fig. 4" [ref=e407]:
+                  - generic [ref=e409]: Fig. 4
+                  - generic [ref=e410]:
+                    - generic [ref=e411]:
+                      - img "Fig. 4" [ref=e413]
+                      - generic [ref=e414]: The alternative text for this image may have been generated using AI.
+                      - link "Full size image figure 4" [ref=e416] [cursor=pointer]:
+                        - /url: /article/10.1007/s10257-023-00659-7/figures/4
+                        - text: Full size image
+                        - img [ref=e417]
+                    - paragraph [ref=e420]: "Simplified sequence diagram of an exemplary use case: Raising funding for a new harvesting machine"
+                - paragraph [ref=e421]: In our example, previous funding from investors, such as private investors or banks, is required. Therefore, an investor can call the getDetails() function to receive details of the planned actions and general information about the AgriDAO, including registered assets and the organization’s financial situation. If the investors agree to fund the AgriDAO, they can call fundAction(), automatically transferring Ethereum’s cryptocurrency Ether from the investor’s wallet to the AgriDAO. If the required funding amount is met, purchaseMachine() will get automatically executed, which transfers the money to the harvesting machine’s seller and registers the machine as a new asset of the AgriDAO.
+            - generic [ref=e423]:
+              - heading "6 Evaluation" [level=2] [ref=e424]
+              - generic [ref=e425]:
+                - paragraph [ref=e426]: As stated above, we conducted several interviews to evaluate the final artifact. This procedure helped us to validate the artifact’s effectiveness and technical feasibility. We first mapped our findings from the literature screening, the artifact’s development process, its instantiation, and the expert interviews with the pre-defined design objectives, which we qualitatively assessed and summarized in a table afterward. Thus, we refer to literature and interviewee statements in the criteria-based evaluation. As a second part of the evaluation, we present insights into the interviews with further feedback on our artifact, going beyond the criteria-based assessment.
+                - heading "6.1 Criteria-based evaluation" [level=3] [ref=e427]
+                - paragraph [ref=e428]:
+                  - text: Since we used the presented design objectives from Sect.
+                  - link "4" [ref=e429] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Sec6
+                  - text: ", the criteria-based evaluation is also divided into smallholder-specific and cooperative-specific criteria. First, we illustrate the smallholder-specific evaluation findings."
+                - paragraph [ref=e430]: "Provide sufficient incentives to prevent free-riders (DO-S1) - evaluation of incentive mechanisms: The voting mechanism is reputation-based, where active users might gain higher voting weight and more power to steer the organization. Furthermore, any proposal might also include a reward payment automatically triggered if the organization members accept the proposal. Thus, users are incentivized to create proposals in the community’s sense [TE1, TE2, TE3]."
+                - blockquote [ref=e431]:
+                  - paragraph [ref=e433]: “I see the need for incentivization to solve the free-rider problem.” [TE2]
+                - paragraph [ref=e434]: "Allow for exit including getting some funding back (DO-S2) - evaluation of exit conditions and implications: Blockchain technology allows for extensive logging of various actions, including members’ engagement and financial involvement. When a user decides to leave the AgriDAO, this log can be used to identify the amount of investment. Based on a pre-defined parameter, the user can get a proportion of funding back, which is crucial for participation [TE3]."
+                - blockquote [ref=e435]:
+                  - paragraph [ref=e437]: “I do think it might make sense to pay out a certain security deposit [in the case of an exit].” [TE3]
+                - paragraph [ref=e438]:
+                  - text: "Ensure low operative running costs (DO-S3) - evaluation of monitoring costs: As the smallholders’ financial situation is critical, costs for decision execution should be as low as possible [DE2]. Therefore, autonomous, decentralized decision execution, which does not need monitoring, reduces a cooperative’s cost to a minimum. Yet, cost estimations also need to consider infrastructure costs (Buterin"
+                  - link "Reference 2014" [ref=e439] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR5
+                    - text: "2014"
+                  - text: ).
+                - blockquote [ref=e440]:
+                  - paragraph [ref=e442]: “They don’t even have money for food for the next day.” [DE2]
+                - paragraph [ref=e443]: "Prevent managerial misbehavior (DO-S4) - evaluation of governance: The AgriDAO can be entirely member-driven and does not have to rely on management. Thus, the concept of decentralized decision-making and governance prevents any managerial misbehavior. In The DAO, so-called curators were installed to avoid managerial misconduct, which TE1 and TE3 viewed skeptically. In their opinion, curators would undermine the core concept of decentralization and trust without intermediaries. Therefore, we decided not to implement curators in the AgriDAO and provide an information system without intermediaries."
+                - blockquote [ref=e444]:
+                  - paragraph [ref=e446]: “If all parties trust the curators, those can be useful, however, users would depend on the good will of the curators. Decisions are understandable, but difficult to reverse.” [TE1]
+                - paragraph [ref=e447]:
+                  - text: "Provide objective decision-making mechanisms (DO-S5) - evaluation of decision-making procedure: In the case of majority-based decisions, actions will be executed autonomously and in compliance with member coherence. Nevertheless, due to the transparency of the Blockchain, members can monitor the current state of decision-making (Beck et al."
+                  - link "Reference 2018" [ref=e448] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR4
+                    - text: "2018"
+                  - text: ). However, transparency might lead members to make their voting decision dependent on already conducted votes (Tarasov and Tewari
+                  - link "Reference 2017" [ref=e449] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR63
+                    - text: "2017"
+                  - text: ), which is also confirmed as a risk by DE3.
+                - blockquote [ref=e450]:
+                  - paragraph [ref=e452]: “If I can see the current status of the votes before submitting my vote, it is not entirely democratic in my understanding. For me, this is a form of manipulation. As a voter, you could be influenced by the opinion of others.” [DE3]
+                - paragraph [ref=e453]:
+                  - text: "Provide options for secure property rights management (DO-S6) - evaluation of fulfillment: Blockchain and smart contracts ensure that property rights concerning machines or land are enforced (Kshetri and Voas"
+                  - link "Reference 2018" [ref=e454] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR37
+                    - text: "2018"
+                  - text: ). Nevertheless, TE3 raises awareness of the multiple corruption possibilities caused by the oracle problem concerning the input of trusted data to the Blockchain. Caldarelli et al. (
+                  - link "Reference 2020" [ref=e455] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR6
+                    - text: "2020"
+                  - text: ) also stress the importance of addressing the oracle problem for assessing blockchain applications in sustainable contexts. Specifically, persons with malicious intentions can tamper with the AgriDAO due to actions taking place off-chain. However, DE1 stated that due to the proximity of smallholders, the oracle problem could be solved by employing social control mechanisms (e.g., public shaming) and does not need to be further addressed on the technology layer.
+                - blockquote [ref=e456]:
+                  - paragraph [ref=e458]: “Social control through the proximity of farmers to each other in real life could be an important aspect in the AgriDAO.” [DE3]
+                - paragraph [ref=e459]: "Provide means of contract enforcement (DO-S7) - evaluation of enforcement procedures: Due to autonomous contract execution after positive voting, no manipulation is possible. Instead, contracts and their execution are enforced, which is a suitable approach due to the lack of contract enforcement options in developing countries [DE2]. In the context of smart contracts, TE2 highlighted that these contracts might not be juridical and, therefore, not legally binding for the contractual parties. As a recommendation, TE2 proposed implementing a mechanism similar to the general terms and conditions that members must accept when entering the AgriDAO."
+                - blockquote [ref=e460]:
+                  - paragraph [ref=e462]: “The problem is that we do not have contracts. This is why people are abandoning the law. There are even no contracts for jobs (…).” [DE2]
+                - paragraph [ref=e463]: "Allow for resource pooling (DO-S8) - evaluation of investment options: Through the option to make proposals that reflect a common member interest, acquisitions, and resource pooling is enabled, which is the nature of a cooperative [DE3]. Resource pooling is essential as smallholders have insufficient investment capacities, and creditors do not support them due to the risky investment environment [DE2]. In this context, TE1 stated that allowing donations through external parties might generate cash flow without prompting the members’ decision authority."
+                - blockquote [ref=e464]:
+                  - paragraph [ref=e466]: “A cooperative has the idea of regionality. (…) Originally, farmers could no longer afford the seed and joined together to get a discount. This has then developed more and more.” [DE3]
+                - paragraph [ref=e467]:
+                  - text: "Provide transparency on decision-making and Execution (DO-S9) - evaluation of transparency of business processes: Blockchain technology transparently and securely logs any action of the AgriDAO and its members (Conley"
+                  - link "Reference 2017" [ref=e468] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR8
+                    - text: "2017"
+                  - text: ). The experts emphasized that transparency should be provided for the internal members of the AgriDAO and external parties [TE1, TE2, TE3, DE1, DE2]. Thus, decision-making and execution are valid for everyone as long as it is settled on the Blockchain.
+                - blockquote [ref=e469]:
+                  - paragraph [ref=e471]: “For Smart Contracts, there is a need to reduce the social imbalance between economically struggling and economically strong people. Accountability comes with transparency. (…) So [transparency] has to come with the blockchain.” [DE2]
+                - paragraph [ref=e472]: In the second step, we provide insights into the cooperative-specific evaluation findings.
+                - paragraph [ref=e473]: "Provide a voluntary and open membership (DO-C1) - Evaluation of entrance burdens and restrictions: The AgriDAO design ensures that anyone with Internet access can become a member. Nevertheless, the final decision, whether a new member can join, is dependent on the democratic choice of the existing members. TE2 stated that this gatekeeping process is a necessity to prevent manipulation."
+                - blockquote [ref=e474]:
+                  - paragraph [ref=e476]: “I imagine implementing something like voting on who gets accepted into the AgriDAO, or peer reputation systems in a work-of-trust sense to link the AgriDAO to real-world identities.” [TE2]
+                - paragraph [ref=e477]:
+                  - text: "Guarantee democratic member control (DO-C2) - Evaluation of control mechanisms such as conditions and implications of entry, exit, and decision-making: In contrast to traditional organizations, decision-making is not controlled by contracts or loose agreements but instead based on computer code that is enforced by the Blockchain (Wright and Filippi"
+                  - link "Reference 2015" [ref=e478] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR71
+                    - text: "2015"
+                  - text: ). In the AgriDAO, tamper-secure smart contracts define a voting-based decision-making process. Thus, decisions are made by the members rather than by intermediaries (Merkle
+                  - link "Reference 2016" [ref=e479] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR44
+                    - text: "2016"
+                  - text: ). However, TE2 notes existing manipulation potential and a transparency lack outside of the AgriDAO due to missing control over off-chain actions.
+                - blockquote [ref=e480]:
+                  - paragraph [ref=e482]: “Another issue you could think about is how the system could be manipulated. (…) For example, a financially strong investor could buy more tokens and manipulate the voting to enforce his interest.” [TE2]
+                - paragraph [ref=e483]:
+                  - text: "Enable member economic participation (DO-C3) - evaluation of fulfillment: Due to smart contracts, the AgriDAO can directly own cryptocurrencies and tokens, eventually representing real-world assets (Buterin"
+                  - link "Reference 2014" [ref=e484] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR5
+                    - text: "2014"
+                  - text: ). Potentially, any member of the organization can use these assets by creating a proposal addressing them, which supports the overarching goal of a cooperative [DE3].
+                - blockquote [ref=e485]:
+                  - paragraph [ref=e487]: “Everyone invests what he or she can and gets the same benefit in return.” [DE3]
+                - paragraph [ref=e488]: "Guarantee autonomy and independence (DO-C4) - evaluation of resistance against external influence: Decision-making of the AgriDAO is fundamentally made by the members and, therefore, independent from other market participants and intermediaries. In this context, DE2 recommended using an unbiased infrastructure for decision independence so parties outside the organization cannot influence the members’ decisions."
+                - blockquote [ref=e489]:
+                  - paragraph [ref=e491]: “We need an unbiased infrastructure without someone in the middle.” [DE2]
+                - paragraph [ref=e492]: "Provide education, training, and information (DO-C5) - Evaluation of access to knowledge, training, and information: Our artifact design does not automatically ensure the provisioning of education or training. Nevertheless, members might make proposals, suggesting the contractual assignment of these tasks to professionals, like consultancy firms or universities."
+                - blockquote [ref=e493]:
+                  - paragraph [ref=e495]: “The topic of education is important. How do you show people the ways in which they interact and how can you disseminate this [information]? For example, against the background of financial literacy, it may be that the understanding regarding the concept of saving is not uniform among members.” [TE2]
+                - paragraph [ref=e496]:
+                  - text: "Enable cooperation among cooperatives (DO-C6) - evaluation of cooperation mechanisms: Smart contracts allow the implementation of arbitrary business transactions (Christidis and Devetsikiotis"
+                  - link "Reference 2016" [ref=e497] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR7
+                    - text: "2016"
+                  - text: ). The Ethereum protocol treats smart contracts the same way as regular users (Buterin
+                  - link "Reference 2014" [ref=e498] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR5
+                    - text: "2014"
+                  - text: ). As such, there is not only interaction between the organization and particular people, but it is also possible to allow any interaction between multiple cooperatives. The smart contracts should be designed depending on the smallholders’ intentions for action [TE3].
+                - blockquote [ref=e499]:
+                  - paragraph [ref=e501]: "“For small processes that do not seem enormously relevant at first glance, the question is whether it is even worth setting up such a complicated coordination process. (…) It depends very much on the needs of the farmers: If they want to take out a joint loan or finance something collectively, then a simple logic of a smart contract would be enough. If the goal is to go significantly beyond that, then you have to include more [in the smart contract] than financing a major acquisition.” [TE3]"
+                - paragraph [ref=e502]: "Enable concern for community (DO-C7) - evaluation of fulfillment: The AgriDAO is based on the principle that each member can participate and vote. Through the votes and proposals, members can shape the cooperative to ensure that the cooperative follows the members’ interests. Hereby, members must be informed about the proposals’ existence and content [DE3]."
+                - blockquote [ref=e503]:
+                  - paragraph [ref=e505]: “I often felt that people did not know what to vote on and were very easily influenced because of it.” [DE3]
+                - paragraph [ref=e506]:
+                  - text: The results summarized in Table
+                  - link "4" [ref=e507] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Tab4
+                  - text: "illustrate that the developed artifact may help to overcome the fundamental problems of smallholders and cooperatives. We used a qualitative approach for the summarizing evaluation: We assessed whether the AgriDAO has either improved (+) or deteriorated the situation (-) for smallholders or whether the situation remains unchanged (0)."
+                - figure "Table 4 Evaluation of design objectives’ fulfillment in the AgriDAO" [ref=e509]:
+                  - generic [ref=e510]: Table 4 Evaluation of design objectives’ fulfillment in the AgriDAO
+                  - link "Full size table 4" [ref=e512] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7/tables/4
+                    - text: Full size table
+                    - img [ref=e513]
+                - heading "6.2 Further feedback from the interviewees" [level=3] [ref=e515]
+                - paragraph [ref=e516]: Besides evaluating the design objectives, we also got a thorough picture of our design solution on a more holistic level through the expert interviews, which we present and discuss in the following.
+                - paragraph [ref=e517]: TE1 challenged the analogy to The DAO and mentioned that DAO concepts and governance mechanisms do not apply to all organizations to the same extent.
+                - blockquote [ref=e518]:
+                  - paragraph [ref=e520]: “Can you even compare [the AgriDAO] to the original DAO, as there were completely different motivations behind it?” [TE1]
+                - paragraph [ref=e521]: Due to its specific context, we had to alter various design decisions compared to existing DAO designs, which led to the conclusion that various applications of DAOs require different design efforts. The interviewees also supported this understanding.
+                - paragraph [ref=e522]: Besides, TE2 and TE3 focused on various attack scenarios. One emphasis was the entry of a new participant in the AgriDAO. Even though new members are chosen and confirmed by existing members, there is still potential for corruption and tampering of voting taking place off-chain. One solution approach may be a peer-to-peer reputation system for voting, as proposed by TE2 to confirm the identity of new members.
+                - blockquote [ref=e523]:
+                  - paragraph [ref=e525]: “Promising could be a peer-to-peer reputation system [when entering the organization] to ensure that persons are who they claim they are.” [TE2]
+                - paragraph [ref=e526]: Furthermore, all three technical experts assessed the comprehensibility and trust in the programming code of the contract schemes as crucial during the interviews. As smallholders do not have coding expertise, they might need a foundation providing a framework that implements certain functionalities. However, the foundation’s capability of assessing all specific design objectives of the AgriDAO a priori is questionable. Consequently, there is a high probability for a rigid system without sufficient flexibility to face the dynamic adequately. Also, there is an increasing centralization and dependence of smallholders on a foundation. In the case of a smallholder not wanting to trust a third party, the experts claimed to facilitate a rough understanding of programming codes.
+                - blockquote [ref=e527]:
+                  - paragraph [ref=e529]: “Trust in people is replaced by trust in technology, which in turn is created by people [due to the need for programming code].” [TE3]
+                - paragraph [ref=e530]: We know the importance of guaranteeing a cooperative’s core principle of providing one equal vote for each member, which DE3 also stressed in the evaluation.
+                - blockquote [ref=e531]:
+                  - paragraph [ref=e533]: "“I understand your thoughts and think it is very important [to separate tokens from voting rights]. However, with the cooperative, it is basically like this: everyone invests whatever he or she can and gets the same benefit in return. This also means that you really only get one voting right.” [DE3]"
+                - paragraph [ref=e534]: However, we decided to implement a reputation-based voting mechanism in which members can gain higher voting weight if they are more active in the organization. In particular, this includes participating in voting or making proposals. Ultimately, active members get more power for the organizations’ steering, which we found a suitable incentive to ensure willingness for participation and enable purposeful cooperation.
+                - paragraph [ref=e535]: Overall, the experts agreed on the suitability of our prototype to tackle the problem areas related to smallholders and cooperatives. Thus, we could show that a cooperative-oriented DAO might be an innovative and promising solution to enable smallholders’ purposeful cooperation.
+                - blockquote [ref=e536]:
+                  - paragraph [ref=e538]: “You created a valuable architecture [for which] the separation of tokens and voting rights is a core value proposition.” [TE1]
+            - generic [ref=e540]:
+              - heading "7 Discussion of results and derivation of design principles" [level=2] [ref=e541]
+              - generic [ref=e542]:
+                - paragraph [ref=e543]: In the first step, we reflect on and discuss our findings. Afterward, we derive design principles by triangulating our findings from the literature analysis related to smallholders, cooperatives, and DAOs, our observations during the artifact’s development process, and the feedback received during the interviews to formulate design principles. Specifically, every author first came up with a proposal of design principles, which were then discussed in a joint workshop session with all authors. As a result, we could identify a final set of eight design principles. Those shall function as a guideline for researchers and practitioners to design and implement cooperative-oriented DAOs and are, thus, of socio-technical nature.
+                - heading "7.1 Discussion of results" [level=3] [ref=e544]
+                - paragraph [ref=e545]:
+                  - text: Our artifact underlines the possibility of implementing a DAO that makes use of cooperative principles to facilitate cooperation of smallholders. Instead of relying on traditional contractual agreements, the AgriDAO employs smart contracts to reduce transaction costs when enforcing contracts. The AgriDAO also improves transparency and a democratic decision-making process. With the development of the AgriDAO, we started to rethink organizations in agricultural contexts. The AgriDAO may play a decisive role in initiating “a new generation of dynamic and alternative forms of commercial organization” (Poole and Frece
+                  - link "Reference 2010" [ref=e546] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR78
+                    - text: "2010"
+                  - text: ", p.13). In the following, we will discuss these issues in more detail."
+                - paragraph [ref=e547]:
+                  - text: Following Poole (
+                  - link "Reference 2017" [ref=e548] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR52
+                    - text: "2017"
+                  - text: ) as well as Romero Granja and Wollni (
+                  - link "Reference 2019" [ref=e549] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR55
+                    - text: "2019"
+                  - text: ), especially uncertainty in farming cooperatives can lead to rising transaction costs (Cook and Iliopoulos
+                  - link "Reference 2016" [ref=e550] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR10
+                    - text: "2016"
+                  - text: ), reduced investments, and ultimately hinder the sustainable development of these initiatives. Employing smart contracts and blockchain technology, the AgriDAO may help realize a higher level of transparency for all stakeholders, including members of the organization and external partners. Considering the potentially lower transaction costs accompanied by higher transparency (Edwards et al.
+                  - link "Reference 2007" [ref=e551] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR15
+                    - text: "2007"
+                  - text: ) and additional certainty provided by the contract enforcement mechanism of the Blockchain (Savelyev
+                  - link "Reference 2017" [ref=e552] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR56
+                    - text: "2017"
+                  - text: ), the AgriDAO might foster more long-term investments and eventually more profitable, efficient, and successful cooperation of smallholders in trust-free environments.
+                - paragraph [ref=e553]:
+                  - text: Our research was motivated after identifying the potential of the DAO concept to complement the core principles of cooperatives. Therefore, we decided to employ both concepts and develop a DAO in the agricultural sector that makes use of cooperative principles, the AgriDAO. For cooperatives and DAOs, voluntary and open membership, democratic member control, member economic participation, or autonomy and independence are pivotal. Thus, we designed our AgriDAO based on the concept of The DAO and implemented multiple smart contracts to steer the organization. Nevertheless, we decided against The DAO’s voting mechanism since it would promote plutocracy. Instead, we employed a reputation-based voting system to strengthen democratic principles and assure that voting power is independent of the members’ economic status. Thereby, we could resolve this conceptual mismatch. Even more, we could implement an immaterial incentive mechanism through the reputation-based voting system to enhance members’ participation and concern for the community. Through our evaluation, we confirmed our assumption that cooperatives and DAOs have much in common and provided evidence that the design of the AgriDAO sufficiently fulfills the design objectives. Only the entry into the AgriDAO (i.e., the membership itself) is subject to a gatekeeping process and is not entirely open. While the guidelines of the ICA (
+                  - link "Reference 2018" [ref=e554] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR26
+                    - text: "2018"
+                  - text: ) do not follow any legal definition, we believe that it might provide the first indication for research on how to treat such kind of organization. In Table
+                  - link "5" [ref=e555] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Tab5
+                  - text: ", we summarize major commonalities and differences between the characteristics of cooperatives, DAOs, and our AgriDAO."
+                - figure "Table 5 Commonalities and differences between cooperatives, DAOs, and AgriDAO" [ref=e557]:
+                  - generic [ref=e558]: Table 5 Commonalities and differences between cooperatives, DAOs, and AgriDAO
+                  - link "Full size table 5" [ref=e560] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7/tables/5
+                    - text: Full size table
+                    - img [ref=e561]
+                - paragraph [ref=e563]:
+                  - text: Given our results, existing theories on organizations and specifically on cooperatives might be applicable to smart contract-governed organizations. For example, as Hart and Moore (
+                  - link "Reference 1999" [ref=e564] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR22
+                    - text: "1999"
+                  - text: ) proposed, the problem of complete contracts might still be valid for DAOs. Hereby, the authors conclude that complete contracts are generally prohibitively expensive, providing evidence that smart contracts cannot cover all eventualities. Therefore, an adequate “depth” of the contents of contracts must be found (Mehar et al.
+                  - link "Reference 2019" [ref=e565] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR43
+                    - text: "2019"
+                  - text: ). In the AgriDAO, such eventualities might either come in programming flaws, e.g., the one that hit The DAO (Dupont
+                  - link "Reference 2017" [ref=e566] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR14
+                    - text: "2017"
+                  - text: ), or unforeseen situations not covered by the program code. In the case of The DAO, an unknown individuum exploited the underlying contract and drained around 50 Mio USD worth of tokens. As this person did not break the code but instead used it unintendedly under the code-is-law paradigm, discussion arose about whether this behavior should be regarded as “right” or “wrong”. In the end, this discussion led to the decision of the core development team of Ethereum to perform a fork (Merkle
+                  - link "Reference 2016" [ref=e567] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR44
+                    - text: "2016"
+                  - text: ). This choice resembles the conclusion of a court when traditional contracts show potential loopholes and an entitled party has to decide how to solve the issue (Krasa and Villamil
+                  - link "Reference 2000" [ref=e568] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR36
+                    - text: "2000"
+                  - text: ).
+                - heading "7.2 Design principles" [level=3] [ref=e569]
+                - paragraph [ref=e570]:
+                  - text: Introducing a novel artifact and proposing eight design principles adds value to the current research and enriches the existing body of knowledge (Seckler et al.
+                  - link "Reference 2021" [ref=e571] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR58
+                    - text: "2021"
+                  - text: ). In particular, we deliver insights into how the concept of DAOs as a new form of organization and cooperatives as a rather traditional and established form of organization could be combined to create value. Our developed and evaluated artifact, the AgriDAO, demonstrated that designing a DAO in the agricultural sector that makes use of cooperative principles is possible. Thus, our artifact serves as a practical blueprint and guides building a tailored DAO to address the challenges of smallholders and cooperatives. It further enables s starting point for deeper investigations in the future. Finally, we propose eight principles to design and implement cooperative-oriented DAOs, which shall guide researchers and practitioners in future developments of such organizations. Since these design insights are, to the best of our knowledge, the first of their kind, we hope they will mark a starting point for lively discussion and extensive exploration of this new form of organization by researchers and practitioners.
+                - paragraph [ref=e572]:
+                  - text: Table
+                  - link "6" [ref=e573] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#Tab6
+                  - text: summarizes the identified design principles and the problem areas they address.
+                - figure "Table 6 Design principles and addressed problem areas for cooperative oriented-DAOs" [ref=e575]:
+                  - generic [ref=e576]: Table 6 Design principles and addressed problem areas for cooperative oriented-DAOs
+                  - link "Full size table 6" [ref=e578] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7/tables/6
+                    - text: Full size table
+                    - img [ref=e579]
+                - paragraph [ref=e581]: The following provides more detailed information for each of the eight design principles.
+                - heading "DP1" [level=3] [ref=e582]
+                - paragraph [ref=e583]: Use a public infrastructure that allows for pseudonymity to prevent influence-taking between members within the decision-making process.
+                - paragraph [ref=e584]: The foundation for a trustworthy environment where smallholders are willing to cooperate and no smallholder is discriminated against is pseudonymity. Our artifact, the AgriDAO, used a public permissionless infrastructure to ensure such pseudonymity per default. Thus, network participants can interact pseudonymously in the AgriDAO. Only entering the AgriDAO is not possible in a pseudonymous manner, as the assignment between persons and their voting rights would be difficult, as users must be identified, so a multi-registration is not possible. Furthermore, it must be assured that new members are the persons they claim to be. The pseudonymous use of the AgriDAO contributes to solving the influence costs problem (PA-C5), as pseudonymity is a prerequisite to prevent members from influencing others in the decision-making process to enforce their goals.
+                - heading "DP2" [level=3] [ref=e585]
+                - paragraph [ref=e586]: Use standards, application programming interfaces, and standardized processes that provide guidelines for interacting with the DAO and for using its functions to support cooperation within and between different DAOs.
+                - paragraph [ref=e587]: This design principle describes the necessity to provide a clear structure in using the DAO. While rules and guidelines restrict the flexibility of an organization, they also deliver clarity to follow processes. Without well-defined processes, users might be overwhelmed by how to use the functions of the DAO or, even worse, cannot understand the effect of specific actions. Thus, well-defined processes are required for the easy and predictable use of the DAO. In the case of the AgriDAO, most operative actions follow a simple “proposal-voting-action”-principle and define respective functions. Similar to token standards such as ERC20, it is necessary to provide overarching standards so that the functions and interfaces for interacting with the DAO become predictable. Such standards do not only help to interact with DAOs but ultimately also to build them in the first place. Finally, this standardization and formalization supports smallholders’ cooperation since it guides smallholders on how an organization can be shaped effectively and efficiently (PA-S2).
+                - heading "DP3" [level=3] [ref=e588]
+                - paragraph [ref=e589]: Use cryptocurrencies and tokenization that facilitate the transferability of (monetary) assets to support strategic and long-term investments.
+                - paragraph [ref=e590]: Long-term cooperation and collective investments are rarely possible in an environment characterized by mistrust and opportunistic behavior. Therefore, a cooperative-oriented DAO must provide means for trustworthy interactions and, in the best case, financial collaboration. Therefore, cryptocurrencies and tokenization play an essential role in the AgriDAO. In particular, cryptocurrencies enable an overview of the undertaken investments and generated benefits for the members since all activities are logged onto the blockchain. If a member leaves the cooperative, it is possible to get insights into the corresponding investment history, which is why the AgriDAO supports strategic investments for growth and ultimately contributes to solving the horizon problem (PA-C2).
+                - heading "DP4.1" [level=3] [ref=e591]
+                - paragraph [ref=e592]: Use smart contracts that automatically execute predefined actions to facilitate the collective allocation of resources.
+                - paragraph [ref=e593]: Smart contracts used in the AgriDAO allow for the collective allocation of resources since they can automatically execute predefined actions when certain conditions are met. For instance, purchasing a harvesting machine could require more money than one person owns, and, thus, members must allocate their resources to buy the machine. Such allocation of resources is not restricted to monetary assets but is also possible for legal services and information, which consequently could increase their productivity and agricultural expertise as well as strengthen their currently weak market position (PA-S1).
+                - heading "DP4.2" [level=3] [ref=e594]
+                - paragraph [ref=e595]: Use smart contracts that allow for automatic enforcement of business rules when certain conditions are met to make the monitoring of decision-making obsolete.
+                - paragraph [ref=e596]: In currently existing cooperatives, opportunistic behavior, distrust, and lack of control prevent cooperation, contract conclusion, and reduction of transaction costs. Against this backdrop, we decided to shift the power from humans to machines and create a trust-free environment (i.e., smart contracts) as code is law. Based on self-executing code (i.e., smart contract “VotingMachine”), the AgriDAO enables the monitoring of management decisions, prevents managerial misbehavior, and enforces willingness for long-term cooperation and contract conclusion in general. Thus, smart contracts simplify monitoring management decisions and make them almost obsolete, ultimately reducing transaction costs (PA-C4).
+                - heading "DP4.3" [level=3] [ref=e597]
+                - paragraph [ref=e598]: Use smart contracts that create a trust-free environment due to “code-is-law” to prevent distrust and opportunism.
+                - paragraph [ref=e599]: A trust-free environment contributes to cooperation independent of the trust between the collaborating people. In the context of the AgriDAO, entering the AgriDAO goes along with the member’s agreement to accept the rule defined by the community. The rules members agreed on are more than loose, informal, or voluntary. Instead, those rules are implemented as code in the smart contracts and follow the logic of “code-is-law”. Consequently, members can be sure that actions are performed as they are supposed to be. Thus, smart contracts hinder opportunistic influence-taking on actions after their initiation. If members want to change how actions are performed, they must change existing smart contracts or create new ones. Both require negotiations and a consensus between the members. We are optimistic that through the creation of a trust-free environment, distrust, and opportunistic behavior can be overcome (PA-S3).
+                - heading "DP5.1" [level=3] [ref=e600]
+                - paragraph [ref=e601]: Use a reputation-based voting system with automatic counting of members’ participation in proposal creating and voting that allows for dynamic adaption of the voting weight to provide incentives for members’ commitment.
+                - paragraph [ref=e602]: Despite the AgriDAO being developed as an alternative to existing cooperatives, the grassroots democratic principle of the organization demands incentives for the members’ active participation. Accordingly, members must be incentivized to create new and vote on existing proposals. Thus, we implemented a reputation-based voting mechanism that automatically rewards members who actively participate and act on behalf of the organization (i.e., smart contract “ReputationManager”). The reputation then directly indicates the members’ voting power. Furthermore, linking access to certain services might also be possible, implying that only active members can use them. Therefore, this design decision contributes to solving the free-rider problem by incentivizing members to participate in the decision-making process (PA-C1).
+                - heading "DP5.2" [level=3] [ref=e603]
+                - paragraph [ref=e604]: Use a reputation-based voting system that supports democratic decision-making to enable investment decisions reflecting members’ individual risk perception.
+                - paragraph [ref=e605]: The last design principle builds on the fact that voting power should not exclusively depend on a user’s tokens to enable democratic decision-making. For example, in The DAO, members can gain additional voting power by acquiring other ERC20 tokens. While this approach might offer ample incentives to purchase souvenirs and eventually invest in the organization, it does not fulfill the requirements of a cooperative. Instead, it creates a plutocratic system, with wealthier members having higher voting power. In the case of the AgriDAO, voting power is initially equally distributed and can be positively influenced by the member’s participation, executed by the reputation-based voting mechanism. This design decision also ensures that investment decisions follow approximately the average risk perception of the DAO members. Thus, it does not solve the portfolio problem on an individual level but facilitates an average-weighted global solution (PA-C3).
+            - generic [ref=e607]:
+              - heading "8 Conclusion" [level=2] [ref=e608]
+              - generic [ref=e609]:
+                - paragraph [ref=e610]:
+                  - text: We designed, developed, and evaluated a DAO in the agricultural sector that made use of cooperative principles, which we named cooperative-oriented DAO. This form of DAO could appropriately address the unique challenges of smallholders and cooperatives in developing countries. Based on the DSR paradigm, the AgriDAO and the corresponding design principles generate applicable solutions for the purposeful cooperation of smallholders in a trust-free environment. In particular, by presenting and discussing insights into the design of the AgriDAO, this paper makes various contributions to research and practice. Our research aims to enrich existing design knowledge by introducing a novel artifact and proposing breakthrough design principles (Seckler et al.
+                  - link "Reference 2021" [ref=e611] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR58
+                    - text: "2021"
+                  - text: ). First, through our artifact, we provide fundamental guidance on how a cooperative-oriented DAO in the agricultural sector can be designed to address the problems of smallholders and cooperatives. Second, we assessed the artifact’s effectiveness and technical feasibility through our performed evaluation. At the same time, we identified the potentials and limitations which may function as valuable input for the future development of such organizations and enables deeper investigations. Third, our derived eight design principles provide guidance for successfully designing and implementing cooperative-oriented DAOs. As these design insights are, to the best of our knowledge, unprecedented, they shall initiate lively discussion and extensive exploration of this new form of organization by both researchers and practitioners.
+                - paragraph [ref=e612]:
+                  - text: In agriculture, cooperatives are a long-established way to coordinate cooperation (Zigran et al.
+                  - link "Reference 2015" [ref=e613] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR75
+                    - text: "2015"
+                  - text: ), and our research provides initial evidence that a DAO making use of cooperative principles may offer various benefits for smallholders. Even though the AgriDAO does not mark the first instantiation of a DAO, we demonstrate that the concept can be altered to perform tasks that conventional cooperatives typically perform. Such DAOs might also add value to other use cases where cooperatives are often considered a valid form of organization. Thus, our work builds the basis for developing and introducing cooperative-oriented DAOs in various other domains.
+                - paragraph [ref=e614]:
+                  - text: Although we pursued a rigorous research approach, our study is subject to three main limitations that stimulate future research. First, the oracle problem concerning the input of trusted data to the blockchain arose. This problem is common in blockchain-based applications and, therefore, not specific to our case. However, due to the possible level of automation in our analyzed case, incorrect real-world information can lead to the organization’s improper actions. Consequently, we are aware of the oracle problem and propose using insurance, such as trusted third parties, as a potential solution, which should be examined and evaluated in more detail in future research. Second, the question of which smart contracts should be selected for performing transactions remains. The interviewed experts assumed that this decision might also depend on the number of transaction costs, given that smallholders’ financial resources are limited. As a basis for corresponding decision guidelines, there needs to be a holistic assessment considering the effort and expenses of a transaction within the AgriDAO in a real-world environment. Third, we note that even though our design solution was evaluated by experts in the field of DAOs, blockchain technology, cooperatives, and agricultural development, the AgriDAO as a prototype was only implemented in a laboratory environment. Thus, future studies can further build on our situated artifact to test it more rigorously and, consequently, accumulate knowledge on that topic (vom Brocke et al.
+                  - link "Reference 2020" [ref=e615] [cursor=pointer]:
+                    - /url: /article/10.1007/s10257-023-00659-7#ref-CR68
+                    - text: "2020"
+                  - text: ). In particular, we see the development and implementation of the AgriDAO in a real-world setting as a promising future research approach. Therefore, we invite scientists and practitioners to build upon our research to initiate pilots for such DAOs in developing countries. Evaluating those pilots might provide further and deeper insights, e.g., regarding a cost comparison of technology implementation and resulting benefits or the system’s usability from the end user’s perspective. Also, the technological awareness and willingness, access to the Internet, and readiness to adopt such technologies could be assessed by including smallholders or smallholder representatives.
+                - paragraph [ref=e616]: Despite the limitations and future research potentials, we made an initial step toward facilitating the cooperation of smallholders in developing countries through an emerging organizational form, the cooperative-oriented DAO.
+          - region "References" [ref=e618]:
+            - generic [ref=e619]:
+              - heading "References" [level=2] [ref=e620]
+              - generic [ref=e622]:
+                - list [ref=e623]:
+                  - listitem [ref=e624]:
+                    - paragraph [ref=e625]:
+                      - text: Abebe GK, Bijman J, Royer A (2016) Are middlemen facilitators or barriers to improve smallholders’ welfare in rural economies? Empirical evidence from Ethiopia. J Rural Stud 43:203–213.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jrurstud.2015.12.004" [ref=e626] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jrurstud.2015.12.004
+                    - paragraph [ref=e627]:
+                      - link "Article reference 1" [ref=e628] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016%2Fj.jrurstud.2015.12.004
+                        - text: Article
+                      - link "Google Scholar reference 1" [ref=e629] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Are%20middlemen%20facilitators%20or%20barriers%20to%20improve%20smallholders%E2%80%99%20welfare%20in%20rural%20economies%3F%20Empirical%20evidence%20from%20Ethiopia&journal=J%20Rural%20Stud&doi=10.1016%2Fj.jrurstud.2015.12.004&volume=43&pages=203-213&publication_year=2016&author=Abebe%2CGK&author=Bijman%2CJ&author=Royer%2CA
+                        - text: Google Scholar
+                  - listitem [ref=e630]:
+                    - paragraph [ref=e631]:
+                      - text: "ASFG (2013) Supporting smallholder farmers in Africa: A framework for an enabling environment."
+                      - link "http://www.fao.org/family-farming/detail/en/c/1109849/" [ref=e632] [cursor=pointer]:
+                        - /url: http://www.fao.org/family-farming/detail/en/c/1109849/
+                      - text: . Accessed 17 January 2020
+                  - listitem [ref=e633]:
+                    - paragraph [ref=e634]: Beck R, Czepluch JS, Lollike N, Malone S (2016) Blockchain – the Gateway to Trust-Free Cryptographic Transactions. Research Papers
+                  - listitem [ref=e635]:
+                    - paragraph [ref=e636]: "Beck R, Müller-Bloch C, King JL (2018) Governance in the Blockchain Economy: a Framework and Research Agenda. J Association Inform Syst 19:1020–1034"
+                    - paragraph [ref=e637]:
+                      - link "Article reference 4" [ref=e638] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.17705%2F1jais.00518
+                        - text: Article
+                      - link "Google Scholar reference 4" [ref=e639] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Governance%20in%20the%20Blockchain%20Economy%3A%20a%20Framework%20and%20Research%20Agenda&journal=J%20Association%20Inform%20Syst&doi=10.17705%2F1jais.00518&volume=19&pages=1020-1034&publication_year=2018&author=Beck%2CR&author=M%C3%BCller-Bloch%2CC&author=King%2CJL
+                        - text: Google Scholar
+                  - listitem [ref=e640]:
+                    - paragraph [ref=e641]: Buterin V (2014) Ethereum white paper. GitHub Repository 1:22–23
+                    - paragraph [ref=e642]:
+                      - link "Google Scholar reference 5" [ref=e643] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Ethereum%20white%20paper&journal=GitHub%20Repository&volume=1&pages=22-23&publication_year=2014&author=Buterin%2CV
+                        - text: Google Scholar
+                  - listitem [ref=e644]:
+                    - paragraph [ref=e645]:
+                      - text: Caldarelli G, Rossignoli C, Zardini A (2020) Overcoming the Blockchain Oracle Problem in the traceability of Non-fungible products. Sustainability 12:2391.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.3390/su12062391" [ref=e646] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.3390/su12062391
+                    - paragraph [ref=e647]:
+                      - link "Article reference 6" [ref=e648] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.3390%2Fsu12062391
+                        - text: Article
+                      - link "Google Scholar reference 6" [ref=e649] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Overcoming%20the%20Blockchain%20Oracle%20Problem%20in%20the%20traceability%20of%20Non-fungible%20products&journal=Sustainability&doi=10.3390%2Fsu12062391&volume=12&publication_year=2020&author=Caldarelli%2CG&author=Rossignoli%2CC&author=Zardini%2CA
+                        - text: Google Scholar
+                  - listitem [ref=e650]:
+                    - paragraph [ref=e651]:
+                      - text: Christidis K, Devetsikiotis M (2016) Blockchains and smart contracts for the internet of things. IEEE Access 4:2292–2303.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1109/ACCESS.2016.2566339" [ref=e652] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1109/ACCESS.2016.2566339
+                    - paragraph [ref=e653]:
+                      - link "Article reference 7" [ref=e654] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1109%2FACCESS.2016.2566339
+                        - text: Article
+                      - link "Google Scholar reference 7" [ref=e655] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Blockchains%20and%20smart%20contracts%20for%20the%20internet%20of%20things&journal=IEEE%20Access&doi=10.1109%2FACCESS.2016.2566339&volume=4&pages=2292-2303&publication_year=2016&author=Christidis%2CK&author=Devetsikiotis%2CM
+                        - text: Google Scholar
+                  - listitem [ref=e656]:
+                    - paragraph [ref=e657]:
+                      - text: Conley JP (2017) Blockchain and the economics of crypto-tokens and initial coin offerings.
+                      - link "http://www.accessecon.com/includes/CountdownloadPDF.aspx?PaperID=VUECON-SUB-17-00008" [ref=e658] [cursor=pointer]:
+                        - /url: http://www.accessecon.com/includes/CountdownloadPDF.aspx?PaperID=VUECON-SUB-17-00008
+                  - listitem [ref=e659]:
+                    - paragraph [ref=e660]:
+                      - text: Cook ML (1994) The role of management behavior in agricultural cooperatives. J Agric Coop 9:1–17.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.22004/AG.ECON.46402" [ref=e661] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.22004/AG.ECON.46402
+                  - listitem [ref=e662]:
+                    - paragraph [ref=e663]:
+                      - text: "Cook ML (1995) The future of U.S. Agricultural cooperatives: a Neo-institutional Approach. Am J Agric Econ 77:1153–1159."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.2307/1243338" [ref=e664] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2307/1243338
+                    - paragraph [ref=e665]:
+                      - link "Article reference 10" [ref=e666] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2307%2F1243338
+                        - text: Article
+                      - link "Google Scholar reference 10" [ref=e667] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=The%20future%20of%20U.S.%20Agricultural%20cooperatives%3A%20a%20Neo-institutional%20Approach&journal=Am%20J%20Agric%20Econ&doi=10.2307%2F1243338&volume=77&pages=1153-1159&publication_year=1995&author=Cook%2CML
+                        - text: Google Scholar
+                  - listitem [ref=e668]:
+                    - paragraph [ref=e669]:
+                      - text: "Cook ML, Iliopoulos C (2016) Generic solutions to coordination and organizational costs: informing cooperative longevity. J Chain Netw Sci 16:19–27."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.3920/JCNS2016.x001" [ref=e670] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.3920/JCNS2016.x001
+                    - paragraph [ref=e671]:
+                      - link "Article reference 11" [ref=e672] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.3920%2FJCNS2016.x001
+                        - text: Article
+                      - link "Google Scholar reference 11" [ref=e673] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Generic%20solutions%20to%20coordination%20and%20organizational%20costs%3A%20informing%20cooperative%20longevity&journal=J%20Chain%20Netw%20Sci&doi=10.3920%2FJCNS2016.x001&volume=16&pages=19-27&publication_year=2016&author=Cook%2CML&author=Iliopoulos%2CC
+                        - text: Google Scholar
+                  - listitem [ref=e674]:
+                    - paragraph [ref=e675]:
+                      - text: DeRose C (2016) ‘Smart Contracts’ Are the Future of Blockchain.
+                      - link "https://www.americanbanker.com/opinion/smart-contracts-are-the-future-of-blockchain" [ref=e676] [cursor=pointer]:
+                        - /url: https://www.americanbanker.com/opinion/smart-contracts-are-the-future-of-blockchain
+                      - text: . Accessed 15 May 2020
+                  - listitem [ref=e677]:
+                    - paragraph [ref=e678]: "Ding WW, Liang XL, Hou JC, Wang G, Yuan Y, Li J, Wang F-Y (2021) Parallel Governance for Decentralized Autonomous Organizations enabled by Blockchain and Smart Contracts. In: 2021 IEEE 1st International Conference on Digital Twins and Parallel Intelligence (DTPI). 2021 IEEE 1st International Conference on Digital Twins and Parallel Intelligence (DTPI). Beijing, China, July 15 - August 15"
+                  - listitem [ref=e679]:
+                    - paragraph [ref=e680]: "Dounas T, Lombardi D (2019) Blockchain grammars: designing with DAOs, vol 2. CumInCAD"
+                  - listitem [ref=e681]:
+                    - paragraph [ref=e682]: "Dupont Q (2017) Experiments in Algorithmic Governance: A history and ethnography of “ The DAO, “ a failed Decentralized Autonomous Organization. In"
+                  - listitem [ref=e683]:
+                    - paragraph [ref=e684]:
+                      - text: Edwards AK, Harris LE, Piwowar MS (2007) Corporate bond market transaction costs and transparency. J Finance 62:1421–1451.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1111/j.1540-6261.2007.01240.x" [ref=e685] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111/j.1540-6261.2007.01240.x
+                    - paragraph [ref=e686]:
+                      - link "Article reference 16" [ref=e687] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111%2Fj.1540-6261.2007.01240.x
+                        - text: Article
+                      - link "Google Scholar reference 16" [ref=e688] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Corporate%20bond%20market%20transaction%20costs%20and%20transparency&journal=J%20Finance&doi=10.1111%2Fj.1540-6261.2007.01240.x&volume=62&pages=1421-1451&publication_year=2007&author=Edwards%2CAK&author=Harris%2CLE&author=Piwowar%2CMS
+                        - text: Google Scholar
+                  - listitem [ref=e689]:
+                    - paragraph [ref=e690]:
+                      - text: "Fairbairn B (1994) The meaning of Rochdale: the Rochdale pioneers and the co-operative principles. Occasional Papers 31778, University of Saskatchewan, Centre for the Study of Co-operatives."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.22004/ag.econ.31778" [ref=e691] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.22004/ag.econ.31778
+                  - listitem [ref=e692]:
+                    - paragraph [ref=e693]:
+                      - text: FAO (2012) Smallholders and Family Farmers.
+                      - link "http://www.fao.org/fileadmin/templates/nr/sustainability_pathways/docs/Factsheet_SMALLHOLDERS.pdf" [ref=e694] [cursor=pointer]:
+                        - /url: http://www.fao.org/fileadmin/templates/nr/sustainability_pathways/docs/Factsheet_SMALLHOLDERS.pdf
+                      - text: . Accessed 8 June 2020
+                  - listitem [ref=e695]:
+                    - paragraph [ref=e696]: "Franken J, Cook M (2019) Horizon and Portfolio Investment constraints in Agricultural cooperatives. In: Windsperger J, Cliquet G, Hendrikse G, Srećković M (eds) Design and management of Interfirm networks: Franchise networks, cooperatives and alliances. Springer International Publishing"
+                  - listitem [ref=e697]:
+                    - paragraph [ref=e698]: "Fridgen G, Radszuwill S, Urbach N, Utz L (2018) Cross-Organizational Workflow Management Using Blockchain Technology: Towards Applicability, Auditability, and Automation. 51st Annual Hawaii International Conference on System Sciences (HICSS)"
+                  - listitem [ref=e699]:
+                    - paragraph [ref=e700]: Giannakas K, Foulton M, Sesmero J (2016) Horizon and Free-Rider problems in Cooperative Organizations. J Agric Resour Econ 41:372–392
+                    - paragraph [ref=e701]:
+                      - link "Google Scholar reference 21" [ref=e702] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Horizon%20and%20Free-Rider%20problems%20in%20Cooperative%20Organizations&journal=J%20Agric%20Resour%20Econ&volume=41&pages=372-392&publication_year=2016&author=Giannakas%2CK&author=Foulton%2CM&author=Sesmero%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e703]:
+                    - paragraph [ref=e704]: Gregor S, Hevner AR (2013) Gregor, Shirley, and Alan R. Hevner. Positioning and presenting design science research for maximum im-pact. MIS Q 337–355
+                  - listitem [ref=e705]:
+                    - paragraph [ref=e706]: "Gyau A, Mbugua M, Oduol J (2016) Determinants of participation and intensity of participation in collective action: evidence from smallholder avocado farmers in Kenya. J Chain Netw Sci 16:147–156"
+                    - paragraph [ref=e707]:
+                      - link "Article reference 23" [ref=e708] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.3920%2FJCNS2015.0011
+                        - text: Article
+                      - link "Google Scholar reference 23" [ref=e709] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Determinants%20of%20participation%20and%20intensity%20of%20participation%20in%20collective%20action%3A%20evidence%20from%20smallholder%20avocado%20farmers%20in%20Kenya&journal=J%20Chain%20Netw%20Sci&doi=10.3920%2FJCNS2015.0011&volume=16&pages=147-156&publication_year=2016&author=Gyau%2CA&author=Mbugua%2CM&author=Oduol%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e710]:
+                    - paragraph [ref=e711]:
+                      - text: Hart O, Moore J (1999) Foundations of incomplete contracts. Rev Econ Stud 66:115–138.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1111/1467-937X.00080" [ref=e712] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111/1467-937X.00080
+                    - paragraph [ref=e713]:
+                      - link "Article reference 24" [ref=e714] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111%2F1467-937X.00080
+                        - text: Article
+                      - link "Google Scholar reference 24" [ref=e715] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Foundations%20of%20incomplete%20contracts&journal=Rev%20Econ%20Stud&doi=10.1111%2F1467-937X.00080&volume=66&pages=115-138&publication_year=1999&author=Hart%2CO&author=Moore%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e716]:
+                    - paragraph [ref=e717]:
+                      - text: Hellin J, Lundy M, Meijer M (2009) Farmer organization, collective action and market access in Meso-America. Food Policy 34:16–22.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1016/j.foodpol.2008.10.003" [ref=e718] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.foodpol.2008.10.003
+                    - paragraph [ref=e719]:
+                      - link "Article reference 25" [ref=e720] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016%2Fj.foodpol.2008.10.003
+                        - text: Article
+                      - link "Google Scholar reference 25" [ref=e721] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Farmer%20organization%2C%20collective%20action%20and%20market%20access%20in%20Meso-America&journal=Food%20Policy&doi=10.1016%2Fj.foodpol.2008.10.003&volume=34&pages=16-22&publication_year=2009&author=Hellin%2CJ&author=Lundy%2CM&author=Meijer%2CM
+                        - text: Google Scholar
+                  - listitem [ref=e722]:
+                    - paragraph [ref=e723]:
+                      - text: Hevner M, Park R (2004) Design Science in Information Systems Research. MIS Q 28:75.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.2307/25148625" [ref=e724] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2307/25148625
+                    - paragraph [ref=e725]:
+                      - link "Article reference 26" [ref=e726] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2307%2F25148625
+                        - text: Article
+                      - link "Google Scholar reference 26" [ref=e727] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Design%20Science%20in%20Information%20Systems%20Research&journal=MIS%20Q&doi=10.2307%2F25148625&volume=28&publication_year=2004&author=Hevner%2CM&author=Park%2CR
+                        - text: Google Scholar
+                  - listitem [ref=e728]:
+                    - paragraph [ref=e729]: "Hsieh Y-Y, Vergne J-P, Wang S (2017) The internal and external governance of blockchain-basedorganizations: evidence from cryptocurrencies. Bitcoin and Beyond. Routledge, pp 48–68"
+                  - listitem [ref=e730]:
+                    - paragraph [ref=e731]:
+                      - text: ICA (2018) Cooperative Principles.
+                      - link "https://www.ica.coop/en/cooperatives/cooperative-identity" [ref=e732] [cursor=pointer]:
+                        - /url: https://www.ica.coop/en/cooperatives/cooperative-identity
+                      - text: . Accessed 17 January 2020
+                  - listitem [ref=e733]:
+                    - paragraph [ref=e734]:
+                      - text: "Jelsma I, Slingerland M, Giller KE, Bijman J (2017) Collective action in a smallholder oil palm production system in Indonesia: the key to sustainable and inclusive smallholder palm oil? J Rural Stud 54:198–210."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jrurstud.2017.06.005" [ref=e735] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jrurstud.2017.06.005
+                    - paragraph [ref=e736]:
+                      - link "Article reference 29" [ref=e737] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016%2Fj.jrurstud.2017.06.005
+                        - text: Article
+                      - link "Google Scholar reference 29" [ref=e738] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Collective%20action%20in%20a%20smallholder%20oil%20palm%20production%20system%20in%20Indonesia%3A%20the%20key%20to%20sustainable%20and%20inclusive%20smallholder%20palm%20oil%3F&journal=J%20Rural%20Stud&doi=10.1016%2Fj.jrurstud.2017.06.005&volume=54&pages=198-210&publication_year=2017&author=Jelsma%2CI&author=Slingerland%2CM&author=Giller%2CKE&author=Bijman%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e739]:
+                    - paragraph [ref=e740]: Jentzsch C (2016) Decentralized autonomous organization to automate governance. Accessed 27 November 2020
+                  - listitem [ref=e741]:
+                    - paragraph [ref=e742]:
+                      - text: "Johansen C, Haque ME, Bell RW, Thierfelder C, Esdaile RJ (2012) Conservation agriculture for small holder rainfed farming: opportunities and constraints of new mechanized seeding systems. Field Crops Research 132:18–32."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1016/j.fcr.2011.11.026" [ref=e743] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.fcr.2011.11.026
+                    - paragraph [ref=e744]:
+                      - link "Article reference 31" [ref=e745] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016%2Fj.fcr.2011.11.026
+                        - text: Article
+                      - link "Google Scholar reference 31" [ref=e746] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Conservation%20agriculture%20for%20small%20holder%20rainfed%20farming%3A%20opportunities%20and%20constraints%20of%20new%20mechanized%20seeding%20systems&journal=Field%20Crops%20Research&doi=10.1016%2Fj.fcr.2011.11.026&volume=132&pages=18-32&publication_year=2012&author=Johansen%2CC&author=Haque%2CME&author=Bell%2CRW&author=Thierfelder%2CC&author=Esdaile%2CRJ
+                        - text: Google Scholar
+                  - listitem [ref=e747]:
+                    - paragraph [ref=e748]: "Kamara AB (2004) The impact of market access on input use and agricultural productivity: evidence from Machakos District, Kenya. Agrekon 43:202–216"
+                    - paragraph [ref=e749]:
+                      - link "Article reference 32" [ref=e750] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1080%2F03031853.2004.9523645
+                        - text: Article
+                      - link "Google Scholar reference 32" [ref=e751] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=The%20impact%20of%20market%20access%20on%20input%20use%20and%20agricultural%20productivity%3A%20evidence%20from%20Machakos%20District%2C%20Kenya&journal=Agrekon&doi=10.1080%2F03031853.2004.9523645&volume=43&pages=202-216&publication_year=2004&author=Kamara%2CAB
+                        - text: Google Scholar
+                  - listitem [ref=e752]:
+                    - paragraph [ref=e753]:
+                      - text: Kelly S (2012) Smallholder business models for agribusiness-led development. Good practice and policy guidance. Hg. v. Food and Agriculture Organization of the United Nations (FAO). Rome, Italy.
+                      - link "http://www.fao.org/3/md923e/md923e00.pdf" [ref=e754] [cursor=pointer]:
+                        - /url: http://www.fao.org/3/md923e/md923e00.pdf
+                  - listitem [ref=e755]:
+                    - paragraph [ref=e756]: "Kibet LK, Mutai BK, Ouma DE, Ouma SA, Owuor G (2009) Determinants of household saving: case study of smallholder farmers, entrepreneurs and teachers in rural areas of Kenya. J Dev Agricultural Econ 1:137–143"
+                    - paragraph [ref=e757]:
+                      - link "Google Scholar reference 34" [ref=e758] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Determinants%20of%20household%20saving%3A%20case%20study%20of%20smallholder%20farmers%2C%20entrepreneurs%20and%20teachers%20in%20rural%20areas%20of%20Kenya&journal=J%20Dev%20Agricultural%20Econ&volume=1&pages=137-143&publication_year=2009&author=Kibet%2CLK&author=Mutai%2CBK&author=Ouma%2CDE&author=Ouma%2CSA&author=Owuor%2CG
+                        - text: Google Scholar
+                  - listitem [ref=e759]:
+                    - paragraph [ref=e760]: "Kõlvart M, Poola M, Rull A (2016) Smart contracts. In: Kerikmäe T, Rull A (eds) The future of Law and eTechnologies. Springer International Publishing, Cham, pp 133–147"
+                    - paragraph [ref=e761]:
+                      - link "Chapter reference 35" [ref=e762] [cursor=pointer]:
+                        - /url: https://link-springer-com.ezproxy.ugm.ac.id/doi/10.1007/978-3-319-26896-5_7
+                        - text: Chapter
+                      - link "Google Scholar reference 35" [ref=e763] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Smart%20contracts&doi=10.1007%2F978-3-319-26896-5_7&pages=133-147&publication_year=2016&author=K%C3%B5lvart%2CM&author=Poola%2CM&author=Rull%2CA
+                        - text: Google Scholar
+                  - listitem [ref=e764]:
+                    - paragraph [ref=e765]: "Korpela K, Hallikas J, Dahlberg T (2017) Hawaii International Conference on System Sciences 2017 (HICSS-50): Hilton Waikoloa Village, Hawaii, January 4–7, 2017"
+                  - listitem [ref=e766]:
+                    - paragraph [ref=e767]:
+                      - text: Krasa S, Villamil AP (2000) Optimal contracts when Enforcement is a decision variable. Econometrica 68:119–134.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1111/1468-0262.00095" [ref=e768] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111/1468-0262.00095
+                    - paragraph [ref=e769]:
+                      - link "Article reference 37" [ref=e770] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111%2F1468-0262.00095
+                        - text: Article
+                      - link "Google Scholar reference 37" [ref=e771] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Optimal%20contracts%20when%20Enforcement%20is%20a%20decision%20variable&journal=Econometrica&doi=10.1111%2F1468-0262.00095&volume=68&pages=119-134&publication_year=2000&author=Krasa%2CS&author=Villamil%2CAP
+                        - text: Google Scholar
+                  - listitem [ref=e772]:
+                    - paragraph [ref=e773]:
+                      - text: Kshetri N, Voas J (2018) Blockchain in developing countries. IT Prof 20:11–14.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1109/MITP.2018.021921645" [ref=e774] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1109/MITP.2018.021921645
+                    - paragraph [ref=e775]:
+                      - link "Article reference 38" [ref=e776] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1109%2FMITP.2018.021921645
+                        - text: Article
+                      - link "Google Scholar reference 38" [ref=e777] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Blockchain%20in%20developing%20countries&journal=IT%20Prof&doi=10.1109%2FMITP.2018.021921645&volume=20&pages=11-14&publication_year=2018&author=Kshetri%2CN&author=Voas%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e778]:
+                    - paragraph [ref=e779]:
+                      - text: "LeVay C (1983) Agricultural co-operative theory: a review. J Agric Econ 34:1–44."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1111/j.1477-9552.1983.tb00973.x" [ref=e780] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111/j.1477-9552.1983.tb00973.x
+                    - paragraph [ref=e781]:
+                      - link "Article reference 39" [ref=e782] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111%2Fj.1477-9552.1983.tb00973.x
+                        - text: Article
+                      - link "Google Scholar reference 39" [ref=e783] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Agricultural%20co-operative%20theory%3A%20a%20review&journal=J%20Agric%20Econ&doi=10.1111%2Fj.1477-9552.1983.tb00973.x&volume=34&pages=1-44&publication_year=1983&author=LeVay%2CC
+                        - text: Google Scholar
+                  - listitem [ref=e784]:
+                    - paragraph [ref=e785]: Lyne MC, Gadzikwa L, Hendriks S (2008) Free-rider problems in an organic certified smallholder group in South Africa. Acta Hort 794:183–190
+                    - paragraph [ref=e786]:
+                      - link "Article reference 40" [ref=e787] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.17660%2FActaHortic.2008.794.23
+                        - text: Article
+                      - link "Google Scholar reference 40" [ref=e788] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Free-rider%20problems%20in%20an%20organic%20certified%20smallholder%20group%20in%20South%20Africa&journal=Acta%20Hort&doi=10.17660%2FActaHortic.2008.794.23&volume=794&pages=183-190&publication_year=2008&author=Lyne%2CMC&author=Gadzikwa%2CL&author=Hendriks%2CS
+                        - text: Google Scholar
+                  - listitem [ref=e789]:
+                    - paragraph [ref=e790]: March ST, Smith GF (1995) Design and natural science research on information technology. Decision support systems:251–266
+                  - listitem [ref=e791]:
+                    - paragraph [ref=e792]: "March ST, Storey VC (2008) Design science in the information systems discipline: an introduc-tion to the special issue on design science research. MIS Q 725–730"
+                  - listitem [ref=e793]:
+                    - paragraph [ref=e794]: "Mayring P (2014) Qualitative content analysis: theoretical foundation, basic procedures and software solution, Klagenfurt"
+                  - listitem [ref=e795]:
+                    - paragraph [ref=e796]:
+                      - text: Mehar MI, Shier CL, Giambattista A, Gong E, Fletcher G, Sanayhie R, Kim HM, Laskowski M (2019) Understanding a Revolutionary and Flawed Grand Experiment in Blockchain. J Cases Inform Technol 21:19–32.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.4018/JCIT.2019010102" [ref=e797] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.4018/JCIT.2019010102
+                    - paragraph [ref=e798]:
+                      - link "Article reference 44" [ref=e799] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.4018%2FJCIT.2019010102
+                        - text: Article
+                      - link "Google Scholar reference 44" [ref=e800] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Understanding%20a%20Revolutionary%20and%20Flawed%20Grand%20Experiment%20in%20Blockchain&journal=J%20Cases%20Inform%20Technol&doi=10.4018%2FJCIT.2019010102&volume=21&pages=19-32&publication_year=2019&author=Mehar%2CMI&author=Shier%2CCL&author=Giambattista%2CA&author=Gong%2CE&author=Fletcher%2CG&author=Sanayhie%2CR&author=Kim%2CHM&author=Laskowski%2CM
+                        - text: Google Scholar
+                  - listitem [ref=e801]:
+                    - paragraph [ref=e802]: Merkle R (2016) DAOs, Democracy and governance. Cryonics Magazine 37:28–40
+                    - paragraph [ref=e803]:
+                      - link "Google Scholar reference 45" [ref=e804] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=DAOs%2C%20Democracy%20and%20governance&journal=Cryonics%20Magazine&volume=37&pages=28-40&publication_year=2016&author=Merkle%2CR
+                        - text: Google Scholar
+                  - listitem [ref=e805]:
+                    - paragraph [ref=e806]: "Milgrom P, Roberts J (1990) Bargaining costs, influence costs, and the organization of ecnomic activity. In: Alt JE, Shepsle KA (eds) Perspectives on positive political economy, 1st edn. Cambridge University Press, New York, USA, pp 57–85"
+                    - paragraph [ref=e807]:
+                      - link "Chapter reference 46" [ref=e808] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1017%2FCBO9780511571657.005
+                        - text: Chapter
+                      - link "Google Scholar reference 46" [ref=e809] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Bargaining%20costs%2C%20influence%20costs%2C%20and%20the%20organization%20of%20ecnomic%20activity&doi=10.1017%2FCBO9780511571657.005&pages=57-85&publication_year=1990&author=Milgrom%2CP&author=Roberts%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e810]:
+                    - paragraph [ref=e811]:
+                      - text: "Montiflor MO, dela Cerna A, Lamban R, Bacus RG, Concepcion SB, Batt PJ, Murray-Prior R (2011) Social connections and Smallholder Vegetable Farmers’ Collaborative Marketing Strategy: the case of the Small Farmers Association of Quirogpang in Davao City, the Philippines. Acta Hortic 177–184."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.17660/ActaHortic.2011.895.22" [ref=e812] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.17660/ActaHortic.2011.895.22
+                  - listitem [ref=e813]:
+                    - paragraph [ref=e814]: "Mutero J, Munapo E, Seaketso P (2016) Operational challenges faced by smallholder farmers: a case of Ethekwini Metropolitan in South Africa. Environ Econ 7:40–52"
+                    - paragraph [ref=e815]:
+                      - link "Article reference 48" [ref=e816] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.21511%2Fee.07%282%29.2016.4
+                        - text: Article
+                      - link "Google Scholar reference 48" [ref=e817] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Operational%20challenges%20faced%20by%20smallholder%20farmers%3A%20a%20case%20of%20Ethekwini%20Metropolitan%20in%20South%20Africa&journal=Environ%20Econ&doi=10.21511%2Fee.07%282%29.2016.4&volume=7&pages=40-52&publication_year=2016&author=Mutero%2CJ&author=Munapo%2CE&author=Seaketso%2CP
+                        - text: Google Scholar
+                  - listitem [ref=e818]:
+                    - paragraph [ref=e819]: Nganwa P, Lyne M, Ferrer S (2010) What will South Africa’s new cooperatives Act do for small producers? An analysis of three case studies in KwaZuluNatal 49
+                  - listitem [ref=e820]:
+                    - paragraph [ref=e821]:
+                      - text: Nunamaker JF, Chen M, Purdin TD (1990) Systems Development in Information Systems Research. J Manage Inform Syst 7:89–106.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1080/07421222.1990.11517898" [ref=e822] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1080/07421222.1990.11517898
+                    - paragraph [ref=e823]:
+                      - link "Article reference 50" [ref=e824] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1080%2F07421222.1990.11517898
+                        - text: Article
+                      - link "Google Scholar reference 50" [ref=e825] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Systems%20Development%20in%20Information%20Systems%20Research&journal=J%20Manage%20Inform%20Syst&doi=10.1080%2F07421222.1990.11517898&volume=7&pages=89-106&publication_year=1990&author=Nunamaker%2CJF&author=Chen%2CM&author=Purdin%2CTD
+                        - text: Google Scholar
+                  - listitem [ref=e826]:
+                    - paragraph [ref=e827]: "Omiti JM, Otieno DJ, Nyanamba TO, McCullough EB (2009) Factors influencing the intensity of market participation by smallholder farmers: a case study of rural and peri-urban areas of Kenya. Afr J Agricultural Resource Econ 3:57–82"
+                    - paragraph [ref=e828]:
+                      - link "Google Scholar reference 51" [ref=e829] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Factors%20influencing%20the%20intensity%20of%20market%20participation%20by%20smallholder%20farmers%3A%20a%20case%20study%20of%20rural%20and%20peri-urban%20areas%20of%20Kenya&journal=Afr%20J%20Agricultural%20Resource%20Econ&volume=3&pages=57-82&publication_year=2009&author=Omiti%2CJM&author=Otieno%2CDJ&author=Nyanamba%2CTO&author=McCullough%2CEB
+                        - text: Google Scholar
+                  - listitem [ref=e830]:
+                    - paragraph [ref=e831]:
+                      - text: Peffers K, Tuunanen T, Rothenberger MA, Chatterjee S (2007) A Design Science Research Methodology for Information Systems Research. J Manage Inform Syst 24:45–77.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.2753/MIS0742-1222240302" [ref=e832] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2753/MIS0742-1222240302
+                    - paragraph [ref=e833]:
+                      - link "Article reference 52" [ref=e834] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2753%2FMIS0742-1222240302
+                        - text: Article
+                      - link "Google Scholar reference 52" [ref=e835] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=A%20Design%20Science%20Research%20Methodology%20for%20Information%20Systems%20Research&journal=J%20Manage%20Inform%20Syst&doi=10.2753%2FMIS0742-1222240302&volume=24&pages=45-77&publication_year=2007&author=Peffers%2CK&author=Tuunanen%2CT&author=Rothenberger%2CMA&author=Chatterjee%2CS
+                        - text: Google Scholar
+                  - listitem [ref=e836]:
+                    - paragraph [ref=e837]: Poole N (2017) Smallholder Agriculture and Market Participation. Practical Action Publishing, Rugby, UK
+                    - paragraph [ref=e838]:
+                      - link "Book reference 53" [ref=e839] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.3362%2F9781780449401
+                        - text: Book
+                      - link "Google Scholar reference 53" [ref=e840] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Smallholder%20Agriculture%20and%20Market%20Participation&doi=10.3362%2F9781780449401&publication_year=2017&author=Poole%2CN
+                        - text: Google Scholar
+                  - listitem [ref=e841]:
+                    - paragraph [ref=e842]:
+                      - text: Poole N, Frece A (2010) A review of existing organisational forms of smallholder farmers’ associations and their contractual relationships with other market participants in the east and southern African ACP region.
+                      - link "http://www.fao.org/fileadmin/templates/est/AAACP/eastafrica/FAO_AAACP_Paper_Series_No_11_1_.pdf" [ref=e843] [cursor=pointer]:
+                        - /url: http://www.fao.org/fileadmin/templates/est/AAACP/eastafrica/FAO_AAACP_Paper_Series_No_11_1_.pdf
+                  - listitem [ref=e844]:
+                    - paragraph [ref=e845]: Porter PK, Scully GW (1987) Economic efficiency in cooperatives. J Law Econ 30:489–512
+                    - paragraph [ref=e846]:
+                      - link "Article reference 55" [ref=e847] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1086%2F467146
+                        - text: Article
+                      - link "Google Scholar reference 55" [ref=e848] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Economic%20efficiency%20in%20cooperatives&journal=J%20Law%20Econ&doi=10.1086%2F467146&volume=30&pages=489-512&publication_year=1987&author=Porter%2CPK&author=Scully%2CGW
+                        - text: Google Scholar
+                  - listitem [ref=e849]:
+                    - paragraph [ref=e850]:
+                      - text: Risius M, Spohrer K (2017) A Blockchain Research Framework. Bus Inf Syst Eng 59:385–409.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1007/s12599-017-0506-0" [ref=e851] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1007/s12599-017-0506-0
+                    - paragraph [ref=e852]:
+                      - link "Article reference 56" [ref=e853] [cursor=pointer]:
+                        - /url: https://link-springer-com.ezproxy.ugm.ac.id/doi/10.1007/s12599-017-0506-0
+                        - text: Article
+                      - link "Google Scholar reference 56" [ref=e854] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=A%20Blockchain%20Research%20Framework&journal=Bus%20Inf%20Syst%20Eng&doi=10.1007%2Fs12599-017-0506-0&volume=59&pages=385-409&publication_year=2017&author=Risius%2CM&author=Spohrer%2CK
+                        - text: Google Scholar
+                  - listitem [ref=e855]:
+                    - paragraph [ref=e856]:
+                      - text: "Romero Granja C, Wollni M (2019) Opportunistic Behaviour and Trust: experimental results from Broccoli farmers in Ecuador. J Agric Econ 70:62–80."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1111/1477-9552.12271" [ref=e857] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111/1477-9552.12271
+                    - paragraph [ref=e858]:
+                      - link "Article reference 57" [ref=e859] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1111%2F1477-9552.12271
+                        - text: Article
+                      - link "Google Scholar reference 57" [ref=e860] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Opportunistic%20Behaviour%20and%20Trust%3A%20experimental%20results%20from%20Broccoli%20farmers%20in%20Ecuador&journal=J%20Agric%20Econ&doi=10.1111%2F1477-9552.12271&volume=70&pages=62-80&publication_year=2019&author=Romero%20Granja%2CC&author=Wollni%2CM
+                        - text: Google Scholar
+                  - listitem [ref=e861]:
+                    - paragraph [ref=e862]:
+                      - text: "Salami A, Kamara A, Brixiova Z (2010) Smallholder agriculture in East Africa: trends, constraints and opportunities."
+                      - link "https://www.researchgate.net/publication/242759117_Smallholder_Agriculture_in_East_Africa_Trends_Constraints_and_Opportunities" [ref=e863] [cursor=pointer]:
+                        - /url: https://www.researchgate.net/publication/242759117_Smallholder_Agriculture_in_East_Africa_Trends_Constraints_and_Opportunities
+                  - listitem [ref=e864]:
+                    - paragraph [ref=e865]:
+                      - text: "Savelyev A (2017) Contract law 2.0: ‘Smart’ contracts as the beginning of the end of classic contract law. Inform Commun Technol Law 26:116–134."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1080/13600834.2017.1301036" [ref=e866] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1080/13600834.2017.1301036
+                    - paragraph [ref=e867]:
+                      - link "Article reference 59" [ref=e868] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1080%2F13600834.2017.1301036
+                        - text: Article
+                      - link "Google Scholar reference 59" [ref=e869] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Contract%20law%202.0%3A%20%E2%80%98Smart%E2%80%99%20contracts%20as%20the%20beginning%20of%20the%20end%20of%20classic%20contract%20law&journal=Inform%20Commun%20Technol%20Law&doi=10.1080%2F13600834.2017.1301036&volume=26&pages=116-134&publication_year=2017&author=Savelyev%2CA
+                        - text: Google Scholar
+                  - listitem [ref=e870]:
+                    - paragraph [ref=e871]:
+                      - text: "Seckler C, Mauer R, vom Brocke J (2021) Design science in entrepreneurship: conceptual foundations and guiding principles. J Bus Venturing Des 1:100004."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jbvd.2022.100004" [ref=e872] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016/j.jbvd.2022.100004
+                    - paragraph [ref=e873]:
+                      - link "Article reference 60" [ref=e874] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1016%2Fj.jbvd.2022.100004
+                        - text: Article
+                      - link "Google Scholar reference 60" [ref=e875] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Design%20science%20in%20entrepreneurship%3A%20conceptual%20foundations%20and%20guiding%20principles&journal=J%20Bus%20Venturing%20Des&doi=10.1016%2Fj.jbvd.2022.100004&volume=1&publication_year=2021&author=Seckler%2CC&author=Mauer%2CR&author=Brocke%2CJ
+                        - text: Google Scholar
+                  - listitem [ref=e876]:
+                    - paragraph [ref=e877]: "Staatz JM (1987) The Structural Characteristics of Farmer Cooperatives and Their Behavioral Consequences. In: U.S. Department of Agriculture (ed) Cooperative Theory: new approaches, 18th edn., Washington, D.C., USA"
+                  - listitem [ref=e878]:
+                    - paragraph [ref=e879]:
+                      - text: Szabo N (1997) Formalizing and securing relationships on Public Networks.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.5210/fm.v2i9.548" [ref=e880] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.5210/fm.v2i9.548
+                      - text: . First Monday 2
+                  - listitem [ref=e881]:
+                    - paragraph [ref=e882]: Tarasov P, Tewari H (2017) The future of E-Voting. IADIS Int J Comput Sci Inform Syst 12
+                  - listitem [ref=e883]:
+                    - paragraph [ref=e884]: Tortia EC, Valentinov VL, Iliopoulos C (2013) Agricultural Cooperatives
+                  - listitem [ref=e885]:
+                    - paragraph [ref=e886]: "Truesta D, Alonso J, Cámara N, Urbiola P, Vegas I, Pérez ML (2015) Smart contracts: the ultimate automation of trust. Digital Economy Outlook"
+                  - listitem [ref=e887]:
+                    - paragraph [ref=e888]:
+                      - text: United Nations (2019) Growing at a slower pace, world population is expected to reach 9.7 billion in 2050 and could peak at nearly 11 billion around 2100 | UN DESA | United Nations Department of Economic and Social Affairs.
+                      - link "https://www.un.org/development/desa/en/news/population/world-population-prospects-2019.html" [ref=e889] [cursor=pointer]:
+                        - /url: https://www.un.org/development/desa/en/news/population/world-population-prospects-2019.html
+                      - text: . Accessed 20 April 2020
+                  - listitem [ref=e890]:
+                    - paragraph [ref=e891]: "van Schalkwyk HD, Groenewald JA, Fraser GC, Obi A, van Tilburg A (2012) Unlocking markets to smallholders: lessons from South Africa. Wageningen Academic Publishers"
+                  - listitem [ref=e892]:
+                    - paragraph [ref=e893]: "Veldwisch GJ, Beekman W, Bolding A (2013) Smallholder irrigators, Water rights and investments in Agriculture: three cases from rural Mozambique. Water Altern 6:125–141"
+                    - paragraph [ref=e894]:
+                      - link "Google Scholar reference 68" [ref=e895] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Smallholder%20irrigators%2C%20Water%20rights%20and%20investments%20in%20Agriculture%3A%20three%20cases%20from%20rural%20Mozambique&journal=Water%20Altern&volume=6&pages=125-141&publication_year=2013&author=Veldwisch%2CGJ&author=Beekman%2CW&author=Bolding%2CA
+                        - text: Google Scholar
+                  - listitem [ref=e896]:
+                    - paragraph [ref=e897]:
+                      - text: "vom Brocke J, Winter R, Hevner A, Maedche A (2020) Special Issue Editorial –Accumulation and Evolution of Design Knowledge in Design Science Research: a Journey through Time and Space. JAIS 21:520–544."
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.17705/1jais.00611" [ref=e898] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.17705/1jais.00611
+                    - paragraph [ref=e899]:
+                      - link "Article reference 69" [ref=e900] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.17705%2F1jais.00611
+                        - text: Article
+                      - link "Google Scholar reference 69" [ref=e901] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Special%20Issue%20Editorial%20%E2%80%93Accumulation%20and%20Evolution%20of%20Design%20Knowledge%20in%20Design%20Science%20Research%3A%20a%20Journey%20through%20Time%20and%20Space&journal=JAIS&doi=10.17705%2F1jais.00611&volume=21&pages=520-544&publication_year=2020&author=Brocke%2CJ&author=Winter%2CR&author=Hevner%2CA&author=Maedche%2CA
+                        - text: Google Scholar
+                  - listitem [ref=e902]:
+                    - paragraph [ref=e903]: "Watkins WP (1986) Co-operative principles: today & tomorrow. Holyoake, Manchester"
+                    - paragraph [ref=e904]:
+                      - link "Google Scholar reference 70" [ref=e905] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Co-operative%20principles%3A%20today%20%26%20tomorrow&publication_year=1986&author=Watkins%2CWP
+                        - text: Google Scholar
+                  - listitem [ref=e906]:
+                    - paragraph [ref=e907]:
+                      - text: Wright A, de Filippi P (2015) Decentralized Blockchain Technology and the rise of Lex Cryptographia. SSRN J.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.2139/ssrn.2580664" [ref=e908] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2139/ssrn.2580664
+                    - paragraph [ref=e909]:
+                      - link "Article reference 71" [ref=e910] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.2139%2Fssrn.2580664
+                        - text: Article
+                      - link "Google Scholar reference 71" [ref=e911] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Decentralized%20Blockchain%20Technology%20and%20the%20rise%20of%20Lex%20Cryptographia&journal=SSRN%20J&doi=10.2139%2Fssrn.2580664&publication_year=2015&author=Wright%2CA&author=Filippi%2CP
+                        - text: Google Scholar
+                  - listitem [ref=e912]:
+                    - paragraph [ref=e913]: "Xu X, Weber I, Staples M, Zhu L, Bosch J, Bass L, Pautasso C, Rimba P (2017) A Taxonomy of Blockchain-Based Systems for Architecture Design. In: 2017 IEEE International Conference on Software Architecture (ICSA), pp 243–252"
+                  - listitem [ref=e914]:
+                    - paragraph [ref=e915]:
+                      - text: Yli-Huumo J, Ko D, Choi S, Park S, Smolander K (2016) Where is Current Research on Blockchain Technology?—A systematic review. PLoS ONE 11:e0163477.
+                      - link "https://doi-org.ezproxy.ugm.ac.id/10.1371/journal.pone.0163477" [ref=e916] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1371/journal.pone.0163477
+                    - paragraph [ref=e917]:
+                      - link "Article reference 73" [ref=e918] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1371%2Fjournal.pone.0163477
+                        - text: Article
+                      - link "Google Scholar reference 73" [ref=e919] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=Where%20is%20Current%20Research%20on%20Blockchain%20Technology%3F%E2%80%94A%20systematic%20review&journal=PLoS%20ONE&doi=10.1371%2Fjournal.pone.0163477&volume=11&publication_year=2016&author=Yli-Huumo%2CJ&author=Ko%2CD&author=Choi%2CS&author=Park%2CS&author=Smolander%2CK
+                        - text: Google Scholar
+                  - listitem [ref=e920]:
+                    - paragraph [ref=e921]: Zigran L, Jacobs KL, Artz GM (2015) The cooperative capital constraint revisited. Agric Finance Rev 75:253–266
+                    - paragraph [ref=e922]:
+                      - link "Article reference 74" [ref=e923] [cursor=pointer]:
+                        - /url: https://doi-org.ezproxy.ugm.ac.id/10.1108%2FAFR-11-2014-0034
+                        - text: Article
+                      - link "Google Scholar reference 74" [ref=e924] [cursor=pointer]:
+                        - /url: http://scholar.google.com/scholar_lookup?&title=The%20cooperative%20capital%20constraint%20revisited&journal=Agric%20Finance%20Rev&doi=10.1108%2FAFR-11-2014-0034&volume=75&pages=253-266&publication_year=2015&author=Zigran%2CL&author=Jacobs%2CKL&author=Artz%2CGM
+                        - text: Google Scholar
+                - paragraph [ref=e925]:
+                  - link "Download references" [ref=e926] [cursor=pointer]:
+                    - /url: https://citation-needed-springer-com.ezproxy.ugm.ac.id/v2/references/10.1007/s10257-023-00659-7?format=refman&flavour=references
+                    - text: Download references
+                    - img [ref=e927]
+          - generic [ref=e930]:
+            - heading "Funding" [level=2] [ref=e931]
+            - paragraph [ref=e933]: Open Access funding enabled and organized by Projekt DEAL.
+          - region "Author information" [ref=e934]:
+            - generic [ref=e935]:
+              - heading "Author information" [level=2] [ref=e936]
+              - generic [ref=e937]:
+                - heading "Authors and Affiliations" [level=3] [ref=e938]
+                - list [ref=e939]:
+                  - listitem [ref=e940]:
+                    - paragraph [ref=e941]: FIM Research Center, Wittelsbacherring 10, 95444, Bayreuth, Germany
+                    - paragraph [ref=e942]: Julia Amend, Tobias Guggenberger, Nils Urbach & Martin Weibelzahl
+                  - listitem [ref=e943]:
+                    - paragraph [ref=e944]: Branch Business & Information Systems Engineering of Fraunhofer FIT, Wittelsbacherring 10, 95444, Bayreuth, Germany
+                    - paragraph [ref=e945]: Julia Amend, Tobias Guggenberger, Nils Urbach & Martin Weibelzahl
+                  - listitem [ref=e946]:
+                    - paragraph [ref=e947]: University of Bayreuth, Universitätsstraße 30, 95447, Bayreuth, Germany
+                    - paragraph [ref=e948]: Julia Amend, Tobias Guggenberger & Martin Weibelzahl
+                  - listitem [ref=e949]:
+                    - paragraph [ref=e950]: Interorganisational Systems Group, Department of Information Systems, School of Business and Economics, University of Münster, Leonardo-Campus 11, 48149, Münster, Germany
+                    - paragraph [ref=e951]: Patrick Troglauer
+                  - listitem [ref=e952]:
+                    - paragraph [ref=e953]: European Research Center for Information Systems, Leonardo-Campus 3, 48149, Münster, Germany
+                    - paragraph [ref=e954]: Patrick Troglauer
+                  - listitem [ref=e955]:
+                    - paragraph [ref=e956]: Research Lab for Digital Innovation & Transformation (ditlab), Frankfurt University of Applied Sciences, Nibelungenplatz 1, 60318, Frankfurt, Germany
+                    - paragraph [ref=e957]: Nils Urbach
+                - heading "Corresponding author" [level=3] [ref=e958]
+                - paragraph [ref=e959]:
+                  - text: Correspondence to
+                  - link "email Julia Amend" [ref=e960] [cursor=pointer]:
+                    - /url: mailto:julia.amend@fim-rc.de
+                    - text: Julia Amend
+                  - text: .
+          - generic [ref=e962]:
+            - heading "Ethics declarations" [level=2] [ref=e963]
+            - generic [ref=e964]:
+              - heading "Competing interests" [level=3] [ref=e965]
+              - paragraph [ref=e966]: The authors declare that they have no known competing interests that are directly or indirectly related to the work submitted for publication.
+          - generic [ref=e968]:
+            - heading "Additional information" [level=2] [ref=e969]
+            - generic [ref=e970]:
+              - heading "Publisher’s Note" [level=3] [ref=e971]
+              - paragraph [ref=e972]: Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.
+          - generic [ref=e974]:
+            - heading "Electronic supplementary material" [level=2] [ref=e975]
+            - generic [ref=e977]:
+              - paragraph [ref=e978]: Below is the link to the electronic supplementary material.
+              - heading "Supplementary Material 1 (download PNG )" [level=3] [ref=e980]:
+                - link "Supplementary Material 1 (download PNG )" [ref=e981] [cursor=pointer]:
+                  - /url: https://static-content.springer.com/esm/art%3A10.1007%2Fs10257-023-00659-7/MediaObjects/10257_2023_659_MOESM1_ESM.png
+                  - text: Supplementary Material 1 (download PNG
+                  - img [ref=e982]
+                  - text: )
+              - heading "Supplementary Material 2 (download PNG )" [level=3] [ref=e985]:
+                - link "Supplementary Material 2 (download PNG )" [ref=e986] [cursor=pointer]:
+                  - /url: https://static-content.springer.com/esm/art%3A10.1007%2Fs10257-023-00659-7/MediaObjects/10257_2023_659_MOESM2_ESM.png
+                  - text: Supplementary Material 2 (download PNG
+                  - img [ref=e987]
+                  - text: )
+              - heading "Supplementary Material 3 (download PNG )" [level=3] [ref=e990]:
+                - link "Supplementary Material 3 (download PNG )" [ref=e991] [cursor=pointer]:
+                  - /url: https://static-content.springer.com/esm/art%3A10.1007%2Fs10257-023-00659-7/MediaObjects/10257_2023_659_MOESM3_ESM.png
+                  - text: Supplementary Material 3 (download PNG
+                  - img [ref=e992]
+                  - text: )
+              - heading "Supplementary Material 4 (download PNG )" [level=3] [ref=e995]:
+                - link "Supplementary Material 4 (download PNG )" [ref=e996] [cursor=pointer]:
+                  - /url: https://static-content.springer.com/esm/art%3A10.1007%2Fs10257-023-00659-7/MediaObjects/10257_2023_659_MOESM4_ESM.png
+                  - text: Supplementary Material 4 (download PNG
+                  - img [ref=e997]
+                  - text: )
+              - heading "Supplementary Material 5 (download DOCX )" [level=3] [ref=e1000]:
+                - link "Supplementary Material 5 (download DOCX )" [ref=e1001] [cursor=pointer]:
+                  - /url: https://static-content.springer.com/esm/art%3A10.1007%2Fs10257-023-00659-7/MediaObjects/10257_2023_659_MOESM5_ESM.docx
+                  - text: Supplementary Material 5 (download DOCX
+                  - img [ref=e1002]
+                  - text: )
+          - generic [ref=e1005]:
+            - heading "Rights and permissions" [level=2] [ref=e1006]
+            - generic [ref=e1007]:
+              - paragraph [ref=e1008]:
+                - text: Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit
+                - link "http://creativecommons.org/licenses/by/4.0/" [ref=e1009] [cursor=pointer]:
+                  - /url: http://creativecommons.org/licenses/by/4.0/
+                - text: .
+              - paragraph [ref=e1010]:
+                - link "Reprints and permissions" [ref=e1011] [cursor=pointer]:
+                  - /url: https://s100.copyright.com/AppDispatchServlet?title=Facilitating%20cooperation%20of%20smallholders%20in%20developing%20countries%3A%20design%20principles%20for%20a%20cooperative-oriented%20decentralized%20autonomous%20organization&author=Julia%20Amend%20et%20al&contentID=10.1007%2Fs10257-023-00659-7&copyright=The%20Author%28s%29&publication=1617-9846&publicationDate=2023-11-09&publisherName=SpringerNature&orderBeanReset=true&oa=CC%20BY
+          - region "About this article" [ref=e1012]:
+            - generic [ref=e1013]:
+              - heading "About this article" [level=2] [ref=e1014]
+              - generic [ref=e1016]:
+                - link "Check for updates. Verify currency and authenticity via CrossMark" [ref=e1018] [cursor=pointer]:
+                  - /url: https://crossmark.crossref.org/dialog/?doi=10.1007/s10257-023-00659-7
+                  - img "Check for updates. Verify currency and authenticity via CrossMark" [ref=e1019]
+                - generic [ref=e1020]:
+                  - heading "Cite this article" [level=3] [ref=e1021]
+                  - paragraph [ref=e1022]: "Amend, J., Troglauer, P., Guggenberger, T. et al. Facilitating cooperation of smallholders in developing countries: design principles for a cooperative-oriented decentralized autonomous organization. Inf Syst E-Bus Manage 22, 1–31 (2024). https://doi-org.ezproxy.ugm.ac.id/10.1007/s10257-023-00659-7"
+                  - paragraph [ref=e1023]:
+                    - link "Download citation" [ref=e1024] [cursor=pointer]:
+                      - /url: https://citation-needed-springer-com.ezproxy.ugm.ac.id/v2/references/10.1007/s10257-023-00659-7?format=refman&flavour=citation
+                      - text: Download citation
+                      - img [ref=e1025]
+                  - list [ref=e1027]:
+                    - listitem [ref=e1028]:
+                      - paragraph [ref=e1029]:
+                        - text: Received
+                        - time [ref=e1031]: 20 January 2022
+                    - listitem [ref=e1032]:
+                      - paragraph [ref=e1033]:
+                        - text: Revised
+                        - time [ref=e1035]: 25 May 2023
+                    - listitem [ref=e1036]:
+                      - paragraph [ref=e1037]:
+                        - text: Accepted
+                        - time [ref=e1039]: 16 August 2023
+                    - listitem [ref=e1040]:
+                      - paragraph [ref=e1041]:
+                        - text: Published
+                        - time [ref=e1043]: 09 November 2023
+                    - listitem [ref=e1044]:
+                      - paragraph [ref=e1045]:
+                        - text: Version of record
+                        - time [ref=e1047]: 09 November 2023
+                    - listitem [ref=e1048]:
+                      - paragraph [ref=e1049]:
+                        - text: Issue date
+                        - time [ref=e1051]: March 2024
+                    - listitem [ref=e1052]:
+                      - paragraph [ref=e1053]:
+                        - text: DOI
+                        - generic [ref=e1054]: https://doi.org/10.1007/s10257-023-00659-7
+                  - generic [ref=e1056]:
+                    - heading "Share this article" [level=3] [ref=e1057]
+                    - paragraph [ref=e1058]: "Anyone you share the following link with will be able to read this content:"
+                    - button "Get shareable link" [ref=e1059] [cursor=pointer]
+                    - paragraph [ref=e1060]: Provided by the Springer Nature SharedIt content-sharing initiative
+                  - heading "Keywords" [level=3] [ref=e1061]
+                  - list [ref=e1062]:
+                    - listitem [ref=e1063]:
+                      - link "Decentralized autonomous organization" [ref=e1065] [cursor=pointer]:
+                        - /url: /search?query=Decentralized%20autonomous%20organization&facet-discipline="Business%20and%20Management"
+                    - listitem [ref=e1066]:
+                      - link "Blockchain-based governance" [ref=e1068] [cursor=pointer]:
+                        - /url: /search?query=Blockchain-based%20governance&facet-discipline="Business%20and%20Management"
+                    - listitem [ref=e1069]:
+                      - link "Cooperatives" [ref=e1071] [cursor=pointer]:
+                        - /url: /search?query=Cooperatives&facet-discipline="Business%20and%20Management"
+                    - listitem [ref=e1072]:
+                      - link "Smallholders’ cooperation" [ref=e1074] [cursor=pointer]:
+                        - /url: /search?query=Smallholders%E2%80%99%20cooperation&facet-discipline="Business%20and%20Management"
+                    - listitem [ref=e1075]:
+                      - link "Design principles" [ref=e1077] [cursor=pointer]:
+                        - /url: /search?query=Design%20principles&facet-discipline="Business%20and%20Management"
+      - complementary "reading companion" [ref=e1079]:
+        - generic [ref=e1081]:
+          - tablist [ref=e1082]:
+            - tab "Sections" [selected] [ref=e1083] [cursor=pointer]
+            - tab "Figures" [ref=e1084] [cursor=pointer]
+            - tab "References" [ref=e1085] [cursor=pointer]
+          - tabpanel "Sections" [ref=e1086]:
+            - list [ref=e1088]:
+              - listitem [ref=e1089]:
+                - link "Abstract" [ref=e1090] [cursor=pointer]:
+                  - /url: "#Abs1"
+              - listitem [ref=e1091]:
+                - link "Introduction" [ref=e1092] [cursor=pointer]:
+                  - /url: "#Sec111"
+              - listitem [ref=e1093]:
+                - link "Background" [ref=e1094] [cursor=pointer]:
+                  - /url: "#Sec1"
+              - listitem [ref=e1095]:
+                - link "Method" [ref=e1096] [cursor=pointer]:
+                  - /url: "#Sec5"
+              - listitem [ref=e1097]:
+                - link "Problem identification and design objectives" [ref=e1098] [cursor=pointer]:
+                  - /url: "#Sec6"
+              - listitem [ref=e1099]:
+                - link "Design, development, and demonstration" [ref=e1100] [cursor=pointer]:
+                  - /url: "#Sec7"
+              - listitem [ref=e1101]:
+                - link "Evaluation" [ref=e1102] [cursor=pointer]:
+                  - /url: "#Sec11"
+              - listitem [ref=e1103]:
+                - link "Discussion of results and derivation of design principles" [ref=e1104] [cursor=pointer]:
+                  - /url: "#Sec14"
+              - listitem [ref=e1105]:
+                - link "Conclusion" [ref=e1106] [cursor=pointer]:
+                  - /url: "#Sec17"
+              - listitem [ref=e1107]:
+                - link "References" [ref=e1108] [cursor=pointer]:
+                  - /url: "#Bib1"
+              - listitem [ref=e1109]:
+                - link "Funding" [ref=e1110] [cursor=pointer]:
+                  - /url: "#Fun"
+              - listitem [ref=e1111]:
+                - link "Author information" [ref=e1112] [cursor=pointer]:
+                  - /url: "#author-information"
+              - listitem [ref=e1113]:
+                - link "Ethics declarations" [ref=e1114] [cursor=pointer]:
+                  - /url: "#ethics"
+              - listitem [ref=e1115]:
+                - link "Additional information" [ref=e1116] [cursor=pointer]:
+                  - /url: "#additional-information"
+              - listitem [ref=e1117]:
+                - link "Electronic supplementary material" [ref=e1118] [cursor=pointer]:
+                  - /url: "#Sec18"
+              - listitem [ref=e1119]:
+                - link "Rights and permissions" [ref=e1120] [cursor=pointer]:
+                  - /url: "#rightslink"
+              - listitem [ref=e1121]:
+                - link "About this article" [ref=e1122] [cursor=pointer]:
+                  - /url: "#article-info"
+            - paragraph [ref=e1126]: Advertisement
+  - generic [ref=e1127]:
+    - navigation
+    - contentinfo [ref=e1128]:
+      - generic [ref=e1129]:
+        - heading "Footer Navigation" [level=2] [ref=e1130]
+        - navigation "Footer" [ref=e1131]:
+          - generic [ref=e1133]:
+            - generic [ref=e1134]:
+              - heading "Discover content" [level=3] [ref=e1135]
+              - list [ref=e1136]:
+                - listitem [ref=e1137]:
+                  - link "Journals A-Z" [ref=e1138] [cursor=pointer]:
+                    - /url: https://link-springer-com.ezproxy.ugm.ac.id/journals/a/1
+                - listitem [ref=e1139]:
+                  - link "Books A-Z" [ref=e1140] [cursor=pointer]:
+                    - /url: https://link-springer-com.ezproxy.ugm.ac.id/books/a/1
+            - generic [ref=e1141]:
+              - heading "Publish with us" [level=3] [ref=e1142]
+              - list [ref=e1143]:
+                - listitem [ref=e1144]:
+                  - link "Journal finder" [ref=e1145] [cursor=pointer]:
+                    - /url: https://link-springer-com.ezproxy.ugm.ac.id/journals
+                - listitem [ref=e1146]:
+                  - link "Publish your research" [ref=e1147] [cursor=pointer]:
+                    - /url: https://www.springernature.com/gp/authors
+                - listitem [ref=e1148]:
+                  - link "Language editing" [ref=e1149] [cursor=pointer]:
+                    - /url: https://authorservices.springernature.com/go/sn/?utm_source=SNLinkfooter&utm_medium=Web&utm_campaign=SNReferral
+                - listitem [ref=e1150]:
+                  - link "Open access publishing" [ref=e1151] [cursor=pointer]:
+                    - /url: https://www.springernature.com/gp/open-science/about/the-fundamentals-of-open-access-and-open-research
+            - generic [ref=e1152]:
+              - heading "Products and services" [level=3] [ref=e1153]
+              - list [ref=e1154]:
+                - listitem [ref=e1155]:
+                  - link "Our products" [ref=e1156] [cursor=pointer]:
+                    - /url: https://www.springernature.com/gp/products
+                - listitem [ref=e1157]:
+                  - link "Librarians" [ref=e1158] [cursor=pointer]:
+                    - /url: https://www.springernature.com/gp/librarians
+                - listitem [ref=e1159]:
+                  - link "Societies" [ref=e1160] [cursor=pointer]:
+                    - /url: https://www.springernature.com/gp/societies
+                - listitem [ref=e1161]:
+                  - link "Partners and advertisers" [ref=e1162] [cursor=pointer]:
+                    - /url: https://www.springernature.com/gp/partners
+            - generic [ref=e1163]:
+              - heading "Our brands" [level=3] [ref=e1164]
+              - list [ref=e1165]:
+                - listitem [ref=e1166]:
+                  - link "Springer" [ref=e1167] [cursor=pointer]:
+                    - /url: https://link-springer-com.ezproxy.ugm.ac.id/brands/springer
+                - listitem [ref=e1168]:
+                  - link "Nature Portfolio" [ref=e1169] [cursor=pointer]:
+                    - /url: https://www-nature-com.ezproxy.ugm.ac.id/
+                - listitem [ref=e1170]:
+                  - link "BMC" [ref=e1171] [cursor=pointer]:
+                    - /url: https://link-springer-com.ezproxy.ugm.ac.id/brands/bmc
+                - listitem [ref=e1172]:
+                  - link "Palgrave Macmillan" [ref=e1173] [cursor=pointer]:
+                    - /url: /brands/palgrave
+                - listitem [ref=e1174]:
+                  - link "Apress" [ref=e1175] [cursor=pointer]:
+                    - /url: /brands/apress
+                - listitem [ref=e1176]:
+                  - link "Discover" [ref=e1177] [cursor=pointer]:
+                    - /url: https://link-springer-com.ezproxy.ugm.ac.id/brands/discover
+          - generic [ref=e1178]:
+            - heading "Corporate Navigation" [level=3] [ref=e1179]
+            - list [ref=e1180]:
+              - listitem [ref=e1181]:
+                - button "Your privacy choices/Manage cookies" [ref=e1182] [cursor=pointer]
+              - listitem [ref=e1183]:
+                - link "Your US state privacy rights" [ref=e1184] [cursor=pointer]:
+                  - /url: https://www.springernature.com/gp/legal/ccpa
+              - listitem [ref=e1185]:
+                - link "Accessibility statement" [ref=e1186] [cursor=pointer]:
+                  - /url: https://link-springer-com.ezproxy.ugm.ac.id/accessibility
+              - listitem [ref=e1187]:
+                - link "Terms and conditions" [ref=e1188] [cursor=pointer]:
+                  - /url: https://link-springer-com.ezproxy.ugm.ac.id/termsandconditions
+              - listitem [ref=e1189]:
+                - link "Privacy policy" [ref=e1190] [cursor=pointer]:
+                  - /url: https://link-springer-com.ezproxy.ugm.ac.id/privacystatement
+              - listitem [ref=e1191]:
+                - link "Help and support" [ref=e1192] [cursor=pointer]:
+                  - /url: https://support.springernature.com/en/support/home
+              - listitem [ref=e1193]:
+                - link "Legal notice" [ref=e1194] [cursor=pointer]:
+                  - /url: https://link-springer-com.ezproxy.ugm.ac.id/legal-notice
+              - listitem [ref=e1195]:
+                - link "Cancel contracts here" [ref=e1196] [cursor=pointer]:
+                  - /url: https://support.springernature.com/en/support/solutions/articles/6000255911-subscription-cancellations
+        - generic [ref=e1197]:
+          - generic [ref=e1198]:
+            - paragraph [ref=e1199]: 202.43.95.117
+            - paragraph [ref=e1200]: 14317 SpringerLink Indonesia eBook Consortium - 2009 copyright-year ti (3001289630) - 4774 SpringerLink Indonesia eJournal Consortium (3000176177) - Universitas Gadjah Mada (2000661372)
+          - link "Springer Nature" [ref=e1201] [cursor=pointer]:
+            - /url: https://www.springernature.com/
+            - img "Springer Nature" [ref=e1202]
+          - paragraph [ref=e1203]: © 2026 Springer Nature
+  - region "Cookie consent notice" [active] [ref=e1204]:
+    - paragraph [ref=e1206]:
+      - text: This website sets only cookies which are necessary for it to function. They are used to enable core functionality such as security, network management and accessibility. These cookies cannot be switched off in our systems. You may disable these by changing your browser settings, but this may affect how the website functions. Please view our privacy policy for further details on how we process your information.
+      - button "Dismiss" [ref=e1207] [cursor=pointer]

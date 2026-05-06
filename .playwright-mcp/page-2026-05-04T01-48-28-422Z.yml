@@ -1,0 +1,171 @@
+- generic [ref=e1]:
+  - link "Skip to Main Content" [ref=e2] [cursor=pointer]:
+    - /url: "#skipNav"
+  - banner [ref=e3]:
+    - generic [ref=e6]:
+      - generic [ref=e7]:
+        - text: 
+        - generic [ref=e8]:
+          - link "Emerald Insight logo" [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img "Emerald Insight logo" [ref=e11]
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - link "Journals" [ref=e14] [cursor=pointer]:
+                - /url: /journals
+            - listitem [ref=e15]:
+              - link "Books" [ref=e16] [cursor=pointer]:
+                - /url: /books
+            - listitem [ref=e17]:
+              - link "Case Studies" [ref=e18] [cursor=pointer]:
+                - /url: /case-studies
+            - listitem [ref=e19]:
+              - link "Collections" [ref=e20] [cursor=pointer]:
+                - /url: /emerald-collections
+            - listitem [ref=e21]:
+              - link "Open Access" [ref=e22] [cursor=pointer]:
+                - /url: /open-access
+            - listitem [ref=e23]:
+              - link "Citation Manager" [ref=e24] [cursor=pointer]:
+                - /url: /citation-manager
+      - button " Search Dropdown Menu" [ref=e26] [cursor=pointer]:
+        - generic [ref=e27]:
+          - text: 
+          - generic [ref=e28]: Search Dropdown Menu
+      - text:   
+      - generic [ref=e29]:
+        - link "Cart" [ref=e31] [cursor=pointer]:
+          - /url: https://www-emerald-com.ezproxy.ugm.ac.id/store/cart
+          - generic [ref=e32]: Cart
+          - generic [ref=e33]: 
+        - link "Register" [ref=e35] [cursor=pointer]:
+          - /url: /my-account/register?siteId=1&returnUrl=%2f
+        - button "Universitas Gadjah Mada " [ref=e37] [cursor=pointer]:
+          - text: Universitas Gadjah Mada
+          - generic [ref=e38]: 
+        - button "Sign In  Open Menu" [ref=e40] [cursor=pointer]:
+          - text: Sign In
+          - generic [ref=e41]:
+            - text: 
+            - generic [ref=e42]: Open Menu
+  - main [ref=e43]:
+    - generic [ref=e45]:
+      - link "Skip Nav Destination" [ref=e46] [cursor=pointer]:
+        - /url: "#"
+      - generic [ref=e47]:
+        - heading "The page you are looking for cannot be found." [level=3] [ref=e48]
+        - generic [ref=e49]: Please check the address, or try visiting the home page.
+        - link "Return Home" [ref=e51] [cursor=pointer]:
+          - /url: /
+  - contentinfo [ref=e53]:
+    - generic [ref=e56]:
+      - generic [ref=e58]:
+        - generic [ref=e59]:
+          - link "Emerald Publishing logo" [ref=e61] [cursor=pointer]:
+            - /url: "#"
+            - img "Emerald Publishing logo" [ref=e62]
+          - list [ref=e64]:
+            - listitem [ref=e65]:
+              - link " Bluesky" [ref=e66] [cursor=pointer]:
+                - /url: https://bsky.app/profile/emeraldpublishing.bsky.social
+                - generic [ref=e67]: 
+                - generic [ref=e68]: Bluesky
+            - listitem [ref=e69]:
+              - link " Facebook" [ref=e70] [cursor=pointer]:
+                - /url: https://www.facebook.com/EmeraldPublishingImpact/
+                - generic [ref=e71]: 
+                - generic [ref=e72]: Facebook
+            - listitem [ref=e73]:
+              - link " LinkedIn" [ref=e74] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/emeraldpublishing/
+                - generic [ref=e75]: 
+                - generic [ref=e76]: LinkedIn
+            - listitem [ref=e77]:
+              - link " YouTube" [ref=e78] [cursor=pointer]:
+                - /url: https://www.youtube.com/user/EmeraldPublishing67
+                - generic [ref=e79]: 
+                - generic [ref=e80]: YouTube
+            - listitem [ref=e81]:
+              - link " Instagram" [ref=e82] [cursor=pointer]:
+                - /url: https://www.instagram.com/emerald_publishing/
+                - generic [ref=e83]: 
+                - generic [ref=e84]: Instagram
+          - generic [ref=e85]: © 2025 Emerald Publishing Limited
+        - generic [ref=e87]:
+          - list [ref=e90]:
+            - listitem [ref=e91]:
+              - link "Authors " [ref=e92] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/author-services
+            - listitem [ref=e93]:
+              - link "Editors " [ref=e94] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/editors
+            - listitem [ref=e95]:
+              - link "Librarians " [ref=e96] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/librarians
+            - listitem [ref=e97]:
+              - link "Researchers " [ref=e98] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/researchers
+            - listitem [ref=e99]:
+              - link "Reviewers " [ref=e100] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/our-services/reviewers
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "Open Access" [ref=e105] [cursor=pointer]:
+                - /url: /open-access
+            - listitem [ref=e106]:
+              - link "How-to Guides " [ref=e107] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/how-to
+            - listitem [ref=e108]:
+              - link "Emerald Publishing Services " [ref=e109] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/discover-our-services/emerald-publishing-services
+          - list [ref=e112]:
+            - listitem [ref=e113]:
+              - link "Contact us " [ref=e114] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/contact-us
+            - listitem [ref=e115]:
+              - link "Help " [ref=e116] [cursor=pointer]:
+                - /url: https://emeraldpublishinggroup.freshdesk.com/support/home
+            - listitem [ref=e117]:
+              - link "About Emerald " [ref=e118] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/who-we-are/about-us?distinct_id=74ee1e3b-4e70-40c6-be08-d06abd155adf&_ga=2.145614326.33409777.1714473076-993168562.1710334523
+            - listitem [ref=e119]:
+              - link "Working for Emerald " [ref=e120] [cursor=pointer]:
+                - /url: https://www.emeraldgrouppublishing.com/who-we-are/about-us/work-with-us
+      - list [ref=e123]:
+        - listitem [ref=e124]:
+          - link "Cookie Policy" [ref=e125] [cursor=pointer]:
+            - /url: /pages/cookie_policy
+        - listitem [ref=e126]:
+          - link "Accessibility" [ref=e127] [cursor=pointer]:
+            - /url: https://www.emeraldgrouppublishing.com/emerald-accessibility-statement
+        - listitem [ref=e128]:
+          - link "Site policies" [ref=e129] [cursor=pointer]:
+            - /url: /pages/site_policies
+        - listitem [ref=e130]:
+          - link "Privacy notice" [ref=e131] [cursor=pointer]:
+            - /url: /pages/privacy_notice
+        - listitem [ref=e132]:
+          - link "Modern Slavery Act" [ref=e133] [cursor=pointer]:
+            - /url: /pages/modern_slavery_act
+        - listitem [ref=e134]: © 2025 Emerald Publishing Limited
+  - generic:
+    - text:  
+    - text:  
+  - region "Advertisement"
+  - generic:
+    - region "Cookie banner" [active] [ref=e136]:
+      - dialog "Privacy" [ref=e137]:
+        - generic [ref=e138]:
+          - button "Close" [ref=e140] [cursor=pointer]
+          - generic [ref=e141]:
+            - generic [ref=e144]:
+              - text: By clicking “Accept All Cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
+              - link "More information about your privacy, opens in a new tab" [ref=e145] [cursor=pointer]:
+                - /url: https://www.emerald.com/pages/cookie_policy
+                - text: Visit our cookie policy page
+            - generic [ref=e147]:
+              - button "Accept All Cookies" [ref=e149] [cursor=pointer]
+              - button "Reject All" [ref=e151] [cursor=pointer]
+              - button "Cookies Settings, Opens the preference center dialog" [ref=e153] [cursor=pointer]: Cookies Settings
+    - text: Cookies Settings
+  - status [ref=e154]

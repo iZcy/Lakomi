@@ -1,0 +1,339 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - button [ref=e4] [cursor=pointer]
+    - link "Beranda" [ref=e6] [cursor=pointer]:
+      - /url: /schhp?hl=id&as_sdt=0,5
+    - generic [ref=e9]:
+      - textbox "Telusuri" [ref=e11]: Calzada Eizaguirre blockchain cooperative token engineering social solidarity
+      - button "Telusuri" [ref=e12] [cursor=pointer]
+    - link "Login" [ref=e16] [cursor=pointer]:
+      - /url: https://accounts.google.com/Login?hl=id&continue=https://scholar.google.com/scholar%3Fq%3DCalzada%2BEizaguirre%2Bblockchain%2Bcooperative%2Btoken%2Bengineering%2Bsocial%2Bsolidarity
+  - generic [ref=e17]:
+    - generic [ref=e21]: Artikel
+    - generic [ref=e23]: 11 hasil (0,13 dtk)
+    - generic [ref=e24]:
+      - link "Profil saya" [ref=e25] [cursor=pointer]:
+        - /url: /citations?hl=id
+        - generic [ref=e27]: Profil saya
+      - link "Koleksi saya" [ref=e28] [cursor=pointer]:
+        - /url: /scholar?scilib=1&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+        - generic [ref=e30]: Koleksi saya
+  - generic [ref=e31]:
+    - navigation [ref=e32]:
+      - generic [ref=e33]:
+        - list [ref=e35]:
+          - listitem [ref=e36]:
+            - link "Kapan saja" [ref=e37] [cursor=pointer]:
+              - /url: /scholar?q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - listitem [ref=e38]:
+            - link "Sejak 2026" [ref=e39] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2026&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - listitem [ref=e40]:
+            - link "Sejak 2025" [ref=e41] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2025&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - listitem [ref=e42]:
+            - link "Sejak 2022" [ref=e43] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2022&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - listitem [ref=e44]:
+            - link "Rentang khusus..." [ref=e45] [cursor=pointer]:
+              - /url: javascript:void(0)
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "Urutkan menurut relevansi" [ref=e48] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity
+          - listitem [ref=e49]:
+            - link "Urutkan menurut tanggal" [ref=e50] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&scisbd=1
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Semua jenis" [ref=e53] [cursor=pointer]:
+              - /url: /scholar?q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - listitem [ref=e54]:
+            - link "Artikel kajian" [ref=e55] [cursor=pointer]:
+              - /url: /scholar?q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5&as_rr=1
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - checkbox "sertakan paten" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: sertakan paten
+          - listitem [ref=e62]:
+            - checkbox "mencakup kutipan" [checked] [ref=e63] [cursor=pointer]:
+              - generic [ref=e64]: mencakup kutipan
+        - link "Buat notifikasi" [ref=e68] [cursor=pointer]:
+          - /url: /scholar_alerts?view_op=create_alert_options&hl=id&alert_query=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&alert_params=%3Fhl%3Did%26as_sdt%3D0,5
+          - generic [ref=e70]: Buat notifikasi
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - link "[PDF] ssrn.com" [ref=e78] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5077929
+            - generic [ref=e79]:
+              - 'heading "Beyond the Local-Global Nexus: Towards P2P Decentralized AI-Driven Diasporic e-Citizenship for Data Cooperatives" [level=3] [ref=e80]':
+                - 'link "Beyond the Local-Global Nexus: Towards P2P Decentralized AI-Driven Diasporic e-Citizenship for Data Cooperatives" [ref=e81] [cursor=pointer]':
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5077929
+              - generic [ref=e82]:
+                - link "I Calzada" [ref=e83] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: "- … e-Citizenship for Data Cooperatives. In. Zuberogoitia, A …, 2024 - papers.ssrn.com"
+              - generic [ref=e84]:
+                - text: … The development of decentralized digital infrastructures, such as those enabled by Web3
+                - text: technologies, blockchain, and data cooperatives (Calzada 2023a; Scholz and Calzada 2021), …
+              - generic [ref=e85]:
+                - button "Simpan" [ref=e86] [cursor=pointer]:
+                  - img [ref=e87]
+                  - text: Simpan
+                - button "Kutip" [ref=e89] [cursor=pointer]:
+                  - img [ref=e90]
+                  - text: Kutip
+                - link "Dirujuk 1 kali" [ref=e92] [cursor=pointer]:
+                  - /url: /scholar?cites=6637967582205210758&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e93] [cursor=pointer]:
+                  - /url: /scholar?q=related:hnDmt1jMHlwJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                - link "2 versi" [ref=e94] [cursor=pointer]:
+                  - /url: /scholar?cluster=6637967582205210758&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e95] [cursor=pointer]:
+                  - img [ref=e96]
+          - generic [ref=e98]:
+            - link "[PDF] tandfonline.com" [ref=e102] [cursor=pointer]:
+              - /url: https://www.tandfonline.com/doi/pdf/10.1080/14747731.2023.2271216
+            - generic [ref=e103]:
+              - heading "Blockchain-driven digital nomadism in the Basque e-Diaspora" [level=3] [ref=e104]:
+                - link "Blockchain-driven digital nomadism in the Basque e-Diaspora" [ref=e105] [cursor=pointer]:
+                  - /url: https://www.tandfonline.com/doi/abs/10.1080/14747731.2023.2271216
+              - generic [ref=e106]:
+                - link "I Calzada" [ref=e107] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: "- Globalizations, 2024 - Taylor & Francis"
+              - generic [ref=e108]:
+                - text: … blockchain from scratch, aided by the strong co-operative ethos and high social capital in the
+                - text: Basque Country (Calzada, … in the data and token-driven activities facilitated by the platform. …
+              - generic [ref=e109]:
+                - button "Simpan" [ref=e110] [cursor=pointer]:
+                  - img [ref=e111]
+                  - text: Simpan
+                - button "Kutip" [ref=e113] [cursor=pointer]:
+                  - img [ref=e114]
+                  - text: Kutip
+                - link "Dirujuk 33 kali" [ref=e116] [cursor=pointer]:
+                  - /url: /scholar?cites=8999759904622658451&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e117] [cursor=pointer]:
+                  - /url: /scholar?q=related:k0PWUvOR5XwJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                - link "10 versi" [ref=e118] [cursor=pointer]:
+                  - /url: /scholar?cluster=8999759904622658451&hl=id&as_sdt=0,5
+          - generic [ref=e119]:
+            - link "[HTML] mdpi.com" [ref=e123] [cursor=pointer]:
+              - /url: https://www.mdpi.com/1999-5903/16/10/361
+            - generic [ref=e124]:
+              - 'heading "[HTML] Decentralized web3 reshaping internet governance: Towards the emergence of new forms of nation-statehood?" [level=3] [ref=e125]':
+                - generic [ref=e126]: "[HTML]"
+                - 'link "Decentralized web3 reshaping internet governance: Towards the emergence of new forms of nation-statehood?" [ref=e127] [cursor=pointer]':
+                  - /url: https://www.mdpi.com/1999-5903/16/10/361
+              - generic [ref=e128]:
+                - link "I Calzada" [ref=e129] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: "- Future Internet, 2024 - mdpi.com"
+              - generic [ref=e130]:
+                - text: … These stakeholders advocate for the adoption of emerging decentralized technologies,
+                - text: including blockchain, DAOs [57], and data cooperatives, which are central to the ideology being …
+              - generic [ref=e131]:
+                - button "Simpan" [ref=e132] [cursor=pointer]:
+                  - img [ref=e133]
+                  - text: Simpan
+                - button "Kutip" [ref=e135] [cursor=pointer]:
+                  - img [ref=e136]
+                  - text: Kutip
+                - link "Dirujuk 34 kali" [ref=e138] [cursor=pointer]:
+                  - /url: /scholar?cites=9789600173795991958&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e139] [cursor=pointer]:
+                  - /url: /scholar?q=related:lmE2lH2l24cJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                - link "11 versi" [ref=e140] [cursor=pointer]:
+                  - /url: /scholar?cluster=9789600173795991958&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e141] [cursor=pointer]:
+                  - img [ref=e142]
+          - generic [ref=e144]:
+            - link "[PDF] ssrn.com" [ref=e148] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5008910
+            - generic [ref=e149]:
+              - heading "The Illusion of the Web3 Decentralization" [level=3] [ref=e150]:
+                - link "The Illusion of the Web3 Decentralization" [ref=e151] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5008910
+              - generic [ref=e152]:
+                - link "I Calzada" [ref=e153] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: "- Available at SSRN 5008910, 2025 - papers.ssrn.com"
+              - generic [ref=e154]:
+                - text: … Calzada and Eizaguirre, 2025; Calzada, 2025c), a limitation that is explicitly acknowledged.
+                - text: … data-cooperative voting procedures, and mandating disclosure of token concentration levels …
+              - generic [ref=e155]:
+                - button "Simpan" [ref=e156] [cursor=pointer]:
+                  - img [ref=e157]
+                  - text: Simpan
+                - button "Kutip" [ref=e159] [cursor=pointer]:
+                  - img [ref=e160]
+                  - text: Kutip
+                - link "Dirujuk 3 kali" [ref=e162] [cursor=pointer]:
+                  - /url: /scholar?cites=4698150577502744729&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e163] [cursor=pointer]:
+                  - /url: /scholar?q=related:mfBY8Q4vM0EJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e164] [cursor=pointer]:
+                  - img [ref=e165]
+          - generic [ref=e168]:
+            - heading "What Do We Mean by Data Sovereignties?" [level=3] [ref=e169]:
+              - link "What Do We Mean by Data Sovereignties?" [ref=e170] [cursor=pointer]:
+                - /url: https://link.springer.com/chapter/10.1007/978-3-032-11888-2_6
+            - generic [ref=e171]:
+              - link "I Calzada" [ref=e172] [cursor=pointer]:
+                - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+              - text: "- Datafied Democracies & AI Economics Unplugged, 2025 - Springer"
+            - generic [ref=e173]:
+              - text: … As elucidated in Calzada’s work on blockchain-driven digital nomadism (… of data cooperatives,
+              - text: therefore, signals a critical societal effort to re-embed data relations into moral, social, and …
+            - generic [ref=e174]:
+              - button "Simpan" [ref=e175] [cursor=pointer]:
+                - img [ref=e176]
+                - text: Simpan
+              - button "Kutip" [ref=e178] [cursor=pointer]:
+                - img [ref=e179]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e181] [cursor=pointer]:
+                - /url: /scholar?q=related:fvFHMih-25oJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - generic [ref=e182]:
+            - link "[PDF] cambridge.org" [ref=e186] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/services/aop-cambridge-core/content/view/AAC73AD95284C123F83BE0A67CAD2AE9/S2632324926100558a.pdf/the-illusion-of-the-web3-decentralization.pdf
+            - generic [ref=e187]:
+              - heading "The illusion of the Web3 decentralization" [level=3] [ref=e188]:
+                - link "The illusion of the Web3 decentralization" [ref=e189] [cursor=pointer]:
+                  - /url: https://www.cambridge.org/core/journals/data-and-policy/article/illusion-of-the-web3-decentralization/AAC73AD95284C123F83BE0A67CAD2AE9
+              - generic [ref=e190]:
+                - link "I Calzada" [ref=e191] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: "- Data & Policy, 2026 - cambridge.org"
+              - generic [ref=e192]:
+                - text: … Calzada and Eizaguirre, 2025; Calzada, 2025c), a limitation that is explicitly acknowledged.
+                - text: … data-cooperative voting procedures, and mandating disclosure of token concentration levels …
+              - generic [ref=e193]:
+                - button "Simpan" [ref=e194] [cursor=pointer]:
+                  - img [ref=e195]
+                  - text: Simpan
+                - button "Kutip" [ref=e197] [cursor=pointer]:
+                  - img [ref=e198]
+                  - text: Kutip
+                - link "Dirujuk 7 kali" [ref=e200] [cursor=pointer]:
+                  - /url: /scholar?cites=6198378376814580770&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e201] [cursor=pointer]:
+                  - /url: /scholar?q=related:ItR-FUsQBVYJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - generic [ref=e203]:
+            - heading "Cyberlibertarian Post-Westphalianism" [level=3] [ref=e204]:
+              - link "Cyberlibertarian Post-Westphalianism" [ref=e205] [cursor=pointer]:
+                - /url: https://link.springer.com/chapter/10.1007/978-3-032-11888-2_7
+            - generic [ref=e206]:
+              - link "I Calzada" [ref=e207] [cursor=pointer]:
+                - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+              - text: "- Datafied Democracies & AI Economics Unplugged, 2025 - Springer"
+            - generic [ref=e208]:
+              - text: … proponents who see DAOs and token-based systems as capable … , particularly blockchain,
+              - text: can solve societal problems more … This mutualistic model emphasizes cooperation and …
+            - generic [ref=e209]:
+              - button "Simpan" [ref=e210] [cursor=pointer]:
+                - img [ref=e211]
+                - text: Simpan
+              - button "Kutip" [ref=e213] [cursor=pointer]:
+                - img [ref=e214]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e216] [cursor=pointer]:
+                - /url: /scholar?q=related:xxHc9Pw8cZgJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - generic [ref=e218]:
+            - 'heading "The (Dis) Illusion of the Web3 Decentralization: Power Redistribution or Technocratic Capture?" [level=3] [ref=e219]':
+              - 'link "The (Dis) Illusion of the Web3 Decentralization: Power Redistribution or Technocratic Capture?" [ref=e220] [cursor=pointer]':
+                - /url: https://link.springer.com/chapter/10.1007/978-3-032-11888-2_4
+            - generic [ref=e221]:
+              - link "I Calzada" [ref=e222] [cursor=pointer]:
+                - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+              - text: "- Datafied Democracies & AI Economics Unplugged, 2025 - Springer"
+            - generic [ref=e223]:
+              - text: … as blockchain, DAOs, and data cooperatives… , crypto-infrastructural governance, they
+              - text: decouple innovation from public accountability and democratic legitimacy. Their emphasis on token …
+            - generic [ref=e224]:
+              - button "Simpan" [ref=e225] [cursor=pointer]:
+                - img [ref=e226]
+                - text: Simpan
+              - button "Kutip" [ref=e228] [cursor=pointer]:
+                - img [ref=e229]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e231] [cursor=pointer]:
+                - /url: /scholar?q=related:OGAmIMOUQQwJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+          - generic [ref=e232]:
+            - link "[PDF] springer.com" [ref=e236] [cursor=pointer]:
+              - /url: https://link.springer.com/content/pdf/10.1007/s44327-025-00116-9.pdf
+            - generic [ref=e237]:
+              - 'heading "Digital inclusion and Urban AI: strategic roadmapping and policy challenges" [level=3] [ref=e238]':
+                - 'link "Digital inclusion and Urban AI: strategic roadmapping and policy challenges" [ref=e239] [cursor=pointer]':
+                  - /url: https://link.springer.com/article/10.1007/s44327-025-00116-9
+              - generic [ref=e240]:
+                - link "I Calzada" [ref=e241] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: ", I Eizaguirre - Discover Cities, 2025 - Springer"
+              - generic [ref=e242]:
+                - text: … ’s rich tradition of cooperative governance, social innovation, and territorial solidarity. At …
+                - text: cycle by embedding digital inclusion and data cooperatives with an entrepreneurial spirit [85…
+              - generic [ref=e243]:
+                - button "Simpan" [ref=e244] [cursor=pointer]:
+                  - img [ref=e245]
+                  - text: Simpan
+                - button "Kutip" [ref=e247] [cursor=pointer]:
+                  - img [ref=e248]
+                  - text: Kutip
+                - link "Dirujuk 19 kali" [ref=e250] [cursor=pointer]:
+                  - /url: /scholar?cites=15200412146971100171&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e251] [cursor=pointer]:
+                  - /url: /scholar?q=related:C8S--0-28tIJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                - link "9 versi" [ref=e252] [cursor=pointer]:
+                  - /url: /scholar?cluster=15200412146971100171&hl=id&as_sdt=0,5
+          - generic [ref=e253]:
+            - link "[PDF] ssrn.com" [ref=e257] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5611311
+            - generic [ref=e258]:
+              - heading "Datafied democracies & AI economics unplugged" [level=3] [ref=e259]:
+                - link "Datafied democracies & AI economics unplugged" [ref=e260] [cursor=pointer]:
+                  - /url: https://link.springer.com/content/pdf/10.1007/978-3-032-11888-2.pdf
+              - generic [ref=e261]:
+                - link "I Calzada" [ref=e262] [cursor=pointer]:
+                  - /url: /citations?user=zRABPGQAAAAJ&hl=id&oi=sra
+                - text: "- Cham: Springer Nature, 2025 - Springer"
+              - generic [ref=e263]:
+                - text: … tion, unless rigorously checked (Calzada & Eizaguirre, 2025a). She highlights how … such
+                - text: as blockchain, decentralized autonomous organizations (DAOs), and data cooperatives—serve …
+              - generic [ref=e264]:
+                - button "Simpan" [ref=e265] [cursor=pointer]:
+                  - img [ref=e266]
+                  - text: Simpan
+                - button "Kutip" [ref=e268] [cursor=pointer]:
+                  - img [ref=e269]
+                  - text: Kutip
+                - link "Dirujuk 14 kali" [ref=e271] [cursor=pointer]:
+                  - /url: /scholar?cites=4904621086624327252&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e272] [cursor=pointer]:
+                  - /url: /scholar?q=related:VCYieuS2EEQJ:scholar.google.com/&scioq=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                - link "5 versi" [ref=e273] [cursor=pointer]:
+                  - /url: /scholar?cluster=4904621086624327252&hl=id&as_sdt=0,5
+        - navigation [ref=e275]:
+          - table [ref=e277]:
+            - rowgroup [ref=e278]:
+              - row "1 2 Berikutnya" [ref=e279]:
+                - cell [ref=e280]
+                - cell "1" [ref=e282]: "1"
+                - cell "2" [ref=e284]:
+                  - link "2" [ref=e285] [cursor=pointer]:
+                    - /url: /scholar?start=10&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                    - text: "2"
+                - cell "Berikutnya" [ref=e287]:
+                  - link "Berikutnya" [ref=e288] [cursor=pointer]:
+                    - /url: /scholar?start=10&q=Calzada+Eizaguirre+blockchain+cooperative+token+engineering+social+solidarity&hl=id&as_sdt=0,5
+                    - generic [ref=e290]: Berikutnya
+  - contentinfo [ref=e291]:
+    - generic [ref=e292]:
+      - link "Privasi" [ref=e293] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/privacy/
+      - link "Persyaratan" [ref=e294] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/terms/
+      - button "Bantuan" [ref=e295] [cursor=pointer]

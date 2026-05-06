@@ -1,0 +1,414 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - button [ref=e4] [cursor=pointer]
+    - link "Beranda" [ref=e6] [cursor=pointer]:
+      - /url: /schhp?hl=id&as_sdt=0,5
+    - generic [ref=e9]:
+      - textbox "Telusuri" [ref=e11]: carata smart contracts social fund management procedia 2024
+      - button "Telusuri" [ref=e12] [cursor=pointer]
+    - link "Login" [ref=e16] [cursor=pointer]:
+      - /url: https://accounts.google.com/Login?hl=id&continue=https://scholar.google.com/scholar%3Fq%3Dcarata%2Bsmart%2Bcontracts%2Bsocial%2Bfund%2Bmanagement%2Bprocedia%2B2024
+  - generic [ref=e17]:
+    - generic [ref=e21]: Artikel
+    - generic [ref=e23]: Sekitar 950 hasil (0,12 dtk)
+    - generic [ref=e24]:
+      - link "Profil saya" [ref=e25] [cursor=pointer]:
+        - /url: /citations?hl=id
+        - generic [ref=e27]: Profil saya
+      - link "Koleksi saya" [ref=e28] [cursor=pointer]:
+        - /url: /scholar?scilib=1&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+        - generic [ref=e30]: Koleksi saya
+  - generic [ref=e31]:
+    - navigation [ref=e32]:
+      - generic [ref=e33]:
+        - list [ref=e35]:
+          - listitem [ref=e36]:
+            - link "Kapan saja" [ref=e37] [cursor=pointer]:
+              - /url: /scholar?q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e38]:
+            - link "Sejak 2026" [ref=e39] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2026&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e40]:
+            - link "Sejak 2025" [ref=e41] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2025&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e42]:
+            - link "Sejak 2022" [ref=e43] [cursor=pointer]:
+              - /url: /scholar?as_ylo=2022&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e44]:
+            - link "Rentang khusus..." [ref=e45] [cursor=pointer]:
+              - /url: javascript:void(0)
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "Urutkan menurut relevansi" [ref=e48] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=carata++%22smart+contracts%22++social+fund+management+procedia+2024
+          - listitem [ref=e49]:
+            - link "Urutkan menurut tanggal" [ref=e50] [cursor=pointer]:
+              - /url: /scholar?hl=id&as_sdt=0,5&q=carata++%22smart+contracts%22++social+fund+management+procedia+2024&scisbd=1
+        - list [ref=e51]:
+          - listitem [ref=e52]:
+            - link "Semua jenis" [ref=e53] [cursor=pointer]:
+              - /url: /scholar?q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+          - listitem [ref=e54]:
+            - link "Artikel kajian" [ref=e55] [cursor=pointer]:
+              - /url: /scholar?q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5&as_rr=1
+        - list [ref=e56]:
+          - listitem [ref=e57]:
+            - checkbox "sertakan paten" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: sertakan paten
+          - listitem [ref=e62]:
+            - checkbox "mencakup kutipan" [checked] [ref=e63] [cursor=pointer]:
+              - generic [ref=e64]: mencakup kutipan
+        - link "Buat notifikasi" [ref=e68] [cursor=pointer]:
+          - /url: /scholar_alerts?view_op=create_alert_options&hl=id&alert_query=carata++%22smart+contracts%22++social+fund+management+procedia+2024&alert_params=%3Fhl%3Did%26as_sdt%3D0,5
+          - generic [ref=e70]: Buat notifikasi
+    - main [ref=e71]:
+      - generic [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e75]:
+            - 'heading "RECONCILING LEGAL FRAMEWORKS: ALIGNING SMART CONTRACT INFLEXIBILITY WITH CONSUMER SAFEGUARDING REGULATIONS" [level=3] [ref=e76]':
+              - 'link "RECONCILING LEGAL FRAMEWORKS: ALIGNING SMART CONTRACT INFLEXIBILITY WITH CONSUMER SAFEGUARDING REGULATIONS" [ref=e77] [cursor=pointer]':
+                - /url: https://search.proquest.com/openview/76cebe436857e64b18a7a13d7a766904/1?pq-origsite=gscholar&cbl=55210
+            - generic [ref=e78]:
+              - text: AS Ginting,
+              - link "B Nainggolan" [ref=e79] [cursor=pointer]:
+                - /url: /citations?user=PJ48svMAAAAJ&hl=id&oi=sra
+              - text: ", A Sulistyono… - Lex …, 2026 - search.proquest.com"
+            - generic [ref=e80]:
+              - text: … , which can have long-lasting detrimental effects on individual individuals and the
+              - text: confidence in the smart contract implementation in the market (Carata and Knottenbelt, 2024). …
+            - generic [ref=e81]:
+              - button "Simpan" [ref=e82] [cursor=pointer]:
+                - img [ref=e83]
+                - text: Simpan
+              - button "Kutip" [ref=e85] [cursor=pointer]:
+                - img [ref=e86]
+                - text: Kutip
+              - link "Artikel terkait" [ref=e88] [cursor=pointer]:
+                - /url: /scholar?q=related:gjW_cs53fscJ:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+              - link "2 versi" [ref=e89] [cursor=pointer]:
+                - /url: /scholar?cluster=14375058789185303938&hl=id&as_sdt=0,5
+          - generic [ref=e90]:
+            - link "[PDF] staisar.ac.id" [ref=e94] [cursor=pointer]:
+              - /url: https://journal.staisar.ac.id/index.php/mediasas/article/download/42/107
+            - generic [ref=e95]:
+              - 'heading "Pragmatism of smart contracts in legal perspective: A comparative analysis between Indonesia and the United States" [level=3] [ref=e96]':
+                - 'link "Pragmatism of smart contracts in legal perspective: A comparative analysis between Indonesia and the United States" [ref=e97] [cursor=pointer]':
+                  - /url: https://journal.staisar.ac.id/index.php/mediasas/article/view/42
+              - generic [ref=e98]:
+                - text: W Warianto,
+                - link "FYP Amboro" [ref=e99] [cursor=pointer]:
+                  - /url: /citations?user=XE3l95MAAAAJ&hl=id&oi=sra
+                - text: "… - Jurnal Mediasas: Media …, 2024 - journal.staisar.ac.id"
+              - generic [ref=e100]:
+                - text: … Smart Contracts offer significant potential for contractual … to facilitate the use of Smart
+                - text: Contracts as a form of blockchain … in facilitating the utilization of Smart Contracts. Suggestions for …
+              - generic [ref=e101]:
+                - button "Simpan" [ref=e102] [cursor=pointer]:
+                  - img [ref=e103]
+                  - text: Simpan
+                - button "Kutip" [ref=e105] [cursor=pointer]:
+                  - img [ref=e106]
+                  - text: Kutip
+                - link "Dirujuk 15 kali" [ref=e108] [cursor=pointer]:
+                  - /url: /scholar?cites=13820118510256126401&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e109] [cursor=pointer]:
+                  - /url: /scholar?q=related:wfmdHZDsyr8J:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "4 versi" [ref=e110] [cursor=pointer]:
+                  - /url: /scholar?cluster=13820118510256126401&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e111] [cursor=pointer]:
+                  - img [ref=e112]
+          - generic [ref=e114]:
+            - link "[PDF] researchgate.net" [ref=e118] [cursor=pointer]:
+              - /url: https://www.researchgate.net/profile/Andry-Alamsyah/publication/378629625_A_Taxonomy_on_Blockchain-Based_Technology_in_the_Financial_Industry_Drivers_Applications_Benefits_and_Threats/links/660e1f96f5a5de0a9ffb508e/A-Taxonomy-on-Blockchain-Based-Technology-in-the-Financial-Industry-Drivers-Applications-Benefits-and-Threats.pdf
+            - generic [ref=e119]:
+              - 'heading "A taxonomy on blockchain-based technology in the financial industry: Drivers, applications, benefits, and threats" [level=3] [ref=e120]':
+                - 'link "A taxonomy on blockchain-based technology in the financial industry: Drivers, applications, benefits, and threats" [ref=e121] [cursor=pointer]':
+                  - /url: https://link.springer.com/chapter/10.1007/978-3-031-50028-2_4
+              - generic [ref=e122]:
+                - link "A Alamsyah" [ref=e123] [cursor=pointer]:
+                  - /url: /citations?user=IZuCfzsAAAAJ&hl=id&oi=sra
+                - text: ", S Syahrir - … and smart-contract technologies for innovative …, 2024 - Springer"
+              - generic [ref=e124]:
+                - text: "… components: Smart Contracts and DLT. Smart Contracts represent legal contracts that can"
+                - text: … Smart Contracts function by incorporating code into the blockchain, which, once deployed to …
+              - generic [ref=e125]:
+                - button "Simpan" [ref=e126] [cursor=pointer]:
+                  - img [ref=e127]
+                  - text: Simpan
+                - button "Kutip" [ref=e129] [cursor=pointer]:
+                  - img [ref=e130]
+                  - text: Kutip
+                - link "Dirujuk 31 kali" [ref=e132] [cursor=pointer]:
+                  - /url: /scholar?cites=866771515209611664&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e133] [cursor=pointer]:
+                  - /url: /scholar?q=related:kPl-yRlkBwwJ:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "4 versi" [ref=e134] [cursor=pointer]:
+                  - /url: /scholar?cluster=866771515209611664&hl=id&as_sdt=0,5
+          - generic [ref=e136]:
+            - heading "Integration of Blockchain and IoT for Enhanced Transparency in Diamond Supply Chain" [level=3] [ref=e137]:
+              - link "Integration of Blockchain and IoT for Enhanced Transparency in Diamond Supply Chain" [ref=e138] [cursor=pointer]:
+                - /url: https://search.proquest.com/openview/fb10f4a5e0ba44dee318c0b3a47118e3/1?pq-origsite=gscholar&cbl=4477228
+            - generic [ref=e139]:
+              - text: A Sharma,
+              - link "LG Babu" [ref=e140] [cursor=pointer]:
+                - /url: /citations?user=SIT_EOYAAAAJ&hl=id&oi=sra
+              - text: ","
+              - link "MU Buradkar" [ref=e141] [cursor=pointer]:
+                - /url: /citations?user=O80mhwEAAAAJ&hl=id&oi=sra
+              - text: … - … on Internet of …, 2024 - search.proquest.com
+            - generic [ref=e142]:
+              - text: … requirements set in a smart contract; if accepted… carat range, indicating that was the most
+              - text: common size. Smaller bars at higher carat weights indicate decreasing frequencies as the carat …
+            - generic [ref=e143]:
+              - button "Simpan" [ref=e144] [cursor=pointer]:
+                - img [ref=e145]
+                - text: Simpan
+              - button "Kutip" [ref=e147] [cursor=pointer]:
+                - img [ref=e148]
+                - text: Kutip
+              - link "Dirujuk 7 kali" [ref=e150] [cursor=pointer]:
+                - /url: /scholar?cites=6417469499754402993&as_sdt=2005&sciodt=0,5&hl=id
+              - link "Artikel terkait" [ref=e151] [cursor=pointer]:
+                - /url: /scholar?q=related:sdTDQYJuD1kJ:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+              - link "2 versi" [ref=e152] [cursor=pointer]:
+                - /url: /scholar?cluster=6417469499754402993&hl=id&as_sdt=0,5
+          - generic [ref=e153]:
+            - link "[PDF] researchgate.net" [ref=e157] [cursor=pointer]:
+              - /url: https://www.researchgate.net/profile/Mohammad-Rakibul-Islam-Bhuiyan/publication/379403050_Assessing_the_Potential_Usages_of_Blockchain_to_Transform_Smart_Bangladesh_A_PRISMA_Based_Systematic_Review/links/6606d77110ca86798726726f/Assessing-the-Potential-Usages-of-Blockchain-to-Transform-Smart-Bangladesh-A-PRISMA-Based-Systematic-Review.pdf
+            - generic [ref=e158]:
+              - 'heading "[PDF] Assessing the potential usages of blockchain to transform Smart Bangladesh: A PRISMA based systematic review" [level=3] [ref=e159]':
+                - generic [ref=e160]: "[PDF]"
+                - 'link "Assessing the potential usages of blockchain to transform Smart Bangladesh: A PRISMA based systematic review" [ref=e161] [cursor=pointer]':
+                  - /url: https://www.researchgate.net/profile/Mohammad-Rakibul-Islam-Bhuiyan/publication/379403050_Assessing_the_Potential_Usages_of_Blockchain_to_Transform_Smart_Bangladesh_A_PRISMA_Based_Systematic_Review/links/6606d77110ca86798726726f/Assessing-the-Potential-Usages-of-Blockchain-to-Transform-Smart-Bangladesh-A-PRISMA-Based-Systematic-Review.pdf
+              - generic [ref=e162]:
+                - link "MRI Bhuiyan" [ref=e163] [cursor=pointer]:
+                  - /url: /citations?user=RPH4mHkAAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "MS Akter" [ref=e164] [cursor=pointer]:
+                  - /url: /citations?user=8gdaEfcAAAAJ&hl=id&oi=sra
+                - text: "- Journal of Information Systems and …, 2024 - researchgate.net"
+              - generic [ref=e165]:
+                - text: … societal progress, comparable in importance to historical artifacts such as the Rosetta Stone
+                - text: or the Magna Carta [4] … The use of smart contracts inside the blockchain framework facilitates …
+              - generic [ref=e166]:
+                - button "Simpan" [ref=e167] [cursor=pointer]:
+                  - img [ref=e168]
+                  - text: Simpan
+                - button "Kutip" [ref=e170] [cursor=pointer]:
+                  - img [ref=e171]
+                  - text: Kutip
+                - link "Dirujuk 45 kali" [ref=e173] [cursor=pointer]:
+                  - /url: /scholar?cites=11398717207979176827&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e174] [cursor=pointer]:
+                  - /url: /scholar?q=related:ezO7XOhgMJ4J:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "2 versi" [ref=e175] [cursor=pointer]:
+                  - /url: /scholar?cluster=11398717207979176827&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e176] [cursor=pointer]:
+                  - img [ref=e177]
+          - generic [ref=e179]:
+            - link "[PDF] iainata.ac.id" [ref=e183] [cursor=pointer]:
+              - /url: https://ejournal.iainata.ac.id/index.php/kabilah/article/download/382/394
+            - generic [ref=e184]:
+              - heading "Keabsahan smart contract sebagai solusi praktik manipulasi kontrak di Indonesia" [level=3] [ref=e185]:
+                - link "Keabsahan smart contract sebagai solusi praktik manipulasi kontrak di Indonesia" [ref=e186] [cursor=pointer]:
+                  - /url: https://ejournal.iainata.ac.id/index.php/kabilah/article/view/382
+              - generic [ref=e187]:
+                - text: FS Fahlevi,
+                - link "ZM Fitriana" [ref=e188] [cursor=pointer]:
+                  - /url: /citations?user=jUIGYAsAAAAJ&hl=id&oi=sra
+                - text: "- Kabillah, 2024 - ejournal.iainata.ac.id"
+              - generic [ref=e189]:
+                - text: … of smart contracts in Indonesia from a civil perspective and identify forms of legal protection
+                - text: for parties who use smart contracts. This … Cara kerja smart contract secara sederhana dapat …
+              - generic [ref=e190]:
+                - button "Simpan" [ref=e191] [cursor=pointer]:
+                  - img [ref=e192]
+                  - text: Simpan
+                - button "Kutip" [ref=e194] [cursor=pointer]:
+                  - img [ref=e195]
+                  - text: Kutip
+                - link "Dirujuk 7 kali" [ref=e197] [cursor=pointer]:
+                  - /url: /scholar?cites=7955453872250092733&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e198] [cursor=pointer]:
+                  - /url: /scholar?q=related:vfx4oiVzZ24J:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "4 versi" [ref=e199] [cursor=pointer]:
+                  - /url: /scholar?cluster=7955453872250092733&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e200] [cursor=pointer]:
+                  - img [ref=e201]
+          - generic [ref=e203]:
+            - link "[PDF] literasisains.id" [ref=e207] [cursor=pointer]:
+              - /url: https://journal.literasisains.id/index.php/sosmaniora/article/download/4964/1995
+            - generic [ref=e208]:
+              - heading "Teknologi blockchain sebagai upaya akuntabilitas wakaf" [level=3] [ref=e209]:
+                - link "Teknologi blockchain sebagai upaya akuntabilitas wakaf" [ref=e210] [cursor=pointer]:
+                  - /url: https://journal.literasisains.id/index.php/sosmaniora/article/view/4964
+              - generic [ref=e211]:
+                - text: AZ Nasywa,
+                - link "SB Lahuri" [ref=e212] [cursor=pointer]:
+                  - /url: /citations?user=_Q2kaGkAAAAJ&hl=id&oi=sra
+                - text: "- SOSMANIORA: Jurnal Ilmu Sosial …, 2025 - journal.literasisains.id"
+              - generic [ref=e213]:
+                - text: … management, including how smart contracts can be used to automate and validate waqf
+                - text: transactions. In addition, this study explores the potential social … cara kita melihat realitas sosial. …
+              - generic [ref=e214]:
+                - button "Simpan" [ref=e215] [cursor=pointer]:
+                  - img [ref=e216]
+                  - text: Simpan
+                - button "Kutip" [ref=e218] [cursor=pointer]:
+                  - img [ref=e219]
+                  - text: Kutip
+                - link "Dirujuk 9 kali" [ref=e221] [cursor=pointer]:
+                  - /url: /scholar?cites=11480556364299927837&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e222] [cursor=pointer]:
+                  - /url: /scholar?q=related:HYHyzS8hU58J:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e223] [cursor=pointer]:
+                  - img [ref=e224]
+          - generic [ref=e226]:
+            - link "[HTML] mdpi.com" [ref=e230] [cursor=pointer]:
+              - /url: https://www.mdpi.com/2076-3387/14/2/23
+            - generic [ref=e231]:
+              - 'heading "[HTML] Emerging technologies revolutionising public procurement: insights from comprehensive bibliometric analysis" [level=3] [ref=e232]':
+                - generic [ref=e233]: "[HTML]"
+                - 'link "Emerging technologies revolutionising public procurement: insights from comprehensive bibliometric analysis" [ref=e234] [cursor=pointer]':
+                  - /url: https://www.mdpi.com/2076-3387/14/2/23
+              - generic [ref=e235]:
+                - link "A Mavidis" [ref=e236] [cursor=pointer]:
+                  - /url: /citations?user=3tsMuv8AAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "D Folinas" [ref=e237] [cursor=pointer]:
+                  - /url: /citations?user=MeaVvH8AAAAJ&hl=id&oi=sra
+                - text: ","
+                - link "D Skiadas" [ref=e238] [cursor=pointer]:
+                  - /url: /citations?user=I8PBNx4AAAAJ&hl=id&oi=sra
+                - text: … - Administrative Sciences, 2024 - mdpi.com
+              - generic [ref=e239]:
+                - text: … In the second (red) cluster, we identified the keywords of blockchain, smart contracts, and
+                - text: transparency that have an obvious relationship and practical explanation (Kamali 2019; Gohil …
+              - generic [ref=e240]:
+                - button "Simpan" [ref=e241] [cursor=pointer]:
+                  - img [ref=e242]
+                  - text: Simpan
+                - button "Kutip" [ref=e244] [cursor=pointer]:
+                  - img [ref=e245]
+                  - text: Kutip
+                - link "Dirujuk 13 kali" [ref=e247] [cursor=pointer]:
+                  - /url: /scholar?cites=18309007246299715153&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e248] [cursor=pointer]:
+                  - /url: /scholar?q=related:UVa_0RWpFv4J:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "8 versi" [ref=e249] [cursor=pointer]:
+                  - /url: /scholar?cluster=18309007246299715153&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e250] [cursor=pointer]:
+                  - img [ref=e251]
+          - generic [ref=e253]:
+            - link "[PDF] ssrn.com" [ref=e257] [cursor=pointer]:
+              - /url: https://papers.ssrn.com/sol3/Delivery.cfm?abstractid=5051030
+            - generic [ref=e258]:
+              - heading "Fraud detection in financial transactions through data science for Real-Time monitoring and prevention" [level=3] [ref=e259]:
+                - link "Fraud detection in financial transactions through data science for Real-Time monitoring and prevention" [ref=e260] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5051030
+              - generic [ref=e261]:
+                - text: M Waliullah,
+                - link "MA Alam" [ref=e262] [cursor=pointer]:
+                  - /url: /citations?user=qqI1mAcAAAAJ&hl=id&oi=sra
+                - text: "- Available at SSRN 5051030, 2024 - papers.ssrn.com"
+              - generic [ref=e263]:
+                - text: … Smart contracts further enhance fraud detection by automatically executing pre-programmed
+                - text: conditions for credit card transactions. For instance, a smart contract can … , smart contracts …
+              - generic [ref=e264]:
+                - button "Simpan" [ref=e265] [cursor=pointer]:
+                  - img [ref=e266]
+                  - text: Simpan
+                - button "Kutip" [ref=e268] [cursor=pointer]:
+                  - img [ref=e269]
+                  - text: Kutip
+                - link "Dirujuk 4 kali" [ref=e271] [cursor=pointer]:
+                  - /url: /scholar?cites=14832880727110028647&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e272] [cursor=pointer]:
+                  - /url: /scholar?q=related:Z40h72762M0J:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "2 versi" [ref=e273] [cursor=pointer]:
+                  - /url: /scholar?cluster=14832880727110028647&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e274] [cursor=pointer]:
+                  - img [ref=e275]
+          - generic [ref=e277]:
+            - link "[PDF] researchgate.net" [ref=e281] [cursor=pointer]:
+              - /url: https://www.researchgate.net/profile/Paula-Ungureanu/publication/389839483_Between_Cypherpunks_and_Commons_Navigating_Blockchain's_ideology_of_social_change/links/67e6dee949e91c0feac25540/Between-Cypherpunks-and-Commons-Navigating-Blockchains-ideology-of-social-change.pdf
+            - generic [ref=e282]:
+              - heading "[PDF] Between Cypherpunks and Commons. Navigating Blockchain's ideology of social change" [level=3] [ref=e283]:
+                - generic [ref=e284]: "[PDF]"
+                - link "Between Cypherpunks and Commons. Navigating Blockchain's ideology of social change" [ref=e285] [cursor=pointer]:
+                  - /url: https://www.researchgate.net/profile/Paula-Ungureanu/publication/389839483_Between_Cypherpunks_and_Commons_Navigating_Blockchain's_ideology_of_social_change/links/67e6dee949e91c0feac25540/Between-Cypherpunks-and-Commons-Navigating-Blockchains-ideology-of-social-change.pdf
+              - generic [ref=e286]:
+                - link "P Ungureanu" [ref=e287] [cursor=pointer]:
+                  - /url: /citations?user=siontDsAAAAJ&hl=id&oi=sra
+                - text: "- Journal of Openness, Commons & Organizing, 2024 - researchgate.net"
+              - generic [ref=e288]:
+                - text: … multiple !elds, mainly due to the introduction of smart contracts. Since smart contracts
+                - text: automate the execution of an agreement so that all participants can be immediately certain of the …
+              - generic [ref=e289]:
+                - button "Simpan" [ref=e290] [cursor=pointer]:
+                  - img [ref=e291]
+                  - text: Simpan
+                - button "Kutip" [ref=e293] [cursor=pointer]:
+                  - img [ref=e294]
+                  - text: Kutip
+                - link "Dirujuk 2 kali" [ref=e296] [cursor=pointer]:
+                  - /url: /scholar?cites=2813900528443519710&as_sdt=2005&sciodt=0,5&hl=id
+                - link "Artikel terkait" [ref=e297] [cursor=pointer]:
+                  - /url: /scholar?q=related:3vIoN5_7DCcJ:scholar.google.com/&scioq=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                - link "3 versi" [ref=e298] [cursor=pointer]:
+                  - /url: /scholar?cluster=2813900528443519710&hl=id&as_sdt=0,5
+                - button "Lainnya" [ref=e299] [cursor=pointer]:
+                  - img [ref=e300]
+        - navigation [ref=e303]:
+          - table [ref=e305]:
+            - rowgroup [ref=e306]:
+              - row "1 2 3 4 5 6 7 8 9 10 Berikutnya" [ref=e307]:
+                - cell [ref=e308]
+                - cell "1" [ref=e310]: "1"
+                - cell "2" [ref=e312]:
+                  - link "2" [ref=e313] [cursor=pointer]:
+                    - /url: /scholar?start=10&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "2"
+                - cell "3" [ref=e315]:
+                  - link "3" [ref=e316] [cursor=pointer]:
+                    - /url: /scholar?start=20&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "3"
+                - cell "4" [ref=e318]:
+                  - link "4" [ref=e319] [cursor=pointer]:
+                    - /url: /scholar?start=30&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "4"
+                - cell "5" [ref=e321]:
+                  - link "5" [ref=e322] [cursor=pointer]:
+                    - /url: /scholar?start=40&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "5"
+                - cell "6" [ref=e324]:
+                  - link "6" [ref=e325] [cursor=pointer]:
+                    - /url: /scholar?start=50&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "6"
+                - cell "7" [ref=e327]:
+                  - link "7" [ref=e328] [cursor=pointer]:
+                    - /url: /scholar?start=60&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "7"
+                - cell "8" [ref=e330]:
+                  - link "8" [ref=e331] [cursor=pointer]:
+                    - /url: /scholar?start=70&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "8"
+                - cell "9" [ref=e333]:
+                  - link "9" [ref=e334] [cursor=pointer]:
+                    - /url: /scholar?start=80&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "9"
+                - cell "10" [ref=e336]:
+                  - link "10" [ref=e337] [cursor=pointer]:
+                    - /url: /scholar?start=90&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - text: "10"
+                - cell "Berikutnya" [ref=e339]:
+                  - link "Berikutnya" [ref=e340] [cursor=pointer]:
+                    - /url: /scholar?start=10&q=carata+smart+contracts+social+fund+management+procedia+2024&hl=id&as_sdt=0,5
+                    - generic [ref=e342]: Berikutnya
+  - contentinfo [ref=e343]:
+    - generic [ref=e344]:
+      - link "Privasi" [ref=e345] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/privacy/
+      - link "Persyaratan" [ref=e346] [cursor=pointer]:
+        - /url: //www.google.com/intl/id/policies/terms/
+      - button "Bantuan" [ref=e347] [cursor=pointer]

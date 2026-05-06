@@ -1,0 +1,15 @@
+[    2196ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not found) @ https://login.ezproxy.ugm.ac.id/public/ijdh_icon.png:0
+[    2466ms] [WARNING] Error monitoring has already been initialized. @ https://www-jstor-org.ezproxy.ugm.ac.id/assets/excelsior_20250409T170207/build/excelsior/js/content-viewer.min.js:1
+[    4000ms] [ERROR] Access to XMLHttpRequest at 'https://scholar.google.com/scholar_casa?url=https%3A%2F%2Fwww-jstor-org.ezproxy.ugm.ac.id%2Fstable%2F26591760' from origin 'https://www-jstor-org.ezproxy.ugm.ac.id' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://www-jstor-org.ezproxy.ugm.ac.id/stable/26591760:0
+[    4000ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://scholar.google.com/scholar_casa?url=https%3A%2F%2Fwww-jstor-org.ezproxy.ugm.ac.id%2Fstable%2F26591760:0
+[    4279ms] [LOG] %c EvalError
+    at oH (https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:66926)
+    at qJ (https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:75334)
+    at JZ (https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:225135)
+    at JX (https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:224758)
+    at https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:226476
+    at https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:226482
+    at https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:2:226947 @ https://www-jstor-org.ezproxy.ugm.ac.id/u4K0s8nX/init.js:1
+[    5751ms] [WARNING] Error monitoring has already been initialized. @ https://www-jstor-org.ezproxy.ugm.ac.id/mfe-copper-roof/header/400df7e5/ithaka-sentry-monitoring_2_5_1.2548da0420554fe47192.js:0
+[    6655ms] [WARNING] Must provide flagList argument. @ https://www-jstor-org.ezproxy.ugm.ac.id/mfe-copper-roof/access-workflow/8e13cdaf/src_styles_index_scss-src_plugins_loggerPlugin_ts-src_sentry_ts-src_types_Flags_ts-src_compon-9cf5ba.642b5a4936ea762dac6b.js:7
+[   10945ms] [LOG] Warning: Setting up fake worker. @ https://www-jstor-org.ezproxy.ugm.ac.id/mfe-copper-roof/pdf-content-viewer/197f4e4e/pdfjs-dist_4_10_38.9e540931816e5b5a3c15.js:1

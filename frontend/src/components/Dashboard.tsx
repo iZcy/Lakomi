@@ -18,12 +18,6 @@ export function Dashboard() {
   const { data: totalAssets } = useTotalAssets()
   const { data: pendingSHU } = usePendingSHU(address)
 
-  console.log('Dashboard state:', { address, isConnected, chainId, isMember, memberErr: memberErr?.message, memberCount: memberCount?.toString() })
-
-  if (memberErr) {
-    console.error('Member check error:', memberErr)
-  }
-
   if (isConnected && memberErr) {
     return (
       <div className="space-y-4">

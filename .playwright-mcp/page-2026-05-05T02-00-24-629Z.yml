@@ -1,0 +1,386 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e5]:
+        - img [ref=e6]
+        - text: Universitas Gadjah Mada
+      - list [ref=e7]:
+        - listitem [ref=e8]:
+          - link "Logout" [ref=e9] [cursor=pointer]:
+            - /url: /logout
+  - generic [ref=e12]:
+    - heading "Direct Access | Universitas Gadjah Mada" [level=1] [ref=e13]
+    - heading "Akses database online tanpa melalui jaringan UGM, di manapun, kapan pun menggunakan SSO UGM" [level=5] [ref=e14]
+  - generic [ref=e17]:
+    - generic [ref=e18]:
+      - text: ^
+      - link "Back to Top" [ref=e19] [cursor=pointer]:
+        - /url: "#top"
+    - generic:
+      - strong [ref=e21]: "Browse A-Z:"
+      - list [ref=e23]:
+        - listitem [ref=e24]:
+          - link "A" [ref=e25] [cursor=pointer]:
+            - /url: "#a"
+        - listitem [ref=e26]: B
+        - listitem [ref=e27]:
+          - link "C" [ref=e28] [cursor=pointer]:
+            - /url: "#c"
+        - listitem [ref=e29]: D
+        - listitem [ref=e30]:
+          - link "E" [ref=e31] [cursor=pointer]:
+            - /url: "#e"
+        - listitem [ref=e32]: F
+        - listitem [ref=e33]:
+          - link "G" [ref=e34] [cursor=pointer]:
+            - /url: "#g"
+        - listitem [ref=e35]:
+          - link "H" [ref=e36] [cursor=pointer]:
+            - /url: "#h"
+        - listitem [ref=e37]:
+          - link "I" [ref=e38] [cursor=pointer]:
+            - /url: "#i"
+        - listitem [ref=e39]:
+          - link "J" [ref=e40] [cursor=pointer]:
+            - /url: "#j"
+        - listitem [ref=e41]: K
+        - listitem [ref=e42]:
+          - link "L" [ref=e43] [cursor=pointer]:
+            - /url: "#l"
+        - listitem [ref=e44]: M
+        - listitem [ref=e45]:
+          - link "N" [ref=e46] [cursor=pointer]:
+            - /url: "#n"
+        - listitem [ref=e47]:
+          - link "O" [ref=e48] [cursor=pointer]:
+            - /url: "#o"
+        - listitem [ref=e49]:
+          - link "P" [ref=e50] [cursor=pointer]:
+            - /url: "#p"
+        - listitem [ref=e51]: Q
+        - listitem [ref=e52]: R
+        - listitem [ref=e53]:
+          - link "S" [ref=e54] [cursor=pointer]:
+            - /url: "#s"
+        - listitem [ref=e55]:
+          - link "T" [ref=e56] [cursor=pointer]:
+            - /url: "#t"
+        - listitem [ref=e57]: U
+        - listitem [ref=e58]: V
+        - listitem [ref=e59]:
+          - link "W" [ref=e60] [cursor=pointer]:
+            - /url: "#w"
+        - listitem [ref=e61]: X
+        - listitem [ref=e62]: "Y"
+        - listitem [ref=e63]: Z
+    - list [ref=e66]:
+      - listitem [ref=e67]:
+        - heading "A" [level=1] [ref=e68]
+        - link "American Chemical Society (20170104)" [ref=e69] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://pubs.acs.org
+          - strong [ref=e70]:
+            - generic [ref=e71]: American Chemical Society (20170104)
+        - generic [ref=e75]: The Publications Division of the American Chemical Society provides the worldwide scientific community with a comprehensive collection of the most-cited, peer-reviewed journals in the chemical and related sciences.
+        - separator [ref=e76]
+      - listitem [ref=e77]:
+        - link "American Institute of Physics (20230419)" [ref=e78] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://pubs.aip.org
+          - strong [ref=e79]: American Institute of Physics (20230419)
+        - generic [ref=e83]: AIP Publishing's mission is to advance, promote, and serve the physical sciences for the benefit of humanity by breaking barriers to open, equitable research communication and empowering researchers to accelerate global progress. AIP Publishing is a wholly owned not-for-profit subsidiary of the American Institute of Physics (AIP).
+        - separator [ref=e84]
+      - listitem [ref=e85]:
+        - link "American Management Association - AMA (e-Books)" [ref=e86] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://portal.igpublish.com/iglibrary/
+          - strong [ref=e87]: American Management Association - AMA (e-Books)
+        - generic [ref=e91]: Ebooks on Management.
+        - separator [ref=e92]
+      - listitem [ref=e93]:
+        - link "American Society of Mechanical Engineers - ASME (20220712)" [ref=e94] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://asmedigitalcollection.asme.org
+          - strong [ref=e95]: American Society of Mechanical Engineers - ASME (20220712)
+        - generic [ref=e99]: Founded in 1880 as the American Society of Mechanical Engineers, ASME is the premier professional membership organization for more than 127,000 mechanical engineers and associated members worldwide. ASME also conducts one of the world's largest technical publishing operations in the world, offering thousands of titles including some of the profession's most prestigious journals, conference proceedings, and ASME Press books.
+        - separator [ref=e100]
+      - listitem [ref=e101]:
+        - link "American Physical Society - APS Journals (20240603)" [ref=e102] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://journals.aps.org
+          - strong [ref=e103]: American Physical Society - APS Journals (20240603)
+        - generic [ref=e107]: Physical Review Letters, Physical Review, and Reviews of Modern Physics.
+        - separator [ref=e108]
+      - listitem [ref=e109]:
+        - heading "C" [level=1] [ref=e110]
+        - link "Cambridge Core (20250703)" [ref=e111] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.cambridge.org/core
+          - strong [ref=e112]:
+            - generic [ref=e113]: Cambridge Core (20250703)
+        - generic [ref=e117]: "Cambridge Core is a brand new platform for Cambridge University Press’s academic content. Our book and journal content has been brought together for the first time on Cambridge Core: a sophisticated, high-performance replacement for Cambridge Journals Online and Cambridge Books Online."
+        - separator [ref=e118]
+      - listitem [ref=e119]:
+        - link "Cochrane (20260213)" [ref=e120] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.cochranelibrary.com/
+          - strong [ref=e121]: Cochrane (20260213)
+        - generic [ref=e125]: The Cochrane Library is a collection of six databases that contain different types of high-quality, independent evidence to inform healthcare decision-making, and a seventh database that provides information about groups in The Cochrane Collaboration.
+        - separator [ref=e126]
+      - listitem [ref=e127]:
+        - heading "E" [level=1] [ref=e128]
+        - link "EBSCO (20251021)" [ref=e129] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://search.ebscohost.com/login.aspx
+          - strong [ref=e130]:
+            - generic [ref=e131]: EBSCO (20251021)
+        - generic [ref=e135]: EBSCOhost is a powerful online reference system accessible via the Internet. The comprehensive databases range from general reference collections to specially designed, subject-specific databases for public, academic, medical, corporate and school libraries
+        - separator [ref=e136]
+      - listitem [ref=e137]:
+        - link "Emerald (20250718)" [ref=e138] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.emerald.com
+          - strong [ref=e139]: Emerald (20250718)
+        - generic [ref=e143]: Founded in 1967 as an offshoot of the University of Bradford, Emerald Group Publishing has become the world's leading scholarly publisher of journals and books in business and management with a strong and growing presence in disciplines including LIS, social sciences, engineering, linguistics and audiology.
+        - separator [ref=e144]
+      - listitem [ref=e145]:
+        - heading "G" [level=1] [ref=e146]
+        - link "GLOBAL Professional Publishing (e-Books)" [ref=e147] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://portal.igpublish.com/iglibrary/
+          - strong [ref=e148]:
+            - generic [ref=e149]: GLOBAL Professional Publishing (e-Books)
+        - generic [ref=e153]: Formerly Financial World Publishing. Financial Book Publisher and Bookshop.
+        - separator [ref=e154]
+      - listitem [ref=e155]:
+        - heading "H" [level=1] [ref=e156]
+        - link "HeinOnline (20240325)" [ref=e157] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://www.heinonline.org/HOL/Welcome
+          - strong [ref=e158]:
+            - generic [ref=e159]: HeinOnline (20240325)
+        - generic [ref=e163]: HeinOnline is a premier online research platform that provides more than 196 million pages of multidisciplinary periodicals, essential government documents, international resources, case law, and much more. Composed of fully searchable image-based PDFs and available at an affordable price, the wealth of material allows academic institutions, government agencies, law firms, court systems, corporations, and other organizations access to authoritative, true-to-print digital material without the hassle or cost of using multiple research databases.
+        - separator [ref=e164]
+      - listitem [ref=e165]:
+        - heading "I" [level=1] [ref=e166]
+        - link "IEEE Xplore (20260121)" [ref=e167] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://ieeexplore.ieee.org/
+          - strong [ref=e168]:
+            - generic [ref=e169]: IEEE Xplore (20260121)
+        - generic [ref=e173]:
+          - text: The IEEE Xplore digital library is a powerful resource for discovery and access to scientific and technical content published by the IEEE (Institute of Electrical and Electronics Engineers) and its publishing partners.
+          - text: The content in IEEE Xplore comprises over 160 journals, over 1,200 conference proceedings, more than 3,800 technical standards, over 1,000 eBooks and over 300 educational courses
+        - separator [ref=e174]
+      - listitem [ref=e175]:
+        - heading "J" [level=1] [ref=e176]
+        - link "JSTOR (20250421)" [ref=e177] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://www.jstor.org/
+          - strong [ref=e178]:
+            - generic [ref=e179]: JSTOR (20250421)
+        - generic [ref=e183]: Launching in November 2012, Books at JSTOR will offer more than 15,000 scholarly books from a leading roster of academic presses and scholarly publishers. Books, journal articles, and reviews will be cross-searchable and linked in ways that make online research faster, easier, and more effective.
+        - separator [ref=e184]
+      - listitem [ref=e185]:
+        - heading "L" [level=1] [ref=e186]
+        - link "Lawang Sajarah" [ref=e187] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://langka.lib.ugm.ac.id
+          - strong [ref=e188]:
+            - generic [ref=e189]: Lawang Sajarah
+        - generic [ref=e193]: Lawang Sajarah berisi hasil digitasi koleksi langka Perpustakaan dan Arsip UGM yang tersimpan di Ruang Koleksi Langka/Hatta Corner.
+        - separator [ref=e194]
+      - listitem [ref=e195]:
+        - heading "N" [level=1] [ref=e196]
+        - link "Nature (20211116)" [ref=e197] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.nature.com
+          - strong [ref=e198]:
+            - generic [ref=e199]: Nature (20211116)
+        - generic [ref=e203]: Nature is the world's most highly cited interdisciplinary science journal, according to the 2013 Journal Citation Reports Science Edition (Thomson Reuters, 2014). Its Impact Factor is 42.351. The impact factor of a journal is calculated by dividing the number of citations in a calendar year to the source items published in that journal during the previous two years. It is an independent measure calculated by Thomson Reuters, Philadelphia, USA.
+        - separator [ref=e204]
+      - listitem [ref=e205]:
+        - heading "O" [level=1] [ref=e206]
+        - link "Osiris (updated 20220728)" [ref=e207] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://osiris.bvdinfo.com
+          - strong [ref=e208]:
+            - generic [ref=e209]: Osiris (updated 20220728)
+        - generic [ref=e213]: Osiris has information on listed, and major unlisted/delisted, companies around the world. The information is very detailed and includes a lot more than financial reports. Different templates are used to show accounts in the correct formats for their company type and location.
+        - separator [ref=e214]
+      - listitem [ref=e215]:
+        - link "Oxford Academic (formerly Oxford Journals) (20230106)" [ref=e216] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://academic.oup.com/
+          - strong [ref=e217]: Oxford Academic (formerly Oxford Journals) (20230106)
+        - generic [ref=e221]: Oxford Academic (formerly Oxford Journals) is the portal journals in multi-discipline that published by Oxford University Press.
+        - separator [ref=e222]
+      - listitem [ref=e223]:
+        - heading "P" [level=1] [ref=e224]
+        - link "ProQuest (updated 20250217)" [ref=e225] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.proquest.com/ip
+          - strong [ref=e226]:
+            - generic [ref=e227]: ProQuest (updated 20250217)
+        - generic [ref=e231]: ProQuest provides millions of documents from thousands of sources, covering research and subject areas like these:The Arts, Business, Health & Medicine, History, Literature & Language, Science & Technology, Social Sciences
+        - separator [ref=e232]
+      - listitem [ref=e233]:
+        - heading "S" [level=1] [ref=e234]
+        - link "Sage Journals (20251209)" [ref=e235] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://journals.sagepub.com
+          - strong [ref=e236]:
+            - generic [ref=e237]: Sage Journals (20251209)
+        - generic [ref=e241]: The mission of Sage and our journals program is to build bridges to knowledge. Our portfolio of more than 1,100 journals, including over 200 gold open access journals, and 400 society partners, allows us to help researchers, educators, institutions, and our society partners, shape the future. As an independent organization, we are free to think long-term, free to do more, and free to work together to create lasting relationships that transform and advance knowledge.
+        - separator [ref=e242]
+      - listitem [ref=e243]:
+        - link "SAGE Research Methods" [ref=e244] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://methods.sagepub.com/
+          - strong [ref=e245]: SAGE Research Methods
+        - generic [ref=e249]: SAGE Research Methods supports research at all levels by providing material to guide users through every step of the research process. Nearly everyone at a university is involved in research, from students learning how to conduct research to faculty conducting research for publication to librarians delivering research skills training and doing research on the efficacy of library services. SAGE Research Methods has the answer for each of these user groups, from a quick dictionary definition, a case study example from a researcher in the field, a downloadable teaching dataset, a full-text title from the Quantitative Applications in the Social Sciences series, or a video tutorial showing research in action.
+        - separator [ref=e250]
+      - listitem [ref=e251]:
+        - link "ScienceDirect (updated 20251104)" [ref=e252] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.sciencedirect.com
+          - strong [ref=e253]: ScienceDirect (updated 20251104)
+        - generic [ref=e257]: ScienceDirect provides access to more than 18 million articles and book chapters from over 2,650 peer-reviewed journals and 42,000 e-books, including books, book series and major reference works, and digital archives that reach as far back as 1823 to help users discover more science, use their time efficiently and make decisions with the highest-quality scientific information.
+        - separator [ref=e258]
+      - listitem [ref=e259]:
+        - link "Scopus (updated 20251104)" [ref=e260] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.scopus.com/home.url
+          - strong [ref=e261]: Scopus (updated 20251104)
+        - generic [ref=e265]:
+          - strong [ref=e266]: Scopus
+          - text: is a comprehensive, source-neutral abstract and citation database curated by independent subject matter experts. It places powerful discovery and analytics tools in the hands of researchers, librarians, institutional research managers and funders. Scopus powers better decision-making with curated, complete and connected data.
+        - separator [ref=e267]
+      - listitem [ref=e268]:
+        - link "SciVal (20190115)" [ref=e269] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://scival.com/
+          - strong [ref=e270]: SciVal (20190115)
+        - generic [ref=e274]: SciVal provides access to the research performance of thousands of research institutions and their associated researchers from 231 nations worldwide, so you can visualize research performance, benchmark relative to peers, develop strategic partnerships, identify and analyze new, emerging research trends, and create uniquely tailored reports.
+        - separator [ref=e275]
+      - listitem [ref=e276]:
+        - link "SpringerLink (20250610)" [ref=e277] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://link.springer.com
+          - strong [ref=e278]: SpringerLink (20250610)
+        - generic [ref=e282]: SpringerLink is an integrated fulltext database for journals, books, protocols, eReferences, and book series published by Springer.
+        - separator [ref=e283]
+      - listitem [ref=e284]:
+        - link "Statista (20230912)" [ref=e285] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.statista.com
+          - strong [ref=e286]: Statista (20230912)
+        - generic [ref=e290]: Statista collects relevant market data from third parties and makes it available to its customers in the form of statistics and studies. Sources include government institutions, such as statistical offices and ministries, international organizations, market research institutes, and trade journals. Statista bundles data from a total of 22,500 different sources.
+        - separator [ref=e291]
+      - listitem [ref=e292]:
+        - heading "T" [level=1] [ref=e293]
+        - link "Taylor Francis e-Books (20210702)" [ref=e294] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.taylorfrancis.com
+          - strong [ref=e295]:
+            - generic [ref=e296]: Taylor Francis e-Books (20210702)
+        - generic [ref=e300]:
+          - strong [ref=e301]: Taylor & Francis eBooks
+          - text: "is a single destination platform with eBooks in science, technology, engineering, medical, humanities and social science. Researchers have a single point of discovery for eBook content, multiple search options, and more. Access to the platform will allow users to: search ebook content at both the book and chapter level, filter search results by subject area, publication date and year published, and create citations in APA format. Flexible purchase options, subject collections, and free trials are available."
+        - separator [ref=e302]
+      - listitem [ref=e303]:
+        - link "Taylor & Francis (20190318)" [ref=e304] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://www.tandfonline.com
+          - strong [ref=e305]: Taylor & Francis (20190318)
+        - generic [ref=e309]:
+          - strong [ref=e310]: Taylor & Francis
+          - text: has published over 145,000 book titles and actively publishes 2,700+ journals. Taylor & Francis is one of the world's leading publishers of high-quality, cross-disciplinary knowledge and specialty research which leads to modern advances in humanities and social sciences, science and technology, engineering, medicine and healthcare.
+        - separator [ref=e311]
+      - listitem [ref=e312]:
+        - link "Taylor & Francis International Journal of Human Resource Management" [ref=e313] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://www.tandfonline.com/toc/rijh20/current#.Us4CYrQQR9k
+          - strong [ref=e314]: Taylor & Francis International Journal of Human Resource Management
+        - generic [ref=e318]: International Journal of Human Resource Management
+        - separator [ref=e319]
+      - listitem [ref=e320]:
+        - link "Taylor & Francis Multivariate Behavioral Research" [ref=e321] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://www.tandfonline.com/toc/hmbr20/current#.Us4CTLQQR9k
+          - strong [ref=e322]: Taylor & Francis Multivariate Behavioral Research
+        - generic [ref=e326]: Multivariate Behavioral Research.
+        - separator [ref=e327]
+      - listitem [ref=e328]:
+        - link "Taylor & Francis European Journal of Work and Organizational Psychology" [ref=e329] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://www.tandfonline.com/toc/pewo20/current#.Us4CMrQQR9k
+          - strong [ref=e330]: Taylor & Francis European Journal of Work and Organizational Psychology
+        - generic [ref=e334]: European Journal of Work and Organizational Psychology.
+        - separator [ref=e335]
+      - listitem [ref=e336]:
+        - heading "W" [level=1] [ref=e337]
+        - link "Wiley Online (20250331)" [ref=e338] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://onlinelibrary.wiley.com/
+          - strong [ref=e339]:
+            - generic [ref=e340]: Wiley Online (20250331)
+        - generic [ref=e344]: Wiley Online Library
+        - separator [ref=e345]
+      - listitem [ref=e346]:
+        - link "Wiley - UGM Digital Resources" [ref=e347] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://olabout.wiley.com/WileyCDA/Section/id-823468.html
+          - strong [ref=e348]: Wiley - UGM Digital Resources
+        - generic [ref=e352]: UGM Digital Resources on Wiley Online Library
+        - separator [ref=e353]
+      - listitem [ref=e354]:
+        - link "Wiley American Journal of Primatology" [ref=e355] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://onlinelibrary.wiley.com/journal/10982345
+          - strong [ref=e356]: Wiley American Journal of Primatology
+        - generic [ref=e360]: Wiley American Journal of Primatology
+        - separator [ref=e361]
+      - listitem [ref=e362]:
+        - 'link "Wiley BJOG: International Journal of Obstetrics & Gynecology" [ref=e363] [cursor=pointer]':
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291471-0528
+          - strong [ref=e364]: "Wiley BJOG: International Journal of Obstetrics & Gynecology"
+        - generic [ref=e368]: "Wiley BJOG: International Journal of Obstetrics & Gynecology"
+        - separator [ref=e369]
+      - listitem [ref=e370]:
+        - link "WILEY Financial Accountability and Management Journal" [ref=e371] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291468-0408
+          - strong [ref=e372]: WILEY Financial Accountability and Management Journal
+        - generic [ref=e376]: WILEY Financial Accountability and Management Journal
+        - separator [ref=e377]
+      - listitem [ref=e378]:
+        - link "Wiley Immunological Reviews" [ref=e379] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291600-065X
+          - strong [ref=e380]: Wiley Immunological Reviews
+        - generic [ref=e384]: Wiley Immunological Reviews
+        - separator [ref=e385]
+      - listitem [ref=e386]:
+        - link "Wiley International Journal of Dental Hygiene" [ref=e387] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=https://onlinelibrary.wiley.com/journal/16015037
+          - strong [ref=e388]: Wiley International Journal of Dental Hygiene
+        - generic [ref=e392]: Wiley International Journal of Dental Hygiene
+        - separator [ref=e393]
+      - listitem [ref=e394]:
+        - link "Wiley Journal of Agronomy & Crop Science" [ref=e395] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291439-037X
+          - strong [ref=e396]: Wiley Journal of Agronomy & Crop Science
+        - generic [ref=e400]: Wiley Journal of Agronomy & Crop Science
+        - separator [ref=e401]
+      - listitem [ref=e402]:
+        - link "WILEY Journal of Clinical Periodontology" [ref=e403] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1600-051X
+          - strong [ref=e404]: WILEY Journal of Clinical Periodontology
+        - generic [ref=e408]: WILEY Journal of Clinical Periodontology
+        - separator [ref=e409]
+      - listitem [ref=e410]:
+        - link "Wiley Journal of Finance" [ref=e411] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291540-6261
+          - strong [ref=e412]: Wiley Journal of Finance
+        - generic [ref=e416]: Wiley Journal of Financee
+        - separator [ref=e417]
+      - listitem [ref=e418]:
+        - link "WILEY Journal of Food Science" [ref=e419] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1750-3841
+          - strong [ref=e420]: WILEY Journal of Food Science
+        - generic [ref=e424]: WILEY Journal of Food Science
+        - separator [ref=e425]
+      - listitem [ref=e426]:
+        - link "Wiley Journal of Internal Medicine" [ref=e427] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/%28ISSN%291365-2796
+          - strong [ref=e428]: Wiley Journal of Internal Medicine
+        - generic [ref=e432]: Wiley Journal of Internal Medicine
+        - separator [ref=e433]
+      - listitem [ref=e434]:
+        - link "WILEY Journal of Pharmacheutical Sciences" [ref=e435] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1002/%28ISSN%291520-6017
+          - strong [ref=e436]: WILEY Journal of Pharmacheutical Sciences
+        - generic [ref=e440]: WILEY Journal of Pharmacheutical Sciences
+        - separator [ref=e441]
+      - listitem [ref=e442]:
+        - link "WILEY Periodontology 2000" [ref=e443] [cursor=pointer]:
+          - /url: http://ezproxy.ugm.ac.id:80/login?url=http://onlinelibrary.wiley.com/journal/10.1111/(ISSN)1600-0757
+          - strong [ref=e444]: WILEY Periodontology 2000
+        - generic [ref=e448]: WILEY Periodontology 2000
+        - separator [ref=e449]
+    - generic [ref=e451]:
+      - heading "Perhatian!" [level=4] [ref=e453]
+      - generic [ref=e454]:
+        - paragraph [ref=e455]: Demi kelancaran dan kenyamanan akses, TIDAK DIPERBOLEHKAN menggunakan aplikasi atau ROBOT pengunduh massal dan sejenisnya dalam mengunduh konten database yang dilanggan UGM (contoh IDM, Torrent,dll). Akses melalui SSO terekam dalam server kami, sehingga apabila terindikasi melakukan pelanggaran ini, maka akun SSO anda akan dinonaktifkan secara permanen tanpa peringatan. Apabila terbukti merugikan sivitas akademika maka kami berhak memberikan rekomendasi sanksi berat melalui pihak-pihak terkait. Terima kasih.
+        - generic [ref=e456]: Demi Keamanan, jangan lupa untuk Logout ..
+    - generic [ref=e457]:
+      - text: "Untuk dapat menggunakan dan informasi lebih lanjut dapat menghubungi Perpustakaan dan Arsip UGM:"
+      - text: "Bulaksumur, Yogyakarta Phone: (0274) 513163, 6492641, 6492642, 6492155 Fax: (0274) 513163, website:"
+      - link "lib.ugm.ac.id" [ref=e458] [cursor=pointer]:
+        - /url: https://lib.ugm.ac.id

@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
+import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -42,7 +43,7 @@ export function Vault() {
         <p className="text-sm text-muted-foreground mt-1">Kelola simpanan sesuai Pasal 41 UU 25/1992</p>
       </div>
 
-      <PaySimpananPokokPrompt />
+      {!hasPaid && <PaySimpananPokokPrompt />}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         <Card>
@@ -81,7 +82,7 @@ export function Vault() {
               <CardHeader><CardTitle className="text-sm">Bayar Simpanan Wajib</CardTitle></CardHeader>
               <CardContent>
                 <p className="text-xs text-muted-foreground mb-3">Periodik ({formatUSDCAmount(wajibAmount)}/periode)</p>
-                <PaySimpananWajibButton />
+                <PaySimpananWajibButton amount={wajibAmount} />
               </CardContent>
             </Card>
           )}
@@ -95,7 +96,7 @@ export function Vault() {
               {s ? (
                 <div className="space-y-2">
                   <Row label="Simpanan Pokok" value={formatUSDCAmount(s.pokok)} sub="Pasal 41(1)" />
-                  <Row label="Simpanan Wajib" value={formatUSDCAmount(s.wajibTotal)} sub={`${s.wajibPeriodsPaid.toString()}x periode`} />
+                  <Row label="Simpanan Wajib" value={formatUSDCAmount(s.wajibTotal)} sub={`Pasal 41(2) · ${s.wajibPeriodsPaid.toString()}x periode`} />
                   <Row label="Simpanan Sukarela" value={formatUSDCAmount(s.sukarela)} sub="Pasal 41(3)" />
                   <Separator />
                   <Row label="Total" value={formatUSDCAmount(s.totalContribution)} bold />
@@ -215,22 +216,53 @@ function DepositForm({ usdcBal }: { usdcBal?: bigint }) {
 }
 
 function PaySimpananPokokButton({ address, amount }: { address?: `0x${string}`; amount: bigint }) {
-  const { paySimpananPokok, isPending, isSuccess } = usePaySimpananPokok()
+  const queryClient = useQueryClient()
+  const { paySimpananPokok, isPending: p1, isSuccess } = usePaySimpananPokok()
+  const { approve, isPending: p2 } = useApproveUsdc()
+
+  useEffect(() => {
+    if (isSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+    }
+  }, [isSuccess, queryClient])
+
+  const handle = async () => {
+    if (!address) return
+    await approve(CONTRACTS.LAKOMI_VAULT, amount)
+    await paySimpananPokok(address)
+  }
+
   return (
     <>
-      <Button onClick={() => address && paySimpananPokok(address)} disabled={isPending} className="w-full">
-        {isPending ? 'Memproses...' : `Bayar ${formatUSDCAmount(amount)}`}
+      <Button onClick={handle} disabled={p1 || p2} className="w-full">
+        {p2 ? 'Menyetujui...' : p1 ? 'Memproses...' : `Bayar ${formatUSDCAmount(amount)}`}
       </Button>
       {isSuccess && <p className="text-xs text-emerald-500 mt-2">Simpanan Pokok berhasil dibayar!</p>}
     </>
   )
 }
 
-function PaySimpananWajibButton() {
-  const { paySimpananWajib, isPending, isSuccess } = usePaySimpananWajib()
+function PaySimpananWajibButton({ amount }: { amount: bigint }) {
+  const { paySimpananWajib, isPending: p1, isSuccess } = usePaySimpananWajib()
+  const { approve, isPending: p2 } = useApproveUsdc()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (isSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+    }
+  }, [isSuccess, queryClient])
+
+  const handle = async () => {
+    await approve(CONTRACTS.LAKOMI_VAULT, amount)
+    await paySimpananWajib()
+  }
+
   return (
     <>
-      <Button onClick={() => paySimpananWajib()} disabled={isPending} className="w-full">Bayar</Button>
+      <Button onClick={handle} disabled={p1 || p2} className="w-full">
+        {p2 ? 'Menyetujui...' : p1 ? 'Memproses...' : 'Bayar'}
+      </Button>
       {isSuccess && <p className="text-xs text-emerald-500 mt-2">Simpanan Wajib berhasil!</p>}
     </>
   )

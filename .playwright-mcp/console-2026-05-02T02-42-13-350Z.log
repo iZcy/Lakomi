@@ -1,0 +1,56 @@
+[    2245ms] [LOG] [nimble-params] site=wol&page=article&cid=10.1002%2Fbse.3750&q= @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:679
+[    3779ms] [LOG] Script blocked: https://nim-onlinelibrary-wiley-com.ezproxy.ugm.ac.id/v2/data.js?site=wol&page=article&cid=10.1002%2Fbse.3750&q= @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:129
+[    3780ms] [LOG] Script blocked: https://nim-onlinelibrary-wiley-com.ezproxy.ugm.ac.id/v2/data.js?site=wol&page=article&cid=10.1002%2Fbse.3750&q= @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:129
+[    4142ms] [LOG] Cookie blocked: HMACCOUNT @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    4358ms] [WARNING] [GPT] PubAdsService.setTargeting is deprecated, use googletag.setConfig({targeting: ...}) instead.
+https://goo.gle/gpt-message#170 @ https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202604280101/pubads_impl.js:18
+[    4364ms] [WARNING] [GPT] Slot.setCollapseEmptyDiv is deprecated, use Slot.setConfig({collapseDiv: ...}) instead.
+https://goo.gle/gpt-message#171 @ https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202604280101/pubads_impl.js:18
+[    4366ms] [TIMEEND] gpt ready: 653.894775390625 ms @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:1464
+[    4681ms] [LOG] JQMIGRATE: Migrate is installed, version 3.0.0 @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/products/acropolis/pericles/releasedAssets/js/main.bundle-6d05fe77fb5d24a6a408.js:85
+[    4739ms] [LOG] Widgets initialized! @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:35
+[    4745ms] [LOG] Cart Service initialized! @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:288
+[    4746ms] [LOG] Commerce Cart :: Registering service buyingList listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    4746ms] [LOG] Commerce Cart :: Registering service savedItems listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    4885ms] [TIMEEND] DV ready: 518.9560546875 ms @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:1467
+[    4886ms] [TIMEEND] advert-leaderboard ready: 1.4580078125 ms @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:1470
+[    5046ms] [LOG] Commerce Cart :: Registering service buyingList listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5046ms] [LOG] Commerce Cart :: Registering service savedItems listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5046ms] [LOG] Commerce Cart :: Registering service undefined listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5046ms] [LOG] Commerce Cart :: Registering service undefined listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5046ms] [LOG] Commerce Cart :: Registering service undefined listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5048ms] [LOG] Commerce Cart :: Registering service identity listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5050ms] [LOG] Commerce Cart :: Registering service buyingList listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5050ms] [LOG] Commerce Cart :: Registering service savedItems listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5050ms] [LOG] Commerce Cart :: Registering service undefined listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5050ms] [LOG] Commerce Cart :: Registering service undefined listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5050ms] [LOG] Commerce Cart :: Registering service undefined listener... @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:284
+[    5223ms] [LOG] iFrame blocked: https://static.addtoany.com/menu/sm.25.html#type=core&event=load @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:135
+[    5225ms] [LOG] iFrame blocked: https://static.addtoany.com/menu/sm.25.html#type=core&event=load @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:135
+[    5319ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://api.altmetric.com/v1/internal-556fdf0f/doi/10.1002/bse.3750?callback=_altmetric.embed_callback&domain=onlinelibrary-wiley-com.ezproxy.ugm.ac.id&cache_until=9-2:0
+[    5319ms] [ERROR] Refused to execute script from 'https://api.altmetric.com/v1/internal-556fdf0f/doi/10.1002/bse.3750?callback=_altmetric.embed_callback&domain=onlinelibrary-wiley-com.ezproxy.ugm.ac.id&cache_until=9-2' because its MIME type ('text/plain') is not executable, and strict MIME type checking is enabled. @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:0
+[    6007ms] [LOG] Cookie blocked: _uetsid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6009ms] [LOG] Cookie blocked: _uetsid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6011ms] [LOG] Cookie blocked: _uetsid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6013ms] [LOG] Cookie blocked: _uetsid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6015ms] [LOG] Cookie blocked: _uetsid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6028ms] [LOG] Cookie blocked: _uetsid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6145ms] [WARNING] [Meta pixel] 263124174624252 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ https://connect.facebook.net/en_US/fbevents.js:181
+[    6162ms] [WARNING] [Meta Pixel] - Removed parameters from custom data due to potential violations. Go to Events Manager to learn more. @ https://connect.facebook.net/en_US/fbevents.js:181
+[    6162ms] [WARNING] [Meta pixel] 263124174624252 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ https://connect.facebook.net/en_US/fbevents.js:181
+[    6175ms] [LOG] Script blocked: https://www.clarity.ms/tag/uet/134596254 @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:129
+[    6177ms] [LOG] Script blocked: https://www.clarity.ms/tag/uet/134596254 @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:129
+[    6233ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/action/connectTeaserInfo:0
+[    6233ms] [ERROR] Failed to fetch user info: 404 Not Found @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/wro/f5e7ffe6d6d1192a4defdde88dc425c93326c6ed~product.js:253
+[    6481ms] [WARNING] 🚀 _satellite.readCookie is deprecated. Please use _satellite.cookie.get("randomizeUser"). @ https://assets.adobedtm.com/59640f9fa510/591d3f748997/launch-1ff1f800248b.min.js:12
+[    6482ms] [WARNING] 🚀 _satellite.setCookie is deprecated. Please use _satellite.cookie.set("randomizeUser", "0.6359651183067466"). @ https://assets.adobedtm.com/59640f9fa510/591d3f748997/launch-1ff1f800248b.min.js:12
+[    6752ms] [LOG] Cookie blocked: _twpid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6753ms] [LOG] Cookie blocked: _twpid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6755ms] [LOG] Cookie blocked: _twpid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[    6757ms] [LOG] Cookie blocked: _twpid @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:132
+[   12723ms] [LOG] iFrame blocked: https://ep2.adtrafficquality.google/sodar/sodar2/254/runner.html @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:135
+[   12724ms] [LOG] iFrame blocked: https://ep2.adtrafficquality.google/sodar/sodar2/254/runner.html @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:135
+[   12972ms] [LOG] Logs from Web SDK Extension || web.webInteraction @ https://assets.adobedtm.com/59640f9fa510/591d3f748997/launch-1ff1f800248b.min.js:2
+[   12972ms] [LOG] {linkClicks: Object, name: wol:related content -  tab loaded, URL: undefined, type: other} @ https://assets.adobedtm.com/59640f9fa510/591d3f748997/launch-1ff1f800248b.min.js:2
+[   13367ms] [LOG] Script blocked: https://content.wiley.com/analytics?ver=3&visitor_id=&visitor_id_sign=&pi_opt_in=&campaign_id=null&account_id=1116643&title=Policy%20stimulation%20for%20the%20electric%20vehicle%20industry%3A%20An%20analysis%20of%20mainstream%20media%20discourse%20-%20Jain%20-%202024%20-%20Business%20Strategy%20and%20the%20Environment%20-%20Wiley%20Online%20Library&url=https%3A%2F%2Fonlinelibrary-wiley-com.ezproxy.ugm.ac.id%2Fdoi%2F10.1002%2Fbse.3750&referrer= @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:129
+[   13369ms] [LOG] Script blocked: https://content.wiley.com/analytics?ver=3&visitor_id=&visitor_id_sign=&pi_opt_in=&campaign_id=null&account_id=1116643&title=Policy%20stimulation%20for%20the%20electric%20vehicle%20industry%3A%20An%20analysis%20of%20mainstream%20media%20discourse%20-%20Jain%20-%202024%20-%20Business%20Strategy%20and%20the%20Environment%20-%20Wiley%20Online%20Library&url=https%3A%2F%2Fonlinelibrary-wiley-com.ezproxy.ugm.ac.id%2Fdoi%2F10.1002%2Fbse.3750&referrer= @ https://onlinelibrary-wiley-com.ezproxy.ugm.ac.id/doi/10.1002/bse.3750:129

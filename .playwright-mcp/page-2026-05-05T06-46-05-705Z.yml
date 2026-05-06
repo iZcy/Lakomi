@@ -1,0 +1,43 @@
+- generic [ref=e4]:
+  - navigation [ref=e5]:
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - img [ref=e10]
+        - generic [ref=e12]:
+          - heading "Lakomi" [level=1] [ref=e13]
+          - paragraph [ref=e14]: Koperasi Digital Berbasis Blockchain
+      - generic [ref=e15]:
+        - button "Tambah Jaringan ke Dompet" [ref=e16] [cursor=pointer]:
+          - img
+          - text: Tambah Jaringan ke Dompet
+        - button "Connect Wallet" [ref=e18] [cursor=pointer]
+  - generic [ref=e20]:
+    - complementary [ref=e21]:
+      - generic [ref=e22]:
+        - button "Beranda" [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+          - generic [ref=e26]: Beranda
+        - button "Simpanan Pasal 41" [ref=e27] [cursor=pointer]:
+          - img [ref=e28]
+          - generic [ref=e30]: Simpanan
+          - generic [ref=e31]: Pasal 41
+        - button "Pinjaman" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+          - generic [ref=e35]: Pinjaman
+        - button "Tata Kelola Pasal 22" [ref=e36] [cursor=pointer]:
+          - img [ref=e37]
+          - generic [ref=e39]: Tata Kelola
+          - generic [ref=e40]: Pasal 22
+        - button "Kepatuhan Hukum UU 25/1992" [ref=e41] [cursor=pointer]:
+          - img [ref=e42]
+          - generic [ref=e44]: Kepatuhan Hukum
+          - generic [ref=e45]: UU 25/1992
+        - separator
+        - generic [ref=e46]:
+          - paragraph [ref=e47]: Sesuai
+          - paragraph [ref=e48]: UU 25/1992 Perkoperasian
+    - main [ref=e49]:
+      - generic [ref=e52]:
+        - img [ref=e54]
+        - heading "Hubungkan Dompet" [level=2] [ref=e56]
+        - paragraph [ref=e57]: Hubungkan dompet Anda untuk mengakses layanan koperasi digital

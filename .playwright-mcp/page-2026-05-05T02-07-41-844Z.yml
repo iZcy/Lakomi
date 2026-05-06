@@ -1,0 +1,309 @@
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#maincontent"
+  - banner [ref=e5]:
+    - link "SSRN Homepage" [ref=e6] [cursor=pointer]:
+      - /url: https://www.ssrn.com
+      - img [ref=e8]
+    - navigation [ref=e9]:
+      - list [ref=e10]:
+        - listitem [ref=e11]:
+          - generic "Product & Services" [ref=e14] [cursor=pointer]:
+            - generic [ref=e16]: Product & Services
+        - listitem [ref=e19]:
+          - link "Subscribe" [ref=e20] [cursor=pointer]:
+            - /url: https://www.ssrn.com/index.cfm/en/subscribe/
+            - generic [ref=e22]: Subscribe
+        - listitem [ref=e23]:
+          - link "Submit a paper" [ref=e24] [cursor=pointer]:
+            - /url: https://hq.ssrn.com/submission.cfm
+            - generic [ref=e26]: Submit a paper
+        - listitem [ref=e27]:
+          - link "Browse" [ref=e28] [cursor=pointer]:
+            - /url: https://papers.ssrn.com/sol3/DisplayJournalBrowse.cfm
+            - generic [ref=e30]: Browse
+        - listitem [ref=e31]:
+          - link "Blog" [ref=e32] [cursor=pointer]:
+            - /url: https://blog.ssrn.com/
+            - generic [ref=e34]: Blog
+        - listitem [ref=e37]:
+          - link "Contact" [ref=e38] [cursor=pointer]:
+            - /url: https://www.ssrn.com/index.cfm/en/contactus/
+            - generic [ref=e40]: Contact
+        - listitem [ref=e41]:
+          - generic "Rankings" [ref=e44] [cursor=pointer]:
+            - generic [ref=e46]: Rankings
+    - button "Search" [ref=e51]
+    - link "Shopping Cart" [ref=e53] [cursor=pointer]:
+      - /url: https://papers.ssrn.com/sol3/ShoppingCart.cfm
+    - link "Create Account" [ref=e55] [cursor=pointer]:
+      - /url: https://hq.ssrn.com/login/pubsigninjoin.cfm
+      - generic [ref=e57]: Create Account
+    - link "Sign In" [ref=e58] [cursor=pointer]:
+      - /url: https://hq.ssrn.com/login/pubsigninjoin.cfm
+      - generic [ref=e62]: Sign In
+  - generic [ref=e67] [cursor=pointer]: 
+  - main [ref=e68]:
+    - generic [ref=e69]:
+      - generic [ref=e71]:
+        - generic [ref=e73]:
+          - link "PDF iconDownload This Paper" [ref=e75] [cursor=pointer]:
+            - /url: Delivery.cfm/SSRN_ID4484241_code4382515.pdf?abstractid=4253868&mirid=1
+            - generic [ref=e76]:
+              - img "PDF icon" [ref=e77]
+              - text: Download This Paper
+          - link "Open PDF in Browser" [ref=e79] [cursor=pointer]:
+            - /url: Delivery.cfm/SSRN_ID4484241_code4382515.pdf?abstractid=4253868&mirid=1&type=2
+          - button "Add to your Library" [ref=e81] [cursor=pointer]:
+            - generic [ref=e82]: 
+            - text: Add Paper to My Library
+        - generic [ref=e84]:
+          - text: "Share:"
+          - list [ref=e85]:
+            - listitem [ref=e86]:
+              - button "Share on Facebook" [ref=e87] [cursor=pointer]:
+                - generic [ref=e88]: 
+            - listitem [ref=e89]:
+              - button "Share on Twitter" [ref=e90] [cursor=pointer]:
+                - generic [ref=e91]: 
+            - listitem [ref=e92]:
+              - button "Share by Email" [ref=e93] [cursor=pointer]:
+                - generic [ref=e94]: 
+            - listitem [ref=e95]:
+              - button "Get Permalink" [ref=e96] [cursor=pointer]:
+                - generic [ref=e97]: 
+      - generic [ref=e98]:
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - 'heading "Voter coalitions and democracy in Decentralized Finance: Evidence from MakerDAO" [level=1] [ref=e101]'
+            - paragraph [ref=e102]:
+              - generic [ref=e103]: 29 Pages
+              - generic [ref=e104]: "● Posted: 24 Oct 2022"
+              - generic [ref=e105]: "● Last revised: 19 Jun 2023"
+            - generic [ref=e106]:
+              - text: 
+              - heading "Xiaotong Sun" [level=2] [ref=e107]:
+                - link "Xiaotong Sun" [ref=e108] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=4382515
+              - paragraph [ref=e109]: University of Glasgow
+              - heading "Xi Chen" [level=2] [ref=e110]:
+                - link "Xi Chen" [ref=e111] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2137035
+              - paragraph [ref=e112]: New York University (NYU) - Leonard N. Stern School of Business
+              - heading "Charalampos Stasinakis" [level=2] [ref=e113]:
+                - link "Charalampos Stasinakis" [ref=e114] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2310795
+              - paragraph [ref=e115]: University of Glasgow
+              - heading "Georgios Sermpinis" [level=2] [ref=e116]:
+                - link "Georgios Sermpinis" [ref=e117] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=2040069
+              - paragraph [ref=e118]: University of Glasgow
+            - paragraph [ref=e119]: "Date Written: October 20, 2022"
+            - generic [ref=e120]:
+              - heading "Abstract" [level=3] [ref=e121]
+              - paragraph [ref=e122]: Decentralized Autonomous Organization (DAO) provides a decentralized governance solution through blockchain, where decision-making process relies on on-chain voting and follows majority rule. This paper focuses on MakerDAO, and we find three voter coalitions after applying clustering algorithm to voting history. The emergence of a dominant voter coalition is a signal of governance centralization in DAO, and voter coalitions have complicated influence on Maker protocol, which is governed by MakerDAO. This paper presents empirical evidence of multicoalition democracy in DAO and further contributes to the contemporary debate on whether decentralized governance is possible.
+              - paragraph
+            - paragraph [ref=e123]:
+              - strong [ref=e124]: "Keywords:"
+              - text: governance, Decentralized Autonomous Organization (DAO), voting
+            - paragraph [ref=e125]:
+              - strong [ref=e126]: "JEL Classification:"
+              - text: D72, D85, G32
+            - paragraph [ref=e127]:
+              - strong [ref=e128]: "Suggested Citation:"
+              - text: 
+            - generic [ref=e129]:
+              - text: "Sun, Xiaotong and Chen, Xi and Stasinakis, Charalampos and Sermpinis, Georgios, Voter coalitions and democracy in Decentralized Finance: Evidence from MakerDAO (October 20, 2022). Available at SSRN:"
+              - link "https://ssrn.com/abstract=4253868" [ref=e130] [cursor=pointer]:
+                - /url: https://ssrn.com/abstract=4253868
+              - text: or
+              - link "http://dx.doi.org/10.2139/ssrn.4253868" [ref=e131] [cursor=pointer]:
+                - /url: https://dx.doi.org/10.2139/ssrn.4253868
+            - button "Show contact information" [ref=e132] [cursor=pointer]:
+              - generic [ref=e133]: Show Contact Information
+              - generic [ref=e134]: 
+          - generic [ref=e135]:
+            - link "PDF iconDownload This Paper" [ref=e137] [cursor=pointer]:
+              - /url: Delivery.cfm/SSRN_ID4484241_code4382515.pdf?abstractid=4253868&mirid=1
+              - generic [ref=e138]:
+                - img "PDF icon" [ref=e139]
+                - text: Download This Paper
+            - link "Open PDF in Browser" [ref=e141] [cursor=pointer]:
+              - /url: Delivery.cfm/SSRN_ID4484241_code4382515.pdf?abstractid=4253868&mirid=1&type=2
+          - generic [ref=e143]:
+            - generic [ref=e145]:
+              - heading "0 References" [level=3] [ref=e146]
+              - button "Fetch References" [ref=e147] [cursor=pointer]
+              - list
+            - generic [ref=e149]:
+              - heading "0 Citations" [level=3] [ref=e150]
+              - button "Fetch Citations" [ref=e151] [cursor=pointer]
+              - list
+        - generic [ref=e152]:
+          - generic [ref=e154]:
+            - heading "Do you have a job opening that you would like to promote on SSRN?" [level=2] [ref=e155]
+            - link "Place Job Opening" [ref=e158] [cursor=pointer]:
+              - /url: https://www.ssrn.com/index.cfm/en/Announcements-Jobs/
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - heading "Paper statistics" [level=2] [ref=e163]
+              - generic [ref=e164]:
+                - generic [ref=e165]:
+                  - generic [ref=e166]: Downloads
+                  - generic [ref=e167]: "163"
+                - generic [ref=e168]:
+                  - generic [ref=e169]: Abstract Views
+                  - generic [ref=e170]: 1,178
+                - generic [ref=e171]:
+                  - generic "SSRN compiles rankings of Papers in our system based on a number of measures, such as downloads and citations. To be ranked, a paper must be a publicly available scholarly full-text paper on SSRN. Privately available papers are not considered in these rankings." [ref=e172]: Rank
+                  - generic [ref=e173]: 453,192
+              - link "2 Citations" [ref=e175] [cursor=pointer]:
+                - /url: "#paper-citations-widget"
+                - generic [ref=e176]: "2"
+                - text: Citations
+              - link "50 References" [ref=e178] [cursor=pointer]:
+                - /url: "#paper-references-widget"
+                - generic [ref=e179]: "50"
+                - text: References
+            - generic [ref=e181]:
+              - generic [ref=e182]: PlumX Metrics
+              - generic:
+                - link:
+                  - /url: https://plu.mx/plum/a/?ssrn_id=4253868
+          - generic [ref=e184]:
+            - heading "Related eJournals" [level=2] [ref=e185]
+            - list [ref=e186]:
+              - listitem [ref=e187]:
+                - paragraph [ref=e188]:
+                  - link "Cryptocurrency Research" [ref=e189] [cursor=pointer]:
+                    - /url: https://papers.ssrn.com/sol3/JELJOUR_Results.cfm?form_name=journalBrowse&journal_id=3839004
+                - generic [ref=e190]:
+                  - link "Follow" [ref=e192] [cursor=pointer]:
+                    - /url: javascript:void(0);
+                  - text:  
+              - listitem [ref=e193]:
+                - paragraph [ref=e194]:
+                  - link "New York University Stern School of Business Research Paper Series" [ref=e195] [cursor=pointer]:
+                    - /url: https://papers.ssrn.com/sol3/JELJOUR_Results.cfm?form_name=journalBrowse&journal_id=1105806
+                - generic [ref=e196]:
+                  - link "Follow" [ref=e198] [cursor=pointer]:
+                    - /url: javascript:void(0);
+                  - text:  
+              - text:      
+            - button "View more" [ref=e199] [cursor=pointer]:
+              - text: View more
+              - generic [ref=e200]: 
+      - button "Feedback" [ref=e201] [cursor=pointer]:
+        - text: Feedback
+        - generic [ref=e202]: 
+  - contentinfo [ref=e203]:
+    - navigation "footer-navigation" [ref=e204]:
+      - generic [ref=e205]:
+        - generic [ref=e206]:
+          - generic [ref=e207]:
+            - link "Submit a Paper " [ref=e209] [cursor=pointer]:
+              - /url: https://hq.ssrn.com/submission.cfm
+              - text: Submit a Paper
+              - generic [ref=e210]: 
+            - link "Section 508 Text Only Pages" [ref=e211] [cursor=pointer]:
+              - /url: https://www.ssrn.com/index.cfm/en/section-508/
+          - generic [ref=e212]:
+            - heading "SSRN Quick Links" [level=4] [ref=e213]: SSRN Quick Links 
+            - list [ref=e214]:
+              - listitem [ref=e215]:
+                - link "SSRN Solutions" [ref=e216] [cursor=pointer]:
+                  - /url: https://www.elsevier.com/solutions/ssrn
+              - listitem [ref=e217]:
+                - link "Research Paper Series" [ref=e218] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/rps/
+              - listitem [ref=e219]:
+                - link "Conference Papers" [ref=e220] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/conferences/
+              - listitem [ref=e221]:
+                - link "Partners in Publishing" [ref=e222] [cursor=pointer]:
+                  - /url: https://papers.ssrn.com/sol3/DisplayPipPublishers.cfm
+              - listitem [ref=e223]:
+                - link "Jobs & Announcements" [ref=e224] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/Announcements-Jobs/
+              - listitem [ref=e225]:
+                - link "Special Topic Hubs" [ref=e226] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/special-topic-hubs/
+          - generic [ref=e227]:
+            - heading "SSRN Rankings" [level=4] [ref=e228]: SSRN Rankings 
+            - list [ref=e229]:
+              - listitem [ref=e230]:
+                - link "Top Papers" [ref=e231] [cursor=pointer]:
+                  - /url: https://hq.ssrn.com/rankings/Ranking_display.cfm?TRN_gID=10
+              - listitem [ref=e232]:
+                - link "Top Authors" [ref=e233] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/top-authors/
+              - listitem [ref=e234]:
+                - link "Top Organizations" [ref=e235] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/top-organizations/
+          - generic [ref=e236]:
+            - heading "About SSRN" [level=4] [ref=e237]: About SSRN 
+            - list [ref=e238]:
+              - listitem [ref=e239]:
+                - link "Network Directors" [ref=e240] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/network-directors/
+              - listitem [ref=e241]:
+                - link "Announcements" [ref=e242] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/recent-announcements/
+              - listitem [ref=e243]:
+                - link "Contact us" [ref=e244] [cursor=pointer]:
+                  - /url: https://www.ssrn.com/index.cfm/en/contactus/
+              - listitem [ref=e245]:
+                - link "FAQs" [ref=e246] [cursor=pointer]:
+                  - /url: https://service.elsevier.com/app/home/supporthub/ssrn/
+        - list [ref=e247]:
+          - listitem [ref=e248]:
+            - link "Facebook" [ref=e249] [cursor=pointer]:
+              - /url: https://www.facebook.com/SSRNcommunity/
+              - generic [ref=e250]: 
+          - listitem [ref=e251]:
+            - link "Linkedin" [ref=e252] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/493409?trk=tyah&trkInfo=clickedVertical%3Acompany%2CentityType%3AentityHistoryName%2CclickedEntityId%3Acompany_493409%2Cidx%3A0
+              - generic [ref=e253]: 
+          - listitem [ref=e254]:
+            - link "Twitter" [ref=e255] [cursor=pointer]:
+              - /url: https://twitter.com/SSRN
+              - generic [ref=e256]: 
+        - generic [ref=e257]:
+          - link "Elsevier" [ref=e259] [cursor=pointer]:
+            - /url: http://www.elsevier.com/
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - link "Copyright" [ref=e262] [cursor=pointer]:
+                - /url: https://www.ssrn.com/index.cfm/en/dmca-notice-policy/
+              - link "Terms and Conditions" [ref=e263] [cursor=pointer]:
+                - /url: https://www.ssrn.com/index.cfm/en/terms-of-use/
+              - link "Privacy Policy" [ref=e264] [cursor=pointer]:
+                - /url: https://www.elsevier.com/legal/privacy-policy
+            - generic [ref=e265]:
+              - paragraph [ref=e266]: "All content on this site: Copyright © 2026 Elsevier Inc., its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training, and similar technologies. For all open access content, the relevant licensing terms apply."
+              - paragraph [ref=e267]: We use cookies to help provide and enhance our service and tailor content.
+              - paragraph [ref=e268]:
+                - text: To learn more, visit
+                - button "Cookie settings" [ref=e269] [cursor=pointer]
+                - text: .
+                - generic [ref=e270]: 
+          - link "RELX" [ref=e272] [cursor=pointer]:
+            - /url: http://www.relx.com/
+    - link [ref=e273] [cursor=pointer]:
+      - /url: https://papers.ssrn.com/sol3/updateInformationLog.cfm?process=true
+      - img [ref=e274]
+  - region "Cookie banner" [ref=e276]:
+    - dialog "Privacy" [ref=e277]:
+      - generic [ref=e279]:
+        - generic [ref=e281]:
+          - text: We use cookies that are necessary to make our site work. We may also use additional cookies to analyze, improve, and personalize our content and your digital experience. You can manage your cookie preferences using the
+          - link "Cookie settings" [ref=e282] [cursor=pointer]:
+            - /url: "#"
+          - text: link. For more information, see our
+          - link "Cookie Policy, opens in a new tab" [ref=e283] [cursor=pointer]:
+            - /url: https://www.elsevier.com/legal/cookienotice
+            - text: Cookie Policy
+        - generic [ref=e285]:
+          - button "Cookie settings, Opens the preference center dialog" [ref=e286] [cursor=pointer]: Cookie settings
+          - button "Accept only necessary cookies" [ref=e287] [cursor=pointer]
+          - button "Accept all cookies" [ref=e288] [cursor=pointer]

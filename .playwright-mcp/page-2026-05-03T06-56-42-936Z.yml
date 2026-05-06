@@ -1,0 +1,36 @@
+- generic [active] [ref=e1]:
+  - main [ref=e3]:
+    - generic [ref=e7]:
+      - heading "Terms and Conditions" [level=1] [ref=e9]:
+        - generic: Terms and Conditions
+      - generic [ref=e10]:
+        - paragraph [ref=e11]:
+          - text: Your use of JSTOR indicates your acceptance of the
+          - link "Terms & Conditions of Use" [ref=e12] [cursor=pointer]:
+            - /url: https://about-jstor-org.ezproxy.ugm.ac.id/terms/
+            - generic: Terms & Conditions of Use
+          - text: and the
+          - link "Privacy Policy" [ref=e13] [cursor=pointer]:
+            - /url: https://www.ithaka.org/privacypolicy/
+            - generic: Privacy Policy
+          - text: .
+        - button "Accept and download" [ref=e15] [cursor=pointer]:
+          - generic: Accept and download
+        - paragraph [ref=e16]:
+          - link "Use your account to permanently save your acceptance." [ref=e17] [cursor=pointer]:
+            - /url: /account/profile
+            - generic: Use your account to permanently save your acceptance.
+  - alert [ref=e18]
+  - alert [ref=e19]
+  - region "Cookie banner" [ref=e20]:
+    - dialog "Privacy" [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e26]:
+          - text: ITHAKA websites, which ITHAKA manages from its location in the United States, use cookies for different purposes, such as to ensure web site function, display non-targeted ads, provide social media features, and track usage, engaging with third party service providers such as Google Analytics. You may manage non-essential cookies in “Cookie Settings”. For more information, please see our
+          - link "Cookie Policy" [ref=e27] [cursor=pointer]:
+            - /url: https://www.ithaka.org/cookies
+          - text: .
+        - generic [ref=e29]:
+          - button "Cookie Settings" [ref=e30] [cursor=pointer]
+          - button "OK, proceed" [ref=e31] [cursor=pointer]
+      - button "Close" [ref=e33] [cursor=pointer]

@@ -1,0 +1,343 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Lewati ke konten utama" [ref=e2] [cursor=pointer]
+      - link "Bantuan aksesibilitas" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=id
+      - link "Masukan aksesibilitas" [ref=e4] [cursor=pointer]
+  - generic [ref=e9]:
+    - search [ref=e10]:
+      - generic [ref=e12]:
+        - link "Ke Beranda Google" [ref=e14] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=id&sa=X&ved=0ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8QPAgJ
+          - img [ref=e15]
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - combobox "Cari" [ref=e26]: blockchain cooperative governance DAO site:emerald.com blockchain cooperative governance DAO site:emerald.com
+            - generic [ref=e27]:
+              - button "Hapus" [ref=e29] [cursor=pointer]:
+                - img [ref=e31]
+              - generic [ref=e34]:
+                - button "Telusuri dengan suara" [ref=e35] [cursor=pointer]:
+                  - img [ref=e36]
+                - button "Telusuri pakai gambar" [ref=e38] [cursor=pointer]:
+                  - img [ref=e39]
+          - button "Telusuri" [ref=e41] [cursor=pointer]:
+            - img [ref=e44]
+    - generic [ref=e46]:
+      - button "Setelan" [ref=e48] [cursor=pointer]:
+        - img [ref=e51]
+      - generic [ref=e54]:
+        - button "Aplikasi Google" [ref=e56] [cursor=pointer]:
+          - img [ref=e57]
+        - link "Login" [ref=e61] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=id&passive=true&continue=https://www.google.com/search%3Fq%3Dblockchain%2Bcooperative%2Bgovernance%2BDAO%2Bsite%253Aemerald.com&ec=futura_srp_og_si_72236_p
+  - generic [ref=e63]:
+    - navigation [ref=e69]:
+      - generic [ref=e75]:
+        - list [ref=e76]:
+          - listitem [ref=e77]:
+            - link "Mode AI" [ref=e80] [cursor=pointer]:
+              - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&udm=50&fbs=ADc_l-bieNnsAhEadU3fi9xSgO5m5fPg4SBW_sikWRZU4vJb20S8aOHlyaIr9dUGEOVacvcvT6XK_EhBTcVnrYXid_G2dSoEw6lHh1I-tzMGUF9zjEFmjFHiCFV1862eYlSKCMd_kTj_Z-80v3vI0InRRjwe_qQvI6sJ5RuEqz-sOSML3kdQoyUl9zTasBBrbP3yPe-cerxzy-8KEypGQL1-FDeTjxq4Pg&aep=1&ntc=1&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q2J8OegQIERAD
+              - generic [ref=e83]: Mode AI
+          - listitem [ref=e84]:
+            - link "Semua" [disabled] [ref=e85]:
+              - generic [ref=e87]: Semua
+          - listitem [ref=e88]:
+            - link "Gambar" [ref=e89] [cursor=pointer]:
+              - /url: /search?sca_esv=d3b7886481150a40&udm=2&fbs=ADc_l-bieNnsAhEadU3fi9xSgO5m5fPg4SBW_sikWRZU4vJb20S8aOHlyaIr9dUGEOVacvcvT6XK_EhBTcVnrYXid_G2dSoEw6lHh1I-tzMGUF9zjEFmjFHiCFV1862eYlSKCMd_kTj_Z-80v3vI0InRRjwe_qQvI6sJ5RuEqz-sOSML3kdQoyUl9zTasBBrbP3yPe-cerxzy-8KEypGQL1-FDeTjxq4Pg&q=blockchain+cooperative+governance+DAO+site:emerald.com&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8QtKgLegQIExAB
+              - generic [ref=e91]: Gambar
+          - listitem [ref=e92]:
+            - link "Berita" [ref=e93] [cursor=pointer]:
+              - /url: /search?sca_esv=d3b7886481150a40&q=blockchain+cooperative+governance+DAO+site:emerald.com&tbm=nws&source=lnms&fbs=ADc_l-bieNnsAhEadU3fi9xSgO5m5fPg4SBW_sikWRZU4vJb20S8aOHlyaIr9dUGEOVacvcvT6XK_EhBTcVnrYXid_G2dSoEw6lHh1I-tzMGUF9zjEFmjFHiCFV1862eYlSKCMd_kTj_Z-80v3vI0InRRjwe_qQvI6sJ5RuEqz-sOSML3kdQoyUl9zTasBBrbP3yPe-cerxzy-8KEypGQL1-FDeTjxq4Pg&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q0pQJegQIFBAB
+              - generic [ref=e95]: Berita
+          - listitem [ref=e96]:
+            - link "Video" [ref=e97] [cursor=pointer]:
+              - /url: /search?sca_esv=d3b7886481150a40&udm=7&fbs=ADc_l-bieNnsAhEadU3fi9xSgO5m5fPg4SBW_sikWRZU4vJb20S8aOHlyaIr9dUGEOVacvcvT6XK_EhBTcVnrYXid_G2dSoEw6lHh1I-tzMGUF9zjEFmjFHiCFV1862eYlSKCMd_kTj_Z-80v3vI0InRRjwe_qQvI6sJ5RuEqz-sOSML3kdQoyUl9zTasBBrbP3yPe-cerxzy-8KEypGQL1-FDeTjxq4Pg&q=blockchain+cooperative+governance+DAO+site:emerald.com&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8QtKgLegQIFRAB
+              - generic [ref=e99]: Video
+          - listitem [ref=e100]:
+            - link "Shopping" [ref=e101] [cursor=pointer]:
+              - /url: /search?sca_esv=d3b7886481150a40&udm=28&fbs=ADc_l-bieNnsAhEadU3fi9xSgO5m5fPg4SBW_sikWRZU4vJb20S8aOHlyaIr9dUGEOVacvcvT6XK_EhBTcVnrYXid_G2dSoEw6lHh1I-tzMGUF9zjEFmjFHiCFV1862eYlSKCMd_kTj_Z-80v3vI0InRRjwe_qQvI6sJ5RuEqz-sOSML3kdQoyUl9zTasBBrbP3yPe-cerxzy-8KEypGQL1-FDeTjxq4Pg&q=blockchain+cooperative+governance+DAO+site:emerald.com&ved=1t:220175&ictx=111
+              - generic [ref=e103]: Shopping
+          - listitem [ref=e104]:
+            - link "Video singkat" [ref=e105] [cursor=pointer]:
+              - /url: /search?sca_esv=d3b7886481150a40&udm=39&fbs=ADc_l-bieNnsAhEadU3fi9xSgO5m5fPg4SBW_sikWRZU4vJb20S8aOHlyaIr9dUGEOVacvcvT6XK_EhBTcVnrYXid_G2dSoEw6lHh1I-tzMGUF9zjEFmjFHiCFV1862eYlSKCMd_kTj_Z-80v3vI0InRRjwe_qQvI6sJ5RuEqz-sOSML3kdQoyUl9zTasBBrbP3yPe-cerxzy-8KEypGQL1-FDeTjxq4Pg&q=blockchain+cooperative+governance+DAO+site:emerald.com&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Qs6gLegQIFxAB
+              - generic [ref=e107]: Video singkat
+          - listitem [ref=e108]:
+            - button "Filter lainnya" [ref=e109] [cursor=pointer]:
+              - generic "Filter lainnya" [ref=e110]:
+                - generic [ref=e111]:
+                  - generic [ref=e112]: Lainnya
+                  - img [ref=e114]
+        - button "Alat" [ref=e117] [cursor=pointer]:
+          - generic [ref=e119]:
+            - generic [ref=e120]: Alat
+            - img [ref=e122]
+    - heading "Hasil Telusur" [level=1] [ref=e124]
+    - generic [ref=e130]:
+      - generic [ref=e131]: Looking for results in English?
+      - link [ref=e132] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e134]
+      - link "Change to English" [ref=e136] [cursor=pointer]:
+        - /url: /setprefs?sig=0_cHKmly_Tzd8Z8M7s74B7olB1s4U%3D&source=en_ignored_notification&prev=https://www.google.com/search?q%3Dblockchain%2Bcooperative%2Bgovernance%2BDAO%2Bsite:emerald.com&hl=en&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8QhoQCKAF6BAgOEAQ
+      - link "Tetap dalam bahasa Bahasa Indonesia" [ref=e137] [cursor=pointer]:
+        - /url: "#"
+      - link "Setelan bahasa" [ref=e139] [cursor=pointer]:
+        - /url: /preferences?lang=1&hl=id&sa=X&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8QiIQCKAN6BAgOEAY#languages
+    - main [ref=e141]:
+      - generic [ref=e145]:
+        - generic [ref=e148]:
+          - heading "Web results" [level=2] [ref=e149]
+          - generic [ref=e150]:
+            - generic [ref=e153]:
+              - link "Decentralized Corporate Governance via Blockchain ... emerald.com https://www.emerald.com › ..." [ref=e155] [cursor=pointer]:
+                - /url: https://www.emerald.com/acg/article/5/2/101/1319315/Decentralized-Corporate-Governance-via-Blockchain
+                - heading "Decentralized Corporate Governance via Blockchain ..." [level=3] [ref=e156]
+                - generic [ref=e161]:
+                  - generic [ref=e163]: emerald.com
+                  - generic [ref=e165]: https://www.emerald.com › ...
+              - generic [ref=e166]:
+                - generic [ref=e167]: ·
+                - link "Terjemahkan halaman ini" [ref=e168] [cursor=pointer]:
+                  - /url: https://translate.google.com/translate?u=https://www.emerald.com/acg/article/5/2/101/1319315/Decentralized-Corporate-Governance-via-Blockchain&hl=id&sl=en&tl=id&client=search
+              - button "Tentang hasil ini" [ref=e169] [cursor=pointer]:
+                - img [ref=e172]
+            - generic [ref=e175]:
+              - generic [ref=e176]: 10 Jun 2020 —
+              - generic [ref=e177]:
+                - emphasis [ref=e178]: On-chain DAO governance
+                - text: enables dynamic regulatory features that facilitate unprecedented decentralized regulatory solutions. Keywords:.
+        - generic [ref=e182]:
+          - generic [ref=e185]:
+            - link "Blockchain technology to boost corporate reputation in the ... emerald.com https://www.emerald.com › ..." [ref=e187] [cursor=pointer]:
+              - /url: https://www.emerald.com/jrf/article/doi/10.1108/JRF-07-2025-0297/1351487/Blockchain-technology-to-boost-corporate
+              - heading "Blockchain technology to boost corporate reputation in the ..." [level=3] [ref=e188]
+              - generic [ref=e193]:
+                - generic [ref=e195]: emerald.com
+                - generic [ref=e197]: https://www.emerald.com › ...
+            - generic [ref=e198]:
+              - generic [ref=e199]: ·
+              - link "Terjemahkan halaman ini" [ref=e200] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/jrf/article/doi/10.1108/JRF-07-2025-0297/1351487/Blockchain-technology-to-boost-corporate&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e201] [cursor=pointer]:
+              - img [ref=e204]
+          - generic [ref=e207]:
+            - generic [ref=e208]: 24 Mar 2026 —
+            - generic [ref=e209]:
+              - text: Digital governance (DAOs), New frameworks for decentralised decision-making,
+              - emphasis [ref=e210]: DAO platforms for voting and governance
+              - text: . Risk management and audit ...
+        - generic [ref=e214]:
+          - generic [ref=e217]:
+            - link "A study on blockchain-based marketplace governance ... emerald.com https://www.emerald.com › ..." [ref=e219] [cursor=pointer]:
+              - /url: https://www.emerald.com/dprg/article/25/6/653/103457/A-study-on-blockchain-based-marketplace-governance
+              - heading "A study on blockchain-based marketplace governance ..." [level=3] [ref=e220]
+              - generic [ref=e225]:
+                - generic [ref=e227]: emerald.com
+                - generic [ref=e229]: https://www.emerald.com › ...
+            - generic [ref=e230]:
+              - generic [ref=e231]: ·
+              - link "Terjemahkan halaman ini" [ref=e232] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/dprg/article/25/6/653/103457/A-study-on-blockchain-based-marketplace-governance&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e233] [cursor=pointer]:
+              - img [ref=e236]
+          - generic [ref=e240]:
+            - emphasis [ref=e241]: DAO promises many potentials
+            - text: ", such as SSIs for the metaverse, corporate governance measures, multi-party orchestration, self-executed SCs, citizen charter ..."
+        - generic [ref=e245]:
+          - generic [ref=e248]:
+            - link "Enhancing corporate governance with decentralized AI emerald.com https://www.emerald.com › ..." [ref=e250] [cursor=pointer]:
+              - /url: https://www.emerald.com/jstpm/article/doi/10.1108/JSTPM-10-2024-0425/1318218/Enhancing-corporate-governance-with-decentralized
+              - heading "Enhancing corporate governance with decentralized AI" [level=3] [ref=e251]
+              - generic [ref=e256]:
+                - generic [ref=e258]: emerald.com
+                - generic [ref=e260]: https://www.emerald.com › ...
+            - generic [ref=e261]:
+              - generic [ref=e262]: ·
+              - link "Terjemahkan halaman ini" [ref=e263] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/jstpm/article/doi/10.1108/JSTPM-10-2024-0425/1318218/Enhancing-corporate-governance-with-decentralized&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e264] [cursor=pointer]:
+              - img [ref=e267]
+          - generic [ref=e271]:
+            - emphasis [ref=e272]: Blockchain
+            - text: technology is used in the organization's annual general meetings and board meetings for voting. There is a belief among scientists and researchers ...
+        - generic [ref=e276]:
+          - generic [ref=e279]:
+            - 'link "Decentralized Autonomous Organizations: Internal ... emerald.com https://www.emerald.com › ..." [ref=e281] [cursor=pointer]':
+              - /url: https://www.emerald.com/acg/article/5/4/237/1319318/Decentralized-Autonomous-Organizations-Internal
+              - 'heading "Decentralized Autonomous Organizations: Internal ..." [level=3] [ref=e282]'
+              - generic [ref=e287]:
+                - generic [ref=e289]: emerald.com
+                - generic [ref=e291]: https://www.emerald.com › ...
+            - generic [ref=e292]:
+              - generic [ref=e293]: ·
+              - link "Terjemahkan halaman ini" [ref=e294] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/acg/article/5/4/237/1319318/Decentralized-Autonomous-Organizations-Internal&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e295] [cursor=pointer]:
+              - img [ref=e298]
+          - generic [ref=e302]:
+            - text: The
+            - emphasis [ref=e303]: DAO
+            - text: aimed to operate as a venture capital fund for the
+            - emphasis [ref=e304]: crypto
+            - text: and decentralized space.
+            - superscript [ref=e305]:
+              - superscript [ref=e306]: "32"
+            - text: Its code was open source developed by Slock.It
+            - superscript [ref=e307]:
+              - superscript [ref=e308]: "33"
+            - text: with a
+            - emphasis [ref=e309]: governance
+            - text: ...
+        - generic [ref=e313]:
+          - generic [ref=e316]:
+            - link "Exploring off-chain voting and blockchain in decentralized ... emerald.com https://www.emerald.com › ..." [ref=e318] [cursor=pointer]:
+              - /url: https://www.emerald.com/rausp/article-split/59/4/335/1231159/Exploring-off-chain-voting-and-blockchain-in
+              - heading "Exploring off-chain voting and blockchain in decentralized ..." [level=3] [ref=e319]
+              - generic [ref=e324]:
+                - generic [ref=e326]: emerald.com
+                - generic [ref=e328]: https://www.emerald.com › ...
+            - generic [ref=e329]:
+              - generic [ref=e330]: ·
+              - link "Terjemahkan halaman ini" [ref=e331] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/rausp/article-split/59/4/335/1231159/Exploring-off-chain-voting-and-blockchain-in&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e332] [cursor=pointer]:
+              - img [ref=e335]
+          - generic [ref=e338]:
+            - generic [ref=e339]: 12 Sep 2024 —
+            - text: The current scenario shows increased adoption of off-chain voting applications in decentralized autonomous organizations (DAOs) to avoid ...
+        - generic [ref=e343]:
+          - generic [ref=e346]:
+            - link "Towards blockchain led decentralized autonomous ... emerald.com https://www.emerald.com › ..." [ref=e348] [cursor=pointer]:
+              - /url: https://www.emerald.com/bij/article/30/2/475/66714/Towards-blockchain-led-decentralized-autonomous
+              - heading "Towards blockchain led decentralized autonomous ..." [level=3] [ref=e349]
+              - generic [ref=e354]:
+                - generic [ref=e356]: emerald.com
+                - generic [ref=e358]: https://www.emerald.com › ...
+            - generic [ref=e359]:
+              - generic [ref=e360]: ·
+              - link "Terjemahkan halaman ini" [ref=e361] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/bij/article/30/2/475/66714/Towards-blockchain-led-decentralized-autonomous&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e362] [cursor=pointer]:
+              - img [ref=e365]
+          - generic [ref=e368]:
+            - generic [ref=e369]: 16 Mar 2022 —
+            - generic [ref=e370]:
+              - emphasis [ref=e371]: Decentralized Autonomous Organization (DAO
+              - text: ) is a blockchain innovation to conceptualize and implement decentralized organization design using ...
+        - generic [ref=e375]:
+          - generic [ref=e378]:
+            - link "Governance mechanism design for multiple partners involved ... emerald.com https://www.emerald.com › ..." [ref=e380] [cursor=pointer]:
+              - /url: https://www.emerald.com/bpmj/article/doi/10.1108/BPMJ-10-2025-1615/1344356/Governance-mechanism-design-for-multiple-partners
+              - heading "Governance mechanism design for multiple partners involved ..." [level=3] [ref=e381]
+              - generic [ref=e386]:
+                - generic [ref=e388]: emerald.com
+                - generic [ref=e390]: https://www.emerald.com › ...
+            - generic [ref=e391]:
+              - generic [ref=e392]: ·
+              - link "Terjemahkan halaman ini" [ref=e393] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/bpmj/article/doi/10.1108/BPMJ-10-2025-1615/1344356/Governance-mechanism-design-for-multiple-partners&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e394] [cursor=pointer]:
+              - img [ref=e397]
+          - generic [ref=e400]:
+            - generic [ref=e401]: 4 Mar 2026 —
+            - generic [ref=e402]:
+              - text: This study aims to investigate how new platforms reconfigure their
+              - emphasis [ref=e403]: governance
+              - text: structures over time. Drawing on mechanism design theory, ...
+        - generic [ref=e407]:
+          - generic [ref=e410]:
+            - link "Decentralized autonomous organizations market meta analysis emerald.com https://www.emerald.com › ..." [ref=e412] [cursor=pointer]:
+              - /url: https://www.emerald.com/ftisy/article/9/2/53/1334787/Decentralized-autonomous-organizations-market-meta
+              - heading "Decentralized autonomous organizations market meta analysis" [level=3] [ref=e413]
+              - generic [ref=e418]:
+                - generic [ref=e420]: emerald.com
+                - generic [ref=e422]: https://www.emerald.com › ...
+            - generic [ref=e423]:
+              - generic [ref=e424]: ·
+              - link "Terjemahkan halaman ini" [ref=e425] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/ftisy/article/9/2/53/1334787/Decentralized-autonomous-organizations-market-meta&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e426] [cursor=pointer]:
+              - img [ref=e429]
+          - generic [ref=e432]:
+            - generic [ref=e433]: 4 Nov 2025 —
+            - generic [ref=e434]:
+              - emphasis [ref=e435]: DAOs differ fundamentally from traditional corporations in their governance structures
+              - text: ", relying on smart contracts to encode rules and automate ..."
+        - generic [ref=e439]:
+          - generic [ref=e442]:
+            - link "Corporate Governance Meets Data and Technology emerald.com https://www.emerald.com › ..." [ref=e444] [cursor=pointer]:
+              - /url: https://www.emerald.com/ftfin/article/14/2/61/1326486/Corporate-Governance-Meets-Data-and-Technology
+              - heading "Corporate Governance Meets Data and Technology" [level=3] [ref=e445]
+              - generic [ref=e450]:
+                - generic [ref=e452]: emerald.com
+                - generic [ref=e454]: https://www.emerald.com › ...
+            - generic [ref=e455]:
+              - generic [ref=e456]: ·
+              - link "Terjemahkan halaman ini" [ref=e457] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.emerald.com/ftfin/article/14/2/61/1326486/Corporate-Governance-Meets-Data-and-Technology&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e458] [cursor=pointer]:
+              - img [ref=e461]
+          - generic [ref=e464]:
+            - generic [ref=e465]: 19 Agu 2024 —
+            - generic [ref=e466]:
+              - emphasis [ref=e467]: Dash pioneered decentralized governance using blockchain technology
+              - text: ", and it remains the industry's longest-running DAO. Created in 2016 ..."
+      - navigation [ref=e470]:
+        - heading "Navigasi Halaman" [level=1] [ref=e471]
+        - text: "1"
+        - link "Page 2" [ref=e474] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=10&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAE
+          - text: "2"
+        - link "Page 3" [ref=e476] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=20&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAG
+          - text: "3"
+        - link "Page 4" [ref=e478] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=30&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAI
+          - text: "4"
+        - link "Page 5" [ref=e480] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=40&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAK
+          - text: "5"
+        - link "Page 6" [ref=e482] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=50&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAM
+          - text: "6"
+        - link "Page 7" [ref=e484] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=60&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAO
+          - text: "7"
+        - link "Page 8" [ref=e486] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=70&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAQ
+          - text: "8"
+        - link "Page 9" [ref=e488] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=80&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAS
+          - text: "9"
+        - link "Page 10" [ref=e490] [cursor=pointer]:
+          - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=90&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8tMDegQIKxAU
+          - text: "10"
+        - heading "Berikutnya" [level=2] [ref=e492]:
+          - link "Berikutnya" [ref=e493] [cursor=pointer]:
+            - /url: /search?q=blockchain+cooperative+governance+DAO+site:emerald.com&sca_esv=d3b7886481150a40&ei=EmX1adiQEcmy4-EPvqy0-As&start=10&sa=N&sstk=Af77f_czGFb0fKuF4eivb0FyUuazLFVFU-C6GrdhO40XsYTLBbnfQLRvzbGEr29v1bDaOv5GH0u_pXAgbfejoob3SxdMb9cEkt_MgQ&ved=2ahUKEwjY4ejrypmUAxVJ2TgGHT4WDb8Q8NMDegQIKxAW
+            - generic [ref=e495]: Berikutnya
+      - navigation
+    - contentinfo [ref=e496]:
+      - heading "Link Footer" [level=1] [ref=e497]
+      - generic [ref=e501]:
+        - generic [ref=e503]:
+          - text: Indonesia
+          - generic [ref=e505]:
+            - button "55281, Kabupaten Sleman, Daerah Istimewa Yogyakarta - Berdasarkan aktivitas Anda sebelumnya" [ref=e507] [cursor=pointer]:
+              - generic [ref=e508]: 55281, Kabupaten Sleman, Daerah Istimewa Yogyakarta
+              - generic [ref=e510]:
+                - text: "-"
+                - generic [ref=e511]: Berdasarkan aktivitas Anda sebelumnya
+            - text: "-"
+            - button "Perbarui lokasi" [ref=e513] [cursor=pointer]: Perbarui lokasi
+        - generic [ref=e516]:
+          - link "Bantuan" [ref=e517] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=id&fg=1
+          - link "Kirim masukan" [ref=e518] [cursor=pointer]:
+            - /url: "#"
+          - link "Privasi" [ref=e519] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=id&fg=1
+          - link "Persyaratan" [ref=e520] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=id&fg=1

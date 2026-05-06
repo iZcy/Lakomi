@@ -1,0 +1,57 @@
+
+🔗 Connecting to Brave at ws://localhost:9222/devtools/browser/b003fc8e-5ecf-496a-a9f3-10d95a8323ee...
+
+============================================================
+  PHASE 0: Page Load
+============================================================
+  ✅ Homepage loads — "Lakomi" heading visible
+  ✅ Subtitle "Koperasi Digital Berbasis Blockchain" visible
+
+============================================================
+  PHASE 1: Add Network + Connect Wallet
+============================================================
+
+⏸️  WALLET ACTION NEEDED: If not already added: click "Tambah Jaringan ke Dompet" in Brave, approve in wallet popup. Then press Enter.
+   Waiting for continue signal...
+  ⏭️  Network add toast: Not detected — may already be added
+
+⏸️  WALLET ACTION NEEDED: Click "Connect Wallet" / Brave Wallet button in Brave, approve connection. Then press Enter.
+   Waiting for continue signal...
+  ✅ Wallet connected — address visible
+
+============================================================
+  PHASE 2: Dev Faucet — Get ETH + USDC
+============================================================
+  ✅ Dev Faucet section visible on Dashboard
+
+⏸️  WALLET ACTION NEEDED: Click "Klaim ETH" (or similar) and "Klaim USDC" in the Dev Faucet section. You need funds for transactions. Then press Enter.
+   Waiting for continue signal...
+  ✅ USDC balance visible after faucet
+
+============================================================
+  PHASE 3: Pendaftaran Anggota — Pasal 5(1) UU 25/1992
+  "Keanggotaan koperasi bersifat sukarela dan terbuka"
+============================================================
+  ⏭️  Registration form: May already be registered or not connected
+
+⏸️  WALLET ACTION NEEDED: Fill in the registration form:
+  - Nama Lengkap (min 3 chars)
+  - NIK (16 digits)
+  - Tempat Lahir (min 2 chars)
+  - Tanggal Lahir
+  - Alamat (min 5 chars)
+  - Nomor Telepon (min 8 chars)
+Then click "Konfirmasi & Daftar" and approve TX in wallet. Press Enter after TX confirmed.
+   Waiting for continue signal...
+  ⏭️  Registration success: Toast not detected — may already be registered
+  ⏭️  Member badge: Not found
+
+============================================================
+  PHASE 4: Bayar Simpanan Pokok — Pasal 41(1) UU 25/1992
+  "Simpanan pokok hanya dibayar satu kali"
+============================================================
+  ✅ Simpanan Pokok unpaid prompt visible (guard active)
+  ✅ "Bayar Simpanan Pokok" card visible
+
+⏸️  WALLET ACTION NEEDED: Click the "Bayar XXX USDC" button in the Simpanan Pokok card. Approve USDC spend in wallet, then approve the payment TX. Press Enter after confirmed.
+   Waiting for continue signal...

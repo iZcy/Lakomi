@@ -1,0 +1,1111 @@
+- generic [ref=e1]:
+  - link "Skip to Main Content" [ref=e2] [cursor=pointer]:
+    - /url: "#skipNav"
+  - region "Advertisement"
+  - generic [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e7]:
+        - link "Oxford Academic" [ref=e9] [cursor=pointer]:
+          - /url: /
+          - img "Oxford Academic" [ref=e10]
+        - list [ref=e11]:
+          - text:   
+          - listitem [ref=e12]:
+            - link "Information" [ref=e13] [cursor=pointer]:
+              - /url: /pages/information
+              - img "Information" [ref=e14]
+          - listitem [ref=e15]:
+            - button "Account" [ref=e16] [cursor=pointer]:
+              - img "Account" [ref=e17]
+          - listitem [ref=e18]:
+            - generic [ref=e20]:
+              - link "Sign in through your institution" [ref=e21] [cursor=pointer]:
+                - /url: javascript:;
+                - generic [ref=e22]: Sign in through your institution
+                - img [ref=e23]
+              - generic [ref=e24]:
+                - iframe [ref=e26]:
+                  - checkbox [checked] [ref=f12e2]
+                - generic [ref=e27]:
+                  - text: Remember my
+                  - text: institution
+      - generic:     
+      - generic [ref=e29]:
+        - link "Policy and Society" [ref=e30] [cursor=pointer]:
+          - /url: /policyandsociety
+          - img "Policy and Society" [ref=e31]
+        - link "Lee Kuan Yew School of Public Policy" [ref=e34] [cursor=pointer]:
+          - /url: https://lkyspp.nus.edu.sg/
+          - img "Lee Kuan Yew School of Public Policy" [ref=e35]
+      - generic [ref=e37]:
+        - navigation [ref=e38]:
+          - list [ref=e39]:
+            - listitem [ref=e40]:
+              - link "Issues" [ref=e41] [cursor=pointer]:
+                - /url: /policyandsociety/issue
+            - listitem [ref=e42]:
+              - link "Advance Articles" [ref=e43] [cursor=pointer]:
+                - /url: /policyandsociety/advance-articles
+            - listitem [ref=e44]:
+              - button "Submit " [ref=e45] [cursor=pointer]:
+                - text: Submit
+                - generic [ref=e46]: 
+              - text: 
+            - listitem [ref=e47]:
+              - link "Alerts" [ref=e48] [cursor=pointer]:
+                - /url: https://academic.oup.com/journals/pages/help/journal_alerts
+            - listitem [ref=e49]:
+              - button "About " [ref=e50] [cursor=pointer]:
+                - text: About
+                - generic [ref=e51]: 
+              - text: 
+        - generic [ref=e52]:
+          - search "Site search" [ref=e55]:
+            - generic [ref=e56]:
+              - generic [ref=e57]: Navbar Search Filter
+              - combobox "Navbar Search Filter" [ref=e58]:
+                - option "Policy and Society" [selected]
+                - option "This issue"
+                - option "Politics"
+                - option "Public Administration"
+                - option "Public Policy"
+                - option "Social Sciences"
+                - option "Books"
+                - option "Journals"
+                - option "Oxford Academic"
+              - generic [ref=e59]: Enter search term
+              - searchbox "Enter search term" [ref=e60]
+              - link " Search" [ref=e61] [cursor=pointer]:
+                - /url: javascript:;
+                - text: 
+                - generic [ref=e62]: Search
+          - text: 
+          - generic [ref=e63]:
+            - link "AI Discovery Assistant" [ref=e64] [cursor=pointer]:
+              - /url: javascript:;
+              - generic "AI Discovery Assistant" [ref=e65]:
+                - generic [ref=e66]: 
+                - text: AI Discovery Assistant
+            - text: 
+    - generic [ref=e70]:
+      - generic [ref=e72]:
+        - text: 
+        - generic [ref=e73]:
+          - generic [ref=e75]:
+            - text: 
+            - link "Policy and Society Cover Image for Volume 41, Issue 3 Volume 41, Issue 3 September 2022" [ref=e76] [cursor=pointer]:
+              - /url: /policyandsociety/issue/41/3
+              - img "Policy and Society Cover Image for Volume 41, Issue 3" [ref=e78]
+              - generic [ref=e79]:
+                - generic [ref=e80]: Volume 41, Issue 3
+                - generic [ref=e81]: September 2022
+          - generic [ref=e83]:
+            - heading "Article Contents" [level=3] [ref=e84]
+            - list [ref=e85]:
+              - listitem [ref=e86]:
+                - link "Conflict of interest" [ref=e88] [cursor=pointer]:
+                  - /url: "#367027079"
+              - listitem [ref=e89]:
+                - link "Footnotes" [ref=e91] [cursor=pointer]:
+                  - /url: "#367027081"
+              - listitem [ref=e92]:
+                - link "References" [ref=e94] [cursor=pointer]:
+                  - /url: "#367027096"
+          - list [ref=e96]:
+            - listitem [ref=e97]:
+              - link "Next >" [ref=e98] [cursor=pointer]:
+                - /url: /policyandsociety/article/41/3/328/6544137
+      - generic [ref=e100]:
+        - generic [ref=e102]:
+          - generic [ref=e104]: Journal Article
+          - generic [ref=e105]:
+            - heading "The policy dilemmas of blockchain  Open Access" [level=1] [ref=e107]:
+              - text: The policy dilemmas of blockchain
+              - generic "Open Access" [ref=e108]:
+                - text: 
+                - generic [ref=e109]: Open Access
+            - generic [ref=e111]:
+              - generic [ref=e112]:
+                - link "Judith Clifton" [ref=e113] [cursor=pointer]:
+                  - /url: javascript:;
+                  - text: Judith Clifton
+                  - generic [ref=e114]: 
+                - text: ","
+              - link "Leslie A Pal" [ref=e116] [cursor=pointer]:
+                - /url: javascript:;
+            - generic [ref=e117]:
+              - generic [ref=e119]:
+                - emphasis [ref=e120]: Policy and Society
+                - text: ", Volume 41, Issue 3, September 2022, Pages 321–327,"
+                - link "https://doi.org/10.1093/polsoc/puac025" [ref=e121] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puac025
+              - generic [ref=e122]:
+                - generic [ref=e123]: "Published: 14 July 2022"
+                - link "Article history" [ref=e124] [cursor=pointer]:
+                  - /url: javascript:;
+                  - text: Article history
+                  - generic [ref=e125]: 
+        - generic [ref=e126]:
+          - generic [ref=e128]:
+            - navigation [ref=e130]:
+              - listitem [ref=e131]:
+                - link "pdf PDF" [ref=e132] [cursor=pointer]:
+                  - /url: /policyandsociety/article-pdf/41/3/321/45093392/puac025.pdf
+                  - img "pdf" [ref=e133]
+                  - text: PDF
+              - listitem [ref=e134]:
+                - link " Split View" [ref=e135] [cursor=pointer]:
+                  - /url: javascript:;
+                  - generic [ref=e136]: 
+                  - text: Split View
+              - text:  
+              - listitem [ref=e137]:
+                - link " Cite" [ref=e139] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e140]: 
+                  - text: Cite
+              - listitem [ref=e141]:
+                - link " Permissions Icon Permissions" [ref=e144] [cursor=pointer]:
+                  - /url: https://s100.copyright.com/AppDispatchServlet?publisherName=OUP&publication=1839-3373&title=The%20policy%20dilemmas%20of%20blockchain&publicationDate=2022-07-14&volumeNum=41&issueNum=3&author=Clifton%2C%20Judith%3B%20Pal%2C%20Leslie%20A&startPage=321&endPage=327&contentId=10.1093%2Fpolsoc%2Fpuac025&oa=CC%20BY&copyright=%C2%A9%20The%20Author%28s%29%202022.%20Published%20by%20Oxford%20University%20Press.&orderBeanReset=True
+                  - generic [ref=e145]:
+                    - text: 
+                    - generic [ref=e146]: Permissions Icon
+                  - text: Permissions
+              - listitem [ref=e147]:
+                - link " Share Icon Share " [ref=e148] [cursor=pointer]:
+                  - /url: javascript:;
+                  - generic [ref=e149]:
+                    - text: 
+                    - generic [ref=e150]: Share Icon
+                  - generic [ref=e151]:
+                    - text: Share
+                    - generic [ref=e152]: 
+            - text:     
+          - generic [ref=e156]:
+            - generic [ref=e158]:
+              - generic [ref=e159]: "Issue Section:"
+              - link "Introduction" [ref=e160] [cursor=pointer]:
+                - /url: /policyandsociety/search-results?f_TocHeadingTitleList=Introduction
+            - paragraph [ref=e161]:
+              - text: Blockchain is a new, emerging technology that is expected to have deep and “disruptive” effects on our economies and societies. It offers a new paradigm for the way in which information is registered, stored, and transacted. Blockchain is actually only one example of distributed ledger technology, which constitutes a physically decentralized and secure database, in the sense data are not held in one central site, rather they are held and updated simultaneously across several sites, theoretically making it more difficult to hack (
+              - link "Weiss and Biermann, 2020" [ref=e162] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). Blockchain allows generated information to be stored in “blocks,” each of which is “stamped” and linked to the previous one, creating an unchangeable record of transactions (
+              - link "Cagigas et al., 2021" [ref=e163] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). The process is conducted and verified via a predefined network protocol or “consensus mechanism” that specifies how the system is ruled. This permissions architecture can be used to determine whether, and to what extent, the blockchain itself will be largely left under the control of a centralized entity or authority or whether access and control of the blockchain will be shared among all those interested in participating. For example, depending on the permissions granted, participation in the verification process can be open and free or restricted to a group of users. In addition, the information registered in the blockchain can be more or less openly shared. At the most general level, then, blockchains are secure, immutable, anonymous, and decentralized digital records (or ledgers) of user-verified digital transactions.
+            - paragraph [ref=e164]:
+              - text: The first well-known blockchain product to emerge was Bitcoin, in 2008, which utilizes the technology for its most familiar usage—“cryptocurrency.” Today, there are thousands of cryptocurrencies that have been launched with different degrees of success.
+              - link "1" [ref=e165] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e166]: "1"
+              - text: Since cryptocurrency became well known, there has been a second spike in public consciousness about blockchain around non-fungible tokens (NFTs), where one-of-a-kind digital assets are bought and sold every day. These NFTs can be as trivial as a “signed Tweet,” one of which was sold via auction in March 2021 for almost US$3 million.
+              - link "2" [ref=e167] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e168]: "2"
+              - text: Yet, only 1 year later, the same product was put up for sale again, the highest bid being only US$280, inevitably questioning its intrinsic price.
+              - link "3" [ref=e169] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e170]: "3"
+              - text: As a result, blockchain is sometimes associated with crypto-criminality, money laundering, or questionable frivolities in the digital art market.
+            - paragraph [ref=e171]:
+              - text: "Despite these better-known commercial applications, blockchain can also be applied to the public sphere: government, public policy, and public services. Indeed, in recent years, governments and international organizations around the world have started to deploy blockchain in a growing number of services, including digital identity management, health, food and agriculture, land registry, public procurement, defense, aviation, value chains, logistics, and more."
+              - link "4" [ref=e172] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e173]: "4"
+            - paragraph [ref=e174]:
+              - text: So, while the early hype and possibilities of blockchain were grossly inflated (
+              - link "Tapscott & Tapscott, 2016" [ref=e175] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ) and the “blockchain revolution” is still to come in the way that the portable computing, the internet, and cell phones did, there are significant implications to the technology, both as a target and as a tool of public policy and indeed as a possible new form of governance (
+              - link "Campbell-Verduyn, 2018" [ref=e176] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). Among these implications are higher-order questions on the nature of money, law, and democracy—and even the state itself (
+              - link "Atzori, 2015" [ref=e177] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). Cryptocurrencies such as Bitcoin have been issued outside of the traditional financial sector and have become a means of financial exchange and wealth-storage beyond the reach of governments—and among their more radical proponents, that is a feature, not a bug. Hence, states are already examining the issue of regulating cryptocurrencies not only because of their potential for being used in illegal transactions and money laundering but also for their potential threat to financial stability (
+              - link "FSB, 2021" [ref=e178] [cursor=pointer]:
+                - /url: javascript:;
+              - text: "). It may be attractive too for financial interests to “tame” crypto and turn it into just another investment vehicle. The implications for the nature of law were first forcefully put forward by Lawrence Lessig: “code is law” ("
+              - link "Lessig, 1999" [ref=e179] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ","
+              - link "2006" [ref=e180] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). This refers to a species of “algorithmic governance” where the routines and assumptions embedded in computer codes “govern” human behavior (
+              - link "Noble, 2018" [ref=e181] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ;
+              - link "Pasquale, 2015" [ref=e182] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). More importantly, the code, for example, in the form of a smart contract, can trump the “law” in the sense of legislation or rules determined by state authorities. For example, remote services can be contracted in one part of the world, paid for through an app such as
+              - emphasis [ref=e183]: Satoshipay
+              - text: ", and governed by a smart contract. The legal and taxation regimes within which those contracting parties reside become irrelevant. In both the arch-examples of currency and law, we see the potentially radical disintermediation that is either lamented or celebrated by promotors of blockchain technologies."
+            - paragraph [ref=e184]:
+              - text: Blockchain can go further and deeper in upending our conventional concepts of democracy and the state. For example, for most purposes, government-issued ID (passports, driver’s licenses, and birth certificates) are considered the foundation of one’s formal and legal identity. Indeed, a pioneer public case is currently being developed in the European Union (EU) within the realm of self-sovereign identity (SSI), namely the European Self-Sovereign Identity Framework (ESSIF).
+              - link "5" [ref=e185] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e186]: "5"
+              - text: "Moreover, there are also private initiatives: through"
+              - emphasis [ref=e187]: Blockchain Helix
+              - text: ", people can establish digital identities that give them an immutable record of who they are. The “national” passport could be eclipsed by the digital ID, which can then be used for borderless transactions. The point of these innovations is sometimes difficult to grasp since they seem to be only “added layers” to existing, secure, and accepted forms of ID. All current forms of ID can be counterfeited, hence the lengths that governments go to protect the security, for example, of a passport. We can see the problem more clearly in the case of academic or professional credentials. As labor markets go global, the barriers to “proving” one’s university or training qualifications (e.g., degrees, certificates, and CVs) rise considerably with requirements for attestation from various “official” bodies. Blockchain potentially upends this. The upending is moderate, a mere tilt, if governments (e.g., the ESSIF above) build the blockchain architecture. The upending is radical if individuals no longer need government and if their digital ID is blockchain-solid and accepted anywhere. The digital ID would supplant the government passport or other state-sanctioned ID. The current value of “citizenship” would be further debased."
+            - paragraph [ref=e188]:
+              - text: Another example is governance processes, in both private and public spheres. The
+              - emphasis [ref=e189]: LiquidFeedback
+              - text: platform promises a “unique democracy software” to promote self-organization of units as small as an association or company or as large as municipalities.
+              - emphasis [ref=e190]: Bitnation
+              - text: goes further still and promises “a blockchain jurisdiction in which communities can be built, contracts made, disputes resolved, and agreements positively enforced through reputation. Within this jurisdiction, governance services such as peer-to-peer security, insurance and education can be accessed via third-party dapps.” You can even start your own “nation” if you like. Of course, this seems absurd—until we interrogate the core functionalities of the modern nation-state and consequently of “citizenship.” A contract between two parties who reside in the same “jurisdiction” is subject to adjudication and enforcement by that jurisdiction. When the parties are from different jurisdictions, the contract usually specifies which of the legal frameworks govern the agreement. Alternatively, there are provisions in international commercial law or treaties that will govern such agreements. Once again, blockchain upends this. A contract between parties in Montreal and Mumbai can be forged in blockchain, with its own self-executing provisions that have nothing to do with the jurisdictions within which the parties reside.
+            - paragraph [ref=e191]:
+              - text: Some analysts believe blockchain has libertarian and autarkic disintermediation in its DNA,
+              - link "6" [ref=e192] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e193]: "6"
+              - text: but this has not stopped some governments from embracing the technology as the “next big thing” in governance and policy platforms; Dubai, for example, has a blockchain strategy that it claims will make it the “happiest city on earth.”
+              - link "7" [ref=e194] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e195]: "7"
+              - text: This is part of the United Arab Emirates (UAE) Emirates Blockchain Strategy 2021, which aims to transform 50% of government transactions to blockchain.
+              - link "8" [ref=e196] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e197]: "8"
+              - text: Its plan comprises a national system built around a unique digital ID for each citizen/resident, which they can then use to access government documents and services. The EU has a blockchain strategy, which includes the European Blockchain Services Infrastructure that is a joint effort of the EU states, Norway, Liechtenstein, and the European Commission.
+              - link "9" [ref=e198] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e199]: "9"
+              - text: "The overarching intent is to provide “legal certainty” and avoid “regulatory fragmentation.” Estonia has been the pioneer in digital governance, embracing e-government as early as 1997. It was the first government to use blockchain technology in 2012 with its Succession Registry, maintained by the Ministry of Justice. The blockchain platform now includes the following registries: health care, property, business, succession, digital court system, surveillance tracking information system: official state announcements, and the state gazette."
+            - paragraph [ref=e200]:
+              - text: Anarchists, drug cartels,
+              - link "10" [ref=e201] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e202]: "10"
+              - text: financial institutions, and some governments (from the Baltics to Arab emirates) have embraced blockchain, but the policy research community is alarmingly late to the party. Debate and analysis on blockchain have been dominated by computing science and fintech, and more recently by legal scholars, even though the implications for policy science and public policy are potentially staggering. Even if we think of the implications only in terms of blockchain as a “tool” (something to be used in the delivery of public services) for public policy or as a “target” (threats to be managed), the list of services that could be disrupted by blockchain is significant.
+            - paragraph [ref=e203]:
+              - text: "It is only in the recent period that the lack of attention to blockchain from the policy research community has started to change. This attention to blockchain can be quantified: a systematic review of the academic literature on blockchain in the public sector shows a sharp increase from 2015 onward ("
+              - link "Cagigas et al., 2021" [ref=e204] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). In parallel, there has been a significant increase in the number of policy documents on blockchain produced by international policy organizations, including the EU,
+              - link "11" [ref=e205] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e206]: "11"
+              - text: the OECD,
+              - link "12" [ref=e207] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e208]: "12"
+              - text: the United Nations (United Nations International Children’s Emergency Fund (UNICEF), United Nations Development Programme (UNDP), and UNWOMAN), and the World Bank.
+              - link "13" [ref=e209] [cursor=pointer]:
+                - /url: javascript:;
+                - superscript [ref=e210]: "13"
+            - paragraph [ref=e211]: "From the perspective of government and policy, blockchain is being used as a tool, for example, in the following activities:"
+            - list [ref=e212]:
+              - listitem [ref=e213]:
+                - paragraph [ref=e214]: Record-keeping (health records, land registries, and vehicle registration); identity attestation (passports, ID cards, birth certificates, marriage, and divorce)
+              - listitem [ref=e215]:
+                - paragraph [ref=e216]:
+                  - text: Payments and remittances (
+                  - link "Rodima‐Taylor & Grimes, 2019" [ref=e217] [cursor=pointer]:
+                    - /url: javascript:;
+                  - text: )
+              - listitem [ref=e218]:
+                - paragraph [ref=e219]:
+                  - text: Central Bank Digital Currencies, mostly known by their acronym CBDCs (although very few are currently considering using blockchain in their final pilots
+                  - link "14" [ref=e220] [cursor=pointer]:
+                    - /url: javascript:;
+                    - superscript [ref=e221]: "14"
+                  - text: )
+              - listitem [ref=e222]:
+                - paragraph [ref=e223]: Secure and transparent delivery of cash benefits and tokens
+              - listitem [ref=e224]:
+                - paragraph [ref=e225]: Smart contracts
+              - listitem [ref=e226]:
+                - paragraph [ref=e227]: Supply chain management (tracking)
+              - listitem [ref=e228]:
+                - paragraph [ref=e229]:
+                  - text: Traceability systems (food safety and conflict minerals) (
+                  - link "Muirhead & Porter, 2019" [ref=e230] [cursor=pointer]:
+                    - /url: javascript:;
+                  - text: )
+              - listitem [ref=e231]:
+                - paragraph [ref=e232]: Insurance contracts
+            - paragraph [ref=e233]: "And, as regards policy targets (threats) associated with blockchain, the following lead the concern:"
+            - list [ref=e234]:
+              - listitem [ref=e235]:
+                - paragraph [ref=e236]: Money laundering (e.g., Financial Action Task Force)
+              - listitem [ref=e237]:
+                - paragraph [ref=e238]: Financial services regulation (and experimentation)
+              - listitem [ref=e239]:
+                - paragraph [ref=e240]: Carbon footprint of cryptocurrency “mining”
+              - listitem [ref=e241]:
+                - paragraph [ref=e242]: Cyber-threats and cyber-warfare
+              - listitem [ref=e243]:
+                - paragraph [ref=e244]: Tax evasion
+            - paragraph [ref=e245]: It is now timely to bring together a collection of articles by leading international experts that focus on what blockchain might mean for the economy and society, the regulatory dilemmas it presents, and possible policy solutions. The articles selected for this special issue all focus on core characteristics or promises of blockchain technology from a societal perspective and contemplate the regulatory challenges and dilemmas therein. For example, at the most generic level, blockchain technology is expected to be disruptive, meaning it is expected that, after initially taking root in simple, specific applications, it will increasingly replace previous technologies and bring about profound changes in the ways in which processes are completed, bringing about increased efficiencies and greater transparency and data security. However, these potential advantages must be considered alongside blockchain’s high-energy consumption needs, processing speed and cost. Blockchain thus presents trade-off dilemmas for policymakers seeking to promote economic growth, innovation, and sustainability. At higher and more abstract levels, we should also contemplate the potential impact of blockchain on our received notions of state sovereignty, citizenship, and governance.
+            - paragraph [ref=e246]:
+              - text: A key question for policymakers today is how can and should blockchain be regulated?
+              - link "De Filippi et al. (2022)" [ref=e247] [cursor=pointer]:
+                - /url: javascript:;
+              - text: pose the question of how policy can be designed to regulate and legalize a technology like blockchain that is “alegal” by design. The public, permissionless version of blockchain was explicitly designed to be decentralized, anonymous, and beyond the control of government. Some of the uses to which it was consequently put were clearly illegal, but many are “alegal” in the sense that they are simply beyond the scope of government to regulate or even “see” and have a self-regulatory, non-state bounded character of simple facticity. Blockchain is neither legal nor illegal, it just is or at least it “just was” in the moment of its creation/design by Satoshi Nakamoto (possibly a person, possibly a pseudonym). It was a completely new economic and payment system that had not existed before and thus was beyond law. The article shows, with a brief example of the attack on The DAO (a decentralized investment fund deployed as a smart contract on Ethereum in 2016), how far beyond normal legal or governmental interventions it was. However, policymakers are not entirely impotent—they can still regulate intermediaries, commercial operators, or mining pools and establish arbitration regimes, and indeed governments in the USA and in Europe have imposed anti-money laundering regulations and blacklists.
+              - link "De Filippi et al. (2022)" [ref=e248] [cursor=pointer]:
+                - /url: javascript:;
+              - text: register the limits of these approaches and instead argue for the creation of “regulatory sandboxes” (already used by the financial industry) that would permit experimentation leading toward functional and regulatory equivalence and thereby justifying “exemptions” from standard regulatory burdens that nonetheless would still ensure regulatory consistency.
+            - paragraph [ref=e249]:
+              - text: The article by
+              - link "Bodó and Janssen (2022)" [ref=e250] [cursor=pointer]:
+                - /url: javascript:;
+              - text: "focuses on another core question to scholars of policy and public administration: trust. Decentralized technologies, SSI systems, distributed ledger technology, and other blockchain-based systems are said to be “trust-minimizing” technical infrastructures. Their trustworthiness is based on specific technical and design properties, such as decentralization, immutability, and strong cryptography, rather than regulation, impeccable governance, or conventional transparency and accountability. Public institutions generally enjoy reasonable levels of trust, and even if they are not fully trusted, they are embedded in complex frameworks that support their trustworthiness: they are subject to laws, public scrutiny, their decisions can be challenged, and so on ("
+              - link "Van de Walle & Migchelbrink, 2022" [ref=e251] [cursor=pointer]:
+                - /url: javascript:;
+              - text: ). The deployment of trust-minimizing technologies in high-trust/high-trustworthiness contexts may contribute to more trustworthy public services but also threatens to disrupt such high-trust environments with a trust-minimizing technology that paradoxically undermines generalized trust in favor of digital security.
+              - link "Bodó and Janssen (2022)" [ref=e252] [cursor=pointer]:
+                - /url: javascript:;
+              - text: "focus on the following questions: How can high-trust public institutions implement trust-minimizing infrastructures? In the case of low-trust institutions, what is the preferable way forward: replacing distrusted public entities with trust-minimizing technologies or improving their trustworthiness? Should we implement a trust-minimizing architecture or a trust-maximizing one? The authors explore the use of potentially untrustworthy (private) technological systems—including blockchain-based systems—in the public sector and how this may affect trust in government. They then propose several policy options with a view to protect trust in government even if some of the technological components used to do so prove fundamentally untrustworthy."
+            - paragraph [ref=e253]:
+              - link "Benchaya Gans et al. (2022)" [ref=e254] [cursor=pointer]:
+                - /url: javascript:;
+              - text: examine the potential of blockchain to enable SSIs. Traditionally, governments and companies rely on stored data (e.g., photo, birth certificate, fingerprint, and retina scan) to identify persons for service provision. Indeed, this is a core role of the state itself. The rise of SSIs based on blockchain technologies is potentially disruptive. SSIs provide individuals with ownership and control over their personal data and allow them to share their data with others using a sort of “digital safe.” Fundamentally, people can exert sole ownership of their identity data and control when and how it is shared, protecting their privacy. As these data need to be validated to be trusted, they may become a more important data source for digital information sharing and transactions than the formal source of identity controlled by governments. Furthermore, SSIs can be used for interacting digitally with any organization. These developments may potentially change the relationship between government, companies, and individuals.
+              - link "Benchaya Gans et al. (2022)" [ref=e255] [cursor=pointer]:
+                - /url: javascript:;
+              - text: explore information sharing and governance in the digital society using blockchain-based SSIs. In addition, the impact of SSIs on data storage in the digital world is assessed. They find that technology enactment might result in no greater control or privacy and might in the end only reinforce current practices. Finally, the authors argue that regulation and a combination of centralized and decentralized governance are still required to avoid misuse and ensure that the envisaged benefits of blockchain-based SSIs are realized.
+            - paragraph [ref=e256]:
+              - text: Blockchain cannot be introduced into the public sector unless its workers accept it. The article by
+              - link "Cagigas et al. (2022)" [ref=e257] [cursor=pointer]:
+                - /url: javascript:;
+              - text: examines the impact of blockchain on, and reception by, public sector workers. Public bureaucracies, whatever their rhetoric on digital services and e-government, may well avoid embracing disruption. Consequently, the implementation of blockchain in the public sector will depend to some degree on the support by public servants themselves, especially in those cases where the technology might reduce their power and discretion.
+              - link "Cagigas et al. (2022)" [ref=e258] [cursor=pointer]:
+                - /url: javascript:;
+              - text: conduct a vignette experiment on the introduction of blockchain for a digital identity in providing local public services, positing different configurations around a blockchain that is more or less “open” (in the sense of openness to being able to “read” and “write” on the blockchain). The literature shows that public servants can have a mix of positive or negative attitudes toward the introduction of blockchain, depending on efficiency, service, impact on public sector jobs, and discretion, among other things. The article hypothesizes greater acceptance of blockchain by public servants, the more public the blockchain configuration is (more open and permissionless input and access to information on the public ledger). The results of the survey of “vignettes” (scenarios of configurations) of nearly 150 public officials in the City of Santander, Spain, show that a blockchain with “public write” mechanisms (any user can validate system registration processes) generates a higher level of acceptance, while “public read” (any user can see information in the system) has no demonstrable effect, possibly because the benefits of transparency are neutralized by the possibility of criticism of public servants themselves.
+            - paragraph [ref=e259]:
+              - text: A trio of articles examines blockchain in context, in the real world, and at different jurisdictional levels (international, national, and local). Blockchain technologies are increasingly being taken up by international organizations and becoming a feature of global policy making.
+              - link "Dimitropoulos (2022)" [ref=e260] [cursor=pointer]:
+                - /url: javascript:;
+              - text: argues that the use of blockchain by international organizations poses important questions in international law and the conventional conduct of foreign policy. In these cases, while blockchain has output and substantive legitimacy, it lacks traditional input and procedural legitimacy. The article focuses on the primary use of blockchain by international organizations such as UN entities in the humanitarian sector. The two most important public sector applications are identity management and attestation and the keeping of government records. For example, refugees are often forced to flee their countries without documents attesting to their identity (e.g., passports and other valid travel documents). The UN Convention and Protocol Relating to the Status of Refugees permits the High Commissioner for Refugees to manage crucial data on personal identification. It is estimated that over 1 billion individuals lack official identity documents and blockchain can be one tool to create secure digital identities, which can then in turn be used to establish individual accounts for cash entitlements in refugee camps.
+              - link "Dimitropoulos (2022)" [ref=e261] [cursor=pointer]:
+                - /url: javascript:;
+              - text: provides other examples from the economic realm, such as the World Bank’s Blockchain Lab, Bond-
+              - emphasis [ref=e262]: I
+              - text: (first-ever blockchain-based bond). All of these examples are one of “code” that regulates behavior and, as such, creates a new kind of legal system, putting international organizations “in the position of lawmakers in the world of crypto.” As lawmakers, international organizations cease to become entirely the creatures of their member states and begin to develop greater independence. The relative autonomy of transnational administration has long been considered an important feature of global policy making, but that autonomy always fell short of actually creating law, as opposed to regulations and standards. Blockchain may change that.
+            - paragraph [ref=e263]:
+              - text: The article by
+              - link "Semenzin and Hassan (2022)" [ref=e264] [cursor=pointer]:
+                - /url: javascript:;
+              - text: examines a country where according at least to the hype is advancing quickly toward implementing blockchain. Estonia is perceived to have embraced blockchain early and with enthusiasm, after having built the first national integrated blockchain infrastructure. They examine the blockchain tools that have been built by the Estonian government to date and why. They also inquire as to whether these blockchain projects really reflect the original promises of disruption associated with claims by blockchain proponents. They use qualitative approaches to explore several blockchain projects to examine the narratives that have emerged in Estonia. They argue concepts associated with blockchain—transparency, trust, and decentralization—are deeply contested and used by different parties to mean different things. They find that the ways in which blockchain is configured and implemented are leading toward a reinforcement of centralization of practices, even though this is described using the rhetoric of decentralization. Moreover, the concepts of transparency and trust—which could be interpreted in a variety of ways—are often used in a narrow sense, as a synonym of data privacy. They conclude that the implementation of blockchain constitutes a power struggle with efforts being taken to ensure blockchain does not disrupt existing power structures in practice, even while the rhetoric around blockchain implementation suggests it is bringing about societal disruption.
+            - paragraph [ref=e265]:
+              - text: Blockchain has the disruptive potential to exploit and enhance the attitudes of people to participate in common causes. Local institutions can leverage this technology to support innovative forms of public–civic coproduction of services and of citizens’ self-organization initiatives. In their article,
+              - link "Viano et al. (2022)" [ref=e266] [cursor=pointer]:
+                - /url: javascript:;
+              - text: evaluate CommonsHood, a wallet app, which uses blockchain as a tool to enhance financial inclusion and render the local economy more sustainable. It attempts to do so through a tokenization method, which allows residents to create new kinds of cryptographic tokens on the blockchain in order to digitalize assets, augment the availability of local liquidity, and incentivize cooperative socioeconomic interactions. In particular, the authors analyze a specific application of CommonsHood to innovate development policies and service coproduction in the tourism sector. Linder’s analytical framework for information and communications technology and coproduction is used. In conclusion, the authors point out some advantages of CommonsHood as regards policies on tourism development. As this paper examines an initial pilot of blockchain, lessons that can be learned in a new reiteration of the blockchain application are listed toward further refinement and improvement. For example, initial evidence provided by the authors demonstrates that citizens were open to exploring co-creation models and new technologies. However, some concern was detected among citizens about using a digital wallet, especially among older members of the population. In addition, resistance can be detected on the part of public sector workers, who require training and support.
+            - paragraph [ref=e267]:
+              - text: The articles in this special issue provide arresting insights on blockchain and some of its implications for policy, society, and governance. But the digital train has long left the station, and policy and public administration scholarship is just catching up with legal and computing science research, not to mention the practitioners already experimenting with digital identities, services, and regulation. And beyond the gates of academe and bureaucracy are the restless and the rebellious. Blockchain is
+              - emphasis [ref=e268]: designed
+              - text: to be disruptive. It is
+              - emphasis [ref=e269]: designed
+              - text: to create and nourish decentralized, autonomous, and non-state entities and systems. For the anarchists and crypto-enthusiasts, not to mention money launderers and terrorists, blockchain promises an escape from the shadow of the state. In this sense, blockchain is both a policy question and a political struggle. Our scholarship needs to be up to the challenge.
+            - paragraph [ref=e270]: It is clear blockchain is a force to be reckoned with and of key interest to public policy and public administration scholars. We hope these papers provide a first glimpse into a deeper understanding of the potential benefits, costs, and risks and even danger of blockchain in the public sector and urge scholars in this field to engage.
+            - heading "Conflict of interest" [level=2] [ref=e271]
+            - paragraph [ref=e272]: None declared.
+            - heading "Footnotes" [level=2] [ref=e273]
+            - generic [ref=e275]:
+              - generic [ref=e276]: "1"
+              - paragraph [ref=e278]: See How Many Cryptocurrencies Are There? | The Motley Fool.
+            - generic [ref=e280]:
+              - generic [ref=e281]: "2"
+              - paragraph [ref=e283]: Jack Dorsey, founder of Twitter, sold his first tweet from 21 March 2006 (“just setting up my twttr”) for $2.9 million.
+            - generic [ref=e285]:
+              - generic [ref=e286]: "3"
+              - paragraph [ref=e288]:
+                - text: “Jack Dorsey’s First Tweet” NFT Went on Sale for $48 M. It Ended With a Top Bid of Just $280 (coindesk.com) More recently, NFTs have found a political use. In May 2022, residents of Shanghai were using NFTs to record their reactions in videos, photos, and artwork, to the brutal COVID lockdown in that city. The NFTs circumvented the censors, accessing (through VPN) a marketplace called OpenSea. The recorded data are unerasable. See Reuters,
+                - link "https://www.reuters.com/technology/shanghai-residents-turn-nfts-record-covid-lockdown-combat-censorship-2022-05-04/" [ref=e289] [cursor=pointer]:
+                  - /url: https://www.reuters.com/technology/shanghai-residents-turn-nfts-record-covid-lockdown-combat-censorship-2022-05-04/
+                - text: .
+            - generic [ref=e291]:
+              - generic [ref=e292]: "4"
+              - paragraph [ref=e294]:
+                - text: See
+                - link "https://consensys.net/blog/enterprise-blockchain/which-governments-are-using-blockchain-right-now/" [ref=e295] [cursor=pointer]:
+                  - /url: https://consensys.net/blog/enterprise-blockchain/which-governments-are-using-blockchain-right-now/
+                - text: .
+            - generic [ref=e297]:
+              - generic [ref=e298]: "5"
+              - paragraph [ref=e300]: See ESSIF—European Self-Sovereign Identity Framework| Decentralized Identity Web Directory (decentralized-id.com).
+            - generic [ref=e302]:
+              - generic [ref=e303]: "6"
+              - paragraph [ref=e305]:
+                - text: Technically, blockchains can be organized in more or less open formats, differentiating between public/private and permissioned and permissionless. Governments and corporate players tend to opt for the closed (and hence controlled) formats that they anticipate will take advantage of trustless and immutable verification but without the disruption. See
+                - link "Ølnes et al. (2017)" [ref=e306] [cursor=pointer]:
+                  - /url: javascript:;
+                - text: .
+            - generic [ref=e308]:
+              - generic [ref=e309]: "7"
+              - paragraph [ref=e311]:
+                - text: See
+                - link "https://www.digitaldubai.ae/initiatives/blockchain" [ref=e312] [cursor=pointer]:
+                  - /url: https://www.digitaldubai.ae/initiatives/blockchain
+                - text: .
+            - generic [ref=e314]:
+              - generic [ref=e315]: "8"
+              - paragraph [ref=e317]:
+                - text: For example,
+                - link "https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/federal-governments-strategies-and-plans/emirates-blockchain-strategy-2021" [ref=e318] [cursor=pointer]:
+                  - /url: https://u.ae/en/about-the-uae/strategies-initiatives-and-awards/federal-governments-strategies-and-plans/emirates-blockchain-strategy-2021
+                - text: .
+            - generic [ref=e320]:
+              - generic [ref=e321]: "9"
+              - paragraph [ref=e323]:
+                - text: See
+                - link "https://digital-strategy.ec.europa.eu/en/policies/blockchain-strategy" [ref=e324] [cursor=pointer]:
+                  - /url: https://digital-strategy.ec.europa.eu/en/policies/blockchain-strategy
+                - text: .
+            - generic [ref=e326]:
+              - generic [ref=e327]: "10"
+              - paragraph [ref=e329]: See Latin American crime cartels turn to cryptocurrencies for money laundering| Reuters.
+            - generic [ref=e331]:
+              - generic [ref=e332]: "11"
+              - paragraph [ref=e334]:
+                - text: See
+                - link "https://ec.europa.eu/digital-single-market/en/news/eu-funded-projects-blockchain-technology" [ref=e335] [cursor=pointer]:
+                  - /url: https://ec.europa.eu/digital-single-market/en/news/eu-funded-projects-blockchain-technology
+                - text: .
+            - generic [ref=e337]:
+              - generic [ref=e338]: "12"
+              - paragraph [ref=e340]:
+                - text: See
+                - link "http://www.oecd.org/going-digital/topics/blockchain/" [ref=e341] [cursor=pointer]:
+                  - /url: http://www.oecd.org/going-digital/topics/blockchain/
+                - text: .
+            - generic [ref=e343]:
+              - generic [ref=e344]: "13"
+              - paragraph [ref=e346]:
+                - text: For example,
+                - link "https://www.worldbank.org/en/news/press-release/2019/08/16/world-bank-issues-second-tranche-of-blockchain-bond-via-bond-i" [ref=e347] [cursor=pointer]:
+                  - /url: https://www.worldbank.org/en/news/press-release/2019/08/16/world-bank-issues-second-tranche-of-blockchain-bond-via-bond-i
+                - text: .
+            - paragraph [ref=e351]: See Project Hamilton Phase 1 Executive Summary—Federal Reserve Bank of Boston (bostonfed.org).
+            - heading "References" [level=2] [ref=e352]
+            - generic [ref=e353]:
+              - generic [ref=e357]:
+                - paragraph
+                - text: "Atzori M. (2015). Blockchain technology and decentralized governance: Is the state still necessary?"
+                - emphasis [ref=e359]: SSRN
+                - text: .
+                - link "https://doi.org/10.2139/ssrn.2709713" [ref=e360] [cursor=pointer]:
+                  - /url: https://doi.org/10.2139/ssrn.2709713
+                - text: .
+                - paragraph
+                - generic [ref=e361]:
+                  - paragraph [ref=e362]:
+                    - link "Google Scholar" [ref=e364] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Blockchain%20technology%20and%20decentralized%20governance%3A%20Is%20the%20state%20still%20necessary%3F&author=M.%20Atzori&publication_year=2015&journal=SSRN&volume=&pages=
+                  - paragraph [ref=e365]:
+                    - link "WorldCat" [ref=e367] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Blockchain%20technology%20and%20decentralized%20governance%3A%20Is%20the%20state%20still%20necessary%3F&qt=advanced&dblist=638
+              - generic [ref=e371]:
+                - paragraph
+                - text: Benchaya Gans R.,
+                - generic [ref=e372]: Ubacht J.
+                - text: ", &"
+                - generic [ref=e373]: Janssen M.
+                - text: (2022). Governance and societal impact of blockchain-based self-sovereign identities.
+                - emphasis [ref=e375]: Policy and Society
+                - text: ", 41(3), 402–413."
+                - link "https://doi.org/10.1093/polsoc/puac018" [ref=e376] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puac018
+                - text: .
+                - paragraph
+                - generic [ref=e377]:
+                  - paragraph [ref=e378]:
+                    - link "Google Scholar" [ref=e380] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Governance%20and%20societal%20impact%20of%20blockchain-based%20self-sovereign%20identities&author=R.%20Benchaya%20Gans&author=J.%20Ubacht&author=M.%20Janssen&publication_year=2022&journal=Policy%20and%20Society&volume=41&pages=402-413
+                  - paragraph [ref=e381]:
+                    - link "WorldCat" [ref=e383] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Governance%20and%20societal%20impact%20of%20blockchain-based%20self-sovereign%20identities&qt=advanced&dblist=638
+              - generic [ref=e387]:
+                - paragraph
+                - text: Bodó B., &
+                - generic [ref=e388]: Janssen H.
+                - text: (2022). Maintaining trust in a technologized public sector.
+                - emphasis [ref=e390]: Policy and Society
+                - text: ", 41(3), 414–429."
+                - link "https://doi.org/10.1093/polsoc/puac019" [ref=e391] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puac019
+                - text: .
+                - paragraph
+              - generic [ref=e395]:
+                - paragraph
+                - text: Cagigas D.,
+                - generic [ref=e396]: Clifton J.
+                - text: ","
+                - generic [ref=e397]: Díaz-Fuentes D.
+                - text: ","
+                - generic [ref=e398]: Fernández-Gutiérrez M.
+                - text: ","
+                - generic [ref=e399]: Echevarría-Cuenca J.
+                - text: ", &"
+                - generic [ref=e400]: Gilsanz-Gómez C.
+                - text: ", (2022). Explaining public officials’ opinions on blockchain adoption: a vignette experiment."
+                - emphasis [ref=e402]: Policy and Society
+                - text: ", 41(3), 343–357."
+                - link "https://doi.org/10.1093/polsoc/puab022" [ref=e403] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puab022
+                - text: .
+                - paragraph
+              - generic [ref=e407]:
+                - paragraph
+                - text: Cagigas D.,
+                - generic [ref=e408]: Clifton J.
+                - text: ","
+                - generic [ref=e409]: Díaz-Fuentes D.
+                - text: ", &"
+                - generic [ref=e410]: Fernández-Gutierrez M.
+                - text: "(2021). Blockchain for public services: A systematic literature review. In I"
+                - emphasis [ref=e411]: EEE Access
+                - text: ","
+                - link "10.1109/ACCESS.2021.3052019" [ref=e412] [cursor=pointer]:
+                  - /url: http://10.1109/ACCESS.2021.3052019
+                - text: .
+                - paragraph
+              - generic [ref=e416]:
+                - paragraph
+                - text: Campbell-Verduyn, M. (Ed.) (2018).
+                - emphasis [ref=e418]: "Bitcoin and beyond: Cryptocurrencies, blockchains and global governance"
+                - text: . Routledge.
+                - paragraph
+                - generic [ref=e419]:
+                  - paragraph [ref=e420]:
+                    - link "Google Scholar" [ref=e422] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Bitcoin%20and%20beyond%3A%20Cryptocurrencies%2C%20blockchains%20and%20global%20governance&author=M.%20Campbell-Verduyn&publication_year=2018&book=Bitcoin%20and%20beyond%3A%20Cryptocurrencies%2C%20blockchains%20and%20global%20governance
+                  - paragraph [ref=e423]:
+                    - link "Google Preview" [ref=e425] [cursor=pointer]:
+                      - /url: https://www.google.com/search?q=Bitcoin%20and%20beyond%3A%20Cryptocurrencies%2C%20blockchains%20and%20global%20governance&btnG=Search+Books&tbm=bks&tbo=1
+                  - paragraph [ref=e426]:
+                    - link "WorldCat" [ref=e428] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Bitcoin%20and%20beyond%3A%20Cryptocurrencies%2C%20blockchains%20and%20global%20governance&qt=advanced&dblist=638
+                  - link "COPAC" [ref=e431] [cursor=pointer]:
+                    - /url: http://copac.ac.uk/search?ti=Bitcoin%20and%20beyond%3A%20Cryptocurrencies%2C%20blockchains%20and%20global%20governance
+              - generic [ref=e435]:
+                - paragraph
+                - text: De Filippi P.,
+                - generic [ref=e436]: Mannan M.
+                - text: ", &"
+                - generic [ref=e437]: Reijers W.
+                - text: (2022). The alegality of blockchain technology.
+                - emphasis [ref=e439]: Policy and Society
+                - text: ", 41(3), 358–372."
+                - link "https://doi.org/10.1093/polsoc/puac006" [ref=e440] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puac006
+                - text: .
+                - paragraph
+              - generic [ref=e444]:
+                - paragraph
+                - text: "Dimitropoulos G.. (2022). The use of blockchain by international organizations: effectiveness and legitimacy."
+                - emphasis [ref=e446]: Policy and Society
+                - text: ", 41(3), 328–342."
+                - link "https://doi.org/10.1093/polsoc/puab021" [ref=e447] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puab021
+                - text: .
+                - paragraph
+              - generic [ref=e451]:
+                - paragraph
+                - text: FSB. (2021). Assessment of risks to financial stability from crypto-assets.
+                - link "https://www.fsb.org/wp-content/uploads/P160222.pdf" [ref=e452] [cursor=pointer]:
+                  - /url: https://www.fsb.org/wp-content/uploads/P160222.pdf
+                - text: .
+                - paragraph
+              - generic [ref=e456]:
+                - paragraph
+                - text: Lessig L. (1999).
+                - emphasis [ref=e458]: Code and other laws of cyberspace
+                - text: . Basic Books.
+                - paragraph
+                - generic [ref=e459]:
+                  - paragraph [ref=e460]:
+                    - link "Google Scholar" [ref=e462] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Code%20and%20other%20laws%20of%20cyberspace&author=L.%20Lessig&publication_year=1999&book=Code%20and%20other%20laws%20of%20cyberspace
+                  - paragraph [ref=e463]:
+                    - link "Google Preview" [ref=e465] [cursor=pointer]:
+                      - /url: https://www.google.com/search?q=Code%20and%20other%20laws%20of%20cyberspace&btnG=Search+Books&tbm=bks&tbo=1
+                  - paragraph [ref=e466]:
+                    - link "WorldCat" [ref=e468] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Code%20and%20other%20laws%20of%20cyberspace&qt=advanced&dblist=638
+                  - link "COPAC" [ref=e471] [cursor=pointer]:
+                    - /url: http://copac.ac.uk/search?ti=Code%20and%20other%20laws%20of%20cyberspace
+              - generic [ref=e475]:
+                - paragraph
+                - text: Lessig L. (2006).
+                - emphasis [ref=e477]: Code. Version 2.0
+                - text: ( (2nd) ed.). Basic Books.
+                - paragraph
+                - generic [ref=e478]:
+                  - paragraph [ref=e479]:
+                    - link "Google Scholar" [ref=e481] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Code.%20Version%202.0&author=L.%20Lessig&publication_year=2006&book=Code.%20Version%202.0
+                  - paragraph [ref=e482]:
+                    - link "Google Preview" [ref=e484] [cursor=pointer]:
+                      - /url: https://www.google.com/search?q=Code.%20Version%202.0&btnG=Search+Books&tbm=bks&tbo=1
+                  - paragraph [ref=e485]:
+                    - link "WorldCat" [ref=e487] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Code.%20Version%202.0&qt=advanced&dblist=638
+                  - link "COPAC" [ref=e490] [cursor=pointer]:
+                    - /url: http://copac.ac.uk/search?ti=Code.%20Version%202.0
+              - generic [ref=e494]:
+                - paragraph
+                - text: Muirhead J., &
+                - generic [ref=e495]: Porter T.
+                - text: (2019). Traceability in global governance.
+                - emphasis [ref=e497]: Global Networks
+                - text: ", 19(3), 423–443."
+                - link "https://doi.org/10.1111/glob.12237" [ref=e498] [cursor=pointer]:
+                  - /url: https://doi.org/10.1111/glob.12237
+                - text: .
+                - paragraph
+                - generic [ref=e499]:
+                  - paragraph [ref=e500]:
+                    - link "Google Scholar" [ref=e502] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Traceability%20in%20global%20governance&author=J.%20Muirhead&author=T.%20Porter&publication_year=2019&journal=Global%20Networks&volume=19&pages=423-443
+                  - link "Crossref" [ref=e504] [cursor=pointer]:
+                    - /url: http://dx.doi.org/10.1111/glob.2019.19.issue-3
+                  - paragraph [ref=e505]:
+                    - link "WorldCat" [ref=e507] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Traceability%20in%20global%20governance&qt=advanced&dblist=638
+              - generic [ref=e511]:
+                - paragraph
+                - text: Noble S. U. (2018).
+                - emphasis [ref=e513]: "Algorithms of the oppressed: How search engines reinforce racism"
+                - text: . New York University Press.
+                - paragraph
+                - generic [ref=e514]:
+                  - paragraph [ref=e515]:
+                    - link "Google Scholar" [ref=e517] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Algorithms%20of%20the%20oppressed%3A%20How%20search%20engines%20reinforce%20racism&author=S.%20U.%20Noble&publication_year=2018&book=Algorithms%20of%20the%20oppressed%3A%20How%20search%20engines%20reinforce%20racism
+                  - link "Crossref" [ref=e519] [cursor=pointer]:
+                    - /url: http://dx.doi.org/10.2307/j.ctt1pwt9w5
+                  - paragraph [ref=e520]:
+                    - link "Google Preview" [ref=e522] [cursor=pointer]:
+                      - /url: https://www.google.com/search?q=Algorithms%20of%20the%20oppressed%3A%20How%20search%20engines%20reinforce%20racism&btnG=Search+Books&tbm=bks&tbo=1
+                  - paragraph [ref=e523]:
+                    - link "WorldCat" [ref=e525] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Algorithms%20of%20the%20oppressed%3A%20How%20search%20engines%20reinforce%20racism&qt=advanced&dblist=638
+                  - link "COPAC" [ref=e528] [cursor=pointer]:
+                    - /url: http://copac.ac.uk/search?ti=Algorithms%20of%20the%20oppressed%3A%20How%20search%20engines%20reinforce%20racism
+              - generic [ref=e532]:
+                - paragraph
+                - text: Ølnes S.,
+                - generic [ref=e533]: Ubacht J.
+                - text: ", &"
+                - generic [ref=e534]: Janssen M.
+                - text: "(2017). Blockchain in government: Benefits and implications of distributed ledger technology for information sharing."
+                - emphasis [ref=e536]: Government Information Quarterly
+                - text: ", 34(3), 355–364."
+                - paragraph
+                - generic [ref=e537]:
+                  - paragraph [ref=e538]:
+                    - link "Google Scholar" [ref=e540] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Blockchain%20in%20government%3A%20Benefits%20and%20implications%20of%20distributed%20ledger%20technology%20for%20information%20sharing&author=S.%20%C3%98lnes&author=J.%20Ubacht&author=M.%20Janssen&publication_year=2017&journal=Government%20Information%20Quarterly&volume=34&pages=355-364
+                  - link "Crossref" [ref=e542] [cursor=pointer]:
+                    - /url: http://dx.doi.org/10.1016/j.giq.2017.09.007
+                  - paragraph [ref=e543]:
+                    - link "WorldCat" [ref=e545] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Blockchain%20in%20government%3A%20Benefits%20and%20implications%20of%20distributed%20ledger%20technology%20for%20information%20sharing&qt=advanced&dblist=638
+              - generic [ref=e549]:
+                - paragraph
+                - text: Pasquale F. (2015).
+                - emphasis [ref=e551]: "The black box society: The secret algorithms that control money and information"
+                - text: . Harvard University Press.
+                - paragraph
+                - generic [ref=e552]:
+                  - paragraph [ref=e553]:
+                    - link "Google Scholar" [ref=e555] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=The%20black%20box%20society%3A%20The%20secret%C2%A0algorithms%20that%20control%20money%20and%20information&author=F.%20Pasquale&publication_year=2015&book=The%20black%20box%20society%3A%20The%20secret%C2%A0algorithms%20that%20control%20money%20and%20information
+                  - link "Crossref" [ref=e557] [cursor=pointer]:
+                    - /url: http://dx.doi.org/10.4159/harvard.9780674736061
+                  - paragraph [ref=e558]:
+                    - link "Google Preview" [ref=e560] [cursor=pointer]:
+                      - /url: https://www.google.com/search?q=The%20black%20box%20society%3A%20The%20secret%C2%A0algorithms%20that%20control%20money%20and%20information&btnG=Search+Books&tbm=bks&tbo=1
+                  - paragraph [ref=e561]:
+                    - link "WorldCat" [ref=e563] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:The%20black%20box%20society%3A%20The%20secret%C2%A0algorithms%20that%20control%20money%20and%20information&qt=advanced&dblist=638
+                  - link "COPAC" [ref=e566] [cursor=pointer]:
+                    - /url: http://copac.ac.uk/search?ti=The%20black%20box%20society%3A%20The%20secret%C2%A0algorithms%20that%20control%20money%20and%20information
+              - generic [ref=e570]:
+                - paragraph
+                - text: Rodima‐Taylor D., &
+                - generic [ref=e571]: Grimes W. W.
+                - text: "(2019). Virtualizing diaspora: New digital technologies in the emerging transnational space."
+                - emphasis [ref=e573]: Global Networks
+                - text: ", 19(3), 349–370."
+                - link "https://doi.org/10.1111/glob.12221" [ref=e574] [cursor=pointer]:
+                  - /url: https://doi.org/10.1111/glob.12221
+                - text: .
+                - paragraph
+                - generic [ref=e575]:
+                  - paragraph [ref=e576]:
+                    - link "Google Scholar" [ref=e578] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Virtualizing%20diaspora%3A%20New%20digital%20technologies%20in%20the%20emerging%20transnational%20space&author=D.%20Rodima%E2%80%90Taylor&author=W.%20W.%20Grimes&publication_year=2019&journal=Global%20Networks&volume=19&pages=349-370
+                  - link "Crossref" [ref=e580] [cursor=pointer]:
+                    - /url: http://dx.doi.org/10.1111/glob.2019.19.issue-3
+                  - paragraph [ref=e581]:
+                    - link "WorldCat" [ref=e583] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Virtualizing%20diaspora%3A%20New%20digital%20technologies%20in%20the%20emerging%20transnational%20space&qt=advanced&dblist=638
+              - generic [ref=e587]:
+                - paragraph
+                - text: Rozas D.,
+                - generic [ref=e588]: Tenorio Fornés A.
+                - text: ", &"
+                - generic [ref=e589]: Hassan S.
+                - text: (2020). Analysis of the potentials of blockchain for the governance of global commons.
+                - emphasis [ref=e591]: Frontiers in Blockchain
+                - text: ", 1-13."
+                - link "https://doi.org/10.3389/fbloc.2021.577680" [ref=e592] [cursor=pointer]:
+                  - /url: https://doi.org/10.3389/fbloc.2021.577680
+                - text: .
+                - paragraph
+                - generic [ref=e593]:
+                  - paragraph [ref=e594]:
+                    - link "Google Scholar" [ref=e596] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Analysis%20of%20the%20potentials%20of%20blockchain%20for%20the%20governance%20of%20global%20commons&author=D.%20Rozas&author=A.%20Tenorio%20Forn%C3%A9s&author=S.%20Hassan&publication_year=2020&journal=Frontiers%20in%20Blockchain&volume=&pages=
+                  - paragraph [ref=e597]:
+                    - link "WorldCat" [ref=e599] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Analysis%20of%20the%20potentials%20of%20blockchain%20for%20the%20governance%20of%20global%20commons&qt=advanced&dblist=638
+              - generic [ref=e603]:
+                - paragraph
+                - text: Semenzin S.,
+                - generic [ref=e604]: Rozas D.
+                - text: ", &"
+                - generic [ref=e605]: Hassan S.
+                - text: "(2022). Blockchain-based application at a governmental level: disruption or illusion? The case of Estonia."
+                - emphasis [ref=e607]: Policy and Society
+                - text: ", 41(3), 386–401."
+                - link "https://doi.org/10.1093/polsoc/puac014" [ref=e608] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puac014
+                - text: .
+                - paragraph
+              - generic [ref=e612]:
+                - paragraph
+                - text: Tapscott D., &
+                - generic [ref=e613]: Tapscott A.
+                - text: (2016).
+                - emphasis [ref=e615]: "Blockchain revolution: How the technology behind bitcoin is changing money, business, and the world"
+                - text: . Penguin Portfolio.
+                - paragraph
+                - generic [ref=e616]:
+                  - paragraph [ref=e617]:
+                    - link "Google Scholar" [ref=e619] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Blockchain%20revolution%3A%20How%20the%20technology%20behind%20bitcoin%20is%20changing%20money%2C%20business%2C%20and%20the%20world&author=D.%20Tapscott&author=A.%20Tapscott&publication_year=2016&book=Blockchain%20revolution%3A%20How%20the%20technology%20behind%20bitcoin%20is%20changing%20money%2C%20business%2C%20and%20the%20world
+                  - paragraph [ref=e620]:
+                    - link "Google Preview" [ref=e622] [cursor=pointer]:
+                      - /url: https://www.google.com/search?q=Blockchain%20revolution%3A%20How%20the%20technology%20behind%20bitcoin%20is%20changing%20money%2C%20business%2C%20and%20the%20world&btnG=Search+Books&tbm=bks&tbo=1
+                  - paragraph [ref=e623]:
+                    - link "WorldCat" [ref=e625] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Blockchain%20revolution%3A%20How%20the%20technology%20behind%20bitcoin%20is%20changing%20money%2C%20business%2C%20and%20the%20world&qt=advanced&dblist=638
+                  - link "COPAC" [ref=e628] [cursor=pointer]:
+                    - /url: http://copac.ac.uk/search?ti=Blockchain%20revolution%3A%20How%20the%20technology%20behind%20bitcoin%20is%20changing%20money%2C%20business%2C%20and%20the%20world
+              - generic [ref=e632]:
+                - paragraph
+                - text: Van de Walle S., &
+                - generic [ref=e633]: Migchelbrink K.
+                - text: "(2022). Institutional quality, corruption and impartiality: The role of process and outcome for citizen trust in public administration in 173 European regions."
+                - emphasis [ref=e635]: Journal of Economic Policy Reform
+                - text: ", 25(1), 9–27."
+                - link "https://doi.org/10.1080/17487870.2020.1719103" [ref=e636] [cursor=pointer]:
+                  - /url: https://doi.org/10.1080/17487870.2020.1719103
+                - text: .
+                - paragraph
+                - generic [ref=e637]:
+                  - paragraph [ref=e638]:
+                    - link "Google Scholar" [ref=e640] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Institutional%20quality%2C%20corruption%20and%20impartiality%3A%20The%20role%20of%20process%20and%20outcome%20for%20citizen%20trust%20in%20public%20administration%20in%20173%20European%20regions&author=S.%20Van%20de%20Walle&author=K.%20Migchelbrink&publication_year=2022&journal=Journal%20of%20Economic%20Policy%20Reform&volume=25&pages=9-27
+                  - link "Crossref" [ref=e642] [cursor=pointer]:
+                    - /url: http://dx.doi.org/10.1080/17487870.2020.1719103
+                  - paragraph [ref=e643]:
+                    - link "WorldCat" [ref=e645] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Institutional%20quality%2C%20corruption%20and%20impartiality%3A%20The%20role%20of%20process%20and%20outcome%20for%20citizen%20trust%20in%20public%20administration%20in%20173%20European%20regions&qt=advanced&dblist=638
+              - generic [ref=e649]:
+                - paragraph
+                - text: Viano C.,
+                - generic [ref=e650]: Avanzo S.
+                - text: ","
+                - generic [ref=e651]: Cerutti M.
+                - text: ","
+                - generic [ref=e652]: Cordero A.
+                - text: ","
+                - generic [ref=e653]: Schifanella C.
+                - text: ", &"
+                - generic [ref=e654]: Boella G.
+                - text: (2022). Blockchain tools for socio-economic interactions in local communities.
+                - emphasis [ref=e656]: Policy and Society
+                - text: ", 41(3), 373–385."
+                - link "https://doi.org/10.1093/polsoc/puac007" [ref=e657] [cursor=pointer]:
+                  - /url: https://doi.org/10.1093/polsoc/puac007
+                - text: .
+                - paragraph
+              - generic [ref=e661]:
+                - paragraph
+                - text: Weiss M., &
+                - generic [ref=e662]: Biermann F.
+                - text: (2020). Cyberspace and the protection of critical infrastructure.
+                - emphasis [ref=e664]: Journal of Economic Policy Reform
+                - text: .
+                - link "https://doi.org/10.1080/17487870.2021.1905530" [ref=e665] [cursor=pointer]:
+                  - /url: https://doi.org/10.1080/17487870.2021.1905530
+                - text: .
+                - paragraph
+                - generic [ref=e666]:
+                  - paragraph [ref=e667]:
+                    - link "Google Scholar" [ref=e669] [cursor=pointer]:
+                      - /url: https://scholar.google.com/scholar_lookup?title=Cyberspace%20and%20the%20protection%20of%20critical%20infrastructure&author=M.%20Weiss&author=F.%20Biermann&publication_year=2020&journal=Journal%20of%20Economic%20Policy%20Reform&volume=&pages=
+                  - paragraph [ref=e670]:
+                    - link "WorldCat" [ref=e672] [cursor=pointer]:
+                      - /url: https://www.worldcat.org/search?q=ti:Cyberspace%20and%20the%20protection%20of%20critical%20infrastructure&qt=advanced&dblist=638
+            - generic [ref=e673]: © The Author(s) 2022. Published by Oxford University Press.
+            - generic [ref=e675]:
+              - text: This is an Open Access article distributed under the terms of the Creative Commons Attribution License (
+              - link "https://creativecommons.org/licenses/by/4.0/" [ref=e676] [cursor=pointer]:
+                - /url: https://creativecommons.org/licenses/by/4.0/
+              - text: ), which permits unrestricted reuse, distribution, and reproduction in any medium, provided the original work is properly cited.
+      - generic [ref=e681]:
+        - generic [ref=e685]:
+          - generic [ref=e686]:
+            - heading "Citations" [level=3] [ref=e687]
+            - link "12 total citations on Dimensions." [ref=e691] [cursor=pointer]:
+              - /url: https://badge.dimensions.ai/details/doi/10.1093/polsoc/puac025?domain=https://academic.oup.com
+              - generic [ref=e693]:
+                - img [ref=e694]
+                - img [ref=e697]
+                - generic [ref=e699]: "12"
+                - img "12 total citations on Dimensions." [ref=e700]
+          - generic [ref=e701]:
+            - heading "Views" [level=3] [ref=e702]
+            - generic [ref=e704]: 5,423
+          - generic [ref=e705]:
+            - heading "Altmetric" [level=3] [ref=e706]
+            - link "Article has an altmetric score of 7" [ref=e710] [cursor=pointer]:
+              - /url: https://www.altmetric.com/details.php?domain=academic.oup.com&citation_id=132963216
+              - img "Article has an altmetric score of 7" [ref=e711]
+          - button "Information More metrics information" [ref=e713] [cursor=pointer]:
+            - img "Information" [ref=e714]
+            - text: More metrics information
+        - generic [ref=e716]:
+          - heading "Email alerts" [level=3] [ref=e717]
+          - link "New journal issues" [ref=e719] [cursor=pointer]:
+            - /url: /policyandsociety/new-journals-alert
+          - link "New journal articles" [ref=e721] [cursor=pointer]:
+            - /url: /policyandsociety/new-journal-articles-alert
+          - button "Activity related to this article" [ref=e723]
+          - link "Sign up for marketing" [ref=e725] [cursor=pointer]:
+            - /url: /my-account/communication-preferences
+        - insertion [ref=e728]:
+          - generic [ref=e729]:
+            - heading "Recommended" [level=2] [ref=e730]
+            - generic [ref=e731]:
+              - list [ref=e733]:
+                - listitem [ref=e734]:
+                  - link "Blockchain, intellectual property and fashion" [ref=e735] [cursor=pointer]:
+                    - /url: https://rev.trendmd.com/open/wfKh9c4NXJ505gJMy8doj9jOHYpyfyUWepX_zJZslr1tWBUg1FPK2q5wT8CVD3nwwbXsbbZve0ICsL9v6rqtvletvFjf0bORoRvn3q8jPzYjeU3uZa02pUe0-FCIplV_NLoH62Cj3Nyb235gEXrkC9GgK2sBGixQVQAR0pHCSIK3GQTUy28iS33tERMVKocCibEwDak_sKyCmjcBJ6j9wDvKIrYAKd-jQc8udBEgXQjVaSbK8rYhrY_uV1pwJG3KyHIRved-j2nzjcwVlEQhgR4Kyb2_PN6C610-fy6PE3oeNfAWQ-1T5piMMfMVTXdh2VI6V-p-yI9OKyebzOtAG0SODLwJafjrGf08IL5goSXFKpYd9aGA9Vtcty05oLp2BACEAfrdDuLJOenSBZhy5zrMvDRhlvncb4yniA-ZIeua9sXC40pTI4rVl56tDtnokoIbkXExl51MGzkoP5MrcrQFprWtED2Mbnsuv3zMo3yOA0SbRNWL4up70fcSSQ42KLtNURhtdNlPQQwnMOAjJMG6CSL9fpgMnxQj-tC9f2K8ltg-Jd6BVQRmY4U_Z_cTL9N0Dn29dF_7yLxi0hSVaQSGuoFrjDNApHWOogCChslqW-Oazb7tVAjxyFJy2lcc6ov1waF0h9WEfmUeZndlJo_v3KmqSmHvTWn70JJHQ8NhRdpHG2Hq-lYB9M_6V-DtWC_1D-T4LhS4K8L3eXtlbyxii6cE9gWcl4lfmeqyTNOJCbvTf0pRMj6L5zTWcf5TNfzQ97qV41Q2wu0Jzij62zMTO1B69uxfW4lC1ge7-_w8x_6YrgtA2eyAHD9lbyksm5vR9zR9ciw1hGLYBN6AW7KMYkI6oK2U95oMf0tfMQXWCKRAsv3q324EQXFTidMjtIEP-ONd8soxYqGDkBVJLW3UXlp-tzzETwp8HRS0NH3jKcW0DQtOS8wpaiC5g9tl5Op1S-43elGDex2jWEZORGblm3GPi8URGkz_OGAHhdVXdGQ63oOTRRaXdEwKN-bKEJn_ujFPGtG2WEzRkdN5VZXtBSDHM2bBcyVco_1z8stF_O1Mx8dF3zjNzNBONbTd4lh8K1sqadvp96QSz9W6l7BBndmljm5RciXB21qUtvIL0ilevf-yadkgmcIRf36rJyDBJ2Lb82KRFGmm1dJJaLSF2XG5fJfypdCG3UIWAIQ1f0qQ2KQUPU5oJgQT4VKYEqor6kKbYfdup6HfdRt9XFlnaUPysGmJ99CISkRxCcCKFSNGPqp28RIGGCIx8k-t_1WmMWffnPjs7gncrTVlZpuQBbDWqjxVVAul8NotT9qu9oj7dFpPydu31IIvxAM632uKvobRQyIfZQjwzWf2fOym0hhUCWzOY1Bj7An6mr0aiZhkTUr44R2nFPRElh9ZFGVku9QDPLgNZdjc4dJx6IcliVJgXdnQqbxKa51ET2gSqKgr-o6nMw
+                  - generic [ref=e736]: Marie Malaurie-Vignal, Journal of Intellectual Property Law & Practice, 2020
+                - listitem [ref=e737]:
+                  - link "Blockchain versus data protection" [ref=e738] [cursor=pointer]:
+                    - /url: https://rev.trendmd.com/open/QlcOxgt_i07-05VRgKqjNIX0x50qWGg4oJOB1zPiSbSG4sboF03MIr-L7UoZG0dvoeCfU-57yR9PfOEUVepdKkeFx15mx47hF_Bv9Zo_y_S_ytYFUNrJo6bFoQv0LLZtwo8TqVtM1BFu6XLfLH5MFrSn6ggZVXDBsVN2j8elNSgPj4eARy5rvzwyxoSmUG40Wk4HaG-seie-kPS_QLewHZRnyUeXwXfpaLoMjsVkwh8GnsxrtWxVof9fGhKTR5-ITY6WAGbHl3N8HCdZoSRBlR_MNR8-J8WEQR0v_r6RY--1bGJPEiLa03PB0i-OhoLPNSNLqR0iDTII95j0qpw9S9kAlDLEfnsTqZbF8sc5T0dgDJogcoeZ1xja-GnkSeMuLfKtpNiSlC_ZsiJ2ohNgYKXsq05njIZE_hK1tWvS0028TGu_THtQh7XSjlwF769229pa_By2cKZpnIqKFZkSKoBOJpRNlsT3BeRWCqiSieRd22aQbKLfTFp3I6lhx2vmusvCUErM5is_mrDpdstICiCLLlJAjvjzfyvBclvCQuPI5VCrNFCg7pAGmOi9mqDpAchFrLLR6td7wgH3LkFdlwpKpLRmEjyjVhOcEIvNU7t8syGYLoFuvBWA6p_ACDgCD8yGIBEy0rUPDRh2MT_D4p1rKiRcGNbc3Il1Yf1OpIhy4ALFEYL76VdHSzWG2U3wHF03p1Iwkjo71qRs6_i1vgkg_ZyywVtooJ4Fq3JXo2ZLkq1pcGHYeTVmge-eFiCiq45U2THfnK24kXsR8sNOJnku6Fcf_nQoBo6F6fWncSZWMjvejqqVdgbD_8y44Yr3YpmRPX-TFXAZZkxPIPbMOtq_kQAnfgcxFNpPnYqaF8AjTVmrA006LDbolFTOK50UUDPV6GJCgozDTO3lWYaQA6ffLSpMXTm2ctd42M9fkZTAi_zS1PnIGqZiOv2fDddXc1Y_PCSVev6VkydqUpfrNCA0MTS1NMSO-fgG5A5p7nl3bNf1Co1rFilxZUeSb8dTtfAARy4351UY3YHF2R0TOWUOYa9VwkCQHqUBRdMtnmgHQORXoUcF1OzVZwR73ZrOLIh5GUwaXItyhYTIe1bLbR4vArNUHod6M30TK7VH_4psR0Lo1VSf05yCMZLkHzEqC061dXkRXvtwujOZ78BcfJPQ5R8OJmcFRpdQJDPhbln1UuD5MzlaDfMbpM5Y5whKQ-3PLyI6MWcD5YdXUekG4QtZBfvRQkiQMssUntHxD2bX7JuS8QY8Gp87Up3EcYcgedakbYbudLGZRX_zw4K5tckx0RMVy37l9VtGmW1_h6m_RFqwrcGqLv471zoXWc3tbYJ2ygYmEQ42PizxcTkx2xoxx6_puO8gLjGEwJnMVLJjFxW7rTU8oy2zqRZgxkRHSpvorq4pjBoHptxksLujZgs-z49wqU7H-xAywlm68Db_AFOK08SW
+                  - generic [ref=e739]: Christopher Kuner, International Data Privacy Law, 2018
+                - listitem [ref=e740]:
+                  - link "Blockchain, IP and the pharma industry—how distributed ledger technologies can help secure the pharma supply chain" [ref=e741] [cursor=pointer]:
+                    - /url: https://rev.trendmd.com/open/Mv3sq8N8uWMGHT6RGGy5FA9d9wpVuePZy1Nz0phxgFjYthH3I0k2rJOMwCK41Q-DDoxOyBGGi-PWFHHLyNYFM474EcINhStSvhnDfeUMhDXO8ZwzEnauFVZXkApDFd7TdrqSBUG9tlaUdHPS4ckkil53otPhoYTEqMfkimd7Rc1xH0m_D71yZlqE9_F7jwmWIebC_kERh9A1GXfyQd3l9CGJQaLJ_mH76C9WHfxCd3sU2NMhgbRsbhpNkZOT6HvJ6CJfdP-Ne7fahTjrZoseS8SKbPEuPvVi8B3jU_wA88PwJqP8xpko-pXoBJXKaQJGqGZwKN8B1jc1k0QB9bEgt_E0ociFJaO96GTXNYRgawLwPiXMWNgcLAIeDHbUXrOoZ0OLKH3Pc3ZM1FJOeY18l7YKg3eQNwYFm3EMv1TunhpboYoajK79LYHP-WglToKS5jLRmX5USn3DBlbIaKaWgc3YssDGnA6Deoc-yl5OTIQd2cpKlPKOKHRWGl-wxTA0O7NXcp1n8DLRSRn5nvl9nJK_WjhrFAvkNbwOr2VHgrIbHZLjeDNaFXYaX9NE0Pej9jcUSOtwsuqTbYKFy_u2pZyjAr-f-r6kA3bkeoB3f5r7rMFThZtaxAPujjRR-LshRRYGQEcilXICaKlC_GXGYfzNg4qAb4wQn2_IsOLw6fV5spM5H3R6DSbf9-c6_La8qoJxUH3fyumGOPITAQfQtPNre0HCmNSi1cFNwC0rWw4JTwI-HQsC2q543skAJjLoN9fQOitzR8vLYytiKWF5Wz_nOuorxso-AXZU3h4HUMAsMxtY-Bq9T-i0O8W7cxUcU6BNuSbaUEXT4UaqSFFZV3XeyrHJ1gys24WaI2S8hfm3TE6rY5u5Y4bYv9IsxaBCwZuhUVUsGtjG9nbsmE6BtMzK9dZ1O7JdZFGT7gce7FVKrKyJqJ_pa8jPr4_irK6EIkVnqDF-uPXGVO4BmrJNZR1INTI2fJbBJqsZxCBM70fKz2JfAc_rgWyeIWhUn0jMVLdV9bVyvH26Ey69LveWlWsUTez4G7WRKs9U2bP0CJYW-69_5yn6O-mKhduumvcfWOmXrRGf4-yUsE6h2ufH-qsaG1ictBih6kHV03q-MHxbe-8PuOZVkLXUhoZT0o1Aaf5Hv8-8QkSyWO5R3b1arMjBkVnFXXX4SU6kWgmr815UGvwRB-OEUYYVVLF-cP0wJsdwV-hNe6XMO3FHg3dPbHTEwjX7rogi2-CPT2Lh06kmp2TtI2b7y-CBMkSeMdprUWX5Jg_SBcsz3NL5zZPQHZle0lEZ_8RQkQUmmF77m9wwxnGe7id5MmAQQW3Ozl_7BQd_PP9SuF-s2IlrBiC6dWBl2rD5iuTw2vyhu0YINXfNdVdQucxc49BKKeI8Q_J4uPqysB_3DqiKFhoP33mMZcKKh-9eqes42EYhRM8lyckuI_H-UViMm9g
+                  - generic [ref=e742]: Birgit Clark, Journal of Intellectual Property Law & Practice, 2018
+              - list [ref=e744]:
+                - listitem [ref=e745]:
+                  - link "Blockchain-Enhanced Data Storage for Agricultural Supply Chain Finance" [ref=e746] [cursor=pointer]:
+                    - /url: https://rev.trendmd.com/open/J9X8uRX9etEebTS2dOYjnUf8DR29CAj7W_z0BFI84qLQT9LJvSd9517EbcEhYXt3Uj4aGfxV1YR1a7mvB64ZlraxXxwiO04RTaH7SnPte5mfm8fRrwEasqwMlqR5y9QL7m4Ww6atDATIeSKD9nm83TJyA2x-8eoP60rVArfQvPySA4k3R3NgHqH5DnHESbSpPiRuGMxId5-gIn68NbYGkE2uXj7acDqHIH5LamPCa356ACQL9k4vT2TT5zvtJiCYhdMEz8w5VOG_ObGAUE3p7TgWEMwvao-oCK1qBrl0SVkS411M7L0Q3bbqQLnj-ztp2VSwma4c1fu6v-KURP9kiDKcfnsfVNjpANYaB0UdU5yN8UsKyerQoj6d_gqegHxtnpZBbVLDc1akPdfRddsaN8uAEQKkpCtt8PBineeANqPm8_LiZTG2jRStQ1kaX6igOI1zZYQZPcjAvhzWPjsFyfnkdEndO9Cne7lj502pwnu0Wpiih_LRdUuEkXlbVVM-EW7rPIadByUXoktkFPIyF6TQSLSMYvyP8hhJB1tM8aIO8jy-KTTo8lAUGbVqD248J068f3K2UVOcmUGTxCpjjik__ApXLRwQ47YfMcDvoFRe55nDhWO9HWM5RaPw-gV-3v4C1FHHN91BlQAhwI8u45KEv69-p3JpsTAw5nmVdjrOpqW_2SDFGdeAQWR8i3OCdFzwKIC4HZJeInyUo7d62_kboWgvnIvGziG0_NDj-PmYjyL-3xWpJn7zimg4q7Vg1L2bMOh_AxhsrfNc6GN-XqDjB1nS_jlHtBUFNqF_4srbSsIOdvMWakAAmwdPlfQoyyuSwne-NLYm9N_gaPRdHAoMww_kU6fyd9PVIEdqoIJZAmjvPD2zBHMjlV71Riyrk6DeVnyQ62u7y1giEKWroZ3cOZ-RMibfG5k1dFuNzJS-DiKIlk3VvtmRnencvzyvG4-HQ3zqTOcGpO2LnKLL-CyS2JFyawaDND0suu9N4Ad0MtW5OqknKuwwar6hA8gYORkJHWzSzfvPzbaZZSKF2435I7j3v0vdJe6RR1PS9A8vZ7JMdETP77n_aRGLAHabTiQ43-VGeKXLwbE-VSxJCm0a6Yxp6OOzujob-Q1zwAClVtVaE8lvDR1udpg86SRqcs6nVxxl0X6ILUmeFOXH9MmWvIIvLCWYYZsudOn1z0JvlWx_ZcS-LZTvKOit-WVq-9LV5MfD8Csn4gt02cHWte6whWbCSCR4GPTxJyiR1cyOQQGk5rJXquJy4SCA9gjE9r86ekejWJdZy9SWKW5-5CUXjDdtlsoyQjXcrWOrB0QkceeXviq4bzYUhpeD5IHJSf_ZW8lgCf10ELVdQXAwbYvro9Ba3AGrxk5HFAbNrbBV0WiiSc26N1uU6VszOppZehKAfUlz8KppKx5OT10uFU1ygBANs1vTDE61NeUqmREFkiOfxGkuCWvKNT52oHC9tA
+                    - text: Blockchain-Enhanced Data Storage for Agricultural Supply Chain Finance
+                    - img [ref=e748]
+                  - generic [ref=e751]: Kai Liu, Xueqin Liu, Journal of Circuits, Systems and Computers, 2025
+                - listitem [ref=e752]:
+                  - link "Internet based repository of medical records that retains patient confidentiality" [ref=e753] [cursor=pointer]:
+                    - /url: https://rev.trendmd.com/open/eszVV635DNOrKNg24HXjXvSEU95WgZ2iNkzDZG9vRtC0NJ0Q5V9AauCVrQItJaOcdmTu7n_WN6N8inKi6_5zDGZAP4P2z64kXLwuUXI6k_NfLV_AFH8KbDW52uk0uhkBFGdhp7S3FjmSkOfsCnRXlWtauv2LnE458i-qeAABDoGD_GBxRWPB9ocItkKQ2ivKeJ6lR0Bjbvv_MvEQpLeevMYENHTpJkLKylZR231DIZU3_D8u594H8NzYUubX-cGOPqzGmIkYb1NONMl-Z4TGW-kUvrLc5-QGrjZ-wLH3XAraVFDdRfMPaHi2lR3EABXD_BBHrISzYUClWGpvEcI5_AMcJfPfGi9vexT7-NbV4RuAllMh2LZWSfFs5H1GfcTbkO5S5fQoyqKPQZCvmak-EFTQaAjtxGLuXZQQ0GupxbxpbTLNclZanmodyucijj50RxYkcoYMlE8WPSesn4WehjHd8265hHwjkA7kKSIca2-1UHqIUewc2xSpnblZk_PiY9mSwglCw7hibyRYPvWywntqUVh_h7jN9eg5BbTGq1IYuVXbfB0TqpL0EF7UnRFOjRCuRVUkqbxJOVClK-6l7Z2LDz6UD1zhFn_FdwXDv2QBT1vuAyOF8mLa4wqx0J44xQsGLL-NAkfZoxpQ3kIoJYD3VqhD0JQobeSBj4O_g5amX7UsTtRgMZC5-c7SIHrDK1GzdtZeS-Mn7LWEB2m9RFKlnK5TehVsjRq0Dno9Jl59UM25fheXhB-lEDI7Xg0Myz2RyVRikuhltnVHAti7UF4JEeiipbVHzKdOz_KsfO12a1ZcT2uDEYZRacSTks_YIpDISuj5BeLwFVX5juVPzK_j-oc5TtVdgnAa57HV2PPhlyS3V_u6DnJt_zAtCQc9t891Mlhdl6kVEmObwtywlr6_WDNBxstRIcqZml5KDYNRAdFxvhmrMWu1bbEWp-FEQRzgYCqJcn5zMZ1gRW5Xa7qzY3vnHaYxaMDisxBzYmJyysezHFgOYAZ5znPiDOVCTXdOTr_otl3RwB1dl0oXE3iE6ZjgeDI0TRCovuK8CRPN21e5eYxRDFBpZEX1DOZLortg1R5hk4Ph-53QgJye9_J9EHbhv4DATXSFvUFIODf8WtFIMU2RIA_uUwYAVXmlyjZmhoCfYSMc-EoahYbsYI7agkbjj26PRK8C2VxZ3KxvgEU2_jQ1cAzrkjtVP8sc0gmx7CooBi46p6f6H-oZxRi2RwS_yIXIsGn1MQrDNulSIQJyBMLHuPCjASWSYctG8jmz88XhDGJOYgaWgw_quYt6_VRhCSBXT3ZparRVWKD_Ycg-nvAZkgaqzEq3Mftg3UijqCbhgJjQcJ2qh5ChlHZ8MbvHyoDWLdzIkrm87WBoNkuD8IrlThqQiAJAcEF01hio0uMjFw_z0507UjVL6leu3FeoDLpK1hVHBw9o6Nc4t-r8PtpeejiAhaRyekqJFl43vAxqcwdzeoqgBHBPlnzPhsnxiHHkkBNgVI0_RTs
+                    - text: Internet based repository of medical records that retains patient confidentiality
+                    - img [ref=e755]
+                  - generic [ref=e758]: Roy Schoenberg, The BMJ, 2000
+                - listitem [ref=e759]:
+                  - link "Enhancing Healthcare Data Sharing Security with Blockchain and Post-Quantum Cryptography" [ref=e760] [cursor=pointer]:
+                    - /url: https://rev.trendmd.com/open/50BSNxbp7alWzCFvLVfMbtRYlVZUI2EPk0aPhuVVapje5AxI00vOpPpG2oRNMjOT8zVpIsSXLKlWBzPvlK6kc9fWdd_1sd2ToSwoNAYl_Wz7-SPs9Vy0NYtLV8SCN2cKYqjXQfqqCivWDoUNdEAcpwpwcWw1L7DG5y-IJZgBjDgSgLuYwsXcqknJnyYm8zZMsrALFPTATkms5j7E7wveDdXuaLVrYOjSZDcrw9l-hN50EAF0t_Xm3o_YP8fN1kIdnKrJd_VwVs8kGkOQ5cPc9_ude2D2mbnhbBabsCYp0l_U_V159FXKRXJdHIW09RYxu5SIEPkZ3BldFHyeGjT7-wrYntpZocBIwVfv-eo0JroJ0DoHUkhcuiDuZg4GgYwKyoqrq2MZnU6C_AdRYXm05PYWN2rg72ZED8n4Tp1qInTGqmCRo9BhdnmNcezOsg-wRBfdWq-FA7BOxZhbyA7SGgMk8iGL-N88rDj_3Yjxok32M_uB93Z9lqnbpnLO24zNi-wGORD70sWpnr2ilGp_VAziJ5cADQiiMI14IpIpTp_YoQI_gU-DO4MQ2YBWkN26ESECiFSZn1jYz6tX99sZFsYFIplWlDOZ19KxwI6lLuw8ouDkuwYvvtYB7rgQG7C3mgJMSetbTqavmcrDhsyfO6pMW2obhg1RX2gcKbxsBxTDRD0RNV4dtVPYme7HYTedDNuzC5u-CkLt2VuUF2Ss6YblpywXJSlQruafj-Fu-hNm70B_D82jc3WKT-V96u5cVlVpOJlYn9_Um_QGCXw9eqyr6CgdjX_TfhNYfBHvd8inz-_-YWVVQCvsiGdygL-VlJ4Jf-xt5dITQ7NNSz3vbrWrZq0FFO7RcpUTTHhliETg1pXpzye4AEDxG-U-77X10V-xmnyYhmyVkFmsxYppVJqyg5h7sDNWY8UJKOe-0yrAgbKMAC8UZRMrY2TNXwzi2ZgCwXKz8gaH2w0_Wj1K8XTDnEOmrZCh_JqX-hvKf9_a34IvhikkBIwTH_e5nmHUsAc34L7wpiay6h9odg4avJU5xunq5QEX8cBOUerzZaz-o63YKUgwWc5M1jZvKoq60lUMa14nG4aIjPeXYjT8bf3mE7lcmIGqCSzF82jbHmhdg8kK-Be8woXPf5EvWRIOoAcz6E8Q7jShngx-_wme1ZviGFO4RsBhN1XO4DFa20oKPbB5a2AeceO5b2BH2vUGqjMAzV4iilswavk6rcXU2paqJ9kdblFl7bAu7iUDlth_bRCztCKl7wXBZ9bgIqlm5YSujDy9_hLaa4NTIgC_Hhj29sJeCYzApNjlk-dcdBUlAgnAz_DZrDOUNYeRDXHhnePYM_vrWcP_xkQUbjeR3w53OiimZ8BZ1mOjymhaCKw9m1aOCd-CGEbRvBtKjHoJdpzrZjdi78wjCf_1za_KN6GXX4cYOyVcewZGxkm-DD46OafOo5oaYqtDA4gUuBg6Cg
+                    - text: Enhancing Healthcare Data Sharing Security with Blockchain and Post-Quantum Cryptography
+                    - img [ref=e762]
+                  - generic [ref=e765]: Jen-Wei Hu, Journal of Mechanics in Medicine and Biology, 2025
+            - generic [ref=e766]:
+              - link "Powered by TrendMD" [ref=e768] [cursor=pointer]:
+                - /url: https://www.trendmd.com/how-it-works-readers
+                - generic [ref=e769]: Powered by
+                - img [ref=e771]
+              - button "Show TrendMD links" [ref=e784] [cursor=pointer]:
+                - img [ref=e785]
+        - generic [ref=e789]:
+          - heading "Citing articles via" [level=3] [ref=e790]
+          - generic [ref=e791]:
+            - link "Web of Science (10)" [ref=e793] [cursor=pointer]:
+              - /url: https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=silverchair&SrcAuth=WosAPI&KeyUT=WOS:000824218200001&DestLinkType=CitingArticles&DestApp=WOS_CPL
+            - link "Google Scholar" [ref=e795] [cursor=pointer]:
+              - /url: http://scholar.google.com/scholar?q=link:https%3A%2F%2Facademic.oup.com%2Fpolicyandsociety%2Farticle%2F41%2F3%2F321%2F6643532
+        - generic [ref=e796]:
+          - list [ref=e797]:
+            - listitem [ref=e798]:
+              - heading "Latest" [level=3] [ref=e799]:
+                - link "Latest" [ref=e800] [cursor=pointer]:
+                  - /url: javascript:;
+            - listitem [ref=e801]:
+              - heading "Most Read" [level=3] [ref=e802]:
+                - link "Most Read" [ref=e803] [cursor=pointer]:
+                  - /url: javascript:;
+            - listitem [ref=e804]:
+              - heading "Most Cited" [level=3] [ref=e805]:
+                - link "Most Cited" [ref=e806] [cursor=pointer]:
+                  - /url: javascript:;
+          - generic [ref=e811]:
+            - 'link "Navigating evidence, legitimacy, and delivery: a three-dimensional framework for behavioral policy design" [ref=e813] [cursor=pointer]':
+              - /url: /policyandsociety/advance-article/doi/10.1093/polsoc/puag003/8626957?searchresult=1
+              - generic [ref=e814]: "Navigating evidence, legitimacy, and delivery: a three-dimensional framework for behavioral policy design"
+            - 'link "Street-level partnership: making collaborative service delivery work against the odds" [ref=e816] [cursor=pointer]':
+              - /url: /policyandsociety/advance-article/doi/10.1093/polsoc/puag007/8551511?searchresult=1
+              - generic [ref=e817]: "Street-level partnership: making collaborative service delivery work against the odds"
+            - link "The rise of Big Tech as super policy entrepreneurs" [ref=e819] [cursor=pointer]:
+              - /url: /policyandsociety/advance-article/doi/10.1093/polsoc/puag005/8540594?searchresult=1
+              - generic [ref=e820]: The rise of Big Tech as super policy entrepreneurs
+            - link "What happens after policies end? Effects of policy termination and dismantling on target populations, organizations, policy mixes, and political behavior" [ref=e822] [cursor=pointer]:
+              - /url: /policyandsociety/article/45/2/242/8527840?searchresult=1
+              - generic [ref=e823]: What happens after policies end? Effects of policy termination and dismantling on target populations, organizations, policy mixes, and political behavior
+            - 'link "Policy termination revisited: theories, processes, and political dynamics" [ref=e825] [cursor=pointer]':
+              - /url: /policyandsociety/article/45/2/133/8514449?searchresult=1
+              - generic [ref=e826]: "Policy termination revisited: theories, processes, and political dynamics"
+        - generic [ref=e828]:
+          - generic [ref=e829]: More from Oxford Academic
+          - link "Politics" [ref=e831] [cursor=pointer]:
+            - /url: /search-results?tax=AcademicSubjects/SOC02270
+          - link "Public Administration" [ref=e833] [cursor=pointer]:
+            - /url: /search-results?tax=AcademicSubjects/SOC02370
+          - link "Public Policy" [ref=e835] [cursor=pointer]:
+            - /url: /search-results?tax=AcademicSubjects/SOC02380
+          - link "Social Sciences" [ref=e837] [cursor=pointer]:
+            - /url: /search-results?tax=AcademicSubjects/SOC00010
+          - link "Books" [ref=e839] [cursor=pointer]:
+            - /url: /books/search-results?sort=Title+-+A+to+Z&f_ContentType=Book&fl_SiteID=6283&page=1
+          - link "Journals" [ref=e841] [cursor=pointer]:
+            - /url: /journals/pages/journals_a_to_z
+    - generic [ref=e842]:
+      - generic [ref=e846]:
+        - list [ref=e848]:
+          - listitem [ref=e849]:
+            - link "About Policy and Society" [ref=e850] [cursor=pointer]:
+              - /url: /policyandsociety/pages/about
+          - listitem [ref=e851]:
+            - link "Author Guidelines" [ref=e852] [cursor=pointer]:
+              - /url: /policyandsociety/pages/general-instructions
+          - listitem [ref=e853]:
+            - link "X (formerly Twitter)" [ref=e854] [cursor=pointer]:
+              - /url: https://twitter.com/policysociety
+          - listitem [ref=e855]:
+            - link "Advertising & Corporate Services" [ref=e856] [cursor=pointer]:
+              - /url: http://www.oupmediainfo.com/#!/
+          - listitem [ref=e857]:
+            - link "Journals Career Network" [ref=e858] [cursor=pointer]:
+              - /url: https://globaljobs-careernetwork.oxfordjournals.org/
+        - link "Policy and Society" [ref=e860] [cursor=pointer]:
+          - /url: https://academic.oup.com/policyandsociety
+          - img "Policy and Society" [ref=e861]
+        - list [ref=e863]:
+          - listitem [ref=e864]: Online ISSN 1839-3373
+          - listitem [ref=e865]: Print ISSN 1449-4035
+          - listitem [ref=e866]: Copyright © 2026 Darryl S. Jarvis and M. Ramesh
+      - generic [ref=e869]:
+        - generic [ref=e870]:
+          - list [ref=e872]:
+            - listitem [ref=e873]:
+              - link "About Oxford Academic" [ref=e874] [cursor=pointer]:
+                - /url: /pages/about-oxford-academic
+            - listitem [ref=e875]:
+              - link "Publish journals with us" [ref=e876] [cursor=pointer]:
+                - /url: /pages/about-oxford-academic/publish-journals-with-us
+            - listitem [ref=e877]:
+              - link "University press partners" [ref=e878] [cursor=pointer]:
+                - /url: /pages/about-oxford-academic/our-university-press-partners
+            - listitem [ref=e879]:
+              - link "What we publish" [ref=e880] [cursor=pointer]:
+                - /url: /pages/what-we-publish
+            - listitem [ref=e881]:
+              - link "New features" [ref=e882] [cursor=pointer]:
+                - /url: /pages/new-features
+          - list [ref=e884]:
+            - listitem [ref=e885]:
+              - link "For authors" [ref=e886] [cursor=pointer]:
+                - /url: /pages/for-authors
+            - listitem [ref=e887]:
+              - link "Open access" [ref=e888] [cursor=pointer]:
+                - /url: /pages/open-research/open-access
+            - listitem [ref=e889]:
+              - link "Purchasing" [ref=e890] [cursor=pointer]:
+                - /url: /pages/purchasing
+            - listitem [ref=e891]:
+              - link "Institutional account management" [ref=e892] [cursor=pointer]:
+                - /url: /pages/institutional-account-management
+            - listitem [ref=e893]:
+              - link "Rights and permissions" [ref=e894] [cursor=pointer]:
+                - /url: https://academic.oup.com/pages/purchasing/rights-and-permissions
+          - list [ref=e896]:
+            - listitem [ref=e897]:
+              - link "Get help with access" [ref=e898] [cursor=pointer]:
+                - /url: /pages/get-help-with-access
+            - listitem [ref=e899]:
+              - link "Accessibility" [ref=e900] [cursor=pointer]:
+                - /url: /pages/about-oxford-academic/accessibility
+            - listitem [ref=e901]:
+              - link "Contact us" [ref=e902] [cursor=pointer]:
+                - /url: /pages/contact-us
+            - listitem [ref=e903]:
+              - link "Advertising" [ref=e904] [cursor=pointer]:
+                - /url: /pages/advertising
+            - listitem [ref=e905]:
+              - link "Media enquiries" [ref=e906] [cursor=pointer]:
+                - /url: /pages/media-enquiries
+          - list [ref=e908]:
+            - listitem [ref=e909]:
+              - link "Oxford University Press" [ref=e910] [cursor=pointer]:
+                - /url: https://global.oup.com/
+            - listitem [ref=e911]:
+              - link "News" [ref=e912] [cursor=pointer]:
+                - /url: https://corp.oup.com/press-office
+            - listitem [ref=e913]:
+              - link "Oxford Languages" [ref=e914] [cursor=pointer]:
+                - /url: https://languages.oup.com/
+            - listitem [ref=e915]:
+              - link "University of Oxford" [ref=e916] [cursor=pointer]:
+                - /url: https://www.ox.ac.uk/
+          - generic [ref=e917]:
+            - paragraph [ref=e918]: Oxford University Press is a department of the University of Oxford. It furthers the University's objective of excellence in research, scholarship, and education by publishing worldwide
+            - img "Oxford University Press" [ref=e919]
+        - list [ref=e922]:
+          - listitem [ref=e923]: Copyright © 2026 Oxford University Press
+          - listitem [ref=e924]:
+            - link "Cookie settings" [ref=e925] [cursor=pointer]:
+              - /url: "#openCookiePreferences"
+          - listitem [ref=e926]:
+            - link "Cookie policy" [ref=e927] [cursor=pointer]:
+              - /url: https://global.oup.com/cookiepolicy
+          - listitem [ref=e928]:
+            - link "Privacy policy" [ref=e929] [cursor=pointer]:
+              - /url: https://global.oup.com/privacy
+          - listitem [ref=e930]:
+            - link "Legal notice" [ref=e931] [cursor=pointer]:
+              - /url: https://academic.oup.com/pages/legal-notice
+  - generic:
+    - text: 
+    - text: 
+  - region "Advertisement"
+  - generic [ref=e932]:
+    - link "PDF" [ref=e933] [cursor=pointer]:
+      - /url: https://scholar.google.com/scholar_url?url=https://academic.oup.com/policyandsociety/article-pdf/41/3/321/45093392/puac025.pdf&hl=id&sa=T&oi=ucasa&ct=ufr&ei=qnr1af3cDrCM6rQP26TM2AI&scisig=AFyMTJXUWfaSLXE48Jla56SJuZl3
+    - link "Help" [ref=e934] [cursor=pointer]:
+      - /url: https://scholar.google.com/scholar/help.html#access
+  - dialog "Cookies" [ref=e937]:
+    - generic [ref=e939]:
+      - generic [ref=e941]:
+        - heading "Cookies" [level=2] [ref=e942]
+        - generic [ref=e943]:
+          - text: We and our 1 partners store and/or access information on a device, such as unique IDs in cookies to process personal data. You may accept or manage your choices by clicking below, including your right to object where legitimate interest is used, or at any time in the privacy policy page. These choices will be signaled to our partners and will not affect browsing data.
+          - button "List of partners (vendors)" [ref=e944] [cursor=pointer]
+      - generic [ref=e946]:
+        - button "Accept all cookies" [ref=e947] [cursor=pointer]
+        - button "Reject and manage cookies, Opens the preference center dialog" [ref=e948] [cursor=pointer]: Reject and manage cookies

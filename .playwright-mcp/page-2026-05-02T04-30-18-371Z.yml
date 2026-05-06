@@ -1,0 +1,619 @@
+- generic [ref=e1]:
+  - generic:
+    - generic:
+      - generic:
+        - generic: Log in to a free account
+        - generic:
+          - generic:
+            - generic: SHOW
+          - generic: Forgot password?
+          - generic: Register for free
+          - generic: Find your institution
+  - generic [ref=e2]:
+    - link "Skip to main content" [ref=e4] [cursor=pointer]:
+      - /url: "#content"
+      - generic: Skip to main content
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e237]:
+          - button "Linked Institutions Icon Access provided by Universitas Gadjah Mada" [ref=e239] [cursor=pointer]:
+            - generic:
+              - img "Linked Institutions Icon" [ref=e240]
+              - generic [ref=e241]: Access provided by
+              - strong [ref=e243]: Universitas Gadjah Mada
+          - generic:
+            - generic:
+              - generic: Access to content provided by
+              - generic:
+                - generic: Universitas Gadjah Mada
+        - generic [ref=e7]:
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic: Get support
+                  - generic: Help logging in
+                  - generic: Contact us
+          - button "Help center" [ref=e9] [cursor=pointer]:
+            - img [ref=e11]
+      - generic [ref=e16]:
+        - link "JSTOR Home" [ref=e18] [cursor=pointer]:
+          - /url: /
+          - img "JSTOR Home" [ref=e19]
+        - search [ref=e21]:
+          - generic [ref=e23]:
+            - link "Advanced Search" [ref=e27] [cursor=pointer]:
+              - /url: /action/showAdvancedSearch
+              - strong [ref=e28]: Advanced Search
+            - generic [ref=e29]:
+              - button "All Content" [ref=e31] [cursor=pointer]:
+                - generic: All Content
+                - img [ref=e33]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: All Content
+                      - generic: Images
+              - generic [ref=e36]:
+                - generic [ref=e37]:
+                  - generic: Search all content
+                - generic [ref=e38]:
+                  - textbox "Search all content" [ref=e39]:
+                    - /placeholder: Search journals, books, images, and primary sources
+                  - button "Submit search" [ref=e43] [cursor=pointer]:
+                    - img [ref=e45]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - button "Register" [ref=e636] [cursor=pointer]:
+              - generic: Register
+            - button "Log in" [ref=e638] [cursor=pointer]:
+              - img [ref=e640]
+              - generic: Log in
+          - navigation [ref=e56]:
+            - generic [ref=e57]:
+              - button "Browse" [ref=e59] [cursor=pointer]:
+                - generic [ref=e60]: Browse
+                - img [ref=e62]
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: By subject
+                      - generic: By title
+                      - generic: Publishers
+                      - generic: Collections
+                      - generic: Images
+            - link "workspace icon Workspace" [ref=e65] [cursor=pointer]:
+              - /url: /workspace
+              - generic:
+                - img "workspace icon" [ref=e67]
+                - text: Workspace
+  - main [ref=e69]:
+    - generic [ref=e248]:
+      - generic:
+        - navigation "breadcrumb" [ref=e252]:
+          - list [ref=e253]:
+            - generic:
+              - listitem [ref=e254]:
+                - text: The Independent Review
+                - generic [ref=e255]:
+                  - link "The Independent Review" [ref=e256] [cursor=pointer]:
+                    - /url: /journal/inderevi
+                    - generic: The Independent Review
+                  - text: /
+              - listitem [ref=e257]:
+                - text: Vol. 22, No. 4, Spring 2018
+                - generic [ref=e258]:
+                  - link "Vol. 22, No. 4, Spring 2018" [ref=e259] [cursor=pointer]:
+                    - /url: /stable/i26591756
+                    - generic: Vol. 22, No. 4, Spring 2018
+                  - text: /
+              - listitem [ref=e260]:
+                - text: The Blockchain and Increasing Cooperative Efficacy
+                - generic [ref=e261]: The Blockchain and Increasing Cooperativ...
+        - generic [ref=e262]:
+          - link "This is the metadata section. Skip to content viewer section." [ref=e264] [cursor=pointer]:
+            - /url: "#viewer"
+            - generic: This is the metadata section. Skip to content viewer section.
+          - generic [ref=e265]:
+            - generic [ref=e267]:
+              - generic [ref=e269]:
+                - img [ref=e271]
+                - generic [ref=e276]: Journal Article
+              - generic [ref=e277]:
+                - generic [ref=e278]:
+                  - heading "The Blockchain and Increasing Cooperative Efficacy" [level=1] [ref=e281]:
+                    - generic: The Blockchain and Increasing Cooperative Efficacy
+                  - generic [ref=e282]:
+                    - link "Malavika Nair" [ref=e283] [cursor=pointer]:
+                      - /url: /action/doBasicSearch?Query=au%3A%22Malavika%20Nair%22
+                      - generic: Malavika Nair
+                    - text: ","
+                    - link "Daniel Sutter" [ref=e284] [cursor=pointer]:
+                      - /url: /action/doBasicSearch?Query=au%3A%22Daniel%20Sutter%22
+                      - generic: Daniel Sutter
+                - generic [ref=e286]:
+                  - link "The Independent Review" [ref=e288] [cursor=pointer]:
+                    - /url: /journal/inderevi
+                    - generic: The Independent Review
+                  - text: ", Vol. 22, No. 4 (Spring 2018), pp. 529-550 (22 pages)"
+              - button "https://www.jstor.org/stable/26591760" [ref=e291] [cursor=pointer]:
+                - generic [ref=e292]: https://www.jstor.org/stable/26591760
+                - img [ref=e294]
+            - generic [ref=e296]:
+              - link "Contribution from Independent Institute" [ref=e299] [cursor=pointer]:
+                - /url: /publisher/indepinst
+                - img "Contribution from Independent Institute" [ref=e300]
+              - generic [ref=e374]:
+                - img "Research tool sparkle" [ref=e376]
+                - generic [ref=e379]:
+                  - switch "AI Research Tool" [ref=e380]
+                  - generic [ref=e381]:
+                    - generic [ref=e382] [cursor=pointer]:
+                      - generic: AI Research Tool
+                    - generic [ref=e383] [cursor=pointer]: "OFF"
+              - generic [ref=e302]:
+                - group "Download options" [ref=e303]:
+                  - button "Download" [ref=e307] [cursor=pointer]:
+                    - img [ref=e309]
+                    - generic: Download
+                  - button "Open menu for accessible download" [ref=e311] [cursor=pointer]:
+                    - img [ref=e313]
+                - button "Save to Workspace" [ref=e318] [cursor=pointer]:
+                  - img [ref=e320]
+                  - generic: Save
+                - button "Cite" [ref=e323] [cursor=pointer]:
+                  - img [ref=e325]
+                  - generic: Cite
+          - generic [ref=e326]:
+            - region "item content viewer" [ref=e328]:
+              - generic [ref=e389]:
+                - generic [ref=e391]:
+                  - generic [ref=e392]:
+                    - button "Toggle thumbnails" [ref=e395] [cursor=pointer]:
+                      - img [ref=e397]
+                    - button "Zoom in" [ref=e401] [cursor=pointer]:
+                      - img [ref=e403]
+                    - button "Zoom out" [ref=e408] [cursor=pointer]:
+                      - img [ref=e410]
+                    - button "Select text" [ref=e415] [cursor=pointer]:
+                      - img [ref=e417]
+                    - button "Fit to height" [ref=e421] [cursor=pointer]:
+                      - img [ref=e423]
+                    - button "Additional view options" [ref=e429] [cursor=pointer]:
+                      - img [ref=e431]
+                    - generic:
+                      - generic:
+                        - generic: Paging mode
+                        - generic: Compare mode
+                  - generic [ref=e433]:
+                    - generic [ref=e434]:
+                      - generic:
+                        - button "Previous page" [disabled]:
+                          - generic:
+                            - img
+                    - generic [ref=e435]:
+                      - spinbutton "Current page number" [ref=e436]: "1"
+                      - text: / 22
+                    - button "Next page" [ref=e644] [cursor=pointer]:
+                      - img [ref=e646]
+                  - generic [ref=e438]:
+                    - generic [ref=e439]:
+                      - generic [ref=e440]:
+                        - generic: Search within document
+                      - generic [ref=e441]:
+                        - textbox "Search within document" [ref=e442]:
+                          - /placeholder: Search document
+                        - button "search" [ref=e445] [cursor=pointer]:
+                          - img [ref=e447]
+                    - button "Enter reading mode" [ref=e451] [cursor=pointer]:
+                      - img [ref=e453]
+                - generic [ref=e648]:
+                  - region "Page ⁨1⁩" [ref=e649]:
+                    - img "Scanned Page Image p. 529" [ref=e651]
+                    - generic [ref=e652]: The Blockchain and Increasing Cooperative Efficacy MA LA VI KA NAIR AND DANIEL SUTTER Bitcoin is a cryptocurrency based on open-source software created by the pseudonymous Satoshi Nakamoto in 2009. The Bitcoin currency has attracted considerable attention, first among computer scientists and later among businesspeople and the general public. It is being accepted by an increasing number of merchants worldwide; the current market price of Bitcoins is now widely available; and thousands of people worldwide used more than 1.46 terawatt hours of electricity in Bitcoin mining in 2015. Economists have noted the potential tor Bitcoin or perhaps a rival cryptocurrency to supplement or even displace fiat currencies. Regulators and policy makers have taken note as well, sometimes responding with regulations not well informed by the realities of Bitcoin (Brito and Castillo 2016). The Bitcoin payment system is based on the blockchain, a permanent record of all transactions maintained on users' computers. The blockchain is a distributed ledger that not only allows the Bitcoin payment system to operate but also opens possibilities for new forms of contracting and cooperation. Tech writers, bloggers, private corporations, government organizations, and economists have begun to notice the economic im plications of the blockchain, recognizing that it may far exceed that of Bitcoin itself. As Melanie Swan points out, Malavika Nair is assistant professor at the Manuel H. Johnson Center of Political Economy, Troy University. Daniel Sutter is Interim Director of the Manuel H. Johnson Center of Political Economy, Troy University. The Independent Review, v. 22, n. 4, Spring 2018, ISSN 1086-1653, Copyright © 2018, pp. 529-550. 529 The Blockchain and Increasing Cooperative Efficacy MA LA VI KA NAIR AND DANIEL SUTTER Bitcoin is a cryptocurrency based on open-source software created by the pseudonymous Satoshi Nakamoto in 2009. The Bitcoin currency has attracted considerable attention, first among computer scientists and later among businesspeople and the general public. It is being accepted by an increasing number of merchants worldwide; the current market price of Bitcoins is now widely available; and thousands of people worldwide used more than 1.46 terawatt hours of electricity in Bitcoin mining in 2015. Economists have noted the potential tor Bitcoin or perhaps a rival cryptocurrency to supplement or even displace fiat currencies. Regulators and policy makers have taken note as well, sometimes responding with regulations not well informed by the realities of Bitcoin (Brito and Castillo 2016). The Bitcoin payment system is based on the blockchain, a permanent record of all transactions maintained on users' computers. The blockchain is a distributed ledger that not only allows the Bitcoin payment system to operate but also opens possibilities for new forms of contracting and cooperation. Tech writers, bloggers, private corporations, government organizations, and economists have begun to notice the economic im plications of the blockchain, recognizing that it may far exceed that of Bitcoin itself. As Melanie Swan points out, Malavika Nair is assistant professor at the Manuel H. Johnson Center of Political Economy, Troy University. Daniel Sutter is Interim Director of the Manuel H. Johnson Center of Political Economy, Troy University. The Independent Review, v. 22, n. 4, Spring 2018, ISSN 1086-1653, Copyright © 2018, pp. 529-550. 529
+                  - region "Page ⁨2⁩" [ref=e653]:
+                    - img "Scanned Page Image p. 530" [ref=e655]
+                    - generic [ref=e656]: "530 ♦ malavika nair and Daniel Sutter More important, blockchain technology could become the seamless em bedded economic layer the Web has never had, serving as the technological underlay for payments, decentralized exchange, token earning and spending, digital asset invocation and transfer, and smart contract issuance and exe cution. Bitcoin and blockchain technology, as a mode of decentralization, could be the next major disruptive technology and worldwide computing paradigm (following the mainframe, PC, Internet, and social networking/ mobile phones), with the potential for reconfiguring all human activity as pervasively as did the Web. (2015, vii) In this paper, we offer a framework for evaluating and integrating the various different consequences and impacts of the blockchain for the economy. We apply the public-goods argument for government and a comparative institutional approach to assess the government's and the voluntary sector's ability to produce different individual public goods. The public-goods argument holds that government provision (via taxes and regulation) will be frequently chosen given the limitations of voluntary provision— namely, the free-rider problem. In a comparative institutional framework, however, the imperfections of government must be compared against the effectiveness of voluntary mechanisms. People's willingness to contribute voluntarily to public goods and various mechanisms' ability to convert willingness into effective provision have been labeled \"cooperative efficacy\" (Cowen and Sutter 1999). We interpret the blockchain as a technological innovation that has the potential to increase cooperative efficacy significantly and consequently to reduce the size and scope of government. Toward this end, we provide examples of already existing and potential applications of the blockchain that illustrate cases of increasing voluntary cooperation outside of government-provided public goods. Specifically, we identify three mecha nisms stemming from technological properties of the blockchain that help create trust between potential trading partners by replacing the need for a third-party watcher or enforcer of rules: a publicly verifiable ledger, open entry, and decentralization of power through a widely distributed mining network as well as the open-source nature of the underlying code. The blockchain thus allows the creation of trust without the need for a concrete third-party watcher who has vested authority and impartiality that the potential traders must trust. We do not discuss the factors affecting whether the scope of governments will actually expand or contract. Blockchain innovations will reduce the need for gov ernment to provide certain public goods or types of regulation on behalf of citizens, but this does not mean that the scope of government will immediately shrink. Entrenched interests benefiting from government provision or the regulatory status quo could conceivably block privatization or deregulation regardless of the blockchain's potential. The blockchain does, however, offer significant potential for de facto or unauthorized privatization of current government activities, as perhaps best illustrated by the potential for Bitcoin or another cryptocurrency to serve as a medium of exchange without The independent review 530 ♦ malavika nair and Daniel Sutter More important, blockchain technology could become the seamless em bedded economic layer the Web has never had, serving as the technological underlay for payments, decentralized exchange, token earning and spending, digital asset invocation and transfer, and smart contract issuance and exe cution. Bitcoin and blockchain technology, as a mode of decentralization, could be the next major disruptive technology and worldwide computing paradigm (following the mainframe, PC, Internet, and social networking/ mobile phones), with the potential for reconfiguring all human activity as pervasively as did the Web. (2015, vii) In this paper, we offer a framework for evaluating and integrating the various different consequences and impacts of the blockchain for the economy. We apply the public-goods argument for government and a comparative institutional approach to assess the government's and the voluntary sector's ability to produce different individual public goods. The public-goods argument holds that government provision (via taxes and regulation) will be frequently chosen given the limitations of voluntary provision— namely, the free-rider problem. In a comparative institutional framework, however, the imperfections of government must be compared against the effectiveness of voluntary mechanisms. People's willingness to contribute voluntarily to public goods and various mechanisms' ability to convert willingness into effective provision have been labeled \"cooperative efficacy\" (Cowen and Sutter 1999). We interpret the blockchain as a technological innovation that has the potential to increase cooperative efficacy significantly and consequently to reduce the size and scope of government. Toward this end, we provide examples of already existing and potential applications of the blockchain that illustrate cases of increasing voluntary cooperation outside of government-provided public goods. Specifically, we identify three mecha nisms stemming from technological properties of the blockchain that help create trust between potential trading partners by replacing the need for a third-party watcher or enforcer of rules: a publicly verifiable ledger, open entry, and decentralization of power through a widely distributed mining network as well as the open-source nature of the underlying code. The blockchain thus allows the creation of trust without the need for a concrete third-party watcher who has vested authority and impartiality that the potential traders must trust. We do not discuss the factors affecting whether the scope of governments will actually expand or contract. Blockchain innovations will reduce the need for gov ernment to provide certain public goods or types of regulation on behalf of citizens, but this does not mean that the scope of government will immediately shrink. Entrenched interests benefiting from government provision or the regulatory status quo could conceivably block privatization or deregulation regardless of the blockchain's potential. The blockchain does, however, offer significant potential for de facto or unauthorized privatization of current government activities, as perhaps best illustrated by the potential for Bitcoin or another cryptocurrency to serve as a medium of exchange without The independent review"
+                  - region "Page ⁨3⁩" [ref=e657]
+                  - region "Page ⁨4⁩" [ref=e658]
+                  - region "Page ⁨5⁩" [ref=e659]
+                  - region "Page ⁨6⁩" [ref=e660]
+                  - region "Page ⁨7⁩" [ref=e661]
+                  - region "Page ⁨8⁩" [ref=e662]
+                  - region "Page ⁨9⁩" [ref=e663]
+                  - region "Page ⁨10⁩" [ref=e664]
+                  - region "Page ⁨11⁩" [ref=e665]
+                  - region "Page ⁨12⁩" [ref=e666]
+                  - region "Page ⁨13⁩" [ref=e667]
+                  - region "Page ⁨14⁩" [ref=e668]
+                  - region "Page ⁨15⁩" [ref=e669]
+                  - region "Page ⁨16⁩" [ref=e670]
+                  - region "Page ⁨17⁩" [ref=e671]
+                  - region "Page ⁨18⁩" [ref=e672]
+                  - region "Page ⁨19⁩" [ref=e673]
+                  - region "Page ⁨20⁩" [ref=e674]
+                  - region "Page ⁨21⁩" [ref=e675]
+                  - region "Page ⁨22⁩" [ref=e676]
+            - generic [ref=e329]:
+              - group [ref=e330]:
+                - generic "About this issue" [ref=e331] [cursor=pointer]:
+                  - heading "About this issue" [level=2] [ref=e333]:
+                    - generic [ref=e334]:
+                      - img [ref=e336]
+                      - text: About this issue
+                - generic: Explore the Issue
+              - group [ref=e338]:
+                - generic "Item details" [ref=e339] [cursor=pointer]:
+                  - heading "Item details" [level=2] [ref=e341]:
+                    - generic [ref=e342]:
+                      - img [ref=e344]
+                      - text: Item details
+              - group [ref=e346]:
+                - generic "References" [ref=e347] [cursor=pointer]:
+                  - heading "References" [level=2] [ref=e349]:
+                    - generic [ref=e350]:
+                      - img [ref=e352]
+                      - text: References
+                - generic: "[Footnotes]"
+                - generic: References
+              - group [ref=e463]:
+                - generic "Related text" [ref=e464] [cursor=pointer]:
+                  - heading "Related text" [level=2] [ref=e466]:
+                    - generic [ref=e467]:
+                      - img [ref=e469]
+                      - text: Related text
+                - generic [ref=e475]:
+                  - generic [ref=e476]:
+                    - generic [ref=e477]:
+                      - link "Trust, but Verify Why the Blockchain Needs the Law" [ref=e479] [cursor=pointer]:
+                        - /url: /stable/26533144?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                        - img "Trust, but Verify Why the Blockchain Needs the Law" [ref=e480]
+                      - generic [ref=e481]:
+                        - generic [ref=e482]: Journal Article
+                        - link "Trust, but Verify Why the Blockchain Needs the Law" [ref=e484] [cursor=pointer]:
+                          - /url: /stable/26533144?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                          - heading "Trust, but Verify Why the Blockchain Needs the Law" [level=3] [ref=e486]:
+                            - generic: Trust, but Verify Why the Blockchain Needs the Law
+                        - link "Kevin Werbach" [ref=e489] [cursor=pointer]:
+                          - /url: /action/doBasicSearch?si=1&Query=au:%22Kevin+Werbach%22
+                          - generic: Kevin Werbach
+                        - generic [ref=e490]: Berkeley Technology Law Journal, Vol. 33, No. 2 (2018), pp. 487-550
+                        - generic [ref=e491]:
+                          - button "Download" [ref=e495] [cursor=pointer]:
+                            - img [ref=e497]
+                            - generic: Download
+                          - button "Save to Workspace" [ref=e503] [cursor=pointer]:
+                            - img [ref=e505]
+                            - generic: Save
+                    - generic [ref=e507]:
+                      - 'link "Blockchain Technology and Cryptocurrencies: Implications for the Digital Economy, Cybersecurity, and Government" [ref=e509] [cursor=pointer]':
+                        - /url: /stable/26567525?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                        - 'img "Blockchain Technology and Cryptocurrencies: Implications for the Digital Economy, Cybersecurity, and Government" [ref=e510]'
+                      - generic [ref=e511]:
+                        - generic [ref=e512]: Journal Article
+                        - 'link "Blockchain Technology and Cryptocurrencies: Implications for the Digital Economy, Cybersecurity, and Government" [ref=e514] [cursor=pointer]':
+                          - /url: /stable/26567525?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                          - 'heading "Blockchain Technology and Cryptocurrencies: Implications for the Digital Economy, Cybersecurity, and Government" [level=3] [ref=e516]':
+                            - generic: "Blockchain Technology and Cryptocurrencies: Implications for the Digital Economy, Cybersecurity, and Government"
+                        - link "Christian Catalini" [ref=e519] [cursor=pointer]:
+                          - /url: /action/doBasicSearch?si=1&Query=au:%22Christian+Catalini%22
+                          - generic: Christian Catalini
+                        - generic [ref=e520]: Georgetown Journal of International Affairs, Vol. 19 (Fall 2018), pp. 36-42
+                        - generic [ref=e521]:
+                          - button "Download" [ref=e525] [cursor=pointer]:
+                            - img [ref=e527]
+                            - generic: Download
+                          - button "Save to Workspace" [ref=e533] [cursor=pointer]:
+                            - img [ref=e535]
+                            - generic: Save
+                    - generic [ref=e537]:
+                      - 'link "BEYOND BITCOIN: ISSUES IN REGULATING BLOCKCHAIN TRANSACTIONS" [ref=e539] [cursor=pointer]':
+                        - /url: /stable/24692167?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                        - 'img "BEYOND BITCOIN: ISSUES IN REGULATING BLOCKCHAIN TRANSACTIONS" [ref=e540]'
+                      - generic [ref=e541]:
+                        - generic [ref=e542]: Journal Article
+                        - 'link "BEYOND BITCOIN: ISSUES IN REGULATING BLOCKCHAIN TRANSACTIONS" [ref=e544] [cursor=pointer]':
+                          - /url: /stable/24692167?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                          - 'heading "BEYOND BITCOIN: ISSUES IN REGULATING BLOCKCHAIN TRANSACTIONS" [level=3] [ref=e546]':
+                            - generic: "BEYOND BITCOIN: ISSUES IN REGULATING BLOCKCHAIN TRANSACTIONS"
+                        - link "Trevor I. Kiviat" [ref=e549] [cursor=pointer]:
+                          - /url: /action/doBasicSearch?si=1&Query=au:%22Trevor+I.+Kiviat%22
+                          - generic: Trevor I. Kiviat
+                        - generic [ref=e550]: Duke Law Journal, Vol. 65, No. 3 (December 2015), pp. 569-608
+                        - generic [ref=e551]:
+                          - button "Download" [ref=e555] [cursor=pointer]:
+                            - img [ref=e557]
+                            - generic: Download
+                          - button "Save to Workspace" [ref=e563] [cursor=pointer]:
+                            - img [ref=e565]
+                            - generic: Save
+                    - generic [ref=e567]:
+                      - link "Bitcoin and the Future of Digital Payments" [ref=e569] [cursor=pointer]:
+                        - /url: /stable/24562161?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                        - img "Bitcoin and the Future of Digital Payments" [ref=e570]
+                      - generic [ref=e571]:
+                        - generic [ref=e572]: Journal Article
+                        - link "Bitcoin and the Future of Digital Payments" [ref=e574] [cursor=pointer]:
+                          - /url: /stable/24562161?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                          - heading "Bitcoin and the Future of Digital Payments" [level=3] [ref=e576]:
+                            - generic: Bitcoin and the Future of Digital Payments
+                        - link "William J. Luther" [ref=e579] [cursor=pointer]:
+                          - /url: /action/doBasicSearch?si=1&Query=au:%22William+J.+Luther%22
+                          - generic: William J. Luther
+                        - generic [ref=e580]: The Independent Review, Vol. 20, No. 3 (Winter 2016), pp. 397-404
+                        - generic [ref=e581]:
+                          - button "Download" [ref=e585] [cursor=pointer]:
+                            - img [ref=e587]
+                            - generic: Download
+                          - button "Save to Workspace" [ref=e593] [cursor=pointer]:
+                            - img [ref=e595]
+                            - generic: Save
+                    - generic [ref=e597]:
+                      - 'link "Regulation by Blockchain: the Emerging Battle for Supremacy between the Code of Law and Code as Law" [ref=e599] [cursor=pointer]':
+                        - /url: /stable/45220933?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                        - 'img "Regulation by Blockchain: the Emerging Battle for Supremacy between the Code of Law and Code as Law" [ref=e600]'
+                      - generic [ref=e601]:
+                        - generic [ref=e602]: Journal Article
+                        - 'link "Regulation by Blockchain: the Emerging Battle for Supremacy between the Code of Law and Code as Law" [ref=e604] [cursor=pointer]':
+                          - /url: /stable/45220933?searchText=&searchUri=&ab_segments=&searchKey=&refreqid=fastly-default%3A29b22d4d7a8b12de0d983c3f6afb64e6&initiator=recommender
+                          - 'heading "Regulation by Blockchain: the Emerging Battle for Supremacy between the Code of Law and Code as Law" [level=3] [ref=e606]':
+                            - generic: "Regulation by Blockchain: the Emerging Battle for Supremacy between the Code of Law and Code as Law"
+                        - link "Karen Yeung" [ref=e609] [cursor=pointer]:
+                          - /url: /action/doBasicSearch?si=1&Query=au:%22Karen+Yeung%22
+                          - generic: Karen Yeung
+                        - generic [ref=e610]: The Modern Law Review, Vol. 82, No. 2 (MARCH 2019), pp. 207-239
+                        - generic [ref=e611]:
+                          - button "Download" [ref=e615] [cursor=pointer]:
+                            - img [ref=e617]
+                            - generic: Download
+                          - button "Save to Workspace" [ref=e623] [cursor=pointer]:
+                            - img [ref=e625]
+                            - generic: Save
+                  - navigation "pagination" [ref=e628]:
+                    - generic [ref=e629]: 1 of 7
+                    - link "Next" [ref=e631] [cursor=pointer]:
+                      - /url: ""
+                      - generic:
+                        - text: Next
+                        - img [ref=e633]
+              - group [ref=e354]:
+                - generic "Terms and copyright" [ref=e355] [cursor=pointer]:
+                  - heading "Terms and copyright" [level=2] [ref=e357]:
+                    - generic [ref=e358]:
+                      - img [ref=e360]
+                      - text: Terms and copyright
+                - generic [ref=e362]:
+                  - generic [ref=e363]:
+                    - generic [ref=e364]: This item is part of a JSTOR Collection.
+                    - generic [ref=e365]:
+                      - text: For terms of use, please refer to our
+                      - link "Terms & Conditions" [ref=e366] [cursor=pointer]:
+                        - /url: //about.jstor.org/terms/
+                        - generic: Terms & Conditions
+                      - text: .
+                  - generic [ref=e368]:
+                    - text: The Independent Review © 2018
+                    - link "Independent Institute" [ref=e370] [cursor=pointer]:
+                      - /url: /publisher/indepinst
+                  - link "Request Permissions" [ref=e372] [cursor=pointer]:
+                    - /url: https://marketplace.copyright.com/rs-ui-web/mp/search/journal/10861653
+                    - generic: Request Permissions
+  - alert [ref=e77]
+  - alert [ref=e78]
+  - contentinfo [ref=e81]:
+    - generic [ref=e82]:
+      - heading "Explore JSTOR" [level=2] [ref=e85]:
+        - generic: Explore JSTOR
+      - generic [ref=e86]:
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - heading "ABOUT US" [level=3] [ref=e90]:
+              - generic: ABOUT US
+            - list [ref=e91]:
+              - listitem [ref=e92]:
+                - link "About JSTOR" [ref=e93] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id
+                  - generic: About JSTOR
+              - listitem [ref=e94]:
+                - link "Mission and History" [ref=e95] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/mission-history/
+                  - generic: Mission and History
+              - listitem [ref=e96]:
+                - link "JSTOR Labs" [ref=e97] [cursor=pointer]:
+                  - /url: https://labs-jstor-org.ezproxy.ugm.ac.id/
+                  - generic: JSTOR Labs
+              - listitem [ref=e98]:
+                - link "JSTOR Daily" [ref=e99] [cursor=pointer]:
+                  - /url: https://daily-jstor-org.ezproxy.ugm.ac.id/
+                  - generic: JSTOR Daily
+              - listitem [ref=e100]:
+                - link "News" [ref=e101] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/news/
+                  - generic: News
+              - listitem [ref=e102]:
+                - link "Webinars" [ref=e103] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/webinars/
+                  - generic: Webinars
+              - listitem [ref=e104]:
+                - link "Careers" [ref=e105] [cursor=pointer]:
+                  - /url: https://www.ithaka.org/careers/
+                  - generic: Careers
+          - generic [ref=e106]:
+            - heading "EXPLORE CONTENT" [level=3] [ref=e108]:
+              - generic: EXPLORE CONTENT
+            - list [ref=e109]:
+              - listitem [ref=e110]:
+                - link "What's in JSTOR" [ref=e111] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/whats-in-jstor/
+                  - generic: What's in JSTOR
+              - listitem [ref=e112]:
+                - link "Advanced Search" [ref=e113] [cursor=pointer]:
+                  - /url: /action/showAdvancedSearch
+                  - generic: Advanced Search
+              - listitem [ref=e114]:
+                - link "By Subject" [ref=e115] [cursor=pointer]:
+                  - /url: /subjects
+                  - generic: By Subject
+              - listitem [ref=e116]:
+                - link "By Title" [ref=e117] [cursor=pointer]:
+                  - /url: /action/showJournals?browseType=title
+                  - generic: By Title
+              - listitem [ref=e118]:
+                - link "Collections" [ref=e119] [cursor=pointer]:
+                  - /url: /site/collection-list
+                  - generic: Collections
+              - listitem [ref=e120]:
+                - link "Publisher" [ref=e121] [cursor=pointer]:
+                  - /url: /publishers
+                  - generic: Publisher
+              - listitem [ref=e122]:
+                - link "Images" [ref=e123] [cursor=pointer]:
+                  - /url: /images
+                  - generic: Images
+          - generic [ref=e124]:
+            - heading "RESEARCH TOOLS" [level=3] [ref=e126]:
+              - generic: RESEARCH TOOLS
+            - list [ref=e127]:
+              - listitem [ref=e128]:
+                - link "Text Analysis Support" [ref=e129] [cursor=pointer]:
+                  - /url: https://www-jstor-org.ezproxy.ugm.ac.id/ta-support
+                  - generic: Text Analysis Support
+              - listitem [ref=e130]:
+                - link "The JSTOR Understanding Series" [ref=e131] [cursor=pointer]:
+                  - /url: https://labs-jstor-org.ezproxy.ugm.ac.id/understand
+                  - generic: The JSTOR Understanding Series
+          - generic [ref=e132]:
+            - heading "HELP CENTER" [level=3] [ref=e134]:
+              - generic: HELP CENTER
+            - list [ref=e135]:
+              - listitem [ref=e136]:
+                - link "Get Support" [ref=e137] [cursor=pointer]:
+                  - /url: https://support-jstor-org.ezproxy.ugm.ac.id
+                  - generic: Get Support
+              - listitem [ref=e138]:
+                - link "Get Access" [ref=e139] [cursor=pointer]:
+                  - /url: https://support-jstor-org.ezproxy.ugm.ac.id/hc/en-us/articles/360000313328-Need-Help-Logging-in-To-JSTOR
+                  - generic: Get Access
+              - listitem [ref=e140]:
+                - link "LibGuides" [ref=e141] [cursor=pointer]:
+                  - /url: https://guides-jstor-org.ezproxy.ugm.ac.id
+                  - generic: LibGuides
+              - listitem [ref=e142]:
+                - link "Research Basics" [ref=e143] [cursor=pointer]:
+                  - /url: https://guides-jstor-org.ezproxy.ugm.ac.id/researchbasics
+                  - generic: Research Basics
+              - listitem [ref=e144]:
+                - link "Contact Us" [ref=e145] [cursor=pointer]:
+                  - /url: /contact-us/
+                  - generic: Contact Us
+              - listitem [ref=e146]:
+                - link "License JSTOR Content" [ref=e147] [cursor=pointer]:
+                  - /url: https://about-jstor-org.ezproxy.ugm.ac.id/products/jstor-platform/
+                  - generic: License JSTOR Content
+        - list [ref=e149]:
+          - listitem [ref=e150]:
+            - button "For Librarians" [ref=e152] [cursor=pointer]:
+              - generic: For Librarians
+          - listitem [ref=e153]:
+            - button "For Publishers" [ref=e155] [cursor=pointer]:
+              - generic: For Publishers
+          - listitem [ref=e156]:
+            - button "Teaching Resources" [ref=e158] [cursor=pointer]:
+              - generic: Teaching Resources
+        - generic [ref=e159]:
+          - list [ref=e160]:
+            - listitem [ref=e161]:
+              - link "instagram - This link opens in a new window" [ref=e163] [cursor=pointer]:
+                - /url: https://www.instagram.com/jstor_org
+                - img [ref=e165]
+            - listitem [ref=e169]:
+              - link "linkedin - This link opens in a new window" [ref=e171] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/ithaka
+                - img [ref=e173]
+            - listitem [ref=e175]:
+              - link "facebook - This link opens in a new window" [ref=e177] [cursor=pointer]:
+                - /url: https://www.facebook.com/JSTOR.org
+                - img [ref=e179]
+            - listitem [ref=e181]:
+              - link "youtube - This link opens in a new window" [ref=e183] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCQM-7sUBV6Z-PVas0S4k0lw
+                - img [ref=e185]
+            - listitem [ref=e187]:
+              - link "tumblr - This link opens in a new window" [ref=e189] [cursor=pointer]:
+                - /url: https://jstor.tumblr.com
+                - img [ref=e191]
+            - listitem [ref=e193]:
+              - link "bluesky - This link opens in a new window" [ref=e195] [cursor=pointer]:
+                - /url: https://bsky.app/profile/jstor.bsky.social
+                - img [ref=e197]
+            - listitem [ref=e199]:
+              - link "threads - This link opens in a new window" [ref=e201] [cursor=pointer]:
+                - /url: https://www.threads.com/@jstor_org
+                - img [ref=e203]
+          - paragraph [ref=e205]:
+            - generic [ref=e206]:
+              - text: JSTOR is part of
+              - link "ITHAKA" [ref=e207] [cursor=pointer]:
+                - /url: https://www.ithaka.org
+                - generic: ITHAKA
+              - text: ", a not-for-profit organization helping the academic community use digital technologies to preserve the scholarly record and to advance research and teaching in sustainable ways."
+          - paragraph [ref=e208]:
+            - generic: ©2000‍–2026 ITHAKA. All Rights Reserved. JSTOR®, the JSTOR logo, JPASS®, Artstor®, Reveal Digital™ and ITHAKA® are registered trademarks of ITHAKA.
+      - list [ref=e210]:
+        - listitem [ref=e211]:
+          - link "Terms & Conditions of Use" [ref=e212] [cursor=pointer]:
+            - /url: https://about-jstor-org.ezproxy.ugm.ac.id/terms/
+            - generic: Terms & Conditions of Use
+        - listitem [ref=e213]:
+          - link "Privacy Policy" [ref=e214] [cursor=pointer]:
+            - /url: https://www-jstor-org.ezproxy.ugm.ac.id/privacy-policy/
+            - generic: Privacy Policy
+        - listitem [ref=e215]:
+          - link "Accessibility" [ref=e216] [cursor=pointer]:
+            - /url: https://about-jstor-org.ezproxy.ugm.ac.id/accessibility/
+            - generic: Accessibility
+        - listitem [ref=e217]:
+          - link "Cookie Policy" [ref=e218] [cursor=pointer]:
+            - /url: https://www.ithaka.org/cookies/
+            - generic: Cookie Policy
+        - listitem [ref=e219]:
+          - link "Cookie Settings" [ref=e220] [cursor=pointer]:
+            - /url: javascript:void(0)
+            - generic: Cookie Settings
+  - region "Cookie banner" [ref=e221]:
+    - dialog "Privacy" [ref=e222]:
+      - generic [ref=e224]:
+        - generic [ref=e227]:
+          - text: ITHAKA websites, which ITHAKA manages from its location in the United States, use cookies for different purposes, such as to ensure web site function, display non-targeted ads, provide social media features, and track usage, engaging with third party service providers such as Google Analytics. You may manage non-essential cookies in “Cookie Settings”. For more information, please see our
+          - link "Cookie Policy" [ref=e228] [cursor=pointer]:
+            - /url: https://www.ithaka.org/cookies
+          - text: .
+        - generic [ref=e230]:
+          - button "Cookie Settings" [ref=e231] [cursor=pointer]
+          - button "OK, proceed" [ref=e232] [cursor=pointer]
+      - button "Close" [ref=e234] [cursor=pointer]
+  - generic [ref=e678]:
+    - dialog "Terms and Conditions":
+      - generic [ref=e679]:
+        - generic [ref=e680]:
+          - heading "Terms and Conditions" [level=2] [ref=e682]:
+            - generic: Terms and Conditions
+          - button "Close modal" [ref=e684] [cursor=pointer]:
+            - img [ref=e686]
+        - generic [ref=e689]:
+          - text: Your use of JSTOR indicates your acceptance of the
+          - link "Terms & Conditions of Use" [ref=e690] [cursor=pointer]:
+            - /url: https://about-jstor-org.ezproxy.ugm.ac.id/terms/
+            - generic: Terms & Conditions of Use
+          - text: and the
+          - link "Privacy Policy" [ref=e691] [cursor=pointer]:
+            - /url: https://www.ithaka.org/privacypolicy/
+            - generic: Privacy Policy
+          - text: .
+        - generic [ref=e694]:
+          - button "Cancel" [ref=e696] [cursor=pointer]:
+            - generic: Cancel
+          - button "Accept and download" [ref=e698] [cursor=pointer]:
+            - generic: Accept and download

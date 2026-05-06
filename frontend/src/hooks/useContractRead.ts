@@ -272,6 +272,36 @@ export function useProposalQueuedTime(proposalId: bigint) {
   })
 }
 
+export function useProposalTarget(proposalId: bigint) {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'proposalTarget',
+    args: [proposalId],
+    query: { enabled: proposalId >= 0n },
+  })
+}
+
+export function useProposalValue(proposalId: bigint) {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'proposalValue',
+    args: [proposalId],
+    query: { enabled: proposalId >= 0n },
+  })
+}
+
+export function useProposalCallData(proposalId: bigint) {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'proposalCallData',
+    args: [proposalId],
+    query: { enabled: proposalId >= 0n },
+  })
+}
+
 export function useLoanCount() {
   return useReadContract({
     address: CONTRACTS.LAKOMI_LOANS,

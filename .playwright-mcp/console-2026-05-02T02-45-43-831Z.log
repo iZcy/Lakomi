@@ -1,0 +1,5 @@
+[     679ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://www-tandfonline-com.ezproxy.ugm.ac.id/doi/full/10.1080/13563467.2023.2178358:0
+[    2792ms] [WARNING] [Meta pixel] 2101243603539381 is unavailable on this website due to it's traffic permission settings. Go to https://www.facebook.com/business/help/572690630080597 to learn more. @ https://connect.facebook.net/en_US/fbevents.js:181
+[    3600ms] [LOG] widgetId not found @ https://www-tandfonline-com.ezproxy.ugm.ac.id/wro/80d541714681354e5968ac8a15139ec210bd2c79~product.js:667
+[    6825ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://www-tandfonline-com.ezproxy.ugm.ac.id/cdn-cgi/rum?:0
+[    6893ms] [ERROR] Failed to load resource: net::ERR_FAILED @ chrome-extension://invalid/:0

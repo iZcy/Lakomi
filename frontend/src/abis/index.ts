@@ -108,6 +108,9 @@ export const LAKOMI_GOVERN_ABI = [
   { type: "function", name: "hasVoted", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }, { type: "address", name: "account" }], outputs: [{ type: "bool" }] },
   { type: "function", name: "executionTimelock", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
   { type: "function", name: "proposalQueuedTime", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "proposalTarget", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }], outputs: [{ type: "address" }] },
+  { type: "function", name: "proposalValue", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }], outputs: [{ type: "uint256" }] },
+  { type: "function", name: "proposalCallData", stateMutability: "view", inputs: [{ type: "uint256", name: "proposalId" }], outputs: [{ type: "bytes" }] },
   { type: "function", name: "votingPeriod", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
 ] as const
 

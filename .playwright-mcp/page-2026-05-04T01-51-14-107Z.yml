@@ -1,0 +1,342 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic:
+      - link "Lewati ke konten utama" [ref=e2] [cursor=pointer]
+      - link "Bantuan aksesibilitas" [ref=e3] [cursor=pointer]:
+        - /url: https://support.google.com/websearch/answer/181196?hl=id
+      - link "Masukan aksesibilitas" [ref=e4] [cursor=pointer]
+  - generic [ref=e9]:
+    - search [ref=e10]:
+      - generic [ref=e12]:
+        - link "Ke Beranda Google" [ref=e14] [cursor=pointer]:
+          - /url: https://www.google.com/webhp?hl=id&sa=X&ved=0ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQPAgJ
+          - img [ref=e15]
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - combobox "Cari" [ref=e26]: blockchain governance challenges site:cambridge.org/core/journals blockchain governance challenges site:cambridge.org/core/journals
+            - generic [ref=e27]:
+              - button "Hapus" [ref=e29] [cursor=pointer]:
+                - img [ref=e31]
+              - generic [ref=e34]:
+                - button "Telusuri dengan suara" [ref=e35] [cursor=pointer]:
+                  - img [ref=e36]
+                - button "Telusuri pakai gambar" [ref=e38] [cursor=pointer]:
+                  - img [ref=e39]
+          - button "Telusuri" [ref=e41] [cursor=pointer]:
+            - img [ref=e44]
+    - generic [ref=e46]:
+      - button "Setelan" [ref=e48] [cursor=pointer]:
+        - img [ref=e51]
+      - generic [ref=e54]:
+        - button "Aplikasi Google" [ref=e56] [cursor=pointer]:
+          - img [ref=e57]
+        - link "Login" [ref=e61] [cursor=pointer]:
+          - /url: https://accounts.google.com/ServiceLogin?hl=id&passive=true&continue=https://www.google.com/search%3Fq%3Dblockchain%2Bgovernance%2Bchallenges%2Bsite%253Acambridge.org%252Fcore%252Fjournals&ec=futura_srp_og_si_72236_p
+  - generic [ref=e63]:
+    - navigation [ref=e69]:
+      - generic [ref=e75]:
+        - list [ref=e76]:
+          - listitem [ref=e77]:
+            - link "Mode AI" [ref=e80] [cursor=pointer]:
+              - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&udm=50&fbs=ADc_l-ZfIPzv45NHkpmEx1uvAy1Y0jSl1hx3Xkmo2lpunDqItojzoLSoI2UgPvOhwZEULEWETNL4VhcbUWvLrs30eX4wJZ9TRvyATkhZ3dLD0MEEY2DmebHlEqC1g_vYeJooSvP1yTr73jAgmRWv5m1H89X_qNl5QswH7MqSxiDo9uVp4q04ZAS6vf_vvDSIRe-uxoi-QXp8J6s1qXIIP1pCUpUqrtV65A&aep=1&ntc=1&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ2J8OegQIDhAD
+              - generic [ref=e83]: Mode AI
+          - listitem [ref=e84]:
+            - link "Semua" [disabled] [ref=e85]:
+              - generic [ref=e87]: Semua
+          - listitem [ref=e88]:
+            - link "Gambar" [ref=e89] [cursor=pointer]:
+              - /url: /search?sca_esv=1b5bcfce8e29f7f4&udm=2&fbs=ADc_l-ZfIPzv45NHkpmEx1uvAy1Y0jSl1hx3Xkmo2lpunDqItojzoLSoI2UgPvOhwZEULEWETNL4VhcbUWvLrs30eX4wJZ9TRvyATkhZ3dLD0MEEY2DmebHlEqC1g_vYeJooSvP1yTr73jAgmRWv5m1H89X_qNl5QswH7MqSxiDo9uVp4q04ZAS6vf_vvDSIRe-uxoi-QXp8J6s1qXIIP1pCUpUqrtV65A&q=blockchain+governance+challenges+site:cambridge.org/core/journals&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQtKgLegQIFBAB
+              - generic [ref=e91]: Gambar
+          - listitem [ref=e92]:
+            - link "Berita" [ref=e93] [cursor=pointer]:
+              - /url: /search?sca_esv=1b5bcfce8e29f7f4&q=blockchain+governance+challenges+site:cambridge.org/core/journals&tbm=nws&source=lnms&fbs=ADc_l-ZfIPzv45NHkpmEx1uvAy1Y0jSl1hx3Xkmo2lpunDqItojzoLSoI2UgPvOhwZEULEWETNL4VhcbUWvLrs30eX4wJZ9TRvyATkhZ3dLD0MEEY2DmebHlEqC1g_vYeJooSvP1yTr73jAgmRWv5m1H89X_qNl5QswH7MqSxiDo9uVp4q04ZAS6vf_vvDSIRe-uxoi-QXp8J6s1qXIIP1pCUpUqrtV65A&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ0pQJegQIExAB
+              - generic [ref=e95]: Berita
+          - listitem [ref=e96]:
+            - link "Video" [ref=e97] [cursor=pointer]:
+              - /url: /search?sca_esv=1b5bcfce8e29f7f4&udm=7&fbs=ADc_l-ZfIPzv45NHkpmEx1uvAy1Y0jSl1hx3Xkmo2lpunDqItojzoLSoI2UgPvOhwZEULEWETNL4VhcbUWvLrs30eX4wJZ9TRvyATkhZ3dLD0MEEY2DmebHlEqC1g_vYeJooSvP1yTr73jAgmRWv5m1H89X_qNl5QswH7MqSxiDo9uVp4q04ZAS6vf_vvDSIRe-uxoi-QXp8J6s1qXIIP1pCUpUqrtV65A&q=blockchain+governance+challenges+site:cambridge.org/core/journals&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQtKgLegQIEhAB
+              - generic [ref=e99]: Video
+          - listitem [ref=e100]:
+            - link "Shopping" [ref=e101] [cursor=pointer]:
+              - /url: /search?sca_esv=1b5bcfce8e29f7f4&udm=28&fbs=ADc_l-ZfIPzv45NHkpmEx1uvAy1Y0jSl1hx3Xkmo2lpunDqItojzoLSoI2UgPvOhwZEULEWETNL4VhcbUWvLrs30eX4wJZ9TRvyATkhZ3dLD0MEEY2DmebHlEqC1g_vYeJooSvP1yTr73jAgmRWv5m1H89X_qNl5QswH7MqSxiDo9uVp4q04ZAS6vf_vvDSIRe-uxoi-QXp8J6s1qXIIP1pCUpUqrtV65A&q=blockchain+governance+challenges+site:cambridge.org/core/journals&ved=1t:220175&ictx=111
+              - generic [ref=e103]: Shopping
+          - listitem [ref=e104]:
+            - link "Video singkat" [ref=e105] [cursor=pointer]:
+              - /url: /search?sca_esv=1b5bcfce8e29f7f4&udm=39&fbs=ADc_l-ZfIPzv45NHkpmEx1uvAy1Y0jSl1hx3Xkmo2lpunDqItojzoLSoI2UgPvOhwZEULEWETNL4VhcbUWvLrs30eX4wJZ9TRvyATkhZ3dLD0MEEY2DmebHlEqC1g_vYeJooSvP1yTr73jAgmRWv5m1H89X_qNl5QswH7MqSxiDo9uVp4q04ZAS6vf_vvDSIRe-uxoi-QXp8J6s1qXIIP1pCUpUqrtV65A&q=blockchain+governance+challenges+site:cambridge.org/core/journals&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQs6gLegQIEBAB
+              - generic [ref=e107]: Video singkat
+          - listitem [ref=e108]:
+            - button "Filter lainnya" [ref=e109] [cursor=pointer]:
+              - generic "Filter lainnya" [ref=e110]:
+                - generic [ref=e111]:
+                  - generic [ref=e112]: Lainnya
+                  - img [ref=e114]
+        - button "Alat" [ref=e117] [cursor=pointer]:
+          - generic [ref=e119]:
+            - generic [ref=e120]: Alat
+            - img [ref=e122]
+    - heading "Hasil Telusur" [level=1] [ref=e124]
+    - generic [ref=e130]:
+      - generic [ref=e131]: Looking for results in English?
+      - link [ref=e132] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e134]
+      - link "Change to English" [ref=e136] [cursor=pointer]:
+        - /url: /setprefs?sig=0_cHKmly_Tzd8Z8M7s74B7olB1s4U%3D&source=en_ignored_notification&prev=https://www.google.com/search?q%3Dblockchain%2Bgovernance%2Bchallenges%2Bsite:cambridge.org/core/journals&hl=en&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQhoQCKAF6BAgMEAQ
+      - link "Tetap dalam bahasa Bahasa Indonesia" [ref=e137] [cursor=pointer]:
+        - /url: "#"
+      - link "Setelan bahasa" [ref=e139] [cursor=pointer]:
+        - /url: /preferences?lang=1&hl=id&sa=X&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQiIQCKAN6BAgMEAY#languages
+    - main [ref=e141]:
+      - generic [ref=e145]:
+        - generic [ref=e148]:
+          - heading "Web results" [level=2] [ref=e149]
+          - generic [ref=e150]:
+            - generic [ref=e153]:
+              - 'link "Blockchain Governance Challenges: Beyond Libertarianism Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e155] [cursor=pointer]':
+                - /url: https://www.cambridge.org/core/journals/american-journal-of-international-law/article/blockchain-governance-challenges-beyond-libertarianism/D34C6761D744E44FA04C3E64B4DEFE51
+                - 'heading "Blockchain Governance Challenges: Beyond Libertarianism" [level=3] [ref=e156]'
+                - generic [ref=e161]:
+                  - generic [ref=e163]: Cambridge University Press & Assessment
+                  - generic [ref=e165]: https://www.cambridge.org › ...
+              - generic [ref=e166]:
+                - generic [ref=e167]: ·
+                - link "Terjemahkan halaman ini" [ref=e168] [cursor=pointer]:
+                  - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/american-journal-of-international-law/article/blockchain-governance-challenges-beyond-libertarianism/D34C6761D744E44FA04C3E64B4DEFE51&hl=id&sl=en&tl=id&client=search
+              - button "Tentang hasil ini" [ref=e169] [cursor=pointer]:
+                - img [ref=e172]
+            - generic [ref=e175]:
+              - generic [ref=e176]: oleh O Korhonen · 2021 · Dirujuk 10 kali —
+              - generic [ref=e177]:
+                - text: This essay considers the ideological context of
+                - emphasis [ref=e178]: blockchain
+                - text: technology. This technology is often celebrated for its potential for decentralization, distribution ...
+        - generic [ref=e182]:
+          - generic [ref=e185]:
+            - link "The Global Governance Implications of Blockchain Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e187] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/american-journal-of-international-law/ajil-unbound-by-symposium/the-global-governance-implications-of-blockchain
+              - heading "The Global Governance Implications of Blockchain" [level=3] [ref=e188]
+              - generic [ref=e193]:
+                - generic [ref=e195]: Cambridge University Press & Assessment
+                - generic [ref=e197]: https://www.cambridge.org › ...
+            - generic [ref=e198]:
+              - generic [ref=e199]: ·
+              - link "Terjemahkan halaman ini" [ref=e200] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/american-journal-of-international-law/ajil-unbound-by-symposium/the-global-governance-implications-of-blockchain&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e201] [cursor=pointer]:
+              - img [ref=e204]
+          - generic [ref=e207]:
+            - generic [ref=e208]: 6 Des 2021 —
+            - generic [ref=e209]:
+              - emphasis [ref=e210]: How might blockchain-borne redistribution bear upon law and legal institutions
+              - text: ", or what might it demand of those, on the international plane?"
+        - generic [ref=e214]:
+          - generic [ref=e217]:
+            - 'link "The Social Cost of Blockchain: Externalities, Allocation of ... Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e219] [cursor=pointer]':
+              - /url: https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/social-cost-of-blockchain-externalities-allocation-of-property-rights-and-the-role-of-the-law/22EAD2E27808C40C63B7CCD6122AD8ED
+              - 'heading "The Social Cost of Blockchain: Externalities, Allocation of ..." [level=3] [ref=e220]'
+              - generic [ref=e225]:
+                - generic [ref=e227]: Cambridge University Press & Assessment
+                - generic [ref=e229]: https://www.cambridge.org › ...
+            - generic [ref=e230]:
+              - generic [ref=e231]: ·
+              - link "Terjemahkan halaman ini" [ref=e232] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/social-cost-of-blockchain-externalities-allocation-of-property-rights-and-the-role-of-the-law/22EAD2E27808C40C63B7CCD6122AD8ED&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e233] [cursor=pointer]:
+              - img [ref=e236]
+          - generic [ref=e239]:
+            - generic [ref=e240]: oleh ED Martino · Dirujuk 6 kali —
+            - generic [ref=e241]:
+              - text: From environmental impacts to operational risks and
+              - emphasis [ref=e242]: governance challenges
+              - text: ", the social cost of blockchain transactions is varied and complex."
+        - generic [ref=e246]:
+          - generic [ref=e249]:
+            - link "The impact of institutions on blockchain adoption in ... Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e251] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/data-and-policy/article/impact-of-institutions-on-blockchain-adoption-in-the-european-public-sector-a-qualitative-comparative-analysis/089BF1DB4D988A12E8D20A73FB08CC4C
+              - heading "The impact of institutions on blockchain adoption in ..." [level=3] [ref=e252]
+              - generic [ref=e257]:
+                - generic [ref=e259]: Cambridge University Press & Assessment
+                - generic [ref=e261]: https://www.cambridge.org › ...
+            - generic [ref=e262]:
+              - generic [ref=e263]: ·
+              - link "Terjemahkan halaman ini" [ref=e264] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/data-and-policy/article/impact-of-institutions-on-blockchain-adoption-in-the-european-public-sector-a-qualitative-comparative-analysis/089BF1DB4D988A12E8D20A73FB08CC4C&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e265] [cursor=pointer]:
+              - img [ref=e268]
+          - generic [ref=e271]:
+            - generic [ref=e272]: oleh S Mahula · 2025 —
+            - generic [ref=e273]:
+              - text: However, its concrete value and applicability within
+              - emphasis [ref=e274]: government
+              - text: settings remain contested, and real-world adoption has been limited and uneven.
+        - generic [ref=e278]:
+          - generic [ref=e281]:
+            - link "Uncertainty and dispute resolution for blockchain and ... Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e283] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/journal-of-institutional-economics/article/uncertainty-and-dispute-resolution-for-blockchain-and-smart-contract-institutions/6C06720B46228EA9D95E5E7611E5EFA5
+              - heading "Uncertainty and dispute resolution for blockchain and ..." [level=3] [ref=e284]
+              - generic [ref=e289]:
+                - generic [ref=e291]: Cambridge University Press & Assessment
+                - generic [ref=e293]: https://www.cambridge.org › ...
+            - generic [ref=e294]:
+              - generic [ref=e295]: ·
+              - link "Terjemahkan halaman ini" [ref=e296] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/journal-of-institutional-economics/article/uncertainty-and-dispute-resolution-for-blockchain-and-smart-contract-institutions/6C06720B46228EA9D95E5E7611E5EFA5&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e297] [cursor=pointer]:
+              - img [ref=e300]
+          - generic [ref=e303]:
+            - generic [ref=e304]: oleh BE Howell · 2021 · Dirujuk 63 kali —
+            - text: We examine the technical and economic characteristics of blockchains and smart contracts to identify sources of uncertainty that may pose challenges.
+        - generic [ref=e308]:
+          - generic [ref=e311]:
+            - link "Tokenization of everything? Exploring the limits ... Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e313] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/finance-and-society/article/tokenization-of-everything-exploring-the-limits-of-blockchain-technologies-in-the-governance-of-financial-markets-and-assets/72FAD612CB96857584041CE1459A99A6
+              - heading "Tokenization of everything? Exploring the limits ..." [level=3] [ref=e314]
+              - generic [ref=e319]:
+                - generic [ref=e321]: Cambridge University Press & Assessment
+                - generic [ref=e323]: https://www.cambridge.org › ...
+            - generic [ref=e324]:
+              - generic [ref=e325]: ·
+              - link "Terjemahkan halaman ini" [ref=e326] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/finance-and-society/article/tokenization-of-everything-exploring-the-limits-of-blockchain-technologies-in-the-governance-of-financial-markets-and-assets/72FAD612CB96857584041CE1459A99A6&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e327] [cursor=pointer]:
+              - img [ref=e330]
+          - generic [ref=e333]:
+            - generic [ref=e334]: oleh A Proskurovska · Dirujuk 8 kali —
+            - generic [ref=e335]:
+              - text: Tokenization, though,
+              - emphasis [ref=e336]: has faced challenges to its legitimacy as a governance architecture
+              - text: ", especially from central regulatory agencies and ..."
+        - generic [ref=e340]:
+          - generic [ref=e343]:
+            - link "The illusion of the Web3 decentralization | Data & Policy Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e345] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/data-and-policy/article/illusion-of-the-web3-decentralization/AAC73AD95284C123F83BE0A67CAD2AE9
+              - heading "The illusion of the Web3 decentralization | Data & Policy" [level=3] [ref=e346]
+              - generic [ref=e351]:
+                - generic [ref=e353]: Cambridge University Press & Assessment
+                - generic [ref=e355]: https://www.cambridge.org › ...
+            - generic [ref=e356]:
+              - generic [ref=e357]: ·
+              - link "Terjemahkan halaman ini" [ref=e358] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/data-and-policy/article/illusion-of-the-web3-decentralization/AAC73AD95284C123F83BE0A67CAD2AE9&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e359] [cursor=pointer]:
+              - img [ref=e362]
+          - generic [ref=e365]:
+            - generic [ref=e366]: oleh I Calzada · 2026 · Dirujuk 7 kali —
+            - generic [ref=e367]:
+              - text: This article critically examines
+              - emphasis [ref=e368]: how Web3 decentralization policy trends impact global digital governance
+              - text: ", questioning whether they ..."
+        - generic [ref=e372]:
+          - generic [ref=e375]:
+            - link "Why do Public Blockchains Need Formal and Effective ... Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e377] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/why-do-public-blockchains-need-formal-and-effective-internal-governance-mechanisms/B323CC2D41B2498C092C53E8C4A39CE2
+              - heading "Why do Public Blockchains Need Formal and Effective ..." [level=3] [ref=e378]
+              - generic [ref=e383]:
+                - generic [ref=e385]: Cambridge University Press & Assessment
+                - generic [ref=e387]: https://www.cambridge.org › ...
+            - generic [ref=e388]:
+              - generic [ref=e389]: ·
+              - link "Terjemahkan halaman ini" [ref=e390] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/european-journal-of-risk-regulation/article/why-do-public-blockchains-need-formal-and-effective-internal-governance-mechanisms/B323CC2D41B2498C092C53E8C4A39CE2&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e391] [cursor=pointer]:
+              - img [ref=e394]
+          - generic [ref=e397]:
+            - generic [ref=e398]: oleh K YEUNG · 2019 · Dirujuk 36 kali —
+            - generic [ref=e399]:
+              - text: We argue that unless public
+              - emphasis [ref=e400]: blockchain
+              - text: systems establish formal and effective internal
+              - emphasis [ref=e401]: governance
+              - text: ", they are unlikely to be taken up at scale as a tool for ..."
+        - generic [ref=e405]:
+          - generic [ref=e408]:
+            - link "The past, present, and future of polycentric legal order Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e410] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/journal-of-institutional-economics/article/past-present-and-future-of-polycentric-legal-order-a-comparative-institutional-analysis-of-lex-mercatoria-and-blockchain/C8A1D43071F5E536354F67DBF7842323
+              - heading "The past, present, and future of polycentric legal order" [level=3] [ref=e411]
+              - generic [ref=e416]:
+                - generic [ref=e418]: Cambridge University Press & Assessment
+                - generic [ref=e420]: https://www.cambridge.org › ...
+            - generic [ref=e421]:
+              - generic [ref=e422]: ·
+              - link "Terjemahkan halaman ini" [ref=e423] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/journal-of-institutional-economics/article/past-present-and-future-of-polycentric-legal-order-a-comparative-institutional-analysis-of-lex-mercatoria-and-blockchain/C8A1D43071F5E536354F67DBF7842323&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e424] [cursor=pointer]:
+              - img [ref=e427]
+          - generic [ref=e430]:
+            - generic [ref=e431]: oleh I Murtazashvili · 2026 —
+            - generic [ref=e432]:
+              - emphasis [ref=e433]: Blockchains enforce formalized, unambiguous rules ex ante
+              - text: ", reducing or even eliminating certain types of disputes. In this sense, blockchains ..."
+        - generic [ref=e437]:
+          - generic [ref=e440]:
+            - link "Blockchain networks as constitutional and competitive ... Cambridge University Press & Assessment https://www.cambridge.org › ..." [ref=e442] [cursor=pointer]:
+              - /url: https://www.cambridge.org/core/journals/journal-of-institutional-economics/article/blockchain-networks-as-constitutional-and-competitive-polycentric-orders/2DFD78A55D1D84EAE5D008B448531E1D
+              - heading "Blockchain networks as constitutional and competitive ..." [level=3] [ref=e443]
+              - generic [ref=e448]:
+                - generic [ref=e450]: Cambridge University Press & Assessment
+                - generic [ref=e452]: https://www.cambridge.org › ...
+            - generic [ref=e453]:
+              - generic [ref=e454]: ·
+              - link "Terjemahkan halaman ini" [ref=e455] [cursor=pointer]:
+                - /url: https://translate.google.com/translate?u=https://www.cambridge.org/core/journals/journal-of-institutional-economics/article/blockchain-networks-as-constitutional-and-competitive-polycentric-orders/2DFD78A55D1D84EAE5D008B448531E1D&hl=id&sl=en&tl=id&client=search
+            - button "Tentang hasil ini" [ref=e456] [cursor=pointer]:
+              - img [ref=e459]
+          - generic [ref=e462]:
+            - generic [ref=e463]: oleh E Alston · 2022 · Dirujuk 71 kali —
+            - text: We illustrate how conceptualizing blockchains as competing and constitutional polycentric enterprises clarifies their processes of change.
+      - navigation [ref=e466]:
+        - heading "Navigasi Halaman" [level=1] [ref=e467]
+        - text: "1"
+        - link "Page 2" [ref=e470] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=10&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAE
+          - text: "2"
+        - link "Page 3" [ref=e472] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=20&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAG
+          - text: "3"
+        - link "Page 4" [ref=e474] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=30&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAI
+          - text: "4"
+        - link "Page 5" [ref=e476] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=40&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAK
+          - text: "5"
+        - link "Page 6" [ref=e478] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=50&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAM
+          - text: "6"
+        - link "Page 7" [ref=e480] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=60&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAO
+          - text: "7"
+        - link "Page 8" [ref=e482] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=70&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAQ
+          - text: "8"
+        - link "Page 9" [ref=e484] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=80&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAS
+          - text: "9"
+        - link "Page 10" [ref=e486] [cursor=pointer]:
+          - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=90&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8tMDegQIJxAU
+          - text: "10"
+        - heading "Berikutnya" [level=2] [ref=e488]:
+          - link "Berikutnya" [ref=e489] [cursor=pointer]:
+            - /url: /search?q=blockchain+governance+challenges+site:cambridge.org/core/journals&sca_esv=1b5bcfce8e29f7f4&ei=kPv3acWnK86_seMPuMOUqQI&start=10&sa=N&sstk=Af77f_eChjA2Jfrym6E6YTsF6T2hSL8mfDelf9HFh1_26C2sbgKiCBd_h6ka52J6Uq4LV2slqgsdVzUr39TsOJTc1WA_shPd7DfK9g&ved=2ahUKEwjFr9PSwp6UAxXOX2wGHbghJSUQ8NMDegQIJxAW
+            - generic [ref=e491]: Berikutnya
+      - navigation
+    - contentinfo [ref=e492]:
+      - heading "Link Footer" [level=1] [ref=e493]
+      - generic [ref=e497]:
+        - generic [ref=e499]:
+          - text: Indonesia
+          - generic [ref=e501]:
+            - button "Daerah Istimewa Yogyakarta - Berdasarkan aktivitas Anda sebelumnya" [ref=e503] [cursor=pointer]:
+              - generic [ref=e504]: Daerah Istimewa Yogyakarta
+              - generic [ref=e506]:
+                - text: "-"
+                - generic [ref=e507]: Berdasarkan aktivitas Anda sebelumnya
+            - text: "-"
+            - button "Perbarui lokasi" [ref=e509] [cursor=pointer]: Perbarui lokasi
+        - generic [ref=e512]:
+          - link "Bantuan" [ref=e513] [cursor=pointer]:
+            - /url: https://support.google.com/websearch/?p=ws_results_help&hl=id&fg=1
+          - link "Kirim masukan" [ref=e514] [cursor=pointer]:
+            - /url: "#"
+          - link "Privasi" [ref=e515] [cursor=pointer]:
+            - /url: https://policies.google.com/privacy?hl=id&fg=1
+          - link "Persyaratan" [ref=e516] [cursor=pointer]:
+            - /url: https://policies.google.com/terms?hl=id&fg=1

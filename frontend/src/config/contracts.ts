@@ -21,10 +21,9 @@ export async function loadContracts(): Promise<void> {
       const data = await res.json()
       Object.assign(CONTRACTS, data)
       contractsReady = true
-      console.log('Contract addresses loaded from deployer:', data)
     }
   } catch (e) {
-    console.warn('Failed to load contract addresses from deployer, using fallbacks:', e)
+    // silent: using fallback contract addresses
   }
 }
 

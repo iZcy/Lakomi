@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
+import { useQueryClient } from '@tanstack/react-query'
+import { parseEther, formatEther, isAddress } from 'viem'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { useIsMember, useProposalCount, useProposal, useProposalState, useHasVoted, useIsRATDue } from '../hooks/useContractRead'
+import { useIsMember, useProposalCount, useProposal, useProposalState, useHasVoted, useIsRATDue, useProposalTarget, useProposalValue, useProposalCallData } from '../hooks/useContractRead'
 import { useCreateProposal, useCastVote, useQueueProposal, useExecuteProposal, useCancelProposal, useScheduleRAT } from '../hooks/useContractWrite'
 import { getProposalStateName, getProposalStateColor, formatTimestampShort } from '../lib/utils'
 import { decodeProposal } from '../types'
@@ -45,6 +48,9 @@ export function Governance() {
               ))}
             </div>
           )}
+          {selectedId !== null && (
+            <ProposalDetail id={BigInt(selectedId)} address={address} />
+          )}
         </div>
       </div>
     </div>
@@ -53,21 +59,46 @@ export function Governance() {
 
 function CreateProposalForm() {
   const [desc, setDesc] = useState('')
-  const [type, setType] = useState('0')
+  const [type, setType] = useState('')
+  const [target, setTarget] = useState('')
+  const [amount, setAmount] = useState('')
+  const [calldata, setCalldata] = useState('')
   const { createProposal, isPending, isSuccess } = useCreateProposal()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (isSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+      // Reset all fields
+      setDesc(''); setType(''); setTarget(''); setAmount(''); setCalldata('')
+    }
+  }, [isSuccess, queryClient])
 
   const PROPOSAL_TYPES = [
-    { value: '0', label: 'Umum' },
-    { value: '1', label: 'Anggaran (Spend)' },
-    { value: '2', label: 'Keanggotaan' },
-    { value: '3', label: 'RAT Tahunan' },
-    { value: '4', label: 'Lainnya' },
+    { value: '0', label: 'Umum', needsTarget: false, needsAmount: false },
+    { value: '1', label: 'Anggaran (Spend)', needsTarget: true, needsAmount: true },
+    { value: '2', label: 'Keanggotaan', needsTarget: false, needsAmount: false },
+    { value: '3', label: 'RAT Tahunan', needsTarget: false, needsAmount: false },
+    { value: '4', label: 'Lainnya', needsTarget: true, needsAmount: true },
   ]
 
+  const selectedType = PROPOSAL_TYPES.find(t => t.value === type)
+  const needsTarget = selectedType?.needsTarget ?? false
+  const needsAmount = selectedType?.needsAmount ?? false
+
+  const isTargetValid = !needsTarget || (target && isAddress(target))
+  const isAmountValid = !needsAmount || (amount && !isNaN(Number(amount)) && Number(amount) >= 0)
+  const canSubmit = desc.trim() && type && isTargetValid && isAmountValid
+
   const handle = () => {
-    if (!desc.trim()) return
-    createProposal(desc, Number(type), CONTRACTS.LAKOMI_VAULT, 0n, '0x')
-    setDesc('')
+    if (!canSubmit) return
+
+    const targetAddr = (needsTarget && target ? target : CONTRACTS.LAKOMI_VAULT) as `0x${string}`
+    const value = needsAmount && amount ? parseEther(amount) : 0n
+    const data = (calldata && calldata.startsWith('0x') ? calldata : '0x') as `0x${string}`
+
+    createProposal(desc, Number(type), targetAddr, value, data)
+    setDesc(''); setType(''); setTarget(''); setAmount(''); setCalldata('')
   }
 
   return (
@@ -75,9 +106,13 @@ function CreateProposalForm() {
       <CardHeader><CardTitle className="text-sm">Buat Usulan Baru</CardTitle></CardHeader>
       <CardContent className="space-y-3">
         <div className="space-y-1.5">
-          <label className="text-xs text-muted-foreground">Jenis Usulan</label>
+          <label className="text-xs text-muted-foreground">Jenis Usulan *</label>
           <Select value={type} onValueChange={setType}>
-            <SelectTrigger><SelectValue /></SelectTrigger>
+            <SelectTrigger>
+              <SelectValue placeholder="Pilih jenis usulan">
+                {type ? PROPOSAL_TYPES.find(t => t.value === type)?.label : undefined}
+              </SelectValue>
+            </SelectTrigger>
             <SelectContent>
               {PROPOSAL_TYPES.map((t) => (
                 <SelectItem key={t.value} value={t.value}>{t.label}</SelectItem>
@@ -85,8 +120,51 @@ function CreateProposalForm() {
             </SelectContent>
           </Select>
         </div>
+
+        {needsTarget && (
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground">Alamat Tujuan *</label>
+            <Input
+              placeholder="0x..."
+              value={target}
+              onChange={(e) => setTarget(e.target.value)}
+              className="text-xs font-mono"
+            />
+            {target && !isAddress(target) && (
+              <p className="text-[10px] text-red-400">Alamat tidak valid</p>
+            )}
+          </div>
+        )}
+
+        {needsAmount && (
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground">Jumlah (ETH) *</label>
+            <Input
+              type="number"
+              placeholder="0.0"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              min="0"
+              step="0.001"
+            />
+          </div>
+        )}
+
+        {type === '4' && (
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground">Calldata (opsional)</label>
+            <Input
+              placeholder="0x..."
+              value={calldata}
+              onChange={(e) => setCalldata(e.target.value)}
+              className="text-xs font-mono"
+            />
+            <p className="text-[10px] text-muted-foreground">Kosongkan untuk transfer ETH biasa</p>
+          </div>
+        )}
+
         <Textarea placeholder="Tulis usulan Anda..." value={desc} onChange={(e) => setDesc(e.target.value)} rows={3} />
-        <Button onClick={handle} disabled={!desc.trim() || isPending} size="sm" className="w-full">
+        <Button onClick={handle} disabled={!canSubmit || isPending} size="sm" className="w-full">
           {isPending ? 'Membuat...' : 'Buat Usulan'}
         </Button>
         {isSuccess && <p className="text-xs text-emerald-500">Usulan berhasil dibuat!</p>}
@@ -146,10 +224,20 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
   const proposal = decodeProposal(proposalRaw)
   const { data: state } = useProposalState(id)
   const { data: hasVoted } = useHasVoted(id, address)
+  const { data: target } = useProposalTarget(id)
+  const { data: value } = useProposalValue(id)
+  const { data: callData } = useProposalCallData(id)
   const { castVote, isPending: votingPending, isSuccess: voteSuccess } = useCastVote()
   const { queueProposal, isPending: queuePending, isSuccess: queueSuccess } = useQueueProposal()
   const { executeProposal, isPending: execPending, isSuccess: execSuccess } = useExecuteProposal()
   const { cancelProposal, isPending: cancelPending, isSuccess: cancelSuccess } = useCancelProposal()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (voteSuccess || queueSuccess || execSuccess || cancelSuccess) {
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+    }
+  }, [voteSuccess, queueSuccess, execSuccess, cancelSuccess, queryClient])
 
   if (!proposal) return null
   const total = proposal.forVotes + proposal.againstVotes + proposal.abstainVotes
@@ -175,6 +263,21 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
             <div><span className="text-muted-foreground/60">Selesai:</span> {formatTimestampShort(proposal.endTime)}</div>
             <div><span className="text-muted-foreground/60">Tipe:</span> {['Umum', 'Anggaran', 'Keanggotaan', 'RAT', 'Lainnya'][proposal.proposalType]}</div>
           </div>
+
+          {(proposal.proposalType === 1 || proposal.proposalType === 4) && target && (
+            <div className="bg-muted/40 rounded-md p-3 mb-4 space-y-1.5">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/80">Aksi Usulan</p>
+              <div className="text-xs space-y-1">
+                <div><span className="text-muted-foreground/60">Alamat Tujuan:</span> <span className="font-mono">{target}</span></div>
+                {value !== undefined && value > 0n && (
+                  <div><span className="text-muted-foreground/60">Nilai Transfer:</span> <span className="font-semibold">{formatEther(value)} ETH</span></div>
+                )}
+                {callData && callData !== '0x' && (
+                  <div><span className="text-muted-foreground/60">Data Panggilan:</span> <span className="font-mono text-[10px]">{callData.slice(0, 20)}...</span></div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="space-y-2">
             <VoteBar label="Setuju" votes={proposal.forVotes} total={total} color="bg-emerald-500" />

@@ -1,0 +1,964 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Skip to main content" [ref=e3] [cursor=pointer]:
+      - /url: "#maincontent"
+    - link "Accessibility help" [ref=e4] [cursor=pointer]:
+      - /url: /core/accessibility
+    - generic [ref=e9]:
+      - link "Homepage Cambridge University Press" [ref=e11] [cursor=pointer]:
+        - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/academic
+        - img "Homepage Cambridge University Press" [ref=e12]
+      - navigation [ref=e74]:
+        - generic [ref=e75]:
+          - button "Discover Content" [ref=e77] [cursor=pointer]:
+            - generic [ref=e78]:
+              - img [ref=e79]
+              - text: Discover Content
+            - img [ref=e82]
+          - button "Products and Services" [ref=e85] [cursor=pointer]:
+            - generic [ref=e86]:
+              - img [ref=e88]
+              - text: Products and Services
+            - img [ref=e90]
+          - generic [ref=e92]:
+            - link "Register" [ref=e94] [cursor=pointer]:
+              - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/core/register?ref=/core/journals/american-journal-of-international-law/article/blockchain-governance-challenges-beyond-libertarianism/D34C6761D744E44FA04C3E64B4DEFE51
+              - img [ref=e96]
+              - text: Register
+            - link "Log In" [ref=e103] [cursor=pointer]:
+              - /url: /core/login?ref=/core/journals/american-journal-of-international-law/article/blockchain-governance-challenges-beyond-libertarianism/D34C6761D744E44FA04C3E64B4DEFE51
+              - img [ref=e105]
+              - text: Log In
+          - link "Shopping Cart with no items" [ref=e109] [cursor=pointer]:
+            - /url: /core/shopping-cart
+            - img [ref=e111]
+            - text: (0) Cart
+  - generic [ref=e118]:
+    - generic [ref=e119]:
+      - link "Logo for Cambridge Core from Cambridge University Press. Click to return to homepage." [ref=e121] [cursor=pointer]:
+        - /url: /core/
+        - img "Logo for Cambridge Core from Cambridge University Press. Click to return to homepage." [ref=e123]
+      - separator [ref=e125]
+      - navigation [ref=e126]:
+        - list [ref=e128]:
+          - listitem [ref=e129]:
+            - button "Browse" [ref=e130] [cursor=pointer]:
+              - generic [ref=e131]: Browse
+              - generic [ref=e132]:
+                - img
+          - listitem [ref=e133]:
+            - button "Services" [ref=e134] [cursor=pointer]:
+              - generic [ref=e135]: Services
+              - generic [ref=e136]:
+                - img
+          - listitem [ref=e137]:
+            - button "Open research" [ref=e138] [cursor=pointer]:
+              - generic [ref=e139]: Open research
+              - generic [ref=e140]:
+                - img
+    - generic [ref=e141]:
+      - button "Authenticated by Universitas Gadjah Mada" [ref=e145] [cursor=pointer]:
+        - generic [ref=e146]:
+          - generic [ref=e147]:
+            - img
+          - generic [ref=e148]:
+            - generic [ref=e149]: Authenticated by
+            - generic [ref=e150]: Universitas Gadjah Mada
+        - generic [ref=e151]:
+          - img
+      - button "Search" [ref=e153] [cursor=pointer]:
+        - generic [ref=e154]:
+          - img
+        - generic [ref=e155]: Search
+  - alert
+  - main [ref=e157]:
+    - generic [ref=e161]:
+      - generic [ref=e164]:
+        - navigation [ref=e166]:
+          - list [ref=e167]:
+            - listitem [ref=e168]:
+              - link "Home" [ref=e169] [cursor=pointer]:
+                - /url: /core
+            - listitem [ref=e170]:
+              - text: ">"
+              - link "Journals" [ref=e171] [cursor=pointer]:
+                - /url: /core/publications/journals
+            - listitem [ref=e172]:
+              - text: ">"
+              - link "American Journal of International Law" [ref=e173] [cursor=pointer]:
+                - /url: /core/journals/american-journal-of-international-law
+            - listitem [ref=e174]:
+              - text: ">"
+              - link "AJIL Unbound" [ref=e175] [cursor=pointer]:
+                - /url: /core/journals/american-journal-of-international-law/ajil-unbound
+            - listitem [ref=e176]:
+              - text: ">"
+              - link "Volume 115" [ref=e177] [cursor=pointer]:
+                - /url: /core/journals/american-journal-of-international-law/ajil-unbound/volume/64BA632AB8539ED455603DDB583D04EB
+            - listitem [ref=e178]: ">Blockchain Governance Challenges: Beyond Libertarianism"
+        - list [ref=e180]:
+          - listitem "English" [ref=e181]
+          - listitem "Français" [ref=e182]:
+            - button "Français" [ref=e183] [cursor=pointer]
+      - generic [ref=e185]:
+        - complementary "table of content" [ref=e186]:
+          - generic [ref=e187]:
+            - link "AJIL Unbound" [ref=e188] [cursor=pointer]:
+              - /url: /core/journals/american-journal-of-international-law/ajil-unbound
+              - generic [ref=e189]: AJIL Unbound
+            - separator [ref=e190]
+          - generic [ref=e191]:
+            - heading "Article contents" [level=2] [ref=e192]
+            - list [ref=e194]:
+              - listitem [ref=e195]:
+                - link "Extract" [ref=e196] [cursor=pointer]:
+                  - /url: "#sec0"
+              - listitem [ref=e197]:
+                - link "Libertarians, Cryptoanarchists, and Hacker Ethicists" [ref=e198] [cursor=pointer]:
+                  - /url: "#sec1"
+                  - generic [ref=e199]: Libertarians, Cryptoanarchists, and Hacker Ethicists
+              - listitem [ref=e200]:
+                - link "The Ideology of a Technology" [ref=e201] [cursor=pointer]:
+                  - /url: "#sec2"
+                  - generic [ref=e202]: The Ideology of a Technology
+              - listitem [ref=e203]:
+                - link "Governance Crusade Born Out of the Financial Crisis" [ref=e204] [cursor=pointer]:
+                  - /url: "#sec3"
+                  - generic [ref=e205]: Governance Crusade Born Out of the Financial Crisis
+              - listitem [ref=e206]:
+                - 'link "Blockchain-Based Governance: From Visions to Experiments" [ref=e207] [cursor=pointer]':
+                  - /url: "#sec4"
+                  - generic [ref=e208]: "Blockchain-Based Governance: From Visions to Experiments"
+              - listitem [ref=e209]:
+                - 'link "Conclusion: Blockchain Governance Challenges" [ref=e210] [cursor=pointer]':
+                  - /url: "#sec5"
+                  - generic [ref=e211]: "Conclusion: Blockchain Governance Challenges"
+              - listitem [ref=e212]:
+                - link "References" [ref=e213] [cursor=pointer]:
+                  - /url: "#references-list"
+        - generic [ref=e215]:
+          - generic [ref=e216]:
+            - generic [ref=e217]:
+              - 'heading "Blockchain Governance Challenges: Beyond Libertarianism" [level=1] [ref=e219]'
+              - generic [ref=e220]:
+                - generic [ref=e221]: "Part of:"
+                - link "The Global Governance Implications of Blockchain" [ref=e222] [cursor=pointer]:
+                  - /url: /core/product/identifier/THE_GLOBAL_GOVERNANCE_IMPLICATIONS_OF_BLOCKCHAIN/type/BESPOKE_COLLECTION
+              - paragraph [ref=e224]:
+                - text: "Published online by Cambridge University Press:"
+                - strong [ref=e225]: 06 December 2021
+              - generic [ref=e226]:
+                - generic [ref=e227]:
+                  - generic [ref=e229]:
+                    - generic [ref=e230]:
+                      - link "Outi Korhonen" [ref=e231] [cursor=pointer]:
+                        - /url: /core/search?filters%5BauthorTerms%5D=Outi%20Korhonen&eventCode=SE-AU
+                      - generic [ref=e232]: and
+                    - link "Juho Rantala" [ref=e234] [cursor=pointer]:
+                      - /url: /core/search?filters%5BauthorTerms%5D=Juho%20Rantala&eventCode=SE-AU
+                  - link "Show author details" [ref=e236] [cursor=pointer]:
+                    - /url: "#authors-details"
+                    - generic [ref=e237]: Show author details
+                - separator [ref=e238]
+            - generic [ref=e239]:
+              - navigation "tab navigation" [ref=e241]:
+                - tablist [ref=e242]:
+                  - tab "Article" [selected] [ref=e243] [cursor=pointer]
+                  - tab "Metrics" [ref=e244] [cursor=pointer]
+              - region "Tab content" [ref=e245]:
+                - generic [ref=e246]:
+                  - generic [ref=e247]:
+                    - generic [ref=e248]:
+                      - button "Save PDF" [ref=e250] [cursor=pointer]:
+                        - generic [ref=e251]: Save PDF
+                      - generic [ref=e252]:
+                        - button "Share" [ref=e253] [cursor=pointer]:
+                          - generic [ref=e254]: Share
+                        - text:         
+                      - button "Cite" [ref=e255] [cursor=pointer]:
+                        - generic [ref=e256]: Cite
+                      - link "Rights & Permissions [Opens in a new window]" [ref=e257] [cursor=pointer]:
+                        - /url: https://s100.copyright.com/AppDispatchServlet?publisherName=CUP&publication=AJU&title=Blockchain%20Governance%20Challenges%3A%20Beyond%20Libertarianism&publicationDate=06%20December%202021&author=Outi%20Korhonen%2C%20Juho%20Rantala&copyright=Outi%20Korhonen%20and%20Juho%20Rantala%202021&contentID=10.1017%2Faju.2021.65&startPage=408&endPage=412&orderBeanReset=True&volumeNum=115&issueNum=&oa=CC-BY
+                        - generic [ref=e258]: Rights & Permissions
+                        - generic [ref=e259]: "[Opens in a new window]"
+                    - separator [ref=e260]
+                  - generic [ref=e261]:
+                    - generic [ref=e264]:
+                      - heading "Extract" [level=2] [ref=e265]
+                      - paragraph [ref=e268]: This essay considers the ideological context of blockchain technology. This technology is often celebrated for its potential for decentralization, distribution, privacy, and a lack of intermediaries and coordinators for transactions and general governance. Because of these features, blockchain technology, and, in particular, its most famous inauguration—the bitcoin blockchain—is frequently identified with libertarianism. In this essay, we argue that the ideological context of blockchain technology is much more complicated. In addition to unraveling a number of background ideologies and their role in this technology, we raise the ontological issue concerning the relationship of ideology to technology. These matters have implications for, among other things, the approach that should be taken to blockchain's governance, as well as how international lawyers may approach this “foreign”-seeming phenomenon that has its proponents from the European Central Bank to the United Nations (not, however, forgetting the private sector nor the digital underground).
+                      - separator [ref=e269]
+                    - generic [ref=e270]:
+                      - heading "Information" [level=2] [ref=e271]
+                      - generic [ref=e272]:
+                        - generic [ref=e273]:
+                          - term [ref=e274]: Type
+                          - definition [ref=e275]: Essay
+                        - generic [ref=e276]:
+                          - term [ref=e277]: Information
+                          - definition [ref=e278]:
+                            - generic [ref=e279]:
+                              - link "AJIL Unbound" [ref=e280] [cursor=pointer]:
+                                - /url: /core/journals/american-journal-of-international-law/ajil-unbound
+                                - generic [ref=e281]: AJIL Unbound
+                              - generic [ref=e282]:
+                                - text: ","
+                                - link "Volume 115" [ref=e283] [cursor=pointer]:
+                                  - /url: /core/journals/american-journal-of-international-law/ajil-unbound/volume/64BA632AB8539ED455603DDB583D04EB
+                                  - generic [ref=e284]: Volume 115
+                              - text: ", 2021 , pp. 408 - 412"
+                            - generic [ref=e286]:
+                              - text: "DOI:"
+                              - link "https://doi-org.ezproxy.ugm.ac.id/10.1017/aju.2021.65 [Opens in a new window]" [ref=e287] [cursor=pointer]:
+                                - /url: https://doi-org.ezproxy.ugm.ac.id/10.1017/aju.2021.65
+                                - generic [ref=e288]: https://doi-org.ezproxy.ugm.ac.id/10.1017/aju.2021.65
+                                - generic [ref=e289]: "[Opens in a new window]"
+                        - generic [ref=e290]:
+                          - term [ref=e291]: Creative Commons
+                          - definition [ref=e292]:
+                            - generic [ref=e293]:
+                              - generic [ref=e294]:
+                                - img "Creative Common License - CC" [ref=e295]
+                                - img "Creative Common License - BY" [ref=e296]
+                              - generic [ref=e297]:
+                                - text: This is an Open Access article, distributed under the terms of the Creative Commons Attribution licence (
+                                - link "http://creativecommons.org/licenses/by/4.0/" [ref=e298] [cursor=pointer]:
+                                  - /url: http://creativecommons.org/licenses/by/4.0/
+                                - text: ), which permits unrestricted re-use, distribution, and reproduction in any medium, provided the original work is properly cited.
+                        - generic [ref=e299]:
+                          - term [ref=e300]: Copyright
+                          - definition [ref=e301]:
+                            - generic [ref=e302]: Copyright © Outi Korhonen and Juho Rantala 2021
+                      - separator [ref=e303]
+                    - generic [ref=e304]:
+                      - generic [ref=e307]:
+                        - paragraph [ref=e308]:
+                          - text: This essay considers the ideological context of blockchain technology. This technology is often celebrated for its potential for decentralization, distribution, privacy, and a lack of intermediaries and coordinators for transactions and general governance. Because of these features, blockchain technology, and, in particular, its most famous inauguration—the bitcoin blockchain—is frequently identified with libertarianism.
+                          - link "Footnote 1" [ref=e309] [cursor=pointer]:
+                            - /url: "#fn1"
+                            - generic [ref=e310]: Footnote
+                            - superscript [ref=e311]: "1"
+                          - text: In this essay, we argue that the ideological context of blockchain technology is much more complicated. In addition to unraveling a number of background ideologies and their role in this technology, we raise the ontological issue concerning the relationship of ideology to technology.
+                          - link "Footnote 2" [ref=e312] [cursor=pointer]:
+                            - /url: "#fn2"
+                            - generic [ref=e313]: Footnote
+                            - superscript [ref=e314]: "2"
+                          - text: These matters have implications for, among other things, the approach that should be taken to blockchain's governance, as well as how international lawyers may approach this “foreign”-seeming phenomenon that has its proponents from the European Central Bank to the United Nations (not, however, forgetting the private sector nor the digital underground).
+                        - generic [ref=e315]:
+                          - heading "Libertarians, Cryptoanarchists, and Hacker Ethicists" [level=2] [ref=e316]
+                          - paragraph [ref=e317]:
+                            - text: According to David Golumbia, the ideological inflections of blockchain technology are primarily right-wing or right extremist.
+                            - link "Footnote 3" [ref=e318] [cursor=pointer]:
+                              - /url: "#fn3"
+                              - generic [ref=e319]: Footnote
+                              - superscript [ref=e320]: "3"
+                            - text: According to this view, blockchain is valued for its potential to add business and financial transaction value and efficiency and make the financial industry quicker, more transparent, and globally formalized. Milder characterizations of blockchain's ideological presuppositions link the development history of blockchain technology with “libertarian-esque” ideas of the cryptoanarchists and cypherpunks, including John Gilmore, Julian Assange, Eric Hughes, and Hal Finney.
+                            - link "Footnote 4" [ref=e321] [cursor=pointer]:
+                              - /url: "#fn4"
+                              - generic [ref=e322]: Footnote
+                              - superscript [ref=e323]: "4"
+                            - text: On the other hand, it is often said that blockchain technology manifests a number of ideas from new social movements, cooperativism, and the sharing economy.
+                            - link "Footnote 5" [ref=e324] [cursor=pointer]:
+                              - /url: "#fn5"
+                              - generic [ref=e325]: Footnote
+                              - superscript [ref=e326]: "5"
+                            - text: "Also, the hacker ethics movement(s) (explained below) have been a breeding ground for blockchain technology. From the latter perspective, the position of the mainstream misses the mark. As Meltem Demirors states: “if your idea of bitcoin finally succeeding is boomer banker bros finally getting it and trying to co-opt it for their own gain . . . then I don't really know what to tell you.”"
+                            - link "Footnote 6" [ref=e327] [cursor=pointer]:
+                              - /url: "#fn6"
+                              - generic [ref=e328]: Footnote
+                              - superscript [ref=e329]: "6"
+                            - text: The blockchain developer community, as other communities, constantly argues about its vision of the technology.
+                            - link "Footnote 7" [ref=e330] [cursor=pointer]:
+                              - /url: "#fn7"
+                              - generic [ref=e331]: Footnote
+                              - superscript [ref=e332]: "7"
+                          - paragraph [ref=e333]:
+                            - text: Statements of hacker ethics, with their many variations, have proposed such imperatives as “information wants to be free” (free to move, free of charge) and “mistrust authority,” while promoting artistry and creativity. As one hacker described, the aim is to strive for a better world in which everyone can “speak without fear of reprisal, . . . be anonymous if they so choose, [and] . . . participate in a dialogue where one is judged by the merits of their words, not the color of their skin or the timbre of their voice.”
+                            - link "Footnote 8" [ref=e334] [cursor=pointer]:
+                              - /url: "#fn8"
+                              - generic [ref=e335]: Footnote
+                              - superscript [ref=e336]: "8"
+                            - text: One statement of the hacker ethic, asserted as a “categorical imperative” (the “Hands On Imperative”), postulates that “(a)ccess to computers and hardware should be complete and total.”
+                            - link "Footnote 9" [ref=e337] [cursor=pointer]:
+                              - /url: "#fn9"
+                              - generic [ref=e338]: Footnote
+                              - superscript [ref=e339]: "9"
+                            - text: Hacker ethics has striven to “remove any barriers between people and the use and understanding of any technology, no matter how large, complex, dangerous, labyrinthine, proprietary, or powerful.”
+                            - link "Footnote 10" [ref=e340] [cursor=pointer]:
+                              - /url: "#fn10"
+                              - generic [ref=e341]: Footnote
+                              - superscript [ref=e342]: "10"
+                            - text: Another hacker ethics proponent claimed that, already in the 1980s, it was evident that “[t]he computer system has been solely in the hands of big businesses and the government. The wonderful device meant to enrich life has become a weapon which dehumanizes people. . . . [T]he government doesn't use computers to arrange aid for the poor, but to control nuclear death weapons.”
+                            - link "Footnote 11" [ref=e343] [cursor=pointer]:
+                              - /url: "#fn11"
+                              - generic [ref=e344]: Footnote
+                              - superscript [ref=e345]: "11"
+                        - generic [ref=e346]:
+                          - heading "The Ideology of a Technology" [level=2] [ref=e347]
+                          - paragraph [ref=e348]:
+                            - text: Many argue that blockchain, like any other technology, is not politically neutral. According to Francesco Galati, blockchain technology is not ideology-free and should be discussed in terms of ideology rather than added value. Blockchain is essentially a political, not a technological, idea dating back to the teachings of Lao Tzu.
+                            - link "Footnote 12" [ref=e349] [cursor=pointer]:
+                              - /url: "#fn12"
+                              - generic [ref=e350]: Footnote
+                              - superscript [ref=e351]: "12"
+                            - text: For Galati, the libertarian elements in blockchain's ideological background are both left- and right-wing libertarian.
+                            - link "Footnote 13" [ref=e352] [cursor=pointer]:
+                              - /url: "#fn13"
+                              - generic [ref=e353]: Footnote
+                              - superscript [ref=e354]: "13"
+                            - text: In each case, it is deeply ideological and, thus, any governance using it will incorporate and spread the ideology. A more nuanced view is that it is the human operationalization of a technological application in a material-physical environment that imprints the operations in question with ideological content.
+                          - paragraph [ref=e355]:
+                            - text: Any assertions about the ideology of the blockchain and blockchain-facilitated governance can be either correct and/or misguided depending on which kind of ontological position one assumes. Martin Heidegger's analysis of tools and technology has been widely discussed with reference to the development of artificial intelligence as well as other emerging technologies. Also Rantala, referring to the potential of blockchains, argues that blockchains as technological schemes cannot be reduced to the cognitive images of their designers.
+                            - link "Footnote 14" [ref=e356] [cursor=pointer]:
+                              - /url: "#fn14"
+                              - generic [ref=e357]: Footnote
+                              - superscript [ref=e358]: "14"
+                            - text: Even if blockchain technology is exploited to add value in a number of industries, there is at the very least residual enrichment accrued outside the industrial value chains in question—from access to open source code, for example.
+                            - link "Footnote 15" [ref=e359] [cursor=pointer]:
+                              - /url: "#fn15"
+                              - generic [ref=e360]: Footnote
+                              - superscript [ref=e361]: "15"
+                          - paragraph [ref=e362]:
+                            - text: As a part of an ideological performance, a tool and a technology can be assigned different roles. Wessel Reijers and Mark Coeckelberg argue that blockchain is more than a technology since it has become a powerful narrative and governance ideology that promises automated governance through code.
+                            - link "Footnote 16" [ref=e363] [cursor=pointer]:
+                              - /url: "#fn16"
+                              - generic [ref=e364]: Footnote
+                              - superscript [ref=e365]: "16"
+                            - text: As noted above, the usefulness of blockchain has been championed by those advocating for the sharing economy, platform cooperativism, decentralized horizontal networks, and social movements to facilitate governance without establishing hierarchical bodies. In such proposals, the motivation is to avoid corporate governance prevalent in the platform economy and move toward self-governed networks in the digital space. For proponents of blockchain working in this vein, blockchain represents a materialist solution to governance, thus effacing subjective decisions by human actors. Materialist governance is “engineered, encoded, and inscribed to take place independently of active subjective consideration.”
+                            - link "Footnote 17" [ref=e366] [cursor=pointer]:
+                              - /url: "#fn17"
+                              - generic [ref=e367]: Footnote
+                              - superscript [ref=e368]: "17"
+                            - text: One must not forget, however, that this role has been assigned to blockchain technology as a result of human advocacy and involvement. The blockchain itself does not “speak” or “intend” materialism, cooperativism, corporate governance, right or left libertarianism, or hierarchy any more than a hammer or a hydrological dam, even if it can be utilized in performing skills, including governance skills, that project these ideological visions.
+                        - generic [ref=e369]:
+                          - heading "Governance Crusade Born Out of the Financial Crisis" [level=2] [ref=e370]
+                          - paragraph [ref=e371]:
+                            - text: It has been proposed that the contemporary ascent of blockchain technology was set in motion by the invention of the bitcoin blockchain that grew out of anger at the financial crisis. Although similar technologies and visions had been presented before, it was the crisis of 2008 that is said to have motivated the mysterious Satoshi Nagamoto to create bitcoin. It is said that bitcoin is “a crusade in the costume of a currency.”
+                            - link "Footnote 18" [ref=e372] [cursor=pointer]:
+                              - /url: "#fn18"
+                              - generic [ref=e373]: Footnote
+                              - superscript [ref=e374]: "18"
+                          - paragraph [ref=e375]:
+                            - text: In a Kierkegaardian vein, the politics of hacker ethics is about shifting away from external authority to everyone accepting their own authority and the accompanying responsibility, and becoming authors and facilitators—of choices, solutions, and checks and balances on various systems. While in the past, to gain voice and authority, an author needed intermediaries to market and distribute their message, hacker ethics-inspired blockchain governance seeks to do away with the power of the middle, i.e., the gatekeepers, the bookkeepers, and the authoritarian institutions that accredit, verify, limit, represent, showcase, or censor others. Bitcoin blockchain was the first technology to show that even the bank ledger did not need to be in centralized hands and the authority of the ledger keeper could thus be distributed. Many philosophers, including Kierkegaard and Weil, like many of the blockchain pioneers, espouse anonymity and see the best leaders as agents who seek to facilitate “in others a transition from authority exercised over them to authority vested in them individually.”
+                            - link "Footnote 19" [ref=e376] [cursor=pointer]:
+                              - /url: "#fn19"
+                              - generic [ref=e377]: Footnote
+                              - superscript [ref=e378]: "19"
+                            - text: They both set self-effacement (even ego destruction) as the goal to create, serve, and unite in humanity.
+                            - link "Footnote 20" [ref=e379] [cursor=pointer]:
+                              - /url: "#fn20"
+                              - generic [ref=e380]: Footnote
+                              - superscript [ref=e381]: "20"
+                            - text: Thus, the pursuit of anonymity should not be automatically reduced to extremist privacy or to a “hiding from the government” mentality; it can have quite different political and philosophical inflections.
+                          - paragraph [ref=e382]: However, when authority, authorship, and agency get redistributed, many unforeseen things tend to happen. The visions of the cypherpunks, for instance, did not include the scenario that their favorite technologies get co-opted by public and private powerhouses, such as the FANG+, TBTF-companies, or the Chinese Communist Party. Blockchain technologies were constructed by many of their pioneers to be run as global networks with potentially unlimited amounts of nodes—each working, authoring something, and having the inalienable authority attached to these agencies. Of course, other pioneers and coders intended adding value and global formalization of transactions and records.
+                        - generic [ref=e383]:
+                          - 'heading "Blockchain-Based Governance: From Visions to Experiments" [level=2] [ref=e384]'
+                          - paragraph [ref=e385]:
+                            - text: The year 2020 saw wide-scale institutional adoption of blockchain technologies. It was also the year of the forceful co-option of blockchain-powered cyberspace by governments and business groups, according to blockchain pioneer Amir Taaki. In addition to developing blockchain technology and giving it a face, Taaki's projects against this co-option include the use of blockchain-based governance to build an autonomous region in Rojava, Northern Syria. The region is to be governed as a direct democracy based on libertarian, socialist, and anarchist principles “that promot(e) decentralization, gender equality, environmental sustainability as well as religious, political, and cultural tolerance and diversity.”
+                            - link "Footnote 21" [ref=e386] [cursor=pointer]:
+                              - /url: "#fn21"
+                              - generic [ref=e387]: Footnote
+                              - superscript [ref=e388]: "21"
+                            - text: These are linked to hacker ethics imperatives, such as “(f)ree your fellow man, give him the tools (and) the knowledge to fight oppression.”
+                            - link "Footnote 22" [ref=e389] [cursor=pointer]:
+                              - /url: "#fn22"
+                              - generic [ref=e390]: Footnote
+                              - superscript [ref=e391]: "22"
+                            - text: According to Taaki and others, the co-option of the blockchain space means investment and development being increasingly in the hands of “actors who don't necessarily have a philosophical vision or goal we originally had in mind.”
+                            - link "Footnote 23" [ref=e392] [cursor=pointer]:
+                              - /url: "#fn23"
+                              - generic [ref=e393]: Footnote
+                              - superscript [ref=e394]: "23"
+                            - text: He identifies examples such as ConsenSys, central banks, and social media giants, e.g., Facebook.
+                          - paragraph [ref=e395]:
+                            - text: The bio-engineering scholar Aatresh has argued that non-fungible tokens (NFTs) are an important part of the shift in the technology sector away from a consumer tracking and advertising-based attention economy toward a “creator economy.”
+                            - link "Footnote 24" [ref=e396] [cursor=pointer]:
+                              - /url: "#fn24"
+                              - generic [ref=e397]: Footnote
+                              - superscript [ref=e398]: "24"
+                            - text: The creator economy emphasizes the potential of creators of art, such as a piece of music, that today can easily be human or not, individual or collective, utilizing new or recycled materials. In the gaming industry, the creation and distribution of NFTs, through platforms such as Enjin, seek to put the focus on the gamer instead of the commercial game maker. The idea is that gamers should not be tied to the “jurisdiction” of one corporate game at a time and that they would be able to travel cyberspace with their “fruits” of gaming (e.g., trophies, purchased elements, scores). For Aatresh, NFTs enable us to “rethink the intersection of money and power” in cyberspace.
+                            - link "Footnote 25" [ref=e399] [cursor=pointer]:
+                              - /url: "#fn25"
+                              - generic [ref=e400]: Footnote
+                              - superscript [ref=e401]: "25"
+                            - text: They also call for the rethinking of communities online. Rather than making more room for constructive, digital, and collective engagement, the present configuration of cyberspace causes negative emotions and radicalization to spread.
+                            - link "Footnote 26" [ref=e402] [cursor=pointer]:
+                              - /url: "#fn26"
+                              - generic [ref=e403]: Footnote
+                              - superscript [ref=e404]: "26"
+                            - text: Aatresh sees the creator economy and NFTs as shifting toward authenticated creation away from noise and toward decentralizing financial power, sharing in and supporting others’ initiatives (e.g., through crowdfunding).
+                            - link "Footnote 27" [ref=e405] [cursor=pointer]:
+                              - /url: "#fn27"
+                              - generic [ref=e406]: Footnote
+                              - superscript [ref=e407]: "27"
+                          - paragraph [ref=e408]:
+                            - text: Many banks and global financial operators, such as the SWIFT group, build and experiment with blockchain-facilitated operations with the help of traditional megaconsultant firms (e.g., Accenture).
+                            - link "Footnote 28" [ref=e409] [cursor=pointer]:
+                              - /url: "#fn28"
+                              - generic [ref=e410]: Footnote
+                              - superscript [ref=e411]: "28"
+                            - text: The Santander Bank has used blockchain technology for its governance meetings and reports increased efficiency.
+                            - link "Footnote 29" [ref=e412] [cursor=pointer]:
+                              - /url: "#fn29"
+                              - generic [ref=e413]: Footnote
+                              - superscript [ref=e414]: "29"
+                            - text: It is important to note that when proprietary organizations use blockchain technology, they use closed chains and afford no anonymity. Thus, these two key libertarian or anarchist features are optional, not, as is often assumed,
+                            - emphasis [ref=e415]: sine qua non
+                            - text: for blockchain.
+                          - paragraph [ref=e416]:
+                            - text: Jaya Klara Brekke, Kate Beecroft, and Francesca Pick analyzed two open blockchain-based online communities, namely Genesis DAO and Ouishare. For them, blockchain technology-based governance, often described as “consensus algorithms,” is better described as a way to navigate with communal “dissensus.” They discuss voting, staking, and forking as consensus/dissensus mechanisms that, for them, are the main “blockchain governance ideologies.”
+                            - link "Footnote 30" [ref=e417] [cursor=pointer]:
+                              - /url: "#fn30"
+                              - generic [ref=e418]: Footnote
+                              - superscript [ref=e419]: "30"
+                            - text: Their analysis highlights the open-endedness, dissociation, lack of follow-through, and passivity of the community-members from which all democratic governance suffers. They also emphasize the importance of adding off-line communication to blockchain governance because it better injects “historically and culturally specific practices”
+                            - link "Footnote 31" [ref=e420] [cursor=pointer]:
+                              - /url: "#fn31"
+                              - generic [ref=e421]: Footnote
+                              - superscript [ref=e422]: "31"
+                            - text: into community governance and that seems at odds with “supposedly universal mechanisms”
+                            - link "Footnote 32" [ref=e423] [cursor=pointer]:
+                              - /url: "#fn32"
+                              - generic [ref=e424]: Footnote
+                              - superscript [ref=e425]: "32"
+                            - text: that the blockchain governance technology by itself represents in their view. From the perspective of coding science and, in particular, developers of assisted and artificial intelligence, it is not, however, that code is incapable of giving effect to historical, cultural, and other human nuance. Rather, it is a question of the intricacy of the code and, consequently, the time and resources spent in creating it.
+                            - link "Footnote 33" [ref=e426] [cursor=pointer]:
+                              - /url: "#fn33"
+                              - generic [ref=e427]: Footnote
+                              - superscript [ref=e428]: "33"
+                        - generic [ref=e429]:
+                          - 'heading "Conclusion: Blockchain Governance Challenges" [level=2] [ref=e430]'
+                          - paragraph [ref=e431]:
+                            - text: The ideologies of blockchain development and governance need to be more diligently discussed also by international lawyers whenever blockchain technology is invoked as a solution to a social issue—be it consensus-seeking, dissensus-management, facilitations of transactions, value storage, value creation, or general governance, such as a UN initiative on blockchain for sustainable development.
+                            - link "Footnote 34" [ref=e432] [cursor=pointer]:
+                              - /url: "#fn34"
+                              - generic [ref=e433]: Footnote
+                              - superscript [ref=e434]: "34"
+                            - text: Blockchain governance challenges are not helpfully analyzed by identifying all of the technological variants discussed under blockchain and diagnosing these as libertarian, right-wing, anarchist, socialist, or otherwise. Cyberspace communities and their ideologies, especially in the digital underground, are too poorly known.
+                            - link "Footnote 35" [ref=e435] [cursor=pointer]:
+                              - /url: "#fn35"
+                              - generic [ref=e436]: Footnote
+                              - superscript [ref=e437]: "35"
+                            - text: It is also important to remember the Heideggerian analysis of our human connection to our tools that enables their quasi-embodiment and also critical distancing.
+                          - paragraph [ref=e438]:
+                            - text: When considering the ideologies, ethics, and ontological positions that have been briefly discussed in this essay, it should be clear that blockchain technologies invite various ideas to be put into use in cyberspace. They may also invite off-line interactions to complement algorithm-facilitated dissensus-management as a new variety of governance in the platform economy—a variation to address the old malaise of democracy. Ideological branding is effective in attracting users’ and commentators’ attention but it may also miss the ideological context of technology. Lawrence Lessig emphasized the culture of coders;
+                            - link "Footnote 36" [ref=e439] [cursor=pointer]:
+                              - /url: "#fn36"
+                              - generic [ref=e440]: Footnote
+                              - superscript [ref=e441]: "36"
+                            - text: yet, not only the coders but every user and actor brings ideological framing into the blockchain-facilitated governance and is also able to be self-critical about it. Simultaneously, while ideologies narrow the societal direction of these technologies, their networked nature maintains openings.
+                      - separator [ref=e442]
+                      - generic [ref=e443]:
+                        - heading "References" [level=2] [ref=e444]
+                        - generic [ref=e445]:
+                          - generic [ref=e446]:
+                            - generic "Return to the reference 1 in the content"
+                          - generic [ref=e447]: "1"
+                          - paragraph [ref=e450]:
+                            - emphasis [ref=e451]: See, e.g.
+                            - text: ", Griffin Daughtry,"
+                            - link "The Ideological Origins of Bitcoin" [ref=e453] [cursor=pointer]:
+                              - /url: https://fee.org/articles/the-ideological-origins-of-bitcoin
+                              - emphasis [ref=e454]: The Ideological Origins of Bitcoin
+                            - text: ", FEE (June 26, 2019)."
+                        - generic [ref=e455]:
+                          - generic [ref=e456]:
+                            - generic "Return to the reference 2 in the content"
+                          - generic [ref=e457]: "2"
+                          - paragraph [ref=e460]:
+                            - emphasis [ref=e461]: Cf.
+                            - text: Michael Freeden,
+                            - 'link "Ideology: A Very Short Introduction" [ref=e463] [cursor=pointer]':
+                              - /url: https://www.veryshortintroductions.com/view/10.1093/actrade/9780192802811.001.0001/actrade-9780192802811
+                            - text: 32 (2003).
+                        - generic [ref=e464]:
+                          - generic [ref=e465]:
+                            - generic "Return to the reference 3 in the content"
+                          - generic [ref=e466]: "3"
+                          - paragraph [ref=e469]:
+                            - link "Bitcoin Is a Right-Wing Technology" [ref=e471] [cursor=pointer]:
+                              - /url: https://www.buzzsprout.com/1004689/8793206-bitcoin-is-a-right-wing-technology-w-david-golumbia
+                              - emphasis [ref=e472]: Bitcoin Is a Right-Wing Technology
+                            - text: ", Tech Won't Save Us Podcast (July 1, 2021);"
+                            - emphasis [ref=e473]: see also
+                            - text: David Golumbia,
+                            - 'link "The Politics of Bitcoin: Software as Right-Wing Extremism" [ref=e476] [cursor=pointer]':
+                              - /url: https://www.upress.umn.edu/book-division/books/the-politics-of-bitcoin
+                            - text: (2016).
+                        - generic [ref=e477]:
+                          - generic [ref=e478]:
+                            - generic "Return to the reference 4 in the content"
+                          - generic [ref=e479]: "4"
+                          - paragraph [ref=e482]:
+                            - link "Daughtry" [ref=e484] [cursor=pointer]:
+                              - /url: https://fee.org/articles/the-ideological-origins-of-bitcoin
+                            - text: ","
+                            - emphasis [ref=e485]: supra
+                            - text: note 2.
+                        - generic [ref=e486]:
+                          - generic [ref=e487]:
+                            - generic "Return to the reference 5 in the content"
+                          - generic [ref=e488]: "5"
+                          - paragraph [ref=e491]:
+                            - text: Marianne Maeckelbergh,
+                            - 'link "Horizontal Democracy Now: From Alterglobalization to Occupation" [ref=e493] [cursor=pointer]':
+                              - /url: http://www.interfacejournal.net/wordpress/wp-content/uploads/2012/05/Interface-4-1-Maeckelbergh.pdf
+                              - emphasis [ref=e494]: "Horizontal Democracy Now: From Alterglobalization to Occupation"
+                            - text: ", 4 Interface: A Journal for and About Soc. Movements 207 (2012)."
+                        - generic [ref=e495]:
+                          - generic [ref=e496]:
+                            - generic "Return to the reference 6 in the content"
+                          - generic [ref=e497]: "6"
+                          - paragraph [ref=e500]:
+                            - link "Meltem Demirors" [ref=e502] [cursor=pointer]:
+                              - /url: https://twitter.com/Melt_Dem/status/1330191627164528648
+                            - text: (@Melt-Dem), Twitter (Nov. 21, 2020, 11:49 a.m.).
+                        - generic [ref=e503]:
+                          - generic [ref=e504]:
+                            - generic "Return to the reference 7 in the content"
+                          - generic [ref=e505]: "7"
+                          - paragraph [ref=e508]:
+                            - text: David Hollerith,
+                            - link "Amir Taaki on Bitcoin and Building Dissident Technology in 2020" [ref=e510] [cursor=pointer]:
+                              - /url: https://www.nasdaq.com/articles/amir-taaki-on-bitcoin-and-building-dissident-technology-in-2020-2020-03-04-0
+                              - emphasis [ref=e511]: Amir Taaki on Bitcoin and Building Dissident Technology in 2020
+                            - text: ", Bitcoin Mag. (Mar. 4, 2020)."
+                        - generic [ref=e512]:
+                          - generic [ref=e513]:
+                            - generic "Return to the reference 8 in the content"
+                          - generic [ref=e514]: "8"
+                          - paragraph [ref=e517]:
+                            - text: Emmanuel Goldstein Testimony, see Anonymous,
+                            - link "Is There a Hacker Ethic for 90s Hackers?" [ref=e519] [cursor=pointer]:
+                              - /url: https://grin.hu/text/hackethic.html
+                              - emphasis [ref=e520]: Is There a Hacker Ethic for 90s Hackers?
+                        - generic [ref=e521]:
+                          - generic [ref=e522]:
+                            - generic "Return to the reference 9 in the content"
+                          - generic [ref=e523]: "9"
+                          - paragraph [ref=e526]:
+                            - link "Id." [ref=e528] [cursor=pointer]:
+                              - /url: https://grin.hu/text/hackethic.html
+                              - emphasis [ref=e529]: Id
+                              - text: .
+                        - generic [ref=e530]:
+                          - generic [ref=e531]:
+                            - generic "Return to the reference 10 in the content"
+                          - generic [ref=e532]: "10"
+                          - paragraph [ref=e535]:
+                            - link "Id." [ref=e537] [cursor=pointer]:
+                              - /url: https://grin.hu/text/hackethic.html
+                              - emphasis [ref=e538]: Id.
+                        - generic [ref=e539]:
+                          - generic [ref=e540]:
+                            - generic "Return to the reference 11 in the content"
+                          - generic [ref=e541]: "11"
+                          - paragraph [ref=e544]:
+                            - link "Id." [ref=e546] [cursor=pointer]:
+                              - /url: https://grin.hu/text/hackethic.html
+                              - emphasis [ref=e547]: Id.
+                        - generic [ref=e548]:
+                          - generic [ref=e549]:
+                            - generic "Return to the reference 12 in the content"
+                          - generic [ref=e550]: "12"
+                          - paragraph [ref=e553]:
+                            - text: Francesco Galati,
+                            - 'link "Blockchain as a Process: Ideologies and Motivations Behind the Technology" [ref=e555] [cursor=pointer]':
+                              - /url: https://medium.com/the-domino/blockchain-as-a-process-ideologies-and-motivations-behind-the-technology-c25219d87881
+                              - emphasis [ref=e556]: "Blockchain as a Process: Ideologies and Motivations Behind the Technology"
+                            - text: ", The Domino (Mar. 26, 2018)."
+                        - generic [ref=e557]:
+                          - generic [ref=e558]:
+                            - generic "Return to the reference 13 in the content"
+                          - generic [ref=e559]: "13"
+                          - paragraph [ref=e562]:
+                            - link "Id." [ref=e564] [cursor=pointer]:
+                              - /url: https://medium.com/the-domino/blockchain-as-a-process-ideologies-and-motivations-behind-the-technology-c25219d87881
+                              - emphasis [ref=e565]: Id.
+                        - generic [ref=e566]:
+                          - generic [ref=e567]:
+                            - generic "Return to the reference 14 in the content"
+                          - generic [ref=e568]: "14"
+                          - paragraph [ref=e571]:
+                            - text: Juho Rantala,
+                            - link "Blockchain as a Medium for Transindividual Collective" [ref=e573] [cursor=pointer]:
+                              - /url: https://www-tandfonline-com.ezproxy.ugm.ac.id/doi/full/10.1080/14735784.2019.1694213
+                              - emphasis [ref=e574]: Blockchain as a Medium for Transindividual Collective
+                            - text: ", 60 Cult., Theory & Crit. 250 (2019)."
+                        - generic [ref=e575]:
+                          - generic [ref=e576]:
+                            - generic "Return to the reference 15 in the content"
+                          - generic [ref=e577]: "15"
+                          - paragraph [ref=e580]:
+                            - text: Juho Rantala & Outi Korhonen,
+                            - emphasis [ref=e581]: Uniikit tokenit (Unique Tokens)
+                            - text: ", 2021 Niin & Näin (forthcoming)."
+                        - generic [ref=e582]:
+                          - generic [ref=e583]:
+                            - generic "Return to the reference 16 in the content"
+                          - generic [ref=e584]: "16"
+                          - paragraph [ref=e587]:
+                            - text: Wessel Reijers & Mark Coeckelbergh,
+                            - 'link "The Blockchain as a Narrative Technology: Investigating the Social Ontology and Normative Configurations of Cryptocurrencies" [ref=e589] [cursor=pointer]':
+                              - /url: https://link-springer-com.ezproxy.ugm.ac.id/article/10.1007/s13347-016-0239-x
+                              - emphasis [ref=e590]: "The Blockchain as a Narrative Technology: Investigating the Social Ontology and Normative Configurations of Cryptocurrencies"
+                            - text: ", 31 Philos. Tech. 103 (2016)."
+                        - generic [ref=e591]:
+                          - generic [ref=e592]:
+                            - generic "Return to the reference 17 in the content"
+                          - generic [ref=e593]: "17"
+                          - paragraph [ref=e596]:
+                            - text: Jaya Klara Brekke, Kate Beecroft & Francesca Pick,
+                            - 'link "The Dissensus Protocol: Governing Differences in Online Peer Communities" [ref=e598] [cursor=pointer]':
+                              - /url: https://www.frontiersin.org/articles/10.3389/fhumd.2021.641731/full
+                              - emphasis [ref=e599]: "The Dissensus Protocol: Governing Differences in Online Peer Communities"
+                            - text: ", 3 Frontiers in Hum. Dynamics (2021)."
+                        - generic [ref=e600]:
+                          - generic [ref=e601]:
+                            - generic "Return to the reference 18 in the content"
+                          - generic [ref=e602]: "18"
+                          - paragraph [ref=e605]:
+                            - text: Alan Feuer,
+                            - link "The Bitcoin Ideology" [ref=e607] [cursor=pointer]:
+                              - /url: https://www.nytimes.com/2013/12/15/sunday-review/the-bitcoin-ideology.html
+                              - emphasis [ref=e608]: The Bitcoin Ideology
+                            - text: ", N.Y. Times (Dec. 14, 2013)."
+                        - generic [ref=e609]:
+                          - generic [ref=e610]:
+                            - generic "Return to the reference 19 in the content"
+                          - generic [ref=e611]: "19"
+                          - paragraph [ref=e614]:
+                            - text: Abrahim H. Khan,
+                            - 'link "Kierkegaard on Authority and Leadership: Political Logic in Religious Thought" [ref=e616] [cursor=pointer]':
+                              - /url: https://link-springer-com.ezproxy.ugm.ac.id/article/10.1007/BF02800492
+                              - emphasis [ref=e617]: "Kierkegaard on Authority and Leadership: Political Logic in Religious Thought"
+                            - text: ", 33 Sophia 74 (1994)."
+                        - generic [ref=e618]:
+                          - generic [ref=e619]:
+                            - generic "Return to the reference 20 in the content"
+                          - generic [ref=e620]: "20"
+                          - paragraph [ref=e623]:
+                            - link "Id." [ref=e624] [cursor=pointer]:
+                              - /url: https://link-springer-com.ezproxy.ugm.ac.id/article/10.1007%2FBF02800492
+                              - emphasis [ref=e625]: Id
+                              - text: .
+                            - text: ;
+                            - emphasis [ref=e626]: see also
+                            - text: Outi Korhonen,
+                            - emphasis [ref=e627]: Simone Weil
+                            - text: ","
+                            - emphasis [ref=e628]: in
+                            - text: "Portraits of Women in International Law: New Names and Forgotten Faces? (Immi Tallgren ed., forthcoming 2021)."
+                        - generic [ref=e629]:
+                          - generic [ref=e630]:
+                            - generic "Return to the reference 21 in the content"
+                          - generic [ref=e631]: "21"
+                          - paragraph [ref=e634]:
+                            - link "Hollerith" [ref=e636] [cursor=pointer]:
+                              - /url: https://www.nasdaq.com/articles/amir-taaki-on-bitcoin-and-building-dissident-technology-in-2020-2020-03-04-0
+                            - text: ","
+                            - emphasis [ref=e637]: supra
+                            - text: note 7.
+                        - generic [ref=e638]:
+                          - generic [ref=e639]:
+                            - generic "Return to the reference 22 in the content"
+                          - generic [ref=e640]: "22"
+                          - paragraph [ref=e643]:
+                            - emphasis [ref=e644]: See
+                            - link "Anonymous" [ref=e646] [cursor=pointer]:
+                              - /url: https://grin.hu/text/hackethic.html
+                            - text: ","
+                            - emphasis [ref=e647]: supra
+                            - text: note 8.
+                        - generic [ref=e648]:
+                          - generic [ref=e649]:
+                            - generic "Return to the reference 23 in the content"
+                          - generic [ref=e650]: "23"
+                          - paragraph [ref=e653]:
+                            - link "Hollerith" [ref=e655] [cursor=pointer]:
+                              - /url: https://www.nasdaq.com/articles/amir-taaki-on-bitcoin-and-building-dissident-technology-in-2020-2020-03-04-0
+                            - text: ","
+                            - emphasis [ref=e656]: supra
+                            - text: note 7.
+                        - generic [ref=e657]:
+                          - generic [ref=e658]:
+                            - generic "Return to the reference 24 in the content"
+                          - generic [ref=e659]: "24"
+                          - paragraph [ref=e662]:
+                            - text: Aishani Aatresh,
+                            - link "Digital Health Is Civic Health" [ref=e664] [cursor=pointer]:
+                              - /url: https://harvardpolitics.com/non-fungible-tokens/
+                              - emphasis [ref=e665]: Digital Health Is Civic Health
+                            - text: ", Harv. Pol. Rev. (Mar. 15, 2021)."
+                        - generic [ref=e666]:
+                          - generic [ref=e667]:
+                            - generic "Return to the reference 25 in the content"
+                          - generic [ref=e668]: "25"
+                          - paragraph [ref=e671]:
+                            - link "Id." [ref=e673] [cursor=pointer]:
+                              - /url: https://harvardpolitics.com/non-fungible-tokens/
+                              - emphasis [ref=e674]: Id.
+                        - generic [ref=e675]:
+                          - generic [ref=e676]:
+                            - generic "Return to the reference 26 in the content"
+                          - generic [ref=e677]: "26"
+                          - paragraph [ref=e680]:
+                            - link "Id." [ref=e682] [cursor=pointer]:
+                              - /url: https://harvardpolitics.com/non-fungible-tokens/
+                              - emphasis [ref=e683]: Id
+                              - text: .
+                        - generic [ref=e684]:
+                          - generic [ref=e685]:
+                            - generic "Return to the reference 27 in the content"
+                          - generic [ref=e686]: "27"
+                          - paragraph [ref=e689]:
+                            - link "Id." [ref=e691] [cursor=pointer]:
+                              - /url: https://harvardpolitics.com/non-fungible-tokens/
+                              - emphasis [ref=e692]: Id
+                              - text: .
+                        - generic [ref=e693]:
+                          - generic [ref=e694]:
+                            - generic "Return to the reference 28 in the content"
+                          - generic [ref=e695]: "28"
+                          - paragraph [ref=e698]:
+                            - text: SWIFT & Accenture,
+                            - 'link "SWIFT on Distributed Ledger Technologies: Delivering an Industry Standard Platform Through Community Collaboration" [ref=e700] [cursor=pointer]':
+                              - /url: https://www.swift.com/swift-resource/22221/download?language=en
+                              - emphasis [ref=e701]: "SWIFT on Distributed Ledger Technologies: Delivering an Industry Standard Platform Through Community Collaboration"
+                            - text: (Position Paper, 2016).
+                        - generic [ref=e702]:
+                          - generic [ref=e703]:
+                            - generic "Return to the reference 29 in the content"
+                          - generic [ref=e704]: "29"
+                          - paragraph [ref=e707]:
+                            - text: Attracta Mooney & Nicholas Megaw,
+                            - link "Santander Shows Potential of Blockchain in Company Votes" [ref=e709] [cursor=pointer]:
+                              - /url: https://www.ft.com/content/c03b699e-5918-11e8-bdb7-f6677d2e1ce8
+                              - emphasis [ref=e710]: Santander Shows Potential of Blockchain in Company Votes
+                            - text: ", Fin. Times (May 17, 2018)."
+                        - generic [ref=e711]:
+                          - generic [ref=e712]:
+                            - generic "Return to the reference 30 in the content"
+                          - generic [ref=e713]: "30"
+                          - paragraph [ref=e716]:
+                            - link "Brekke, Beecroft & Pick" [ref=e718] [cursor=pointer]:
+                              - /url: https://www.frontiersin.org/articles/10.3389/fhumd.2021.641731/full
+                            - text: ","
+                            - emphasis [ref=e719]: supra
+                            - text: note 17.
+                        - generic [ref=e720]:
+                          - generic [ref=e721]:
+                            - generic "Return to the reference 31 in the content"
+                          - generic [ref=e722]: "31"
+                          - paragraph [ref=e725]:
+                            - link "Id." [ref=e727] [cursor=pointer]:
+                              - /url: https://www.frontiersin.org/articles/10.3389/fhumd.2021.641731/full
+                              - emphasis [ref=e728]: Id.
+                        - generic [ref=e729]:
+                          - generic [ref=e730]:
+                            - generic "Return to the reference 32 in the content"
+                          - generic [ref=e731]: "32"
+                          - paragraph [ref=e734]:
+                            - link "Id." [ref=e736] [cursor=pointer]:
+                              - /url: https://www.frontiersin.org/articles/10.3389/fhumd.2021.641731/full
+                              - emphasis [ref=e737]: Id.
+                        - generic [ref=e738]:
+                          - generic [ref=e739]:
+                            - generic "Return to the reference 33 in the content"
+                          - generic [ref=e740]: "33"
+                          - paragraph [ref=e743]:
+                            - emphasis [ref=e744]: See
+                            - text: Philip E. Agre,
+                            - emphasis [ref=e745]: "Toward a Critical Technical Practice: Lessons Learned in Trying to Reform AI"
+                            - text: ","
+                            - emphasis [ref=e746]: in
+                            - 'link "Social Science, Technical Systems, and Cooperative Work: Beyond the Great Divide" [ref=e748] [cursor=pointer]':
+                              - /url: https://www.routledge.com/Social-Science-Technical-Systems-and-Cooperative-Work-Beyond-the-Great/Bowker-Bowker-Star-Gasser-Turner/p/book/9780805824032
+                            - text: 131 (Geoffrey Bowker, Les Gasser, Susan Leigh Star & William Turner eds., 1997).
+                        - generic [ref=e749]:
+                          - generic [ref=e750]:
+                            - generic "Return to the reference 34 in the content"
+                          - generic [ref=e751]: "34"
+                          - paragraph [ref=e754]:
+                            - emphasis [ref=e755]: See
+                            - text: Shamika N. Sirimanne & Clovis Freire,
+                            - link "How Blockchain Can Power Sustainable Development" [ref=e757] [cursor=pointer]:
+                              - /url: https://unctad.org/news/how-blockchain-can-power-sustainable-development
+                              - emphasis [ref=e758]: How Blockchain Can Power Sustainable Development
+                            - text: ", UNCTAD (July 22, 2021)."
+                        - generic [ref=e759]:
+                          - generic [ref=e760]:
+                            - generic "Return to the reference 35 in the content"
+                          - generic [ref=e761]: "35"
+                          - paragraph [ref=e764]:
+                            - emphasis [ref=e765]: See
+                            - link "Anonymous" [ref=e767] [cursor=pointer]:
+                              - /url: https://grin.hu/text/hackethic.html
+                            - text: ","
+                            - emphasis [ref=e768]: supra
+                            - text: note 8.
+                        - generic [ref=e769]:
+                          - generic [ref=e770]:
+                            - generic "Return to the reference 36 in the content"
+                          - generic [ref=e771]: "36"
+                          - paragraph [ref=e774]:
+                            - text: Lawrence Lessig,
+                            - link "Code, And Other Laws of Cyberspace, Version 2.0" [ref=e776] [cursor=pointer]:
+                              - /url: https://www.basicbooks.com/titles/lawrence-lessig/code/9780786721962/
+                            - text: (2005).
+          - complementary "related contents" [ref=e777]:
+            - generic [ref=e778]:
+              - generic [ref=e779]:
+                - generic [ref=e780]: You have
+                - text: Access
+              - generic [ref=e781]: Open access
+            - generic [ref=e782]:
+              - generic [ref=e784]:
+                - term [ref=e785]: "1"
+                - definition [ref=e786]:
+                  - generic "Open cited by modal 1 existing citations" [ref=e787]: Cited by
+              - separator [ref=e788]
+  - contentinfo [ref=e791]:
+    - generic [ref=e793]:
+      - link "Cambridge University Press" [ref=e794] [cursor=pointer]:
+        - /url: /
+        - img "Cambridge University Press" [ref=e795]
+      - generic [ref=e796]:
+        - generic [ref=e797]:
+          - navigation [ref=e798]:
+            - heading "Our Site" [level=2] [ref=e799]
+            - list [ref=e800]:
+              - listitem [ref=e801]:
+                - link "Cambridge Core accessibility page" [ref=e802] [cursor=pointer]:
+                  - /url: /core/services/accessibility
+                  - generic [ref=e803]: Accessibility
+              - listitem [ref=e804]:
+                - link "Cambridge Core contact & help page" [ref=e805] [cursor=pointer]:
+                  - /url: /core/help/FAQs
+                  - generic [ref=e806]: Contact & Help
+              - listitem [ref=e807]:
+                - link "Cambridge Core legal notices page" [ref=e808] [cursor=pointer]:
+                  - /url: /core/legal-notices/terms
+                  - generic [ref=e809]: Legal Notices
+              - listitem [ref=e810]:
+                - button "Change your cookie settings" [ref=e811] [cursor=pointer]:
+                  - generic [ref=e812]: Cookie Settings
+          - navigation [ref=e813]:
+            - heading "Quick Links" [level=2] [ref=e814]
+            - list [ref=e815]:
+              - listitem [ref=e816]:
+                - link "Cambridge Core. Opens in a new window." [ref=e817] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/core/
+                  - generic [ref=e818]: Cambridge Core
+              - listitem [ref=e819]:
+                - link "Cambridge Open Engage. Opens in a new window." [ref=e820] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/engage/coe/public-dashboard
+                  - generic [ref=e821]: Cambridge Open Engage
+              - listitem [ref=e822]:
+                - link "Cambridge Aspire website. Opens in a new window." [ref=e823] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/highereducation/
+                  - generic [ref=e824]: Cambridge Aspire website
+          - navigation [ref=e825]:
+            - heading "Our Products" [level=2] [ref=e826]
+            - list [ref=e827]:
+              - listitem [ref=e828]:
+                - link "Journals. Opens in a new window." [ref=e829] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/core/publications/journals
+                  - generic [ref=e830]: Journals
+              - listitem [ref=e831]:
+                - link "Books. Opens in a new window." [ref=e832] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/core/search?aggs%5BproductTypes%5D%5Bfilters%5D=BOOK
+                  - generic [ref=e833]: Books
+              - listitem [ref=e834]:
+                - link "Elements. Opens in a new window." [ref=e835] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/core/publications/elements
+                  - generic [ref=e836]: Elements
+              - listitem [ref=e837]:
+                - link "Textbooks. Opens in a new window." [ref=e838] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/highereducation/search?aggs=%24productTypes%24BOOK%3Atrue%3B%3B
+                  - generic [ref=e839]: Textbooks
+              - listitem [ref=e840]:
+                - link "Courseware. Opens in a new window." [ref=e841] [cursor=pointer]:
+                  - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/highereducation/search?aggs=%24productTypes%24COURSEWARE%3Atrue%3B%3B
+                  - generic [ref=e842]: Courseware
+        - generic [ref=e843]:
+          - generic [ref=e844]:
+            - heading "Join us online" [level=2] [ref=e845]
+            - list [ref=e846]:
+              - listitem [ref=e847]:
+                - link "Visit Cambridge University Press Youtube account. Opens in a new tab." [ref=e848] [cursor=pointer]:
+                  - /url: https://www.youtube.com/playlist?list=PLTK8KRW19hUVucVRHbIx73oLKUro8HXt0
+                  - generic [ref=e849]:
+                    - img
+              - listitem [ref=e850]:
+                - link "Visit Cambridge University Press X account. Opens in a new tab." [ref=e851] [cursor=pointer]:
+                  - /url: https://twitter.com/CambridgeCore
+                  - generic [ref=e852]:
+                    - img
+              - listitem [ref=e853]:
+                - link "Visit Cambridge University Press Facebook account. Opens in a new tab." [ref=e854] [cursor=pointer]:
+                  - /url: https://www.facebook.com/CambridgeCore
+                  - generic [ref=e855]:
+                    - img
+              - listitem [ref=e856]:
+                - link "Visit Cambridge University Press Instagram account. Opens in a new tab." [ref=e857] [cursor=pointer]:
+                  - /url: https://www.instagram.com/cambridgeuniversitypress/
+                  - generic [ref=e858]:
+                    - img
+              - listitem [ref=e859]:
+                - link "Visit Cambridge University Press Linkedin account. Opens in a new tab." [ref=e860] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/showcase/11096649
+                  - generic [ref=e861]:
+                    - img
+          - generic [ref=e865]:
+            - generic [ref=e866]:
+              - text: Location
+              - generic [ref=e867]:
+                - combobox "Select your location" [ref=e868]: IDN
+                - img [ref=e870]
+                - button "open location list" [ref=e872] [cursor=pointer]:
+                  - generic [ref=e873]:
+                    - img
+            - button "Submit to update location preference" [disabled] [ref=e874]:
+              - generic [ref=e875]: Update
+    - generic [ref=e877]:
+      - list [ref=e878]:
+        - listitem [ref=e879]:
+          - link "Rights and Permissions. Opens in a new window." [ref=e880] [cursor=pointer]:
+            - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/about-us/rights-permissions/
+            - generic [ref=e881]: Rights & Permissions
+        - listitem [ref=e882]:
+          - link "Copyright. Opens in a new window." [ref=e883] [cursor=pointer]:
+            - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/about-us/legal-notices/copyright/
+            - generic [ref=e884]: Copyright
+        - listitem [ref=e885]:
+          - link "Privacy Notice. Opens in a new window." [ref=e886] [cursor=pointer]:
+            - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/about-us/legal-notices/privacy-policy/
+            - generic [ref=e887]: Privacy Notice
+        - listitem [ref=e888]:
+          - link "Terms of Use. Opens in a new window." [ref=e889] [cursor=pointer]:
+            - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/about-us/legal-notices/terms-use
+            - generic [ref=e890]: Terms of Use
+        - listitem [ref=e891]:
+          - link "Cookies Policy. Opens in a new window." [ref=e892] [cursor=pointer]:
+            - /url: https://www-cambridge-org.ezproxy.ugm.ac.id/about-us/legal-notices/cookies-policy/
+            - generic [ref=e893]: Cookies Policy
+      - generic [ref=e894]:
+        - img [ref=e896]
+        - generic [ref=e898]: Cambridge University Press 2026
+  - generic:
+    - region "Cookie banner" [ref=e899]:
+      - dialog "This website uses cookies" [ref=e900]:
+        - generic [ref=e902]:
+          - generic [ref=e904]:
+            - heading "This website uses cookies" [level=2] [ref=e905]
+            - generic [ref=e906]:
+              - text: By clicking “Accept all cookies”, you agree to the storing of cookies on your device to enhance site navigation, analyse site usage, and assist in our marketing efforts which includes personalised advertising on certain pages.
+              - link "More information about your privacy, opens in a new tab" [ref=e907] [cursor=pointer]:
+                - /url: https://www.cambridge.org/legal/cookies
+                - text: Cookie notice
+          - generic [ref=e909]:
+            - button "Cookie Settings, Opens the preference center dialog" [ref=e910] [cursor=pointer]: Cookie Settings
+            - button "Reject all" [ref=e911] [cursor=pointer]
+            - button "Accept all cookies" [ref=e912] [cursor=pointer]
+        - button "Close" [ref=e914] [cursor=pointer]
+    - text: Cookie Settings

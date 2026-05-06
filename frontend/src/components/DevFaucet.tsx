@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { useAccount, useBalance, useWalletClient } from 'wagmi'
+import { useAccount, useBalance, useWalletClient, useSendTransaction } from 'wagmi'
+import { parseEther } from 'viem'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
@@ -9,6 +10,10 @@ import { CONTRACTS } from '../config/contracts'
 const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
   ? import.meta.env.VITE_RPC_URL
   : 'http://127.0.0.1:8545'
+
+const DEPLOYER = typeof import.meta.env.VITE_DEPLOYER_URL === 'string'
+  ? import.meta.env.VITE_DEPLOYER_URL
+  : 'http://localhost:3030'
 
 async function rpcCall(method: string, params: unknown[]) {
   const res = await fetch(RPC, {
@@ -33,7 +38,8 @@ export function DevFaucet() {
   const { data: walletClient } = useWalletClient()
   const { refetch: refetchBalance } = useBalance({ address })
   const { addToast } = useToast()
-  const [busy, setBusy] = useState<'eth' | 'usdc' | 'reset' | null>(null)
+  const [busy, setBusy] = useState<'eth' | 'usdc' | 'nonce' | 'reset' | null>(null)
+  const { sendTransactionAsync } = useSendTransaction()
 
   const requestEth = async () => {
     if (!address) return
@@ -73,21 +79,45 @@ export function DevFaucet() {
     }
   }
 
-  const resetWallet = async () => {
+  const fixNonce = async () => {
+    if (!address) return
+    setBusy('nonce')
+    try {
+      const nonceHex: string = await rpcCall('eth_getTransactionCount', [address, 'pending'])
+      const nonce = parseInt(nonceHex, 16)
+      const deployedHex: string = await rpcCall('eth_getTransactionCount', [address, 'latest'])
+      const deployed = parseInt(deployedHex, 16)
+      if (nonce === deployed) {
+        addToast('Nonce sudah sinkron, tidak perlu fix.', 'success')
+        setBusy(null)
+        return
+      }
+      const stuckCount = nonce - deployed
+      for (let i = 0; i < stuckCount; i++) {
+        await sendTransactionAsync({
+          to: address as `0x${string}`,
+          value: parseEther('0'),
+        })
+      }
+      addToast(`Nonce diperbaiki! ${stuckCount} TX kotor dibersihkan.`, 'success')
+    } catch (e: any) {
+      addToast('Gagal fix nonce: ' + (e?.shortMessage || e?.message || 'Unknown error'), 'error')
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  const resetAll = async () => {
     setBusy('reset')
     try {
-      await walletClient?.request({
-        method: 'wallet_addEthereumChain',
-        params: [{
-          chainId: `0x${anvil.id.toString(16)}`,
-          chainName: 'Anvil Local',
-          nativeCurrency: { name: 'ETH', symbol: 'ETH', decimals: 18 },
-          rpcUrls: ['http://127.0.0.1:8545'],
-        }],
-      })
-      addToast('Jaringan ditambahkan ulang — nonce dompet sudah direset!', 'success')
+      addToast('Resetting Anvil...', 'info')
+      await rpcCall('anvil_reset', [])
+      addToast('Redeploying contracts...', 'info')
+      const res = await fetch(`${DEPLOYER}/redeploy`, { method: 'POST', signal: AbortSignal.timeout(60_000) })
+      if (!res.ok) throw new Error(await res.text())
+      addToast('Anvil direset dan kontrak dideploy ulang!', 'success')
     } catch (e: any) {
-      addToast('Gagal: ' + (e?.message || 'Unknown error'), 'error')
+      addToast('Gagal reset: ' + (e?.message || 'Unknown error'), 'error')
     } finally {
       setBusy(null)
     }
@@ -112,8 +142,13 @@ export function DevFaucet() {
           <Button variant="outline" size="sm" onClick={requestUsdc} disabled={!!busy}>
             {busy === 'usdc' ? 'Mencetak...' : '1,000 USDC'}
           </Button>
-          <Button variant="outline" size="sm" onClick={resetWallet} disabled={!!busy}>
-            {busy === 'reset' ? 'Reset...' : 'Reset Nonce'}
+        </div>
+        <div className="flex flex-wrap gap-2 pt-1 border-t border-border">
+          <Button variant="destructive" size="sm" onClick={fixNonce} disabled={!!busy}>
+            {busy === 'nonce' ? 'Mengirim...' : 'Fix Nonce'}
+          </Button>
+          <Button variant="destructive" size="sm" onClick={resetAll} disabled={!!busy}>
+            {busy === 'reset' ? 'Mereset...' : 'Reset Anvil'}
           </Button>
         </div>
       </CardContent>

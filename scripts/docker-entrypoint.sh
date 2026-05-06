@@ -32,4 +32,6 @@ for (const acc of [acc1, acc2]) {
 SCRIPT
 
 echo "All done! Contracts deployed and accounts funded."
-exit 0
+
+echo "Starting redeploy server..."
+exec node /app/redeploy-server.mjs

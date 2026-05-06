@@ -2,28 +2,39 @@ import { useState } from 'react'
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button } from '@/components/ui/button'
+import { useToast } from './Toast'
+
+const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
+  ? import.meta.env.VITE_RPC_URL
+  : 'http://127.0.0.1:8545'
 
 const ANVIL_CHAIN = {
   chainId: '0x7a69',
   chainName: 'Anvil Lokal',
   nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
-  rpcUrls: ['http://127.0.0.1:8545'],
+  rpcUrls: [RPC],
 }
 
 export function Navbar() {
   const { isConnected } = useAccount()
   const [adding, setAdding] = useState(false)
+  const { addToast } = useToast()
 
   const addChain = async () => {
-    if (!window.ethereum) return
+    if (!window.ethereum) {
+      addToast('Dompet tidak terdeteksi. Pastikan Brave Wallet / MetaMask terpasang.', 'error')
+      return
+    }
     setAdding(true)
     try {
       await window.ethereum.request({
         method: 'wallet_addEthereumChain',
         params: [ANVIL_CHAIN],
       })
-    } catch (e) {
-      console.error(e)
+      addToast('Jaringan Anvil berhasil ditambahkan!', 'success')
+    } catch (e: any) {
+      if (e?.code === 4001) return
+      addToast('Gagal menambahkan jaringan: ' + (e?.message || e), 'error')
     } finally {
       setAdding(false)
     }

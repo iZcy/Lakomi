@@ -17,9 +17,17 @@ services:
     environment:
       - RPC_URL=http://anvil:8545
     working_dir: /app/hardhat
+    ports:
+      - "3030:3030"
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://127.0.0.1:3030/health"]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+      start_period: 60s
     depends_on:
       anvil:
-        condition: service_started
+        condition: service_healthy
     command: ["bash", "/app/docker-entrypoint.sh"]
 
   frontend:
@@ -28,8 +36,9 @@ services:
       dockerfile: Dockerfile.frontend
       args:
         - VITE_RPC_URL=http://localhost:8545
+        - VITE_DEPLOYER_URL=http://localhost:3030
     ports:
       - "5173:80"
     depends_on:
       deployer:
-        condition: service_completed_successfully
+        condition: service_healthy

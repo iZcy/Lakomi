@@ -95,7 +95,7 @@ export function decodeLoan(raw: unknown): LoanData | null {
 
 export function decodeProposal(raw: unknown): ProposalData | null {
   if (!raw) return null
-  const a = raw as [string, string, bigint, bigint, bigint, bigint, bigint, boolean, boolean, boolean, number]
+  const a = raw as [string, string, number, bigint, bigint, bigint, bigint, bigint, boolean, boolean, boolean]
   if (!Array.isArray(a) || a.length < 11) return null
-  return { proposer: a[0], description: a[1], startTime: a[2], endTime: a[3], forVotes: a[4], againstVotes: a[5], abstainVotes: a[6], executed: a[7], canceled: a[8], vetoed: a[9], proposalType: a[10] }
+  return { proposer: a[0], description: a[1], proposalType: a[2], startTime: a[3], endTime: a[4], forVotes: a[5], againstVotes: a[6], abstainVotes: a[7], executed: a[8], canceled: a[9], vetoed: a[10] }
 }

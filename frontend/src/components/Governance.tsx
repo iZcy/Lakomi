@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
-import { parseEther, formatEther, isAddress } from 'viem'
+import { parseUnits, formatUnits, isAddress, encodeFunctionData } from 'viem'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -75,29 +75,53 @@ function CreateProposalForm() {
   }, [isSuccess, queryClient])
 
   const PROPOSAL_TYPES = [
-    { value: '0', label: 'Umum', needsTarget: false, needsAmount: false },
-    { value: '1', label: 'Anggaran (Spend)', needsTarget: true, needsAmount: true },
-    { value: '2', label: 'Keanggotaan', needsTarget: false, needsAmount: false },
-    { value: '3', label: 'RAT Tahunan', needsTarget: false, needsAmount: false },
-    { value: '4', label: 'Lainnya', needsTarget: true, needsAmount: true },
+    { value: '0', label: 'Umum', needsRecipient: false, needsAmount: false },
+    { value: '1', label: 'Anggaran (Spend)', needsRecipient: true, needsAmount: true },
+    { value: '2', label: 'Keanggotaan', needsRecipient: false, needsAmount: false },
+    { value: '3', label: 'RAT Tahunan', needsRecipient: false, needsAmount: false },
+    { value: '4', label: 'Lainnya', needsRecipient: true, needsAmount: true },
   ]
 
   const selectedType = PROPOSAL_TYPES.find(t => t.value === type)
-  const needsTarget = selectedType?.needsTarget ?? false
+  const needsRecipient = selectedType?.needsRecipient ?? false
   const needsAmount = selectedType?.needsAmount ?? false
+  const isAnggaran = type === '1'
 
-  const isTargetValid = !needsTarget || (target && isAddress(target))
-  const isAmountValid = !needsAmount || (amount && !isNaN(Number(amount)) && Number(amount) >= 0)
-  const canSubmit = desc.trim() && type && isTargetValid && isAmountValid
+  const isRecipientValid = !needsRecipient || (target && isAddress(target))
+  const isAmountValid = !needsAmount || (amount && !isNaN(Number(amount)) && Number(amount) > 0)
+  const canSubmit = desc.trim() && type && isRecipientValid && isAmountValid
 
   const handle = () => {
     if (!canSubmit) return
 
-    const targetAddr = (needsTarget && target ? target : CONTRACTS.LAKOMI_VAULT) as `0x${string}`
-    const value = needsAmount && amount ? parseEther(amount) : 0n
-    const data = (calldata && calldata.startsWith('0x') ? calldata : '0x') as `0x${string}`
+    let targetAddr: `0x${string}`
+    let callValue = 0n
+    let callData: `0x${string}`
 
-    createProposal(desc, Number(type), targetAddr, value, data)
+    if (isAnggaran) {
+      targetAddr = CONTRACTS.LAKOMI_VAULT
+      const usdcAmount = parseUnits(amount, 6)
+      const reasonHex = `0x${Array.from(new TextEncoder().encode(desc.trim())).map(b => b.toString(16).padStart(2, '0')).join('')}` as `0x${string}`
+      callData = encodeFunctionData({
+        abi: [{
+          name: 'governanceSpend',
+          type: 'function',
+          inputs: [
+            { name: 'to', type: 'address' },
+            { name: 'amount', type: 'uint256' },
+            { name: 'reason', type: 'bytes' }
+          ]
+        }],
+        functionName: 'governanceSpend',
+        args: [target as `0x${string}`, usdcAmount, reasonHex]
+      })
+    } else {
+      targetAddr = (needsRecipient && target ? target : CONTRACTS.LAKOMI_VAULT) as `0x${string}`
+      callValue = 0n
+      callData = (calldata && calldata.startsWith('0x') ? calldata : '0x') as `0x${string}`
+    }
+
+    createProposal(desc, Number(type), targetAddr, callValue, callData)
     setDesc(''); setType(''); setTarget(''); setAmount(''); setCalldata('')
   }
 
@@ -121,9 +145,9 @@ function CreateProposalForm() {
           </Select>
         </div>
 
-        {needsTarget && (
+        {needsRecipient && (
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">Alamat Tujuan *</label>
+            <label className="text-xs text-muted-foreground">Penerima USDC *</label>
             <Input
               placeholder="0x..."
               value={target}
@@ -138,7 +162,7 @@ function CreateProposalForm() {
 
         {needsAmount && (
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">Jumlah (ETH) *</label>
+            <label className="text-xs text-muted-foreground">Jumlah (USDC) *</label>
             <Input
               type="number"
               placeholder="0.0"
@@ -159,7 +183,7 @@ function CreateProposalForm() {
               onChange={(e) => setCalldata(e.target.value)}
               className="text-xs font-mono"
             />
-            <p className="text-[10px] text-muted-foreground">Kosongkan untuk transfer ETH biasa</p>
+            <p className="text-[10px] text-muted-foreground">Kosongkan untuk transfer USDC biasa</p>
           </div>
         )}
 
@@ -270,7 +294,7 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
               <div className="text-xs space-y-1">
                 <div><span className="text-muted-foreground/60">Alamat Tujuan:</span> <span className="font-mono">{target}</span></div>
                 {value !== undefined && value > 0n && (
-                  <div><span className="text-muted-foreground/60">Nilai Transfer:</span> <span className="font-semibold">{formatEther(value)} ETH</span></div>
+                  <div><span className="text-muted-foreground/60">Nilai Transfer:</span> <span className="font-semibold">{formatUnits(value, 6)} USDC</span></div>
                 )}
                 {callData && callData !== '0x' && (
                   <div><span className="text-muted-foreground/60">Data Panggilan:</span> <span className="font-mono text-[10px]">{callData.slice(0, 20)}...</span></div>

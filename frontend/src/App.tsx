@@ -112,21 +112,21 @@ function App() {
               </div>
             </div>
 
-            <nav className="fixed bottom-0 inset-x-0 lg:hidden bg-background/95 backdrop-blur border-t z-50 safe-area-bottom">
+            <nav className="fixed bottom-0 inset-x-0 lg:hidden bg-background/95 backdrop-blur border-t z-50" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
               <div className="flex justify-around py-1 px-1">
                 {NAV_ITEMS.map((item) => (
                   <button
                     key={item.key}
                     onClick={() => setActiveTab(item.key)}
                     className={cn(
-                      'flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-lg text-[10px] transition-colors min-w-0 flex-1',
+                      'flex flex-col items-center gap-0.5 px-1 sm:px-2 py-1.5 rounded-lg text-[9px] sm:text-[10px] transition-colors min-w-0 flex-1',
                       activeTab === item.key
                         ? 'text-primary'
                         : 'text-muted-foreground'
                     )}
                   >
                     {item.icon}
-                    <span className="truncate w-full text-center">{item.label}</span>
+                    <span className="truncate w-full text-center leading-tight">{item.label}</span>
                   </button>
                 ))}
               </div>

@@ -37,7 +37,7 @@ export function Compliance() {
       <div className="space-y-3">
         {ITEMS.map((item) => (
           <Card key={item.pasal}>
-            <CardContent className="flex items-start gap-4">
+            <CardContent className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
               <Badge variant="outline" className="mt-0.5 bg-emerald-500/10 text-emerald-500 border-emerald-500/20 text-xs flex-shrink-0">{item.pasal}</Badge>
               <div className="flex-1 min-w-0">
                 <h3 className="font-semibold text-sm">{item.title}</h3>

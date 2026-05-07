@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button } from '@/components/ui/button'
@@ -15,10 +15,60 @@ const ANVIL_CHAIN = {
   rpcUrls: [RPC],
 }
 
+async function rpcCall(method: string, params: unknown[]) {
+  const res = await fetch(RPC, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ jsonrpc: '2.0', method, params, id: 1 }),
+  })
+  const json = await res.json()
+  return json.result
+}
+
+function getMemberName(address: string): string | null {
+  try {
+    const stored = JSON.parse(localStorage.getItem('lakomi_members') || '{}')
+    const data = stored[address.toLowerCase()]
+    return data?.namaLengkap || null
+  } catch {
+    return null
+  }
+}
+
 export function Navbar() {
-  const { isConnected } = useAccount()
+  const { address, isConnected } = useAccount()
   const [adding, setAdding] = useState(false)
+  const [chainTime, setChainTime] = useState('')
+  const [memberName, setMemberName] = useState<string | null>(null)
   const { addToast } = useToast()
+
+  useEffect(() => {
+    const fetchTime = async () => {
+      try {
+        const block = await rpcCall('eth_getBlockByNumber', ['latest', false])
+        if (block?.timestamp) {
+          const ts = parseInt(block.timestamp, 16) * 1000
+          setChainTime(new Date(ts).toLocaleDateString('id-ID', {
+            day: 'numeric', month: 'short', year: 'numeric',
+            hour: '2-digit', minute: '2-digit',
+          }))
+        }
+      } catch {
+        // block timestamp unavailable
+      }
+    }
+    fetchTime()
+    const interval = setInterval(fetchTime, 30000)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    if (address) {
+      setMemberName(getMemberName(address))
+    } else {
+      setMemberName(null)
+    }
+  }, [address])
 
   const addChain = async () => {
     if (!window.ethereum) {
@@ -54,6 +104,9 @@ export function Navbar() {
               <h1 className="text-base sm:text-lg font-bold">Lakomi</h1>
               <p className="text-[9px] sm:text-[10px] text-muted-foreground leading-tight hidden sm:block">Koperasi Digital Berbasis Blockchain</p>
             </div>
+            {chainTime && (
+              <span className="text-[10px] text-muted-foreground hidden sm:inline ml-2">Chain: {chainTime}</span>
+            )}
           </div>
           <div className="flex items-center gap-2">
             {!isConnected && (
@@ -65,7 +118,12 @@ export function Navbar() {
                 <span className="sm:hidden">{adding ? '...' : 'Tambah Jaringan'}</span>
               </Button>
             )}
-            <ConnectButton accountStatus="address" chainStatus="icon" showBalance={false} />
+            <div className="flex flex-col items-end">
+              {memberName && (
+                <span className="text-[10px] text-muted-foreground leading-tight mb-0.5">{memberName}</span>
+              )}
+              <ConnectButton accountStatus="address" chainStatus="icon" showBalance={false} />
+            </div>
           </div>
         </div>
       </div>

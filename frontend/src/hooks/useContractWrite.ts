@@ -261,6 +261,7 @@ export function useExecuteProposal() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'execute',
       args: [proposalId],
+      gas: 500000n,
     ...GAS_OVERRIDES,
     })
   }

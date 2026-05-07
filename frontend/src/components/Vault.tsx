@@ -153,7 +153,7 @@ function SHUDistributionRow({ distId, address }: { distId: bigint; address?: `0x
   const claimedCount = d[4]
 
   return (
-    <div className="flex items-center justify-between p-2 rounded-lg bg-muted/50 text-sm">
+    <div className="flex flex-col sm:flex-row sm:items-center justify-between p-2 rounded-lg bg-muted/50 text-sm gap-2">
       <div>
         <p className="font-medium">SHU #{Number(distId) + 1}</p>
         <p className="text-[10px] text-muted-foreground">{formatTimestamp(timestamp)} | {memberCount.toString()} anggota</p>
@@ -187,6 +187,11 @@ function DepositForm({ usdcBal }: { usdcBal?: bigint }) {
   const [amount, setAmount] = useState('')
   const { deposit, isPending: d1, isSuccess: s1 } = useDeposit()
   const { approve, isPending: d2 } = useApproveUsdc()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (s1) queryClient.invalidateQueries({ queryKey: ['readContract'] })
+  }, [s1, queryClient])
 
   const handle = async () => {
     if (!amount) return

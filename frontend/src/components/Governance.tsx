@@ -8,8 +8,8 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { useIsMember, useProposalCount, useProposal, useProposalState, useHasVoted, useIsRATDue, useProposalTarget, useProposalValue, useProposalCallData } from '../hooks/useContractRead'
-import { useCreateProposal, useCastVote, useQueueProposal, useExecuteProposal, useCancelProposal, useScheduleRAT } from '../hooks/useContractWrite'
+import { useIsMember, useProposalCount, useProposal, useProposalState, useHasVoted, useProposalTarget, useProposalValue, useProposalCallData } from '../hooks/useContractRead'
+import { useCreateProposal, useCastVote, useQueueProposal, useExecuteProposal, useCancelProposal } from '../hooks/useContractWrite'
 import { getProposalStateName, getProposalStateColor, formatTimestampShort } from '../lib/utils'
 import { decodeProposal } from '../types'
 import { CONTRACTS } from '../config/contracts'
@@ -36,7 +36,6 @@ export function Governance() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-1 space-y-4">
           <CreateProposalForm />
-          <RATSection />
         </div>
 
         <div className="lg:col-span-2 space-y-4">
@@ -60,34 +59,29 @@ export function Governance() {
 function CreateProposalForm() {
   const [desc, setDesc] = useState('')
   const [type, setType] = useState('')
-  const [target, setTarget] = useState('')
+  const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
-  const [calldata, setCalldata] = useState('')
   const { createProposal, isPending, isSuccess } = useCreateProposal()
   const queryClient = useQueryClient()
 
   useEffect(() => {
     if (isSuccess) {
       queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      // Reset all fields
-      setDesc(''); setType(''); setTarget(''); setAmount(''); setCalldata('')
+      setDesc(''); setType(''); setRecipient(''); setAmount('')
     }
   }, [isSuccess, queryClient])
 
   const PROPOSAL_TYPES = [
-    { value: '0', label: 'Umum', needsRecipient: false, needsAmount: false },
-    { value: '1', label: 'Anggaran (Spend)', needsRecipient: true, needsAmount: true },
-    { value: '2', label: 'Keanggotaan', needsRecipient: false, needsAmount: false },
-    { value: '3', label: 'RAT Tahunan', needsRecipient: false, needsAmount: false },
-    { value: '4', label: 'Lainnya', needsRecipient: true, needsAmount: true },
+    { value: '0', label: 'Anggaran (Belanja)', desc: 'Usulkan pengeluaran dana koperasi', needsRecipient: true, needsAmount: true },
+    { value: '2', label: 'Keanggotaan', desc: 'Usulkan pemberhentian anggota (Pasal 31 UU 25/1992)' },
+    { value: '3', label: 'RAT Tahunan', desc: 'Rapat Anggota Tahunan (Pasal 26-27)' },
   ]
 
   const selectedType = PROPOSAL_TYPES.find(t => t.value === type)
   const needsRecipient = selectedType?.needsRecipient ?? false
   const needsAmount = selectedType?.needsAmount ?? false
-  const isAnggaran = type === '1'
 
-  const isRecipientValid = !needsRecipient || (target && isAddress(target))
+  const isRecipientValid = !needsRecipient || (recipient && isAddress(recipient))
   const isAmountValid = !needsAmount || (amount && !isNaN(Number(amount)) && Number(amount) > 0)
   const canSubmit = desc.trim() && type && isRecipientValid && isAmountValid
 
@@ -95,10 +89,10 @@ function CreateProposalForm() {
     if (!canSubmit) return
 
     let targetAddr: `0x${string}`
-    let callValue = 0n
+    const callValue = 0n
     let callData: `0x${string}`
 
-    if (isAnggaran) {
+    if (type === '0') {
       targetAddr = CONTRACTS.LAKOMI_VAULT
       const usdcAmount = parseUnits(amount, 6)
       const reasonHex = `0x${Array.from(new TextEncoder().encode(desc.trim())).map(b => b.toString(16).padStart(2, '0')).join('')}` as `0x${string}`
@@ -113,16 +107,15 @@ function CreateProposalForm() {
           ]
         }],
         functionName: 'governanceSpend',
-        args: [target as `0x${string}`, usdcAmount, reasonHex]
+        args: [recipient as `0x${string}`, usdcAmount, reasonHex]
       })
     } else {
-      targetAddr = (needsRecipient && target ? target : CONTRACTS.LAKOMI_VAULT) as `0x${string}`
-      callValue = 0n
-      callData = (calldata && calldata.startsWith('0x') ? calldata : '0x') as `0x${string}`
+      targetAddr = CONTRACTS.LAKOMI_VAULT
+      callData = '0x'
     }
 
     createProposal(desc, Number(type), targetAddr, callValue, callData)
-    setDesc(''); setType(''); setTarget(''); setAmount(''); setCalldata('')
+    setDesc(''); setType(''); setRecipient(''); setAmount('')
   }
 
   return (
@@ -143,6 +136,9 @@ function CreateProposalForm() {
               ))}
             </SelectContent>
           </Select>
+          {selectedType && (
+            <p className="text-[10px] text-muted-foreground">{selectedType.desc}</p>
+          )}
         </div>
 
         {needsRecipient && (
@@ -150,11 +146,11 @@ function CreateProposalForm() {
             <label className="text-xs text-muted-foreground">Penerima USDC *</label>
             <Input
               placeholder="0x..."
-              value={target}
-              onChange={(e) => setTarget(e.target.value)}
+              value={recipient}
+              onChange={(e) => setRecipient(e.target.value)}
               className="text-xs font-mono"
             />
-            {target && !isAddress(target) && (
+            {recipient && !isAddress(recipient) && (
               <p className="text-[10px] text-red-400">Alamat tidak valid</p>
             )}
           </div>
@@ -174,19 +170,6 @@ function CreateProposalForm() {
           </div>
         )}
 
-        {type === '4' && (
-          <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">Calldata (opsional)</label>
-            <Input
-              placeholder="0x..."
-              value={calldata}
-              onChange={(e) => setCalldata(e.target.value)}
-              className="text-xs font-mono"
-            />
-            <p className="text-[10px] text-muted-foreground">Kosongkan untuk transfer USDC biasa</p>
-          </div>
-        )}
-
         <Textarea placeholder="Tulis usulan Anda..." value={desc} onChange={(e) => setDesc(e.target.value)} rows={3} />
         <Button onClick={handle} disabled={!canSubmit || isPending} size="sm" className="w-full">
           {isPending ? 'Membuat...' : 'Buat Usulan'}
@@ -197,35 +180,13 @@ function CreateProposalForm() {
   )
 }
 
-function RATSection() {
-  const { data: isRATDue } = useIsRATDue()
-  const { scheduleRAT, isPending, isSuccess } = useScheduleRAT()
-  const [desc, setDesc] = useState('')
-
-  if (!isRATDue) return null
-
-  return (
-    <Card className="border-amber-500/20 bg-amber-500/5">
-      <CardHeader><CardTitle className="text-sm text-amber-500">Rapat Anggota Tahunan (RAT)</CardTitle></CardHeader>
-      <CardContent className="space-y-3">
-        <p className="text-xs text-muted-foreground">Pasal 26-27 UU 25/1992 — RAT sudah jatuh tempo dan perlu dijadwalkan</p>
-        <Textarea placeholder="Agenda RAT tahunan..." value={desc} onChange={(e) => setDesc(e.target.value)} rows={2} />
-        <Button onClick={() => { if (desc.trim()) { scheduleRAT(desc); setDesc('') } }} disabled={!desc.trim() || isPending} size="sm" className="w-full">
-          {isPending ? 'Menjadwalkan...' : 'Jadwalkan RAT'}
-        </Button>
-        {isSuccess && <p className="text-xs text-emerald-500">RAT berhasil dijadwalkan!</p>}
-      </CardContent>
-    </Card>
-  )
-}
-
 function ProposalListItem({ id, selected, onClick }: { id: number; selected: boolean; onClick: () => void }) {
   const { data: state } = useProposalState(BigInt(id))
   const { data: proposalRaw } = useProposal(BigInt(id))
   const proposal = decodeProposal(proposalRaw)
 
-  const typeLabels = ['Umum', 'Anggaran', 'Keanggotaan', 'RAT', 'Lainnya']
-  const typeLabel = proposal ? typeLabels[proposal.proposalType] || 'Umum' : ''
+  const typeLabels = ['Anggaran', 'Anggaran', 'Keanggotaan', 'RAT', 'Lainnya']
+  const typeLabel = proposal ? typeLabels[proposal.proposalType] || 'Anggaran' : ''
 
   return (
     <button
@@ -281,14 +242,14 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
             </Badge>
           </div>
 
-          <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 text-xs text-muted-foreground mb-4">
             <div><span className="text-muted-foreground/60">Pemohon:</span> {proposal.proposer.slice(0, 8)}...{proposal.proposer.slice(-4)}</div>
+            <div><span className="text-muted-foreground/60">Tipe:</span> {['Anggaran', 'Anggaran', 'Keanggotaan', 'RAT', 'Lainnya'][proposal.proposalType]}</div>
             <div><span className="text-muted-foreground/60">Mulai:</span> {formatTimestampShort(proposal.startTime)}</div>
             <div><span className="text-muted-foreground/60">Selesai:</span> {formatTimestampShort(proposal.endTime)}</div>
-            <div><span className="text-muted-foreground/60">Tipe:</span> {['Umum', 'Anggaran', 'Keanggotaan', 'RAT', 'Lainnya'][proposal.proposalType]}</div>
           </div>
 
-          {(proposal.proposalType === 1 || proposal.proposalType === 4) && target && (
+          {(proposal.proposalType === 0 || proposal.proposalType === 1 || proposal.proposalType === 4) && target && (
             <div className="bg-muted/40 rounded-md p-3 mb-4 space-y-1.5">
               <p className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/80">Aksi Usulan</p>
               <div className="text-xs space-y-1">
@@ -319,7 +280,7 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
             {hasVoted || voteSuccess ? (
               <p className="text-sm text-emerald-500">Anda sudah memberikan suara</p>
             ) : (
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 <Button onClick={() => castVote(id, 1)} disabled={votingPending} size="sm">Setuju</Button>
                 <Button variant="destructive" onClick={() => castVote(id, 0)} disabled={votingPending} size="sm">Tolak</Button>
                 <Button variant="outline" onClick={() => castVote(id, 2)} disabled={votingPending} size="sm">Abstain</Button>

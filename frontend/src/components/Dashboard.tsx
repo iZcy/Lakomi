@@ -82,7 +82,7 @@ export function Dashboard() {
 
       {isMember && (
         <>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
             <StatCard label="Hak Suara" value={votingPower !== undefined && votingPower > 0n ? '1 Suara' : '0'} desc="1 anggota = 1 suara" />
             <StatCard label="Saldo LAK" value={tokenBalance !== undefined ? formatLAKAmount(tokenBalance) : '0 LAK'} desc="Token keanggotaan" />
             <StatCard label="Total Simpanan" value={s ? formatUSDCAmount(s.totalContribution) : '0 USDC'} desc="Pokok + Wajib + Sukarela" />

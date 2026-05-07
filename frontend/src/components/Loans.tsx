@@ -187,7 +187,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
           </div>
           <Badge variant="outline" className={colors[s] ?? colors[5]}>{getLoanStateName(s)}</Badge>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 text-sm">
           <div><p className="text-[10px] text-muted-foreground">Pokok</p><p className="font-medium">{formatUSDCAmount(loan.principal)}</p></div>
           <div><p className="text-[10px] text-muted-foreground">Bunga</p><p className="font-medium">{formatUSDCAmount(loan.interest)}</p></div>
           <div><p className="text-[10px] text-muted-foreground">Total</p><p className="font-medium text-amber-500">{formatUSDCAmount(loan.totalOwed)}</p></div>
@@ -235,7 +235,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
               </Button>
             ) : (
               <div className="space-y-2">
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   <Input type="number" placeholder="Jumlah USDC" value={partialAmount} onChange={(e) => setPartialAmount(e.target.value)} className="flex-1" />
                   <Button size="sm" onClick={handlePartialRepay} disabled={!partialAmount || rpPending || ap}>
                     {rpPending ? '...' : 'Bayar'}

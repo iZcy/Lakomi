@@ -94,8 +94,9 @@ async function main() {
   console.log(addresses);
 
   const fs = require("fs");
-  fs.writeFileSync("/app/contract-addresses.json", JSON.stringify(addresses, null, 2));
-  console.log("Addresses written to /app/contract-addresses.json");
+  const addrPath = process.env.ADDR_PATH || "../contract-addresses.json";
+  fs.writeFileSync(addrPath, JSON.stringify(addresses, null, 2));
+  console.log("Addresses written to " + addrPath);
 }
 
 main().catch((error) => {

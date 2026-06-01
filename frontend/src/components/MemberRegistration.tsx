@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAccount } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import { useIsMember } from '../hooks/useContractRead'
-import { useRegisterMember } from '../hooks/useContractWrite'
+import { CONTRACTS } from '../config/contracts'
 import { useToast } from './Toast'
 
 interface MemberData {
@@ -34,28 +34,16 @@ function getMemberData(address: string): MemberData | null {
 export function MemberRegistration() {
   const { address, isConnected } = useAccount()
   const { data: isMember, refetch } = useIsMember(address)
-  const { registerMember, isPending, isSuccess } = useRegisterMember()
   const { addToast } = useToast()
   const queryClient = useQueryClient()
 
   const [step, setStep] = useState<'form' | 'confirm'>('form')
-  const [pendingForm, setPendingForm] = useState<MemberData | null>(null)
+  const [isPending, setIsPending] = useState(false)
   const existing = address ? getMemberData(address) : null
   const [form, setForm] = useState<MemberData>(existing || {
     namaLengkap: '', nik: '', tempatLahir: '', tanggalLahir: '',
     alamat: '', nomorTelepon: '', pekerjaan: '',
   })
-
-  useEffect(() => {
-    if (isSuccess && pendingForm) {
-      saveMemberData(address!, pendingForm)
-      addToast('Berhasil terdaftar sebagai anggota koperasi!', 'success')
-      queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      refetch()
-      setPendingForm(null)
-      setStep('form')
-    }
-  }, [isSuccess])
 
   if (!isConnected || isMember === undefined || isMember === true) return null
 
@@ -72,23 +60,80 @@ export function MemberRegistration() {
     form.nomorTelepon.trim().length >= 8
 
   const handleRegister = async () => {
+    const ethereum = (window as any).ethereum
+    if (!ethereum) {
+      addToast('Dompet tidak terdeteksi', 'error')
+      return
+    }
+
+    setIsPending(true)
+
     try {
-      setPendingForm({ ...form })
-      await registerMember()
+      const nonceHex = await ethereum.request({
+        method: 'eth_getTransactionCount',
+        params: [address, 'latest'],
+      })
+      console.log('[DEBUG] nonce:', nonceHex, 'address:', address)
+      const txHash = await ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [{
+          from: address,
+          to: CONTRACTS.LAKOMI_TOKEN,
+          data: '0x60f8dd7e',
+          gas: '0x7A120',
+          nonce: nonceHex,
+        }],
+      })
+      console.log('[DEBUG] tx hash:', txHash)
+
+      let confirmed = false
+      for (let i = 0; i < 30; i++) {
+        await new Promise((r) => setTimeout(r, 1000))
+        try {
+          const receipt = await ethereum.request({
+            method: 'eth_getTransactionReceipt',
+            params: [txHash],
+          })
+          if (receipt) {
+            console.log('[DEBUG] receipt found:', receipt)
+            confirmed = true
+            break
+          }
+        } catch { /* wallet may reject receipt call */ }
+      }
+
+      if (confirmed) {
+        saveMemberData(address!, form)
+        addToast('Berhasil terdaftar sebagai anggota koperasi!', 'success')
+        queryClient.invalidateQueries({ queryKey: ['readContract'] })
+        refetch()
+      } else {
+        addToast('Transaksi terkirim tapi belum dikonfirmasi. Coba refresh halaman.', 'error')
+      }
     } catch (err: any) {
-      const msg = err?.shortMessage || err?.message || 'Transaksi gagal'
-      if (msg.includes('User rejected') || msg.includes('denied') || msg.includes('rejected')) {
+      console.log('[DEBUG] registerMember error:', JSON.stringify({
+        message: err?.message,
+        shortMessage: err?.shortMessage,
+        cause: err?.cause?.message,
+        data: err?.data,
+        name: err?.name,
+        code: err?.code,
+      }, null, 2))
+      const msg = err?.shortMessage || err?.message || ''
+      if (msg.includes('User rejected') || msg.includes('denied') || err?.code === 4001) {
         addToast('Transaksi dibatalkan oleh pengguna', 'error')
       } else if (msg.includes('already imported') || msg.includes('nonce')) {
-        addToast('Nonce dompet tidak sinkron. Klik "Fix Nonce" di Dev Faucet, lalu coba lagi.', 'error')
+        addToast('Nonce dompet tidak sinkron. Reset wallet atau reconnect.', 'error')
       } else if (msg.includes('Already registered')) {
+        saveMemberData(address!, form)
         addToast('Anda sudah terdaftar sebagai anggota!', 'success')
         queryClient.invalidateQueries({ queryKey: ['readContract'] })
         refetch()
       } else {
         addToast(`Gagal mendaftar: ${msg}`, 'error')
       }
-      setPendingForm(null)
+    } finally {
+      setIsPending(false)
       setStep('form')
     }
   }

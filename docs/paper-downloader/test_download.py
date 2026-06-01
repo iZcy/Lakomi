@@ -296,21 +296,28 @@ async def _click_and_handle(page, ctx, btn, save_path, original_pages):
 async def main():
     config = load_config()
 
-    console.print("[bold]Launching browser...[/bold]")
+    console.print("[bold]Connecting to Brave via CDP...[/bold]")
     pw = await async_playwright().start()
-    browser = await pw.chromium.launch(
-        headless=False,
-        args=['--disable-blink-features=AutomationControlled'],
-    )
-    ctx = await browser.new_context(
-        accept_downloads=True,
-        viewport={"width": 1600, "height": 900},
-        locale='en-US',
-        timezone_id='Asia/Jakarta',
-    )
-    await ctx.add_init_script("""
-        Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-    """)
+    try:
+        browser = await pw.chromium.connect_over_cdp("http://localhost:9222")
+        contexts = browser.contexts
+        ctx = contexts[0] if contexts else await browser.new_context()
+        console.print("[green]Connected to existing Brave browser[/green]")
+    except Exception as e:
+        console.print(f"[yellow]CDP connect failed ({e}), launching new browser...[/yellow]")
+        browser = await pw.chromium.launch(
+            headless=False,
+            args=['--disable-blink-features=AutomationControlled'],
+        )
+        ctx = await browser.new_context(
+            accept_downloads=True,
+            viewport={"width": 1600, "height": 900},
+            locale='en-US',
+            timezone_id='Asia/Jakarta',
+        )
+        await ctx.add_init_script("""
+            Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+        """)
     page = await ctx.new_page()
 
     ezproxy_url = config['ezproxy']['url']

@@ -11,7 +11,7 @@ import "../src/mocks/MockUSDC.sol";
 /**
  * @title DeployLocal
  * @notice Deploys Lakomi contracts to local Anvil for testing
- * @dev Run: forge script script/DeployLocal.s.sol --rpc-url http://127.0.0.1:8545 --private-key 0xac0974bec39a17e72db11a0012bf4f44fb4a48f43f2fd3a8f199bd49d4ddb24 --broadcast
+ * @dev Run: forge script script/DeployLocal.s.sol --rpc-url http://127.0.0.1:8545 --broadcast
  */
 contract DeployLocal is Script {
     // Configuration
@@ -22,7 +22,7 @@ contract DeployLocal is Script {
 
     function run() external {
         // Default Anvil private key (account 0)
-        uint256 deployerPrivateKey = 0xac0974bec39a17e72db11a0012bf4f44fb4a48f43f2fd3a8f199bd49d4ddb24;
+        uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address deployer = vm.addr(deployerPrivateKey);
 
         vm.startBroadcast(deployerPrivateKey);

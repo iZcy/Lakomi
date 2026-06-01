@@ -3,17 +3,11 @@ import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
+import { WALLET_CHAIN_PARAMS } from '../wagmi'
 
 const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
   ? import.meta.env.VITE_RPC_URL
   : 'http://127.0.0.1:8545'
-
-const ANVIL_CHAIN = {
-  chainId: '0x4c831',
-  chainName: 'Anvil Lokal',
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
-  rpcUrls: [RPC],
-}
 
 async function rpcCall(method: string, params: unknown[]) {
   const res = await fetch(RPC, {
@@ -79,7 +73,7 @@ export function Navbar() {
     try {
       await window.ethereum.request({
         method: 'wallet_addEthereumChain',
-        params: [ANVIL_CHAIN],
+        params: [WALLET_CHAIN_PARAMS],
       })
       addToast('Jaringan Anvil berhasil ditambahkan!', 'success')
     } catch (e: any) {

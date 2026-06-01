@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import { useAccount, useBalance, useWalletClient, useSendTransaction } from 'wagmi'
-import { parseEther } from 'viem'
+import { parseEther, encodeFunctionData, parseAbi } from 'viem'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
 import { anvil } from '../wagmi'
 import { CONTRACTS } from '../config/contracts'
+import { LAKOMI_TOKEN_ABI } from '../abis/LakomiToken'
 import { useQueryClient } from '@tanstack/react-query'
+
+const parsedTokenAbi = parseAbi(LAKOMI_TOKEN_ABI)
 
 const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
   ? import.meta.env.VITE_RPC_URL
@@ -121,13 +124,10 @@ export function DevFaucet() {
     setBusy('register')
     try {
       await rpcCall('anvil_impersonateAccount', [address])
-      const { data: isMember } = await queryClient.fetchQuery({
-        queryKey: ['readContract'],
-      })
       await rpcCall('eth_sendTransaction', [{
         from: address,
         to: CONTRACTS.LAKOMI_TOKEN,
-        data: '0x60f8dd7e',
+        data: encodeFunctionData({ abi: parsedTokenAbi, functionName: 'registerMember' }),
         gas: '0x200000',
       }])
       await rpcCall('anvil_stopImpersonatingAccount', [address])
@@ -187,7 +187,7 @@ export function DevFaucet() {
       await rpcCall('eth_sendTransaction', [{
         from: ACCOUNT_2,
         to: CONTRACTS.LAKOMI_TOKEN,
-        data: '0x60f8dd7e',
+        data: encodeFunctionData({ abi: parsedTokenAbi, functionName: 'registerMember' }),
         gas: '0x200000',
       }])
       await rpcCall('anvil_stopImpersonatingAccount', [ACCOUNT_2])

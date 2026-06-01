@@ -5,7 +5,7 @@ export const LAKOMI_TOKEN_ABI = [
   "function totalSupply() view returns (uint256)",
   "function balanceOf(address) view returns (uint256)",
   "function transfer(address,uint256) returns (bool)",
-  "function registerMember(address)",
+  "function registerMember()",
   "function isRegisteredMember(address) view returns (bool)",
   "function getMemberCount() view returns (uint256)",
   "function getVotingPower(address) view returns (uint256)",

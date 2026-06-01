@@ -5,13 +5,13 @@ import { CONTRACTS } from '../config/contracts'
 
 type WriteResult = { hash: `0x${string}` }
 
-const GAS_OVERRIDES = { maxFeePerGas: parseGwei('100'), maxPriorityFeePerGas: parseGwei('1') }
+const GAS_OVERRIDES = { gas: 500000n, type: 'legacy' as const }
 
 export function useRegisterMember() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const registerMember = (): Promise<WriteResult> => {
+  const registerMember = async (): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_TOKEN,
       abi: LAKOMI_TOKEN_ABI,
@@ -28,7 +28,7 @@ export function usePaySimpananPokok() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const paySimpananPokok = (member: `0x${string}`): Promise<WriteResult> => {
+  const paySimpananPokok = async (member: `0x${string}`): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_VAULT,
       abi: LAKOMI_VAULT_ABI,
@@ -45,13 +45,13 @@ export function usePaySimpananWajib() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const paySimpananWajib = (): Promise<WriteResult> => {
+  const paySimpananWajib = async (): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_VAULT,
       abi: LAKOMI_VAULT_ABI,
       functionName: 'paySimpananWajib',
       args: [],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -62,13 +62,13 @@ export function useDeposit() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const deposit = (amount: bigint): Promise<WriteResult> => {
+  const deposit = async (amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_VAULT,
       abi: LAKOMI_VAULT_ABI,
       functionName: 'deposit',
       args: [amount],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -79,13 +79,13 @@ export function useClaimSHU() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const claimSHU = (distributionId: bigint): Promise<WriteResult> => {
+  const claimSHU = async (distributionId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_VAULT,
       abi: LAKOMI_VAULT_ABI,
       functionName: 'claimSHU',
       args: [distributionId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -96,13 +96,13 @@ export function useRequestWithdrawal() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const requestWithdrawal = (recipient: `0x${string}`, amount: bigint): Promise<WriteResult> => {
+  const requestWithdrawal = async (recipient: `0x${string}`, amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_VAULT,
       abi: LAKOMI_VAULT_ABI,
       functionName: 'requestWithdrawal',
       args: [recipient, amount],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -113,7 +113,7 @@ export function useCreateProposal() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const createProposal = (
+  const createProposal = async (
     description: string,
     proposalType: number,
     target: `0x${string}`,
@@ -125,7 +125,7 @@ export function useCreateProposal() {
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'createProposal',
       args: [description, proposalType, target, value, callData],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -136,13 +136,13 @@ export function useCastVote() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const castVote = (proposalId: bigint, support: number): Promise<WriteResult> => {
+  const castVote = async (proposalId: bigint, support: number): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_GOVERN,
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'castVote',
       args: [proposalId, support],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -153,13 +153,13 @@ export function useRequestLoan() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const requestLoan = (amount: bigint, duration: bigint, reason: string): Promise<WriteResult> => {
+  const requestLoan = async (amount: bigint, duration: bigint, reason: string): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'requestLoan',
       args: [amount, duration, reason],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -170,13 +170,13 @@ export function useRepayLoan() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const repayLoan = (loanId: bigint, amount: bigint): Promise<WriteResult> => {
+  const repayLoan = async (loanId: bigint, amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'repay',
       args: [loanId, amount],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -187,13 +187,13 @@ export function useRepayInFull() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const repayInFull = (loanId: bigint): Promise<WriteResult> => {
+  const repayInFull = async (loanId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'repayInFull',
       args: [loanId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -204,13 +204,13 @@ export function useApproveUsdc() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const approve = (spender: `0x${string}`, amount: bigint): Promise<WriteResult> => {
+  const approve = async (spender: `0x${string}`, amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.MOCK_USDC,
       abi: USDC_ABI,
       functionName: 'approve',
       args: [spender, amount],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -221,13 +221,13 @@ export function useMintUsdc() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const mintUsdc = (to: `0x${string}`, amount: bigint): Promise<WriteResult> => {
+  const mintUsdc = async (to: `0x${string}`, amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.MOCK_USDC,
       abi: USDC_ABI,
       functionName: 'mint',
       args: [to, amount],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -238,13 +238,13 @@ export function useQueueProposal() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const queueProposal = (proposalId: bigint): Promise<WriteResult> => {
+  const queueProposal = async (proposalId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_GOVERN,
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'queue',
       args: [proposalId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -255,14 +255,14 @@ export function useExecuteProposal() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const executeProposal = (proposalId: bigint): Promise<WriteResult> => {
+  const executeProposal = async (proposalId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_GOVERN,
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'execute',
       args: [proposalId],
       gas: 500000n,
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -273,13 +273,13 @@ export function useCancelProposal() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const cancelProposal = (proposalId: bigint): Promise<WriteResult> => {
+  const cancelProposal = async (proposalId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_GOVERN,
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'cancel',
       args: [proposalId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -290,13 +290,13 @@ export function useDistributeSHU() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const distributeSHU = (): Promise<WriteResult> => {
+  const distributeSHU = async (): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_VAULT,
       abi: LAKOMI_VAULT_ABI,
       functionName: 'distributeSHU',
       args: [],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -307,13 +307,13 @@ export function useDisburseLoan() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const disburseLoan = (loanId: bigint): Promise<WriteResult> => {
+  const disburseLoan = async (loanId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'disburse',
       args: [loanId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -324,13 +324,13 @@ export function useApproveLoan() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const approveLoan = (loanId: bigint): Promise<WriteResult> => {
+  const approveLoan = async (loanId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'approveLoan',
       args: [loanId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -341,13 +341,13 @@ export function useMarkDefaulted() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const markDefaulted = (loanId: bigint): Promise<WriteResult> => {
+  const markDefaulted = async (loanId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'markDefaulted',
       args: [loanId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -358,13 +358,13 @@ export function useClaimCollateral() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const claimCollateral = (loanId: bigint): Promise<WriteResult> => {
+  const claimCollateral = async (loanId: bigint): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_LOANS,
       abi: LAKOMI_LOANS_ABI,
       functionName: 'claimCollateral',
       args: [loanId],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 
@@ -375,13 +375,13 @@ export function useScheduleRAT() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
 
-  const scheduleRAT = (description: string): Promise<WriteResult> => {
+  const scheduleRAT = async (description: string): Promise<WriteResult> => {
     return writeContractAsync({
       address: CONTRACTS.LAKOMI_GOVERN,
       abi: LAKOMI_GOVERN_ABI,
       functionName: 'scheduleAnnualRAT',
       args: [description],
-    ...GAS_OVERRIDES,
+      ...GAS_OVERRIDES,
     })
   }
 

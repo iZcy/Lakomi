@@ -257,7 +257,7 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
   const { data: callData } = useProposalCallData(id)
   const { castVote, isPending: votingPending, isSuccess: voteSuccess } = useCastVote()
   const { queueProposal, isPending: queuePending, isSuccess: queueSuccess } = useQueueProposal()
-  const { executeProposal, isPending: execPending, isSuccess: execSuccess } = useExecuteProposal()
+  const { executeProposal, isPending: execPending, isSuccess: execSuccess, error: execError } = useExecuteProposal()
   const { cancelProposal, isPending: cancelPending, isSuccess: cancelSuccess } = useCancelProposal()
   const queryClient = useQueryClient()
 
@@ -368,6 +368,9 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
               <Button onClick={() => executeProposal(id)} disabled={execPending} size="sm">
                 {execPending ? 'Mengeksekusi...' : 'Eksekusi Usulan'}
               </Button>
+            )}
+            {execError && (
+              <p className="text-[10px] text-red-400 mt-1">{(execError as any)?.shortMessage || 'Eksekusi gagal'}</p>
             )}
           </CardContent>
         </Card>

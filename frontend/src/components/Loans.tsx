@@ -110,9 +110,10 @@ export function Loans() {
           <ul className="text-xs text-muted-foreground space-y-1">
             <li>Bunga 5% APY sesuai suku bunga koperasi</li>
             <li>Jaminan 25% LAK dikunci sampai lunas</li>
-            <li>Semua pinjaman perlu persetujuan pengurus</li>
+            <li>Semua pinjaman perlu persetujuan pengurus (APPROVER_ROLE)</li>
             <li>Masa tenggang 7 hari setelah jatuh tempo</li>
-            <li>Gagal bayar: jaminan disita oleh pengawas</li>
+            <li>Dana berasal dari Simpanan Sukarela anggota (Vault)</li>
+            <li>Maks pinjaman = simpanan × 30% (naik ke 50%/70% bertahap)</li>
           </ul>
         </CardContent>
       </Card>
@@ -295,7 +296,11 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
             <Button onClick={() => approveLoan(loanId)} disabled={alPending} className="w-full" size="sm" variant="outline">
               {alPending ? 'Menyetujui...' : 'Setujui (Admin)'}
             </Button>
+            <Button onClick={() => markDefaulted(loanId)} disabled={mdPending} variant="destructive" size="sm" className="w-full text-xs">
+              {mdPending ? '...' : 'Tolak / Batalkan'}
+            </Button>
             {alSuccess && <p className="text-xs text-emerald-500">Pinjaman disetujui!</p>}
+            {mdSuccess && <p className="text-xs text-red-500">Pinjaman dibatalkan!</p>}
           </div>
         )}
 

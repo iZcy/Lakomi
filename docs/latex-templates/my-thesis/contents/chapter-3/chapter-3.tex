@@ -103,6 +103,34 @@ Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{
 
 Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{layer} keanggotaan, \textit{layer} kontrak, dan \textit{layer} blockchain. Diagram arsitektur sistem ditunjukkan pada Gambar~\ref{fig:arsitektur-3}.
 
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    box/.style={rectangle, rounded corners=3pt, draw, minimum width=2.8cm, minimum height=0.45cm, font=\footnotesize, align=center, inner sep=3pt},
+    arr/.style={->, >=stealth, thick},
+    darr/.style={->, >=stealth, thick, dashed, gray!50},
+]
+\node[box, fill=purple!10, minimum width=10cm] (token)
+    at (0,2.5) {LakomiToken (LAK) --- ERC-20 --- \texttt{isRegisteredMember}\\[2pt]
+    {\footnotesize\textit{Minter $\cdot$ Burner $\cdot$ Locker $\cdot$ Membership}}};
+\draw[arr] (-3.2,2.2) -- (-3.2,1.0);
+\draw[arr] (0,2.2)    -- (0,1.0);
+\draw[arr] (3.2,2.2)  -- (3.2,1.0);
+\node[box, fill=blue!8] (vault)  at (-3.2,0.6)  {LakomiVault\\{\footnotesize\textit{Treasurer}}};
+\node[box, fill=blue!8] (govern) at (0,0.6)     {LakomiGovern\\{\footnotesize\textit{Pengawas}}};
+\node[box, fill=blue!8] (loans)  at (3.2,0.6)   {LakomiLoans\\{\footnotesize\textit{Approver}}};
+\draw[darr] (vault.east)  -- (govern.west);
+\draw[darr] (govern.east) -- (loans.west);
+\draw[arr] (-3.2,-0.1) -- (-3.2,-0.8);
+\draw[arr] (0,-0.1)    -- (0,-0.8);
+\draw[arr] (3.2,-0.1)  -- (3.2,-0.8);
+\node[box, fill=orange!12, minimum width=10.5cm]
+    (chain) at (0,-1.1) {DChain --- EVM-Compatible --- Chain ID 17845};
+\end{tikzpicture}
+\caption{Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit{registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit{loan-to-value} berbasis kontribusi.}
+\label{fig:arsitektur-3}
+\end{figure}
+
 Keempat \textit{smart contract} dan perannya dalam arsitektur adalah sebagai berikut:
 
 \begin{enumerate}
@@ -156,8 +184,8 @@ Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan k
 \centering
 \caption{Pemetaan Fungsi Smart Contract ke Ketentuan UU 25/1992}
 \label{tab:fungsi-uu}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{p{0.16\textwidth}p{0.16\textwidth}p{0.38\textwidth}p{0.25\textwidth}}
+\footnotesize
+\begin{tabular}{p{0.15\textwidth}p{0.14\textwidth}p{0.40\textwidth}p{0.25\textwidth}}
 \toprule
 \textbf{Kontrak} & \textbf{Pasal} & \textbf{Fungsi} & \textbf{Deskripsi} \\
 \midrule
@@ -178,10 +206,54 @@ Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan k
 \multirow{2}{*}{LakomiLoans} & 18 & \texttt{requestLoan()} & Pinjaman LTV berbasis kontribusi \\
  & Permenkop 8/2023 Ps 6--7 & \texttt{tieredLTV + 5\% APY} & Batas pinjaman dan suku bunga \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-\subsection{Model Tata Kelola dan Distribusi SHU}
+\subsection{Event Logging}
+
+Setiap \textit{smart contract} mendefinisikan \textit{event} yang memfasilitasi pelacakan aktivitas on-chain dan membangun \textit{audit trail} yang lengkap. \textit{Event-event} ini dapat dimonitor melalui \textit{block explorer} DChain untuk keperluan audit dan verifikasi eksternal:
+
+\begin{itemize}
+	\item \texttt{MemberRegistered(address member)} --- Dipancarkan oleh LakomiToken ketika anggota baru berhasil mendaftar.
+	\item \texttt{MemberResigned(address member)} --- Dipancarkan ketika anggota mengundurkan diri secara sukarela.
+	\item \texttt{SimpananPaid(address member, uint256 amount, string simpananType)} --- Dipancarkan oleh LakomiVault pada setiap pembayaran simpanan (pokok, wajib, sukarela).
+	\item \texttt{SHUDistributed(uint256 distributionsId, uint256 totalAmount)} --- Dipancarkan ketika distribusi SHU enam kategori berhasil dieksekusi.
+	\item \texttt{ProposalCreated(uint256 proposalId, address proposer)} --- Dipancarkan oleh LakomiGovern pada pembuatan proposal baru.
+	\item \texttt{VoteCast(uint256 proposalId, address voter, uint8 vote)} --- Dipancarkan pada setiap pemungutan suara.
+	\item \texttt{ElectionFinalized(bytes32 role, address winner)} --- Dipancarkan ketika pemilihan pengurus selesai dan pemenang ditetapkan.
+	\item \texttt{LoanRequested(uint256 loanId, address borrower, uint256 amount)} --- Dipancarkan oleh LakomiLoans pada pengajuan pinjaman.
+	\item \texttt{LoanRepaid(uint256 loanId, uint256 amount)} --- Dipancarkan ketika pinjaman dilunasi.
+\end{itemize}
+
+\subsection{Justifikasi Parameter Sistem}
+
+Setiap parameter dalam sistem ditetapkan berdasarkan pertimbangan regulasi dan praktis. Tabel~\ref{tab:parameter} merangkum justifikasi untuk setiap parameter utama.
+
+\begin{table}[h]
+\centering
+\caption{Justifikasi Parameter Sistem}
+\label{tab:parameter}
+\footnotesize
+\begin{tabular}{p{0.18\textwidth}p{0.12\textwidth}p{0.62\textwidth}}
+\toprule
+\textbf{Parameter} & \textbf{Nilai} & \textbf{Justifikasi} \\
+\midrule
+Kuorum & 67\% & Mencerminkan prinsip koperasi bahwa keputusan memerlukan konsensus mayoritas signifikan. Pasal 23 UU 25/1992 mengamanatkan keputusan berdasarkan suara terbanyak; nilai dua per tiga memastikan legitimasi keputusan. \\
+\addlinespace
+Periode Voting & 7 hari & Memberikan waktu yang memadai bagi anggota untuk meninjau proposal tanpa memperlambat operasional koperasi. \\
+\addlinespace
+Timelock Eksekusi & 24 jam & Memberikan jendela pengamanan bagi pengawas untuk melakukan veto sebelum proposal dieksekusi (Pasal 38). \\
+\addlinespace
+Suku Bunga & 5\% APY & Lebih rendah dari suku bunga komersial, sesuai prinsip koperasi yang mengutamakan kesejahteraan anggota. Permenkop 8/2023 mengatur batas maksimum suku bunga yang wajar. \\
+\addlinespace
+Agunan & 25\% & Memberikan perlindungan terhadap risiko gagal bayar tanpa membebani anggota secara berlebihan. \\
+\addlinespace
+Auto-approval & $\leq$ 200 USDC & Memungkinkan akses cepat ke dana darurat untuk pinjaman kecil tanpa menunggu proses tata kelola. \\
+\addlinespace
+LTV Tier 1/2/3 & 30\%/50\%/70\% & Memberikan insentif bagi anggota untuk meningkatkan kontribusi simpanan---semakin besar kontribusi, semakin besar kapasitas pinjaman---tanpa memengaruhi hak suara. \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Proposal melalui empat tahap: (1) pembuatan oleh anggota terdaftar, (2) pemungutan suara selama 7 hari, (3) verifikasi kuorum 67\%, dan (4) eksekusi setelah \textit{timelock} 24 jam. Pemegang PENGAWAS\_ROLE dapat mem-veto proposal sebelum eksekusi.
 
@@ -220,6 +292,26 @@ Bunga pinjaman dihitung menggunakan formula bunga sederhana tahunan:
 \end{equation}
 
 \noindent dengan $P$ adalah pokok pinjaman dalam USDC dan $D$ adalah durasi pinjaman dalam hari. Suku bunga 5\% APY (\textit{Annual Percentage Yield}) ditetapkan sebagai suku bunga tetap (\textit{flat rate}) yang lebih rendah dibandingkan suku bunga pinjaman komersial pada umumnya, sesuai dengan prinsip koperasi yang mengutamakan kesejahteraan anggota. Formula ini memastikan bahwa perhitungan bunga bersifat proporsional terhadap durasi---semakin singkat periode pinjaman, semakin kecil bunga yang dibebankan---sehingga memberikan insentif bagi anggota untuk melunasi pinjaman tepat waktu.
+
+\section{Perancangan Keamanan}
+
+Sistem Lakomi mengimplementasikan empat lapisan keamanan yang terintegrasi untuk melindungi aset dan memastikan integritas tata kelola koperasi.
+
+\subsection{Kontrol Akses Berbasis Peran}
+
+Seluruh fungsi \textit{state-modifying} pada keempat kontrak dilindungi oleh mekanisme \texttt{onlyRole} dari OpenZeppelin AccessControl. Delapan peran didistribusikan ke akun yang berbeda, memastikan bahwa tidak ada satu entitas pun yang memiliki kendali penuh atas sistem. Pemisahan peran ini mencegah skenario di mana administrator tunggal dapat menyetujui pinjaman kepada dirinya sendiri atau mendistribusikan SHU secara sepihak.
+
+\subsection{Perlindungan Reentrancy}
+
+Setiap fungsi yang melibatkan transfer dana---termasuk \texttt{disburse()} pada LakomiLoans, \texttt{distributeSHU()} pada LakomiVault, dan \texttt{claimSHU()}---dilindungi oleh \texttt{nonReentrant} modifier dari OpenZeppelin ReentrancyGuard. Mekanisme ini mencegah serangan \textit{reentrancy} di mana penyerang dapat memanggil fungsi secara rekursif sebelum \textit{state} diperbarui, yang berpotensi menguras dana \textit{vault}.
+
+\subsection{Veto Pengawas sebagai Circuit Breaker}
+
+PENGAWAS\_ROLE memiliki kemampuan untuk mem-veto proposal yang telah lolos pemungutan suara sebelum eksekusi. Mekanisme ini berfungsi sebagai \textit{circuit breaker} terhadap proposal berbahaya yang mungkin lolos karena manipulasi suara atau ketidaktahuan anggota. Veto hanya dapat dilakukan oleh pemegang peran pengawas (bukan oleh anggota biasa atau pengurus), mencerminkan pemisahan kekuasaan antara eksekutif (pengurus) dan pengawas sebagaimana diamanatkan dalam Pasal 38--39 UU 25/1992.
+
+\subsection{Non-Transferabilitas Token Keanggotaan}
+
+Token LAK bersifat tidak dapat dipindahtangankan (\texttt{transfersEnabled = false}). Keputusan desain ini memastikan bahwa keanggotaan koperasi tidak dapat diperjualbelikan di pasar sekunder, mencegah spekulasi hak suara, dan mematuhi prinsip \textit{intuitu personae} dalam keanggotaan koperasi sebagaimana diatur dalam Pasal 18(2) UU 25/1992.
 
 \section{Desain Frontend}
 
@@ -321,6 +413,19 @@ Analisis biaya gas dilakukan untuk mengukur konsumsi komputasi setiap operasi ko
 \end{enumerate}
 
 Hasil analisis biaya gas disajikan dan dibahas pada Bab~\ref{ch4}.
+
+\subsection{Pengujian Imutabilitas}
+
+Pengujian imutabilitas dilakukan untuk memverifikasi bahwa sistem memenuhi prinsip \textit{append-only} dan \textit{non-transferable} yang merupakan fondasi kepercayaan dalam sistem berbasis blockchain. Pengujian ini mencakup:
+
+\begin{enumerate}
+	\item \textbf{Non-transferabilitas Token Keanggotaan} --- Verifikasi bahwa setiap upaya untuk mentransfer token LAK antar akun akan ditolak (\textit{reverted}) karena \texttt{transfersEnabled = false}. Pengujian dilakukan dengan memanggil fungsi \texttt{transfer()} standar ERC-20 dan memverifikasi bahwa transaksi gagal.
+	\item \textbf{Imutabilitas Data Simpanan} --- Verifikasi bahwa setelah pembayaran simpanan dicatat dalam \texttt{simpananPokok} dan \texttt{simpananWajib}, data tersebut tidak dapat diubah atau dihapus oleh pihak mana pun kecuali melalui fungsi yang telah ditentukan (misalnya, \texttt{refundSimpananPokok()} pada saat pengunduran diri).
+	\item \textbf{Imutabilitas Riwayat Proposal} --- Verifikasi bahwa proposal yang telah dieksekusi atau diveto tetap tercatat dalam \textit{state} kontrak dan tidak dapat dimodifikasi. Setiap perubahan status proposal (dari Active ke Succeeded/Defeated/Vetoed) bersifat final dan tidak dapat dikembalikan.
+	\item \textbf{Imutabilitas Catatan Pinjaman} --- Verifikasi bahwa riwayat pinjaman---termasuk pengajuan, persetujuan, pencairan, pembayaran, dan pelunasan---tercatat secara permanen dalam \texttt{Loan} struct dan tidak dapat dihapus.
+\end{enumerate}
+
+Seluruh hasil pengujian fungsional, analisis biaya gas, dan pengujian imutabilitas disajikan secara rinci pada Bab~\ref{ch4}.
 
 \subsection{Analisis Biaya Gas}
 

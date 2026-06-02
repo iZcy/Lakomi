@@ -40,6 +40,7 @@ function encodeMint(to: string, amount: bigint): string {
 }
 
 const ROLES: { key: string; label: string; desc: string }[] = [
+  { key: 'DEFAULT_ADMIN_ROLE', label: 'Admin', desc: 'Full access to begin elections' },
   { key: 'PENGAWAS_ROLE', label: 'Pengawas', desc: 'Veto proposals, pause governance' },
   { key: 'APPROVER_ROLE', label: 'Pengurus', desc: 'Approve loans, mark defaulted' },
   { key: 'MEMBERSHIP_ROLE', label: 'Membership', desc: 'Register/revoke members' },
@@ -47,6 +48,7 @@ const ROLES: { key: string; label: string; desc: string }[] = [
 ]
 
 const CONTRACTS_TO_GRANT: Record<string, string> = {
+  DEFAULT_ADMIN_ROLE: 'LAKOMI_GOVERN',
   PENGAWAS_ROLE: 'LAKOMI_GOVERN',
   APPROVER_ROLE: 'LAKOMI_LOANS',
   MEMBERSHIP_ROLE: 'LAKOMI_TOKEN',

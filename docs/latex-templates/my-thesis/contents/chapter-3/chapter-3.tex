@@ -4,13 +4,21 @@ Bab ini menjelaskan metodologi yang digunakan dalam perancangan dan pengembangan
 
 \section{Pendekatan Design Science Research}
 
-Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artifact} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Hevner \cite{hevner2007design} mengemukakan tiga siklus DSR---relevansi, rigor, dan desain---yang diterapkan sebagai berikut:
+Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artifact} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi.
+
+Pemilihan DSR sebagai metodologi penelitian didasarkan pada tiga pertimbangan utama. Pertama, DSR menekankan pada pembangunan \textit{artifact} sebagai kontribusi utama---dalam konteks ini, \textit{artifact} berupa empat \textit{smart contract} yang mengimplementasikan regulasi perkoperasian ke dalam kode yang dapat dieksekusi secara otomatis. Kedua, DSR bersifat iteratif dan memungkinkan evaluasi berkelanjutan---setiap fungsi \textit{smart contract} diuji secara fungsional untuk memverifikasi kepatuhannya terhadap pasal spesifik dalam UU 25/1992. Ketiga, DSR menyeimbangkan antara kontribusi praktis (sistem yang berfungsi) dan kontribusi teoretis (model pemetaan regulasi ke \textit{smart contract}), yang sesuai dengan posisi penelitian ini di persimpangan antara rekayasa perangkat lunak dan ilmu hukum.
+
+Hevner \cite{hevner2007design} mengemukakan tiga siklus DSR---relevansi, rigor, dan desain---yang diterapkan sebagai berikut:
 
 \begin{enumerate}
-	\item \textbf{Siklus Relevansi} --- Mengidentifikasi permasalahan koperasi tradisional---tata kelola opak, pengelolaan manual, partisipasi anggota terbatas, dan kesenjangan regulasi pengawasan~\cite{antoni2024permasalahan,putra2025dualisme}---serta kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara.
-	\item \textbf{Siklus Rigor} --- Mengkaji literatur tentang blockchain untuk koperasi, tata kelola DAO, regulasi perkoperasian Indonesia (UU 25/1992, PP 7/2021, Permenkop 8/2023), dan standar pengembangan \textit{smart contract}.
-	\item \textbf{Siklus Desain} --- Membangun \textit{artifact} berupa empat \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) dan \textit{frontend} React, kemudian mengevaluasi kepatuhan fungsional terhadap 26 ketentuan UU 25/1992.
+	\item \textbf{Siklus Relevansi} --- Menjembatani lingkungan masalah dengan aktivitas penelitian. Siklus ini mengidentifikasi permasalahan koperasi tradisional---tata kelola opak, pengelolaan manual, partisipasi anggota terbatas, dan kesenjangan regulasi pengawasan~\cite{antoni2024permasalahan,putra2025dualisme}---serta kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara. Hasil dari siklus relevansi adalah spesifikasi kebutuhan sistem yang diturunkan langsung dari UU 25/1992: 26 ketentuan yang harus diterjemahkan ke dalam fungsi \textit{smart contract} yang dapat diverifikasi.
+
+	\item \textbf{Siklus Rigor} --- Menjembatani basis pengetahuan ilmiah dengan aktivitas penelitian. Siklus ini mengkaji literatur tentang blockchain untuk koperasi, tata kelola DAO, regulasi perkoperasian Indonesia (UU 25/1992, PP 7/2021, Permenkop 8/2023), dan standar pengembangan \textit{smart contract}. Basis pengetahuan juga mencakup spesifikasi teknis Ethereum (Yellow Paper), standar ERC-20, pola desain keamanan \textit{smart contract} (AccessControl, ReentrancyGuard), dan arsitektur DChain sebagai infrastruktur blockchain konsorsium. Setiap keputusan desain dalam \textit{smart contract}---dari pemilihan basis poin SHU hingga ambang kuorum 67\%---dijustifikasi melalui rujukan ke regulasi atau literatur yang relevan.
+
+	\item \textbf{Siklus Desain} --- Membangun dan mengevaluasi \textit{artifact} secara iteratif. \textit{Artifact} yang dibangun berupa empat \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) dan \textit{frontend} React. Evaluasi dilakukan melalui pengujian fungsional berbasis skenario yang memverifikasi setiap ketentuan UU 25/1992. Umpan balik dari hasil pengujian digunakan untuk memperbaiki implementasi secara iteratif hingga seluruh 26 ketentuan terverifikasi. Siklus desain menghasilkan dua artefak utama: (1) sistem \textit{proof of concept} yang berfungsi, dan (2) matriks pemetaan ketentuan hukum ke fungsi kode yang dapat digunakan sebagai acuan untuk pengembangan sistem serupa.
 \end{enumerate}
+
+Ketiga siklus DSR tidak berjalan secara linear, melainkan saling terkait secara dinamis. Temuan dari pengujian fungsional (siklus desain) dapat memicu pengkajian ulang terhadap literatur (siklus rigor)---misalnya, ketika hasil pengujian menunjukkan bahwa suatu pola akses kontrol perlu diperkuat. Sebaliknya, literatur baru tentang regulasi perkoperasian (siklus rigor) dapat memperluas cakupan kebutuhan sistem (siklus relevansi). Interaksi dinamis antar siklus ini memastikan bahwa \textit{artifact} yang dihasilkan tidak hanya berfungsi secara teknis, tetapi juga memiliki justifikasi ilmiah dan relevansi praktis yang kuat.
 
 \section{Alat dan Bahan}
 
@@ -268,6 +276,8 @@ LTV Tier 1/2/3 & 30\%/50\%/70\% & Memberikan insentif bagi anggota untuk meningk
 \end{tabular}
 \end{table}
 
+Parameter-parameter dalam Tabel~\ref{tab:parameter} membentuk kerangka operasional koperasi yang mencerminkan keseimbangan antara efisiensi, keamanan, dan kepatuhan regulasi. Kuorum 67\% dan periode voting 7 hari memastikan bahwa keputusan tata kelola memiliki legitimasi demokratis yang kuat---setiap anggota memiliki waktu yang cukup untuk meninjau proposal dan memberikan suara, sementara ambang dua per tiga mencegah keputusan diambil oleh minoritas kecil. Timelock 24 jam memberikan jendela keamanan yang memungkinkan pengawas melakukan intervensi terhadap proposal yang berpotensi merugikan, mencerminkan mekanisme \textit{checks and balances} yang diamanatkan Pasal 38. Suku bunga 5\% APY menyeimbangkan keberlanjutan operasional koperasi dengan prinsip kesejahteraan anggota---cukup rendah untuk tidak membebani peminjam, namun cukup untuk menghasilkan pendapatan yang mendanai operasional dan distribusi SHU. Agunan 25\% dipilih sebagai titik tengah antara perlindungan terhadap gagal bayar dan aksesibilitas pinjaman---terlalu tinggi akan mengecualikan anggota dengan kontribusi terbatas, terlalu rendah akan meningkatkan risiko bagi \textit{vault}. Auto-approval untuk pinjaman kecil ($\leq$ 200 USDC) mengakui bahwa pinjaman darurat memerlukan respons cepat, sementara mekanisme LTV bertingkat (30\%/50\%/70\%) menciptakan insentif positif: anggota yang berkontribusi lebih besar melalui simpanan mendapatkan kapasitas pinjaman yang lebih besar, namun hak suara mereka tetap setara dengan anggota lainnya.
+
 LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Siklus hidup proposal diilustrasikan pada Gambar~\ref{fig:proposal-lifecycle}.
 
 \begin{figure}[h]
@@ -412,6 +422,66 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 	\item Peminjam melunasi pinjaman melalui \texttt{repayInFull()}. Bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}. Agunan dibuka.
 \end{enumerate}
 
+\subsection{Skenario 4: Pencabutan Keanggotaan dan Audit Pengawas}
+
+\begin{enumerate}
+	\item Anggota mengajukan pengunduran diri melalui \texttt{resignMembership()}. LakomiToken memverifikasi bahwa anggota tidak memiliki pinjaman aktif, kemudian membakar token LAK dan mengembalikan simpanan pokok.
+	\item Untuk pencabutan paksa, anggota menginisiasi proposal MEMBERSHIP melalui LakomiGovern dengan target anggota yang akan dicabut keanggotaannya.
+	\item Proposal melalui siklus pemungutan suara standar (7 hari, kuorum 67\%). Jika lolos dan tidak diveto, LakomiGovern memanggil \texttt{revokeMembership()} pada LakomiToken.
+	\item Pengawas melakukan audit keuangan melalui \texttt{getPengawasAuditReport()} pada LakomiVault yang menampilkan ringkasan: total aset dalam USDC, saldo simpanan pokok/wajib/sukarela, dana cadangan, akumulasi pendapatan bunga, dan daftar pinjaman aktif.
+	\item Audit pengawas memastikan bahwa dana \textit{vault} sesuai dengan kewajiban simpanan anggota dan cadangan wajib---setiap ketidakcocokan dapat ditindaklanjuti melalui proposal tata kelola.
+	\item Pengawas juga dapat memeriksa riwayat distribusi SHU untuk memverifikasi bahwa alokasi telah sesuai dengan \textit{basis points} yang ditetapkan melalui tata kelola.
+\end{enumerate}
+
+\subsection{Skenario 5: Distribusi SHU dan Klaim Anggota}
+
+\begin{enumerate}
+	\item GOVERN\_ROLE memanggil \texttt{distributeSHU()} pada LakomiVault setelah periode akuntansi (setiap 365 hari atau setelah RAT tahunan).
+	\item Sistem menghitung SHU yang dapat didistribusikan: 10\% dari total pendapatan (\texttt{accumulatedRevenue}) disisihkan sebagai cadangan operasional, sisanya didistribusikan.
+	\item SHU dialokasikan ke enam kategori berdasarkan \textit{basis points}: Dana Cadangan (500 bps), Jasa Modal (4000 bps), Jasa Usaha (4000 bps), Dana Pendidikan (500 bps), Dana Pengurus (500 bps), Dana Kesejahteraan Sosial (500 bps).
+	\item Jasa Modal dan Jasa Usaha dihitung secara pro-rata berdasarkan \textit{shares} masing-masing anggota, memastikan distribusi yang proporsional terhadap kontribusi.
+	\item Setiap anggota memanggil \texttt{claimSHU(id)} untuk mengklaim bagian SHU-nya. Sistem memverifikasi bahwa anggota belum mengklaim distribusi yang sama dan mentransfer USDC dari \textit{vault}.
+	\item Pengawas dapat memverifikasi seluruh proses melalui \textit{event} \texttt{SHUDistributed} yang dipancarkan dan laporan \texttt{getPengawasAuditReport()}.
+\end{enumerate}
+
+\section{Perbandingan Arsitektur dengan Sistem Lain}
+
+Untuk mengontekstualisasikan kontribusi arsitektur Lakomi, bagian ini membandingkan pendekatan sistem dengan tiga model sistem yang relevan: koperasi konvensional, \textit{Decentralized Autonomous Organization} (DAO) berbasis \textit{token-weighted voting}, dan \textit{blockchain cooperative} yang telah diusulkan dalam literatur. Perbandingan dirangkum dalam Tabel~\ref{tab:arsitektur-comparison}.
+
+\begin{table}[h]
+\centering
+\caption{Perbandingan Arsitektur Lakomi dengan Sistem Lain}
+\label{tab:arsitektur-comparison}
+\footnotesize
+\begin{tabular}{p{0.20\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.26\textwidth}}
+\toprule
+\textbf{Aspek} & \textbf{Koperasi Konvensional} & \textbf{DAO Token-Weighted} & \textbf{Lakomi (Penelitian Ini)} \\
+\midrule
+Model Keanggotaan & Formulir manual, verifikasi administrasi & \textit{Permissionless}, siapa pun dapat bergabung & Registrasi mandiri dengan simpanan pokok sebagai syarat \\
+\midrule
+Hak Suara & Satu anggota satu suara (manual) & Proporsional terhadap kepemilikan token & Satu anggota satu suara (otomatis, on-chain) \\
+\midrule
+Sistem Simpanan & Buku manual, tiga jenis simpanan & Tidak ada simpanan terstruktur & Tiga jenis simpanan (pokok, wajib, sukarela) on-chain \\
+\midrule
+Distribusi SHU & Kalkulasi manual, rawan kesalahan & Proporsional terhadap \textit{staking} & Enam kategori SHU dengan basis poin terkonfigurasi \\
+\midrule
+Transparansi & Akses terbatas pada laporan periodik & Seluruh transaksi publik di \textit{ledger} & Seluruh transaksi publik + fungsi audit pengawas \\
+\midrule
+Pengawasan & Pengawas eksternal periodik & Tidak ada mekanisme pengawasan formal & Veto pengawas + laporan keuangan on-chain \\
+\midrule
+Keamanan Dana & Rekening bank, otorisasi manual & \textit{Smart contract}, risiko \textit{reentrancy} & RBAC + ReentrancyGuard + \textit{timelock} \\
+\midrule
+Kepatuhan Regulasi & Bergantung pada kepatuhan manual & Tidak dirancang untuk regulasi spesifik & 26 ketentuan UU 25/1992 terpetakan ke fungsi on-chain \\
+\midrule
+Insentif Kontribusi & Tidak ada mekanisme formal & \textit{Staking} memengaruhi hak suara & \textit{Tier} kontribusi menentukan LTV tanpa memengaruhi suara \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Arsitektur Lakomi menjembatani kesenjangan antara koperasi konvensional dan DAO dengan pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara sesuai Pasal 22(1) UU 25/1992, dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan prinsip kesetaraan suara. Pemisahan ini merupakan kontribusi desain utama yang membedakan Lakomi dari DAO berbasis token (\textit{token-weighted voting}) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
+
+Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur---seperti El Amine dan Sari (2024) yang berfokus pada registri properti dan Saito dan Rose (2023) yang menggunakan reputasi untuk tata kelola---Lakomi adalah sistem pertama yang secara sistematis memetakan seluruh ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan \textit{afterthought} melainkan properti bawaan dari arsitektur sistem.
+
 \section{Pengujian}
 
 Pengujian dilakukan dalam dua kategori utama: pengujian fungsional \textit{smart contract} dan analisis biaya gas (\textit{gas analysis}). Pengujian fungsional bertujuan memverifikasi bahwa seluruh 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} berjalan sesuai spesifikasi. Analisis biaya gas bertujuan mengukur kelayakan operasional sistem dari sisi konsumsi komputasi blockchain.
@@ -468,7 +538,3 @@ Pengujian imutabilitas dilakukan untuk memverifikasi bahwa sistem memenuhi prins
 \end{enumerate}
 
 Seluruh hasil pengujian fungsional, analisis biaya gas, dan pengujian imutabilitas disajikan secara rinci pada Bab~\ref{ch4}.
-
-\subsection{Analisis Biaya Gas}
-
-Biaya gas diukur untuk setiap operasi utama koperasi pada lingkungan DChain. Metrik yang diukur mencakup biaya \textit{deployment} per kontrak dan biaya per operasi (\texttt{registerMember}, \texttt{paySimpananPokok}, \texttt{castVote}, \texttt{distributeSHU}, \texttt{requestLoan}, \texttt{repayInFull}). Hasil pengujian dan analisis dibahas secara rinci pada Bab~\ref{ch4}.

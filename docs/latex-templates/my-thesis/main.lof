@@ -1,4 +1,7 @@
 \babel@toc {english}{}\relax 
 \babel@toc {bahasa}{}\relax 
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Contoh gambar}}{10}{figure.caption.20}%
-\contentsline {figure}{\numberline {L.1}{\ignorespaces Contoh gambar.}}{L-2}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{14}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{15}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{19}{figure.caption.27}%
+\contentsline {figure}{\numberline {L.1}{\ignorespaces Contoh gambar.}}{L-2}{figure.caption.37}%

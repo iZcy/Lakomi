@@ -317,6 +317,13 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
             </div>
           )}
 
+          {proposal.proposalType === 2 && callData && callData.length >= 68 && (
+            <div className="bg-red-500/10 rounded-md p-3 mb-4">
+              <p className="text-[10px] font-semibold text-red-500 uppercase tracking-wider mb-1">Pemberhentian Anggota</p>
+              <p className="text-xs font-mono text-red-400">{'0x' + callData.slice(-40)}</p>
+            </div>
+          )}
+
           <div className="space-y-2">
             <VoteBar label="Setuju" votes={proposal.forVotes} total={total} color="bg-emerald-500" />
             <VoteBar label="Tolak" votes={proposal.againstVotes} total={total} color="bg-red-500" />
@@ -417,6 +424,13 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
   const queryClient = useQueryClient()
   const { writeContractAsync } = useWriteContract()
 
+  const { data: isAdmin } = useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN as `0x${string}`,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'hasRole',
+    args: [keccak256(toHex('DEFAULT_ADMIN_ROLE')), address!],
+    query: { enabled: !!address },
+  })
   const elected = ELECTION_ROLES.find(r => r.key === selectedRole)
   const roleHash = elected ? keccak256(toHex(elected.key)) : '0x'
 
@@ -459,8 +473,9 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
     <Card>
       <CardHeader><CardTitle className="text-sm">Pemilihan Pengurus (Pasal 29-30, 38)</CardTitle></CardHeader>
       <CardContent className="space-y-3">
+        <p className="text-[10px] text-muted-foreground">Pilih jabatan → admin mulai pemilu → kandidat daftar → anggota vote → finalisasi. Pemenang otomatis dapat role.</p>
         <Select value={selectedRole} onValueChange={setSelectedRole}>
-          <SelectTrigger><SelectValue placeholder="Pilih jabatan" /></SelectTrigger>
+          <SelectTrigger><SelectValue placeholder="Pilih jabatan">{elected?.label}</SelectValue></SelectTrigger>
           <SelectContent>
             {ELECTION_ROLES.map(r => (
               <SelectItem key={r.key} value={r.key}>{r.label} — {r.desc}</SelectItem>
@@ -470,14 +485,25 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
 
         {elected && !hasElection && (
           <div className="space-y-2">
-            <p className="text-[10px] text-muted-foreground">Belum ada pemilu untuk {elected.label}. Mulai pemilu baru.</p>
-            <div className="flex gap-2">
-              <Input type="number" placeholder="Pendaftaran (hari)" value={regDays} onChange={e => setRegDays(e.target.value)} className="h-8 text-xs" />
-              <Input type="number" placeholder="Voting (hari)" value={voteDays} onChange={e => setVoteDays(e.target.value)} className="h-8 text-xs" />
-              <Button size="sm" className="text-xs" onClick={() => call('beginElection', [roleHash, BigInt(regDays) * 86400n, BigInt(voteDays) * 86400n])}>
-                Mulai Pemilu
-              </Button>
-            </div>
+            <p className="text-[10px] text-muted-foreground">Belum ada pemilu untuk {elected.label}.</p>
+            {isAdmin ? (
+              <div className="flex gap-2 items-end">
+                <div className="flex-1 space-y-1">
+                  <label className="text-[10px] text-muted-foreground">Pendaftaran (hari)</label>
+                  <Input type="number" placeholder="3" value={regDays} onChange={e => setRegDays(e.target.value)} className="h-8 text-xs" />
+                </div>
+                <div className="flex-1 space-y-1">
+                  <label className="text-[10px] text-muted-foreground">Voting (hari)</label>
+                  <Input type="number" placeholder="5" value={voteDays} onChange={e => setVoteDays(e.target.value)} className="h-8 text-xs" />
+                </div>
+                <Button size="sm" className="text-xs" onClick={() => call('beginElection', [roleHash, BigInt(regDays) * 86400n, BigInt(voteDays) * 86400n])}>
+                  Mulai Pemilu
+                </Button>
+              </div>
+            ) : (
+              <p className="text-[10px] text-muted-foreground italic">Butuh akses Admin untuk memulai pemilu.</p>
+            )}
+
           </div>
         )}
 

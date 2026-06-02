@@ -42,11 +42,14 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
   const [pdfPage, setPdfPage] = useState(1)
-  const rightRef = useRef<HTMLDivElement>(null)
+  const [flash, setFlash] = useState(0)
 
   const handlePasalClick = useCallback((idx: number) => {
     setActivePasal(idx)
-    setPdfPage(PASAL[idx].page)
+    const p = PASAL[idx].page
+    setPdfPage(p)
+    setFlash(p)
+    setTimeout(() => setFlash(0), 2500)
   }, [])
 
   return (
@@ -62,7 +65,7 @@ export function Compliance() {
             <span>UU No. 25 Tahun 1992</span>
             <span className="text-muted-foreground font-normal">Hal. {pdfPage}</span>
           </div>
-          <PdfViewer src="/uu-25-1992.pdf" page={pdfPage} onPageChange={setPdfPage} />
+          <PdfViewer src="/uu-25-1992.pdf" page={pdfPage} onPageChange={setPdfPage} highlight={flash} />
         </div>
         <div className="w-1/2 border rounded-r-lg flex flex-col overflow-y-auto">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">Implementasi Kontrak Pintar — {PASAL.length} ketentuan</div>

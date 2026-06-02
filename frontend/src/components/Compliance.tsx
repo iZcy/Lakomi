@@ -1,72 +1,278 @@
+import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 
-const ITEMS = [
-  { pasal: 'Pasal 5(1)', title: 'Keanggotaan Terbuka dan Sukarela', desc: 'Setiap orang dapat menjadi anggota tanpa diskriminasi melalui registerMember().', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.' },
-  { pasal: 'Pasal 22(1)', title: 'Satu Anggota Satu Suara', desc: 'Setiap anggota memiliki hak suara yang sama (1 suara), terlepas dari jumlah simpanan.', contract: 'LakomiToken.getVotingPower() → 1', evidence: 'Mengembalikan 1 untuk setiap anggota, bukan berdasarkan token.' },
-  { pasal: 'Pasal 26-27', title: 'Rapat Anggota Tahunan (RAT)', desc: 'Koperasi wajib menyelenggarakan RAT tahunan.', contract: 'LakomiGovern.scheduleAnnualRAT()', evidence: 'Fungsi khusus dengan pengecekan hanya 1x per tahun.' },
-  { pasal: 'Pasal 38', title: 'Pengawas (Supervisor)', desc: 'Pengawas dapat memveto keputusan yang merugikan.', contract: 'LakomiGovern.vetoProposal() + PENGAWAS_ROLE', evidence: 'Role khusus dengan kemampuan veto dan pause.' },
-  { pasal: 'Pasal 41', title: 'Simpanan (Pokok, Wajib, Sukarela)', desc: 'Tiga jenis simpanan: Pokok, Wajib, dan Sukarela.', contract: 'LakomiVault.paySimpananPokok/Wajib/deposit()', evidence: 'Tiga fungsi terpisah dengan validasi sesuai jenis.' },
-  { pasal: 'Pasal 45', title: 'Sisa Hasil Usaha (SHU)', desc: 'SHU didistribusikan berdasarkan proporsi simpanan sukarela.', contract: 'LakomiVault.distributeSHU() → claimSHU()', evidence: 'Cadangan 10%, pembagian berdasarkan kepemilikan saham.' },
+const PASAL = [
+  {
+    pasal: 'Pasal 5(1)',
+    title: 'Keanggotaan Terbuka dan Sukarela',
+    lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.',
+    contract: 'LakomiToken.registerMember()',
+    evidence: 'Setiap alamat dompet dapat mendaftar tanpa diskriminasi melalui registerMember().',
+    feature: 'Anggota',
+  },
+  {
+    pasal: 'Pasal 5(2)',
+    title: 'Pengelolaan Demokratis',
+    lawText: 'Pengelolaan koperasi dilakukan secara demokratis.',
+    contract: 'LakomiGovern.castVote()',
+    evidence: 'Satu anggota satu suara, quorum berdasarkan jumlah anggota.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 5(3)',
+    title: 'Pembagian SHU Adil',
+    lawText: 'Pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota.',
+    contract: 'LakomiVault.distributeSHU()',
+    evidence: 'SHU didistribusikan proporsional berdasarkan kontribusi simpanan.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 18',
+    title: 'Pinjaman Anggota',
+    lawText: 'Koperasi dapat memberikan pinjaman kepada anggota.',
+    contract: 'LakomiLoans.requestLoan()',
+    evidence: 'Anggota dapat mengajukan pinjaman dengan jaminan LAK 25%, perlu persetujuan pengurus.',
+    feature: 'Pinjaman',
+  },
+  {
+    pasal: 'Pasal 18(2)',
+    title: 'Keanggotaan Tidak Dapat Dipindahtangankan',
+    lawText: 'Keanggotaan koperasi tidak dapat dipindahtangankan.',
+    contract: 'LakomiToken.transfersEnabled = false',
+    evidence: 'Transfer token LAK dinonaktifkan secara default. Hanya admin yang dapat mengaktifkan.',
+    feature: 'Anggota',
+  },
+  {
+    pasal: 'Pasal 22(1)',
+    title: 'Satu Anggota Satu Suara',
+    lawText: 'Setiap anggota mempunyai hak satu suara.',
+    contract: 'LakomiToken.getVotingPower() → 1',
+    evidence: 'Setiap anggota memiliki 1 suara, bukan berdasarkan jumlah simpanan.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 22(2)',
+    title: 'Simpanan Pokok & Wajib',
+    lawText: 'Anggota wajib membayar simpanan pokok dan simpanan wajib.',
+    contract: 'LakomiVault.paySimpananPokok() / paySimpananWajib()',
+    evidence: 'Simpanan Pokok saat pendaftaran, Simpanan Wajib bulanan.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 23',
+    title: 'Keputusan Rapat Anggota',
+    lawText: 'Keputusan Rapat Anggota diambil berdasarkan musyawarah untuk mencapai mufakat. Apabila tidak diperoleh mufakat, pengambilan keputusan dilakukan melalui pemungutan suara.',
+    contract: 'LakomiGovern.quorumNumerator = 67',
+    evidence: 'Quorum default 67% (2/3 mayoritas). Simple majority (For > Against) untuk kelulusan.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 26',
+    title: 'Rapat Anggota',
+    lawText: 'Rapat Anggota merupakan pemegang kekuasaan tertinggi dalam koperasi.',
+    contract: 'LakomiGovern.scheduleAnnualRAT()',
+    evidence: 'RAT terjadwal otomatis 1x per tahun, usulan RAT khusus.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 27',
+    title: 'Penyelenggaraan RAT',
+    lawText: 'Rapat Anggota diselenggarakan paling sedikit 1 kali dalam 1 tahun.',
+    contract: 'LakomiGovern.scheduleAnnualRAT()',
+    evidence: 'Pengecekan interval 365 hari, hanya dapat dijadwalkan 1x per tahun.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 31',
+    title: 'Pemberhentian Anggota',
+    lawText: 'Anggota dapat diberhentikan berdasarkan keputusan Rapat Anggota.',
+    contract: 'LakomiToken.revokeMembership() via LakomiGovern',
+    evidence: 'Usulan tata kelola tipe Keanggotaan → voting → eksekusi revokeMembership().',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 32',
+    title: 'Pengurus',
+    lawText: 'Pengurus dipilih dari dan oleh anggota dalam Rapat Anggota.',
+    contract: 'AccessControl APPROVER_ROLE / TREASURER_ROLE',
+    evidence: 'Role-based: Pengurus (APPROVER_ROLE), Bendahara (TREASURER_ROLE).',
+    feature: 'Anggota',
+  },
+  {
+    pasal: 'Pasal 38',
+    title: 'Pengawas',
+    lawText: 'Pengawas bertugas melakukan pengawasan terhadap pelaksanaan kebijakan dan pengelolaan koperasi.',
+    contract: 'LakomiGovern.vetoProposal() + PENGAWAS_ROLE',
+    evidence: 'Pengawas dapat memveto usulan, pause kontrak, menandai pinjaman gagal bayar.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 39(2)',
+    title: 'Hak Pengawas Memeriksa Catatan',
+    lawText: 'Pengawas berwenang untuk meneliti catatan dan laporan yang ada pada koperasi.',
+    contract: 'LakomiVault.getPengawasAuditReport()',
+    evidence: 'Fungsi audit khusus mengembalikan ringkasan lengkap: total simpanan, revenue, SHU, dana cadangan, pendidikan, pengurus, kesejahteraan.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 41',
+    title: 'Modal Koperasi — Simpanan Pokok',
+    lawText: 'Modal koperasi terdiri dari simpanan pokok, simpanan wajib, dan simpanan sukarela.',
+    contract: 'LakomiVault.paySimpananPokok()',
+    evidence: 'Simpanan Pokok (100 USDC) dibayarkan satu kali saat pendaftaran.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 41',
+    title: 'Modal Koperasi — Simpanan Wajib',
+    lawText: 'Simpanan wajib dibayarkan secara berkala.',
+    contract: 'LakomiVault.paySimpananWajib()',
+    evidence: 'Simpanan Wajib bulanan, jumlah ditetapkan oleh tata kelola.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 41',
+    title: 'Modal Koperasi — Simpanan Sukarela',
+    lawText: 'Simpanan sukarela dapat diambil kembali sewaktu-waktu.',
+    contract: 'LakomiVault.deposit() / withdraw()',
+    evidence: 'Deposit USDC kapan saja, withdraw sesuai saldo tersedia.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 43',
+    title: 'Dana Cadangan Wajib',
+    lawText: 'Modal sendiri koperasi terdiri dari simpanan pokok, simpanan wajib, dana cadangan, dan donasi.',
+    contract: 'LakomiVault.danaCadangan + setSHUSplit()',
+    evidence: 'Dana cadangan diakumulasi dari 5% SHU setiap distribusi. Dapat disesuaikan melalui tata kelola.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 45(1)',
+    title: 'Sisa Hasil Usaha (SHU)',
+    lawText: 'SHU merupakan pendapatan koperasi yang diperoleh dalam satu tahun buku dikurangi biaya, penyusutan, dan kewajiban lainnya.',
+    contract: 'LakomiVault.distributeSHU() → claimSHU()',
+    evidence: 'Revenue dari bunga pinjaman diakumulasi, distribusi oleh GOVERN_ROLE, klaim per anggota.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 45(2)',
+    title: 'Pembagian SHU Multi-Kategori',
+    lawText: 'SHU dibagi untuk: jasa anggota (40%), jasa modal (40%), dana cadangan (5%), dana pendidikan (5%), dana pengurus (5%), dana kesejahteraan sosial (5%).',
+    contract: 'LakomiVault.distributeSHU() 6 kategori',
+    evidence: 'Split: cadangan 5%, jasa modal 40%, jasa usaha 40%, pendidikan 5%, pengurus 5%, kesejahteraan 5%. Total = 100%.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 44',
+    title: 'Pertanggungjawaban Pengurus',
+    lawText: 'Pengurus bertanggung jawab mengenai kegiatan pengelolaan koperasi.',
+    contract: 'AccessControl role checks, audit trail',
+    evidence: 'Setiap tindakan admin tercatat on-chain, dapat diaudit kapan saja.',
+    feature: 'Tata Kelola',
+  },
 ]
 
+const FEATURE_MAP: Record<string, { label: string; color: string }> = {
+  'Anggota': { label: 'Anggota', color: 'bg-purple-500' },
+  'Simpanan': { label: 'Simpanan', color: 'bg-blue-500' },
+  'Pinjaman': { label: 'Pinjaman', color: 'bg-amber-500' },
+  'Tata Kelola': { label: 'Tata Kelola', color: 'bg-emerald-500' },
+}
+
 export function Compliance() {
+  const [activePasal, setActivePasal] = useState(0)
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <div>
         <h2 className="text-xl font-bold">Kepatuhan Hukum</h2>
-        <p className="text-sm text-muted-foreground mt-1">Kepatuhan kontrak pintar terhadap UU No. 25 Tahun 1992</p>
+        <p className="text-sm text-muted-foreground mt-1">
+          UU No. 25 Tahun 1992 — Tentang Perkoperasian
+        </p>
       </div>
 
-      <Card className="border-primary/20 bg-primary/5">
-        <CardContent className="flex items-start gap-3">
-          <svg className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-          <p className="text-xs text-muted-foreground">Setiap item menunjukkan pasal UU 25/1992, fungsi kontrak terkait, dan bukti implementasi yang telah diuji.</p>
-        </CardContent>
-      </Card>
+      <div className="grid grid-cols-1 grid-cols-2 gap-0 border rounded-lg overflow-hidden" style={{ height: 'calc(100vh - 280px)', minHeight: '600px' }}>
+        <div className="border-r bg-muted/20 flex flex-col">
+          <div className="px-4 py-2 border-b bg-muted/40 flex items-center justify-between">
+            <span className="text-xs font-semibold">UU No. 25 Tahun 1992</span>
+            <a
+              href="/uu-25-1992.pdf"
+              download
+              className="text-[10px] text-primary hover:underline"
+            >
+              Unduh PDF
+            </a>
+          </div>
+          <iframe
+            src="/uu-25-1992.pdf#toolbar=0&navpanes=0"
+            className="flex-1 w-full border-0"
+            title="UU No. 25 Tahun 1992 tentang Perkoperasian"
+          />
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <Card><CardContent className="text-center"><p className="text-2xl sm:text-3xl font-bold text-emerald-500">{ITEMS.length}</p><p className="text-xs text-muted-foreground mt-1">Pasal Diimplementasikan</p></CardContent></Card>
-        <Card><CardContent className="text-center"><p className="text-2xl sm:text-3xl font-bold text-primary">4</p><p className="text-xs text-muted-foreground mt-1">Kontrak Pintar</p></CardContent></Card>
-        <Card><CardContent className="text-center"><p className="text-2xl sm:text-3xl font-bold text-purple-500">25</p><p className="text-xs text-muted-foreground mt-1">Pengujian Berhasil</p></CardContent></Card>
-      </div>
-
-      <div className="space-y-3">
-        {ITEMS.map((item) => (
-          <Card key={item.pasal}>
-            <CardContent className="flex flex-col sm:flex-row items-start gap-3 sm:gap-4">
-              <Badge variant="outline" className="mt-0.5 bg-emerald-500/10 text-emerald-500 border-emerald-500/20 text-xs flex-shrink-0">{item.pasal}</Badge>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-semibold text-sm">{item.title}</h3>
-                <p className="text-xs text-muted-foreground mt-1">{item.desc}</p>
-                <div className="mt-2 space-y-1.5">
-                  <div className="flex items-start gap-2">
-                    <span className="text-[10px] font-semibold text-primary uppercase w-12 flex-shrink-0">Kontrak</span>
-                    <code className="text-[11px] text-primary/80 bg-primary/5 px-1.5 py-0.5 rounded break-all">{item.contract}</code>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <span className="text-[10px] font-semibold text-emerald-500 uppercase w-12 flex-shrink-0">Bukti</span>
-                    <p className="text-[11px] text-muted-foreground">{item.evidence}</p>
-                  </div>
-                </div>
-                <div className="mt-2 flex items-center gap-1.5 text-[11px] text-emerald-500">
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  Terimplementasi & Teruji
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+        <div className="flex flex-col overflow-hidden">
+          <div className="px-4 py-2 border-b bg-muted/40 flex items-center gap-2">
+            <span className="text-xs font-semibold">Implementasi Kontrak Pintar</span>
+            <span className="text-[10px] text-muted-foreground">{PASAL.length} ketentuan</span>
+          </div>
+          <div className="flex-1 overflow-y-auto">
+            <div className="p-3 space-y-2">
+              {PASAL.map((item, idx) => {
+                const feat = FEATURE_MAP[item.feature]
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setActivePasal(idx)}
+                    className={`w-full text-left p-3 rounded-lg transition-colors border ${idx === activePasal ? 'border-primary/50 bg-primary/5' : 'border-transparent hover:bg-muted/50'}`}
+                  >
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-500 border-emerald-500/20">
+                        {item.pasal}
+                      </Badge>
+                      {feat && (
+                        <span className={`text-[9px] text-white px-1.5 py-0.5 rounded ${feat.color}`}>
+                          {feat.label}
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-sm font-semibold mb-1">{item.title}</h4>
+                    <div className="space-y-1.5">
+                      <div className="flex items-start gap-2">
+                        <span className="text-[10px] font-semibold text-amber-500 uppercase w-10 flex-shrink-0 mt-0.5">UU</span>
+                        <p className="text-[11px] text-muted-foreground leading-relaxed">{item.lawText}</p>
+                      </div>
+                      <Separator className="opacity-30" />
+                      <div className="flex items-start gap-2">
+                        <span className="text-[10px] font-semibold text-primary uppercase w-10 flex-shrink-0 mt-0.5">Kontrak</span>
+                        <code className="text-[11px] text-primary/80 bg-primary/5 px-1.5 py-0.5 rounded">{item.contract}</code>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-[10px] font-semibold text-emerald-500 uppercase w-10 flex-shrink-0 mt-0.5">Bukti</span>
+                        <p className="text-[11px] text-muted-foreground">{item.evidence}</p>
+                      </div>
+                    </div>
+                    <div className="mt-2 flex items-center gap-1.5 text-[11px] text-emerald-500">
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                      Terimplementasi & Teruji
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+          </div>
+        </div>
       </div>
 
       <Card>
-        <CardHeader><CardTitle className="text-sm">Referensi Hukum</CardTitle></CardHeader>
+        <CardHeader><CardTitle className="text-sm">Referensi Hukum & Akademik</CardTitle></CardHeader>
         <CardContent>
           <ul className="space-y-1.5 text-xs text-muted-foreground">
             <li>UU No. 25 Tahun 1992 — Tentang Perkoperasian</li>
+            <li>PP No. 7 Tahun 2021 — Kemudahan, Pelindungan, dan Pemberdayaan Koperasi dan UMKM</li>
+            <li>Permenkop No. 9 Tahun 2018 — Penyelenggaraan dan Pembinaan Perkoperasian</li>
+            <li>Permenkop No. 8 Tahun 2023 — Usaha Simpan Pinjam Koperasi</li>
             <li>Arisudhana et al. (2025) — Prinsip Koperasi pada Blockchain</li>
             <li>Sailana et al. (2023) — Simpanan dan SHU via Smart Contract</li>
             <li>Kartika et al. (2024) — Peran Pengawas Koperasi</li>

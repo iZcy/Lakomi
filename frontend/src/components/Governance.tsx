@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useAccount } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
 import { parseUnits, formatUnits, isAddress, encodeFunctionData } from 'viem'
@@ -13,6 +13,7 @@ import { useCreateProposal, useCastVote, useQueueProposal, useExecuteProposal, u
 import { getProposalStateName, getProposalStateColor, formatTimestampShort } from '../lib/utils'
 import { decodeProposal } from '../types'
 import { CONTRACTS } from '../config/contracts'
+import { LAKOMI_TOKEN_ABI } from '../abis'
 import { MemberRegistration } from './MemberRegistration'
 
 export function Governance() {
@@ -61,29 +62,42 @@ function CreateProposalForm() {
   const [type, setType] = useState('')
   const [recipient, setRecipient] = useState('')
   const [amount, setAmount] = useState('')
+  const [memberAddr, setMemberAddr] = useState('')
   const { createProposal, isPending, isSuccess } = useCreateProposal()
   const queryClient = useQueryClient()
 
   useEffect(() => {
     if (isSuccess) {
       queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      setDesc(''); setType(''); setRecipient(''); setAmount('')
+      setDesc(''); setType(''); setRecipient(''); setAmount(''); setMemberAddr('')
     }
   }, [isSuccess, queryClient])
 
   const PROPOSAL_TYPES = [
     { value: '0', label: 'Anggaran (Belanja)', desc: 'Usulkan pengeluaran dana koperasi', needsRecipient: true, needsAmount: true },
-    { value: '2', label: 'Keanggotaan', desc: 'Usulkan pemberhentian anggota (Pasal 31 UU 25/1992)' },
+    { value: '2', label: 'Keanggotaan', desc: 'Usulkan pemberhentian anggota (Pasal 31 UU 25/1992)', needsMember: true },
     { value: '3', label: 'RAT Tahunan', desc: 'Rapat Anggota Tahunan (Pasal 26-27)' },
   ]
+
+  const memberList = useMemo(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem('lakomi_members') || '{}')
+      return Object.entries(stored).map(([addr, data]: [string, any]) => ({
+        addr,
+        name: data?.namaLengkap || addr.slice(0, 8) + '...' + addr.slice(-4),
+      }))
+    } catch { return [] }
+  }, [])
 
   const selectedType = PROPOSAL_TYPES.find(t => t.value === type)
   const needsRecipient = selectedType?.needsRecipient ?? false
   const needsAmount = selectedType?.needsAmount ?? false
+  const needsMember = selectedType?.needsMember ?? false
 
   const isRecipientValid = !needsRecipient || (recipient && isAddress(recipient))
   const isAmountValid = !needsAmount || (amount && !isNaN(Number(amount)) && Number(amount) > 0)
-  const canSubmit = desc.trim() && type && isRecipientValid && isAmountValid
+  const isMemberValid = !needsMember || (memberAddr && isAddress(memberAddr))
+  const canSubmit = desc.trim() && type && isRecipientValid && isAmountValid && isMemberValid
 
   const handle = () => {
     if (!canSubmit) return
@@ -109,13 +123,19 @@ function CreateProposalForm() {
         functionName: 'governanceSpend',
         args: [recipient as `0x${string}`, usdcAmount, reasonHex]
       })
+    } else if (type === '2' && isAddress(memberAddr)) {
+      targetAddr = CONTRACTS.LAKOMI_TOKEN
+      callData = encodeFunctionData({
+        abi: LAKOMI_TOKEN_ABI,
+        functionName: 'revokeMembership',
+        args: [memberAddr as `0x${string}`],
+      })
     } else {
       targetAddr = CONTRACTS.LAKOMI_VAULT
       callData = '0x'
     }
 
     createProposal(desc, Number(type), targetAddr, callValue, callData)
-    setDesc(''); setType(''); setRecipient(''); setAmount('')
   }
 
   return (
@@ -167,6 +187,23 @@ function CreateProposalForm() {
               min="0"
               step="0.001"
             />
+          </div>
+        )}
+
+        {needsMember && (
+          <div className="space-y-1.5">
+            <label className="text-xs text-muted-foreground">Anggota *</label>
+            <Select value={memberAddr} onValueChange={setMemberAddr}>
+              <SelectTrigger><SelectValue placeholder="Pilih anggota" /></SelectTrigger>
+              <SelectContent>
+                {memberList.map((m) => (
+                  <SelectItem key={m.addr} value={m.addr}>{m.name}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {memberList.length === 0 && (
+              <p className="text-[10px] text-muted-foreground">Belum ada anggota terdaftar</p>
+            )}
           </div>
         )}
 

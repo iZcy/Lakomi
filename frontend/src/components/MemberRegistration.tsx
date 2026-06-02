@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import { useIsMember } from '../hooks/useContractRead'
-import { useRegisterMember } from '../hooks/useContractWrite'
+import { useRegisterMember, usePaySimpananPokok, useApproveUsdc } from '../hooks/useContractWrite'
+import { CONTRACTS } from '../config/contracts'
 import { useToast } from './Toast'
 
 interface MemberData {
@@ -35,6 +36,8 @@ export function MemberRegistration() {
   const { address, isConnected } = useAccount()
   const { data: isMember, refetch } = useIsMember(address)
   const { registerMember, isPending, isSuccess, isConfirming } = useRegisterMember()
+  const { paySimpananPokok, isPending: paying } = usePaySimpananPokok()
+  const { approve, isPending: approving } = useApproveUsdc()
   const { addToast } = useToast()
   const queryClient = useQueryClient()
   const handledSuccess = useRef(false)
@@ -73,6 +76,8 @@ export function MemberRegistration() {
 
   const handleRegister = async () => {
     try {
+      await approve(CONTRACTS.LAKOMI_VAULT, BigInt(100_000_000)) // approve 100 USDC
+      await paySimpananPokok(address as `0x${string}`)
       await registerMember()
     } catch (err: any) {
       const msg = err?.shortMessage || err?.message || ''
@@ -83,6 +88,8 @@ export function MemberRegistration() {
       }
     }
   }
+
+  const busy = isPending || isConfirming || paying || approving
 
   if (step === 'confirm') {
     return (
@@ -95,14 +102,14 @@ export function MemberRegistration() {
           <DataPreview form={form} />
           <Separator />
           <p className="text-xs text-muted-foreground">
-            Sesuai Pasal 5(1) UU 25/1992: Keanggotaan terbuka dan sukarela
+            Simpanan Pokok 100 USDC akan dibayarkan terlebih dahulu sesuai Pasal 22(2) jo. Pasal 41 UU 25/1992
           </p>
           <div className="flex gap-2 pt-2">
-            <Button variant="outline" onClick={() => setStep('form')} className="flex-1" disabled={isPending || isConfirming}>
+            <Button variant="outline" onClick={() => setStep('form')} className="flex-1" disabled={busy}>
               Kembali
             </Button>
-            <Button onClick={handleRegister} disabled={isPending || isConfirming} className="flex-1">
-              {isConfirming ? 'Mengonfirmasi...' : isPending ? 'Memproses...' : 'Konfirmasi & Daftar'}
+            <Button onClick={handleRegister} disabled={busy} className="flex-1">
+              {approving ? 'Setujui USDC...' : paying ? 'Bayar Pokok...' : isConfirming ? 'Mendaftar...' : isPending ? 'Memproses...' : 'Konfirmasi & Daftar'}
             </Button>
           </div>
         </CardContent>
@@ -188,10 +195,10 @@ export function MemberRegistration() {
         </div>
         <Button
           onClick={() => setStep('confirm')}
-          disabled={!isFormValid || isPending || isConfirming}
+          disabled={!isFormValid || busy}
           className="w-full"
         >
-          {isPending || isConfirming ? 'Memproses...' : 'Lanjut ke Konfirmasi'}
+          {busy ? 'Memproses...' : 'Lanjut ke Konfirmasi'}
         </Button>
       </CardContent>
     </Card>

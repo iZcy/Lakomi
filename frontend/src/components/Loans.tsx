@@ -124,8 +124,23 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
   const [amount, setAmount] = useState('')
   const [duration, setDuration] = useState('30')
   const [reason, setReason] = useState('')
+  const [bungaPreview, setBungaPreview] = useState<bigint>(0n)
+  const [totalPreview, setTotalPreview] = useState<bigint>(0n)
   const { requestLoan, isPending, isSuccess } = useRequestLoan()
   const { approve, isPending: ap } = useApproveUsdc()
+
+  useEffect(() => {
+    if (!amount || isNaN(Number(amount)) || Number(amount) <= 0) {
+      setBungaPreview(0n)
+      setTotalPreview(0n)
+      return
+    }
+    const principal = parseUnits(amount)
+    const days = BigInt(duration)
+    const interest = (principal * 500n * days) / (10000n * 365n)
+    setBungaPreview(interest)
+    setTotalPreview(principal + interest)
+  }, [amount, duration])
 
   const handle = async () => {
     if (!amount || !reason) return
@@ -158,6 +173,13 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
               <SelectItem value="365">1 tahun</SelectItem>
             </SelectContent>
           </Select>
+          {bungaPreview > 0n && (
+            <div className="text-[10px] text-muted-foreground mt-1 bg-muted/30 rounded p-2 space-y-0.5">
+              <p>Rumus: Bunga = (Jumlah × 5% × Hari) / 365</p>
+              <p>Bunga: <span className="text-amber-500 font-medium">{formatUSDCAmount(bungaPreview)}</span></p>
+              <p>Total Pengembalian: <span className="text-amber-500 font-medium">{formatUSDCAmount(totalPreview)}</span></p>
+            </div>
+          )}
         </div>
         <div className="space-y-1.5">
           <Label>Keperluan</Label>

@@ -8,6 +8,7 @@ export const LAKOMI_TOKEN_ABI = [
   { type: "function", name: "approve", stateMutability: "nonpayable", inputs: [{ type: "address", name: "spender" }, { type: "uint256", name: "amount" }], outputs: [{ type: "bool" }] },
   { type: "function", name: "registerMember", stateMutability: "nonpayable", inputs: [], outputs: [] },
   { type: "function", name: "registerMemberAdmin", stateMutability: "nonpayable", inputs: [{ type: "address", name: "member" }], outputs: [] },
+  { type: "function", name: "revokeMembership", stateMutability: "nonpayable", inputs: [{ type: "address", name: "member" }], outputs: [] },
   { type: "function", name: "isRegisteredMember", stateMutability: "view", inputs: [{ type: "address", name: "account" }], outputs: [{ type: "bool" }] },
   { type: "function", name: "getMemberCount", stateMutability: "view", inputs: [], outputs: [{ type: "uint256" }] },
   { type: "function", name: "getVotingPower", stateMutability: "view", inputs: [{ type: "address", name: "account" }], outputs: [{ type: "uint256" }] },

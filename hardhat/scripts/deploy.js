@@ -34,7 +34,7 @@ async function main() {
   const govern = await LakomiGovern.deploy(
     tokenAddr,
     7n * 24n * 60n * 60n,
-    20,
+    67,
     24n * 60n * 60n
   );
   await govern.waitForDeployment();

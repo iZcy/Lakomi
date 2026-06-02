@@ -7,6 +7,10 @@ import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
 
+interface ILakomiToken {
+    function getMemberCount() external view returns (uint256);
+}
+
 /**
  * @title LakomiVault
  * @author Lakomi Protocol
@@ -41,6 +45,8 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
 
     mapping(address => uint256) public contributions;
     uint256 public totalShares;
+    uint256 public totalSimpananPokokMembers;
+    uint256 public totalSimpananWajibMembers;
     mapping(address => uint256) public shares;
 
     uint256 public withdrawalThreshold;
@@ -87,7 +93,17 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     uint256 public lastSHUDistribution;
     uint256 public operationalReserveBps;
 
-    struct SHUDistribution {
+    uint256 public shuCadanganBps;
+    uint256 public shuJasaModalBps;
+    uint256 public shuJasaUsahaBps;
+    uint256 public shuPendidikanBps;
+    uint256 public shuPengurusBps;
+    uint256 public shuKesejahteraanBps;
+
+    uint256 public danaCadangan;
+    uint256 public danaPendidikan;
+    uint256 public danaPengurus;
+    uint256 public danaKesejahteraan;    struct SHUDistribution {
         uint256 totalAmount;
         uint256 memberCount;
         uint256 timestamp;
@@ -172,6 +188,12 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         simpananWajibPeriod = _simpananWajibPeriod;
 
         operationalReserveBps = 1000; // 10% reserve
+        shuCadanganBps = 500;          // 5% dana cadangan (Pasal 43)
+        shuJasaModalBps = 4000;        // 40% jasa modal — proportional to shares
+        shuJasaUsahaBps = 4000;        // 40% jasa usaha — proportional to transaction volume
+        shuPendidikanBps = 500;        // 5% dana pendidikan
+        shuPengurusBps = 500;          // 5% dana pengurus
+        shuKesejahteraanBps = 500;     // 5% dana kesejahteraan sosial
         shuDistributionPeriod = 365 days;
 
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
@@ -190,6 +212,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         simpananPokok[member] = simpananPokokAmount;
         contributions[member] += simpananPokokAmount;
         totalDeposited += simpananPokokAmount;
+        totalSimpananPokokMembers += simpananPokokAmount;
 
         if (firstDepositTime[member] == 0) {
             firstDepositTime[member] = block.timestamp;
@@ -216,6 +239,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         simpananWajibLastPaid[msg.sender] = block.timestamp;
         contributions[msg.sender] += simpananWajibAmount;
         totalDeposited += simpananWajibAmount;
+        totalSimpananWajibMembers += simpananWajibAmount;
 
         emit SimpananWajibPaid(msg.sender, simpananWajibAmount, simpananWajibPeriodsPaid[msg.sender], block.timestamp);
     }
@@ -409,22 +433,35 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         if (distributable == 0) revert LakomiVault__NoRevenueToDistribute();
         if (totalShares == 0) revert LakomiVault__NoRevenueToDistribute();
 
-        uint256 perShare = distributable / totalShares;
+        uint256 cadangan = (distributable * shuCadanganBps) / 10000;
+        uint256 jasaModal = (distributable * shuJasaModalBps) / 10000;
+        uint256 jasaUsaha = (distributable * shuJasaUsahaBps) / 10000;
+        uint256 pendidikan = (distributable * shuPendidikanBps) / 10000;
+        uint256 pengurus = (distributable * shuPengurusBps) / 10000;
+        uint256 kesejahteraan = distributable - cadangan - jasaModal - jasaUsaha - pendidikan - pengurus;
+
+        danaCadangan += cadangan;
+        danaPendidikan += pendidikan;
+        danaPengurus += pengurus;
+        danaKesejahteraan += kesejahteraan;
+
+        uint256 distributableToMembers = jasaModal + jasaUsaha;
+        uint256 perShare = distributableToMembers / totalShares;
 
         uint256 distId = shuDistributionCount++;
         shuDistributions[distId] = SHUDistribution({
-            totalAmount: distributable,
+            totalAmount: distributableToMembers,
             memberCount: 0,
             timestamp: block.timestamp,
             perShare: perShare
         });
 
-        totalSHUDistributed += distributable;
+        totalSHUDistributed += distributableToMembers;
         accumulatedRevenue = reserve;
 
         lastSHUDistribution = block.timestamp;
 
-        emit SHUDistributed(distId, distributable, shuDistributions[distId].memberCount, perShare);
+        emit SHUDistributed(distId, distributableToMembers, shuDistributions[distId].memberCount, perShare);
     }
 
     function claimSHU(uint256 distributionId) external nonReentrant {
@@ -581,6 +618,51 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     function setOperationalReserveBps(uint256 newBps) external onlyRole(GOVERN_ROLE) {
         require(newBps <= 5000, "Max 50% reserve");
         operationalReserveBps = newBps;
+    }
+
+    function setSHUSplit(
+        uint256 _cadangan,
+        uint256 _jasaModal,
+        uint256 _jasaUsaha,
+        uint256 _pendidikan,
+        uint256 _pengurus,
+        uint256 _kesejahteraan
+    ) external onlyRole(GOVERN_ROLE) {
+        require(_cadangan + _jasaModal + _jasaUsaha + _pendidikan + _pengurus + _kesejahteraan == 10000, "Must sum to 10000");
+        shuCadanganBps = _cadangan;
+        shuJasaModalBps = _jasaModal;
+        shuJasaUsahaBps = _jasaUsaha;
+        shuPendidikanBps = _pendidikan;
+        shuPengurusBps = _pengurus;
+        shuKesejahteraanBps = _kesejahteraan;
+    }
+
+    function getPengawasAuditReport()
+        external
+        view
+        returns (
+            uint256 totalSimpananPokok,
+            uint256 totalSimpananWajib,
+            uint256 totalSimpananSukarela,
+            uint256 revenueAccumulated,
+            uint256 shuDistributed,
+            uint256 cadangan,
+            uint256 pendidikan,
+            uint256 pengurus,
+            uint256 kesejahteraan,
+            uint256 memberCount
+        )
+    {
+        totalSimpananPokok = totalSimpananPokokMembers;
+        totalSimpananWajib = totalSimpananWajibMembers;
+        totalSimpananSukarela = totalDeposited - totalSimpananPokokMembers - totalSimpananWajibMembers;
+        revenueAccumulated = accumulatedRevenue;
+        shuDistributed = totalSHUDistributed;
+        cadangan = danaCadangan;
+        pendidikan = danaPendidikan;
+        pengurus = danaPengurus;
+        kesejahteraan = danaKesejahteraan;
+        memberCount = ILakomiToken(lakomiToken).getMemberCount();
     }
 
     function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {

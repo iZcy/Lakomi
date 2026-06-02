@@ -5,6 +5,10 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/AccessControl.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
+interface ILakomiVault {
+    function hasPaidSimpananPokok(address member) external view returns (bool);
+}
+
 /**
  * @title LakomiToken
  * @author Lakomi Protocol
@@ -109,7 +113,7 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
         _grantRole(BURNER_ROLE, msg.sender);
-        transfersEnabled = true;
+        transfersEnabled = false;
     }
 
     // ============================================================
@@ -253,6 +257,11 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
     {
         if (msg.sender == address(0)) revert LakomiToken__ZeroAddress();
         require(!isRegisteredMember[msg.sender], "Already registered");
+
+        require(
+            ILakomiVault(lakomiVault).hasPaidSimpananPokok(msg.sender),
+            "Simpanan Pokok must be paid first"
+        );
 
         isRegisteredMember[msg.sender] = true;
         memberCount++;

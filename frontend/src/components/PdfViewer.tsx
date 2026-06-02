@@ -1,28 +1,42 @@
 import { useEffect, useRef, useState } from 'react'
-import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist'
 
-GlobalWorkerOptions.workerSrc = ''
+let pdfjsLib: any = null
 
-export function PdfViewer({ src, page }: { src: string; page: number }) {
+async function loadPdfJs() {
+  if (pdfjsLib) return pdfjsLib
+  pdfjsLib = await import('pdfjs-dist')
+  pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'
+  return pdfjsLib
+}
+
+export function PdfViewer({ src, page, onPageChange }: { src: string; page: number; onPageChange?: (p: number) => void }) {
   const containerRef = useRef<HTMLDivElement>(null)
   const pageRefs = useRef<(HTMLDivElement | null)[]>([])
   const [numPages, setNumPages] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const renderedPages = useRef(new Set<number>())
+  const pdfRef = useRef<any>(null)
 
   useEffect(() => {
+    let cancelled = false
     setLoading(true)
     setError('')
     renderedPages.current.clear()
     pageRefs.current = []
-    const loadPdf = async () => {
+
+    const init = async () => {
       try {
-        const pdf = await getDocument({ url: src, disableAutoFetch: true, disableStream: true }).promise
+        const lib = await loadPdfJs()
+        if (cancelled) return
+        const pdf = await lib.getDocument({ url: src }).promise
+        if (cancelled) return
+        pdfRef.current = pdf
         setNumPages(pdf.numPages)
         setLoading(false)
-        const renderPage = async (pageNum: number) => {
-          if (renderedPages.current.has(pageNum)) return
+
+        const render = async (pageNum: number) => {
+          if (renderedPages.current.has(pageNum) || cancelled) return
           renderedPages.current.add(pageNum)
           try {
             const pdfPage = await pdf.getPage(pageNum)
@@ -35,21 +49,19 @@ export function PdfViewer({ src, page }: { src: string; page: number }) {
             const ctx = canvas.getContext('2d')!
             await pdfPage.render({ canvasContext: ctx, viewport: vp }).promise
             const el = pageRefs.current[pageNum - 1]
-            if (el) {
-              el.innerHTML = ''
-              el.appendChild(canvas)
-            }
+            if (el && !cancelled) { el.innerHTML = ''; el.appendChild(canvas) }
           } catch {}
         }
-        const first = Array.from({ length: Math.min(3, pdf.numPages) }, (_, i) => i + 1)
-        await Promise.all(first.map(renderPage))
-        for (let i = 4; i <= pdf.numPages; i++) renderPage(i)
+
+        const batch = Array.from({ length: Math.min(3, pdf.numPages) }, (_, i) => i + 1)
+        await Promise.all(batch.map(render))
+        for (let i = 4; i <= pdf.numPages && !cancelled; i++) render(i)
       } catch (e: any) {
-        setError(e?.message || 'Gagal memuat PDF')
-        setLoading(false)
+        if (!cancelled) { setError(e?.message || 'Gagal muat PDF'); setLoading(false) }
       }
     }
-    loadPdf()
+    init()
+    return () => { cancelled = true }
   }, [src])
 
   useEffect(() => {
@@ -59,13 +71,30 @@ export function PdfViewer({ src, page }: { src: string; page: number }) {
     }
   }, [page, numPages])
 
-  if (error) return <div className="flex items-center justify-center h-full text-xs text-red-400">{error}</div>
+  useEffect(() => {
+    if (!containerRef.current || !onPageChange) return
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            const idx = pageRefs.current.indexOf(e.target as HTMLDivElement)
+            if (idx >= 0) onPageChange(idx + 1)
+          }
+        }
+      },
+      { threshold: 0.5 }
+    )
+    pageRefs.current.forEach(el => el && observer.observe(el))
+    return () => observer.disconnect()
+  }, [numPages, onPageChange])
+
+  if (error) return <div className="flex items-center justify-center h-full text-xs text-red-400 p-4">{error}</div>
   if (loading) return <div className="flex items-center justify-center h-full text-xs text-muted-foreground">Memuat PDF...</div>
 
   return (
     <div ref={containerRef} className="overflow-y-auto h-full">
       {Array.from({ length: numPages }, (_, i) => (
-        <div key={i} ref={el => { pageRefs.current[i] = el }} className="flex justify-center" style={{ minHeight: 200 }} />
+        <div key={i} ref={el => { pageRefs.current[i] = el }} className="flex justify-center border-b border-border" style={{ minHeight: 200 }} />
       ))}
     </div>
   )

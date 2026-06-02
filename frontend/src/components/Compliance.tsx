@@ -47,13 +47,17 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
+  const [leftTab, setLeftTab] = useState<'pdf' | 'teks'>('pdf')
   const leftRef = useRef<HTMLDivElement>(null)
   const rightRef = useRef<HTMLDivElement>(null)
 
   const scrollToPasal = (idx: number) => {
     setActivePasal(idx)
-    const el = leftRef.current?.querySelector(`#${PASAL_IDS[idx]}`)
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setLeftTab('teks')
+    setTimeout(() => {
+      const el = leftRef.current?.querySelector(`#${PASAL_IDS[idx]}`)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 50)
   }
 
   return (
@@ -63,8 +67,17 @@ export function Compliance() {
         <p className="text-sm text-muted-foreground mt-1">UU No. 25 Tahun 1992 — Tentang Perkoperasian</p>
       </div>
 
+      <div className="flex gap-1 mb-[-12px]">
+        <button onClick={() => setLeftTab('pdf')} className={`text-[11px] px-3 py-1.5 rounded-t-md ${leftTab === 'pdf' ? 'bg-background border border-b-0 border-border font-medium' : 'text-muted-foreground hover:text-foreground'}`}>PDF UU 25/1992</button>
+        <button onClick={() => setLeftTab('teks')} className={`text-[11px] px-3 py-1.5 rounded-t-md ${leftTab === 'teks' ? 'bg-background border border-b-0 border-border font-medium' : 'text-muted-foreground hover:text-foreground'}`}>Teks Pasal</button>
+      </div>
+
       <div className="grid grid-cols-2 gap-0 border rounded-lg overflow-hidden" style={{ minHeight: '600px', maxHeight: 'calc(100vh - 250px)' }}>
-        <div ref={leftRef} className="border-r bg-muted/20 overflow-y-auto p-4 text-sm leading-relaxed">
+        <div className="border-r bg-muted/20 overflow-y-auto">
+          <div style={{ display: leftTab === 'pdf' ? 'block' : 'none' }} className="h-full">
+            <iframe src="/uu-25-1992.pdf" className="w-full border-0" style={{ height: 'calc(100vh - 300px)', minHeight: '600px' }} title="UU 25/1992" />
+          </div>
+          <div ref={leftRef} style={{ display: leftTab === 'teks' ? 'block' : 'none' }} className="p-4 text-sm leading-relaxed">
           <div className="font-bold text-base mb-2 text-center">UNDANG-UNDANG REPUBLIK INDONESIA<br/>NOMOR 25 TAHUN 1992<br/>TENTANG PERKOPERASIAN</div>
           <Separator className="mb-3" />
 
@@ -117,6 +130,7 @@ export function Compliance() {
           <div className="text-[10px] text-muted-foreground mt-4 pt-3 border-t">
             Sumber: Lembaran Negara RI Tahun 1992 Nomor 116, Tambahan Lembaran Negara Nomor 3474.
           </div>
+        </div>
         </div>
 
         <div className="flex flex-col overflow-y-auto">

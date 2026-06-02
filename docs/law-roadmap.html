@@ -1,0 +1,195 @@
+<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Peta Hierarki Regulasi & Sumber Akademik — Lakomi</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:#0f172a;color:#e2e8f0;min-height:100vh;padding:0}
+.header{background:#1e293b;border-bottom:1px solid #334155;padding:32px 24px;text-align:center}
+.header h1{font-size:1.8rem;margin-bottom:6px}.header p{color:#94a3b8;font-size:.88rem}
+.container{max-width:1400px;margin:0 auto;padding:40px 24px}
+.section{margin-bottom:48px}.section h2{font-size:1.25rem;margin-bottom:24px;padding-bottom:8px;border-bottom:2px solid #334155;display:flex;align-items:center;gap:10px}
+.section h2 .num{background:#3b82f6;color:#fff;border-radius:50%;width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.hierarchy{display:flex;flex-direction:column;align-items:center;gap:0}
+.node{background:#1e293b;border:1.5px solid #334155;border-radius:10px;padding:14px 20px;text-align:center;position:relative;min-width:280px;max-width:90vw;transition:all .2s}
+.node:hover{border-color:#3b82f6;box-shadow:0 0 20px rgba(59,130,246,.15)}
+.node .label{font-size:.68rem;text-transform:uppercase;letter-spacing:1px;color:#64748b;margin-bottom:4px}
+.node .title{font-weight:700;font-size:.9rem;margin-bottom:2px}
+.node .sub{font-size:.75rem;color:#94a3b8}
+.connector{width:2px;height:28px;background:linear-gradient(#334155,#475569);margin:0 auto}
+.branch{display:flex;justify-content:center;gap:40px;position:relative}
+.branch::before{content:'';position:absolute;top:0;left:15%;right:15%;height:2px;background:linear-gradient(90deg,transparent,#475569 20%,#475569 80%,transparent)}
+.branch>.stack{display:flex;flex-direction:column;align-items:center}
+.branch>.stack>.connector{height:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.card{background:#1e293b;border:1px solid #334155;border-radius:12px;padding:20px;transition:all .2s}
+.card:hover{border-color:#475569}.card h3{font-size:.9rem;margin-bottom:8px}
+.card .pasal{display:inline-block;background:#3b82f620;color:#60a5fa;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600;margin-bottom:6px}
+.card .contract{font-family:monospace;font-size:.75rem;color:#a5b4fc;background:#312e81;padding:2px 6px;border-radius:4px;display:inline-block;margin-bottom:6px}
+.card p{font-size:.78rem;color:#94a3b8;line-height:1.5}
+.journal{border-left:3px solid #8b5cf6}.journal .authors{font-size:.72rem;color:#a78bfa;margin-bottom:4px}
+.journal .jtitle{font-weight:600;font-size:.82rem;margin-bottom:4px;font-style:italic}
+.journal .topic{font-size:.7rem;color:#64748b}
+.impl-badge{display:inline-block;background:#05966920;color:#34d399;padding:2px 8px;border-radius:4px;font-size:.68rem;font-weight:600;margin-left:6px}
+.role-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.role-tag{font-size:.68rem;padding:3px 10px;border-radius:20px;font-weight:600}
+.role-tag.pengawas{background:#ef444420;color:#f87171}.role-tag.pengurus{background:#3b82f620;color:#60a5fa}
+.role-tag.membership{background:#a855f720;color:#c084fc}.role-tag.bendahara{background:#f59e0b20;color:#fbbf24}
+.role-tag.govern{background:#10b98120;color:#34d399}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px;font-size:.7rem;color:#64748b}
+.legend span{display:flex;align-items:center;gap:4px}
+.legend .dot{width:8px;height:8px;border-radius:50%}
+.footer{text-align:center;padding:32px;color:#475569;font-size:.72rem;border-top:1px solid #334155;margin-top:48px}
+.highlight{color:#fbbf24}
+@media(max-width:768px){.branch{flex-direction:column;align-items:center;gap:0}.branch::before{display:none}}
+</style></head><body>
+
+<div class="header">
+<h1>⚖️ Peta Hierarki Hukum & Landasan Akademik</h1>
+<p>Lakomi — Koperasi Digital Berbasis Blockchain • UU No. 25 Tahun 1992</p>
+</div>
+
+<div class="container">
+
+<!-- SECTION 1: REGULATORY HIERARCHY -->
+<div class="section">
+<h2><span class="num">1</span> Hierarki Regulasi Perkoperasian Indonesia</h2>
+
+<div class="hierarchy">
+<div class="node"><div class="label">KONSTITUSI</div><div class="title">UUD 1945 Pasal 33 Ayat (1)</div><div class="sub">Perekonomian disusun sebagai usaha bersama berdasar atas asas kekeluargaan</div></div>
+<div class="connector"></div>
+<div class="node"><div class="label">UNDANG-UNDANG</div><div class="title">UU No. 25 Tahun 1992</div><div class="sub">Tentang Perkoperasian — <span class="highlight">26 Pasal diimplementasikan</span></div></div>
+<div class="connector"></div>
+<div class="node"><div class="label">UNDANG-UNDANG (OMNIBUS)</div><div class="title">UU No. 11 Tahun 2020</div><div class="sub">Cipta Kerja — Klaster Koperasi & UMKM</div></div>
+<div class="connector"></div>
+<div class="branch">
+<div class="stack"><div class="connector"></div><div class="node"><div class="label">PERATURAN PEMERINTAH</div><div class="title">PP No. 7 Tahun 2021</div><div class="sub">Kemudahan, Pelindungan, Pemberdayaan Koperasi & UMKM</div></div></div>
+</div>
+<div class="connector"></div>
+<div class="branch">
+<div class="stack"><div class="connector"></div><div class="node"><div class="label">PERATURAN MENTERI</div><div class="title">Permenkop No. 9 Tahun 2018</div><div class="sub">Penyelenggaraan & Pembinaan Perkoperasian</div></div></div>
+<div class="stack"><div class="connector"></div><div class="node"><div class="label">PERATURAN MENTERI</div><div class="title">Permenkop No. 8 Tahun 2023</div><div class="sub">Usaha Simpan Pinjam oleh Koperasi</div></div></div>
+</div>
+<div class="connector"></div>
+<div class="node" style="border-color:#3b82f6;border-width:2px;background:#1e3a5f"><div class="label">IMPLEMENTASI TEKNIS</div><div class="title">4 Smart Contracts — Lakomi Protocol</div><div class="sub">LakomiToken · LakomiVault · LakomiGovern · LakomiLoans</div>
+<div class="role-row">
+<span class="role-tag pengawas">PENGAWAS_ROLE</span><span class="role-tag pengurus">APPROVER_ROLE</span><span class="role-tag membership">MEMBERSHIP_ROLE</span><span class="role-tag bendahara">TREASURER_ROLE</span><span class="role-tag govern">GOVERN_ROLE</span></div></div>
+</div>
+</div>
+
+<!-- SECTION 2: PASAL --> CONTRACT MAPPING -->
+<div class="section">
+<h2><span class="num">2</span> 26 Pasal UU 25/1992 → Smart Contract</h2>
+<div class="grid4">
+<div class="card"><div class="pasal">Pasal 5(1)</div><span class="impl-badge">✓</span><h3>Keanggotaan Sukarela & Terbuka</h3><div class="contract">registerMember()</div><p>Simpanan pokok wajib dibayar terlebih dahulu</p></div>
+<div class="card"><div class="pasal">Pasal 5(2)</div><span class="impl-badge">✓</span><h3>Pengelolaan Demokratis</h3><div class="contract">castVote()</div><p>1 anggota = 1 suara, quorum 67%</p></div>
+<div class="card"><div class="pasal">Pasal 5(3)</div><span class="impl-badge">✓</span><h3>Pembagian SHU Adil</h3><div class="contract">distributeSHU()</div><p>6 kategori distribusi proporsional</p></div>
+<div class="card"><div class="pasal">Pasal 18(2)</div><span class="impl-badge">✓</span><h3>Non-Transferable</h3><div class="contract">transfersEnabled = false</div><p>Keanggotaan tidak dapat dipindahtangankan</p></div>
+<div class="card"><div class="pasal">Pasal 19-21</div><span class="impl-badge">✓</span><h3>Keluar Sukarela</h3><div class="contract">resignMembership()</div><p>Refund simpanan pokok, burn token LAK</p></div>
+<div class="card"><div class="pasal">Pasal 22(1)</div><span class="impl-badge">✓</span><h3>1 Anggota 1 Suara</h3><div class="contract">getVotingPower() → 1</div><p>Tidak berdasarkan jumlah simpanan</p></div>
+<div class="card"><div class="pasal">Pasal 23</div><span class="impl-badge">✓</span><h3>Quorum 67%</h3><div class="contract">quorumNumerator = 67</div><p>2/3 mayoritas untuk keputusan RAT</p></div>
+<div class="card"><div class="pasal">Pasal 26-27</div><span class="impl-badge">✓</span><h3>RAT Tahunan</h3><div class="contract">scheduleAnnualRAT()</div><p>1x per tahun, interval 365 hari</p></div>
+<div class="card"><div class="pasal">Pasal 29-30</div><span class="impl-badge">✓</span><h3>Pemilihan Pengurus</h3><div class="contract">beginElection() → finalizeElection()</div><p>Kandidat → voting → role auto-grant</p></div>
+<div class="card"><div class="pasal">Pasal 31</div><span class="impl-badge">✓</span><h3>Pemberhentian Anggota</h3><div class="contract">revokeMembership() via Govern</div><p>Usulan tata kelola → voting → eksekusi</p></div>
+<div class="card"><div class="pasal">Pasal 33-35</div><span class="impl-badge">✓</span><h3>Pembubaran</h3><div class="contract">executeDissolution()</div><p>Usulan RAT → pause semua kontrak</p></div>
+<div class="card"><div class="pasal">Pasal 38</div><span class="impl-badge">✓</span><h3>Pengawas</h3><div class="contract">vetoProposal()</div><p>Veto, pause, audit</p></div>
+<div class="card"><div class="pasal">Pasal 39(2)</div><span class="impl-badge">✓</span><h3>Hak Audit Pengawas</h3><div class="contract">getPengawasAuditReport()</div><p>Snapshot keuangan lengkap on-chain</p></div>
+<div class="card"><div class="pasal">Pasal 41(1)</div><span class="impl-badge">✓</span><h3>Simpanan Pokok</h3><div class="contract">paySimpananPokok()</div><p>100 USDC saat pendaftaran</p></div>
+<div class="card"><div class="pasal">Pasal 41(2)</div><span class="impl-badge">✓</span><h3>Simpanan Wajib</h3><div class="contract">paySimpananWajib()</div><p>10 USDC/bulan, periodik</p></div>
+<div class="card"><div class="pasal">Pasal 41(3)</div><span class="impl-badge">✓</span><h3>Sertifikat Simpanan</h3><div class="contract">issueCertificate()</div><p>Sertifikat tercatat on-chain</p></div>
+<div class="card"><div class="pasal">Pasal 42-43</div><span class="impl-badge">✓</span><h3>Modal & Dana Cadangan</h3><div class="contract">danaCadangan</div><p>5% SHU ke dana cadangan wajib</p></div>
+<div class="card"><div class="pasal">Pasal 44</div><span class="impl-badge">✓</span><h3>Pertanggungjawaban</h3><div class="contract">AccessControl audit trail</div><p>Semua tindakan tercatat on-chain</p></div>
+<div class="card"><div class="pasal">Pasal 45(1)</div><span class="impl-badge">✓</span><h3>Definisi SHU</h3><div class="contract">accumulatedRevenue</div><p>Revenue bunga — biaya = SHU pool</p></div>
+<div class="card"><div class="pasal">Pasal 45(2)</div><span class="impl-badge">✓</span><h3>SHU Multi-Kategori</h3><div class="contract">setSHUSplit()</div><p>6 kategori: cadangan, jasa modal, jasa usaha, pendidikan, pengurus, kesejahteraan</p></div>
+<div class="card"><div class="pasal">Pasal 46-47</div><span class="impl-badge">✓</span><h3>Laporan Keuangan</h3><div class="contract">generateFinancialSnapshot()</div><p>Snapshot: aset, simpanan, SHU, anggota</p></div>
+<div class="card"><div class="pasal">Pasal 18</div><span class="impl-badge">✓</span><h3>Pinjaman Anggota</h3><div class="contract">requestLoan()</div><p>Jaminan LAK 25%, bunga 5% APY</p></div>
+</div>
+<div class="legend" style="margin-top:16px">
+<span><span class="dot" style="background:#34d399"></span> Terimplementasi</span>
+<span><span class="dot" style="background:#3b82f6"></span> On-Chain</span>
+<span><span class="dot" style="background:#fbbf24"></span> UU 25/1992</span>
+</div>
+</div>
+
+<!-- SECTION 3: ACADEMIC SOURCES -->
+<div class="section">
+<h2><span class="num">3</span> Landasan Akademik</h2>
+<div class="grid2">
+<div class="card journal">
+<div class="authors">Arisudhana et al. (2025)</div>
+<div class="jtitle">Prinsip Koperasi pada Teknologi Blockchain</div>
+<div class="topic">Domain: Keanggotaan & Tata Kelola</div>
+<div class="pasal" style="margin-top:8px">→ Pasal 5(1), 5(2), 17-18, 29-30</div>
+<p style="margin-top:6px">Menunjukkan bahwa prinsip keterbukaan dan demokrasi koperasi dapat diimplementasikan melalui smart contract. Keikutsertaan didasarkan pada kesukarelaan tanpa pembatasan.</p>
+</div>
+<div class="card journal">
+<div class="authors">Sailana et al. (2023)</div>
+<div class="jtitle">Model Simpanan dan SHU via Smart Contract</div>
+<div class="topic">Domain: Keuangan & SHU</div>
+<div class="pasal" style="margin-top:8px">→ Pasal 22(2), 41, 45</div>
+<p style="margin-top:6px">Memodelkan simpanan pokok, wajib, sukarela dan distribusi SHU secara otomatis melalui smart contract. SHU = Total Revenue − Total Cost, dibagi sesuai jasa usaha.</p>
+</div>
+<div class="card journal">
+<div class="authors">Kartika et al. (2024)</div>
+<div class="jtitle">Peran Pengawas Koperasi dalam Pengelolaan</div>
+<div class="topic">Domain: Pengawasan</div>
+<div class="pasal" style="margin-top:8px">→ Pasal 38, 39</div>
+<p style="margin-top:6px">Menganalisis peran pengawas sebagai fungsi checks-and-balances dalam koperasi. Pengawas bertugas melakukan pengawasan dan dapat memveto keputusan merugikan.</p>
+</div>
+<div class="card journal">
+<div class="authors">Maryam (2025)</div>
+<div class="jtitle">Analisis Yuridis Penerapan UU 25/1992 pada Koperasi Modern</div>
+<div class="topic">Domain: Hukum</div>
+<div class="pasal" style="margin-top:8px">→ Pasal 5-47 (seluruh UU)</div>
+<p style="margin-top:6px">Kajian yuridis komprehensif terhadap seluruh pasal UU 25/1992 dalam konteks koperasi kontemporer. Menjadi dasar pemetaan kepatuhan Lakomi.</p>
+</div>
+<div class="card journal">
+<div class="authors">Antoni & Razaga (2024)</div>
+<div class="jtitle">Permasalahan Hukum pada Kegiatan Koperasi Simpan Pinjam</div>
+<div class="topic">Domain: Hukum & Pinjaman</div>
+<div class="pasal" style="margin-top:8px">→ Pasal 18, 41, Permenkop 8/2023</div>
+<p style="margin-top:6px">Mengidentifikasi celah hukum dalam operasional KSP tradisional dan bagaimana blockchain dapat memitigasi risiko fraud dan gagal bayar.</p>
+</div>
+</div>
+
+<div class="grid2" style="margin-top:20px">
+<div class="card journal" style="border-left-color:#f59e0b">
+<div class="authors">Hevner et al. (2004)</div>
+<div class="jtitle">Design Science in Information Systems Research</div>
+<div class="topic">Domain: Metodologi Penelitian</div>
+<p style="margin-top:6px">Kerangka Design Science Research (DSR) yang digunakan sebagai metodologi pengembangan Lakomi — membangun artefak fungsional dan mengevaluasi kepatuhannya terhadap regulasi.</p>
+</div>
+<div class="card journal" style="border-left-color:#f59e0b">
+<div class="authors">Peffers et al. (2007)</div>
+<div class="jtitle">Design Science Research Methodology (DSRM)</div>
+<div class="topic">Domain: Metodologi Penelitian</div>
+<p style="margin-top:6px">Metodologi DSRM dengan 6 tahap: identifikasi masalah → definisi solusi → desain & pengembangan → demonstrasi → evaluasi → komunikasi.</p>
+</div>
+</div>
+</div>
+
+<!-- SECTION 4: HOW PAPERS SUPPORT PASALS -->
+<div class="section">
+<h2><span class="num">4</span> Matriks Dukungan: Jurnal → Pasal → Kontrak</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:.8rem">
+<thead><tr style="background:#1e293b"><th style="padding:10px;text-align:left;border-bottom:2px solid #334155">Jurnal</th><th style="padding:10px;text-align:left;border-bottom:2px solid #334155">Pasal UU 25/1992</th><th style="padding:10px;text-align:left;border-bottom:2px solid #334155">Kontrak Lakomi</th><th style="padding:10px;text-align:left;border-bottom:2px solid #334155">Fungsi</th></tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Arisudhana et al. (2025)</td><td style="padding:10px">5(1), 5(2), 17-18</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiToken</td><td style="padding:10px">registerMember()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Arisudhana et al. (2025)</td><td style="padding:10px">22(1), 26-27</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiGovern</td><td style="padding:10px">castVote(), scheduleAnnualRAT()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Arisudhana et al. (2025)</td><td style="padding:10px">29-30, 38</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiGovern</td><td style="padding:10px">beginElection(), finalizeElection()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Sailana et al. (2023)</td><td style="padding:10px">22(2), 41(1-2)</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiVault</td><td style="padding:10px">paySimpananPokok(), paySimpananWajib()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Sailana et al. (2023)</td><td style="padding:10px">45</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiVault</td><td style="padding:10px">distributeSHU() — 6 kategori</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Kartika et al. (2024)</td><td style="padding:10px">38, 39</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiGovern</td><td style="padding:10px">vetoProposal(), pengawasPause()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Kartika et al. (2024)</td><td style="padding:10px">39(2)</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiVault</td><td style="padding:10px">getPengawasAuditReport()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Maryam (2025)</td><td style="padding:10px">1-47 (seluruh)</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">All contracts</td><td style="padding:10px">Compliance mapping</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Antoni & Razaga (2024)</td><td style="padding:10px">18, 41</td><td style="padding:10px;font-family:monospace;color:#a5b4fc">LakomiLoans</td><td style="padding:10px">requestLoan(), repayInFull()</td></tr>
+<tr style="border-bottom:1px solid #1e293b"><td style="padding:10px">Hevner et al. (2004)</td><td style="padding:10px">—</td><td style="padding:10px;color:#fbbf24">Metodologi</td><td style="padding:10px">Design Science Research</td></tr>
+<tr><td style="padding:10px">Peffers et al. (2007)</td><td style="padding:10px">—</td><td style="padding:10px;color:#fbbf24">Metodologi</td><td style="padding:10px">DSRM 6-tahap</td></tr>
+</tbody></table></div>
+</div>
+
+</div>
+
+<div class="footer">
+Lakomi Protocol — Skripsi • Koperasi Digital Berbasis Blockchain<br>
+UU No. 25 Tahun 1992 — 100% Compliant • 26 Pasal • 4 Smart Contracts • 7 Jurnal Pendukung
+</div>
+</body></html>

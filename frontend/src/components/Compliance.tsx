@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
@@ -42,15 +42,13 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
   const [pdfPage, setPdfPage] = useState(1)
-  const iframeRef = useRef<HTMLIFrameElement>(null)
+  const [iframeKey, setIframeKey] = useState(0)
 
   const handlePasalClick = (idx: number) => {
     setActivePasal(idx)
     const page = PASAL[idx].page
     setPdfPage(page)
-    if (iframeRef.current) {
-      iframeRef.current.src = `/uu-25-1992.pdf#page=${page}`
-    }
+    setIframeKey(k => k + 1)
   }
 
   return (
@@ -66,7 +64,7 @@ export function Compliance() {
             <span>UU No. 25 Tahun 1992</span>
             <span className="text-muted-foreground font-normal">Hal. {pdfPage}</span>
           </div>
-          <iframe ref={iframeRef} src="/uu-25-1992.pdf#page=1" className="flex-1 w-full border-0 rounded-bl-lg" title="UU 25/1992" />
+          <embed key={iframeKey} src={`/uu-25-1992.pdf#page=${pdfPage}`} type="application/pdf" className="flex-1 w-full rounded-bl-lg" />
         </div>
         <div className="w-1/2 border rounded-r-lg flex flex-col overflow-y-auto">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">Implementasi Kontrak Pintar — {PASAL.length} ketentuan</div>

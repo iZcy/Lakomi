@@ -7,6 +7,9 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { CONTRACTS } from '../config/contracts'
 import { useMemberCount, useIsMember } from '../hooks/useContractRead'
+import { useResignMembership } from '../hooks/useContractWrite'
+import { useQueryClient } from '@tanstack/react-query'
+import { Button } from '@/components/ui/button'
 
 const ROLES: { key: string; label: string; color: string; contract: string }[] = [
   { key: 'PENGAWAS_ROLE', label: 'Pengawas', color: 'bg-red-500', contract: 'LAKOMI_GOVERN' },
@@ -54,6 +57,13 @@ function MemberCard({ addr, name }: { addr: string; name: string | null }) {
 export function Members() {
   const { address, isConnected } = useAccount()
   const { data: count } = useMemberCount()
+  const { data: isMember } = useIsMember(address)
+  const { resignMembership, isPending: resigning, isSuccess: resigned } = useResignMembership()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (resigned) queryClient.invalidateQueries({ queryKey: ['readContract'] })
+  }, [resigned, queryClient])
 
   const [memberList, setMemberList] = useState<{ addr: string; name: string }[]>([])
   useEffect(() => {
@@ -103,6 +113,20 @@ export function Members() {
           ))}
         </CardContent>
       </Card>
+
+      {isMember && (
+        <Card className="border-red-500/20 bg-red-500/5">
+          <CardHeader><CardTitle className="text-sm text-red-500">Keluar dari Koperasi</CardTitle></CardHeader>
+          <CardContent>
+            <p className="text-xs text-muted-foreground mb-3">
+              Mengundurkan diri secara sukarela (Pasal 19-21). Simpanan pokok akan dikembalikan. Token LAK dibakar. Syarat: tidak ada pinjaman aktif.
+            </p>
+            <Button variant="destructive" size="sm" onClick={() => resignMembership()} disabled={resigning || resigned}>
+              {resigning ? 'Memproses...' : resigned ? 'Berhasil Keluar' : 'Keluar dari Koperasi'}
+            </Button>
+          </CardContent>
+        </Card>
+      )}
     </div>
   )
 }

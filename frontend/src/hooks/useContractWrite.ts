@@ -22,6 +22,22 @@ export function useRegisterMember() {
   return { registerMember, hash, error, isPending, isConfirming, isSuccess }
 }
 
+export function useResignMembership() {
+  const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
+  const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })
+
+  const resignMembership = async (): Promise<WriteResult> => {
+    return writeContractAsync({
+      address: CONTRACTS.LAKOMI_TOKEN,
+      abi: LAKOMI_TOKEN_ABI,
+      functionName: 'resignMembership',
+      args: [],
+    })
+  }
+
+  return { resignMembership, hash, error, isPending, isConfirming, isSuccess }
+}
+
 export function usePaySimpananPokok() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()
   const { isLoading: isConfirming, isSuccess } = useWaitForTransactionReceipt({ hash })

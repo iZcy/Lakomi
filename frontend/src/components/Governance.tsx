@@ -1,7 +1,7 @@
-import { useState, useEffect, useMemo } from 'react'
-import { useAccount } from 'wagmi'
+import { useState, useEffect } from 'react'
+import { useAccount, useReadContract } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
-import { parseUnits, formatUnits, isAddress, encodeFunctionData } from 'viem'
+import { parseUnits, formatUnits, isAddress, encodeFunctionData, keccak256, toHex } from 'viem'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -13,7 +13,7 @@ import { useCreateProposal, useCastVote, useQueueProposal, useExecuteProposal, u
 import { getProposalStateName, getProposalStateColor, formatTimestampShort } from '../lib/utils'
 import { decodeProposal } from '../types'
 import { CONTRACTS } from '../config/contracts'
-import { LAKOMI_TOKEN_ABI } from '../abis'
+import { LAKOMI_TOKEN_ABI, LAKOMI_GOVERN_ABI } from '../abis'
 import { MemberRegistration } from './MemberRegistration'
 
 export function Governance() {
@@ -53,6 +53,8 @@ export function Governance() {
           )}
         </div>
       </div>
+
+      <PemiluSection address={address} />
     </div>
   )
 }
@@ -391,6 +393,101 @@ function VoteBar({ label, votes, total, color }: { label: string; votes: bigint;
       </div>
       <span className="text-xs font-medium w-14 sm:w-20 text-right flex-shrink-0">{votes.toString()} ({pct}%)</span>
     </div>
+  )
+}
+
+const ELECTION_ROLES = [
+  { key: 'APPROVER_ROLE', label: 'Pengurus', desc: 'Menyetujui pinjaman anggota', contract: 'LAKOMI_LOANS' },
+  { key: 'TREASURER_ROLE', label: 'Bendahara', desc: 'Mengelola treasury koperasi', contract: 'LAKOMI_VAULT' },
+  { key: 'PENGAWAS_ROLE', label: 'Pengawas', desc: 'Mengawasi kebijakan dan pengelolaan', contract: 'LAKOMI_GOVERN' },
+]
+
+function PemiluSection({ address }: { address?: `0x${string}` }) {
+  const [selectedRole, setSelectedRole] = useState('')
+  const [candidate, setCandidate] = useState('')
+  const [regDays, setRegDays] = useState('3')
+  const [voteDays, setVoteDays] = useState('5')
+  const queryClient = useQueryClient()
+
+  const elected = ELECTION_ROLES.find(r => r.key === selectedRole)
+  const roleHash = elected ? keccak256(toHex(elected.key)) : '0x'
+
+  const { data: election } = useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN as `0x${string}`,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'getElection',
+    args: [roleHash],
+    query: { enabled: !!elected },
+  })
+
+  const eData = election as any
+  const hasElection = eData && eData[0] > 0n
+
+  const { data: isCandidate } = useReadContract({
+    address: CONTRACTS.LAKOMI_GOVERN as `0x${string}`,
+    abi: LAKOMI_GOVERN_ABI,
+    functionName: 'isCandidate',
+    args: [roleHash, address!],
+    query: { enabled: !!elected && !!address },
+  })
+
+  return (
+    <Card>
+      <CardHeader><CardTitle className="text-sm">Pemilihan Pengurus (Pasal 29-30)</CardTitle></CardHeader>
+      <CardContent className="space-y-3">
+        <Select value={selectedRole} onValueChange={setSelectedRole}>
+          <SelectTrigger><SelectValue placeholder="Pilih jabatan" /></SelectTrigger>
+          <SelectContent>
+            {ELECTION_ROLES.map(r => (
+              <SelectItem key={r.key} value={r.key}>{r.label} — {r.desc}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        {elected && !hasElection && (
+          <div className="space-y-2">
+            <p className="text-[10px] text-muted-foreground">Belum ada pemilu untuk {elected.label}. Mulai pemilu baru (butuh admin).</p>
+            <div className="flex gap-2">
+              <Input type="number" placeholder="Masa pendaftaran (hari)" value={regDays} onChange={e => setRegDays(e.target.value)} className="h-8 text-xs" />
+              <Input type="number" placeholder="Masa voting (hari)" value={voteDays} onChange={e => setVoteDays(e.target.value)} className="h-8 text-xs" />
+              <Button size="sm" className="text-xs" onClick={() => {
+                // beginElection via wallet
+                alert('Gunakan Dev Faucet untuk memulai pemilu sebagai admin')
+              }}>Mulai Pemilu</Button>
+            </div>
+          </div>
+        )}
+
+        {hasElection && (
+          <div className="space-y-2 bg-muted/30 rounded p-2 text-xs">
+            <p><span className="font-semibold">Pemilu {elected.label}</span> — ID #{String(eData[0])}</p>
+            <p>Pendaftaran: {new Date(Number(eData[2]) * 1000).toLocaleDateString()} selesai</p>
+            <p>Voting: sampai {new Date(Number(eData[3]) * 1000).toLocaleDateString()}</p>
+            <p>Status: {eData[4] ? '✅ Selesai' : '🔄 Aktif'}</p>
+            {eData[4] && <p>Pemenang: <span className="font-mono">{eData[5]?.slice(0,10)}... ({String(eData[6])} suara)</span></p>}
+
+            {!eData[4] && (
+              <div className="flex gap-2 mt-2">
+                {!isCandidate && (
+                  <Button size="sm" variant="outline" className="text-xs" onClick={() => {
+                    alert('registerAsCandidate dikirim via wallet')
+                  }}>Daftar Kandidat</Button>
+                )}
+                <Input placeholder="Alamat kandidat 0x..." value={candidate} onChange={e => setCandidate(e.target.value)} className="h-8 text-xs font-mono" />
+                <Button size="sm" className="text-xs" onClick={() => {
+                  alert('castElectionVote dikirim via wallet')
+                }}>Vote</Button>
+              </div>
+            )}
+            {Date.now() / 1000 > Number(eData[3]) && !eData[4] && (
+              <Button size="sm" className="text-xs mt-1" onClick={() => {
+                alert('finalizeElection dikirim via wallet')
+              }}>Finalisasi Pemilu</Button>
+            )}
+          </div>
+        )}
+      </CardContent>
+    </Card>
   )
 }
 

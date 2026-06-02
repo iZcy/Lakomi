@@ -1,8 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useCallback } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-
-const PDF_PAGES = 35
 
 const PASAL = [
   { pasal: 'Pasal 5(1)', page: 4, title: 'Keanggotaan Terbuka dan Sukarela', lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.', feature: 'Anggota' },
@@ -42,19 +40,12 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
-  const [pdfPage, setPdfPage] = useState(1)
-  const [flashPage, setFlashPage] = useState(0)
-  const pageRefs = useRef<(HTMLDivElement | null)[]>([])
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [pdfKey, setPdfKey] = useState(0)
 
-  const handlePasalClick = (idx: number) => {
+  const handlePasalClick = useCallback((idx: number) => {
     setActivePasal(idx)
-    const page = PASAL[idx].page
-    setPdfPage(page)
-    setFlashPage(page)
-    pageRefs.current[page - 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    setTimeout(() => setFlashPage(0), 2000)
-  }
+    setPdfKey(k => k + 1)
+  }, [])
 
   return (
     <div className="space-y-4">
@@ -67,24 +58,9 @@ export function Compliance() {
         <div className="w-1/2 border border-r-0 rounded-l-lg bg-muted/20 flex flex-col">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 flex items-center justify-between">
             <span>UU No. 25 Tahun 1992</span>
-            <span className="text-muted-foreground font-normal">Hal. {pdfPage} / {PDF_PAGES}</span>
+            <span className="text-muted-foreground font-normal">Pasal {activePasal >= 0 ? PASAL[activePasal].pasal : ''}</span>
           </div>
-          <div ref={scrollRef} className="flex-1 overflow-y-auto">
-            {Array.from({ length: PDF_PAGES }, (_, i) => (
-              <div 
-                key={i} 
-                ref={el => { pageRefs.current[i] = el }}
-                className={`transition-all duration-300 ${flashPage === i + 1 ? 'ring-4 ring-amber-500 ring-offset-2 ring-offset-muted bg-amber-500/10' : ''}`}
-              >
-                <img 
-                  src={`/pdf-pages/page-${String(i + 1).padStart(2, '0')}.png`}
-                  alt={`Halaman ${i + 1}`}
-                  className="w-full border-b border-border"
-                  loading={i < 3 ? 'eager' : 'lazy'}
-                />
-              </div>
-            ))}
-          </div>
+          <iframe key={pdfKey} src="/uu-25-1992.pdf" className="flex-1 w-full border-0 rounded-bl-lg" title="UU 25/1992" />
         </div>
         <div className="w-1/2 border rounded-r-lg flex flex-col overflow-y-auto">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">Implementasi Kontrak Pintar — {PASAL.length} ketentuan</div>

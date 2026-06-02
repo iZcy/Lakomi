@@ -63,27 +63,40 @@ Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[
-	stage/.style={rectangle, draw, rounded corners=3pt, fill=blue!8, minimum width=4.5cm, minimum height=0.8cm, text width=4.2cm, align=center, font=\small},
-	arrow/.style={->, >=stealth, thick},
-	feedback/.style={->, >=stealth, thick, dashed, gray}
+    node distance=1.2cm,
+    stage/.style={rectangle, draw, rounded corners=4pt, fill=blue!8, minimum width=2.8cm, minimum height=0.7cm, text width=2.6cm, align=center, font=\footnotesize},
+    arr/.style={->, >=stealth, thick, blue!60},
+    darr/.style={->, >=stealth, dashed, gray!60, thick},
 ]
-\node[stage] (s1) {Tahap 1\\Studi Literatur \& Analisis Regulasi};
-\node[stage, below=0.4cm of s1] (s2) {Tahap 2\\Perancangan Arsitektur \& Smart Contract};
-\node[stage, below=0.4cm of s2] (s3) {Tahap 3\\Implementasi Smart Contract};
-\node[stage, below=0.4cm of s3] (s4) {Tahap 4\\Implementasi Frontend};
-\node[stage, below=0.4cm of s4] (s5) {Tahap 5\\Pengujian Fungsional \& Gas Analysis};
-\node[stage, below=0.4cm of s5] (s6) {Tahap 6\\Evaluasi Kepatuhan \& Analisis Hasil};
 
-\draw[arrow] (s1) -- (s2);
-\draw[arrow] (s2) -- (s3);
-\draw[arrow] (s3) -- (s4);
-\draw[arrow] (s4) -- (s5);
-\draw[arrow] (s5) -- (s6);
+% Row 1: Relevance
+\node[rectangle, draw=none, font=\footnotesize\bfseries, text=red!60, anchor=east] at (-0.3,1.5) {Relevansi};
+\node[stage, fill=red!8] (s1) at (1.8,1.5) {Studi Literatur\\\& Analisis\\Regulasi};
+\node[stage, fill=red!8] (s2) at (5.2,1.5) {Identifikasi\\Kesenjangan\\Hukum-Kode};
 
-\draw[feedback] (s5.west) -- ++(-1.0,0) |- (s3.west) node[pos=0.25, left, font=\scriptsize, text=gray] {Iterasi};
-\draw[feedback] (s6.east) -- ++(1.0,0) |- (s2.east) node[pos=0.25, right, font=\scriptsize, text=gray] {Evaluasi};
+% Row 2: Design
+\node[rectangle, draw=none, font=\footnotesize\bfseries, text=green!50!black, anchor=east] at (-0.3,0) {Desain};
+\node[stage, fill=green!8] (s3) at (1.8,0) {Perancangan\\Arsitektur \&\\Pemetaan Pasal};
+\node[stage, fill=green!8] (s4) at (5.2,0) {Implementasi\\4 Smart\\Contracts};
+\node[stage, fill=green!8] (s5) at (8.6,0) {Implementasi\\Frontend\\React + wagmi};
+
+% Row 3: Rigor
+\node[rectangle, draw=none, font=\footnotesize\bfseries, text=purple!60, anchor=east] at (-0.3,-1.5) {Rigor};
+\node[stage, fill=purple!8] (s6) at (1.8,-1.5) {Pengujian\\Fungsional \&\\Gas Analysis};
+\node[stage, fill=purple!8] (s7) at (5.2,-1.5) {Evaluasi\\Kepatuhan \&\\Penulisan};
+
+% Horizontal
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\draw[arr] (s6) -- (s7);
+
+% Vertical transitions
+\draw[darr] (s2.south) -- ++(0,-0.4) -| (s3.north);
+\draw[darr] (s5.south) -- ++(0,-0.4) -| (s6.north);
+
 \end{tikzpicture}
-\caption{Alur Penelitian \textit{Design Science Research}}
+\caption{Alur Penelitian dalam Tiga Siklus \textit{Design Science Research} (Hevner, 2007)}
 \label{fig:alur-penelitian}
 \end{figure}
 
@@ -255,7 +268,36 @@ LTV Tier 1/2/3 & 30\%/50\%/70\% & Memberikan insentif bagi anggota untuk meningk
 \end{tabular}
 \end{table}
 
-LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Proposal melalui empat tahap: (1) pembuatan oleh anggota terdaftar, (2) pemungutan suara selama 7 hari, (3) verifikasi kuorum 67\%, dan (4) eksekusi setelah \textit{timelock} 24 jam. Pemegang PENGAWAS\_ROLE dapat mem-veto proposal sebelum eksekusi.
+LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Siklus hidup proposal diilustrasikan pada Gambar~\ref{fig:proposal-lifecycle}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    state/.style={rectangle, draw, rounded corners=3pt, minimum width=2.2cm, minimum height=0.55cm, font=\footnotesize, align=center, inner sep=4pt},
+    arr/.style={->, >=stealth, thick, blue!60},
+]
+\node[state, fill=gray!10] (create) at (0,3) {Created\\(anggota)};
+\node[state, fill=yellow!15] (active) at (0,1.8) {Active\\(7 hari voting)};
+\node[state, fill=green!15] (succ) at (-2.5,0.3) {Succeeded};
+\node[state, fill=red!15] (def) at (2.5,0.3) {Defeated};
+\node[state, fill=blue!10] (queue) at (-2.5,-1.2) {Queued\\(24h timelock)};
+\node[state, fill=green!25] (exec) at (-2.5,-2.7) {Executed};
+\node[state, fill=purple!15] (veto) at (2.5,-1.2) {Vetoed\\(pengawas)};
+\node[state, fill=gray!20] (cancel) at (0,-3.3) {Canceled};
+
+\draw[arr] (create) -- (active) node[midway, right, font=\footnotesize] {start};
+\draw[arr] (active) -- (succ) node[midway, left, font=\footnotesize] {quorum + majority};
+\draw[arr] (active) -- (def) node[midway, right, font=\footnotesize] {no quorum};
+\draw[arr] (succ) -- (queue) node[midway, left, font=\footnotesize] {queue};
+\draw[arr] (queue) -- (exec) node[midway, left, font=\footnotesize] {execute};
+\draw[arr] (queue) -- (veto) node[midway, right, font=\footnotesize] {veto};
+\draw[arr] (active) -- (cancel) node[midway, right, font=\footnotesize] {proposer};
+\end{tikzpicture}
+\caption{Siklus Hidup Proposal pada LakomiGovern}
+\label{fig:proposal-lifecycle}
+\end{figure}
+
+Proposal melalui empat tahap: (1) pembuatan oleh anggota terdaftar, (2) pemungutan suara selama 7 hari, (3) verifikasi kuorum 67\%, dan (4) eksekusi setelah \textit{timelock} 24 jam. Pemegang PENGAWAS\_ROLE dapat mem-veto proposal sebelum eksekusi.
 
 Untuk pemilihan pengurus (Pasal 29--30), setiap anggota dapat mendaftar sebagai kandidat. Anggota memberikan satu suara per pemilihan, dan kandidat dengan suara terbanyak menang. Peran diberikan secara otomatis dengan masa jabatan 365 hari.
 

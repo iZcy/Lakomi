@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 04:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 04:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1117,10 +1117,28 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count364
 \@thisrulewidth=\dimen325
 )
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibraryfit.code.tex
+File: tikzlibraryfit.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
+zlibrarybackgrounds.code.tex
+File: tikzlibrarybackgrounds.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@layerbox@background=\box98
+\pgf@layerboxsaved@background=\box99
+)
+(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.
+code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen326
+\pgfarrowlength=\dimen327
+\pgfarrowwidth=\dimen328
+\pgfarrowlinewidth=\dimen329
+)
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count365
-\l__pdf_internal_box=\box98
+\l__pdf_internal_box=\box100
 )
 (./main.aux (./contents/chapter-1/chapter-1.aux)
 (./contents/chapter-2/chapter-2.aux) (./contents/chapter-3/chapter-3.aux)
@@ -1128,35 +1146,35 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./contents/chapter-6/chapter-6.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count366
-\scratchdimen=\dimen326
-\scratchbox=\box99
+\scratchdimen=\dimen330
+\scratchbox=\box101
 \nofMPsegments=\count367
 \nofMParguments=\count368
 \everyMPshowfont=\toks53
 \MPscratchCnt=\count369
-\MPscratchDim=\dimen327
+\MPscratchDim=\dimen331
 \MPnumerator=\count370
 \makeMPintoPDFobject=\count371
 \everyMPtoPDFconversion=\toks54
@@ -1226,7 +1244,7 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 Package caption Info: End \AtBeginDocument code.
 Package newfloat Info: `float' package detected.
 \c@lstlisting=\count372
-Package hyperref Info: Link coloring OFF on input line 60.
+Package hyperref Info: Link coloring OFF on input line 62.
  (./main.out)
 (./main.out)
 \@outlinefile=\write4
@@ -1271,22 +1289,22 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
 <sample/logougm.png, id=348, 110.5731pt x 112.2594pt>
 File: sample/logougm.png Graphic file (type png)
 <use sample/logougm.png>
-Package pdftex.def Info: sample/logougm.png  used on input line 67.
+Package pdftex.def Info: sample/logougm.png  used on input line 69.
 (pdftex.def)             Requested size: 212.25775pt x 215.51329pt.
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 67.
+LaTeX Font Info:    Calculating math sizes for size <14> on input line 69.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14> on input line 67.
+(Font)              <14> on input line 69.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9.79996> on input line 67.
+(Font)              <9.79996> on input line 69.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 67.
+(Font)              <7> on input line 69.
 
-Overfull \hbox (16.10326pt too wide) in paragraph at lines 67--67
+Overfull \hbox (16.10326pt too wide) in paragraph at lines 69--69
  [] 
  []
 
 
-Overfull \hbox (14.40865pt too wide) in paragraph at lines 67--67
+Overfull \hbox (14.40865pt too wide) in paragraph at lines 69--69
  [][] 
  []
 
@@ -1296,11 +1314,11 @@ Overfull \hbox (14.40865pt too wide) in paragraph at lines 67--67
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/base/8r.enc} <./sample/logougm.png>]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 77.
+(Font)              <12> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 77.
+(Font)              <8> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 77.
+(Font)              <6> on input line 79.
  [2
 
 
@@ -1395,7 +1413,13 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 [9
 
-] (./main.lof)
+] (./main.lof
+Overfull \hbox (0.76117pt too wide) in paragraph at lines 4--4
+ [][] [][]\T1/ptm/m/n/12 Alur Pe-ne-li-ti-an da-lam Ti-ga Si-klus \T1/ptm/m/it/
+12 De-sign Sci-en-ce Re-se-ar-ch \T1/ptm/m/n/12 (He- 
+ []
+
+)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
@@ -1445,7 +1469,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 46--46
  []
 
 )
-Overfull \hbox (6.79999pt too wide) in paragraph at lines 35--126
+Overfull \hbox (6.79999pt too wide) in paragraph at lines 35--128
 []
  []
 
@@ -1561,7 +1585,7 @@ Overfull \hbox (6.79999pt too wide) in paragraph at lines 239--259
 
  (./contents/chapter-2/chapter-2.tex
 BAB II.
-<contents/chapter-2/gambar-buatan-sendiri.png, id=602, 639.89063pt x 369.63094p
+<contents/chapter-2/gambar-buatan-sendiri.png, id=603, 639.89063pt x 369.63094p
 t>
 File: contents/chapter-2/gambar-buatan-sendiri.png Graphic file (type png)
 <use contents/chapter-2/gambar-buatan-sendiri.png>
@@ -1657,161 +1681,165 @@ s-tra-sik-an pa-da Gam-bar []3.2[].
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12] [13]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 11
-4.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 12
+7.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 115.
- [14]
-Overfull \hbox (1.80544pt too wide) in paragraph at lines 144--145
+(Font)              <5> on input line 128.
+
+Overfull \hbox (1.80544pt too wide) in paragraph at lines 157--158
 []\T1/ptm/b/it/12 Blockchain La-yer \T1/ptm/m/n/12 --- Se-lu-ruh kon-trak di-de
 ploy pa-da DCha-in (EVM-compatible [[]9[]],
  []
 
-
-Overfull \hbox (1.51717pt too wide) in paragraph at lines 156--157
+[14]
+Overfull \hbox (1.51717pt too wide) in paragraph at lines 169--170
 \T1/ptm/m/n/12 ti-tas ke-ang-go-ta-an da-ri ke-pe-mi-lik-an to-ken. \T1/pcr/m/n
 /12 MAX_SUPPLY \T1/ptm/m/n/12 di-te-tapk-an 1.000.000 LAK
  []
 
 [15]
-Overfull \hbox (56.27185pt too wide) in paragraph at lines 177--178
+Overfull \hbox (56.27185pt too wide) in paragraph at lines 190--191
 []\T1/ptm/m/n/12 Setiap fung-si \T1/ptm/m/it/12 state-modifying \T1/ptm/m/n/12 
 di-lin-du-ngi oleh \T1/pcr/m/n/12 onlyRole \T1/ptm/m/n/12 atau \T1/pcr/m/n/12 o
 nlyRegisteredMember\T1/ptm/m/n/12 .
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 195--196
+Underfull \hbox (badness 4647) in paragraph at lines 208--209
 []\T1/ptm/m/n/10 Pencabutan me-la-lui ta-ta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 204--204
+Underfull \hbox (badness 10000) in paragraph at lines 217--217
 []\T1/pcr/m/n/10 beginElection() $\OMS/cmsy/m/n/10 !$
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 206--207
+Underfull \hbox (badness 6493) in paragraph at lines 219--220
 []\T1/ptm/m/n/10 Pinjaman LTV ber-ba-sis
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+Underfull \hbox (badness 10000) in paragraph at lines 220--220
 []\T1/ptm/m/n/10 Permenkop
  []
 
 
-Overfull \hbox (22.5236pt too wide) in paragraph at lines 188--210
+Overfull \hbox (22.5236pt too wide) in paragraph at lines 201--223
  [][] 
  []
 
-[16]
-Overfull \hbox (3.45143pt too wide) in paragraph at lines 217--218
+
+Overfull \hbox (3.45143pt too wide) in paragraph at lines 230--231
 []\T1/pcr/m/n/12 MemberRegistered(address member) \T1/ptm/m/n/12 --- Di-pan-car
 k-an oleh La-ko-mi-To-ken ke-
  []
 
 
-Overfull \hbox (53.6843pt too wide) in paragraph at lines 219--220
+Overfull \hbox (53.6843pt too wide) in paragraph at lines 232--233
 []\T1/pcr/m/n/12 SimpananPaid(address member, uint256 amount, string simpananTy
 pe)
  []
 
-
-Overfull \hbox (17.68431pt too wide) in paragraph at lines 220--221
+[16]
+Overfull \hbox (17.68431pt too wide) in paragraph at lines 233--234
 []\T1/pcr/m/n/12 SHUDistributed(uint256 distributionsId, uint256 totalAmount)
  []
 
 
-Overfull \hbox (14.24017pt too wide) in paragraph at lines 222--223
+Overfull \hbox (14.24017pt too wide) in paragraph at lines 235--236
 []\T1/pcr/m/n/12 VoteCast(uint256 proposalId, address voter, uint8 vote) \T1/pt
 m/m/n/12 --- Di-
  []
 
 
-Overfull \hbox (39.2843pt too wide) in paragraph at lines 224--225
+Overfull \hbox (39.2843pt too wide) in paragraph at lines 237--238
 []\T1/pcr/m/n/12 LoanRequested(uint256 loanId, address borrower, uint256 amount
 )
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--251
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
 []$\OMS/cmsy/m/n/10 ^^T$ \T1/ptm/m/n/10 200
  []
 
 
-Overfull \hbox (9.60988pt too wide) in paragraph at lines 253--253
+Overfull \hbox (9.60988pt too wide) in paragraph at lines 266--266
 []\T1/ptm/m/n/10 30%/50%/70%| 
  []
 
 
-Overfull \hbox (2.03146pt too wide) in paragraph at lines 237--256
+Overfull \hbox (2.03146pt too wide) in paragraph at lines 250--269
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+LaTeX Warning: Reference `fig:proposal-lifecycle' on page 17 undefined on input
+ line 271.
+
 [17] [18] [19]
-Overfull \hbox (1.10602pt too wide) in paragraph at lines 322--323
+Overfull \hbox (1.10602pt too wide) in paragraph at lines 364--365
 []\T1/ptm/m/n/12 Komunikasi de-ngan \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/
 n/12 di-la-kuk-an me-la-lui \T1/ptm/m/it/12 pro-vi-der \T1/ptm/m/n/12 JSON-RPC 
 DCha-
  []
 
 [20] [21]
-Overfull \hbox (9.8096pt too wide) in paragraph at lines 357--358
+Overfull \hbox (9.8096pt too wide) in paragraph at lines 399--400
 []\T1/ptm/m/n/12 Setelah per-i-o-de ber-a-khir, sis-tem me-mve-ri-fi-ka-si ku-o
 -rum: $[] \OMS/cmsy/m/n/12 ^^U [] ^^B
  []
 
 
-Overfull \hbox (5.55005pt too wide) in paragraph at lines 365--366
+Overfull \hbox (5.55005pt too wide) in paragraph at lines 407--408
 []\T1/ptm/m/n/12 Anggota meng-a-juk-an pin-jam-an me-la-lui \T1/pcr/m/n/12 requ
 estLoan() \T1/ptm/m/n/12 de-ngan me-nen-tuk-an jum-
  []
 
-
-Overfull \hbox (0.1356pt too wide) in paragraph at lines 379--380
+[22]
+Overfull \hbox (0.1356pt too wide) in paragraph at lines 421--422
 []\T1/ptm/m/n/12 Pengujian fung-sio-nal di-la-kuk-an meng-gu-nak-an \T1/ptm/m/i
 t/12 fra-me-work \T1/ptm/m/n/12 Ha-rdhat pa-da ling-kung-
  []
 
-[22]
-Overfull \hbox (21.13797pt too wide) in paragraph at lines 384--385
+
+Overfull \hbox (21.13797pt too wide) in paragraph at lines 426--427
 \T1/ptm/m/n/12 100 USDC dan pe-ne-ri-ma-an 100 to-ken LAK; ve-ri-fi-ka-si bah-w
 a \T1/pcr/m/n/12 isRegisteredMember
  []
 
 
-Overfull \hbox (43.79305pt too wide) in paragraph at lines 390--391
+Overfull \hbox (43.79305pt too wide) in paragraph at lines 432--433
 \T1/ptm/m/n/12 ku-o-rum di-nya-tak-an \T1/ptm/m/it/12 de-fe-a-ted\T1/ptm/m/n/12
  ; pen-ja-dwal-an RAT ta-hun-an me-la-lui \T1/pcr/m/n/12 scheduleAnnualRAT()
  []
 
 
-Overfull \hbox (112.4342pt too wide) in paragraph at lines 392--393
+Overfull \hbox (112.4342pt too wide) in paragraph at lines 434--435
 \T1/ptm/m/n/12 non-pengawas; dan ak-ses pe-nga-was ter-ha-dap la-por-an ke-u-an
 g-an me-la-lui \T1/pcr/m/n/12 getPengawasAuditReport()
  []
 
 [23]
-Overfull \hbox (1.05878pt too wide) in paragraph at lines 399--400
+Overfull \hbox (1.05878pt too wide) in paragraph at lines 441--442
 []\T1/ptm/m/n/12 Seluruh ha-sil pe-ngu-ji-an fung-sio-nal di-sa-jik-an dan di-b
 a-has se-ca-ra rin-ci pa-da Bab []IV[]. 
  []
 
-
-Overfull \hbox (26.68098pt too wide) in paragraph at lines 422--423
+[24]
+Overfull \hbox (26.68098pt too wide) in paragraph at lines 464--465
 \T1/ptm/m/n/12 men-tran-sfer to-ken LAK an-tar akun ak-an di-to-lak (\T1/ptm/m/
 it/12 re-ver-ted\T1/ptm/m/n/12 ) ka-re-na \T1/pcr/m/n/12 transfersEnabled
  []
 
-[24])
-Overfull \hbox (50.43237pt too wide) in paragraph at lines 432--147
+)
+Overfull \hbox (50.43237pt too wide) in paragraph at lines 474--149
 \T1/ptm/m/n/12 (\T1/pcr/m/n/12 registerMember\T1/ptm/m/n/12 , \T1/pcr/m/n/12 pa
 ySimpananPokok\T1/ptm/m/n/12 , \T1/pcr/m/n/12 castVote\T1/ptm/m/n/12 , \T1/pcr/
 m/n/12 distributeSHU\T1/ptm/m/n/12 , \T1/pcr/m/n/12 requestLoan\T1/ptm/m/n/12 ,
@@ -1865,7 +1893,7 @@ BAB VI.
 LaTeX Warning: Citation `marenda2016digitory' on page L-2 undefined on input li
 ne 11.
 
-<contents/chapter-1/sample-fig.png, id=827, 578.16pt x 434.37282pt>
+<contents/chapter-1/sample-fig.png, id=830, 578.16pt x 434.37282pt>
 File: contents/chapter-1/sample-fig.png Graphic file (type png)
 <use contents/chapter-1/sample-fig.png>
 Package pdftex.def Info: contents/chapter-1/sample-fig.png  used on input line 
@@ -1904,32 +1932,53 @@ L3 programming layer <2024-01-22>
 
 LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 38FBA29864D9CE2A632D1CE951AB1E4E;17240.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 38FBA29864D9CE2A632D1CE951AB1E4E;17240
+(rerunfilecheck)             After:  99F389B85514AB7343B3A352D72A450F;17240.
  ) 
 Here is how much of TeX's memory you used:
- 42150 strings out of 475597
- 942376 string characters out of 5783340
+ 42672 strings out of 475597
+ 955710 string characters out of 5783340
  2088975 words of memory out of 5000000
- 63189 multiletter control sequences out of 15000+600000
+ 63697 multiletter control sequences out of 15000+600000
  613275 words of font info for 89 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
  103i,12n,106p,742b,1785s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (56 pages, 440317 bytes).
+
+pdfTeX warning (dest): name{figure.caption.35} has been referenced but does not
+ exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.36} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section*.32} has been referenced but does not exist
+, replaced by a fixed one
+
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (56 pages, 443005 bytes).
 PDF statistics:
- 1065 PDF objects out of 1200 (max. 8388607)
- 967 compressed objects within 10 object streams
- 339 named destinations out of 1000 (max. 500000)
+ 1071 PDF objects out of 1200 (max. 8388607)
+ 973 compressed objects within 10 object streams
+ 343 named destinations out of 1000 (max. 500000)
  708 words of extra memory for PDF output out of 10000 (max. 10000000)
 

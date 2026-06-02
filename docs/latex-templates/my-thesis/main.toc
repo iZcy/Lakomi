@@ -36,11 +36,11 @@
 \contentsline {subsection}{\numberline {3.5.1}Struktur Data}{15}{subsection.3.5.1}%
 \contentsline {subsection}{\numberline {3.5.2}Kontrol Akses Berbasis Peran}{15}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Fungsi Utama per Ketentuan UU 25/1992}{16}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Event Logging}{17}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.4}Event Logging}{16}{subsection.3.5.4}%
 \contentsline {subsection}{\numberline {3.5.5}Justifikasi Parameter Sistem}{17}{subsection.3.5.5}%
 \contentsline {section}{\numberline {3.6}Perancangan Keamanan}{19}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Kontrol Akses Berbasis Peran}{19}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Perlindungan Reentrancy}{19}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.2}Perlindungan Reentrancy}{20}{subsection.3.6.2}%
 \contentsline {subsection}{\numberline {3.6.3}Veto Pengawas sebagai Circuit Breaker}{20}{subsection.3.6.3}%
 \contentsline {subsection}{\numberline {3.6.4}Non-Transferabilitas Token Keanggotaan}{20}{subsection.3.6.4}%
 \contentsline {section}{\numberline {3.7}Desain Frontend}{20}{section.3.7}%
@@ -51,9 +51,9 @@
 \contentsline {subsection}{\numberline {3.8.2}Skenario 2: Tata Kelola dan Pemungutan Suara}{22}{subsection.3.8.2}%
 \contentsline {subsection}{\numberline {3.8.3}Skenario 3: Pengajuan dan Pelunasan Pinjaman}{22}{subsection.3.8.3}%
 \contentsline {section}{\numberline {3.9}Pengujian}{22}{section.3.9}%
-\contentsline {subsection}{\numberline {3.9.1}Pengujian Fungsional Smart Contract}{22}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.1}Pengujian Fungsional Smart Contract}{23}{subsection.3.9.1}%
 \contentsline {subsection}{\numberline {3.9.2}Analisis Biaya Gas}{24}{subsection.3.9.2}%
-\contentsline {subsection}{\numberline {3.9.3}Pengujian Imutabilitas}{24}{subsection.3.9.3}%
+\contentsline {subsection}{\numberline {3.9.3}Pengujian Imutabilitas}{25}{subsection.3.9.3}%
 \contentsline {subsection}{\numberline {3.9.4}Analisis Biaya Gas}{25}{subsection.3.9.4}%
 \contentsline {chapter}{\numberline {IV}Hasil dan Pembahasan}{26}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Pembahasan Tujuan 1 dengan Hasil Penelitian 1 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}{26}{section.4.1}%
@@ -64,8 +64,8 @@
 \contentsline {chapter}{\numberline {VI}Kesimpulan dan Saran}{28}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Kesimpulan}{28}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Saran}{28}{section.6.2}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{29}{section*.30}%
-\contentsline {chapter}{LAMPIRAN}{L-1}{section*.32}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{29}{section*.31}%
+\contentsline {chapter}{LAMPIRAN}{L-1}{section*.33}%
 \contentsline {section}{\numberline {L.1}Isi Lampiran}{L-1}{section.Alph0.1}%
 \contentsline {section}{\numberline {L.2}Panduan Latex}{L-2}{section.Alph0.2}%
 \contentsline {subsection}{\numberline {L.2.1}Syntax Dasar}{L-2}{subsection.Alph0.2.1}%

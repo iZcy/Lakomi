@@ -163,6 +163,7 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
   }
 
   const busy = isPending || ap
+  const exceedsMax = amount && maxLoan && parseUnits(amount) > maxLoan
   return (
     <Card>
       <CardHeader><CardTitle className="text-sm">Ajukan Pinjaman</CardTitle></CardHeader>
@@ -204,9 +205,10 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
             ))}
           </div>
         )}
-        <Button onClick={handle} disabled={!amount || !reason || busy} className="w-full">
-          {loanStep === 1 ? '1/2 Setujui USDC...' : loanStep === 2 ? '2/2 Ajukan Pinjaman...' : 'Ajukan Pinjaman'}
+        <Button onClick={handle} disabled={!amount || !reason || busy || exceedsMax} className="w-full">
+          {loanStep === 1 ? '1/2 Setujui USDC...' : loanStep === 2 ? '2/2 Ajukan Pinjaman...' : exceedsMax ? `Melebihi Maks (${formatUSDCAmount(maxLoan!)})` : 'Ajukan Pinjaman'}
         </Button>
+        {exceedsMax && <p className="text-[10px] text-red-400 text-center">Jumlah melebihi batas maksimum</p>}
         {isSuccess && <p className="text-xs text-emerald-500">Berhasil diajukan!</p>}
       </CardContent>
     </Card>

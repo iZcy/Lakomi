@@ -170,16 +170,15 @@ function CreateProposalForm() {
 
         {needsRecipient && (
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">Penerima USDC *</label>
-            <Input
-              placeholder="0x..."
-              value={recipient}
-              onChange={(e) => setRecipient(e.target.value)}
-              className="text-xs font-mono"
-            />
-            {recipient && !isAddress(recipient) && (
-              <p className="text-[10px] text-red-400">Alamat tidak valid</p>
-            )}
+            <label className="text-xs text-muted-foreground">Penerima *</label>
+            <Select value={recipient} onValueChange={setRecipient}>
+              <SelectTrigger><SelectValue placeholder="Pilih penerima" /></SelectTrigger>
+              <SelectContent>
+                {memberList.map((m) => (
+                  <SelectItem key={m.addr} value={m.addr}>{m.name}</SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         )}
 
@@ -445,9 +444,11 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
         functionName: fn,
         args,
       })
-      setTimeout(() => { queryClient.invalidateQueries({ queryKey: ['readContract'] }); refetch() }, 2000)
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+      setTimeout(() => refetch(), 2000)
     } catch (e: any) {
-      if (!e?.message?.includes('rejected')) alert('Error: ' + (e?.shortMessage || e?.message))
+      const msg = e?.shortMessage || e?.message || ''
+      if (!msg.includes('rejected')) alert('Gagal: ' + msg)
     }
   }
 

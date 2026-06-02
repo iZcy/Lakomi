@@ -92,8 +92,4 @@ J.~Messias, V.~Pahari, B.~Chandrasekaran \emph{et~al.}, ``Understanding
 {OpenZeppelin}, ``Openzeppelin contracts,''
   \url{https://docs.openzeppelin.com/contracts/5.x}, 2024.
 
-\bibitem{foundry}
-{Paradigm}, ``Foundry: Ethereum development framework,''
-  \url{https://book.getfoundry.sh}, 2024.
-
 \end{thebibliography}

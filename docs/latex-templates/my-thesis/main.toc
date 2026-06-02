@@ -1,0 +1,80 @@
+\babel@toc {english}{}\relax 
+\babel@toc {bahasa}{}\relax 
+\contentsline {chapter}{HALAMAN PENGESAHAN}{ii}{chapter*.2}%
+\contentsline {chapter}{PERNYATAAN BEBAS PLAGIASI}{iii}{chapter*.4}%
+\contentsline {chapter}{HALAMAN PERSEMBAHAN}{iv}{chapter*.6}%
+\contentsline {chapter}{KATA PENGANTAR}{v}{Item.3}%
+\contentsline {chapter}{DAFTAR ISI}{vi}{section*.9}%
+\contentsline {chapter}{DAFTAR TABEL}{ix}{section*.10}%
+\contentsline {chapter}{DAFTAR GAMBAR}{x}{section*.11}%
+\contentsline {chapter}{DAFTAR SINGKATAN}{xi}{chapter*.13}%
+\contentsline {chapter}{INTISARI}{xiii}{chapter*.15}%
+\contentsline {chapter}{ABSTRACT}{xiv}{chapter*.17}%
+\contentsline {chapter}{\numberline {I}Pendahuluan}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Latar Belakang}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Rumusan Masalah}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Tujuan Penelitian}{4}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Batasan Penelitian}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Manfaat Penelitian}{7}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Sistematika Penulisan}{8}{section.1.6}%
+\contentsline {chapter}{\numberline {II}Tinjauan Pustaka dan Dasar Teori}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Tinjauan Pustaka}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Dasar Teori}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Pengenalan Aplikasi Permainan}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Dasar Teori Lainnya}{10}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Analisis Perbandingan Metode}{10}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Pertanyaan Tugas Akhir (Jika Perlu)}{10}{section.2.4}%
+\contentsline {chapter}{\numberline {III}Metode Penelitian}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Pendekatan Design Science Research}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Alat dan Bahan}{11}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Perangkat Lunak}{11}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Perangkat Keras}{11}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Bahan Penelitian}{12}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Alur Penelitian}{12}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Arsitektur Sistem}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Desain Smart Contract}{15}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Struktur Data}{15}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Kontrol Akses Berbasis Peran}{15}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Fungsi Utama per Ketentuan UU 25/1992}{16}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Model Tata Kelola dan Distribusi SHU}{16}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}Desain Frontend}{18}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Arsitektur Aplikasi}{18}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Halaman dan Fungsionalitas}{18}{subsection.3.6.2}%
+\contentsline {section}{\numberline {3.7}Alur Kerja Sistem}{19}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Skenario 1: Pendaftaran Anggota dan Simpanan}{19}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Skenario 2: Tata Kelola dan Pemungutan Suara}{19}{subsection.3.7.2}%
+\contentsline {subsection}{\numberline {3.7.3}Skenario 3: Pengajuan dan Pelunasan Pinjaman}{20}{subsection.3.7.3}%
+\contentsline {section}{\numberline {3.8}Pengujian}{20}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Pengujian Fungsional Smart Contract}{20}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Analisis Biaya Gas}{22}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Analisis Biaya Gas}{22}{subsection.3.8.3}%
+\contentsline {chapter}{\numberline {IV}Hasil dan Pembahasan}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Pembahasan Tujuan 1 dengan Hasil Penelitian 1 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Pembahasan Tujuan 1 dengan Hasil Penelitian 2 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}{23}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Pembahasan Tujuan 2 dengan Hasil Penelitian 3 (Ubah Judul Sesuai dengan Hal yang Hendak dibahas)}{23}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Perbandingan Hasil Penelitian dengan Hasil Terdahulu}{23}{section.4.4}%
+\contentsline {chapter}{\numberline {V}Tambahan (Opsional)}{24}{chapter.5}%
+\contentsline {chapter}{\numberline {VI}Kesimpulan dan Saran}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kesimpulan}{25}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Saran}{25}{section.6.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{26}{section*.28}%
+\contentsline {chapter}{LAMPIRAN}{L-1}{section*.30}%
+\contentsline {section}{\numberline {L.1}Isi Lampiran}{L-1}{section.Alph0.1}%
+\contentsline {section}{\numberline {L.2}Panduan Latex}{L-2}{section.Alph0.2}%
+\contentsline {subsection}{\numberline {L.2.1}Syntax Dasar}{L-2}{subsection.Alph0.2.1}%
+\contentsline {subsubsection}{\numberline {L.2.1.1}Penggunaan Sitasi}{L-2}{subsubsection.Alph0.2.1.1}%
+\contentsline {subsubsection}{\numberline {L.2.1.2}Penulisan Gambar}{L-2}{subsubsection.Alph0.2.1.2}%
+\contentsline {subsubsection}{\numberline {L.2.1.3}Penulisan Tabel}{L-2}{subsubsection.Alph0.2.1.3}%
+\contentsline {subsubsection}{\numberline {L.2.1.4}Penulisan formula}{L-2}{subsubsection.Alph0.2.1.4}%
+\contentsline {subsubsection}{\numberline {L.2.1.5}Contoh list}{L-3}{subsubsection.Alph0.2.1.5}%
+\contentsline {subsection}{\numberline {L.2.2}Blok Beda Halaman}{L-3}{subsection.Alph0.2.2}%
+\contentsline {subsubsection}{\numberline {L.2.2.1}Membuat algoritma terpisah}{L-3}{subsubsection.Alph0.2.2.1}%
+\contentsline {subsubsection}{\numberline {L.2.2.2}Membuat tabel terpisah}{L-3}{subsubsection.Alph0.2.2.2}%
+\contentsline {subsubsection}{\numberline {L.2.2.3}Menulis formula terpisah halaman}{L-4}{subsubsection.Alph0.2.2.3}%
+\contentsline {section}{\numberline {L.3}Format Penulisan Referensi}{L-6}{section.Alph0.3}%
+\contentsline {subsection}{\numberline {L.3.1}Book}{L-6}{subsection.Alph0.3.1}%
+\contentsline {subsection}{\numberline {L.3.2}Handbook}{L-8}{subsection.Alph0.3.2}%
+\contentsline {section}{\numberline {L.4}Contoh Source Code}{L-10}{section.Alph0.4}%
+\contentsline {subsection}{\numberline {L.4.1}Sample algorithm}{L-10}{subsection.Alph0.4.1}%
+\contentsline {subsection}{\numberline {L.4.2}Sample Python code}{L-11}{subsection.Alph0.4.2}%
+\contentsline {subsection}{\numberline {L.4.3}Sample Matlab code}{L-12}{subsection.Alph0.4.3}%

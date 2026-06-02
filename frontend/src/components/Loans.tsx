@@ -126,6 +126,7 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
   const [reason, setReason] = useState('')
   const [bungaPreview, setBungaPreview] = useState<bigint>(0n)
   const [totalPreview, setTotalPreview] = useState<bigint>(0n)
+  const [loanStep, setLoanStep] = useState(0)
   const { requestLoan, isPending, isSuccess } = useRequestLoan()
   const { approve, isPending: ap } = useApproveUsdc()
 
@@ -144,13 +145,18 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
 
   const handle = async () => {
     if (!amount || !reason) return
-    const a = parseUnits(amount)
-    const secs = BigInt(duration) * 86400n
-    await approve(CONTRACTS.LAKOMI_LOANS, a)
-    await requestLoan(a, secs, reason)
-    setAmount(''); setReason('')
+    setLoanStep(1)
+    try {
+      const a = parseUnits(amount)
+      const secs = BigInt(duration) * 86400n
+      await approve(CONTRACTS.LAKOMI_LOANS, a)
+      setLoanStep(2)
+      await requestLoan(a, secs, reason)
+      setAmount(''); setReason(''); setLoanStep(0)
+    } catch { setLoanStep(0) }
   }
 
+  const busy = isPending || ap
   return (
     <Card>
       <CardHeader><CardTitle className="text-sm">Ajukan Pinjaman</CardTitle></CardHeader>
@@ -175,7 +181,7 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
           </Select>
           {bungaPreview > 0n && (
             <div className="text-[10px] text-muted-foreground mt-1 bg-muted/30 rounded p-2 space-y-0.5">
-              <p>Rumus: Bunga = (Jumlah × 5% × Hari) / 365</p>
+              <p>Rumus: Bunga = (Jumlah x 5% x Hari) / 365</p>
               <p>Bunga: <span className="text-amber-500 font-medium">{formatUSDCAmount(bungaPreview)}</span></p>
               <p>Total Pengembalian: <span className="text-amber-500 font-medium">{formatUSDCAmount(totalPreview)}</span></p>
             </div>
@@ -185,8 +191,15 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
           <Label>Keperluan</Label>
           <Input placeholder="Modal usaha, Biaya pendidikan..." value={reason} onChange={(e) => setReason(e.target.value)} />
         </div>
-        <Button onClick={handle} disabled={!amount || !reason || isPending || ap} className="w-full">
-          {ap ? 'Menyetujui...' : isPending ? 'Mengajukan...' : 'Ajukan Pinjaman'}
+        {loanStep > 0 && (
+          <div className="flex gap-1">
+            {[1,2].map(n => (
+              <div key={n} className={`flex-1 h-1 rounded-full ${loanStep >= n ? 'bg-primary' : 'bg-primary/30 animate-pulse'}`} />
+            ))}
+          </div>
+        )}
+        <Button onClick={handle} disabled={!amount || !reason || busy} className="w-full">
+          {loanStep === 1 ? '1/2 Setujui USDC...' : loanStep === 2 ? '2/2 Ajukan Pinjaman...' : 'Ajukan Pinjaman'}
         </Button>
         {isSuccess && <p className="text-xs text-emerald-500">Berhasil diajukan!</p>}
       </CardContent>

@@ -164,13 +164,14 @@ export function DevFaucet() {
     }
   }
 
-  const fastForward = async () => {
+  const fastForward = async (seconds: number, label: string) => {
     setBusy('fastForward')
     try {
-      await rpcCall('evm_increaseTime', [691200])
+      await rpcCall('evm_increaseTime', [seconds])
       await rpcCall('evm_mine', [])
       queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      addToast('Waktu maju 8 hari!', 'success')
+      if (typeof window !== 'undefined') window.dispatchEvent(new Event('chainTimeAdvanced'))
+      addToast(`Waktu maju ${label}!`, 'success')
     } catch (e: any) {
       addToast('Gagal: ' + e.message, 'error')
     } finally {
@@ -227,8 +228,11 @@ export function DevFaucet() {
           <Button variant="outline" size="sm" onClick={registerViaRpc} disabled={!!busy} className="text-emerald-500 border-emerald-500/30 hover:bg-emerald-500/10">
             {busy === 'register' ? 'Mendaftar...' : 'Register via RPC'}
           </Button>
-          <Button variant="outline" size="sm" onClick={fastForward} disabled={!!busy} className="text-amber-500 border-amber-500/30 hover:bg-amber-500/10">
-            {busy === 'fastForward' ? 'Memajukan...' : 'Fast Forward 8 Hari'}
+          <Button variant="outline" size="sm" onClick={() => fastForward(604800, '7 hari')} disabled={!!busy} className="text-amber-500 border-amber-500/30 hover:bg-amber-500/10">
+            {busy === 'fastForward' ? '...' : '⏩ 7 Hari (Voting)'}
+          </Button>
+          <Button variant="outline" size="sm" onClick={() => fastForward(86400, '1 hari')} disabled={!!busy} className="text-amber-500 border-amber-500/30 hover:bg-amber-500/10">
+            {busy === 'fastForward' ? '...' : '⏩ 1 Hari (Timelock)'}
           </Button>
         </div>
         <div className="flex flex-wrap gap-2 pt-1 border-t border-border">

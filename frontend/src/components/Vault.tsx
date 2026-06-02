@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { useAccount, useWriteContract } from 'wagmi'
+import { useAccount, useWriteContract, useReadContract } from 'wagmi'
+import { keccak256, toHex } from 'viem'
 import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -124,7 +125,15 @@ export function Vault() {
 
 function SertifikatSimpanan({ address }: { address?: `0x${string}` }) {
   const { writeContractAsync } = useWriteContract()
+  const { data: isTreasurer } = useReadContract({
+    address: CONTRACTS.LAKOMI_VAULT as `0x${string}`,
+    abi: [{ type: 'function', name: 'hasRole', stateMutability: 'view', inputs: [{ type: 'bytes32' }, { type: 'address' }], outputs: [{ type: 'bool' }] }],
+    functionName: 'hasRole',
+    args: [keccak256(toHex('TREASURER_ROLE')), address!],
+    query: { enabled: !!address },
+  })
   const [sent, setSent] = useState(false)
+  if (!isTreasurer) return null
   return (
     <Card className="border-purple-500/20 bg-purple-500/5">
       <CardHeader><CardTitle className="text-sm">Sertifikat Simpanan (Pasal 41.3)</CardTitle></CardHeader>
@@ -134,7 +143,9 @@ function SertifikatSimpanan({ address }: { address?: `0x${string}` }) {
           try {
             await writeContractAsync({ address: CONTRACTS.LAKOMI_VAULT as `0x${string}`, abi: LAKOMI_VAULT_ABI, functionName: 'issueCertificate', args: [address!] })
             setSent(true)
-          } catch {}
+          } catch (e: any) {
+            if (!e?.message?.includes('rejected')) alert(e?.shortMessage || 'Gagal')
+          }
         }}>
           {sent ? 'Tercatat' : 'Terbitkan Sertifikat'}
         </Button>

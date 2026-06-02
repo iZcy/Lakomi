@@ -81,8 +81,10 @@ export function Navbar() {
       }
     }
     fetchTime()
-    const interval = setInterval(fetchTime, 30000)
-    return () => clearInterval(interval)
+    const interval = setInterval(fetchTime, 10000)
+    const handler = () => fetchTime()
+    window.addEventListener('chainTimeAdvanced', handler)
+    return () => { clearInterval(interval); window.removeEventListener('chainTimeAdvanced', handler) }
   }, [])
 
   useEffect(() => {

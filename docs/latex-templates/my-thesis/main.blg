@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: IEEEtran.bst
+A level-1 auxiliary file: contents/chapter-1/chapter-1.aux
+A level-1 auxiliary file: contents/chapter-2/chapter-2.aux
+A level-1 auxiliary file: contents/chapter-3/chapter-3.aux
+A level-1 auxiliary file: contents/chapter-4/chapter-4.aux
+A level-1 auxiliary file: contents/chapter-5/chapter-5.aux
+A level-1 auxiliary file: contents/chapter-6/chapter-6.aux
+Illegal, another \bibstyle command---line 27 of file main.aux
+ : \bibstyle
+ :          {IEEEtran}
+I'm skipping whatever remains of this command
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: references.bib
+Warning--I didn't find a database entry for "marenda2016digitory"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 8 entries,
+            4087 wiz_defined-function locations,
+            882 strings with 9154 characters,
+and the built_in function-call counts, 6254 in all, are:
+= -- 541
+> -- 108
+< -- 64
++ -- 61
+- -- 15
+* -- 313
+:= -- 1003
+add.period$ -- 17
+call.type$ -- 8
+change.case$ -- 8
+chr.to.int$ -- 135
+cite$ -- 8
+duplicate$ -- 439
+empty$ -- 461
+format.name$ -- 18
+if$ -- 1429
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 68
+newline$ -- 49
+num.names$ -- 8
+pop$ -- 121
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 485
+stack$ -- 0
+substring$ -- 322
+swap$ -- 377
+text.length$ -- 19
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 8
+warning$ -- 0
+while$ -- 36
+width$ -- 9
+write$ -- 108
+(There was 1 error message)

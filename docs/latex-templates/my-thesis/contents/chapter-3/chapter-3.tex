@@ -1,54 +1,327 @@
 \chapter{Metode Penelitian}
 
-Bab ini menjelaskan metode atau cara yang digunakan dalam penelitian ini untuk 
-mencapai maksud dan tujuan seperti yang tertulis dalam sub-bab 1.3 [jika diinginkan, kalian dapat menuliskan Kembali tujuan penelitian yang ingin dicapai di sini].
+Bab ini menjelaskan metodologi yang digunakan dalam perancangan dan pengembangan sistem \textit{blockchain-based cooperative} Lakomi. Pembahasan mencakup pendekatan penelitian, alat dan bahan, alur penelitian, arsitektur sistem, desain \textit{smart contract}, desain \textit{frontend}, alur kerja sistem, serta strategi pengujian.
 
-\section{Alat dan Bahan Tugas akhir (Opsional)}
+\section{Pendekatan Design Science Research}
 
-\subsection{Alat Tugas akhir}
-
-Alat-alat yang digunakan pada tugas akhir ini berupa perangkat keras maupun perangkat lunak sebagai sarana pendukung antara lain. Kemukakan secara detail sesuai dengan kebutuhan tugas akhir dan juga tambahkan spesifikasi minumum sehingga peneliti lain yang hendak melakukan hal yang sama bisa melakukannya :
+Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artifact} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Ketiga siklus DSR diterapkan sebagai berikut:
 
 \begin{enumerate}
-	\item \textit{Notebook} dengan spesifikasi minumum sistem operasi Windows 8, \textit{processor} Intel Core i3 2330M CPU @ 2,2 GHz, memori 4GB DDR3, grafis NVIDIA GeForce GT 610 (4GB), hardisk 500GB. Pada tugas akhir ini digunakan Windows 10, Intel Core i7 4570M CPU, Memori 4GB DDR 3, grafis Intel HD4300. 
-	\item \textit{Smartphone} dengan spesifikasi tipe minimum, OS Android OS v4.1.2 (Jelly Bean),CPU Dual-core 800 MHz, GPU Mali-400, Internal 4 GB, 768 MB RAM. Pada tugas akhir ini digunakan ....
-	\item \textit{Game creation platform} versi 3.3.2 untuk Stencyl dan Construct2.
-	\item CORELDRAW X7, Tiled dan GIMP 2
+	\item \textbf{Siklus Relevansi} --- Mengidentifikasi permasalahan koperasi tradisional (tata kelola opak, pengelolaan manual, partisipasi anggota terbatas) dan kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara.
+	\item \textbf{Siklus Rigor} --- Mengkaji literatur tentang blockchain untuk koperasi, tata kelola DAO, regulasi perkoperasian Indonesia (UU 25/1992, PP 7/2021, Permenkop 8/2023), dan standar pengembangan \textit{smart contract}.
+	\item \textbf{Siklus Desain} --- Membangun \textit{artifact} berupa empat \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) dan \textit{frontend} React, kemudian mengevaluasi kepatuhan fungsional terhadap 26 ketentuan UU 25/1992.
 \end{enumerate}
 
-\subsection{Bahan Tugas akhir}
+\section{Alat dan Bahan}
 
-Bahan tugas akhir adalah segala sesuatu yang bersifat fisik atau digital yang digunakan untuk kebutuhan tugas akhir. Bahan tugas akhir dapat berupa:
+\subsection{Perangkat Lunak}
+
+Perangkat lunak yang digunakan dalam pengembangan sistem terdiri dari komponen \textit{smart contract}, \textit{frontend}, dan infrastruktur pendukung, sebagaimana dirangkum dalam Tabel~\ref{tab:alat-lunak}.
+
+\begin{table}[h]
+\centering
+\caption{Perangkat Lunak yang Digunakan}
+\label{tab:alat-lunak}
+\begin{tabular}{p{0.22\textwidth}p{0.25\textwidth}p{0.12\textwidth}p{0.31\textwidth}}
+\toprule
+\textbf{Kategori} & \textbf{Nama} & \textbf{Versi} & \textbf{Kegunaan} \\
+\midrule
+\multirow{4}{*}{\textit{Smart Contract}} & Solidity & 0.8.20 & Bahasa pemrograman \textit{smart contract} \\
+ & Hardhat & 2.22 & \textit{Framework} pengembangan, pengujian, dan \textit{deployment} \\
+ & OpenZeppelin Contracts & 5.0 & Library standar (ERC-20, AccessControl, ReentrancyGuard) \\
+ & Ethers.js & 6.x & Interaksi dengan jaringan EVM \\
+\midrule
+\multirow{3}{*}{\textit{Frontend}} & React & 18 & Framework antarmuka pengguna \\
+ & TypeScript & 5.x & Bahasa pemrograman dengan \textit{type safety} \\
+ & wagmi & 2.x & Library React Hooks untuk interaksi \textit{wallet} \\
+\midrule
+\multirow{2}{*}{Infrastruktur} & DChain & --- & Jaringan blockchain konsorsium (EVM-compatible, Chain ID 17845) \\
+ & MetaMask & --- & \textit{Wallet} browser untuk interaksi pengguna \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Perangkat Keras}
+
+Perangkat keras yang digunakan dalam pengembangan dan pengujian sistem adalah komputer dengan sistem operasi Ubuntu 22.04, prosesor Intel Core i7, memori 16 GB, dan koneksi internet untuk akses jaringan blockchain.
+
+\subsection{Bahan Penelitian}
+
+Bahan penelitian yang digunakan meliputi:
 
 \begin{enumerate}
-	\item Bahan habis pakai. Bahan yang digunakan untuk tugas akhir. Sebagai contoh 
-	mungkin dibutuhkan kertas transparansi, baterai, atau yang lain 
-	\item Bahan yang berupa data atau informasi yang menjadi dataset tugas akhir. Dataset tugas akhir dapat berupa:
+	\item Undang-Undang Nomor 25 Tahun 1992 tentang Perkoperasian sebagai acuan regulasi utama.
+	\item Peraturan Pemerintah Nomor 7 Tahun 2021 tentang Kemudahan, Pelindungan, dan Pemberdayaan Koperasi dan UMKM.
+	\item Peraturan Menteri Koperasi dan UKM Nomor 8 Tahun 2023 tentang Usaha Simpan Pinjam oleh Koperasi.
+	\item Dokumentasi teknis Ethereum, Hardhat, OpenZeppelin, dan React sebagai acuan implementasi.
+\end{enumerate}
+
+\section{Alur Penelitian}
+
+Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{fig:alur-penelitian}.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+	stage/.style={rectangle, draw, rounded corners=3pt, fill=blue!8, minimum width=4.5cm, minimum height=0.8cm, text width=4.2cm, align=center, font=\small},
+	arrow/.style={->, >=stealth, thick},
+	feedback/.style={->, >=stealth, thick, dashed, gray}
+]
+\node[stage] (s1) {Tahap 1\\Studi Literatur \& Analisis Regulasi};
+\node[stage, below=0.4cm of s1] (s2) {Tahap 2\\Perancangan Arsitektur \& Smart Contract};
+\node[stage, below=0.4cm of s2] (s3) {Tahap 3\\Implementasi Smart Contract};
+\node[stage, below=0.4cm of s3] (s4) {Tahap 4\\Implementasi Frontend};
+\node[stage, below=0.4cm of s4] (s5) {Tahap 5\\Pengujian Fungsional \& Gas Analysis};
+\node[stage, below=0.4cm of s5] (s6) {Tahap 6\\Evaluasi Kepatuhan \& Analisis Hasil};
+
+\draw[arrow] (s1) -- (s2);
+\draw[arrow] (s2) -- (s3);
+\draw[arrow] (s3) -- (s4);
+\draw[arrow] (s4) -- (s5);
+\draw[arrow] (s5) -- (s6);
+
+\draw[feedback] (s5.west) -- ++(-1.0,0) |- (s3.west) node[pos=0.25, left, font=\scriptsize, text=gray] {Iterasi};
+\draw[feedback] (s6.east) -- ++(1.0,0) |- (s2.east) node[pos=0.25, right, font=\scriptsize, text=gray] {Evaluasi};
+\end{tikzpicture}
+\caption{Alur Penelitian \textit{Design Science Research}}
+\label{fig:alur-penelitian}
+\end{figure}
+
+\textbf{Tahap 1: Studi Literatur dan Analisis Regulasi.} Tahap ini mengidentifikasi permasalahan koperasi tradisional melalui studi terhadap UU 25/1992, PP 7/2021, dan Permenkop 8/2023, serta mengkaji literatur tentang blockchain untuk koperasi, tata kelola DAO, dan keamanan \textit{smart contract}. Analisis kesenjangan mengidentifikasi bahwa belum ada sistem yang memetakan ketentuan UU 25/1992 secara sistematis ke dalam \textit{smart contract}.
+
+\textbf{Tahap 2: Perancangan Arsitektur dan Smart Contract.} Arsitektur sistem dirancang dengan empat \textit{smart contract} yang saling terintegrasi: LakomiToken (keanggotaan), LakomiVault (perbendaharaan dan SHU), LakomiGovern (tata kelola dan pemilihan), dan LakomiLoans (pinjaman). Setiap fungsi \textit{smart contract} dipetakan ke ketentuan spesifik UU 25/1992.
+
+\textbf{Tahap 3: Implementasi Smart Contract.} \textit{Smart contract} diimplementasikan menggunakan Solidity 0.8.20 dengan Hardhat sebagai \textit{framework} pengembangan. Setiap kontrak menggunakan AccessControl dari OpenZeppelin untuk otorisasi berbasis peran dan ReentrancyGuard untuk perlindungan terhadap serangan \textit{reentrancy}.
+
+\textbf{Tahap 4: Implementasi Frontend.} Aplikasi web dibangun menggunakan React 18 dengan TypeScript. Integrasi blockchain menggunakan wagmi v2 untuk koneksi \textit{wallet} dan interaksi dengan \textit{smart contract}. Antarmuka pengguna mencakup halaman \textit{dashboard} anggota, portal tata kelola, dan halaman kepatuhan regulasi.
+
+\textbf{Tahap 5: Pengujian Fungsional dan Gas Analysis.} Pengujian dilakukan menggunakan Hardhat pada lingkungan DChain. Setiap ketentuan UU 25/1992 diverifikasi melalui skenario pengujian fungsional. Analisis gas dilakukan untuk mengukur biaya komputasi operasi utama koperasi.
+
+\textbf{Tahap 6: Evaluasi Kepatuhan dan Analisis Hasil.} Hasil pengujian dievaluasi terhadap 26 ketentuan UU 25/1992. Analisis mencakup verifikasi kepatuhan fungsional, perbandingan dengan koperasi tradisional dan DAO berbasis token, serta pembahasan implikasi dan keterbatasan sistem.
+
+\section{Arsitektur Sistem}
+
+Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{layer} keanggotaan, \textit{layer} kontrak, dan \textit{layer} blockchain. Diagram arsitektur sistem ditunjukkan pada Gambar~\ref{fig:arsitektur-3}.
+
+Keempat \textit{smart contract} dan perannya dalam arsitektur adalah sebagai berikut:
+
+\begin{enumerate}
+	\item \textbf{\textit{Membership Layer}} --- LakomiToken (LAK) berfungsi sebagai \textit{registry} keanggotaan berbasis ERC-20. Setiap anggota yang terdaftar memiliki tepat satu suara dalam tata kelola, terlepas dari jumlah token yang dimiliki atau kontribusi simpanan. Kontrak ini mengelola empat peran: MINTER, BURNER, LOCKER, dan MEMBERSHIP.
+	\item \textbf{\textit{Contract Layer}} --- Tiga kontrak yang menangani fungsi inti koperasi:
 	\begin{itemize}
-		\item Dataset pihak lain yang diperoleh dengan izin atau dalam lisensi yang diizinkan untuk digunakan secara langsung 
-		\item Dataset pihak pertama yang disusun sendiri melalui quisioner, observasi, atau interview 
-		\item Dokumen panduan yang mengacu pada standar, hasil tugas akhir, atau artikel yang disitasi dan digunakan.
+		\item LakomiVault mengelola \textit{treasury} USDC, tiga jenis simpanan (pokok, wajib, sukarela), dan distribusi SHU enam kategori sesuai Pasal 45(2).
+		\item LakomiGovern menangani pembuatan proposal, pemungutan suara demokratis (satu-anggota-satu-suara), pemilihan pengurus, \textit{veto} pengawas, RAT tahunan, dan pembubaran koperasi.
+		\item LakomiLoans menyediakan pinjaman mikro dengan \textit{loan-to-value} berbasis kontribusi, suku bunga tetap 5\% APY, dan jaminan 25\%.
 	\end{itemize}
-	
+	\item \textbf{\textit{Blockchain Layer}} --- Seluruh kontrak di-deploy pada DChain (EVM-compatible, Chain ID 17845), jaringan blockchain konsorsium pendidikan tinggi Indonesia.
 \end{enumerate}
 
+Lima peran mengatur sistem: PENGAWAS\_ROLE (pengawas dengan hak veto), APPROVER\_ROLE (persetujuan pinjaman), MEMBERSHIP\_ROLE (manajemen anggota), TREASURER\_ROLE (operasional \textit{vault}), dan GOVERN\_ROLE (distribusi SHU). Kontrak LakomiGovern memegang MEMBERSHIP\_ROLE pada token, memungkinkan pencabutan keanggotaan melalui tata kelola sesuai Pasal 31.
 
+\section{Desain Smart Contract}
 
-\section{Metode yang Digunakan}
+\subsection{Struktur Data}
 
-Bagian ini membahas metode atau cara yang akan digunakan dalam penelitian, tahapan 
-penerapan metode, dan desain penelitian (misalnya apakah penelitian akan menggunakan 
-eksperimen di Laboratorium atau di lapangan, misalkan saja penelitian biomedis atau 
-penelitian alat ukur hama yang dapat dilakukan di laboratorium ataupun di lapangan, atau menggunakan metode survei (misalnya untuk teknologi Informasi), studi kasus, atau analisis dengan perangkat lunak (ETAP, LTSpice, dst), atau \textit{prototyping} (pembuatan perangkat keras).
+Setiap \textit{smart contract} mendefinisikan struktur data yang memetakan ketentuan UU 25/1992:
 
-Bagian ini juga membahas bagaimana data [akan] dianalisis, apakah dengan membandingkan keluaran beberapa alat ukur, membandingkan dengan standar atau bagaimana.
+\begin{enumerate}
+	\item \textbf{LakomiToken} --- \texttt{isRegisteredMember} (\textit{mapping} boolean) memisahkan identitas keanggotaan dari kepemilikan token. \texttt{MAX\_SUPPLY} ditetapkan 1.000.000 LAK (18 desimal) dengan alokasi \textit{default} 100 LAK per anggota baru. Transfer token dinonaktifkan (\texttt{transfersEnabled = false}) sesuai Pasal 18(2).
+	\item \textbf{LakomiVault} --- \texttt{simpananPokok}, \texttt{simpananWajib}, dan \texttt{shares} (\textit{balance} sukarela) melacak tiga jenis simpanan sesuai Pasal 41. \texttt{accumulatedRevenue} mengakumulasi pendapatan bunga pinjaman. \texttt{danaCadangan} melacak dana cadangan sesuai Pasal 43. Parameter distribusi SHU disimpan sebagai \textit{basis points} yang dapat dikonfigurasi melalui tata kelola.
+	\item \textbf{LakomiGovern} --- \texttt{proposals} (\textit{mapping} ke struct Proposal) menyimpan proposal lengkap dengan status, suara, dan \textit{timelock}. \texttt{elections} (\textit{nested mapping}) melacak kandidat, suara, dan masa jabatan untuk setiap peran. \texttt{quorumNumerator} (default 67) menetapkan ambang kuorum dua per tiga.
+	\item \textbf{LakomiLoans} --- \texttt{loans} (\textit{mapping} ke struct Loan) melacak pinjaman dengan status, pokok, bunga, agunan, dan riwayat pembayaran. \texttt{contributionTier} berbasis \texttt{cumulativeSimpanan} menentukan \textit{loan-to-value} (30\%, 50\%, 70\%).
+\end{enumerate}
 
-\section{Alur Tugas Akhir}
+\subsection{Kontrol Akses Berbasis Peran}
 
-Menguraikan prosedur yang akan digunakan dan jadwal atau alur penyelesaian setiap 
-tahap. Alur penelian ini dapat disajikan dalam bentuk diagram. Diagram dapat disusun dengan aturan yang baik semisal menggunakan \textit{flowchart}. Aturan dan tutorial pembuatan \textit{flowchart} dapat dilihat di \textcolor{blue}{http://ugm.id/flowcharttutorial}. Setelah menggambarkannya, penulis wajib menjelaskan langkah-langkah setiap alur tugas akhir dalam sub bab tersendiri sesuai dengan kebutuhan.
+Sistem menerapkan \textit{Role-Based Access Control} (RBAC) menggunakan AccessControl dari OpenZeppelin. Delapan peran didefinisikan di seluruh kontrak:
 
-\section{Etika, Masalah, dan Keterbatasan Penelitian (Opsional))}
+\begin{enumerate}
+	\item \textbf{DEFAULT\_ADMIN\_ROLE} --- Administrator sistem yang mengelola peran lainnya.
+	\item \textbf{MEMBERSHIP\_ROLE} --- Mengelola pendaftaran dan pencabutan keanggotaan.
+	\item \textbf{MINTER\_ROLE} --- Mencetak token LAK baru pada pendaftaran anggota.
+	\item \textbf{BURNER\_ROLE} --- Membakar token pada pencabutan keanggotaan.
+	\item \textbf{LOCKER\_ROLE} --- Mengunci token sebagai agunan pinjaman.
+	\item \textbf{TREASURER\_ROLE} --- Mengelola operasional \textit{vault} dan simpanan.
+	\item \textbf{PENGAWAS\_ROLE} --- Melakukan veto proposal dan audit keuangan (Pasal 38--39).
+	\item \textbf{APPROVER\_ROLE} --- Menyetujui permohonan pinjaman.
+\end{enumerate}
 
-Bagian ini membahas pertimbangan etis penelitian dan [potensi] masalah serta
-keterbatasannya. Jika menyangkut penelitian dengan makhluk hidup, maka dibutuhkan adanya \textit{ethical clearance}, di bagian ini hal itu akan dibahas. Demikian juga tentang keterbatasan ataupun masalah yang akan timbul.
+Setiap fungsi \textit{state-modifying} dilindungi oleh \texttt{onlyRole} atau \texttt{onlyRegisteredMember}. Fungsi pembacaan data bersifat publik.
+
+\subsection{Fungsi Utama per Ketentuan UU 25/1992}
+
+Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan ketentuan spesifik UU 25/1992.
+
+\begin{table}[h]
+\centering
+\caption{Pemetaan Fungsi Smart Contract ke Ketentuan UU 25/1992}
+\label{tab:fungsi-uu}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{p{0.16\textwidth}p{0.16\textwidth}p{0.38\textwidth}p{0.25\textwidth}}
+\toprule
+\textbf{Kontrak} & \textbf{Pasal} & \textbf{Fungsi} & \textbf{Deskripsi} \\
+\midrule
+\multirow{4}{*}{LakomiToken} & 5(1), 17--18 & \texttt{registerMember()} & Pendaftaran anggota mandiri \\
+ & 18(2) & \texttt{transfersEnabled = false} & Token tidak dapat dipindahtangankan \\
+ & 19--21 & \texttt{resignMembership()} & Pengunduran diri sukarela \\
+ & 31 & \texttt{revokeMembership()} & Pencabutan melalui tata kelola \\
+\midrule
+\multirow{3}{*}{LakomiVault} & 22(2), 41(1--3) & \texttt{paySimpananPokok/Wajib()} & Pembayaran simpanan \\
+ & 43 & \texttt{danaCadangan} & Pelacakan dana cadangan 5\% \\
+ & 45(1--2) & \texttt{distributeSHU()} & Distribusi SHU 6 kategori \\
+\midrule
+\multirow{4}{*}{LakomiGovern} & 22(1) & \texttt{getVotingPower() $\to$ 1} & Satu suara per anggota \\
+ & 23 & \texttt{quorumNumerator = 67} & Kuorum dua per tiga \\
+ & 26--27 & \texttt{scheduleAnnualRAT()} & RAT tahunan \\
+ & 29--30 & \texttt{beginElection() $\to$ finalizeElection()} & Pemilihan pengurus \\
+\midrule
+\multirow{2}{*}{LakomiLoans} & 18 & \texttt{requestLoan()} & Pinjaman LTV berbasis kontribusi \\
+ & Permenkop 8/2023 Ps 6--7 & \texttt{tieredLTV + 5\% APY} & Batas pinjaman dan suku bunga \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{Model Tata Kelola dan Distribusi SHU}
+
+LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Proposal melalui empat tahap: (1) pembuatan oleh anggota terdaftar, (2) pemungutan suara selama 7 hari, (3) verifikasi kuorum 67\%, dan (4) eksekusi setelah \textit{timelock} 24 jam. Pemegang PENGAWAS\_ROLE dapat mem-veto proposal sebelum eksekusi.
+
+Untuk pemilihan pengurus (Pasal 29--30), setiap anggota dapat mendaftar sebagai kandidat. Anggota memberikan satu suara per pemilihan, dan kandidat dengan suara terbanyak menang. Peran diberikan secara otomatis dengan masa jabatan 365 hari.
+
+Distribusi SHU diawali dengan menghitung SHU yang dapat didistribusikan. Sebesar 10\% dari total pendapatan (\texttt{accumulatedRevenue}) disisihkan sebagai cadangan operasional sebelum distribusi:
+
+\begin{equation}
+\text{SHU}_{\text{distributable}} = \text{Revenue} - \text{Cadangan}_{\text{operasional}}(10\%)
+\label{eq:shu-dist}
+\end{equation}
+
+\noindent dengan \textit{Revenue} merupakan total pendapatan yang terakumulasi dari bunga pinjaman anggota dan sumber pendapatan koperasi lainnya, sedangkan cadangan operasional sebesar 10\% digunakan untuk membiayai operasional sistem dan antisipasi risiko.
+
+SHU yang dapat didistribusikan kemudian dialokasikan ke enam kategori sesuai ketentuan Pasal 45(2) UU 25/1992 dengan proporsi sebagai berikut:
+
+\begin{equation}
+\begin{aligned}
+\text{Dana Cadangan} &= \text{SHU}_{\text{dist}} \times 5\% \\
+\text{Jasa Modal} &= \text{SHU}_{\text{dist}} \times 40\% \quad \text{(pro-rata berdasarkan \textit{shares})} \\
+\text{Jasa Usaha} &= \text{SHU}_{\text{dist}} \times 40\% \quad \text{(pro-rata berdasarkan \textit{shares})} \\
+\text{Dana Pendidikan} &= \text{SHU}_{\text{dist}} \times 5\% \\
+\text{Dana Pengurus} &= \text{SHU}_{\text{dist}} \times 5\% \\
+\text{Dana Kesejahteraan Sosial} &= \text{SHU}_{\text{dist}} \times 5\%
+\end{aligned}
+\label{eq:shu-split}
+\end{equation}
+
+\noindent Proporsi ini ditetapkan sebagai nilai \textit{basis points} yang dapat dikonfigurasi melalui mekanisme tata kelola, memungkinkan setiap koperasi untuk menyesuaikan alokasi SHU sesuai kebutuhan spesifik tanpa melakukan \textit{redeployment} kontrak. Alokasi Jasa Modal dan Jasa Usaha yang masing-masing sebesar 40\% mencerminkan kontribusi ganda anggota---sebagai penyetor modal melalui simpanan dan sebagai pengguna jasa koperasi melalui pinjaman---sesuai dengan prinsip keanggotaan ganda yang dianut UU 25/1992.
+
+Bunga pinjaman dihitung menggunakan formula bunga sederhana tahunan:
+
+\begin{equation}
+\text{Bunga} = \frac{P \times 5\% \times D}{365}
+\label{eq:bunga}
+\end{equation}
+
+\noindent dengan $P$ adalah pokok pinjaman dalam USDC dan $D$ adalah durasi pinjaman dalam hari. Suku bunga 5\% APY (\textit{Annual Percentage Yield}) ditetapkan sebagai suku bunga tetap (\textit{flat rate}) yang lebih rendah dibandingkan suku bunga pinjaman komersial pada umumnya, sesuai dengan prinsip koperasi yang mengutamakan kesejahteraan anggota. Formula ini memastikan bahwa perhitungan bunga bersifat proporsional terhadap durasi---semakin singkat periode pinjaman, semakin kecil bunga yang dibebankan---sehingga memberikan insentif bagi anggota untuk melunasi pinjaman tepat waktu.
+
+\section{Desain Frontend}
+
+\subsection{Arsitektur Aplikasi}
+
+\textit{Frontend} dibangun menggunakan React 18 dengan TypeScript untuk menjamin \textit{type safety} pada interaksi dengan \textit{smart contract}. Integrasi blockchain menggunakan library wagmi v2 yang menyediakan \textit{React Hooks} untuk koneksi \textit{wallet}, pembacaan \textit{state} on-chain, dan pengiriman transaksi. Pengguna menghubungkan \textit{wallet} MetaMask ke jaringan DChain (Chain ID 17845) untuk berinteraksi dengan sistem.
+
+Komunikasi dengan \textit{smart contract} dilakukan melalui \textit{provider} JSON-RPC DChain. Untuk operasi baca (\textit{read-only}), \textit{frontend} menggunakan \texttt{useContractRead} yang tidak memerlukan konfirmasi pengguna. Untuk operasi tulis (\textit{state-modifying}), \textit{frontend} menggunakan \texttt{useContractWrite} yang memicu \textit{pop-up} MetaMask untuk persetujuan transaksi oleh pengguna.
+
+\subsection{Halaman dan Fungsionalitas}
+
+Sistem menyediakan empat halaman utama yang dirancang sesuai dengan peran pengguna:
+
+\begin{enumerate}
+	\item \textbf{\textit{Dashboard} Anggota} --- Halaman utama yang menampilkan status keanggotaan (\texttt{isRegisteredMember}), saldo simpanan pokok, simpanan wajib, dan simpanan sukarela, serta \textit{tier} kontribusi terkini. Anggota dapat melakukan pembayaran simpanan pokok (100 USDC, satu kali), simpanan wajib (10 USDC per 30 hari), dan simpanan sukarela (jumlah bebas) melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan riwayat transaksi simpanan dan klaim SHU.
+	
+	\item \textbf{Portal Tata Kelola} --- Menyediakan antarmuka lengkap untuk partisipasi dalam tata kelola koperasi. Anggota dapat membuat proposal baru dengan memilih tipe proposal (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM) dan memberikan deskripsi. Halaman ini menampilkan daftar proposal aktif beserta status, jumlah suara, dan waktu tersisa. Anggota memberikan suara (For, Against, Abstain) melalui tombol yang terhubung ke fungsi \texttt{castVote()}. Portal ini juga menampilkan status RAT tahunan dan informasi pemilihan pengurus, termasuk daftar kandidat dan hasil pemilihan.
+	
+	\item \textbf{Portal Pinjaman} --- Memungkinkan anggota mengajukan pinjaman dengan menentukan jumlah (dalam USDC) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi anggota dan menampilkan jumlah pinjaman yang tersedia. Anggota dapat melihat status permohonan pinjaman (Pending, Approved, Active, Repaid), melakukan pembayaran cicilan, dan melunasi pinjaman. Agunan dalam token LAK ditampilkan secara transparan.
+	
+	\item \textbf{Halaman Kepatuhan Regulasi} --- Menampilkan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, bukti implementasi berupa nama fungsi dan parameter, serta status verifikasi. Ketentuan dikelompokkan berdasarkan kategori: Anggota, Simpanan, Pinjaman, dan Tata Kelola. Halaman ini berfungsi sebagai bukti \textit{on-chain compliance} yang dapat diverifikasi secara publik.
+\end{enumerate}
+
+\section{Alur Kerja Sistem}
+
+Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
+
+\subsection{Skenario 1: Pendaftaran Anggota dan Simpanan}
+
+\begin{enumerate}
+	\item Calon anggota membuka aplikasi dan menghubungkan \textit{wallet} MetaMask ke jaringan DChain.
+	\item Calon anggota mengisi formulir pendaftaran dan melakukan pembayaran simpanan pokok (100 USDC) melalui \textit{smart contract} LakomiVault.
+	\item LakomiVault memverifikasi pembayaran dan memberi sinyal ke LakomiToken.
+	\item LakomiToken mencetak 100 LAK dan menetapkan \texttt{isRegisteredMember = true}.
+	\item Anggota dapat melakukan pembayaran simpanan wajib (10 USDC per 30 hari) dan simpanan sukarela kapan saja.
+\end{enumerate}
+
+\subsection{Skenario 2: Tata Kelola dan Pemungutan Suara}
+
+\begin{enumerate}
+	\item Anggota terdaftar membuat proposal melalui LakomiGovern dengan menentukan tipe (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM).
+	\item Proposal memasuki masa pemungutan suara 7 hari. Setiap anggota memberikan satu suara (For, Against, atau Abstain).
+	\item Setelah periode berakhir, sistem memverifikasi kuorum: $\text{totalVotes} \geq \text{memberCount} \times 67\%$ dan $\text{forVotes} > \text{againstVotes}$.
+	\item Proposal yang lolos memasuki \textit{timelock} 24 jam sebelum dapat dieksekusi.
+	\item Pemegang PENGAWAS\_ROLE dapat mem-veto proposal sebelum eksekusi sesuai Pasal 38.
+\end{enumerate}
+
+\subsection{Skenario 3: Pengajuan dan Pelunasan Pinjaman}
+
+\begin{enumerate}
+	\item Anggota mengajukan pinjaman melalui \texttt{requestLoan()} dengan menentukan jumlah dan durasi.
+	\item LakomiLoans menghitung \textit{loan-to-value} berdasarkan \textit{tier} kontribusi: $\text{maxLoan} = \text{contribution} \times \text{LTV} / 10000$.
+	\item Agunan sebesar 25\% dari pokok pinjaman dalam token LAK dikunci oleh LOCKER\_ROLE.
+	\item Pinjaman di bawah 200 USDC disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE.
+	\item Dana USDC ditransfer dari LakomiVault ke peminjam.
+	\item Peminjam melunasi pinjaman melalui \texttt{repayInFull()}. Bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}. Agunan dibuka.
+\end{enumerate}
+
+\section{Pengujian}
+
+Pengujian dilakukan dalam dua kategori utama: pengujian fungsional \textit{smart contract} dan analisis biaya gas (\textit{gas analysis}). Pengujian fungsional bertujuan memverifikasi bahwa seluruh 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} berjalan sesuai spesifikasi. Analisis biaya gas bertujuan mengukur kelayakan operasional sistem dari sisi konsumsi komputasi blockchain.
+
+\subsection{Pengujian Fungsional Smart Contract}
+
+Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingkungan DChain. Metode pengujian yang digunakan adalah \textit{unit testing} berbasis skenario, di mana setiap ketentuan UU 25/1992 diverifikasi melalui satu atau lebih skenario pengujian yang mencakup \textit{happy path} (jalur normal) dan \textit{edge cases} (kasus batas). Setiap skenario pengujian mengeksekusi fungsi \textit{smart contract} secara langsung dan memverifikasi hasilnya melalui \textit{assertion} terhadap perubahan \textit{state} on-chain, \textit{event} yang dipancarkan, dan nilai kembalian fungsi.
+
+Pengujian mencakup tujuh area fungsional utama yang dipetakan ke ketentuan UU 25/1992:
+
+\begin{enumerate}
+	\item \textbf{Pendaftaran dan Keanggotaan (Pasal 5(1), 17--18, 19--21, 31)} --- Skenario pengujian meliputi: pendaftaran anggota mandiri dengan pembayaran simpanan pokok 100 USDC dan penerimaan 100 token LAK; verifikasi bahwa \texttt{isRegisteredMember} bernilai \texttt{true} setelah pendaftaran; penolakan pendaftaran ganda; pengunduran diri sukarela melalui \texttt{resignMembership()}; dan pencabutan keanggotaan melalui proposal tata kelola menggunakan \texttt{revokeMembership()}.
+	
+	\item \textbf{Satu Anggota Satu Suara (Pasal 22(1))} --- Skenario pengujian meliputi: verifikasi bahwa dua anggota dengan saldo token berbeda sama-sama mengembalikan \texttt{getVotingPower() = 1}; dan verifikasi bahwa alamat yang tidak terdaftar ditolak saat mencoba membuat proposal atau memberikan suara.
+	
+	\item \textbf{Simpanan (Pasal 22(2), 41(1--3))} --- Skenario pengujian meliputi: pembayaran simpanan pokok satu kali dengan verifikasi \texttt{simpananPokok[member] > 0} dan penolakan pembayaran ganda; pembayaran simpanan wajib periodik dengan verifikasi pencatatan yang akurat; dan penyetoran simpanan sukarela dengan perhitungan \textit{shares} yang proporsional.
+	
+	\item \textbf{Tata Kelola dan Kuorum (Pasal 23, 26--27)} --- Skenario pengujian meliputi: pembuatan proposal oleh anggota terdaftar; pemungutan suara dengan tiga opsi (For, Against, Abstain); verifikasi kuorum 67\%---dengan tiga anggota dan dua suara \textit{For}, proposal dinyatakan lolos; verifikasi bahwa proposal dengan partisipasi di bawah kuorum dinyatakan \textit{defeated}; penjadwalan RAT tahunan melalui \texttt{scheduleAnnualRAT()} dengan pencegahan RAT ganda dalam satu periode; dan verifikasi bahwa RAT hanya dapat dijadwalkan satu kali per 365 hari.
+	
+	\item \textbf{Pengawas (Pasal 38--39(2))} --- Skenario pengujian meliputi: pemberian peran PENGAWAS\_ROLE kepada akun yang ditunjuk; veto proposal oleh pengawas dengan verifikasi bahwa \texttt{proposalVetoed} bernilai \texttt{true}; penolakan veto oleh akun non-pengawas; dan akses pengawas terhadap laporan keuangan melalui \texttt{getPengawasAuditReport()} yang menampilkan ringkasan aset, simpanan, dana cadangan, dan pendapatan.
+	
+	\item \textbf{Distribusi SHU (Pasal 45(1--2))} --- Skenario pengujian meliputi: akumulasi pendapatan dari bunga pinjaman; distribusi SHU oleh GOVERN\_ROLE ke enam kategori (Cadangan 5\%, Jasa Modal 40\%, Jasa Usaha 40\%, Pendidikan 5\%, Pengurus 5\%, Kesejahteraan Sosial 5\%); klaim SHU oleh anggota dengan verifikasi jumlah yang diterima sesuai dengan \textit{shares}; dan pencegahan klaim ganda pada distribusi yang sama.
+	
+	\item \textbf{Pinjaman (Pasal 18, Permenkop 8/2023 Pasal 6--7)} --- Skenario pengujian meliputi: pengajuan pinjaman dengan perhitungan \textit{loan-to-value} berbasis \textit{tier} kontribusi (30\%, 50\%, 70\%); verifikasi kecukupan agunan 25\% dalam token LAK; penguncian agunan saat pencairan; \textit{auto-approval} untuk pinjaman di bawah 200 USDC; persetujuan manual oleh APPROVER\_ROLE untuk pinjaman besar; pelunasan penuh dengan pembukaan agunan; dan verifikasi bahwa bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}.
+\end{enumerate}
+
+Seluruh hasil pengujian fungsional disajikan dan dibahas secara rinci pada Bab~\ref{ch4}.
+
+\subsection{Analisis Biaya Gas}
+
+Analisis biaya gas dilakukan untuk mengukur konsumsi komputasi setiap operasi koperasi pada lingkungan DChain. Pengukuran dilakukan menggunakan \textit{gas reporter} Hardhat yang mencatat konsumsi gas untuk setiap fungsi \textit{smart contract} yang dieksekusi. Operasi yang diukur meliputi:
+
+\begin{enumerate}
+	\item \textbf{Deployment kontrak} --- Biaya \textit{deployment} satu kali untuk masing-masing dari empat kontrak: LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans.
+	\item \textbf{Pendaftaran anggota} (\texttt{registerMember()}) --- Operasi yang melibatkan \textit{minting} token dan penulisan \textit{state} keanggotaan.
+	\item \textbf{Pembayaran simpanan} (\texttt{paySimpananPokok()}) --- Operasi penulisan saldo simpanan dan \textit{shares}.
+	\item \textbf{Pengajuan pinjaman} (\texttt{requestLoan()}) --- Operasi yang melibatkan perhitungan LTV, verifikasi agunan, dan penulisan \textit{state} pinjaman.
+	\item \textbf{Pemungutan suara} (\texttt{castVote()}) --- Operasi pencatatan suara pada proposal.
+	\item \textbf{Distribusi SHU} (\texttt{distributeSHU()}) --- Operasi distribusi dana ke enam kategori dengan perhitungan \textit{basis points}.
+	\item \textbf{Pelunasan pinjaman} (\texttt{repayInFull()}) --- Operasi transfer dana, pembukaan agunan, dan pencatatan pendapatan bunga.
+\end{enumerate}
+
+Hasil analisis biaya gas disajikan dan dibahas pada Bab~\ref{ch4}.
+
+\subsection{Analisis Biaya Gas}
+
+Biaya gas diukur untuk setiap operasi utama koperasi pada lingkungan DChain. Metrik yang diukur mencakup biaya \textit{deployment} per kontrak dan biaya per operasi (\texttt{registerMember}, \texttt{paySimpananPokok}, \texttt{castVote}, \texttt{distributeSHU}, \texttt{requestLoan}, \texttt{repayInFull}). Hasil pengujian dan analisis dibahas secara rinci pada Bab~\ref{ch4}.

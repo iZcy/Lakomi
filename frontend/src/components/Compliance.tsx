@@ -14,11 +14,11 @@ interface PasalEntry {
   feature: string
 }
 
-const REGULATIONS: { key: Regulation; label: string; full: string; pdf: string }[] = [
+const REGULATIONS: { key: Regulation; label: string; full: string; pdf?: string; note?: string }[] = [
   { key: 'uu2592', label: 'UU 25/1992', full: 'UU No. 25 Tahun 1992', pdf: '/uu-25-1992.pdf' },
-  { key: 'pp72021', label: 'PP 7/2021', full: 'PP No. 7 Tahun 2021', pdf: '/regulations/pp-7-2021.pdf' },
-  { key: 'permenkop92018', label: 'Permenkop 9/2018', full: 'Permenkop No. 9 Tahun 2018', pdf: '/regulations/permenkop-9-2018.pdf' },
-  { key: 'permenkop82023', label: 'Permenkop 8/2023', full: 'Permenkop No. 8 Tahun 2023', pdf: '/regulations/permenkop-8-2023.pdf' },
+  { key: 'pp72021', label: 'PP 7/2021', full: 'PP No. 7 Tahun 2021', note: 'Kemudahan, Pelindungan, Pemberdayaan Koperasi & UMKM. Diunduh dari peraturan.bpk.go.id' },
+  { key: 'permenkop92018', label: 'Permenkop 9/2018', full: 'Permenkop No. 9 Tahun 2018', note: 'Penyelenggaraan & Pembinaan Perkoperasian. Diunduh dari peraturan.bpk.go.id' },
+  { key: 'permenkop82023', label: 'Permenkop 8/2023', full: 'Permenkop No. 8 Tahun 2023', note: 'Usaha Simpan Pinjam Koperasi. Diunduh dari peraturan.bpk.go.id' },
 ]
 
 const PASAL: PasalEntry[] = [
@@ -134,7 +134,15 @@ export function Compliance() {
         </div>
         <Card className="rounded-tl-none">
           <div className="px-2 py-1 border-b bg-muted/40 text-[10px] font-semibold">{REGULATIONS.find(r => r.key === activeReg)?.full}</div>
-          <iframe src={REGULATIONS.find(r => r.key === activeReg)?.pdf} className="w-full border-0" style={{ height: '600px' }} />
+          {activeReg === 'uu2592' ? (
+            <iframe src="/uu-25-1992.pdf" className="w-full border-0" style={{ height: '600px' }} />
+          ) : (
+            <div className="flex items-center justify-center h-[200px] text-xs text-muted-foreground text-center p-4">
+              {REGULATIONS.find(r => r.key === activeReg)?.note}
+              <br />
+              <span className="text-[10px]">Dokumen asli hanya tersedia di situs resmi peraturan.bpk.go.id.</span>
+            </div>
+          )}
         </Card>
       </div>
     </div>

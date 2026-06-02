@@ -263,7 +263,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
           </p>
         )}
 
-        {s === 1 && (
+        {s === 1 && loan.borrower.toLowerCase() === (address?.toLowerCase() || '') && (
           <div className="mt-3 pt-3 border-t space-y-2">
             <Button onClick={() => disburseLoan(loanId)} disabled={dPending} className="w-full" size="sm">
               {dPending ? 'Mencairkan...' : 'Cairkan Dana'}

@@ -43,6 +43,7 @@ export function MemberRegistration() {
   const handledSuccess = useRef(false)
 
   const [step, setStep] = useState<'form' | 'confirm'>('form')
+  const [regStep, setRegStep] = useState<'idle' | 'approve' | 'pay' | 'register'>('idle')
   const existing = address ? getMemberData(address) : null
   const [form, setForm] = useState<MemberData>(existing || {
     namaLengkap: '', nik: '', tempatLahir: '', tanggalLahir: '',
@@ -76,10 +77,14 @@ export function MemberRegistration() {
 
   const handleRegister = async () => {
     try {
-      await approve(CONTRACTS.LAKOMI_VAULT, BigInt(100_000_000)) // approve 100 USDC
+      setRegStep('approve')
+      await approve(CONTRACTS.LAKOMI_VAULT, BigInt(100_000_000))
+      setRegStep('pay')
       await paySimpananPokok(address as `0x${string}`)
+      setRegStep('register')
       await registerMember()
     } catch (err: any) {
+      setRegStep('idle')
       const msg = err?.shortMessage || err?.message || ''
       if (msg.includes('User rejected') || msg.includes('denied')) {
         addToast('Transaksi dibatalkan', 'error')
@@ -90,6 +95,7 @@ export function MemberRegistration() {
   }
 
   const busy = isPending || isConfirming || paying || approving
+  const stepIdx = regStep === 'approve' ? 1 : regStep === 'pay' ? 2 : regStep === 'register' ? 3 : 0
 
   if (step === 'confirm') {
     return (
@@ -104,13 +110,22 @@ export function MemberRegistration() {
           <p className="text-xs text-muted-foreground">
             Simpanan Pokok 100 USDC akan dibayarkan terlebih dahulu sesuai Pasal 22(2) jo. Pasal 41 UU 25/1992
           </p>
-          <div className="flex gap-2 pt-2">
-            <Button variant="outline" onClick={() => setStep('form')} className="flex-1" disabled={busy}>
-              Kembali
-            </Button>
-            <Button onClick={handleRegister} disabled={busy} className="flex-1">
-              {approving ? 'Setujui USDC...' : paying ? 'Bayar Pokok...' : isConfirming ? 'Mendaftar...' : isPending ? 'Memproses...' : 'Konfirmasi & Daftar'}
-            </Button>
+          <div className="space-y-2">
+            {busy && (
+              <div className="flex gap-1 mb-2">
+                {[1,2,3].map(n => (
+                  <div key={n} className={`flex-1 h-1 rounded-full ${stepIdx >= n ? 'bg-primary' : stepIdx === n-1 ? 'bg-primary/30 animate-pulse' : 'bg-muted'}`} />
+                ))}
+              </div>
+            )}
+            <div className="flex gap-2 pt-2">
+              <Button variant="outline" onClick={() => { setStep('form'); setRegStep('idle') }} className="flex-1" disabled={busy}>
+                Kembali
+              </Button>
+              <Button onClick={handleRegister} disabled={busy} className="flex-1">
+                {regStep === 'approve' ? '1/3 Setujui USDC...' : regStep === 'pay' ? '2/3 Bayar Pokok...' : regStep === 'register' ? '3/3 Mendaftar...' : 'Konfirmasi & Daftar'}
+              </Button>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -193,13 +208,34 @@ export function MemberRegistration() {
             />
           </div>
         </div>
-        <Button
-          onClick={() => setStep('confirm')}
-          disabled={!isFormValid || busy}
-          className="w-full"
+        <div className="flex gap-2">
+          <Button
+            variant="outline"
+            onClick={() => {
+              const names = ['Budi Santoso', 'Siti Aminah', 'Ahmad Fauzi', 'Dewi Lestari', 'Rudi Hartono']
+              setForm({
+                namaLengkap: names[Math.floor(Math.random() * names.length)],
+                nik: String(Math.floor(Math.random() * 90000000) + 10000000000000000).slice(0, 16),
+                tempatLahir: ['Jakarta', 'Bandung', 'Surabaya', 'Medan', 'Semarang'][Math.floor(Math.random() * 5)],
+                tanggalLahir: `${1950 + Math.floor(Math.random() * 50)}-${String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 28) + 1).padStart(2, '0')}`,
+                alamat: `Jl. Merdeka No. ${Math.floor(Math.random() * 100) + 1}`,
+                nomorTelepon: `08${String(Math.floor(Math.random() * 9000000000) + 1000000000)}`,
+                pekerjaan: ['Wiraswasta', 'Petani', 'Guru', 'Pedagang', 'Nelayan'][Math.floor(Math.random() * 5)],
+              })
+            }}
+            className="flex-1 text-xs"
+            size="sm"
+          >
+            Isi Acak
+          </Button>
+          <Button
+            onClick={() => setStep('confirm')}
+            disabled={!isFormValid || busy}
+            className="flex-[2]"
         >
           {busy ? 'Memproses...' : 'Lanjut ke Konfirmasi'}
         </Button>
+        </div>
       </CardContent>
     </Card>
   )

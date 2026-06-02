@@ -79,15 +79,15 @@ function CreateProposalForm() {
     { value: '3', label: 'RAT Tahunan', desc: 'Rapat Anggota Tahunan (Pasal 26-27)' },
   ]
 
-  const memberList = useMemo(() => {
+  const memberList = (() => {
     try {
       const stored = JSON.parse(localStorage.getItem('lakomi_members') || '{}')
       return Object.entries(stored).map(([addr, data]: [string, any]) => ({
         addr,
-        name: data?.namaLengkap || addr.slice(0, 8) + '...' + addr.slice(-4),
+        name: (data?.namaLengkap || '') ? `${data.namaLengkap} (${addr.slice(0,6)}...${addr.slice(-4)})` : `${addr.slice(0,8)}...${addr.slice(-4)}`,
       }))
     } catch { return [] }
-  }, [])
+  })()
 
   const selectedType = PROPOSAL_TYPES.find(t => t.value === type)
   const needsRecipient = selectedType?.needsRecipient ?? false
@@ -259,7 +259,17 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
     if (voteSuccess || queueSuccess || execSuccess || cancelSuccess) {
       queryClient.invalidateQueries({ queryKey: ['readContract'] })
     }
-  }, [voteSuccess, queueSuccess, execSuccess, cancelSuccess, queryClient])
+    if (execSuccess && callData && callData.length >= 68) {
+      try {
+        const kicked = ('0x' + callData.slice(-40)) as `0x${string}`
+        const stored = JSON.parse(localStorage.getItem('lakomi_members') || '{}')
+        if (stored[kicked.toLowerCase()]) {
+          delete stored[kicked.toLowerCase()]
+          localStorage.setItem('lakomi_members', JSON.stringify(stored))
+        }
+      } catch {}
+    }
+  }, [voteSuccess, queueSuccess, execSuccess, cancelSuccess, queryClient, callData])
 
   if (!proposal) return null
   const total = proposal.forVotes + proposal.againstVotes + proposal.abstainVotes

@@ -5,7 +5,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
 import { WALLET_CHAIN_PARAMS } from '../wagmi'
-import { useTokenBalance, useUsdcBalance, useSimpananSummary } from '../hooks/useContractRead'
+import { useTokenBalance, useUsdcBalance, useSimpananSummary, useLockedBalance } from '../hooks/useContractRead'
 import { decodeSummary } from '../types'
 
 const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
@@ -56,6 +56,7 @@ export function Navbar() {
   const { address, isConnected } = useAccount()
   const { data: ethBalance } = useBalance({ address })
   const { data: lakBalance } = useTokenBalance(address)
+  const { data: lakLocked } = useLockedBalance(address)
   const { data: usdcBalance } = useUsdcBalance(address)
   const { data: simpananRaw } = useSimpananSummary(address)
   const simpanan = decodeSummary(simpananRaw)
@@ -130,7 +131,15 @@ export function Navbar() {
               <div className="hidden md:flex items-center gap-3 ml-3 pl-3 border-l border-border">
                 <BalanceItem label="ETH" value={ethBalance?.value} decimals={18} symbol="ETH" />
                 <BalanceItem label="USDC" value={usdcBalance} decimals={6} symbol="USDC" />
-                <BalanceItem label="LAK" value={lakBalance} decimals={18} symbol="LAK" />
+                {lakBalance !== undefined && lakBalance > 0n && (
+                  <span className="flex items-center gap-1 text-[11px]">
+                    <span className="text-muted-foreground">LAK</span>
+                    <span className="font-mono font-medium">{fmt(formatUnits(lakBalance, 18))}</span>
+                    {(lakLocked ?? 0n) > 0n && (
+                      <span className="text-[10px] text-amber-500">({fmt(formatUnits(lakLocked!, 18))} terkunci)</span>
+                    )}
+                  </span>
+                )}
                 {simpanan && simpanan.totalContribution > 0n && (
                   <span className="flex items-center gap-1 text-[11px]">
                     <span className="text-muted-foreground">Simpanan</span>

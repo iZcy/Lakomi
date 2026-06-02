@@ -1,217 +1,40 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 
+const PASAL_IDS = [
+  'ps-5a','ps-5b','ps-5c','ps-18','ps-18b','ps-22a','ps-22b','ps-23','ps-26','ps-27',
+  'ps-31','ps-32','ps-38','ps-39b','ps-41a','ps-41b','ps-41c','ps-43','ps-45a','ps-45b',
+  'ps-19','ps-29','ps-33','ps-41d','ps-46',
+]
+
 const PASAL = [
-  {
-    pasal: 'Pasal 5(1)',
-    title: 'Keanggotaan Terbuka dan Sukarela',
-    lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.',
-    contract: 'LakomiToken.registerMember()',
-    evidence: 'Setiap alamat dompet dapat mendaftar tanpa diskriminasi melalui registerMember().',
-    feature: 'Anggota',
-  },
-  {
-    pasal: 'Pasal 5(2)',
-    title: 'Pengelolaan Demokratis',
-    lawText: 'Pengelolaan koperasi dilakukan secara demokratis.',
-    contract: 'LakomiGovern.castVote()',
-    evidence: 'Satu anggota satu suara, quorum berdasarkan jumlah anggota.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 5(3)',
-    title: 'Pembagian SHU Adil',
-    lawText: 'Pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota.',
-    contract: 'LakomiVault.distributeSHU()',
-    evidence: 'SHU didistribusikan proporsional berdasarkan kontribusi simpanan.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 18',
-    title: 'Pinjaman Anggota',
-    lawText: 'Koperasi dapat memberikan pinjaman kepada anggota.',
-    contract: 'LakomiLoans.requestLoan()',
-    evidence: 'Anggota dapat mengajukan pinjaman dengan jaminan LAK 25%, perlu persetujuan pengurus.',
-    feature: 'Pinjaman',
-  },
-  {
-    pasal: 'Pasal 18(2)',
-    title: 'Keanggotaan Tidak Dapat Dipindahtangankan',
-    lawText: 'Keanggotaan koperasi tidak dapat dipindahtangankan.',
-    contract: 'LakomiToken.transfersEnabled = false',
-    evidence: 'Transfer token LAK dinonaktifkan secara default. Hanya admin yang dapat mengaktifkan.',
-    feature: 'Anggota',
-  },
-  {
-    pasal: 'Pasal 22(1)',
-    title: 'Satu Anggota Satu Suara',
-    lawText: 'Setiap anggota mempunyai hak satu suara.',
-    contract: 'LakomiToken.getVotingPower() → 1',
-    evidence: 'Setiap anggota memiliki 1 suara, bukan berdasarkan jumlah simpanan.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 22(2)',
-    title: 'Simpanan Pokok & Wajib',
-    lawText: 'Anggota wajib membayar simpanan pokok dan simpanan wajib.',
-    contract: 'LakomiVault.paySimpananPokok() / paySimpananWajib()',
-    evidence: 'Simpanan Pokok saat pendaftaran, Simpanan Wajib bulanan.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 23',
-    title: 'Keputusan Rapat Anggota',
-    lawText: 'Keputusan Rapat Anggota diambil berdasarkan musyawarah untuk mencapai mufakat. Apabila tidak diperoleh mufakat, pengambilan keputusan dilakukan melalui pemungutan suara.',
-    contract: 'LakomiGovern.quorumNumerator = 67',
-    evidence: 'Quorum default 67% (2/3 mayoritas). Simple majority (For > Against) untuk kelulusan.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 26',
-    title: 'Rapat Anggota',
-    lawText: 'Rapat Anggota merupakan pemegang kekuasaan tertinggi dalam koperasi.',
-    contract: 'LakomiGovern.scheduleAnnualRAT()',
-    evidence: 'RAT terjadwal otomatis 1x per tahun, usulan RAT khusus.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 27',
-    title: 'Penyelenggaraan RAT',
-    lawText: 'Rapat Anggota diselenggarakan paling sedikit 1 kali dalam 1 tahun.',
-    contract: 'LakomiGovern.scheduleAnnualRAT()',
-    evidence: 'Pengecekan interval 365 hari, hanya dapat dijadwalkan 1x per tahun.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 31',
-    title: 'Pemberhentian Anggota',
-    lawText: 'Anggota dapat diberhentikan berdasarkan keputusan Rapat Anggota.',
-    contract: 'LakomiToken.revokeMembership() via LakomiGovern',
-    evidence: 'Usulan tata kelola tipe Keanggotaan → voting → eksekusi revokeMembership().',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 32',
-    title: 'Pengurus',
-    lawText: 'Pengurus dipilih dari dan oleh anggota dalam Rapat Anggota.',
-    contract: 'AccessControl APPROVER_ROLE / TREASURER_ROLE',
-    evidence: 'Role-based: Pengurus (APPROVER_ROLE), Bendahara (TREASURER_ROLE).',
-    feature: 'Anggota',
-  },
-  {
-    pasal: 'Pasal 38',
-    title: 'Pengawas',
-    lawText: 'Pengawas bertugas melakukan pengawasan terhadap pelaksanaan kebijakan dan pengelolaan koperasi.',
-    contract: 'LakomiGovern.vetoProposal() + PENGAWAS_ROLE',
-    evidence: 'Pengawas dapat memveto usulan, pause kontrak, menandai pinjaman gagal bayar.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 39(2)',
-    title: 'Hak Pengawas Memeriksa Catatan',
-    lawText: 'Pengawas berwenang untuk meneliti catatan dan laporan yang ada pada koperasi.',
-    contract: 'LakomiVault.getPengawasAuditReport()',
-    evidence: 'Fungsi audit khusus mengembalikan ringkasan lengkap: total simpanan, revenue, SHU, dana cadangan, pendidikan, pengurus, kesejahteraan.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 41',
-    title: 'Modal Koperasi — Simpanan Pokok',
-    lawText: 'Modal koperasi terdiri dari simpanan pokok, simpanan wajib, dan simpanan sukarela.',
-    contract: 'LakomiVault.paySimpananPokok()',
-    evidence: 'Simpanan Pokok (100 USDC) dibayarkan satu kali saat pendaftaran.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 41',
-    title: 'Modal Koperasi — Simpanan Wajib',
-    lawText: 'Simpanan wajib dibayarkan secara berkala.',
-    contract: 'LakomiVault.paySimpananWajib()',
-    evidence: 'Simpanan Wajib bulanan, jumlah ditetapkan oleh tata kelola.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 41',
-    title: 'Modal Koperasi — Simpanan Sukarela',
-    lawText: 'Simpanan sukarela dapat diambil kembali sewaktu-waktu.',
-    contract: 'LakomiVault.deposit() / withdraw()',
-    evidence: 'Deposit USDC kapan saja, withdraw sesuai saldo tersedia.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 43',
-    title: 'Dana Cadangan Wajib',
-    lawText: 'Modal sendiri koperasi terdiri dari simpanan pokok, simpanan wajib, dana cadangan, dan donasi.',
-    contract: 'LakomiVault.danaCadangan + setSHUSplit()',
-    evidence: 'Dana cadangan diakumulasi dari 5% SHU setiap distribusi. Dapat disesuaikan melalui tata kelola.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 45(1)',
-    title: 'Sisa Hasil Usaha (SHU)',
-    lawText: 'SHU merupakan pendapatan koperasi yang diperoleh dalam satu tahun buku dikurangi biaya, penyusutan, dan kewajiban lainnya.',
-    contract: 'LakomiVault.distributeSHU() → claimSHU()',
-    evidence: 'Revenue dari bunga pinjaman diakumulasi, distribusi oleh GOVERN_ROLE, klaim per anggota.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 45(2)',
-    title: 'Pembagian SHU Multi-Kategori',
-    lawText: 'SHU dibagi untuk: jasa anggota (40%), jasa modal (40%), dana cadangan (5%), dana pendidikan (5%), dana pengurus (5%), dana kesejahteraan sosial (5%).',
-    contract: 'LakomiVault.distributeSHU() 6 kategori',
-    evidence: 'Split: cadangan 5%, jasa modal 40%, jasa usaha 40%, pendidikan 5%, pengurus 5%, kesejahteraan 5%. Total = 100%.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 44',
-    title: 'Pertanggungjawaban Pengurus',
-    lawText: 'Pengurus bertanggung jawab mengenai kegiatan pengelolaan koperasi.',
-    contract: 'AccessControl role checks, audit trail',
-    evidence: 'Setiap tindakan admin tercatat on-chain, dapat diaudit kapan saja.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 19-21',
-    title: 'Hak & Kewajiban Anggota',
-    lawText: 'Anggota berhak menghadiri RAT, menyampaikan pendapat, memilih dan dipilih, serta berhak mengundurkan diri.',
-    contract: 'LakomiToken.resignMembership()',
-    evidence: 'Anggota dapat keluar sukarela dengan refund simpanan pokok, syarat tidak ada pinjaman aktif.',
-    feature: 'Anggota',
-  },
-  {
-    pasal: 'Pasal 29-30',
-    title: 'Pemilihan Pengurus',
-    lawText: 'Pengurus dipilih dari dan oleh anggota koperasi dalam Rapat Anggota.',
-    contract: 'LakomiGovern.beginElection() → castElectionVote() → finalizeElection()',
-    evidence: 'Sistem pemilu on-chain: pendaftaran kandidat, voting 1-anggota-1-suara, masa jabatan terlacak.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 33-35',
-    title: 'Pembubaran Koperasi',
-    lawText: 'Pembubaran koperasi dilakukan berdasarkan keputusan Rapat Anggota.',
-    contract: 'LakomiGovern.executeDissolution()',
-    evidence: 'Usulan pembubaran melalui tata kelola, eksekusi menonaktifkan (pause) semua kontrak.',
-    feature: 'Tata Kelola',
-  },
-  {
-    pasal: 'Pasal 41(3)',
-    title: 'Sertifikat Simpanan Koperasi',
-    lawText: 'Atas simpanan sukarela, koperasi dapat menerbitkan sertifikat simpanan koperasi.',
-    contract: 'LakomiVault.issueCertificate()',
-    evidence: 'Bendahara dapat menerbitkan sertifikat simpanan tercatat on-chain dengan timestamp.',
-    feature: 'Simpanan',
-  },
-  {
-    pasal: 'Pasal 46-47',
-    title: 'Laporan Keuangan Tahunan',
-    lawText: 'Pengurus wajib menyusun laporan keuangan tahunan dan menyampaikan dalam RAT.',
-    contract: 'LakomiVault.generateFinancialSnapshot() + getPengawasAuditReport()',
-    evidence: 'Snapshot keuangan lengkap: aset, simpanan, dana, revenue, SHU, jumlah anggota — diverifikasi on-chain.',
-    feature: 'Tata Kelola',
-  },
+  { pasal: 'Pasal 5(1)', title: 'Keanggotaan Terbuka dan Sukarela', lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.', feature: 'Anggota' },
+  { pasal: 'Pasal 5(2)', title: 'Pengelolaan Demokratis', lawText: 'Pengelolaan koperasi dilakukan secara demokratis.', contract: 'LakomiGovern.castVote()', evidence: 'Satu anggota satu suara, quorum 67% dari jumlah anggota.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 5(3)', title: 'Pembagian SHU Adil', lawText: 'SHU dibagi sebanding dengan jasa usaha masing-masing anggota.', contract: 'LakomiVault.distributeSHU() 6 kategori', evidence: 'Split: cadangan 5%, jasa modal 40%, jasa usaha 40%, pendidikan 5%, pengurus 5%, kesejahteraan 5%.', feature: 'Simpanan' },
+  { pasal: 'Pasal 18', title: 'Pinjaman Anggota', lawText: 'Koperasi dapat memberikan pinjaman kepada anggota.', contract: 'LakomiLoans.requestLoan()', evidence: 'Anggota mengajukan pinjaman, jaminan LAK 25%, perlu persetujuan pengurus.', feature: 'Pinjaman' },
+  { pasal: 'Pasal 18(2)', title: 'Keanggotaan Tidak Dapat Dipindahtangankan', lawText: 'Keanggotaan koperasi tidak dapat dipindahtangankan.', contract: 'LakomiToken.transfersEnabled = false', evidence: 'Transfer token LAK dinonaktifkan default, hanya admin yang dapat mengaktifkan.', feature: 'Anggota' },
+  { pasal: 'Pasal 22(1)', title: 'Satu Anggota Satu Suara', lawText: 'Setiap anggota mempunyai hak satu suara.', contract: 'LakomiToken.getVotingPower() → 1', evidence: 'Setiap anggota memiliki 1 suara, bukan berdasarkan jumlah token/simpanan.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 22(2)', title: 'Simpanan Pokok & Wajib', lawText: 'Anggota wajib membayar simpanan pokok dan simpanan wajib.', contract: 'LakomiVault.paySimpananPokok/Wajib()', evidence: 'Simpanan Pokok wajib saat pendaftaran, Simpanan Wajib bulanan.', feature: 'Simpanan' },
+  { pasal: 'Pasal 23', title: 'Keputusan Rapat Anggota (Quorum)', lawText: 'Keputusan Rapat Anggota diambil berdasarkan musyawarah-mufakat atau pemungutan suara.', contract: 'LakomiGovern.quorumNumerator = 67', evidence: 'Quorum default 67% (2/3 mayoritas). Proposal lulus jika For > Against + capai quorum.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 26', title: 'Rapat Anggota — Kekuasaan Tertinggi', lawText: 'Rapat Anggota merupakan pemegang kekuasaan tertinggi dalam koperasi.', contract: 'LakomiGovern.scheduleAnnualRAT()', evidence: 'RAT terjadwal otomatis 1x per tahun, usulan RAT khusus untuk agenda tahunan.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 27', title: 'Penyelenggaraan RAT', lawText: 'RAT diselenggarakan minimal 1x setahun, berwenang menetapkan kebijakan & memilih pengurus.', contract: 'LakomiGovern.ratPeriod = 365 days', evidence: 'Pengecekan interval 365 hari, hanya dapat dijadwalkan 1x per tahun.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 31', title: 'Pemberhentian Anggota', lawText: 'Anggota dapat diberhentikan berdasarkan keputusan Rapat Anggota.', contract: 'LakomiToken.revokeMembership() via governance', evidence: 'Usulan Keanggotaan → voting → antrean → eksekusi → revokeMembership(address) via govern.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 32', title: 'Pengurus', lawText: 'Pengurus mengelola koperasi dan usahanya berdasarkan AD/ART.', contract: 'AccessControl: APPROVER_ROLE / TREASURER_ROLE', evidence: 'Role-based: Pengurus (setuju pinjaman), Bendahara (kelola treasury).', feature: 'Anggota' },
+  { pasal: 'Pasal 38', title: 'Pengawas (Supervisor)', lawText: 'Pengawas mengawasi pelaksanaan kebijakan dan pengelolaan koperasi.', contract: 'LakomiGovern.vetoProposal() + PENGAWAS_ROLE', evidence: 'Pengawas dapat memveto usulan, pause governance, menandai pinjaman gagal bayar.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 39(2)', title: 'Hak Pengawas Memeriksa Catatan', lawText: 'Pengawas berwenang meneliti semua catatan dan laporan koperasi.', contract: 'LakomiVault.getPengawasAuditReport()', evidence: 'Fungsi audit khusus: simpanan, revenue, SHU, dana cadangan, pendidikan, pengurus, kesejahteraan.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 41', title: 'Simpanan Pokok', lawText: 'Modal koperasi terdiri dari simpanan pokok (dibayar sekali saat masuk).', contract: 'LakomiVault.paySimpananPokok()', evidence: 'Simpanan Pokok 100 USDC dibayarkan saat pendaftaran anggota.', feature: 'Simpanan' },
+  { pasal: 'Pasal 41', title: 'Simpanan Wajib', lawText: 'Simpanan wajib dibayarkan secara berkala oleh anggota.', contract: 'LakomiVault.paySimpananWajib()', evidence: 'Simpanan Wajib bulanan, jumlah ditetapkan oleh tata kelola.', feature: 'Simpanan' },
+  { pasal: 'Pasal 41', title: 'Simpanan Sukarela', lawText: 'Simpanan sukarela dapat disetor dan diambil kembali sewaktu-waktu.', contract: 'LakomiVault.deposit() / withdraw()', evidence: 'Deposit USDC kapan saja, withdraw sesuai saldo tersedia.', feature: 'Simpanan' },
+  { pasal: 'Pasal 43', title: 'Dana Cadangan Wajib', lawText: 'Modal sendiri meliputi: simpanan, dana cadangan, hibah, dan SHU yang belum dibagi.', contract: 'LakomiVault.danaCadangan (5% SHU)', evidence: 'Dana cadangan diakumulasi setiap distribusi SHU. Dapat disesuaikan via setSHUSplit().', feature: 'Simpanan' },
+  { pasal: 'Pasal 45(1)', title: 'Sisa Hasil Usaha (SHU)', lawText: 'SHU = pendapatan 1 tahun buku dikurangi biaya, penyusutan, dan kewajiban.', contract: 'LakomiVault.distributeSHU() → claimSHU()', evidence: 'Revenue dari bunga pinjaman diakumulasi → distribusi → klaim per anggota.', feature: 'Simpanan' },
+  { pasal: 'Pasal 45(2)', title: 'Pembagian SHU Multi-Kategori', lawText: 'SHU dibagi: jasa anggota (40%), jasa modal (40%), cadangan (5%), pendidikan (5%), pengurus (5%), kesejahteraan (5%).', contract: 'LakomiVault.distributeSHU() 6-kategori', evidence: 'Split persentase dikonfigurasi via setSHUSplit(), bisa diubah melalui governance.', feature: 'Simpanan' },
+  { pasal: 'Pasal 19-21', title: 'Hak & Kewajiban — Keluar Sukarela', lawText: 'Anggota berhak menghadiri RAT, menyampaikan pendapat, memilih/dipilih, dan mengundurkan diri.', contract: 'LakomiToken.resignMembership()', evidence: 'Anggota bisa keluar sukarela + refund simpanan pokok, syarat tidak ada pinjaman aktif.', feature: 'Anggota' },
+  { pasal: 'Pasal 29-30', title: 'Pemilihan Pengurus', lawText: 'Pengurus dipilih dari dan oleh anggota dalam RAT. Masa jabatan maksimal 5 tahun.', contract: 'LakomiGovern.election system: beginElection → vote → finalizeElection', evidence: 'Pemilu on-chain: pendaftaran kandidat, voting 1-suara, masa jabatan terlacak (roleTermStart).', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 33-35', title: 'Pembubaran Koperasi', lawText: 'Pembubaran koperasi dilakukan berdasarkan keputusan Rapat Anggota.', contract: 'LakomiGovern.executeDissolution()', evidence: 'Usulan pembubaran via governance, eksekusi menonaktifkan (pause) semua kontrak.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 41(3)', title: 'Sertifikat Simpanan', lawText: 'Atas simpanan sukarela, koperasi dapat menerbitkan sertifikat simpanan.', contract: 'LakomiVault.issueCertificate()', evidence: 'Bendahara menerbitkan sertifikat tercatat on-chain dengan timestamp.', feature: 'Simpanan' },
+  { pasal: 'Pasal 46-47', title: 'Laporan Keuangan Tahunan', lawText: 'Pengurus wajib menyusun laporan keuangan dan menyampaikan dalam RAT.', contract: 'LakomiVault.generateFinancialSnapshot()', evidence: 'Snapshot lengkap: aset, simpanan, dana, revenue, SHU, memberCount — diverifikasi on-chain.', feature: 'Tata Kelola' },
 ]
 
 const FEATURE_MAP: Record<string, { label: string; color: string }> = {
@@ -223,93 +46,75 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
+  const leftRef = useRef<HTMLDivElement>(null)
+  const rightRef = useRef<HTMLDivElement>(null)
+
+  const scrollToPasal = (idx: number) => {
+    setActivePasal(idx)
+    const el = leftRef.current?.querySelector(`#${PASAL_IDS[idx]}`)
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
     <div className="space-y-4">
       <div>
         <h2 className="text-xl font-bold">Kepatuhan Hukum</h2>
-        <p className="text-sm text-muted-foreground mt-1">
-          UU No. 25 Tahun 1992 — Tentang Perkoperasian
-        </p>
+        <p className="text-sm text-muted-foreground mt-1">UU No. 25 Tahun 1992 — Tentang Perkoperasian</p>
       </div>
 
-      <div className="grid grid-cols-1 grid-cols-2 gap-0 border rounded-lg overflow-hidden" style={{ height: 'calc(100vh - 280px)', minHeight: '600px' }}>
-        <div className="border-r bg-muted/20 flex flex-col">
-          <div className="px-4 py-2 border-b bg-muted/40 flex items-center justify-between">
-            <span className="text-xs font-semibold">UU No. 25 Tahun 1992 — Perkoperasian</span>
-            <span className="text-[10px] text-muted-foreground">Tentang Perkoperasian</span>
-          </div>
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 text-sm leading-relaxed">
-            <div className="font-bold text-base mb-2">UNDANG-UNDANG REPUBLIK INDONESIA<br/>NOMOR 25 TAHUN 1992<br/>TENTANG PERKOPERASIAN</div>
-            <Separator />
-            <div className="font-semibold mt-3">BAB II — ASAS DAN TUJUAN</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 2</span> — Koperasi didirikan untuk memajukan kesejahteraan anggotanya pada khususnya dan masyarakat pada umumnya.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 3</span> — Koperasi berlandaskan Pancasila dan Undang-Undang Dasar 1945 serta berdasarkan atas asas kekeluargaan.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB III — SIFAT DAN FUNGSI</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 4</span> — (1) Koperasi bersifat terbuka dan sukarela. (2) Koperasi bersifat mandiri. (3) Koperasi dikelola secara demokratis.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB IV — PENDIRIAN DAN PERUBAHAN AD/ART</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 5(1)</span> — Keanggotaan koperasi bersifat sukarela dan terbuka.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 5(2)</span> — Pengelolaan koperasi dilakukan secara demokratis.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 5(3)</span> — Pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB VI — KEANGGOTAAN</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 17</span> — (1) Keanggotaan koperasi didasarkan atas kesamaan kepentingan ekonomi dalam lingkup usaha koperasi. (2) Setiap anggota berkewajiban: a. membayar simpanan pokok dan simpanan wajib; b. berpartisipasi dalam kegiatan usaha yang diselenggarakan oleh koperasi.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 18</span> — (1) Syarat dan tata cara pemberian, penggantian, pencabutan keanggotaan ditetapkan dalam AD/ART. (2) Keanggotaan koperasi tidak dapat dipindahtangankan.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 19</span> — Anggota berhak: a. menghadiri Rapat Anggota; b. menyampaikan pendapat; c. memilih dan/atau dipilih; d. memperoleh keterangan mengenai koperasi.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 20</span> — Setiap anggota mempunyai hak satu suara.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 21</span> — Anggota dapat mengundurkan diri dari koperasi dengan mengajukan permohonan secara tertulis.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 22</span> — (1) Setiap anggota mempunyai hak suara yang sama. (2) Anggota wajib membayar simpanan pokok dan simpanan wajib.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB VII — RAPAT ANGGOTA</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 23</span> — Keputusan Rapat Anggota diambil berdasarkan musyawarah untuk mencapai mufakat.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 26</span> — Rapat Anggota merupakan pemegang kekuasaan tertinggi dalam koperasi.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 27</span> — (1) Rapat Anggota diselenggarakan paling sedikit 1 kali dalam 1 tahun. (2) Rapat Anggota memiliki wewenang: a. menetapkan kebijakan; b. menetapkan Rencana Kerja; c. mengangkat dan memberhentikan pengurus.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 28</span> — Rapat Anggota dapat menetapkan pemberhentian anggota berdasarkan keputusan Rapat Anggota.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB VIII — PENGURUS</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 29</span> — Pengurus dipilih dari dan oleh anggota koperasi dalam Rapat Anggota.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 30</span> — (1) Pengurus bertanggung jawab atas pengelolaan koperasi. (2) Masa jabatan pengurus paling lama 5 tahun.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 31</span> — Pemberhentian anggota dapat dilakukan berdasarkan keputusan Rapat Anggota.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 32</span> — Pengurus mengelola koperasi dan usahanya berdasarkan AD/ART.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB IX — PENGHAPUSAN DAN PELEBURAN KOPERASI</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 33</span> — Penggabungan koperasi dilakukan berdasarkan keputusan Rapat Anggota.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 34</span> — Peleburan koperasi dilakukan berdasarkan keputusan Rapat Anggota.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 35</span> — Pembubaran koperasi dilakukan berdasarkan keputusan Rapat Anggota.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB X — PENGAWAS</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 38</span> — (1) Untuk melakukan pengawasan, Rapat Anggota mengangkat Pengawas dari dan oleh anggota. (2) Pengawas bertugas mengawasi pelaksanaan kebijakan dan pengelolaan koperasi.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 39</span> — (1) Pengawas berwenang melakukan pemeriksaan terhadap keuangan dan usaha koperasi. (2) Pengawas berwenang meneliti catatan dan laporan yang ada pada koperasi. (3) Pengawas merahasiakan hasil pengawasannya.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB XI — MODAL KOPERASI</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 41</span> — Modal koperasi terdiri dari: (1) Simpanan pokok yang dibayar oleh anggota saat masuk. (2) Simpanan wajib yang dibayar secara berkala. (3) Atas simpanan sukarela, koperasi dapat menerbitkan sertifikat simpanan koperasi.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 42</span> — Modal koperasi terdiri dari modal sendiri dan modal pinjaman.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 43</span> — Modal sendiri terdiri dari: a. simpanan pokok; b. simpanan wajib; c. dana cadangan; d. hibah; e. sisa hasil usaha yang belum dibagi.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB XII — SISA HASIL USAHA</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 44</span> — Pengurus bertanggung jawab mengenai kegiatan pengelolaan koperasi.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 45</span> — (1) SHU merupakan pendapatan koperasi yang diperoleh dalam satu tahun buku dikurangi biaya, penyusutan, dan kewajiban lainnya. (2) SHU setelah dikurangi dana cadangan dibagikan kepada anggota sebanding dengan jasa usaha yang dilakukan masing-masing.</p>
-            </div>
-            <div className="font-semibold mt-3">BAB XIII — PERTANGGUNGJAWABAN DAN LAPORAN</div>
-            <div className="text-muted-foreground">
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 46</span> — Pengurus wajib menyusun laporan keuangan tahunan dan menyampaikan dalam RAT.</p>
-              <p className="mb-2"><span className="font-semibold text-foreground">Pasal 47</span> — Laporan keuangan meliputi: neraca, perhitungan SHU, laporan arus kas, dan catatan atas laporan keuangan.</p>
-            </div>
-            <div className="text-[10px] text-muted-foreground mt-4 pt-3 border-t">
-              Sumber: Lembaran Negara RI Tahun 1992 Nomor 116, Tambahan Lembaran Negara Nomor 3474.
-            </div>
+      <div className="grid grid-cols-2 gap-0 border rounded-lg overflow-hidden" style={{ minHeight: '600px', maxHeight: 'calc(100vh - 250px)' }}>
+        <div ref={leftRef} className="border-r bg-muted/20 overflow-y-auto p-4 text-sm leading-relaxed">
+          <div className="font-bold text-base mb-2 text-center">UNDANG-UNDANG REPUBLIK INDONESIA<br/>NOMOR 25 TAHUN 1992<br/>TENTANG PERKOPERASIAN</div>
+          <Separator className="mb-3" />
+
+          <div className="font-semibold">BAB II — ASAS DAN TUJUAN</div>
+          <p className="text-muted-foreground mb-3"><span className="font-semibold text-foreground">Pasal 2</span> — Koperasi didirikan untuk memajukan kesejahteraan anggotanya pada khususnya dan masyarakat pada umumnya.</p>
+
+          <div className="font-semibold">BAB IV — PENDIRIAN</div>
+          <p id="ps-5a" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(0)}><span className="font-semibold text-foreground">Pasal 5(1)</span> — Keanggotaan koperasi bersifat sukarela dan terbuka.</p>
+          <p id="ps-5b" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(1)}><span className="font-semibold text-foreground">Pasal 5(2)</span> — Pengelolaan koperasi dilakukan secara demokratis.</p>
+          <p id="ps-5c" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(2)}><span className="font-semibold text-foreground">Pasal 5(3)</span> — Pembagian SHU dilakukan secara adil.</p>
+
+          <div className="font-semibold mt-4">BAB VI — KEANGGOTAAN</div>
+          <p id="ps-18" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(3)}><span className="font-semibold text-foreground">Pasal 18</span> — (1) Syarat keanggotaan ditetapkan AD/ART. (2) Keanggotaan tidak dapat dipindahtangankan.</p>
+          <p id="ps-18b" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(4)}><span className="font-semibold text-foreground">Pasal 18(2)</span> — Keanggotaan koperasi tidak dapat dipindahtangankan.</p>
+          <p id="ps-22a" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(5)}><span className="font-semibold text-foreground">Pasal 20-22(1)</span> — Setiap anggota mempunyai hak satu suara.</p>
+          <p id="ps-22b" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(6)}><span className="font-semibold text-foreground">Pasal 22(2)</span> — Anggota wajib membayar simpanan pokok dan simpanan wajib.</p>
+          <p id="ps-19" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(20)}><span className="font-semibold text-foreground">Pasal 19-21</span> — Anggota berhak: menghadiri RAT, menyampaikan pendapat, memilih/dipilih, dan mengundurkan diri.</p>
+
+          <div className="font-semibold mt-4">BAB VII — RAPAT ANGGOTA</div>
+          <p id="ps-23" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(7)}><span className="font-semibold text-foreground">Pasal 23</span> — Keputusan Rapat Anggota diambil berdasarkan musyawarah untuk mufakat.</p>
+          <p id="ps-26" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(8)}><span className="font-semibold text-foreground">Pasal 26</span> — Rapat Anggota merupakan pemegang kekuasaan tertinggi.</p>
+          <p id="ps-27" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(9)}><span className="font-semibold text-foreground">Pasal 27</span> — RAT minimal 1x setahun, berwenang menetapkan kebijakan & memilih pengurus.</p>
+          <p id="ps-31" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(10)}><span className="font-semibold text-foreground">Pasal 28 & 31</span> — Pemberhentian anggota berdasarkan keputusan Rapat Anggota.</p>
+
+          <div className="font-semibold mt-4">BAB VIII — PENGURUS</div>
+          <p id="ps-29" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(21)}><span className="font-semibold text-foreground">Pasal 29-30</span> — Pengurus dipilih dari/oleh anggota RAT. Masa jabatan maksimal 5 tahun.</p>
+          <p id="ps-32" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(11)}><span className="font-semibold text-foreground">Pasal 32</span> — Pengurus mengelola koperasi berdasarkan AD/ART.</p>
+
+          <div className="font-semibold mt-4">BAB IX — PEMBUBARAN</div>
+          <p id="ps-33" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(22)}><span className="font-semibold text-foreground">Pasal 33-35</span> — Pembubaran koperasi berdasarkan keputusan Rapat Anggota.</p>
+
+          <div className="font-semibold mt-4">BAB X — PENGAWAS</div>
+          <p id="ps-38" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(12)}><span className="font-semibold text-foreground">Pasal 38</span> — Pengawas mengawasi pelaksanaan kebijakan dan pengelolaan koperasi.</p>
+          <p id="ps-39b" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(13)}><span className="font-semibold text-foreground">Pasal 39(2)</span> — Pengawas berwenang meneliti catatan dan laporan koperasi.</p>
+
+          <div className="font-semibold mt-4">BAB XI — MODAL KOPERASI</div>
+          <p id="ps-41a" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(14)}><span className="font-semibold text-foreground">Pasal 41(1)</span> — Simpanan pokok dibayar oleh anggota saat masuk.</p>
+          <p id="ps-41b" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(15)}><span className="font-semibold text-foreground">Pasal 41(2)</span> — Simpanan wajib dibayar secara berkala.</p>
+          <p id="ps-41c" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(16)}><span className="font-semibold text-foreground">Pasal 41(3)</span> — Simpanan sukarela dapat disetorkan kapan saja.</p>
+          <p id="ps-41d" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(23)}><span className="font-semibold text-foreground">Pasal 41(3)</span> — Atas simpanan sukarela, dapat diterbitkan sertifikat simpanan.</p>
+          <p id="ps-43" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(17)}><span className="font-semibold text-foreground">Pasal 43</span> — Modal sendiri: simpanan pokok, simpanan wajib, dana cadangan, hibah, SHU yang belum dibagi.</p>
+
+          <div className="font-semibold mt-4">BAB XII — SISA HASIL USAHA</div>
+          <p id="ps-45a" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(18)}><span className="font-semibold text-foreground">Pasal 45(1)</span> — SHU = pendapatan 1 tahun buku dikurangi biaya dan kewajiban.</p>
+          <p id="ps-45b" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(19)}><span className="font-semibold text-foreground">Pasal 45(2)</span> — SHU dibagi sebanding jasa usaha masing-masing anggota.</p>
+
+          <div className="font-semibold mt-4">BAB XIII — PERTANGGUNGJAWABAN</div>
+          <p id="ps-46" className="text-muted-foreground cursor-pointer hover:bg-primary/5 rounded px-1 -mx-1 transition-colors" onClick={() => scrollToPasal(24)}><span className="font-semibold text-foreground">Pasal 46-47</span> — Pengurus wajib menyusun laporan keuangan tahunan untuk RAT.</p>
+
+          <div className="text-[10px] text-muted-foreground mt-4 pt-3 border-t">
+            Sumber: Lembaran Negara RI Tahun 1992 Nomor 116, Tambahan Lembaran Negara Nomor 3474.
           </div>
         </div>
 
@@ -318,25 +123,19 @@ export function Compliance() {
             <span className="text-xs font-semibold">Implementasi Kontrak Pintar</span>
             <span className="text-[10px] text-muted-foreground">{PASAL.length} ketentuan</span>
           </div>
-          <div className="flex-1 overflow-y-auto">
+          <div ref={rightRef} className="flex-1 overflow-y-auto">
             <div className="p-3 space-y-2">
               {PASAL.map((item, idx) => {
                 const feat = FEATURE_MAP[item.feature]
                 return (
                   <button
                     key={idx}
-                    onClick={() => setActivePasal(idx)}
+                    onClick={() => { setActivePasal(idx); scrollToPasal(idx) }}
                     className={`w-full text-left p-3 rounded-lg transition-colors border ${idx === activePasal ? 'border-primary/50 bg-primary/5' : 'border-transparent hover:bg-muted/50'}`}
                   >
                     <div className="flex items-center gap-2 mb-1.5">
-                      <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-500 border-emerald-500/20">
-                        {item.pasal}
-                      </Badge>
-                      {feat && (
-                        <span className={`text-[9px] text-white px-1.5 py-0.5 rounded ${feat.color}`}>
-                          {feat.label}
-                        </span>
-                      )}
+                      <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-500 border-emerald-500/20">{item.pasal}</Badge>
+                      {feat && <span className={`text-[9px] text-white px-1.5 py-0.5 rounded ${feat.color}`}>{feat.label}</span>}
                     </div>
                     <h4 className="text-sm font-semibold mb-1">{item.title}</h4>
                     <div className="space-y-1.5">
@@ -378,7 +177,6 @@ export function Compliance() {
             <li>Sailana et al. (2023) — Simpanan dan SHU via Smart Contract</li>
             <li>Kartika et al. (2024) — Peran Pengawas Koperasi</li>
             <li>Maryam (2025) — Analisis Yuridis UU 25/1992</li>
-            <li>Antoni & Razaga (2024) — Permasalahan Hukum KSP</li>
           </ul>
         </CardContent>
       </Card>

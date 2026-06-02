@@ -159,7 +159,11 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
       setLoanStep(2)
       await requestLoan(a, secs, reason)
       setAmount(''); setReason(''); setLoanStep(0)
-    } catch { setLoanStep(0) }
+    } catch (e: any) { 
+      setLoanStep(0)
+      const msg = e?.shortMessage || e?.message || ''
+      if (msg && !msg.includes('rejected')) alert('Gagal: ' + msg)
+    }
   }
 
   const busy = isPending || ap

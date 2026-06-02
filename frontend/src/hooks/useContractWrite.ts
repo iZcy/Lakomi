@@ -4,7 +4,7 @@ import { CONTRACTS } from '../config/contracts'
 
 type WriteResult = { hash: `0x${string}` }
 
-const GAS_OVERRIDES = { gas: 200000n }
+const GAS_OVERRIDES = { gas: 500000n }
 
 export function useRegisterMember() {
   const { writeContractAsync, data: hash, error, isPending } = useWriteContract()

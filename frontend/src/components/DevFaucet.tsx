@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAccount, useBalance, useWalletClient, useSendTransaction } from 'wagmi'
-import { parseEther, encodeFunctionData, parseAbi } from 'viem'
+import { parseEther, encodeFunctionData, parseAbi, keccak256, toHex } from 'viem'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
@@ -19,12 +19,7 @@ const DEPLOYER = typeof import.meta.env.VITE_DEPLOYER_URL === 'string'
   ? import.meta.env.VITE_DEPLOYER_URL
   : 'http://localhost:3030'
 
-const ACCOUNT_2 = '0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC'
-
-const TEST_ACCOUNTS = [
-  { name: 'Account 1', address: '0x70997970C51812dc3A010C7d01b50e0d17dc79C8', key: '0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d' },
-  { name: 'Account 2', address: '0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC', key: '0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a' },
-]
+const DEPLOYER_ADDR = '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266'
 
 async function rpcCall(method: string, params: unknown[]) {
   const res = await fetch(RPC, {
@@ -44,12 +39,25 @@ function encodeMint(to: string, amount: bigint): string {
   return '0x' + sel + addr + val
 }
 
+const ROLES: { key: string; label: string; desc: string }[] = [
+  { key: 'PENGAWAS_ROLE', label: 'Pengawas', desc: 'Veto proposals, pause governance' },
+  { key: 'APPROVER_ROLE', label: 'Pengurus', desc: 'Approve loans, mark defaulted' },
+  { key: 'MEMBERSHIP_ROLE', label: 'Membership', desc: 'Register/revoke members' },
+  { key: 'TREASURER_ROLE', label: 'Bendahara', desc: 'Vault admin' },
+]
+
+const CONTRACTS_TO_GRANT: Record<string, string> = {
+  PENGAWAS_ROLE: 'LAKOMI_GOVERN',
+  APPROVER_ROLE: 'LAKOMI_LOANS',
+  MEMBERSHIP_ROLE: 'LAKOMI_TOKEN',
+  TREASURER_ROLE: 'LAKOMI_VAULT',
+}
+
 export function DevFaucet() {
   const { address, chainId } = useAccount()
-  const { data: walletClient } = useWalletClient()
   const { refetch: refetchBalance } = useBalance({ address })
   const { addToast } = useToast()
-  const [busy, setBusy] = useState<'eth' | 'usdc' | 'nonce' | 'reset' | 'register' | 'fastForward' | 'fundAccount2' | null>(null)
+  const [busy, setBusy] = useState<string | null>(null)
   const { sendTransactionAsync } = useSendTransaction()
   const queryClient = useQueryClient()
 
@@ -100,7 +108,7 @@ export function DevFaucet() {
       const deployedHex: string = await rpcCall('eth_getTransactionCount', [address, 'latest'])
       const deployed = parseInt(deployedHex, 16)
       if (nonce === deployed) {
-        addToast('Nonce sudah sinkron, tidak perlu fix.', 'success')
+        addToast('Nonce sudah sinkron.', 'success')
         setBusy(null)
         return
       }
@@ -132,7 +140,7 @@ export function DevFaucet() {
       }])
       await rpcCall('anvil_stopImpersonatingAccount', [address])
       queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      addToast('Berhasil terdaftar sebagai anggota! (via RPC)', 'success')
+      addToast('Berhasil terdaftar sebagai anggota!', 'success')
     } catch (e: any) {
       await rpcCall('anvil_stopImpersonatingAccount', [address]).catch(() => {})
       addToast('Gagal register: ' + e.message, 'error')
@@ -144,12 +152,10 @@ export function DevFaucet() {
   const resetAll = async () => {
     setBusy('reset')
     try {
-      addToast('Resetting Anvil...', 'info')
       await rpcCall('anvil_reset', [])
-      addToast('Redeploying contracts...', 'info')
       const res = await fetch(`${DEPLOYER}/redeploy`, { method: 'POST', signal: AbortSignal.timeout(60_000) })
       if (!res.ok) throw new Error(await res.text())
-      addToast('Anvil direset dan kontrak dideploy ulang! Memuat ulang halaman...', 'success')
+      addToast('Anvil direset! Memuat ulang...', 'success')
       await new Promise(r => setTimeout(r, 1500))
       window.location.reload()
     } catch (e: any) {
@@ -172,38 +178,32 @@ export function DevFaucet() {
     }
   }
 
-  const fundAccount2 = async () => {
-    setBusy('fundAccount2')
+  const grantRole = async (roleKey: string) => {
+    if (!address) return
+    setBusy(`role-${roleKey}`)
     try {
-      const tenEth = '0x' + (10n * 10n ** 18n).toString(16)
-      await rpcCall('anvil_setBalance', [ACCOUNT_2, tenEth])
-      await rpcCall('anvil_impersonateAccount', [ACCOUNT_2])
+      const roleHash = keccak256(toHex(roleKey))
+      const contractKey = CONTRACTS_TO_GRANT[roleKey]
+      const grantData = '0x' +
+        '2f2ff15d' + // grantRole selector
+        roleHash.slice(2).padStart(64, '0') +
+        address.toLowerCase().replace('0x', '').padStart(64, '0')
+
+      await rpcCall('anvil_impersonateAccount', [DEPLOYER_ADDR])
       await rpcCall('eth_sendTransaction', [{
-        from: ACCOUNT_2,
-        to: CONTRACTS.MOCK_USDC,
-        data: encodeMint(ACCOUNT_2, 1000000000n),
-        gas: '0x100000',
-      }])
-      await rpcCall('eth_sendTransaction', [{
-        from: ACCOUNT_2,
-        to: CONTRACTS.LAKOMI_TOKEN,
-        data: encodeFunctionData({ abi: parsedTokenAbi, functionName: 'registerMember' }),
+        from: DEPLOYER_ADDR,
+        to: (CONTRACTS as any)[contractKey],
+        data: grantData,
         gas: '0x200000',
       }])
-      await rpcCall('anvil_stopImpersonatingAccount', [ACCOUNT_2])
-      queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      addToast('Account 2 funded + registered! Import private key di Brave Wallet untuk menggunakan.', 'success')
+      await rpcCall('anvil_stopImpersonatingAccount', [DEPLOYER_ADDR])
+      addToast(`Role ${ROLES.find(r => r.key === roleKey)?.label} diberikan!`, 'success')
     } catch (e: any) {
-      await rpcCall('anvil_stopImpersonatingAccount', [ACCOUNT_2]).catch(() => {})
+      await rpcCall('anvil_stopImpersonatingAccount', [DEPLOYER_ADDR]).catch(() => {})
       addToast('Gagal: ' + e.message, 'error')
     } finally {
       setBusy(null)
     }
-  }
-
-  const copyKey = (key: string) => {
-    navigator.clipboard.writeText(key)
-    addToast('Private key disalin!', 'success')
   }
 
   if (chainId !== anvil.id) return null
@@ -217,7 +217,6 @@ export function DevFaucet() {
           </svg>
           <p className="text-sm font-medium text-blue-400">Dev Faucet</p>
         </div>
-        <p className="text-xs text-muted-foreground">Ambil ETH dan USDC untuk testing (tanpa konfirmasi dompet)</p>
         <div className="flex flex-wrap gap-2">
           <Button variant="outline" size="sm" onClick={requestEth} disabled={!!busy}>
             {busy === 'eth' ? 'Mengirim...' : '10 ETH'}
@@ -226,10 +225,10 @@ export function DevFaucet() {
             {busy === 'usdc' ? 'Mencetak...' : '1,000 USDC'}
           </Button>
           <Button variant="outline" size="sm" onClick={registerViaRpc} disabled={!!busy} className="text-emerald-500 border-emerald-500/30 hover:bg-emerald-500/10">
-            {busy === 'register' ? 'Mendaftar...' : '🚀 Register via RPC'}
+            {busy === 'register' ? 'Mendaftar...' : 'Register via RPC'}
           </Button>
           <Button variant="outline" size="sm" onClick={fastForward} disabled={!!busy} className="text-amber-500 border-amber-500/30 hover:bg-amber-500/10">
-            {busy === 'fastForward' ? 'Memajukan...' : '⏩ Fast Forward 8 Hari'}
+            {busy === 'fastForward' ? 'Memajukan...' : 'Fast Forward 8 Hari'}
           </Button>
         </div>
         <div className="flex flex-wrap gap-2 pt-1 border-t border-border">
@@ -241,21 +240,22 @@ export function DevFaucet() {
           </Button>
         </div>
         <div className="pt-1 border-t border-border space-y-2">
-          <p className="text-[10px] text-muted-foreground">Import di Brave Wallet untuk vote dari akun lain</p>
-          <div className="flex flex-col gap-1.5">
-            {TEST_ACCOUNTS.map((acc) => (
-              <div key={acc.name} className="flex items-center gap-2">
-                <span className="text-[10px] text-muted-foreground w-16">{acc.name}</span>
-                <code className="text-[10px] font-mono flex-1 truncate text-muted-foreground/70">{acc.key}</code>
-                <Button variant="outline" size="sm" className="h-6 text-[10px] px-2" onClick={() => copyKey(acc.key)}>
-                  Copy
-                </Button>
-              </div>
+          <p className="text-[10px] text-muted-foreground">Grant role ke wallet saat ini</p>
+          <div className="flex flex-wrap gap-2">
+            {ROLES.map(r => (
+              <Button
+                key={r.key}
+                variant="outline"
+                size="sm"
+                onClick={() => grantRole(r.key)}
+                disabled={!!busy}
+                className="text-xs"
+                title={r.desc}
+              >
+                {busy === `role-${r.key}` ? '...' : r.label}
+              </Button>
             ))}
           </div>
-          <Button variant="outline" size="sm" onClick={fundAccount2} disabled={!!busy} className="text-purple-500 border-purple-500/30 hover:bg-purple-500/10 w-full">
-            {busy === 'fundAccount2' ? 'Memproses...' : 'Fund & Register Account 2'}
-          </Button>
         </div>
       </CardContent>
     </Card>

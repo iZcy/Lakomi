@@ -181,7 +181,7 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
         interestRate = 500;              // 5% APY
         maxLTV = 5000;                   // 50%
         collateralRatio = 2500;          // 25%
-        autoApproveThreshold = 200 * 10**6; // 200 USDC
+        autoApproveThreshold = 0; // requires manual approval for all loans
         defaultLoanDuration = 30 days;
         gracePeriod = 7 days;
 

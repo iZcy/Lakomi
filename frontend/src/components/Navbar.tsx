@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useAccount } from 'wagmi'
+import { useAccount, useBalance } from 'wagmi'
+import { formatEther, formatUnits } from 'viem'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
 import { WALLET_CHAIN_PARAMS } from '../wagmi'
+import { useTokenBalance, useUsdcBalance, useSimpananSummary } from '../hooks/useContractRead'
+import { decodeSummary } from '../types'
 
 const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
   ? import.meta.env.VITE_RPC_URL
@@ -29,8 +32,33 @@ function getMemberName(address: string): string | null {
   }
 }
 
+function fmt(num: number | string, decimals = 2): string {
+  const n = typeof num === 'string' ? parseFloat(num) : num
+  if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B'
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + 'M'
+  if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K'
+  return n.toFixed(decimals)
+}
+
+function BalanceItem({ label, value, decimals, symbol }: { label: string; value: bigint | undefined; decimals: number; symbol: string }) {
+  if (value === undefined) return null
+  const display = parseFloat(formatUnits(value, decimals))
+  if (display === 0) return null
+  return (
+    <span className="flex items-center gap-1 text-[11px]">
+      <span className="text-muted-foreground">{label}</span>
+      <span className="font-mono font-medium">{fmt(display)}{symbol === 'ETH' ? '' : ` ${symbol}`}</span>
+    </span>
+  )
+}
+
 export function Navbar() {
   const { address, isConnected } = useAccount()
+  const { data: ethBalance } = useBalance({ address })
+  const { data: lakBalance } = useTokenBalance(address)
+  const { data: usdcBalance } = useUsdcBalance(address)
+  const { data: simpananRaw } = useSimpananSummary(address)
+  const simpanan = decodeSummary(simpananRaw)
   const [adding, setAdding] = useState(false)
   const [chainTime, setChainTime] = useState('')
   const [memberName, setMemberName] = useState<string | null>(null)
@@ -98,6 +126,19 @@ export function Navbar() {
               <h1 className="text-base sm:text-lg font-bold">Lakomi</h1>
               <p className="text-[9px] sm:text-[10px] text-muted-foreground leading-tight hidden sm:block">Koperasi Digital Berbasis Blockchain</p>
             </div>
+            {isConnected && (
+              <div className="hidden md:flex items-center gap-3 ml-3 pl-3 border-l border-border">
+                <BalanceItem label="ETH" value={ethBalance?.value} decimals={18} symbol="ETH" />
+                <BalanceItem label="USDC" value={usdcBalance} decimals={6} symbol="USDC" />
+                <BalanceItem label="LAK" value={lakBalance} decimals={18} symbol="LAK" />
+                {simpanan && simpanan.totalContribution > 0n && (
+                  <span className="flex items-center gap-1 text-[11px]">
+                    <span className="text-muted-foreground">Simpanan</span>
+                    <span className="font-mono font-medium text-emerald-500">{fmt(formatUnits(simpanan.totalContribution, 6))} USDC</span>
+                  </span>
+                )}
+              </div>
+            )}
             {chainTime && (
               <span className="text-[10px] text-muted-foreground hidden sm:inline ml-2">Chain: {chainTime}</span>
             )}

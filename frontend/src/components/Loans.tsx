@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
-import { useAccount } from 'wagmi'
+import { useAccount, useReadContract } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
+import { keccak256, toHex } from 'viem'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -20,6 +21,19 @@ import { formatUSDCAmount, formatLAKAmount, parseUnits, formatTimestampShort, ge
 import { decodeLoan } from '../types'
 import { CONTRACTS } from '../config/contracts'
 import { MemberRegistration } from './MemberRegistration'
+
+const APPROVER_ROLE = keccak256(toHex('APPROVER_ROLE'))
+const TREASURER_ROLE = keccak256(toHex('TREASURER_ROLE'))
+
+function useHasApproverRole(address?: `0x${string}`) {
+  return useReadContract({
+    address: CONTRACTS.LAKOMI_LOANS as `0x${string}`,
+    abi: [{ type: 'function', name: 'hasRole', stateMutability: 'view', inputs: [{ type: 'bytes32' }, { type: 'address' }], outputs: [{ type: 'bool' }] }],
+    functionName: 'hasRole',
+    args: [APPROVER_ROLE, address!],
+    query: { enabled: !!address },
+  })
+}
 
 export function Loans() {
   const { address, isConnected } = useAccount()
@@ -74,7 +88,7 @@ export function Loans() {
           <ul className="text-xs text-muted-foreground space-y-1">
             <li>Bunga 5% APY sesuai suku bunga koperasi</li>
             <li>Jaminan 25% LAK dikunci sampai lunas</li>
-            <li>Pinjaman &lt; 200 USDC disetujui otomatis</li>
+            <li>Semua pinjaman memerlukan persetujuan pengurus</li>
             <li>Masa tenggang 7 hari setelah jatuh tempo</li>
             <li>Gagal bayar: jaminan disita oleh pengawas</li>
           </ul>
@@ -139,6 +153,7 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
 function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}` }) {
   const { data: loanRaw } = useLoan(loanId)
   const loan = decodeLoan(loanRaw)
+  const { data: isApprover } = useHasApproverRole(address)
   const { repayInFull, isPending: rPending, isSuccess: rSuccess } = useRepayInFull()
   const { repayLoan, isPending: rpPending, isSuccess: rpSuccess } = useRepayLoan()
   const { approve, isPending: ap } = useApproveUsdc()
@@ -213,13 +228,17 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
           </div>
         )}
 
-        {s === 0 && (
+        {s === 0 && isApprover && (
           <div className="mt-3 pt-3 border-t space-y-2">
             <Button onClick={() => approveLoan(loanId)} disabled={alPending} className="w-full" size="sm" variant="outline">
               {alPending ? 'Menyetujui...' : 'Setujui (Admin)'}
             </Button>
             {alSuccess && <p className="text-xs text-emerald-500">Pinjaman disetujui!</p>}
           </div>
+        )}
+
+        {s === 0 && !isApprover && (
+          <p className="text-[10px] text-muted-foreground mt-2">Menunggu persetujuan pengurus (APPROVER_ROLE)</p>
         )}
 
         {s === 2 && (
@@ -248,7 +267,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
           </div>
         )}
 
-        {s === 2 && (
+        {s === 2 && isApprover && (
           <div className="mt-3 pt-3 border-t space-y-2">
             <Separator />
             <p className="text-[10px] text-muted-foreground font-medium">Admin / Pengawas</p>
@@ -259,7 +278,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
           </div>
         )}
 
-        {s === 4 && (
+        {s === 4 && isApprover && (
           <div className="mt-3 pt-3 border-t space-y-2">
             <p className="text-[10px] text-red-500 font-medium">Pinjaman gagal bayar - jaminan dapat disita</p>
             <Button onClick={() => claimCollateral(loanId)} disabled={ccPending} variant="destructive" size="sm" className="w-full text-xs">

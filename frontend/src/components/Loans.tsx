@@ -263,7 +263,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
           <p className="text-[10px] text-muted-foreground mt-2">Menunggu persetujuan pengurus (APPROVER_ROLE)</p>
         )}
 
-        {s === 2 && (
+        {s === 2 && address && loan.borrower.toLowerCase() === address.toLowerCase() && (
           <div className="mt-3 pt-3 border-t space-y-2">
             <Button onClick={handleRepayFull} disabled={rPending || ap} className="w-full" size="sm">
               {ap ? 'Menyetujui...' : rPending ? 'Membayar...' : `Lunasi ${formatUSDCAmount(loan.remaining)}`}

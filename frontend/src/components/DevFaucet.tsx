@@ -131,22 +131,31 @@ export function DevFaucet() {
     if (!address) return
     setBusy('register')
     try {
+      // 1. Mint USDC if needed
       await rpcCall('anvil_impersonateAccount', [address])
       await rpcCall('eth_sendTransaction', [{
-        from: address,
-        to: CONTRACTS.LAKOMI_TOKEN,
+        from: address, to: CONTRACTS.MOCK_USDC,
+        data: encodeMint(address, 1000000000n), gas: '0x100000',
+      }])
+      // 2. Pay simpanan pokok
+      const pkSig = '0x3e834de9' + address.toLowerCase().replace('0x','').padStart(64,'0')
+      await rpcCall('eth_sendTransaction', [{
+        from: address, to: CONTRACTS.LAKOMI_VAULT,
+        data: pkSig, gas: '0x200000',
+      }])
+      // 3. Register
+      await rpcCall('eth_sendTransaction', [{
+        from: address, to: CONTRACTS.LAKOMI_TOKEN,
         data: encodeFunctionData({ abi: parsedTokenAbi, functionName: 'registerMember' }),
         gas: '0x200000',
       }])
       await rpcCall('anvil_stopImpersonatingAccount', [address])
       queryClient.invalidateQueries({ queryKey: ['readContract'] })
-      addToast('Berhasil terdaftar sebagai anggota!', 'success')
+      addToast('Terdaftar! (USDC dicetak + Pokok + Register)', 'success')
     } catch (e: any) {
       await rpcCall('anvil_stopImpersonatingAccount', [address]).catch(() => {})
-      addToast('Gagal register: ' + e.message, 'error')
-    } finally {
-      setBusy(null)
-    }
+      addToast('Gagal: ' + (e?.shortMessage || e?.message), 'error')
+    } finally { setBusy(null) }
   }
 
   const resetAll = async () => {

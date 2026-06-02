@@ -385,16 +385,16 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     //             ELECTIONS (UU 25/1992 Pasal 29-30, 38)
     // ============================================================
 
-    function beginElection(bytes32 role, uint256 registrationPeriod, uint256 votingPeriod)
+    function beginElection(bytes32 role, uint256 registrationPeriod, uint256 _votingPeriod)
         external
         onlyRole(DEFAULT_ADMIN_ROLE)
     {
-        require(registrationPeriod > 0 && votingPeriod > 0, "Invalid periods");
+        require(registrationPeriod > 0 && _votingPeriod > 0, "Invalid periods");
         uint256 eId = _electionCount[role]++;
         _elections[role][eId] = Election({
             startTime: block.timestamp,
             registrationEnd: block.timestamp + registrationPeriod,
-            votingEnd: block.timestamp + registrationPeriod + votingPeriod,
+            votingEnd: block.timestamp + registrationPeriod + _votingPeriod,
             finalized: false,
             winner: address(0),
             forVotes: 0
@@ -445,6 +445,7 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
         }
         if (e.winner != address(0)) {
             roleTermStart[role] = block.timestamp;
+            _grantRole(role, e.winner);
         }
     }
 

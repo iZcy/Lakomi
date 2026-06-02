@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
+import { PdfViewer } from './PdfViewer'
 
 const PASAL = [
   { pasal: 'Pasal 5(1)', page: 4, title: 'Keanggotaan Terbuka dan Sukarela', lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.', feature: 'Anggota' },
@@ -42,13 +42,10 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
   const [pdfPage, setPdfPage] = useState(1)
-  const [iframeKey, setIframeKey] = useState(0)
 
   const handlePasalClick = (idx: number) => {
     setActivePasal(idx)
-    const page = PASAL[idx].page
-    setPdfPage(page)
-    setIframeKey(k => k + 1)
+    setPdfPage(PASAL[idx].page)
   }
 
   return (
@@ -64,7 +61,7 @@ export function Compliance() {
             <span>UU No. 25 Tahun 1992</span>
             <span className="text-muted-foreground font-normal">Hal. {pdfPage}</span>
           </div>
-          <embed key={iframeKey} src={`/uu-25-1992.pdf#page=${pdfPage}`} type="application/pdf" className="flex-1 w-full rounded-bl-lg" />
+          <PdfViewer src="/uu-25-1992.pdf" page={pdfPage} />
         </div>
         <div className="w-1/2 border rounded-r-lg flex flex-col overflow-y-auto">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">Implementasi Kontrak Pintar — {PASAL.length} ketentuan</div>

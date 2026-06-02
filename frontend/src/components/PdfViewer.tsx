@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import * as pdfjsLib from 'pdfjs-dist'
+import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.mjs'
+pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl
 
 export function PdfViewer({ src, page }: { src: string; page: number }) {
   const containerRef = useRef<HTMLDivElement>(null)

@@ -15,6 +15,6 @@ COPY scripts/redeploy-server.mjs ./
 RUN npm install express
 
 WORKDIR /app/hardhat
-RUN rm -rf contracts && ln -s ../src contracts && npx hardhat compile
+RUN rm -rf contracts && ln -s ../src contracts && NODE_OPTIONS=--openssl-legacy-provider HARDHAT_USE_SOLCJS=1 npx hardhat compile
 
 WORKDIR /app/hardhat

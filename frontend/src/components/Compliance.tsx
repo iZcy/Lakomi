@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { PdfViewer } from './PdfViewer'
+
+const PDF_PAGES = 35
 
 const PASAL = [
   { pasal: 'Pasal 5(1)', page: 4, title: 'Keanggotaan Terbuka dan Sukarela', lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.', feature: 'Anggota' },
@@ -42,10 +43,14 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
   const [pdfPage, setPdfPage] = useState(1)
+  const pageRefs = useRef<(HTMLDivElement | null)[]>([])
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   const handlePasalClick = (idx: number) => {
     setActivePasal(idx)
-    setPdfPage(PASAL[idx].page)
+    const page = PASAL[idx].page
+    setPdfPage(page)
+    pageRefs.current[page - 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
   }
 
   return (
@@ -59,9 +64,20 @@ export function Compliance() {
         <div className="w-1/2 border border-r-0 rounded-l-lg bg-muted/20 flex flex-col">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 flex items-center justify-between">
             <span>UU No. 25 Tahun 1992</span>
-            <span className="text-muted-foreground font-normal">Hal. {pdfPage}</span>
+            <span className="text-muted-foreground font-normal">Hal. {pdfPage} / {PDF_PAGES}</span>
           </div>
-          <PdfViewer src="/uu-25-1992.pdf" page={pdfPage} />
+          <div ref={scrollRef} className="flex-1 overflow-y-auto">
+            {Array.from({ length: PDF_PAGES }, (_, i) => (
+              <div key={i} ref={el => { pageRefs.current[i] = el }}>
+                <img 
+                  src={`/pdf-pages/page-${String(i + 1).padStart(2, '0')}.png`}
+                  alt={`Halaman ${i + 1}`}
+                  className="w-full border-b border-border"
+                  loading={i < 3 ? 'eager' : 'lazy'}
+                />
+              </div>
+            ))}
+          </div>
         </div>
         <div className="w-1/2 border rounded-r-lg flex flex-col overflow-y-auto">
           <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">Implementasi Kontrak Pintar — {PASAL.length} ketentuan</div>

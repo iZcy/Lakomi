@@ -66,15 +66,18 @@ export function Compliance() {
     <div className="space-y-4">
       <div>
         <h2 className="text-xl font-bold">Kepatuhan Hukum</h2>
-        <p className="text-sm text-muted-foreground mt-1">Hierarki: UU 25/1992 → PP 7/2021 → Permenkop 9/2018 · 8/2023</p>
+        <p className="text-sm text-muted-foreground mt-1">
+          Hierarki Regulasi: UU 25/1992 → PP 7/2021 → Permenkop 9/2018 · 8/2023
+        </p>
       </div>
 
+      <iframe src="/law-roadmap.html" className="w-full border rounded-lg" style={{ height: '480px' }} title="Hierarki Regulasi" />
+
       <Card>
-        <CardHeader className="pb-2 flex flex-row items-center justify-between">
-          <CardTitle className="text-sm">Ringkasan Implementasi — {PASAL.length} Ketentuan</CardTitle>
-          <span className="text-[10px] text-muted-foreground">Klik untuk buka detail</span>
+        <CardHeader className="pb-2">
+          <CardTitle className="text-sm">Implementasi Kontrak Pintar — {PASAL.length} Ketentuan</CardTitle>
         </CardHeader>
-        <CardContent className="p-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1.5 max-h-[55vh] overflow-y-auto">
+        <CardContent className="p-3 space-y-1.5 max-h-[60vh] overflow-y-auto">
           {PASAL.map((item, idx) => {
             const feat = FEATURE_MAP[item.feature]
             const reg = REGULATIONS.find(r => r.key === item.regulation)
@@ -83,31 +86,39 @@ export function Compliance() {
               <button
                 key={idx}
                 onClick={() => setActivePasal(idx === activePasal ? -1 : idx)}
-                className={`text-left p-2 rounded-lg transition-colors border ${active ? 'ring-2 ring-primary border-primary' : 'border-border hover:bg-muted/50'}`}
+                className={`w-full text-left p-2.5 rounded-lg transition-colors border ${active ? 'border-primary/50 bg-primary/5' : 'border-transparent hover:bg-muted/50'}`}
               >
-                <div className="flex items-center gap-1 mb-1 flex-wrap">
-                  <Badge variant="outline" className="text-[8px] bg-muted">{reg?.label}</Badge>
-                  <Badge className="text-[8px] bg-emerald-500 text-white hover:bg-emerald-500">{item.pasal}</Badge>
-                  {feat && <span className={`text-[7px] text-white px-1 py-0.5 rounded ${feat.color}`}>{feat.label}</span>}
+                <div className="flex items-center gap-2 mb-1 flex-wrap">
+                  <Badge variant="outline" className="text-[9px] bg-muted">{reg?.label}</Badge>
+                  <Badge variant="outline" className="text-[9px] bg-emerald-500/10 text-emerald-500 border-emerald-500/20">{item.pasal}</Badge>
+                  {feat && <span className={`text-[8px] text-white px-1.5 py-0.5 rounded ${feat.color}`}>{feat.label}</span>}
                 </div>
-                <p className="text-[10px] font-medium leading-tight mb-0.5">{item.title}</p>
-                {active && (
-                  <div className="mt-1 pt-1 border-t border-border space-y-0.5">
-                    <p className="text-[9px] text-muted-foreground italic">"{item.lawText}"</p>
-                    <p className="text-[9px] text-primary/80"><span className="font-semibold">Kontrak:</span> {item.contract}</p>
-                    <p className="text-[9px] text-emerald-500 flex items-center gap-0.5">
-                      <svg className="w-2.5 h-2.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                      {item.evidence}
-                    </p>
+                <h4 className="text-xs font-semibold mb-1">{item.title}</h4>
+                <div className="space-y-1">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-[9px] font-semibold text-amber-500 uppercase w-6 flex-shrink-0 mt-0.5">UU</span>
+                    <p className="text-[10px] text-muted-foreground leading-relaxed italic">"{item.lawText}"</p>
                   </div>
-                )}
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-[9px] font-semibold text-primary uppercase w-6 flex-shrink-0 mt-0.5">SC</span>
+                    <code className="text-[10px] text-primary/80 bg-primary/5 px-1 rounded">{item.contract}</code>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-[9px] font-semibold text-emerald-500 uppercase w-6 flex-shrink-0 mt-0.5">OK</span>
+                    <p className="text-[10px] text-muted-foreground">{item.evidence}</p>
+                  </div>
+                </div>
+                <div className="mt-1.5 flex items-center gap-1 text-[10px] text-emerald-500">
+                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Terimplementasi & Teruji
+                </div>
               </button>
             )
           })}
         </CardContent>
       </Card>
 
-      <p className="text-[10px] text-muted-foreground">Verifikasi mandiri — buka dokumen regulasi di bawah, cari pasal yang dirujuk, dan cocokkan dengan kontrak pintar yang terdaftar.</p>
+      <p className="text-[10px] text-muted-foreground">Verifikasi mandiri — buka dokumen regulasi di bawah, cari pasal yang dirujuk dalam ringkasan, dan cocokkan dengan kontrak pintar yang terdaftar.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2" style={{ minHeight: '400px' }}>
         {REGULATIONS.slice(0, 2).map(r => (

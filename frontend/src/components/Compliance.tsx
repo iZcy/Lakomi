@@ -34,7 +34,8 @@ const PASAL = [
   { pasal: 'Pasal 29-30', title: 'Pemilihan Pengurus', lawText: 'Pengurus dipilih dari dan oleh anggota dalam RAT. Masa jabatan maksimal 5 tahun.', contract: 'LakomiGovern.election system: beginElection → vote → finalizeElection', evidence: 'Pemilu on-chain: pendaftaran kandidat, voting 1-suara, masa jabatan terlacak (roleTermStart).', feature: 'Tata Kelola' },
   { pasal: 'Pasal 33-35', title: 'Pembubaran Koperasi', lawText: 'Pembubaran koperasi dilakukan berdasarkan keputusan Rapat Anggota.', contract: 'LakomiGovern.executeDissolution()', evidence: 'Usulan pembubaran via governance, eksekusi menonaktifkan (pause) semua kontrak.', feature: 'Tata Kelola' },
   { pasal: 'Pasal 41(3)', title: 'Sertifikat Simpanan', lawText: 'Atas simpanan sukarela, koperasi dapat menerbitkan sertifikat simpanan.', contract: 'LakomiVault.issueCertificate()', evidence: 'Bendahara menerbitkan sertifikat tercatat on-chain dengan timestamp.', feature: 'Simpanan' },
-  { pasal: 'Pasal 46-47', title: 'Laporan Keuangan Tahunan', lawText: 'Pengurus wajib menyusun laporan keuangan dan menyampaikan dalam RAT.', contract: 'LakomiVault.generateFinancialSnapshot()', evidence: 'Snapshot lengkap: aset, simpanan, dana, revenue, SHU, memberCount — diverifikasi on-chain.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 46-47', title: 'Laporan Keuangan Tahunan', lawText: 'Pengurus wajib menyusun laporan keuangan dan menyampaikan dalam RAT.', contract: 'LakomiVault.generateFinancialSnapshot()', evidence: 'Snapshot lengkap: aset, simpanan, dana, revenue, SHU, memberCount.', feature: 'Tata Kelola' },
+  { pasal: 'Pasal 44', title: 'Pertanggungjawaban Pengurus', lawText: 'Pengurus bertanggung jawab mengenai kegiatan pengelolaan koperasi.', contract: 'AccessControl audit trail', evidence: 'Setiap tindakan admin tercatat on-chain secara transparan, dapat diaudit kapan saja.', feature: 'Tata Kelola' },
 ]
 
 const FEATURE_MAP: Record<string, { label: string; color: string }> = {
@@ -118,13 +119,12 @@ export function Compliance() {
           </div>
         </div>
 
-        <div className="flex flex-col overflow-hidden">
-          <div className="px-4 py-2 border-b bg-muted/40 flex items-center gap-2">
+        <div className="flex flex-col overflow-y-auto">
+          <div className="px-4 py-2 border-b bg-muted/40 flex items-center gap-2 sticky top-0 z-10">
             <span className="text-xs font-semibold">Implementasi Kontrak Pintar</span>
             <span className="text-[10px] text-muted-foreground">{PASAL.length} ketentuan</span>
           </div>
-          <div ref={rightRef} className="flex-1 overflow-y-auto">
-            <div className="p-3 space-y-2">
+          <div ref={rightRef} className="p-3 space-y-2">
               {PASAL.map((item, idx) => {
                 const feat = FEATURE_MAP[item.feature]
                 return (
@@ -160,7 +160,6 @@ export function Compliance() {
                   </button>
                 )
               })}
-            </div>
           </div>
         </div>
       </div>

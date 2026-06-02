@@ -3,33 +3,54 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { PdfViewer } from './PdfViewer'
 
-const PASAL = [
-  { pasal: 'Pasal 5(1)', page: 5, title: 'Keanggotaan Terbuka dan Sukarela', lawText: 'Keanggotaan koperasi bersifat sukarela dan terbuka.', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet tanpa persyaratan.', feature: 'Anggota' },
-  { pasal: 'Pasal 5(2)', page: 5, title: 'Pengelolaan Demokratis', lawText: 'Pengelolaan koperasi dilakukan secara demokratis.', contract: 'LakomiGovern.castVote()', evidence: 'Satu anggota satu suara, quorum 67%.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 5(3)', page: 5, title: 'Pembagian SHU Adil', lawText: 'SHU dibagi sebanding dengan jasa usaha.', contract: 'LakomiVault.distributeSHU() 6 kategori', evidence: 'Split: cadangan 5%, jasa modal 40%, jasa usaha 40%.', feature: 'Simpanan' },
-  { pasal: 'Pasal 18', page: 20, title: 'Pinjaman Anggota', lawText: 'Koperasi dapat memberikan pinjaman kepada anggota.', contract: 'LakomiLoans.requestLoan()', evidence: 'Jaminan LAK 25%, perlu persetujuan pengurus.', feature: 'Pinjaman' },
-  { pasal: 'Pasal 18(2)', page: 20, title: 'Non-Transferable', lawText: 'Keanggotaan tidak dapat dipindahtangankan.', contract: 'transfersEnabled = false', evidence: 'Transfer token dinonaktifkan default.', feature: 'Anggota' },
-  { pasal: 'Pasal 22(1)', page: 22, title: 'Satu Anggota Satu Suara', lawText: 'Setiap anggota mempunyai hak satu suara.', contract: 'getVotingPower() → 1', evidence: '1 suara per anggota, bukan token.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 22(2)', page: 22, title: 'Simpanan Pokok & Wajib', lawText: 'Anggota wajib membayar simpanan.', contract: 'paySimpananPokok/Wajib()', evidence: 'Pokok wajib daftar, Wajib bulanan.', feature: 'Simpanan' },
-  { pasal: 'Pasal 23', page: 23, title: 'Quorum Keputusan', lawText: 'Keputusan diambil musyawarah atau pemungutan suara.', contract: 'quorumNumerator = 67', evidence: 'Quorum 67%. For > Against.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 26', page: 23, title: 'Rapat Anggota', lawText: 'Rapat Anggota kekuasaan tertinggi koperasi.', contract: 'scheduleAnnualRAT()', evidence: 'RAT 1x per tahun.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 27', page: 23, title: 'Penyelenggaraan RAT', lawText: 'RAT minimal 1x setahun.', contract: 'ratPeriod = 365 days', evidence: 'Interval 365 hari.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 31', page: 24, title: 'Pemberhentian Anggota', lawText: 'Anggota diberhentikan berdasarkan RAT.', contract: 'revokeMembership() via governance', evidence: 'Usulan → voting → eksekusi.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 32', page: 24, title: 'Pengurus', lawText: 'Pengurus mengelola koperasi.', contract: 'APPROVER_ROLE / TREASURER_ROLE', evidence: 'Role-based management.', feature: 'Anggota' },
-  { pasal: 'Pasal 38', page: 26, title: 'Pengawas', lawText: 'Pengawas mengawasi kebijakan dan pengelolaan.', contract: 'vetoProposal() + PENGAWAS_ROLE', evidence: 'Veto, pause, gagal bayar.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 39(2)', page: 27, title: 'Hak Pengawas Audit', lawText: 'Pengawas meneliti catatan koperasi.', contract: 'getPengawasAuditReport()', evidence: 'Audit: simpanan, SHU, dana.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 41', page: 27, title: 'Simpanan Pokok', lawText: 'Simpanan pokok dibayar sekali saat masuk.', contract: 'paySimpananPokok()', evidence: '100 USDC saat daftar.', feature: 'Simpanan' },
-  { pasal: 'Pasal 41', page: 27, title: 'Simpanan Wajib', lawText: 'Simpanan wajib dibayar berkala.', contract: 'paySimpananWajib()', evidence: 'Bulanan via tata kelola.', feature: 'Simpanan' },
-  { pasal: 'Pasal 41', page: 27, title: 'Simpanan Sukarela', lawText: 'Simpanan sukarela disetor/diambil bebas.', contract: 'deposit() / withdraw()', evidence: 'Deposit kapan saja.', feature: 'Simpanan' },
-  { pasal: 'Pasal 43', page: 28, title: 'Dana Cadangan', lawText: 'Modal sendiri: simpanan, dana cadangan.', contract: 'danaCadangan (5% SHU)', evidence: 'Akumulasi tiap distribusi.', feature: 'Simpanan' },
-  { pasal: 'Pasal 45(1)', page: 29, title: 'Sisa Hasil Usaha', lawText: 'SHU = pendapatan - biaya.', contract: 'distributeSHU() → claimSHU()', evidence: 'Revenue bunga → distribusi.', feature: 'Simpanan' },
-  { pasal: 'Pasal 45(2)', page: 29, title: 'SHU Multi-Kategori', lawText: '6 kategori: jasa, modal, cadangan.', contract: 'distributeSHU() 6-kategori', evidence: 'Split via setSHUSplit().', feature: 'Simpanan' },
-  { pasal: 'Pasal 19-21', page: 21, title: 'Hak & Keluar Sukarela', lawText: 'Anggota berhak hadir RAT, menyampaikan pendapat, memilih, keluar.', contract: 'resignMembership()', evidence: 'Refund simpanan pokok.', feature: 'Anggota' },
-  { pasal: 'Pasal 29-30', page: 24, title: 'Pemilihan Pengurus', lawText: 'Pengurus dipilih dari/oleh anggota RAT.', contract: 'beginElection → vote → finalize', evidence: 'Pemilu on-chain.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 33-35', page: 25, title: 'Pembubaran Koperasi', lawText: 'Pembubaran berdasarkan RAT.', contract: 'executeDissolution()', evidence: 'Pause semua kontrak.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 41(3)', page: 28, title: 'Sertifikat Simpanan', lawText: 'Dapat menerbitkan sertifikat simpanan.', contract: 'issueCertificate()', evidence: 'Tercatat on-chain.', feature: 'Simpanan' },
-  { pasal: 'Pasal 46-47', page: 30, title: 'Laporan Keuangan Tahunan', lawText: 'Pengurus susun laporan untuk RAT.', contract: 'generateFinancialSnapshot()', evidence: 'Snapshot: aset, dana, SHU.', feature: 'Tata Kelola' },
-  { pasal: 'Pasal 44', page: 29, title: 'Pertanggungjawaban Pengurus', lawText: 'Pengurus bertanggung jawab.', contract: 'AccessControl audit trail', evidence: 'On-chain transparent records.', feature: 'Tata Kelola' },
+type Regulation = 'uu2592' | 'pp72021' | 'permenkop92018' | 'permenkop82023'
+
+interface PasalEntry {
+  regulation: Regulation
+  pasal: string
+  title: string
+  lawText: string
+  contract: string
+  evidence: string
+  feature: string
+}
+
+const REGULATIONS: { key: Regulation; label: string; full: string; pdf: string }[] = [
+  { key: 'uu2592', label: 'UU 25/1992', full: 'UU No. 25 Tahun 1992', pdf: '/uu-25-1992.pdf' },
+  { key: 'pp72021', label: 'PP 7/2021', full: 'PP No. 7 Tahun 2021', pdf: '/regulations/pp-7-2021.pdf' },
+  { key: 'permenkop92018', label: 'Permenkop 9/2018', full: 'Permenkop No. 9 Tahun 2018', pdf: '/regulations/permenkop-9-2018.pdf' },
+  { key: 'permenkop82023', label: 'Permenkop 8/2023', full: 'Permenkop No. 8 Tahun 2023', pdf: '/regulations/permenkop-8-2023.pdf' },
+]
+
+const PASAL: PasalEntry[] = [
+  { regulation: 'uu2592', pasal: 'Pasal 5 ayat (1)', title: 'Keanggotaan Terbuka dan Sukarela', lawText: 'Keanggotaan Koperasi bersifat sukarela dan terbuka.', contract: 'LakomiToken.registerMember()', evidence: 'Fungsi terbuka untuk semua alamat dompet.', feature: 'Anggota' },
+  { regulation: 'uu2592', pasal: 'Pasal 5 ayat (2)', title: 'Pengelolaan Demokratis', lawText: 'Pengelolaan Koperasi dilakukan secara demokratis.', contract: 'LakomiGovern.castVote()', evidence: '1 suara per anggota, quorum 67%.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 5 ayat (3)', title: 'Pembagian SHU Adil', lawText: 'Pembagian sisa hasil usaha dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota.', contract: 'distributeSHU() 6 kategori', evidence: 'Cadangan 5%, jasa modal 40%, jasa usaha 40%.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 18', title: 'Pinjaman Anggota', lawText: 'Koperasi dapat memberikan pinjaman kepada anggota. Syarat dan tata cara pemberian pinjaman ditetapkan dalam AD/ART.', contract: 'LakomiLoans.requestLoan()', evidence: 'Jaminan LAK 25%, persetujuan pengurus.', feature: 'Pinjaman' },
+  { regulation: 'uu2592', pasal: 'Pasal 18 ayat (2)', title: 'Keanggotaan Tidak Dapat Dipindahtangankan', lawText: 'Keanggotaan Koperasi tidak dapat dipindahtangankan.', contract: 'transfersEnabled = false', evidence: 'Transfer token dinonaktifkan secara default.', feature: 'Anggota' },
+  { regulation: 'pp72021', pasal: 'Pasal 18 ayat (1)', title: 'Pendaftaran Anggota Secara Elektronik', lawText: 'Pendaftaran anggota Koperasi dapat dilakukan secara elektronik melalui sistem informasi yang disediakan oleh Koperasi.', contract: 'registerMember() via Web3', evidence: 'Pendaftaran on-chain dengan wallet MetaMask.', feature: 'Anggota' },
+  { regulation: 'uu2592', pasal: 'Pasal 22 ayat (1)', title: 'Satu Anggota Satu Suara', lawText: 'Setiap anggota mempunyai hak satu suara. Hak suara tidak dapat diwakilkan.', contract: 'getVotingPower() → 1', evidence: '1 suara per anggota, bukan berdasarkan token.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 22 ayat (2)', title: 'Kewajiban Simpanan', lawText: 'Anggota berkewajiban membayar simpanan pokok dan simpanan wajib.', contract: 'paySimpananPokok/Wajib()', evidence: 'Pokok saat daftar, Wajib bulanan.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 23', title: 'Keputusan Rapat Anggota', lawText: 'Keputusan Rapat Anggota diambil berdasarkan musyawarah untuk mencapai mufakat. Apabila tidak diperoleh mufakat, pengambilan keputusan dilakukan melalui pemungutan suara.', contract: 'quorumNumerator = 67', evidence: 'Quorum 67% (2/3 mayoritas).', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 26', title: 'Rapat Anggota — Kekuasaan Tertinggi', lawText: 'Rapat Anggota merupakan pemegang kekuasaan tertinggi dalam Koperasi.', contract: 'scheduleAnnualRAT()', evidence: 'RAT terjadwal 1x per tahun.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 27 ayat (1)', title: 'Penyelenggaraan RAT', lawText: 'Rapat Anggota diselenggarakan paling sedikit 1 (satu) kali dalam 1 (satu) tahun.', contract: 'ratPeriod = 365 days', evidence: 'Interval 365 hari.', feature: 'Tata Kelola' },
+  { regulation: 'permenkop92018', pasal: 'Pasal 14 ayat (2)', title: 'RAT Dapat Dilakukan Secara Elektronik', lawText: 'Rapat Anggota dapat dilakukan secara elektronik melalui sistem informasi yang dimiliki oleh Koperasi.', contract: 'LakomiGovern (on-chain voting)', evidence: 'Voting proposal on-chain, 1-member-1-vote.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 31', title: 'Pemberhentian Anggota', lawText: 'Anggota dapat diberhentikan berdasarkan keputusan Rapat Anggota.', contract: 'revokeMembership() via governance', evidence: 'Usulan → voting → eksekusi.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 32', title: 'Pengurus', lawText: 'Pengurus mengelola Koperasi dan usahanya berdasarkan AD/ART. Pengurus bertanggung jawab mengenai kegiatan pengelolaan Koperasi.', contract: 'APPROVER_ROLE / TREASURER_ROLE', evidence: 'Role-based access control.', feature: 'Anggota' },
+  { regulation: 'uu2592', pasal: 'Pasal 29-30', title: 'Pemilihan Pengurus', lawText: 'Pengurus dipilih dari dan oleh anggota Koperasi dalam Rapat Anggota. Masa jabatan Pengurus paling lama 5 (lima) tahun.', contract: 'beginElection → vote → finalize', evidence: 'Pemilu on-chain, term tracking.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 33-35', title: 'Pembubaran Koperasi', lawText: 'Pembubaran Koperasi dilakukan berdasarkan keputusan Rapat Anggota. Dalam hal Koperasi dibubarkan, dilakukan penyelesaian pembubaran.', contract: 'executeDissolution()', evidence: 'Pause semua kontrak.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 38', title: 'Pengawas', lawText: 'Untuk melakukan pengawasan terhadap pelaksanaan kebijakan dan pengelolaan Koperasi, Rapat Anggota mengangkat Pengawas dari dan oleh anggota.', contract: 'vetoProposal() + PENGAWAS_ROLE', evidence: 'Veto, pause, audit.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 39 ayat (2)', title: 'Hak Pengawas Memeriksa', lawText: 'Pengawas berwenang untuk meneliti catatan dan laporan yang ada pada Koperasi.', contract: 'getPengawasAuditReport()', evidence: 'Audit: simpanan, SHU, dana.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 41 ayat (1)', title: 'Simpanan Pokok', lawText: 'Modal Koperasi terdiri dari simpanan pokok yang dibayar oleh anggota pada saat masuk menjadi anggota.', contract: 'paySimpananPokok()', evidence: '100 USDC saat pendaftaran.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 41 ayat (2)', title: 'Simpanan Wajib', lawText: 'Simpanan wajib yang dibayar oleh anggota secara berkala dalam jangka waktu tertentu.', contract: 'paySimpananWajib()', evidence: 'Bulanan, jumlah via tata kelola.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 41 ayat (3)', title: 'Simpanan Sukarela', lawText: 'Atas simpanan sukarela, Koperasi dapat menerbitkan sertifikat simpanan Koperasi.', contract: 'deposit() / issueCertificate()', evidence: 'Deposit bebas + sertifikat on-chain.', feature: 'Simpanan' },
+  { regulation: 'permenkop82023', pasal: 'Pasal 6 ayat (1)', title: 'Batasan Maksimum Pinjaman', lawText: 'KSP/USP Koperasi wajib menetapkan batas maksimum pemberian pinjaman. Pemberian pinjaman kepada anggota didasarkan pada kemampuan membayar dan agunan.', contract: 'LakomiLoans (maxLoan, 25% collateral)', evidence: 'LTV tiered: 30%/50%/70%.', feature: 'Pinjaman' },
+  { regulation: 'permenkop82023', pasal: 'Pasal 7', title: 'Suku Bunga Pinjaman', lawText: 'Koperasi menetapkan suku bunga pinjaman secara wajar dan tidak memberatkan anggota.', contract: 'interestRate = 500 (5% APY)', evidence: 'Bunga 5% flat annual rate.', feature: 'Pinjaman' },
+  { regulation: 'uu2592', pasal: 'Pasal 43', title: 'Dana Cadangan', lawText: 'Modal sendiri Koperasi terdiri dari simpanan pokok, simpanan wajib, dana cadangan, donasi/hibah, dan SHU yang belum dibagi.', contract: 'danaCadangan (5% SHU)', evidence: 'Akumulasi otomatis tiap distribusi.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 45 ayat (1)', title: 'Sisa Hasil Usaha', lawText: 'Sisa Hasil Usaha merupakan pendapatan Koperasi yang diperoleh dalam satu tahun buku dikurangi dengan biaya, penyusutan, dan kewajiban lainnya.', contract: 'distributeSHU() → claimSHU()', evidence: 'Revenue bunga → distribusi → klaim.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 45 ayat (2)', title: 'Pembagian SHU', lawText: 'SHU dibagikan kepada anggota sebanding dengan jasa usaha yang dilakukan oleh masing-masing anggota.', contract: 'distributeSHU() 6 kategori', evidence: 'Cadangan 5%, pendidikan 5%, dll.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 44', title: 'Pertanggungjawaban Pengurus', lawText: 'Pengurus bertanggung jawab mengenai kegiatan pengelolaan Koperasi.', contract: 'AccessControl audit trail', evidence: 'Immutable on-chain records.', feature: 'Tata Kelola' },
+  { regulation: 'uu2592', pasal: 'Pasal 46-47', title: 'Laporan Keuangan', lawText: 'Pengurus wajib menyusun laporan keuangan tahunan yang terdiri dari neraca, perhitungan SHU, laporan arus kas, dan catatan atas laporan keuangan.', contract: 'generateFinancialSnapshot()', evidence: 'Snapshot: aset, dana, SHU.', feature: 'Tata Kelola' },
 ]
 
 const FEATURE_MAP: Record<string, { label: string; color: string }> = {
@@ -41,50 +62,69 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
-  const [pdfPage, setPdfPage] = useState(1)
+  const [activeReg, setActiveReg] = useState<Regulation>('uu2592')
+  const active = PASAL[activePasal]
 
   return (
     <div className="space-y-4">
       <div>
         <h2 className="text-xl font-bold">Kepatuhan Hukum</h2>
-        <p className="text-sm text-muted-foreground mt-1">UU No. 25 Tahun 1992 — Tentang Perkoperasian</p>
+        <p className="text-sm text-muted-foreground mt-1">Hierarki Regulasi Perkoperasian → Smart Contract</p>
       </div>
 
-      <div className="flex" style={{ height: 'calc(100vh - 180px)', minHeight: '600px' }}>
+      <div className="flex flex-wrap gap-2">
+        {REGULATIONS.map(r => (
+          <button
+            key={r.key}
+            onClick={() => setActiveReg(r.key)}
+            className={`text-[11px] px-3 py-1.5 rounded-md border transition-colors ${activeReg === r.key ? 'bg-primary text-primary-foreground border-primary' : 'hover:bg-muted'}`}
+          >
+            {r.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex" style={{ height: 'calc(100vh - 220px)', minHeight: '550px' }}>
         <div className="w-1/2 border border-r-0 rounded-l-lg bg-muted/20 flex flex-col">
-          <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 flex items-center justify-between">
-            <span>UU No. 25 Tahun 1992</span>
-            <span className="text-muted-foreground font-normal">Hal. {pdfPage}</span>
+          <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0">
+            {REGULATIONS.find(r => r.key === activeReg)?.full}
           </div>
-          <PdfViewer src="/uu-25-1992.pdf" page={pdfPage} />
+          <iframe src={REGULATIONS.find(r => r.key === activeReg)?.pdf} className="flex-1 w-full border-0 rounded-bl-lg" />
         </div>
         <div className="w-1/2 border rounded-r-lg flex flex-col overflow-y-auto">
-          <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">Implementasi Kontrak Pintar — {PASAL.length} ketentuan</div>
+          <div className="px-3 py-1.5 border-b bg-muted/40 text-[11px] font-semibold flex-shrink-0 sticky top-0 z-10 bg-background">
+            Implementasi Kontrak Pintar — {PASAL.length} ketentuan
+          </div>
           <div className="p-3 space-y-1.5">
             {PASAL.map((item, idx) => {
               const feat = FEATURE_MAP[item.feature]
+              const reg = REGULATIONS.find(r => r.key === item.regulation)
+              const active = idx === activePasal
               return (
                 <button
                   key={idx}
-                  onClick={() => { setActivePasal(idx); setPdfPage(PASAL[idx].page) }}
-                  className={`w-full text-left p-2.5 rounded-lg transition-colors border ${idx === activePasal ? 'border-primary/50 bg-primary/5' : 'border-transparent hover:bg-muted/50'}`}
+                  onClick={() => setActivePasal(idx)}
+                  className={`w-full text-left p-2.5 rounded-lg transition-colors border ${active ? 'border-primary/50 bg-primary/5' : 'border-transparent hover:bg-muted/50'}`}
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    <Badge variant="outline" className="text-[10px] bg-emerald-500/10 text-emerald-500 border-emerald-500/20">{item.pasal}</Badge>
-                    {feat && <span className={`text-[9px] text-white px-1.5 py-0.5 rounded ${feat.color}`}>{feat.label}</span>}
+                  <div className="flex items-center gap-2 mb-1 flex-wrap">
+                    <Badge variant="outline" className={`text-[9px] ${active ? 'bg-primary/10 text-primary border-primary/30' : 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20'}`}>
+                      {reg?.label}
+                    </Badge>
+                    <Badge variant="outline" className="text-[9px]">{item.pasal}</Badge>
+                    {feat && <span className={`text-[8px] text-white px-1.5 py-0.5 rounded ${feat.color}`}>{feat.label}</span>}
                   </div>
                   <h4 className="text-xs font-semibold mb-1">{item.title}</h4>
                   <div className="space-y-1">
                     <div className="flex items-start gap-1.5">
-                      <span className="text-[9px] font-semibold text-amber-500 uppercase w-8 flex-shrink-0">UU</span>
-                      <p className="text-[10px] text-muted-foreground leading-relaxed">{item.lawText}</p>
+                      <span className="text-[9px] font-semibold text-amber-500 uppercase w-6 flex-shrink-0">UU</span>
+                      <p className="text-[10px] text-muted-foreground leading-relaxed italic">"{item.lawText}"</p>
                     </div>
                     <div className="flex items-start gap-1.5">
-                      <span className="text-[9px] font-semibold text-primary uppercase w-8 flex-shrink-0">Kontrak</span>
+                      <span className="text-[9px] font-semibold text-primary uppercase w-6 flex-shrink-0">SC</span>
                       <code className="text-[10px] text-primary/80 bg-primary/5 px-1 rounded">{item.contract}</code>
                     </div>
                     <div className="flex items-start gap-1.5">
-                      <span className="text-[9px] font-semibold text-emerald-500 uppercase w-8 flex-shrink-0">Bukti</span>
+                      <span className="text-[9px] font-semibold text-emerald-500 uppercase w-6 flex-shrink-0">OK</span>
                       <p className="text-[10px] text-muted-foreground">{item.evidence}</p>
                     </div>
                   </div>
@@ -99,28 +139,7 @@ export function Compliance() {
         </div>
       </div>
 
-      <Card>
-        <CardHeader><CardTitle className="text-sm">Hierarki Regulasi & Landasan Akademik</CardTitle></CardHeader>
-        <CardContent className="p-0">
-          <iframe src="/law-roadmap.html" className="w-full border-0" style={{ height: '480px' }} title="Hierarki Regulasi" />
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader><CardTitle className="text-sm">Referensi Hukum & Akademik</CardTitle></CardHeader>
-        <CardContent>
-          <ul className="space-y-1.5 text-xs text-muted-foreground">
-            <li>UU No. 25 Tahun 1992 — Tentang Perkoperasian</li>
-            <li>PP No. 7 Tahun 2021 — Kemudahan, Pelindungan, dan Pemberdayaan Koperasi dan UMKM</li>
-            <li>Permenkop No. 9 Tahun 2018 — Penyelenggaraan dan Pembinaan Perkoperasian</li>
-            <li>Permenkop No. 8 Tahun 2023 — Usaha Simpan Pinjam Koperasi</li>
-            <li>Arisudhana et al. (2025) — Prinsip Koperasi pada Blockchain</li>
-            <li>Sailana et al. (2023) — Simpanan dan SHU via Smart Contract</li>
-            <li>Kartika et al. (2024) — Peran Pengawas Koperasi</li>
-            <li>Maryam (2025) — Analisis Yuridis UU 25/1992</li>
-          </ul>
-        </CardContent>
-      </Card>
+      <iframe src="/law-roadmap.html" className="w-full border rounded-lg" style={{ height: '450px' }} title="Hierarki Regulasi" />
     </div>
   )
 }

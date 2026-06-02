@@ -78,6 +78,28 @@ export function DevFaucet() {
     }
   }
 
+  const unlockAccount = async () => {
+    if (!address) return
+    setBusy('unlock')
+    try {
+      await rpcCall('anvil_impersonateAccount', [DEPLOYER_ADDR])
+      await rpcCall('eth_sendTransaction', [{
+        from: DEPLOYER_ADDR,
+        to: address,
+        value: '0x0',
+        gas: '0x5208',
+      }])
+      await rpcCall('anvil_stopImpersonatingAccount', [DEPLOYER_ADDR])
+      await refetchBalance()
+      addToast('Akun siap digunakan!', 'success')
+    } catch (e: any) {
+      await rpcCall('anvil_stopImpersonatingAccount', [DEPLOYER_ADDR]).catch(() => {})
+      addToast('Gagal: ' + e.message, 'error')
+    } finally {
+      setBusy(null)
+    }
+  }
+
   const requestUsdc = async () => {
     if (!address) return
     setBusy('usdc')
@@ -228,6 +250,9 @@ export function DevFaucet() {
           <p className="text-sm font-medium text-blue-400">Dev Faucet</p>
         </div>
         <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" onClick={unlockAccount} disabled={!!busy} className="text-green-400 border-green-400/30">
+            {busy === 'unlock' ? '...' : '🔓 Unlock Akun'}
+          </Button>
           <Button variant="outline" size="sm" onClick={requestEth} disabled={!!busy}>
             {busy === 'eth' ? 'Mengirim...' : '10 ETH'}
           </Button>

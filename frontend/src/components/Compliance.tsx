@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useReadContract } from 'wagmi'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { CONTRACTS } from '../config/contracts'
 
 type Regulation = 'uu2592' | 'pp72021' | 'permenkop92018' | 'permenkop82023'
 
@@ -118,6 +120,8 @@ export function Compliance() {
         </CardContent>
       </Card>
 
+      <PengawasAudit />
+
       <p className="text-[10px] text-muted-foreground">Verifikasi mandiri — buka dokumen regulasi di bawah, cari pasal yang dirujuk dalam ringkasan, dan cocokkan dengan kontrak pintar yang terdaftar.</p>
 
       <div>
@@ -146,5 +150,35 @@ export function Compliance() {
         </Card>
       </div>
     </div>
+  )
+}
+
+function PengawasAudit() {
+  const { data: report } = useReadContract({
+    address: CONTRACTS.LAKOMI_VAULT as `0x${string}`,
+    abi: [{ type: 'function', name: 'getPengawasAuditReport', stateMutability: 'view', inputs: [], outputs: Array(10).fill({ type: 'uint256' }) }],
+    functionName: 'getPengawasAuditReport',
+  })
+  const r = report as bigint[] | undefined
+  if (!r || r.length < 10) return null
+
+  return (
+    <Card className="border-emerald-500/20">
+      <CardHeader className="pb-2"><CardTitle className="text-sm">Laporan Pengawas (Pasal 39.2 + 46-47)</CardTitle></CardHeader>
+      <CardContent>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
+          <div><span className="text-muted-foreground">Simpanan Pokok</span><p className="font-medium">{Number(r[0]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Simpanan Wajib</span><p className="font-medium">{Number(r[1]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Simpanan Sukarela</span><p className="font-medium">{Number(r[2]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Revenue</span><p className="font-medium text-amber-500">{Number(r[3]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">SHU Didistribusi</span><p className="font-medium">{Number(r[4]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Dana Cadangan</span><p className="font-medium">{Number(r[5]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Dana Pendidikan</span><p className="font-medium">{Number(r[6]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Dana Pengurus</span><p className="font-medium">{Number(r[7]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Dana Kesejahteraan</span><p className="font-medium">{Number(r[8]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Jumlah Anggota</span><p className="font-medium">{String(r[9])}</p></div>
+        </div>
+      </CardContent>
+    </Card>
   )
 }

@@ -28,3 +28,4 @@ docs/paper-downloader/__pycache__/
 docs/paper-downloader/scrapers/__pycache__/
 docs/paper-downloader/*.log
 docs/paper-downloader/downloads/koperasi-indonesia/search_results.json
+example/Grandiv.zip

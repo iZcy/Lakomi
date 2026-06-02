@@ -223,13 +223,13 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
   const { data: loanRaw } = useLoan(loanId)
   const loan = decodeLoan(loanRaw)
   const { data: isApprover } = useHasApproverRole(address)
-  const { repayInFull, isPending: rPending, isSuccess: rSuccess } = useRepayInFull()
-  const { repayLoan, isPending: rpPending, isSuccess: rpSuccess } = useRepayLoan()
-  const { approve, isPending: ap } = useApproveUsdc()
-  const { disburseLoan, isPending: dPending, isSuccess: dSuccess } = useDisburseLoan()
-  const { approveLoan, isPending: alPending, isSuccess: alSuccess } = useApproveLoan()
-  const { markDefaulted, isPending: mdPending, isSuccess: mdSuccess } = useMarkDefaulted()
-  const { claimCollateral, isPending: ccPending, isSuccess: ccSuccess } = useClaimCollateral()
+  const { repayInFull, isPending: rPending, isSuccess: rSuccess, error: rErr } = useRepayInFull()
+  const { repayLoan, isPending: rpPending, isSuccess: rpSuccess, error: rpErr } = useRepayLoan()
+  const { disburseLoan, isPending: dPending, isSuccess: dSuccess, error: dErr } = useDisburseLoan()
+  const { approveLoan, isPending: alPending, isSuccess: alSuccess, error: alErr } = useApproveLoan()
+  const { markDefaulted, isPending: mdPending, isSuccess: mdSuccess, error: mdErr } = useMarkDefaulted()
+  const { claimCollateral, isPending: ccPending, isSuccess: ccSuccess, error: ccErr } = useClaimCollateral()
+  const error = rErr || rpErr || dErr || alErr || mdErr || ccErr
   const { data: collateralNeeded } = useRequiredCollateral(loan?.principal ?? 0n)
   const { data: lockedBal } = useLockedBalance(address)
   const queryClient = useQueryClient()
@@ -364,8 +364,8 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
         {s === 3 && (
           <p className="text-xs text-emerald-500 mt-2">Pinjaman telah dilunasi</p>
         )}
-        {s === 5 && (
-          <p className="text-xs text-muted-foreground mt-2">Pinjaman dibatalkan</p>
+        {error && (
+          <p className="text-[10px] text-red-400 mt-2">{(error as any)?.shortMessage || 'Transaksi gagal'}</p>
         )}
       </CardContent>
     </Card>

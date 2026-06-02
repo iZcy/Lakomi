@@ -255,10 +255,11 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
   const { data: target } = useProposalTarget(id)
   const { data: value } = useProposalValue(id)
   const { data: callData } = useProposalCallData(id)
-  const { castVote, isPending: votingPending, isSuccess: voteSuccess } = useCastVote()
-  const { queueProposal, isPending: queuePending, isSuccess: queueSuccess } = useQueueProposal()
+  const { castVote, isPending: votingPending, isSuccess: voteSuccess, error: voteErr } = useCastVote()
+  const { queueProposal, isPending: queuePending, isSuccess: queueSuccess, error: queueErr } = useQueueProposal()
   const { executeProposal, isPending: execPending, isSuccess: execSuccess, error: execError } = useExecuteProposal()
-  const { cancelProposal, isPending: cancelPending, isSuccess: cancelSuccess } = useCancelProposal()
+  const { cancelProposal, isPending: cancelPending, isSuccess: cancelSuccess, error: cancelErr } = useCancelProposal()
+  const govError = voteErr || queueErr || execError || cancelErr
   const queryClient = useQueryClient()
 
   useEffect(() => {
@@ -392,6 +393,9 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
             {cancelSuccess && <p className="text-xs text-muted-foreground mt-2">Usulan dibatalkan</p>}
           </CardContent>
         </Card>
+      )}
+      {govError && (
+        <p className="text-[10px] text-red-400 mt-2">{(govError as any)?.shortMessage || 'Transaksi gagal'}</p>
       )}
     </div>
   )

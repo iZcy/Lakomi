@@ -43,6 +43,7 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
   const [pdfPage, setPdfPage] = useState(1)
+  const [flashPage, setFlashPage] = useState(0)
   const pageRefs = useRef<(HTMLDivElement | null)[]>([])
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -50,7 +51,9 @@ export function Compliance() {
     setActivePasal(idx)
     const page = PASAL[idx].page
     setPdfPage(page)
+    setFlashPage(page)
     pageRefs.current[page - 1]?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    setTimeout(() => setFlashPage(0), 2000)
   }
 
   return (
@@ -68,7 +71,11 @@ export function Compliance() {
           </div>
           <div ref={scrollRef} className="flex-1 overflow-y-auto">
             {Array.from({ length: PDF_PAGES }, (_, i) => (
-              <div key={i} ref={el => { pageRefs.current[i] = el }}>
+              <div 
+                key={i} 
+                ref={el => { pageRefs.current[i] = el }}
+                className={`transition-all duration-300 ${flashPage === i + 1 ? 'ring-4 ring-amber-500 ring-offset-2 ring-offset-muted bg-amber-500/10' : ''}`}
+              >
                 <img 
                   src={`/pdf-pages/page-${String(i + 1).padStart(2, '0')}.png`}
                   alt={`Halaman ${i + 1}`}

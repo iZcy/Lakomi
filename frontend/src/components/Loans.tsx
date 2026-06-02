@@ -129,6 +129,11 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
   const [loanStep, setLoanStep] = useState(0)
   const { requestLoan, isPending, isSuccess } = useRequestLoan()
   const { approve, isPending: ap } = useApproveUsdc()
+  const queryClient = useQueryClient()
+
+  useEffect(() => {
+    if (isSuccess) queryClient.invalidateQueries({ queryKey: ['readContract'] })
+  }, [isSuccess, queryClient])
 
   useEffect(() => {
     if (!amount || isNaN(Number(amount)) || Number(amount) <= 0) {

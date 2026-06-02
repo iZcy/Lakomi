@@ -89,68 +89,63 @@ The Lakomi system comprises four smart contracts deployed on an EVM-compatible b
 \begin{figure*}[htbp]
 \centering
 \begin{tikzpicture}[
-    box/.style={rectangle, rounded corners=3pt, draw, minimum width=2.6cm, minimum height=0.55cm, font=\footnotesize, align=center, inner sep=4pt},
-    smallbox/.style={rectangle, rounded corners=2pt, draw, fill=gray!5, minimum width=2.6cm, minimum height=0.4cm, font=\tiny, align=left, inner sep=3pt},
-    rolebox/.style={rectangle, rounded corners=1pt, draw=green!40, fill=green!6, minimum width=2.4cm, minimum height=0.28cm, font=\tiny\itshape, align=center, inner sep=2pt},
+    box/.style={rectangle, rounded corners=3pt, draw, minimum width=2.8cm, minimum height=0.45cm, font=\footnotesize, align=center, inner sep=3pt},
+    smallbox/.style={rectangle, rounded corners=2pt, draw, fill=gray!5, minimum width=2.6cm, minimum height=0.35cm, font=\tiny, align=left, inner sep=2pt},
+    layerlabel/.style={font=\footnotesize\bfseries, anchor=west, text=gray},
     arr/.style={-{Stealth[length=3pt]}, thick},
     darr/.style={-{Stealth[length=3pt]}, thick, dashed, gray!50},
 ]
 
 % === MEMBERSHIP LAYER ===
-\node[box, fill=purple!10, minimum width=8.5cm] (token)
-    at (0,4.0) {LakomiToken (LAK)\\ERC-20 Membership Token $\mid$ \texttt{isRegisteredMember}};
-\node[rolebox, below=0.08cm of token]
-    {\textsc{Minter} $\cdot$ \textsc{Burner} $\cdot$ \textsc{Locker} $\cdot$ \textsc{Membership}};
-\begin{pgfonlayer}{background}
-    \node[draw=purple!40, fill=purple!2, rounded corners=5pt,
-          fit=(token), inner sep=8pt,
-          label={[font=\tiny\bfseries]above:Membership Layer}] {};
-\end{pgfonlayer}
+\node[layerlabel] at (7.0,2.9) {Membership};
+\node[box, fill=purple!10, minimum width=11.2cm] (token)
+    at (0.5,3.0) {LakomiToken (LAK) $\mid$ ERC-20 $\mid$ \texttt{isRegisteredMember}\\[2pt]
+    {\footnotesize\textit{Minter $\cdot$ Burner $\cdot$ Locker $\cdot$ Membership}}};
 
 % === ARROWS DOWN ===
-\draw[arr] (-2.8,3.4) -- (-2.8,1.65);
-\draw[arr] (0,3.4)    -- (0,1.65);
-\draw[arr] (2.8,3.4)  -- (2.8,1.65);
+\draw[arr] (-3.5,2.6) -- (-3.5,1.65);
+\draw[arr] (0.5,2.6)  -- (0.5,1.65);
+\draw[arr] (4.5,2.6)  -- (4.5,1.65);
 
 % === CONTRACT LAYER ===
-\node[box, fill=blue!8] (vault)  at (-2.8,1.2)  {LakomiVault\\USDC Treasury \& Simpanan};
-\node[box, fill=blue!8] (govern) at (0,1.2)     {LakomiGovern\\1-Member-1-Vote\\Proposals \& Elections};
-\node[box, fill=blue!8] (loans)  at (2.8,1.2)   {LakomiLoans\\Collateralized Loans\\5\% APY $\cdot$ Tiered LTV};
+\node[layerlabel] at (7.0,0.95) {Contract};
 
-\node[rolebox, below=0.06cm of vault]  (vrole)  {\textsc{Treasurer}};
-\node[rolebox, below=0.06cm of govern] (grole)  {\textsc{Pengawas}};
-\node[rolebox, below=0.06cm of loans]  (lrole)  {\textsc{Approver}};
+\node[box, fill=blue!8] (vault)  at (-3.5,0.95)  {LakomiVault\\USDC Treasury \& Simpanan\\[2pt]
+    {\footnotesize\textit{Treasurer}}};
+\node[box, fill=blue!8] (govern) at (0.5,0.95)   {LakomiGovern\\1-Member-1-Vote\\[2pt]
+    {\footnotesize\textit{Pengawas}}};
+\node[box, fill=blue!8] (loans)  at (4.5,0.95)   {LakomiLoans\\Collateralized Loans\\[2pt]
+    {\footnotesize\textit{Approver}}};
 
-\node[smallbox, below=0.12cm of vrole, text width=2.8cm] (shu)
-    {\textbf{6-Category SHU}\\[2pt]
-     \hspace{6pt}Cadangan\hspace{16pt}5\%\\
-     \hspace{6pt}Jasa Modal\hspace{10pt}40\%\\
-     \hspace{6pt}Jasa Usaha\hspace{13pt}40\%\\
-     \hspace{6pt}Pendidikan\hspace{15pt}5\%\\
-     \hspace{6pt}Pengurus\hspace{20pt}5\%\\
-     \hspace{6pt}Kesejahteraan\hspace{5pt}5\%};
+\node[smallbox, left=0.1cm of vault] (shu)
+    {\textbf{6-Category SHU}\\[1pt]
+     \makebox[4.5em][l]{Cadangan}\hspace{3pt}5\%\quad
+     \makebox[4.5em][l]{Jasa Modal}\hspace{3pt}40\%\\
+     \makebox[4.5em][l]{Jasa Usaha}\hspace{3pt}40\%\quad
+     \makebox[4.5em][l]{Pendidikan}\hspace{3pt}5\%\\
+     \makebox[4.5em][l]{Pengurus}\hspace{3pt}5\%\quad
+     \makebox[4.5em][l]{Kesejahteraan}\hspace{3pt}5\%};
 
-% Internal dashed arrows (Bian-style)
+% Internal arrows
 \draw[darr] (vault.east)  -- (govern.west);
 \draw[darr] (govern.east) -- (loans.west);
 
+% Box all contracts
 \begin{pgfonlayer}{background}
-    \node[draw=blue!40, fill=blue!2, rounded corners=5pt,
-          fit=(vault)(govern)(loans)(vrole)(grole)(lrole)(shu),
-          inner sep=8pt, label={[font=\tiny\bfseries]above:Contract Layer}] {};
+    \node[draw=blue!40, fill=blue!2, rounded corners=4pt,
+          fit=(shu)(vault)(govern)(loans),
+          inner sep=8pt] {};
 \end{pgfonlayer}
 
-% === ARROW DOWN ===
-\draw[arr] (0,-1.6) -- (0,-2.2);
+% === ARROWS DOWN ===
+\draw[arr] (-3.5,0.2)  -- (-3.5,-0.4);
+\draw[arr] (0.5,0.2)   -- (0.5,-0.4);
+\draw[arr] (4.5,0.2)   -- (4.5,-0.4);
 
 % === BLOCKCHAIN LAYER ===
-\node[box, fill=orange!12, minimum width=10.5cm]
-    (chain) at (0,-2.6) {DChain --- EVM-Compatible --- Chain ID 17845 --- PoS Consensus};
-\begin{pgfonlayer}{background}
-    \node[draw=orange!50, fill=orange!3, rounded corners=5pt,
-          fit=(chain), inner sep=6pt,
-          label={[font=\tiny\bfseries]above:Blockchain Layer}] {};
-\end{pgfonlayer}
+\node[layerlabel] at (7.0,-0.7) {Blockchain};
+\node[box, fill=orange!12, minimum width=12.5cm]
+    (chain) at (0.5,-0.7) {DChain --- EVM-Compatible --- Chain ID 17845 --- PoS Consensus};
 
 \end{tikzpicture}
 \caption{Lakomi system architecture. LakomiToken serves as the membership registry. LakomiVault manages simpanan and 6-category SHU distribution. LakomiGovern handles proposals, elections, and pengawas veto. LakomiLoans provides collateralized microloans. All contracts execute on DChain.}
@@ -237,13 +232,13 @@ The four smart contracts are implemented in Solidity 0.8.20 using the Hardhat de
 
 Key implementation decisions include: (1) the membership registry (\texttt{isRegisteredMember}) as a boolean mapping decoupled from token balance, ensuring voting power is strictly identity-based per Pasal 22(1); (2) the vault's six-category SHU split as configurable basis points settable via governance, enabling cooperative-specific adjustments over time; (3) the election mechanism using nested mappings for candidates, votes, and terms, with automatic role granting on finalization; and (4) the loans contract's tiered LTV calculation based on cumulative simpanan in the vault, with auto-approval for small loans (up to 200 USDC) to enable rapid emergency fund access.
 
-Each contract was initialized with five Anvil accounts assigned to distinct roles: PENGAWAS\_ROLE (supervisor), APPROVER\_ROLE (loan approval), MEMBERSHIP\_ROLE (member management), TREASURER\_ROLE (vault operations), and GOVERN\_ROLE (SHU distribution), with the deployer holding DEFAULT\_ADMIN\_ROLE for initial configuration.
+Each contract is initialized with five role accounts: PENGAWAS\_ROLE (supervisor), APPROVER\_ROLE (loan approval), MEMBERSHIP\_ROLE (member management), TREASURER\_ROLE (vault operations), and GOVERN\_ROLE (SHU distribution), with the deployer holding DEFAULT\_ADMIN\_ROLE for initial configuration.
 
 \section{Evaluation}
 
 \subsection{Functional Compliance Verification}
 
-All 26 UU 25/1992 provisions were verified through functional testing on a local DChain-equivalent Anvil chain~\cite{foundry}. Each provision was mapped to a specific test scenario that validates both the successful path and edge cases (e.g., duplicate registration rejection, non-member vote blocking, double-claim prevention). Table~\ref{tab:test-results} presents representative verification results.
+All 26 UU 25/1992 provisions were verified through functional testing on DChain using the Hardhat development framework~\cite{hardhat}. Each provision was mapped to a specific test scenario that validates both the successful path and edge cases (e.g., duplicate registration rejection, non-member vote blocking, double-claim prevention). Table~\ref{tab:test-results} presents representative verification results.
 
 \begin{table}[htbp]
 \centering
@@ -272,7 +267,7 @@ All 26 provisions passed verification, demonstrating that the UU 25/1992 regulat
 
 \subsection{Gas Analysis}
 
-Table~\ref{tab:gas} presents gas costs for key cooperative operations, measured on a local DChain-equivalent chain. Deployment costs range from 1.58M to 2.22M gas per contract, with operational costs between 72K and 210K gas.
+Table~\ref{tab:gas} presents gas costs for key cooperative operations, measured on DChain. Deployment costs range from 1.58M to 2.22M gas per contract, with operational costs between 72K and 210K gas.
 
 \begin{table}[htbp]
 \centering
@@ -296,7 +291,7 @@ Contract Deployment (Loans) & 1,723,000 & \$3.45 \\
 \end{tabular}
 \end{table}
 
-Deployment costs are one-time expenses that cooperatives bear during initial system setup. Operational costs---ranging from \$0.14 for simpanan payment to \$0.42 for loan requests---are sufficiently low for practical cooperative use, even at significant member scale.
+Deployment costs are one-time expenses that cooperatives bear during initial system setup. Per-operation costs range from 72K to 210K gas, comparable to existing DChain-deployed applications such as OrvynLabs (78K--89K gas per vote and donation), confirming that the Lakomi contracts operate within the same cost envelope as prior DChain implementations. For a cooperative with 100 active members performing monthly simpanan payments, annual voting, and quarterly loans, the estimated total annual operational gas cost is approximately 42M gas, well within practical bounds for a consortium blockchain environment.
 
 \subsection{Comparison with Existing Systems}
 

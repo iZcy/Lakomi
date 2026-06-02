@@ -7,6 +7,11 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
 interface ILakomiVault {
     function hasPaidSimpananPokok(address member) external view returns (bool);
+    function refundSimpananPokok(address member) external returns (uint256);
+}
+
+interface ILakomiLoans {
+    function hasActiveLoans(address borrower) external view returns (bool);
 }
 
 /**
@@ -324,6 +329,32 @@ contract LakomiToken is ERC20, AccessControl, ReentrancyGuard {
         }
 
         emit MembershipRevoked(member, block.timestamp);
+    }
+
+    function resignMembership()
+        external
+        nonReentrant
+    {
+        require(isRegisteredMember[msg.sender], "Not a member");
+        require(
+            !ILakomiLoans(lakomiLoans).hasActiveLoans(msg.sender),
+            "Cannot resign with active loans"
+        );
+
+        isRegisteredMember[msg.sender] = false;
+        memberCount--;
+
+        uint256 balance = balanceOf(msg.sender);
+        if (balance > 0) {
+            _burn(msg.sender, balance);
+            emit TokensBurned(msg.sender, balance, block.timestamp);
+        }
+
+        if (lakomiVault != address(0)) {
+            ILakomiVault(lakomiVault).refundSimpananPokok(msg.sender);
+        }
+
+        emit MembershipRevoked(msg.sender, block.timestamp);
     }
 
     /**

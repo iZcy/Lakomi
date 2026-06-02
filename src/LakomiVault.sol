@@ -135,6 +135,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
     event ContributionTierUpdated(address indexed member, uint8 tier);
 
     event SimpananPokokPaid(address indexed member, uint256 amount, uint256 timestamp);
+    event SimpananPokokRefunded(address indexed member, uint256 amount);
     event SimpananWajibPaid(address indexed member, uint256 amount, uint256 periods, uint256 timestamp);
     event SimpananPokokAmountUpdated(uint256 oldAmount, uint256 newAmount);
     event SimpananWajibAmountUpdated(uint256 oldAmount, uint256 newAmount);
@@ -223,6 +224,17 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
 
     function hasPaidSimpananPokok(address member) external view returns (bool) {
         return simpananPokok[member] > 0;
+    }
+
+    function refundSimpananPokok(address member) external returns (uint256) {
+        require(msg.sender == lakomiToken, "Only LakomiToken");
+        uint256 amount = simpananPokok[member];
+        require(amount > 0, "No simpanan pokok");
+        simpananPokok[member] = 0;
+        totalSimpananPokokMembers -= amount;
+        stableToken.safeTransfer(member, amount);
+        emit SimpananPokokRefunded(member, amount);
+        return amount;
     }
 
     // ============================================================
@@ -663,6 +675,52 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
         pengurus = danaPengurus;
         kesejahteraan = danaKesejahteraan;
         memberCount = ILakomiToken(lakomiToken).getMemberCount();
+    }
+
+    // ============================================================
+    //        SIMPANAN CERTIFICATE (UU 25/1992 Pasal 41(3))
+    // ============================================================
+
+    struct FinancialSnapshot {
+        uint256 timestamp;
+        uint256 totalAssets;
+        uint256 simpananPokok;
+        uint256 simpananWajib;
+        uint256 simpananSukarela;
+        uint256 danaCadangan;
+        uint256 danaPendidikan;
+        uint256 danaPengurus;
+        uint256 danaKesejahteraan;
+        uint256 revenueAccumulated;
+        uint256 shuDistributed;
+        uint256 memberCount;
+    }
+
+    mapping(address => uint256) public lastCertificateDate;
+    mapping(address => uint256) public certificateCount;
+
+    function issueCertificate(address member) external returns (uint256) {
+        require(msg.sender == lakomiToken || hasRole(TREASURER_ROLE, msg.sender), "Not authorized");
+        certificateCount[member]++;
+        lastCertificateDate[member] = block.timestamp;
+        return certificateCount[member];
+    }
+
+    function generateFinancialSnapshot() external view returns (FinancialSnapshot memory) {
+        return FinancialSnapshot({
+            timestamp: block.timestamp,
+            totalAssets: totalDeposited - totalWithdrawn,
+            simpananPokok: totalSimpananPokokMembers,
+            simpananWajib: totalSimpananWajibMembers,
+            simpananSukarela: totalDeposited - totalSimpananPokokMembers - totalSimpananWajibMembers,
+            danaCadangan: danaCadangan,
+            danaPendidikan: danaPendidikan,
+            danaPengurus: danaPengurus,
+            danaKesejahteraan: danaKesejahteraan,
+            revenueAccumulated: accumulatedRevenue,
+            shuDistributed: totalSHUDistributed,
+            memberCount: ILakomiToken(lakomiToken).getMemberCount()
+        });
     }
 
     function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {

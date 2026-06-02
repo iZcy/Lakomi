@@ -62,6 +62,23 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
     uint256 public ratPeriod;
     uint256 public lastRATTime;
     address public vaultAddress;
+    uint256 public roleTermLength = 365 days;
+    mapping(bytes32 => uint256) public roleTermStart;
+    mapping(bytes32 => mapping(uint256 => Election)) private _elections;
+    mapping(bytes32 => uint256) private _electionCount;
+    mapping(bytes32 => mapping(uint256 => mapping(address => bool))) private _electionCandidates;
+    mapping(bytes32 => mapping(uint256 => mapping(address => bool))) private _electionVoted;
+    mapping(bytes32 => mapping(uint256 => mapping(address => uint256))) private _candidateVotes;
+    mapping(bytes32 => mapping(uint256 => address[])) private _candidateList;
+
+    struct Election {
+        uint256 startTime;
+        uint256 registrationEnd;
+        uint256 votingEnd;
+        bool finalized;
+        address winner;
+        uint256 forVotes;
+    }
 
     // ============================================================
     //                        EVENTS
@@ -358,6 +375,107 @@ contract LakomiGovern is AccessControl, ReentrancyGuard, Pausable {
 
     function setExecutionTimelock(uint256 newTimelock) external onlyRole(DEFAULT_ADMIN_ROLE) {
         executionTimelock = newTimelock;
+    }
+
+    function setRoleTermLength(uint256 newTerm) external onlyRole(DEFAULT_ADMIN_ROLE) {
+        roleTermLength = newTerm;
+    }
+
+    // ============================================================
+    //             ELECTIONS (UU 25/1992 Pasal 29-30, 38)
+    // ============================================================
+
+    function beginElection(bytes32 role, uint256 registrationPeriod, uint256 votingPeriod)
+        external
+        onlyRole(DEFAULT_ADMIN_ROLE)
+    {
+        require(registrationPeriod > 0 && votingPeriod > 0, "Invalid periods");
+        uint256 eId = _electionCount[role]++;
+        _elections[role][eId] = Election({
+            startTime: block.timestamp,
+            registrationEnd: block.timestamp + registrationPeriod,
+            votingEnd: block.timestamp + registrationPeriod + votingPeriod,
+            finalized: false,
+            winner: address(0),
+            forVotes: 0
+        });
+    }
+
+    function registerAsCandidate(bytes32 role) external {
+        require(token.isRegisteredMember(msg.sender), "Not a member");
+        uint256 eId = _electionCount[role];
+        require(eId > 0, "No election");
+        Election storage e = _elections[role][eId - 1];
+        require(block.timestamp <= e.registrationEnd, "Registration closed");
+        require(!e.finalized, "Election finalized");
+        require(!_electionCandidates[role][eId - 1][msg.sender], "Already candidate");
+        _electionCandidates[role][eId - 1][msg.sender] = true;
+        _candidateList[role][eId - 1].push(msg.sender);
+    }
+
+    function castElectionVote(bytes32 role, address candidate) external {
+        require(token.isRegisteredMember(msg.sender), "Not a member");
+        uint256 eId = _electionCount[role];
+        require(eId > 0, "No election");
+        Election storage e = _elections[role][eId - 1];
+        require(block.timestamp > e.registrationEnd && block.timestamp <= e.votingEnd, "Not voting period");
+        require(!e.finalized, "Election finalized");
+        require(_electionCandidates[role][eId - 1][candidate], "Not a candidate");
+        require(!_electionVoted[role][eId - 1][msg.sender], "Already voted");
+        _electionVoted[role][eId - 1][msg.sender] = true;
+        _candidateVotes[role][eId - 1][candidate]++;
+    }
+
+    function finalizeElection(bytes32 role) external {
+        uint256 eId = _electionCount[role];
+        require(eId > 0, "No election");
+        Election storage e = _elections[role][eId - 1];
+        require(block.timestamp > e.votingEnd, "Voting not ended");
+        require(!e.finalized, "Already finalized");
+        e.finalized = true;
+
+        address[] storage candidates = _candidateList[role][eId - 1];
+        for (uint256 i = 0; i < candidates.length; i++) {
+            address c = candidates[i];
+            uint256 v = _candidateVotes[role][eId - 1][c];
+            if (v > e.forVotes) {
+                e.forVotes = v;
+                e.winner = c;
+            }
+        }
+        if (e.winner != address(0)) {
+            roleTermStart[role] = block.timestamp;
+        }
+    }
+
+    function isCandidate(bytes32 role, address member) external view returns (bool) {
+        uint256 eId = _electionCount[role];
+        if (eId == 0) return false;
+        return _electionCandidates[role][eId - 1][member];
+    }
+
+    function getElection(bytes32 role) external view returns (
+        uint256 electionId, uint256 startTime, uint256 registrationEnd,
+        uint256 votingEnd, bool finalized, address winner, uint256 forVotes
+    ) {
+        uint256 eId = _electionCount[role];
+        if (eId == 0) return (0, 0, 0, 0, false, address(0), 0);
+        Election storage e = _elections[role][eId - 1];
+        return (eId - 1, e.startTime, e.registrationEnd, e.votingEnd, e.finalized, e.winner, e.forVotes);
+    }
+
+    // ============================================================
+    //            DISSOLUTION (UU 25/1992 Pasal 33-35)
+    // ============================================================
+
+    function executeDissolution(uint256 proposalId) external nonReentrant {
+        ProposalState s = state(proposalId);
+        require(s == ProposalState.Queued, "Must be queued dissolution");
+        require(block.timestamp >= proposalQueuedTime[proposalId] + executionTimelock, "Timelock");
+        require(!proposalExecuted[proposalId], "Already executed");
+        proposalExecuted[proposalId] = true;
+        _pause();
+        emit ProposalExecuted(proposalId);
     }
 
     function pause() external onlyRole(DEFAULT_ADMIN_ROLE) {

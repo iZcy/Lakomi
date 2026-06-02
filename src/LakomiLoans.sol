@@ -460,6 +460,17 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
         return borrowerLoans[borrower];
     }
 
+    function hasActiveLoans(address borrower) external view returns (bool) {
+        uint256[] memory loanIds = borrowerLoans[borrower];
+        for (uint256 i = 0; i < loanIds.length; i++) {
+            Loan storage loan = loans[loanIds[i]];
+            if (loan.status == LoanStatus.Active || loan.status == LoanStatus.Defaulted) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * @notice Gets loan details
      * @param loanId The loan ID

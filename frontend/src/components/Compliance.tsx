@@ -172,6 +172,46 @@ const PASAL = [
     evidence: 'Setiap tindakan admin tercatat on-chain, dapat diaudit kapan saja.',
     feature: 'Tata Kelola',
   },
+  {
+    pasal: 'Pasal 19-21',
+    title: 'Hak & Kewajiban Anggota',
+    lawText: 'Anggota berhak menghadiri RAT, menyampaikan pendapat, memilih dan dipilih, serta berhak mengundurkan diri.',
+    contract: 'LakomiToken.resignMembership()',
+    evidence: 'Anggota dapat keluar sukarela dengan refund simpanan pokok, syarat tidak ada pinjaman aktif.',
+    feature: 'Anggota',
+  },
+  {
+    pasal: 'Pasal 29-30',
+    title: 'Pemilihan Pengurus',
+    lawText: 'Pengurus dipilih dari dan oleh anggota koperasi dalam Rapat Anggota.',
+    contract: 'LakomiGovern.beginElection() → castElectionVote() → finalizeElection()',
+    evidence: 'Sistem pemilu on-chain: pendaftaran kandidat, voting 1-anggota-1-suara, masa jabatan terlacak.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 33-35',
+    title: 'Pembubaran Koperasi',
+    lawText: 'Pembubaran koperasi dilakukan berdasarkan keputusan Rapat Anggota.',
+    contract: 'LakomiGovern.executeDissolution()',
+    evidence: 'Usulan pembubaran melalui tata kelola, eksekusi menonaktifkan (pause) semua kontrak.',
+    feature: 'Tata Kelola',
+  },
+  {
+    pasal: 'Pasal 41(3)',
+    title: 'Sertifikat Simpanan Koperasi',
+    lawText: 'Atas simpanan sukarela, koperasi dapat menerbitkan sertifikat simpanan koperasi.',
+    contract: 'LakomiVault.issueCertificate()',
+    evidence: 'Bendahara dapat menerbitkan sertifikat simpanan tercatat on-chain dengan timestamp.',
+    feature: 'Simpanan',
+  },
+  {
+    pasal: 'Pasal 46-47',
+    title: 'Laporan Keuangan Tahunan',
+    lawText: 'Pengurus wajib menyusun laporan keuangan tahunan dan menyampaikan dalam RAT.',
+    contract: 'LakomiVault.generateFinancialSnapshot() + getPengawasAuditReport()',
+    evidence: 'Snapshot keuangan lengkap: aset, simpanan, dana, revenue, SHU, jumlah anggota — diverifikasi on-chain.',
+    feature: 'Tata Kelola',
+  },
 ]
 
 const FEATURE_MAP: Record<string, { label: string; color: string }> = {

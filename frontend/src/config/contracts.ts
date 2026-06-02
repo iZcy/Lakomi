@@ -29,7 +29,7 @@ export async function loadContracts(): Promise<void> {
 
 loadContracts()
 
-export const CHAIN_ID = 31337
+import { CHAIN_ID } from '../wagmi'
 
 export const PROPOSAL_STATES = [
   'Menunggu',

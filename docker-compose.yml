@@ -1,7 +1,7 @@
 services:
   anvil:
     image: ghcr.io/foundry-rs/foundry:latest
-    entrypoint: ["anvil", "--host", "0.0.0.0", "--port", "8545", "--chain-id", "31337", "--gas-price", "1000000000"]
+    entrypoint: ["anvil", "--host", "0.0.0.0", "--port", "8545", "--chain-id", "${CHAIN_ID:-313377}", "--gas-price", "1000000000"]
     ports:
       - "8545:8545"
     healthcheck:
@@ -16,6 +16,7 @@ services:
       dockerfile: Dockerfile.hardhat
     environment:
       - RPC_URL=http://anvil:8545
+      - CHAIN_ID=${CHAIN_ID:-313377}
     working_dir: /app/hardhat
     ports:
       - "3030:3030"
@@ -37,6 +38,9 @@ services:
       args:
         - VITE_RPC_URL=http://localhost:8545
         - VITE_DEPLOYER_URL=http://localhost:3030
+        - VITE_CHAIN_ID=${CHAIN_ID:-313377}
+        - VITE_CHAIN_ID_HEX=${CHAIN_ID_HEX:-0x4c821}
+        - VITE_CHAIN_NAME=${CHAIN_NAME:-Anvil Lokal}
     ports:
       - "5173:80"
     depends_on:

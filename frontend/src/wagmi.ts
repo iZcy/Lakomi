@@ -5,9 +5,17 @@ const RPC_URL = typeof import.meta.env.VITE_RPC_URL === 'string'
   ? import.meta.env.VITE_RPC_URL
   : 'http://127.0.0.1:8545'
 
-export const CHAIN_ID = 31337
-export const CHAIN_ID_HEX = '0x7a69'
-export const CHAIN_NAME = 'Anvil Lokal'
+export const CHAIN_ID = typeof import.meta.env.VITE_CHAIN_ID === 'string'
+  ? parseInt(import.meta.env.VITE_CHAIN_ID)
+  : 313377
+
+export const CHAIN_ID_HEX = typeof import.meta.env.VITE_CHAIN_ID_HEX === 'string'
+  ? import.meta.env.VITE_CHAIN_ID_HEX
+  : '0x4c821'
+
+export const CHAIN_NAME = typeof import.meta.env.VITE_CHAIN_NAME === 'string'
+  ? import.meta.env.VITE_CHAIN_NAME
+  : 'Anvil Lokal'
 
 export const anvil = {
   id: CHAIN_ID,
@@ -27,8 +35,10 @@ export const WALLET_CHAIN_PARAMS = {
 }
 
 export const anvilRpc = http(RPC_URL, {
-  timeout: 10_000,
-  retryCount: 2,
+  timeout: 15_000,
+  batch: true,
+  retryCount: 5,
+  retryDelay: 1000,
 })
 
 export const wagmiConfig = createConfig({

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useAccount } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Separator } from '@/components/ui/separator'
 import { useIsMember } from '../hooks/useContractRead'
-import { CONTRACTS } from '../config/contracts'
+import { useRegisterMember } from '../hooks/useContractWrite'
 import { useToast } from './Toast'
 
 interface MemberData {
@@ -34,16 +34,28 @@ function getMemberData(address: string): MemberData | null {
 export function MemberRegistration() {
   const { address, isConnected } = useAccount()
   const { data: isMember, refetch } = useIsMember(address)
+  const { registerMember, isPending, isSuccess, isConfirming } = useRegisterMember()
   const { addToast } = useToast()
   const queryClient = useQueryClient()
+  const handledSuccess = useRef(false)
 
   const [step, setStep] = useState<'form' | 'confirm'>('form')
-  const [isPending, setIsPending] = useState(false)
   const existing = address ? getMemberData(address) : null
   const [form, setForm] = useState<MemberData>(existing || {
     namaLengkap: '', nik: '', tempatLahir: '', tanggalLahir: '',
     alamat: '', nomorTelepon: '', pekerjaan: '',
   })
+
+  useEffect(() => {
+    if (isSuccess && !handledSuccess.current) {
+      handledSuccess.current = true
+      if (address) saveMemberData(address, form)
+      addToast('Berhasil terdaftar sebagai anggota koperasi!', 'success')
+      queryClient.invalidateQueries({ queryKey: ['readContract'] })
+      refetch()
+    }
+    if (!isSuccess) handledSuccess.current = false
+  }, [isSuccess])
 
   if (!isConnected || isMember === undefined || isMember === true) return null
 
@@ -60,81 +72,15 @@ export function MemberRegistration() {
     form.nomorTelepon.trim().length >= 8
 
   const handleRegister = async () => {
-    const ethereum = (window as any).ethereum
-    if (!ethereum) {
-      addToast('Dompet tidak terdeteksi', 'error')
-      return
-    }
-
-    setIsPending(true)
-
     try {
-      const nonceHex = await ethereum.request({
-        method: 'eth_getTransactionCount',
-        params: [address, 'latest'],
-      })
-      console.log('[DEBUG] nonce:', nonceHex, 'address:', address)
-      const txHash = await ethereum.request({
-        method: 'eth_sendTransaction',
-        params: [{
-          from: address,
-          to: CONTRACTS.LAKOMI_TOKEN,
-          data: '0x60f8dd7e',
-          gas: '0x7A120',
-          nonce: nonceHex,
-        }],
-      })
-      console.log('[DEBUG] tx hash:', txHash)
-
-      let confirmed = false
-      for (let i = 0; i < 30; i++) {
-        await new Promise((r) => setTimeout(r, 1000))
-        try {
-          const receipt = await ethereum.request({
-            method: 'eth_getTransactionReceipt',
-            params: [txHash],
-          })
-          if (receipt) {
-            console.log('[DEBUG] receipt found:', receipt)
-            confirmed = true
-            break
-          }
-        } catch { /* wallet may reject receipt call */ }
-      }
-
-      if (confirmed) {
-        saveMemberData(address!, form)
-        addToast('Berhasil terdaftar sebagai anggota koperasi!', 'success')
-        queryClient.invalidateQueries({ queryKey: ['readContract'] })
-        refetch()
-      } else {
-        addToast('Transaksi terkirim tapi belum dikonfirmasi. Coba refresh halaman.', 'error')
-      }
+      await registerMember()
     } catch (err: any) {
-      console.log('[DEBUG] registerMember error:', JSON.stringify({
-        message: err?.message,
-        shortMessage: err?.shortMessage,
-        cause: err?.cause?.message,
-        data: err?.data,
-        name: err?.name,
-        code: err?.code,
-      }, null, 2))
       const msg = err?.shortMessage || err?.message || ''
-      if (msg.includes('User rejected') || msg.includes('denied') || err?.code === 4001) {
-        addToast('Transaksi dibatalkan oleh pengguna', 'error')
-      } else if (msg.includes('already imported') || msg.includes('nonce')) {
-        addToast('Nonce dompet tidak sinkron. Reset wallet atau reconnect.', 'error')
-      } else if (msg.includes('Already registered')) {
-        saveMemberData(address!, form)
-        addToast('Anda sudah terdaftar sebagai anggota!', 'success')
-        queryClient.invalidateQueries({ queryKey: ['readContract'] })
-        refetch()
+      if (msg.includes('User rejected') || msg.includes('denied')) {
+        addToast('Transaksi dibatalkan', 'error')
       } else {
         addToast(`Gagal mendaftar: ${msg}`, 'error')
       }
-    } finally {
-      setIsPending(false)
-      setStep('form')
     }
   }
 
@@ -152,11 +98,11 @@ export function MemberRegistration() {
             Sesuai Pasal 5(1) UU 25/1992: Keanggotaan terbuka dan sukarela
           </p>
           <div className="flex gap-2 pt-2">
-            <Button variant="outline" onClick={() => setStep('form')} className="flex-1" disabled={isPending}>
+            <Button variant="outline" onClick={() => setStep('form')} className="flex-1" disabled={isPending || isConfirming}>
               Kembali
             </Button>
-            <Button onClick={handleRegister} disabled={isPending} className="flex-1">
-              {isPending ? 'Memproses...' : 'Konfirmasi & Daftar'}
+            <Button onClick={handleRegister} disabled={isPending || isConfirming} className="flex-1">
+              {isConfirming ? 'Mengonfirmasi...' : isPending ? 'Memproses...' : 'Konfirmasi & Daftar'}
             </Button>
           </div>
         </CardContent>
@@ -242,10 +188,10 @@ export function MemberRegistration() {
         </div>
         <Button
           onClick={() => setStep('confirm')}
-          disabled={!isFormValid || isPending}
+          disabled={!isFormValid || isPending || isConfirming}
           className="w-full"
         >
-          {isPending ? 'Memproses...' : 'Lanjut ke Konfirmasi'}
+          {isPending || isConfirming ? 'Memproses...' : 'Lanjut ke Konfirmasi'}
         </Button>
       </CardContent>
     </Card>

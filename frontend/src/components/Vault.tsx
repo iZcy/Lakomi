@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useAccount } from 'wagmi'
+import { useAccount, useWriteContract } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -116,7 +116,30 @@ export function Vault() {
       </div>
 
       <SHUHistory address={address} />
+
+      {isMember && <SertifikatSimpanan address={address} />}
     </div>
+  )
+}
+
+function SertifikatSimpanan({ address }: { address?: `0x${string}` }) {
+  const { writeContractAsync } = useWriteContract()
+  const [sent, setSent] = useState(false)
+  return (
+    <Card className="border-purple-500/20 bg-purple-500/5">
+      <CardHeader><CardTitle className="text-sm">Sertifikat Simpanan (Pasal 41.3)</CardTitle></CardHeader>
+      <CardContent>
+        <p className="text-xs text-muted-foreground mb-2">Bendahara dapat menerbitkan sertifikat simpanan koperasi untuk anggota.</p>
+        <Button variant="outline" size="sm" className="text-xs" disabled={sent} onClick={async () => {
+          try {
+            await writeContractAsync({ address: CONTRACTS.LAKOMI_VAULT as `0x${string}`, abi: LAKOMI_VAULT_ABI, functionName: 'issueCertificate', args: [address!] })
+            setSent(true)
+          } catch {}
+        }}>
+          {sent ? 'Tercatat' : 'Terbitkan Sertifikat'}
+        </Button>
+      </CardContent>
+    </Card>
   )
 }
 

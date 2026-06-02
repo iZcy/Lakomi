@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useAccount, useReadContract } from 'wagmi'
+import { useAccount, useReadContract, useWriteContract } from 'wagmi'
 import { useQueryClient } from '@tanstack/react-query'
 import { parseUnits, formatUnits, isAddress, encodeFunctionData, keccak256, toHex } from 'viem'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -79,6 +79,7 @@ function CreateProposalForm() {
     { value: '0', label: 'Anggaran (Belanja)', desc: 'Usulkan pengeluaran dana koperasi', needsRecipient: true, needsAmount: true },
     { value: '2', label: 'Keanggotaan', desc: 'Usulkan pemberhentian anggota (Pasal 31 UU 25/1992)', needsMember: true },
     { value: '3', label: 'RAT Tahunan', desc: 'Rapat Anggota Tahunan (Pasal 26-27)' },
+    { value: '4', label: 'Pembubaran', desc: 'Usulkan pembubaran koperasi (Pasal 33-35)', needsDissolution: true },
   ]
 
   const memberList = (() => {
@@ -95,6 +96,7 @@ function CreateProposalForm() {
   const needsRecipient = selectedType?.needsRecipient ?? false
   const needsAmount = selectedType?.needsAmount ?? false
   const needsMember = selectedType?.needsMember ?? false
+  const needsDissolution = selectedType?.needsDissolution ?? false
 
   const isRecipientValid = !needsRecipient || (recipient && isAddress(recipient))
   const isAmountValid = !needsAmount || (amount && !isNaN(Number(amount)) && Number(amount) > 0)
@@ -132,6 +134,9 @@ function CreateProposalForm() {
         functionName: 'revokeMembership',
         args: [memberAddr as `0x${string}`],
       })
+    } else if (type === '4') {
+      targetAddr = CONTRACTS.LAKOMI_GOVERN
+      callData = '0x'
     } else {
       targetAddr = CONTRACTS.LAKOMI_VAULT
       callData = '0x'
@@ -408,11 +413,12 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
   const [regDays, setRegDays] = useState('3')
   const [voteDays, setVoteDays] = useState('5')
   const queryClient = useQueryClient()
+  const { writeContractAsync } = useWriteContract()
 
   const elected = ELECTION_ROLES.find(r => r.key === selectedRole)
   const roleHash = elected ? keccak256(toHex(elected.key)) : '0x'
 
-  const { data: election } = useReadContract({
+  const { data: election, refetch } = useReadContract({
     address: CONTRACTS.LAKOMI_GOVERN as `0x${string}`,
     abi: LAKOMI_GOVERN_ABI,
     functionName: 'getElection',
@@ -431,9 +437,23 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
     query: { enabled: !!elected && !!address },
   })
 
+  const call = async (fn: string, args: any[]) => {
+    try {
+      await writeContractAsync({
+        address: CONTRACTS.LAKOMI_GOVERN as `0x${string}`,
+        abi: LAKOMI_GOVERN_ABI,
+        functionName: fn,
+        args,
+      })
+      setTimeout(() => { queryClient.invalidateQueries({ queryKey: ['readContract'] }); refetch() }, 2000)
+    } catch (e: any) {
+      if (!e?.message?.includes('rejected')) alert('Error: ' + (e?.shortMessage || e?.message))
+    }
+  }
+
   return (
     <Card>
-      <CardHeader><CardTitle className="text-sm">Pemilihan Pengurus (Pasal 29-30)</CardTitle></CardHeader>
+      <CardHeader><CardTitle className="text-sm">Pemilihan Pengurus (Pasal 29-30, 38)</CardTitle></CardHeader>
       <CardContent className="space-y-3">
         <Select value={selectedRole} onValueChange={setSelectedRole}>
           <SelectTrigger><SelectValue placeholder="Pilih jabatan" /></SelectTrigger>
@@ -446,43 +466,37 @@ function PemiluSection({ address }: { address?: `0x${string}` }) {
 
         {elected && !hasElection && (
           <div className="space-y-2">
-            <p className="text-[10px] text-muted-foreground">Belum ada pemilu untuk {elected.label}. Mulai pemilu baru (butuh admin).</p>
+            <p className="text-[10px] text-muted-foreground">Belum ada pemilu untuk {elected.label}. Mulai pemilu baru.</p>
             <div className="flex gap-2">
-              <Input type="number" placeholder="Masa pendaftaran (hari)" value={regDays} onChange={e => setRegDays(e.target.value)} className="h-8 text-xs" />
-              <Input type="number" placeholder="Masa voting (hari)" value={voteDays} onChange={e => setVoteDays(e.target.value)} className="h-8 text-xs" />
-              <Button size="sm" className="text-xs" onClick={() => {
-                // beginElection via wallet
-                alert('Gunakan Dev Faucet untuk memulai pemilu sebagai admin')
-              }}>Mulai Pemilu</Button>
+              <Input type="number" placeholder="Pendaftaran (hari)" value={regDays} onChange={e => setRegDays(e.target.value)} className="h-8 text-xs" />
+              <Input type="number" placeholder="Voting (hari)" value={voteDays} onChange={e => setVoteDays(e.target.value)} className="h-8 text-xs" />
+              <Button size="sm" className="text-xs" onClick={() => call('beginElection', [roleHash, BigInt(regDays) * 86400n, BigInt(voteDays) * 86400n])}>
+                Mulai Pemilu
+              </Button>
             </div>
           </div>
         )}
 
         {hasElection && (
           <div className="space-y-2 bg-muted/30 rounded p-2 text-xs">
-            <p><span className="font-semibold">Pemilu {elected.label}</span> — ID #{String(eData[0])}</p>
-            <p>Pendaftaran: {new Date(Number(eData[2]) * 1000).toLocaleDateString()} selesai</p>
-            <p>Voting: sampai {new Date(Number(eData[3]) * 1000).toLocaleDateString()}</p>
-            <p>Status: {eData[4] ? '✅ Selesai' : '🔄 Aktif'}</p>
-            {eData[4] && <p>Pemenang: <span className="font-mono">{eData[5]?.slice(0,10)}... ({String(eData[6])} suara)</span></p>}
+            <p><span className="font-semibold">Pemilu {elected.label}</span> — #{String(eData[0])}</p>
+            <p>Pendaftaran: {new Date(Number(eData[2]) * 1000).toLocaleDateString()}</p>
+            <p>Voting sampai: {new Date(Number(eData[3]) * 1000).toLocaleDateString()}</p>
+            <p>Status: {eData[4] ? '✅ Selesai — Pemenang: ' + String(eData[5]?.slice(0,10)) + '... (' + String(eData[6]) + ' suara)' : '🔄 Aktif'}</p>
 
             {!eData[4] && (
-              <div className="flex gap-2 mt-2">
+              <div className="space-y-2">
                 {!isCandidate && (
-                  <Button size="sm" variant="outline" className="text-xs" onClick={() => {
-                    alert('registerAsCandidate dikirim via wallet')
-                  }}>Daftar Kandidat</Button>
+                  <Button size="sm" variant="outline" className="text-xs w-full" onClick={() => call('registerAsCandidate', [roleHash])}>Daftar Sebagai Kandidat</Button>
                 )}
-                <Input placeholder="Alamat kandidat 0x..." value={candidate} onChange={e => setCandidate(e.target.value)} className="h-8 text-xs font-mono" />
-                <Button size="sm" className="text-xs" onClick={() => {
-                  alert('castElectionVote dikirim via wallet')
-                }}>Vote</Button>
+                <div className="flex gap-2">
+                  <Input placeholder="Alamat kandidat" value={candidate} onChange={e => setCandidate(e.target.value)} className="h-8 text-xs font-mono flex-1" />
+                  <Button size="sm" className="text-xs" disabled={!isAddress(candidate)} onClick={() => call('castElectionVote', [roleHash, candidate])}>Vote</Button>
+                </div>
               </div>
             )}
             {Date.now() / 1000 > Number(eData[3]) && !eData[4] && (
-              <Button size="sm" className="text-xs mt-1" onClick={() => {
-                alert('finalizeElection dikirim via wallet')
-              }}>Finalisasi Pemilu</Button>
+              <Button size="sm" className="text-xs w-full mt-1" variant="outline" onClick={() => call('finalizeElection', [roleHash])}>Finalisasi Pemilu</Button>
             )}
           </div>
         )}

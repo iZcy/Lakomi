@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import * as pdfjsLib from 'pdfjs-dist'
-import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url'
+import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist'
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl
+GlobalWorkerOptions.workerSrc = ''
 
 export function PdfViewer({ src, page }: { src: string; page: number }) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -19,7 +18,7 @@ export function PdfViewer({ src, page }: { src: string; page: number }) {
     pageRefs.current = []
     const loadPdf = async () => {
       try {
-        const pdf = await pdfjsLib.getDocument({ url: src }).promise
+        const pdf = await getDocument({ url: src, disableAutoFetch: true, disableStream: true }).promise
         setNumPages(pdf.numPages)
         setLoading(false)
         const renderPage = async (pageNum: number) => {

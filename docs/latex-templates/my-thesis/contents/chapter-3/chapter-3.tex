@@ -4,10 +4,10 @@ Bab ini menjelaskan metodologi yang digunakan dalam perancangan dan pengembangan
 
 \section{Pendekatan Design Science Research}
 
-Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artifact} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Ketiga siklus DSR diterapkan sebagai berikut:
+Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artifact} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Hevner \cite{hevner2007design} mengemukakan tiga siklus DSR---relevansi, rigor, dan desain---yang diterapkan sebagai berikut:
 
 \begin{enumerate}
-	\item \textbf{Siklus Relevansi} --- Mengidentifikasi permasalahan koperasi tradisional (tata kelola opak, pengelolaan manual, partisipasi anggota terbatas) dan kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara.
+	\item \textbf{Siklus Relevansi} --- Mengidentifikasi permasalahan koperasi tradisional---tata kelola opak, pengelolaan manual, partisipasi anggota terbatas, dan kesenjangan regulasi pengawasan~\cite{antoni2024permasalahan,putra2025dualisme}---serta kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara.
 	\item \textbf{Siklus Rigor} --- Mengkaji literatur tentang blockchain untuk koperasi, tata kelola DAO, regulasi perkoperasian Indonesia (UU 25/1992, PP 7/2021, Permenkop 8/2023), dan standar pengembangan \textit{smart contract}.
 	\item \textbf{Siklus Desain} --- Membangun \textit{artifact} berupa empat \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) dan \textit{frontend} React, kemudian mengevaluasi kepatuhan fungsional terhadap 26 ketentuan UU 25/1992.
 \end{enumerate}
@@ -134,14 +134,14 @@ Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{l
 Keempat \textit{smart contract} dan perannya dalam arsitektur adalah sebagai berikut:
 
 \begin{enumerate}
-	\item \textbf{\textit{Membership Layer}} --- LakomiToken (LAK) berfungsi sebagai \textit{registry} keanggotaan berbasis ERC-20. Setiap anggota yang terdaftar memiliki tepat satu suara dalam tata kelola, terlepas dari jumlah token yang dimiliki atau kontribusi simpanan. Kontrak ini mengelola empat peran: MINTER, BURNER, LOCKER, dan MEMBERSHIP.
+	\item \textbf{\textit{Membership Layer}} --- LakomiToken (LAK) berfungsi sebagai \textit{registry} keanggotaan berbasis ERC-20~\cite{eip20}. Setiap anggota yang terdaftar memiliki tepat satu suara dalam tata kelola, terlepas dari jumlah token yang dimiliki atau kontribusi simpanan. Kontrak ini mengelola empat peran: MINTER, BURNER, LOCKER, dan MEMBERSHIP.
 	\item \textbf{\textit{Contract Layer}} --- Tiga kontrak yang menangani fungsi inti koperasi:
 	\begin{itemize}
 		\item LakomiVault mengelola \textit{treasury} USDC, tiga jenis simpanan (pokok, wajib, sukarela), dan distribusi SHU enam kategori sesuai Pasal 45(2).
 		\item LakomiGovern menangani pembuatan proposal, pemungutan suara demokratis (satu-anggota-satu-suara), pemilihan pengurus, \textit{veto} pengawas, RAT tahunan, dan pembubaran koperasi.
 		\item LakomiLoans menyediakan pinjaman mikro dengan \textit{loan-to-value} berbasis kontribusi, suku bunga tetap 5\% APY, dan jaminan 25\%.
 	\end{itemize}
-	\item \textbf{\textit{Blockchain Layer}} --- Seluruh kontrak di-deploy pada DChain (EVM-compatible, Chain ID 17845), jaringan blockchain konsorsium pendidikan tinggi Indonesia.
+	\item \textbf{\textit{Blockchain Layer}} --- Seluruh kontrak di-deploy pada DChain (EVM-compatible~\cite{wood2014ethereum}, Chain ID 17845), jaringan blockchain konsorsium pendidikan tinggi Indonesia.
 \end{enumerate}
 
 Lima peran mengatur sistem: PENGAWAS\_ROLE (pengawas dengan hak veto), APPROVER\_ROLE (persetujuan pinjaman), MEMBERSHIP\_ROLE (manajemen anggota), TREASURER\_ROLE (operasional \textit{vault}), dan GOVERN\_ROLE (distribusi SHU). Kontrak LakomiGovern memegang MEMBERSHIP\_ROLE pada token, memungkinkan pencabutan keanggotaan melalui tata kelola sesuai Pasal 31.
@@ -291,7 +291,7 @@ Bunga pinjaman dihitung menggunakan formula bunga sederhana tahunan:
 \label{eq:bunga}
 \end{equation}
 
-\noindent dengan $P$ adalah pokok pinjaman dalam USDC dan $D$ adalah durasi pinjaman dalam hari. Suku bunga 5\% APY (\textit{Annual Percentage Yield}) ditetapkan sebagai suku bunga tetap (\textit{flat rate}) yang lebih rendah dibandingkan suku bunga pinjaman komersial pada umumnya, sesuai dengan prinsip koperasi yang mengutamakan kesejahteraan anggota. Formula ini memastikan bahwa perhitungan bunga bersifat proporsional terhadap durasi---semakin singkat periode pinjaman, semakin kecil bunga yang dibebankan---sehingga memberikan insentif bagi anggota untuk melunasi pinjaman tepat waktu.
+\noindent dengan $P$ adalah pokok pinjaman dalam USDC dan $D$ adalah durasi pinjaman dalam hari. Suku bunga 5\% APY (\textit{Annual Percentage Yield}) ditetapkan sebagai suku bunga tetap yang lebih rendah dibandingkan suku bunga pinjaman komersial, sesuai ketentuan Permenkop 8/2023~\cite{permenkop82023} yang membatasi maksimum suku bunga wajar untuk koperasi simpan pinjam. Formula ini memastikan bahwa perhitungan bunga bersifat proporsional terhadap durasi---semakin singkat periode pinjaman, semakin kecil bunga yang dibebankan---sehingga memberikan insentif bagi anggota untuk melunasi pinjaman tepat waktu.
 
 \section{Perancangan Keamanan}
 

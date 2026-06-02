@@ -11,7 +11,7 @@ import { Separator } from '@/components/ui/separator'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import {
   useIsMember, useMaxLoanAmount, useBorrowerLoans, useLoan, useUsdcBalance,
-  useTokenBalance, useLockedBalance, useRequiredCollateral,
+  useTokenBalance, useLockedBalance, useRequiredCollateral, useLoanCount,
 } from '../hooks/useContractRead'
 import {
   useRequestLoan, useRepayInFull, useRepayLoan, useApproveUsdc,
@@ -41,9 +41,10 @@ export function Loans() {
   const { data: maxLoan } = useMaxLoanAmount(address)
   const { data: loanIds } = useBorrowerLoans(address)
   const { data: usdcBal } = useUsdcBalance(address)
+  const { data: isApprover } = useHasApproverRole(address)
+  const { data: totalLoans } = useLoanCount()
 
   if (!isConnected) return <EmptyState />
-  if (!isMember) return <MemberRegistration />
 
   return (
     <div className="space-y-6">
@@ -52,33 +53,54 @@ export function Loans() {
         <p className="text-sm text-muted-foreground mt-1">Pinjaman darurat dengan jaminan LAK (Pasal 18)</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <Card>
-          <CardContent className="">
-            <p className="text-xs text-muted-foreground">Maks. Pinjaman</p>
-            <p className="text-lg font-bold text-primary mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 USDC'}</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="">
-            <p className="text-xs text-muted-foreground">Saldo USDC</p>
-            <p className="text-lg font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="">
-            <p className="text-xs text-muted-foreground">Pinjaman Aktif</p>
-            <p className="text-lg font-bold text-amber-500 mt-1">{loanIds ? loanIds.length : 0}</p>
-          </CardContent>
-        </Card>
-      </div>
+      {isMember && (
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <Card>
+              <CardContent className="">
+                <p className="text-xs text-muted-foreground">Maks. Pinjaman</p>
+                <p className="text-lg font-bold text-primary mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 USDC'}</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="">
+                <p className="text-xs text-muted-foreground">Saldo USDC</p>
+                <p className="text-lg font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="">
+                <p className="text-xs text-muted-foreground">Pinjaman Aktif</p>
+                <p className="text-lg font-bold text-amber-500 mt-1">{loanIds ? loanIds.length : 0}</p>
+              </CardContent>
+            </Card>
+          </div>
 
-      <RequestLoanForm maxLoan={maxLoan} usdcBal={usdcBal} />
+          <RequestLoanForm maxLoan={maxLoan} usdcBal={usdcBal} />
 
-      {loanIds && loanIds.length > 0 && (
+          {loanIds && loanIds.length > 0 && (
+            <div className="space-y-3">
+              <h3 className="text-sm font-semibold">Pinjaman Saya</h3>
+              {[...loanIds].reverse().map((id) => <LoanCard key={id.toString()} loanId={id} address={address} />)}
+            </div>
+          )}
+        </>
+      )}
+
+      {!isMember && (
+        <Card>
+          <CardContent className="py-8 text-center text-muted-foreground text-sm">
+            Anda belum terdaftar sebagai anggota. Gunakan akun anggota untuk mengajukan pinjaman.
+          </CardContent>
+        </Card>
+      )}
+
+      {isApprover && totalLoans !== undefined && totalLoans > 0n && (
         <div className="space-y-3">
-          <h3 className="text-sm font-semibold">Pinjaman Saya</h3>
-          {[...loanIds].reverse().map((id) => <LoanCard key={id.toString()} loanId={id} address={address} />)}
+          <h3 className="text-sm font-semibold">Semua Pinjaman (Admin)</h3>
+          {Array.from({ length: Number(totalLoans) }, (_, i) => (
+            <LoanCard key={i} loanId={BigInt(i)} address={address} />
+          ))}
         </div>
       )}
 
@@ -88,7 +110,7 @@ export function Loans() {
           <ul className="text-xs text-muted-foreground space-y-1">
             <li>Bunga 5% APY sesuai suku bunga koperasi</li>
             <li>Jaminan 25% LAK dikunci sampai lunas</li>
-            <li>Semua pinjaman memerlukan persetujuan pengurus</li>
+            <li>Semua pinjaman perlu persetujuan pengurus</li>
             <li>Masa tenggang 7 hari setelah jatuh tempo</li>
             <li>Gagal bayar: jaminan disita oleh pengawas</li>
           </ul>

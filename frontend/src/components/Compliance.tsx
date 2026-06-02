@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { PdfViewer } from './PdfViewer'
 
 type Regulation = 'uu2592' | 'pp72021' | 'permenkop92018' | 'permenkop82023'
 
@@ -60,6 +59,7 @@ const FEATURE_MAP: Record<string, { label: string; color: string }> = {
 
 export function Compliance() {
   const [activePasal, setActivePasal] = useState(0)
+  const [activeReg, setActiveReg] = useState<Regulation>('uu2592')
   const active = PASAL[activePasal]
 
   return (
@@ -120,19 +120,22 @@ export function Compliance() {
 
       <p className="text-[10px] text-muted-foreground">Verifikasi mandiri — buka dokumen regulasi di bawah, cari pasal yang dirujuk dalam ringkasan, dan cocokkan dengan kontrak pintar yang terdaftar.</p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-2" style={{ minHeight: '400px' }}>
-        {REGULATIONS.slice(0, 2).map(r => (
-          <Card key={r.key} className="flex flex-col">
-            <div className="px-2 py-1 border-b bg-muted/40 text-[10px] font-semibold flex-shrink-0">{r.full}</div>
-            <iframe src={r.pdf} className="flex-1 w-full border-0 rounded-b-lg" style={{ minHeight: '400px' }} />
-          </Card>
-        ))}
-        {REGULATIONS.slice(2).map(r => (
-          <Card key={r.key} className="flex flex-col">
-            <div className="px-2 py-1 border-b bg-muted/40 text-[10px] font-semibold flex-shrink-0">{r.full}</div>
-            <iframe src={r.pdf} className="flex-1 w-full border-0 rounded-b-lg" style={{ minHeight: '400px' }} />
-          </Card>
-        ))}
+      <div>
+        <div className="flex gap-1 mb-[-1px]">
+          {REGULATIONS.map(r => (
+            <button
+              key={r.key}
+              onClick={() => setActiveReg(r.key)}
+              className={`text-[11px] px-3 py-1.5 rounded-t-md border border-b-0 transition-colors ${activeReg === r.key ? 'bg-background font-medium' : 'text-muted-foreground hover:text-foreground bg-muted/30'}`}
+            >
+              {r.label}
+            </button>
+          ))}
+        </div>
+        <Card className="rounded-tl-none">
+          <div className="px-2 py-1 border-b bg-muted/40 text-[10px] font-semibold">{REGULATIONS.find(r => r.key === activeReg)?.full}</div>
+          <iframe src={REGULATIONS.find(r => r.key === activeReg)?.pdf} className="w-full border-0" style={{ height: '600px' }} />
+        </Card>
       </div>
     </div>
   )

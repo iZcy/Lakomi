@@ -7,15 +7,15 @@ const RPC_URL = typeof import.meta.env.VITE_RPC_URL === 'string'
 
 export const CHAIN_ID = typeof import.meta.env.VITE_CHAIN_ID === 'string'
   ? parseInt(import.meta.env.VITE_CHAIN_ID)
-  : 17845
+  : 313377
 
 export const CHAIN_ID_HEX = typeof import.meta.env.VITE_CHAIN_ID_HEX === 'string'
   ? import.meta.env.VITE_CHAIN_ID_HEX
-  : '0x45b1'
+  : '0x4c95b9'
 
 export const CHAIN_NAME = typeof import.meta.env.VITE_CHAIN_NAME === 'string'
   ? import.meta.env.VITE_CHAIN_NAME
-  : 'DChain Mainnet'
+  : 'Anvil Lokal'
 
 export const anvil = {
   id: CHAIN_ID,

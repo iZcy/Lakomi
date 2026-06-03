@@ -85,8 +85,8 @@ export function Dashboard() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-3">
             <StatCard label="Hak Suara" value={votingPower !== undefined && votingPower > 0n ? '1 Suara' : '0'} desc="1 anggota = 1 suara" />
             <StatCard label="Saldo LAK" value={tokenBalance !== undefined ? formatLAKAmount(tokenBalance) : '0 LAK'} desc="Token keanggotaan" />
-            <StatCard label="Total Simpanan" value={s ? formatUSDCAmount(s.totalContribution) : '0 USDC'} desc="Pokok + Wajib + Sukarela" />
-            <StatCard label="SHU Menunggu" value={pendingSHU !== undefined && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'} desc="Sisa Hasil Usaha" />
+            <StatCard label="Total Simpanan" value={s ? formatUSDCAmount(s.totalContribution) : '0 IDRX'} desc="Pokok + Wajib + Sukarela" />
+            <StatCard label="SHU Menunggu" value={pendingSHU !== undefined && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 IDRX'} desc="Sisa Hasil Usaha" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -100,7 +100,7 @@ export function Dashboard() {
             <Card>
               <CardContent className="">
                 <p className="text-sm text-muted-foreground">Total Aset Koperasi</p>
-                <p className="text-2xl sm:text-3xl font-bold text-emerald-500 mt-1">{totalAssets !== undefined ? formatUSDCAmount(totalAssets) : '0 USDC'}</p>
+                <p className="text-2xl sm:text-3xl font-bold text-emerald-500 mt-1">{totalAssets !== undefined ? formatUSDCAmount(totalAssets) : '0 IDRX'}</p>
                 <p className="text-xs text-muted-foreground mt-1">Dana yang dikelola</p>
               </CardContent>
             </Card>

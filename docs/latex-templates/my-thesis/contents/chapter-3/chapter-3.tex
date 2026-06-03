@@ -4,21 +4,21 @@ Bab ini menjelaskan metodologi yang digunakan dalam perancangan dan pengembangan
 
 \section{Pendekatan Design Science Research}
 
-Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artifact} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi.
+Penelitian ini mengadopsi pendekatan \textit{Design Science Research} (DSR) yang berfokus pada perancangan dan evaluasi \textit{artefak} teknologi untuk mengatasi masalah praktis \cite{hevner2004design}. DSR dipilih karena penelitian bertujuan menghasilkan sistem \textit{proof of concept} yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi.
 
-Pemilihan DSR sebagai metodologi penelitian didasarkan pada tiga pertimbangan utama. Pertama, DSR menekankan pada pembangunan \textit{artifact} sebagai kontribusi utama---dalam konteks ini, \textit{artifact} berupa empat \textit{smart contract} yang mengimplementasikan regulasi perkoperasian ke dalam kode yang dapat dieksekusi secara otomatis. Kedua, DSR bersifat iteratif dan memungkinkan evaluasi berkelanjutan---setiap fungsi \textit{smart contract} diuji secara fungsional untuk memverifikasi kepatuhannya terhadap pasal spesifik dalam UU 25/1992. Ketiga, DSR menyeimbangkan antara kontribusi praktis (sistem yang berfungsi) dan kontribusi teoretis (model pemetaan regulasi ke \textit{smart contract}), yang sesuai dengan posisi penelitian ini di persimpangan antara rekayasa perangkat lunak dan ilmu hukum. Peffers dkk. \cite{peffers2007design} mengembangkan metodologi DSR yang lebih terstruktur dengan enam tahapan---identifikasi masalah, penetapan tujuan, desain dan pengembangan, demonstrasi, evaluasi, dan komunikasi---yang menjadi kerangka acuan untuk alur penelitian enam tahap yang diterapkan dalam penelitian ini.
+Pemilihan DSR sebagai metodologi penelitian didasarkan pada tiga pertimbangan utama. Pertama, DSR menekankan pada pembangunan \textit{artefak} sebagai kontribusi utama---dalam konteks ini, \textit{artefak} berupa empat \textit{smart contract} yang mengimplementasikan regulasi perkoperasian ke dalam kode yang dapat dieksekusi secara otomatis. Kedua, DSR bersifat iteratif dan memungkinkan evaluasi berkelanjutan---setiap fungsi \textit{smart contract} diuji secara fungsional untuk memverifikasi kepatuhannya terhadap pasal spesifik dalam UU 25/1992. Ketiga, DSR menyeimbangkan antara kontribusi praktis (sistem yang berfungsi) dan kontribusi teoretis (model pemetaan regulasi ke \textit{smart contract}), yang sesuai dengan posisi penelitian ini di persimpangan antara rekayasa perangkat lunak dan ilmu hukum. Peffers dkk. \cite{peffers2007design} mengembangkan metodologi DSR yang lebih terstruktur dengan enam tahapan---identifikasi masalah, penetapan tujuan, desain dan pengembangan, demonstrasi, evaluasi, dan komunikasi---yang menjadi kerangka acuan untuk alur penelitian enam tahap yang diterapkan dalam penelitian ini.
 
 Hevner \cite{hevner2007design} mengemukakan tiga siklus DSR---relevansi, rigor, dan desain---yang diterapkan sebagai berikut:
 
 \begin{enumerate}
-	\item \textbf{Siklus Relevansi} --- Menjembatani lingkungan masalah dengan aktivitas penelitian. Siklus ini mengidentifikasi permasalahan koperasi tradisional---tata kelola opak, pengelolaan manual, partisipasi anggota terbatas, dan kesenjangan regulasi pengawasan~\cite{antoni2024permasalahan,putra2025dualisme}---serta kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara. Hasil dari siklus relevansi adalah spesifikasi kebutuhan sistem yang diturunkan langsung dari UU 25/1992: 26 ketentuan yang harus diterjemahkan ke dalam fungsi \textit{smart contract} yang dapat diverifikasi.
+	\item \textbf{Siklus Relevansi} --- Menjembatani lingkungan masalah dengan aktivitas penelitian. Siklus ini mengidentifikasi permasalahan koperasi tradisional---tata kelola tidak transparan, pengelolaan manual, partisipasi anggota terbatas, dan kesenjangan regulasi pengawasan~\cite{antoni2024permasalahan,putra2025dualisme}---serta kesenjangan antara DAO berbasis \textit{token-weighted voting} dengan prinsip koperasi satu-anggota-satu-suara. Hasil dari siklus relevansi adalah spesifikasi kebutuhan sistem yang diturunkan langsung dari UU 25/1992: 26 ketentuan yang harus diterjemahkan ke dalam fungsi \textit{smart contract} yang dapat diverifikasi.
 
 	\item \textbf{Siklus Rigor} --- Menjembatani basis pengetahuan ilmiah dengan aktivitas penelitian. Siklus ini mengkaji literatur tentang blockchain untuk koperasi, tata kelola DAO, regulasi perkoperasian Indonesia (UU 25/1992, PP 7/2021, Permenkop 8/2023), dan standar pengembangan \textit{smart contract}. Basis pengetahuan juga mencakup spesifikasi teknis Ethereum (Yellow Paper), standar ERC-20, pola desain keamanan \textit{smart contract} (AccessControl, ReentrancyGuard), dan arsitektur DChain sebagai infrastruktur blockchain konsorsium. Setiap keputusan desain dalam \textit{smart contract}---dari pemilihan basis poin SHU hingga ambang kuorum 67\%---dijustifikasi melalui rujukan ke regulasi atau literatur yang relevan.
 
-	\item \textbf{Siklus Desain} --- Membangun dan mengevaluasi \textit{artifact} secara iteratif. \textit{Artifact} yang dibangun berupa empat \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) dan \textit{frontend} React. Evaluasi dilakukan melalui pengujian fungsional berbasis skenario yang memverifikasi setiap ketentuan UU 25/1992. Umpan balik dari hasil pengujian digunakan untuk memperbaiki implementasi secara iteratif hingga seluruh 26 ketentuan terverifikasi. Siklus desain menghasilkan dua artefak utama: (1) sistem \textit{proof of concept} yang berfungsi, dan (2) matriks pemetaan ketentuan hukum ke fungsi kode yang dapat digunakan sebagai acuan untuk pengembangan sistem serupa.
+	\item \textbf{Siklus Desain} --- Membangun dan mengevaluasi \textit{artefak} secara iteratif. \textit{Artifact} yang dibangun berupa empat \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) dan \textit{frontend} React. Evaluasi dilakukan melalui pengujian fungsional berbasis skenario yang memverifikasi setiap ketentuan UU 25/1992. Umpan balik dari hasil pengujian digunakan untuk memperbaiki implementasi secara iteratif hingga seluruh 26 ketentuan terverifikasi. Siklus desain menghasilkan dua artefak utama: (1) sistem \textit{proof of concept} yang berfungsi, dan (2) matriks pemetaan ketentuan hukum ke fungsi kode yang dapat digunakan sebagai acuan untuk pengembangan sistem serupa.
 \end{enumerate}
 
-Ketiga siklus DSR tidak berjalan secara linear, melainkan saling terkait secara dinamis. Temuan dari pengujian fungsional (siklus desain) dapat memicu pengkajian ulang terhadap literatur (siklus rigor)---misalnya, ketika hasil pengujian menunjukkan bahwa suatu pola akses kontrol perlu diperkuat. Sebaliknya, literatur baru tentang regulasi perkoperasian (siklus rigor) dapat memperluas cakupan kebutuhan sistem (siklus relevansi). Interaksi dinamis antar siklus ini memastikan bahwa \textit{artifact} yang dihasilkan tidak hanya berfungsi secara teknis, tetapi juga memiliki justifikasi ilmiah dan relevansi praktis yang kuat.
+Ketiga siklus DSR tidak berjalan secara linear, melainkan saling terkait secara dinamis. Temuan dari pengujian fungsional (siklus desain) dapat memicu pengkajian ulang terhadap literatur (siklus rigor)---misalnya, ketika hasil pengujian menunjukkan bahwa suatu pola akses kontrol perlu diperkuat. Sebaliknya, literatur baru tentang regulasi perkoperasian (siklus rigor) dapat memperluas cakupan kebutuhan sistem (siklus relevansi). Interaksi dinamis antar siklus ini memastikan bahwa \textit{artefak} yang dihasilkan tidak hanya berfungsi secara teknis, tetapi juga memiliki justifikasi ilmiah dan relevansi praktis yang kuat.
 
 \section{Alat dan Bahan}
 
@@ -480,11 +480,11 @@ Insentif Kontribusi & Tidak ada mekanisme formal & \textit{Staking} memengaruhi 
 
 Arsitektur Lakomi menjembatani kesenjangan antara koperasi konvensional dan DAO dengan pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara sesuai Pasal 22(1) UU 25/1992, dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan prinsip kesetaraan suara. Pemisahan ini merupakan kontribusi desain utama yang membedakan Lakomi dari DAO berbasis token (\textit{token-weighted voting}) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
 
-Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur---seperti El Amine dan Sari (2024) yang berfokus pada registri properti dan Saito dan Rose (2023) yang menggunakan reputasi untuk tata kelola---Lakomi adalah sistem pertama yang secara sistematis memetakan seluruh ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan \textit{afterthought} melainkan properti bawaan dari arsitektur sistem.
+Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur---seperti El Amine dan Sari (2024) yang berfokus pada registri properti dan Saito dan Rose (2023) yang menggunakan reputasi untuk tata kelola---Lakomi adalah sistem pertama yang secara sistematis memetakan seluruh ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan (\textit{afterthought}) properti bawaan dari arsitektur sistem.
 
 \section{Pengujian}
 
-Pengujian dilakukan dalam dua kategori utama: pengujian fungsional \textit{smart contract} dan analisis biaya gas (\textit{gas analysis}). Pengujian fungsional bertujuan memverifikasi bahwa seluruh 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} berjalan sesuai spesifikasi. Analisis biaya gas bertujuan mengukur kelayakan operasional sistem dari sisi konsumsi komputasi blockchain.
+Pengujian dilakukan dalam dua kategori utama: pengujian fungsional \textit{smart contract} dan analisis gas (\textit{gas analysis}). Pengujian fungsional bertujuan memverifikasi bahwa seluruh 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} berjalan sesuai spesifikasi. Analisis gas bertujuan mengukur kelayakan operasional sistem dari sisi konsumsi komputasi blockchain.
 
 \subsection{Pengujian Fungsional Smart Contract}
 
@@ -510,9 +510,9 @@ Pengujian mencakup tujuh area fungsional utama yang dipetakan ke ketentuan UU 25
 
 Seluruh hasil pengujian fungsional disajikan dan dibahas secara rinci pada Bab~\ref{ch4}.
 
-\subsection{Analisis Biaya Gas}
+\subsection{Analisis Gas}
 
-Analisis biaya gas dilakukan untuk mengukur konsumsi komputasi setiap operasi koperasi pada lingkungan DChain. Pengukuran dilakukan menggunakan \textit{gas reporter} Hardhat yang mencatat konsumsi gas untuk setiap fungsi \textit{smart contract} yang dieksekusi. Operasi yang diukur meliputi:
+Analisis gas dilakukan untuk mengukur konsumsi komputasi setiap operasi koperasi pada lingkungan DChain. Pengukuran dilakukan menggunakan \textit{gas reporter} Hardhat yang mencatat konsumsi gas untuk setiap fungsi \textit{smart contract} yang dieksekusi. Operasi yang diukur meliputi:
 
 \begin{enumerate}
 	\item \textbf{Deployment kontrak} --- Biaya \textit{deployment} satu kali untuk masing-masing dari empat kontrak: LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans.
@@ -524,7 +524,7 @@ Analisis biaya gas dilakukan untuk mengukur konsumsi komputasi setiap operasi ko
 	\item \textbf{Pelunasan pinjaman} (\texttt{repayInFull()}) --- Operasi transfer dana, pembukaan agunan, dan pencatatan pendapatan bunga.
 \end{enumerate}
 
-Hasil analisis biaya gas disajikan dan dibahas pada Bab~\ref{ch4}.
+Hasil analisis gas disajikan dan dibahas pada Bab~\ref{ch4}.
 
 \subsection{Pengujian Imutabilitas}
 
@@ -537,4 +537,4 @@ Pengujian imutabilitas dilakukan untuk memverifikasi bahwa sistem memenuhi prins
 	\item \textbf{Imutabilitas Catatan Pinjaman} --- Verifikasi bahwa riwayat pinjaman---termasuk pengajuan, persetujuan, pencairan, pembayaran, dan pelunasan---tercatat secara permanen dalam \texttt{Loan} struct dan tidak dapat dihapus.
 \end{enumerate}
 
-Seluruh hasil pengujian fungsional, analisis biaya gas, dan pengujian imutabilitas disajikan secara rinci pada Bab~\ref{ch4}.
+Seluruh hasil pengujian fungsional, analisis gas, dan pengujian imutabilitas disajikan secara rinci pada Bab~\ref{ch4}.

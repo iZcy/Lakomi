@@ -2,30 +2,30 @@
 \babel@toc {bahasa}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Perbandingan Platform Blockchain untuk Sistem Koperasi}}{19}{table.caption.21}%
-\contentsline {table}{\numberline {2.2}{\ignorespaces Perbandingan Penelitian Terdahulu dengan Lakomi}}{37}{table.caption.22}%
-\contentsline {table}{\numberline {2.3}{\ignorespaces Analisis Kesenjangan DAO Konvensional terhadap Persyaratan UU 25/1992}}{40}{table.caption.23}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Perbandingan Platform Blockchain untuk Sistem Koperasi}}{17}{table.caption.21}%
+\contentsline {table}{\numberline {2.2}{\ignorespaces Perbandingan Penelitian Terdahulu dengan Lakomi}}{35}{table.caption.22}%
+\contentsline {table}{\numberline {2.3}{\ignorespaces Analisis Kesenjangan DAO Konvensional terhadap Persyaratan UU 25/1992}}{38}{table.caption.23}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Perangkat Lunak yang Digunakan}}{45}{table.caption.25}%
-\contentsline {table}{\numberline {3.2}{\ignorespaces Justifikasi Keputusan Desain Arsitektural}}{50}{table.caption.28}%
-\contentsline {table}{\numberline {3.3}{\ignorespaces Pemetaan Fungsi Smart Contract ke Ketentuan UU 25/1992}}{51}{table.caption.29}%
-\contentsline {table}{\numberline {3.4}{\ignorespaces Justifikasi Parameter Sistem}}{53}{table.caption.30}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces Perbandingan Arsitektur Lakomi dengan Sistem Lain}}{60}{table.caption.32}%
+\contentsline {table}{\numberline {3.1}{\ignorespaces Perangkat Lunak yang Digunakan}}{43}{table.caption.25}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces Justifikasi Keputusan Desain Arsitektural}}{48}{table.caption.28}%
+\contentsline {table}{\numberline {3.3}{\ignorespaces Pemetaan Fungsi Smart Contract ke Ketentuan UU 25/1992}}{49}{table.caption.29}%
+\contentsline {table}{\numberline {3.4}{\ignorespaces Justifikasi Parameter Sistem}}{51}{table.caption.30}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Perbandingan Arsitektur Lakomi dengan Sistem Lain}}{58}{table.caption.32}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Alamat \textit {Deployment Smart Contract} pada DChain Mainnet}}{64}{table.caption.34}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Parameter Inisialisasi Smart Contract}}{65}{table.caption.35}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Hasil Pengujian Kepatuhan terhadap 26 Ketentuan UU 25/1992}}{76}{table.caption.51}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Ringkasan Hasil Pengujian per Kategori Ketentuan UU 25/1992}}{80}{table.caption.52}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Estimasi Konsumsi Gas per Operasi Koperasi}}{80}{table.caption.53}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Perbandingan Estimasi Gas dengan Kontrak Referensi}}{81}{table.caption.54}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Analisis Efisiensi Gas: Lakomi vs Baseline}}{81}{table.caption.55}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Estimasi Biaya Operasional Bulanan (100 Anggota)}}{82}{table.caption.56}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Perbandingan Lakomi dengan Sistem Lain}}{83}{table.caption.57}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Alamat \textit {Deployment Smart Contract} pada DChain Mainnet}}{62}{table.caption.34}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Parameter Inisialisasi Smart Contract}}{63}{table.caption.35}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Hasil Pengujian Kepatuhan terhadap 26 Ketentuan UU 25/1992}}{72}{table.caption.44}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Ringkasan Hasil Pengujian per Kategori Ketentuan UU 25/1992}}{73}{table.caption.45}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Estimasi Konsumsi Gas per Operasi Koperasi}}{74}{table.caption.46}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Perbandingan Estimasi Gas dengan Kontrak Referensi}}{75}{table.caption.47}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Analisis Efisiensi Gas: Lakomi vs Baseline}}{76}{table.caption.48}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Estimasi Biaya Operasional Bulanan (100 Anggota)}}{77}{table.caption.49}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Perbandingan Lakomi dengan Sistem Lain}}{78}{table.caption.50}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Analisis Dimensional Ketercapaian Tujuan Penelitian}}{89}{table.caption.59}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Perbandingan dengan \textit {State of the Art}}}{89}{table.caption.60}%
-\contentsline {table}{\numberline {L.1}{\ignorespaces Daftar \textit {Smart Contract} Lakomi}}{L-1}{table.caption.66}%
-\contentsline {table}{\numberline {L.2}{\ignorespaces Matriks Akses Berbasis Peran pada Sistem Lakomi}}{L-5}{table.caption.68}%
-\contentsline {table}{\numberline {L.3}{\ignorespaces Daftar Skenario Pengujian Fungsional UU 25/1992}}{L-9}{table.caption.69}%
-\contentsline {table}{\numberline {L.4}{\ignorespaces Estimasi Gas Deployment per Kontrak}}{L-10}{table.caption.70}%
-\contentsline {table}{\numberline {L.5}{\ignorespaces Spesifikasi Parameter Sistem Lakomi}}{L-10}{table.caption.71}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Analisis Dimensional Ketercapaian Tujuan Penelitian}}{84}{table.caption.52}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Perbandingan dengan \textit {State of the Art}}}{84}{table.caption.53}%
+\contentsline {table}{\numberline {L.1}{\ignorespaces Daftar \textit {Smart Contract} Lakomi}}{L-1}{table.caption.59}%
+\contentsline {table}{\numberline {L.2}{\ignorespaces Matriks Akses Berbasis Peran pada Sistem Lakomi}}{L-5}{table.caption.61}%
+\contentsline {table}{\numberline {L.3}{\ignorespaces Daftar Skenario Pengujian Fungsional UU 25/1992}}{L-9}{table.caption.62}%
+\contentsline {table}{\numberline {L.4}{\ignorespaces Estimasi Gas Deployment per Kontrak}}{L-10}{table.caption.63}%
+\contentsline {table}{\numberline {L.5}{\ignorespaces Spesifikasi Parameter Sistem Lakomi}}{L-10}{table.caption.64}%

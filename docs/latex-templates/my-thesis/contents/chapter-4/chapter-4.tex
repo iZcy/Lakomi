@@ -73,13 +73,14 @@ Setiap fungsi \textit{smart contract} yang dirancang pada Subbab~3.5 telah berha
 
 \subsubsection{Pendaftaran Anggota --- registerMember}
 
-Fungsi \texttt{registerMember()} mengimplementasikan Pasal~5(1) dan Pasal~17--18 UU 25/1992 tentang keanggotaan sukarela dan terbuka. Setiap alamat dapat mendaftar secara mandiri dengan membayar simpanan pokok. Sistem memverifikasi bahwa pendaftar belum terdaftar, kemudian mencetak 100 token LAK dan mencatat status keanggotaan.
+Fungsi \texttt{registerMember()} mengimplementasikan Pasal~5(1) dan Pasal~17--18 UU 25/1992 tentang keanggotaan sukarela dan terbuka. Setiap alamat dapat mendaftar secara mandiri setelah membayar simpanan pokok melalui LakomiVault. Sistem memverifikasi pembayaran simpanan pokok, kemudian mencetak token LAK dan mencatat status keanggotaan.
 
 \begin{lstlisting}
-function registerMember() external {
+function registerMember() external nonReentrant {
     require(!isRegisteredMember[msg.sender], "Already registered");
+    require(ILakomiVault(lakomiVault).hasPaidSimpananPokok(msg.sender),
+        "Simpanan Pokok must be paid first");
     isRegisteredMember[msg.sender] = true;
-    memberCount++;
     _mint(msg.sender, MEMBER_TOKENS);
     emit MemberRegistered(msg.sender);
 }
@@ -91,18 +92,17 @@ Fungsi \texttt{distributeSHU()} mengimplementasikan Pasal~45(1--2) tentang pemba
 
 \begin{lstlisting}
 function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
-    uint256 dist = (accumulatedRevenue * 9000) / 10000;
-    uint256 reserve = accumulatedRevenue - dist;
-    danaCadangan += reserve;
-    for (uint i = 0; i < 6; i++) {
-        uint256 allocation = (dist * categoryBPS[i]) / 10000;
-        distributions[distributionCount].categoryAmounts[i] = allocation;
-    }
-    distributions[distributionCount].totalAmount = dist;
-    distributions[distributionCount].sharesTotal = sharesTotal;
-    distributionCount++;
+    uint256 reserve = (accumulatedRevenue * operationalReserveBps) / 10000;
+    uint256 dist = accumulatedRevenue - reserve;
+    uint256 cadangan = (dist * shuCadanganBps) / 10000;
+    uint256 jasaModal = (dist * shuJasaModalBps) / 10000;
+    uint256 jasaUsaha = (dist * shuJasaUsahaBps) / 10000;
+    uint256 pendidikan = (dist * shuPendidikanBps) / 10000;
+    uint256 pengurus = (dist * shuPengurusBps) / 10000;
+    danaCadangan += cadangan;
+    totalSHUDistributed += dist;
     accumulatedRevenue = 0;
-    emit SHUDistributed(distributionCount - 1, dist);
+    emit SHUDistributed(distributionId++, dist);
 }
 \end{lstlisting}
 
@@ -111,18 +111,22 @@ function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
 Fungsi \texttt{castVote()} mengimplementasikan Pasal~22(1) tentang prinsip satu anggota satu suara. Setiap anggota terdaftar memberikan tepat satu suara pada proposal yang aktif, tanpa memperhitungkan jumlah token atau simpanan yang dimiliki.
 
 \begin{lstlisting}
-function castVote(
-    uint256 proposalId,
-    uint8 vote
-) external onlyRegisteredMember {
-    Proposal storage p = proposals[proposalId];
-    require(p.active, "Not active");
-    require(!p.hasVoted[msg.sender], "Already voted");
+function castVote(uint256 proposalId, Vote support) 
+    external nonReentrant {
+    _castVote(proposalId, support);
+}
+
+function _castVote(uint256 proposalId, Vote support) 
+    internal {
+    ProposalVoting storage p = proposals[proposalId];
+    require(block.timestamp >= p.voteStart, "Not started");
+    require(block.timestamp <= p.voteEnd, "Ended");
+    require(!p.hasVoted[msg.sender], "Voted");
     p.hasVoted[msg.sender] = true;
-    if (vote == 1) p.forVotes++;
-    else if (vote == 2) p.againstVotes++;
+    if (support == Vote.For) p.forVotes++;
+    else if (support == Vote.Against) p.againstVotes++;
     else p.abstainVotes++;
-    emit VoteCast(proposalId, msg.sender, vote);
+    emit VoteCast(proposalId, msg.sender, support);
 }
 \end{lstlisting}
 
@@ -132,22 +136,24 @@ Fungsi \texttt{createProposal()} memungkinkan anggota terdaftar untuk menginisia
 
 \begin{lstlisting}
 function createProposal(
-    string calldata title,
     string calldata description,
-    ProposalType pType,
-    bytes calldata data
-) external onlyRegisteredMember returns (uint256) {
+    ProposalType _proposalType,
+    address target,
+    uint256 value,
+    bytes calldata callData
+) external nonReentrant returns (uint256) {
+    require(token.isRegisteredMember(msg.sender),
+        "Not registered");
     uint256 id = proposalCount++;
     Proposal storage p = proposals[id];
     p.proposer = msg.sender;
-    p.title = title;
     p.description = description;
-    p.pType = pType;
-    p.data = data;
-    p.startBlock = block.number;
-    p.endBlock = block.number + votingPeriod;
-    p.active = true;
-    proposalForVotes[id] = memberCount;
+    p.proposalType = _proposalType;
+    p.target = target;
+    p.value = value;
+    p.callData = callData;
+    p.voteStart = block.timestamp;
+    p.voteEnd = block.timestamp + votingPeriod;
     emit ProposalCreated(id, msg.sender);
     return id;
 }
@@ -159,22 +165,20 @@ Fungsi \texttt{approveLoan()} dan \texttt{disburse()} mengimplementasikan alur p
 
 \begin{lstlisting}
 function approveLoan(uint256 loanId) 
-    external onlyRole(APPROVER_ROLE) {
+    external onlyRole(APPROVER_ROLE) nonReentrant {
     Loan storage l = loans[loanId];
     require(l.status == LoanStatus.Pending, "Not pending");
     l.status = LoanStatus.Approved;
-    l.approvedBy = msg.sender;
     emit LoanApproved(loanId, msg.sender);
 }
 
-function disburse(uint256 loanId) external {
+function disburse(uint256 loanId) external nonReentrant {
     Loan storage l = loans[loanId];
     require(l.status == LoanStatus.Approved, "Not approved");
+    token.lockTokens(l.borrower, l.collateralTokens);
     l.status = LoanStatus.Active;
-    l.disbursedAt = block.timestamp;
-    token.lockCollateral(l.borrower, l.collateralAmount);
-    vault.approveIDRXSpending(address(this), l.principal);
-    vault.governanceSpend(l.borrower, l.principal);
+    l.startTime = block.timestamp;
+    l.dueTime = block.timestamp + defaultLoanDuration;
     emit LoanDisbursed(loanId, l.borrower, l.principal);
 }
 \end{lstlisting}
@@ -184,56 +188,36 @@ function disburse(uint256 loanId) external {
 Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} bagi pemegang PENGAWAS\_ROLE untuk memperoleh ringkasan keuangan \textit{vault} secara \textit{real-time}---mengimplementasikan fungsi pengawasan yang diamanatkan Pasal~38--39.
 
 \begin{lstlisting}
-function getPengawasAuditReport() external view 
-    onlyRole(PENGAWAS_ROLE) returns (
-    uint256 totalAssets,
+function getPengawasAuditReport() external view returns (
     uint256 totalSimpananPokok,
     uint256 totalSimpananWajib,
     uint256 totalSimpananSukarela,
-    uint256 danaCadangan,
-    uint256 accumulatedRevenue,
-    uint256 memberCount,
-    uint256 activeLoans
+    uint256 revenueAccumulated,
+    uint256 shuDistributed,
+    uint256 cadangan
 ) {
     return (
-        getTotalAssets(),
-        simpananPokokTotal,
-        simpananWajibTotal,
-        sharesTotal,
-        danaCadangan,
-        accumulatedRevenue,
-        controller.getMemberCount(),
-        controller.getActiveLoanCount()
+        totalPokok, totalWajib, totalSukarela,
+        accumulatedRevenue, totalSHUDistributed,
+        danaCadangan
     );
 }
 \end{lstlisting}
-) external onlyRegisteredMember {
-    Proposal storage proposal = proposals[proposalId];
-    require(proposal.status == ProposalStatus.Active, "Not active");
-    require(!proposal.hasVoted[msg.sender], "Already voted");
-    require(block.timestamp <= proposal.voteEnd, "Voting ended");
-    proposal.hasVoted[msg.sender] = true;
-    proposal.totalVotes++;
-    if (vote == 1) proposal.forVotes++;
-    else if (vote == 2) proposal.againstVotes++;
-    else if (vote == 3) proposal.abstainVotes++;
-    emit VoteCast(proposalId, msg.sender, vote);
-}
 
 \subsubsection[Pembayaran Simpanan Wajib]{Pembayaran Simpanan Wajib --- paySimpananWajib}
 
 Fungsi \texttt{paySimpananWajib()} mengimplementasikan Pasal~41(2) tentang kewajiban pembayaran simpanan wajib secara berkala. Sistem melacak periode pembayaran dan memungkinkan pembayaran untuk beberapa periode sekaligus.
 
 \begin{lstlisting}
-function paySimpananWajib() external 
-    onlyRegisteredMember nonReentrant {
-    uint256 periods = getSimpananWajibPeriodsOwed(msg.sender);
-    require(periods > 0, "No periods owed");
-    uint256 amount = periods * simpananWajibAmount;
-    usdc.transferFrom(msg.sender, address(this), amount);
-    simpananWajibPaid[msg.sender] += amount;
-    lastSimpananWajibPayment[msg.sender] = block.timestamp;
-    emit SimpananPaid(msg.sender, amount, "wajib");
+function paySimpananWajib() external nonReentrant {
+    require(simpananPokok[msg.sender] > 0, "Pokok not paid");
+    stableToken.safeTransferFrom(msg.sender, address(this),
+        simpananWajibAmount);
+    simpananWajibTotal[msg.sender] += simpananWajibAmount;
+    simpananWajibPeriodsPaid[msg.sender]++;
+    simpananWajibLastPaid[msg.sender] = block.timestamp;
+    contributions[msg.sender] += simpananWajibAmount;
+    emit SimpananPaid(msg.sender, simpananWajibAmount, "wajib");
 }
 \end{lstlisting}
 
@@ -242,22 +226,22 @@ function paySimpananWajib() external
 Fungsi \texttt{beginElection()} dan \texttt{finalizeElection()} mengimplementasikan Pasal~29--30. Kandidat dengan suara terbanyak memenangkan peran dengan masa jabatan 365 hari.
 
 \begin{lstlisting}
-function beginElection(bytes32 role) external 
-    onlyRole(GOVERN_ROLE) returns (uint256) {
-    require(elections[role].endTime == 0 || 
-        block.timestamp > elections[role].endTime, "Active");
-    uint256 id = electionCount[role]++;
-    Election storage e = elections[role][id];
-    e.role = role; e.startTime = block.timestamp;
-    e.endTime = block.timestamp + 7 days;
-    e.termLength = 365 days;
-    emit ElectionStarted(role, id); return id;
+function beginElection(bytes32 role, uint256 regPeriod, uint256 votePeriod) 
+    external onlyRole(DEFAULT_ADMIN_ROLE) {
+    uint256 eId = electionCount[role]++;
+    elections[role][eId] = Election({
+        startTime: block.timestamp,
+        registrationEnd: block.timestamp + regPeriod,
+        votingEnd: block.timestamp + regPeriod + votePeriod,
+        finalized: false, winner: address(0), forVotes: 0
+    });
+    emit ElectionStarted(role, eId);
 }
 
-function finalizeElection(bytes32 role, uint256 electionId) 
-    external onlyRole(GOVERN_ROLE) {
-    Election storage e = elections[role][electionId];
-    require(block.timestamp > e.endTime, "Active");
+function finalizeElection(bytes32 role, uint256 eId)
+    external onlyRole(DEFAULT_ADMIN_ROLE) {
+    Election storage e = elections[role][eId];
+    require(block.timestamp > e.votingEnd, "Ongoing");
     require(!e.finalized, "Done");
     address winner; uint256 maxVotes;
     for (uint i = 0; i < e.candidateList.length; i++) {
@@ -267,26 +251,25 @@ function finalizeElection(bytes32 role, uint256 electionId)
         }
     }
     e.finalized = true; e.winner = winner;
-    IAccessControl(target).grantRole(role, winner);
-    emit ElectionFinalized(role, electionId, winner);
+    AccessControl(target).grantRole(role, winner);
+    emit ElectionFinalized(role, eId, winner);
 }
 \end{lstlisting}
 
 \subsubsection[Klaim SHU Anggota]{Klaim SHU Anggota --- claimSHU}
 
-Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah distribusi. Mencegah klaim ganda melalui \textit{mapping} \texttt{claimed}.
+Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah distribusi. Mencegah klaim ganda melalui \textit{mapping} \texttt{shuClaimedForDistribution}.
 
 \begin{lstlisting}
-function claimSHU(uint256 distributionId) external 
-    onlyRegisteredMember nonReentrant {
-    Distribution storage d = distributions[distributionId];
-    require(!d.claimed[msg.sender], "Claimed");
-    uint256 shares = vaultShares[msg.sender];
-    uint256 amt = (d.categoryAmounts[0] * shares) / d.sharesTotal;
-    amt += (d.categoryAmounts[1] * shares) / d.sharesTotal;
-    d.claimed[msg.sender] = true;
-    usdc.transfer(msg.sender, amt);
-    emit SHUClaimed(distributionId, msg.sender, amt);
+function claimSHU(uint256 distributionId) external nonReentrant {
+    require(!shuClaimedForDistribution[distributionId][msg.sender],
+        "Already claimed");
+    SHUDistribution storage dist = shuDistributions[distributionId];
+    uint256 memberShares = vaultShares[msg.sender];
+    uint256 amount = memberShares * dist.perShare;
+    shuClaimedForDistribution[distributionId][msg.sender] = true;
+    stableToken.safeTransfer(msg.sender, amount);
+    emit SHUClaimed(distributionId, msg.sender, amount);
 }
 \end{lstlisting}
 
@@ -363,67 +346,6 @@ Halaman Kepatuhan Regulasi menyajikan seluruh 26 ketentuan UU 25/1992 yang telah
 \centering
 \includegraphics[width=0.85\textwidth]{figures/compliance2.png}
 \caption{Halaman Kepatuhan Regulasi 2}
-\label{fig:compliance2}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/dashboard2.png}
-\caption{Halaman Dashboard Anggota --- formulir pembayaran dan riwayat transaksi}
-\label{fig:dashboard2}
-\end{figure}
-
-\subsection{Portal Tata Kelola}
-
-Portal Tata Kelola (Gambar~\ref{fig:governance}) menyediakan antarmuka lengkap untuk partisipasi demokratis anggota. Anggota dapat membuat proposal baru dengan memilih tipe (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM) dan memberikan deskripsi. Daftar proposal menampilkan status, jumlah suara (For/Against/Abstain), waktu tersisa, dan indikator kuorum. Setiap anggota memberikan tepat satu suara melalui tombol \texttt{castVote()}. Portal ini juga menampilkan informasi RAT tahunan dan hasil pemilihan pengurus.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/governance.png}
-\caption{Portal Tata Kelola --- daftar proposal dan pemungutan suara}
-\label{fig:governance}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/governance2.png}
-\caption{Portal Tata Kelola --- pembuatan proposal baru}
-\label{fig:governance2}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/governance3.png}
-\caption{Portal Tata Kelola --- pemilihan pengurus dan hasil}
-\label{fig:governance3}
-\end{figure}
-
-\subsection{Portal Pinjaman}
-
-Portal Pinjaman (Gambar~\ref{fig:loans}) memungkinkan anggota mengajukan pinjaman mikro dengan menentukan jumlah (dalam IDRX) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi (30\%/50\%/70\%) dan menampilkan estimasi bunga menggunakan formula bunga sederhana. Pinjaman di bawah 200 IDRX disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE. Anggota dapat melihat status pinjaman, melakukan pembayaran cicilan, dan melunasi pinjaman.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/loans.png}
-\caption{Portal Pinjaman Lakomi}
-\label{fig:loans}
-\end{figure}
-
-\subsection{Halaman Kepatuhan Regulasi}
-
-Halaman Kepatuhan Regulasi (Gambar~\ref{fig:compliance}) menyajikan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, parameter kunci, dan status verifikasi. Ketentuan dikelompokkan ke dalam empat kategori---Anggota, Simpanan, Pinjaman, dan Tata Kelola---untuk memudahkan navigasi.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/compliance.png}
-\caption{Halaman Kepatuhan Regulasi --- ketentuan keanggotaan dan simpanan}
-\label{fig:compliance}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/compliance2.png}
-\caption{Halaman Kepatuhan Regulasi --- ketentuan tata kelola dan SHU}
 \label{fig:compliance2}
 \end{figure}
 

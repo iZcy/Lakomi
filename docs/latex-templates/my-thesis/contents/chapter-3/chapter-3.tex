@@ -101,10 +101,6 @@ Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{
 \draw[arr] (s4) -- (s5);
 \draw[arr] (s6) -- (s7);
 
-% Vertical transitions
-\draw[darr] (s2.south) -- ++(0,-0.4) -| (s3.north);
-\draw[darr] (s5.south) -- ++(0,-0.4) -| (s6.north);
-
 \end{tikzpicture}
 \caption{Alur Penelitian dalam Tiga Siklus \textit{Design Science Research} (Hevner, 2007)}
 \label{fig:alur-penelitian}
@@ -532,7 +528,7 @@ Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingk
 Pengujian mencakup tujuh area fungsional utama yang dipetakan ke ketentuan UU 25/1992:
 
 \begin{enumerate}
-	\item \textbf{Pendaftaran dan Keanggotaan (Pasal 5(1), 17--18, 19--21, 31)} --- Skenario pengujian meliputi: pendaftaran anggota mandiri dengan pembayaran simpanan pokok 100 IDRX dan penerimaan 100 token LAK; verifikasi bahwa \texttt{isRegisteredMember} bernilai \texttt{true} setelah pendaftaran; penolakan pendaftaran ganda; pengunduran diri sukarela melalui \texttt{resignMembership()}; dan pencabutan keanggotaan melalui proposal tata kelola menggunakan \texttt{revokeMembership()}.
+	\item \textbf{Pendaftaran dan Keanggotaan (Pasal 5(1), 17--18, 19--21, 31)} --- Skenario pengujian meliputi: pendaftaran anggota mandiri; verifikasi \texttt{isRegisteredMember} setelah pendaftaran; penolakan pendaftaran ganda; pengunduran diri melalui \texttt{resignMembership()}; dan pencabutan keanggotaan melalui tata kelola dengan \texttt{revokeMembership()}.
 	
 	\item \textbf{Satu Anggota Satu Suara (Pasal 22(1))} --- Skenario pengujian meliputi: verifikasi bahwa dua anggota dengan saldo token berbeda sama-sama mengembalikan \texttt{getVotingPower() = 1}; dan verifikasi bahwa alamat yang tidak terdaftar ditolak saat mencoba membuat proposal atau memberikan suara.
 	

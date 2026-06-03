@@ -1,105 +1,114 @@
-# Test Roadmap — Lakomi Protocol
+# Lakomi Test Roadmap
 
-## Accounts (Anvil Default Mnemonic)
+## Accounts
 
-| # | Address | PK | Role | Purpose |
+| # | MetaMask | Address | Role | Test Purpose |
 |---|---|---|---|---|
-| 0 | `0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266` | `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80` | Deployer | Full admin |
-| 1 | `0x70997970C51812dc3A010C7d01b50e0d17dc79C8` | `0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d` | Pengawas | Veto, pause, audit |
-| 2 | `0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC` | `0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a` | Pengurus | Approve/reject loans |
-| 3 | `0x90F79bf6EB2c4f870365E785982E1f101E93b906` | `0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6` | Membership | Member test |
-| 4 | `0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65` | `0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a` | Bendahara | Treasury |
-| 5 | `0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc` | `0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba` | Govern | SHU, elections |
-| 6 | `0x976EA74026E726554dB657fA54763abd0C3a0aa9` | `0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e` | — | Member test |
-| 7 | `0x14dC79964da2C08b23698B3D3cc7Ca32193d9955` | `0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356` | — | Member test |
-| 8 | `0x23618e81E3f5cdF7f54C3d65f7FBc0aBf5B21E8f` | `0xdbda1821b80551c9d65939329250298aa3472ba22feea921c0cf5d620ea67b97` | — | Member test |
-| Main | `0x66534dD42A65a2386aA9cB9c36d37A35c01C77b6` | (your wallet) | Member | Primary user |
+| Main | Wallet 1 | `0x66534dD42A65a2386aA9cB9c36d37A35c01C77b6` | Member | Primary user |
+| Acc1 | Acc1 | `0x7099...79C8` | Pengawas | Veto (case 12) |
+| Acc2 | Acc2 | `0x3C44...93BC` | Pengurus | Approve/Reject loans (cases 1,17) |
+| Acc3 | Acc3 | `0x90F7...B906` | Member | Quorum voter + kick target |
+| Acc4 | Acc4 | `0x15d3...6A65` | Bendahara | Sertifikat (case 20) |
+| Acc5 | Acc5 | `0x9965...A4dc` | Govern | SHU + Election admin (10,15) |
+| Acc6 | Acc6 | `0x976E...0AA9` | Member | Quorum voter |
+| Acc7 | Acc7 | `0x14dc...9955` | Member | Quorum voter |
+| Acc8 | Acc8 | `0x2361...1E8f` | Member | Quorum voter |
 
-## Pre-Test Setup (every restart)
+## Setup (every restart)
 
-1. Main: Dev Faucet → 🔓 Unlock → 10 ETH → 1,000 USDC → Beranda register
-2. Acc3: Dev Faucet → 🔓 Unlock → 10 ETH → 1,000 USDC → Beranda register
-3. Acc4: Dev Faucet → 🔓 Unlock → 10 ETH → 1,000 USDC → Beranda register
-4. (optional) Acc6+ : same registration for more quorum testing
+1. Main: Unlock → 10 ETH → 1,000 USDC → Register
+2. Acc3: Unlock → 10 ETH → 1,000 USDC → Register
+3. Acc6: Unlock → 10 ETH → 1,000 USDC → Register
+4. Acc7: Unlock → 10 ETH → 1,000 USDC → Register
+5. (Acc4, Acc8 optional for extra quorum)
+6. Main: Simpanan Sukarela 500 USDC
 
-## Test Cases
+→ 4 members = quorum 3 (4×67%=2.68→3). 1-2 suara = gagal.
 
-### 1. Positive Loan Flow ✅ Tested
-Main: Simpanan Wajib + Sukarela → Pinjaman ≤ Maks → Acc2 Setujui → Main Cairkan → Lunasi
+## Test Cases (Execution Order)
 
-### 2. Vote Setuju ✅ Tested  
-Create proposal → Vote For → 7d → Queue → 1d → Execute
+### 1 ✅ Positive Loan
+Main: Pinjaman 50 USDC → Acc2 Setujui → Main Cairkan → Lunasi
 
-### 3. Vote Tolak ❌
-Create proposal → Vote **Against** (0=support=Against in contract)
+### 2 ✅ Vote Setuju (Anggaran)
+Main: Anggaran ke Acc3, 10 USDC → Vote For → 7d → Queue → 1d → Execute
 
-### 4. Vote Abstain ❌
-Create proposal → Vote **Abstain** (support=2)
+### 3 ❌ Vote Tolak
+Main: Create proposal → Vote Against (support=0) by Acc6, Acc7
+Outcome: For=0, Against=2 → **Defeated**
 
-### 5. Quorum Fail ❌ (need 3+ registered)
-Proposal with only 1 vote when 3+ members exist → **Defeated** after voting period
+### 4 ❌ Vote Abstain
+Main: Create proposal → Vote Abstain (support=2) by Main
+Outcome: Abstain counted but doesn't help reach quorum
 
-### 6. Partial Repay ❌
-Active loan → **Bayar Sebagian** (partial amount) → check remaining balance
+### 5 ❌ Quorum Fail (4 members, 1 vote)
+Main: Create proposal → Vote For only by Main → 7d
+Outcome: 1/4 votes < quorum 3 → **Defeated**
 
-### 7. Anggota Revocation ✅ Tested
-Keanggotaan proposal → select member → vote → queue → execute
+### 6 ❌ Partial Repay
+Active loan → Bayar Sebagian (half) → check remaining + second repay
 
-### 8. Anggaran Execution ✅ Tested
-Anggaran proposal → select recipient + amount → vote → queue → execute
+### 7 ✅ Anggota Revocation
+Main: Keanggotaan → pick Acc6 → Vote → 7d → Queue → 1d → Execute
+→ Acc6 removed from member list
 
-### 9. Anggaran Fail (insufficient vault) ❌
-Anggaran amount > vault balance → execute fails → error displayed
+### 8 ✅ Anggaran Success
+Main: Anggaran 10 USDC → Acc3 (recipient) → Vote → Execute
 
-### 10. Election: Full Cycle ❌
-Main: Dev Faucet Grant Admin → Governance Pemilu → select Pengurus → 1+1 days → Mulai Pemilu
-→ Daftar Kandidat → fill candidate address → Vote → 2d skip → Finalisasi
-→ Pemenang gets APP overview_APPROVER_ROLE
+### 9 ❌ Anggaran Fail (overbudget)
+Anggaran amount > vault balance → execute → **error message shown**
 
-### 11. Election: Vote Counter ❌
-Multiple members vote for different candidates → check vote counts
+### 10 ❌ Election Full Cycle
+Acc5: Dev Faucet Grant Admin → Governance Pemilu → Pengurus → 1+1 → Mulai
+→ Acc5 register as candidate → Acc6/Acc7 vote for Acc5
+→ 2d skip → Finalize → Acc5 gets APPROVER_ROLE
 
-### 12. Veto by Pengawas ❌
-Acc1 (Pengawas) → vote on proposal → after success → Acc1 veto → proposal status = Vetoed
+### 11 ❌ Multiple Candidates
+Election with 2+ candidates → voters split → highest vote wins
 
-### 13. Voluntary Exit ❌
-Main (no active loans) → Anggota tab → Keluar dari Koperasi → simpanan pokok refunded
+### 12 ❌ Veto by Pengawas
+Acc1: after proposal succeeds → Governance → Veto
+→ proposal state = **Vetoed**
 
-### 14. Exit Rejected (active loans) ❌
-Member with active loan → Keluar → error "Cannot resign with active loans"
+### 13 ❌ Voluntary Exit (success)
+Main (no active loans) → Anggota → **Keluar dari Koperasi**
+→ simpanan pokok refunded + LAK burned
 
-### 15. SHU Distribute ❌ (need revenue)
-Acc5 (Govern) → Simpanan tab → Distribusikan SHU → claim by members
+### 14 ❌ Exit Rejected (active loans)
+Member with active loan → can't exit → **error displayed**
 
-### 16. Pengawas Audit ❌
-Kepatuhan Hukum → Laporan Pengawas card → live data display
+### 15 ❌ SHU Distribute (need loan interest)
+Acc5 → distributeSHU → members claim
 
-### 17. Loan Reject ❌
-Acc2 → Pinjaman Admin → Tolak/Batalkan → loan status = Canceled
+### 16 ❌ Pengawas Audit
+Kepatuhan Hukum → Laporan Pengawas → live data
 
-### 18. Loan Default ❌
-Active loan → 30d jangka waktu → melebihi grace period → Acc2 → Tandai Gagal Bayar
+### 17 ❌ Loan Reject
+Acc2 → Pinjaman Admin → Tolak/Batalkan → status Canceled
 
-### 19. Multiple Active Loans ❌
-Main: request 2+ loans → each approved → track multiple active loans
+### 18 ❌ Loan Default
+Active loan over deadline → Acc2 → Tandai Gagal Bayar
 
-### 20. Sertifikat Simpanan ❌
-Acc4 (Bendahara) → Simpanan tab → Terbitkan Sertifikat
+### 19 ❌ Multiple Loans
+Main: request 2+ loans simultaneously → each approved → track active count
 
-### 21. Pembubaran Proposal ❌
-Create Pembubaran proposal → vote → queue → execute → contracts paused
+### 20 ❌ Sertifikat Simpanan
+Acc4 (Bendahara) → Simpanan → Terbitkan Sertifikat
 
-### 22. RAT Tahunan ❌
-Create RAT Tahunan proposal → vote → execute
+### 21 ❌ Pembubaran Proposal
+Main: Pembubaran → Vote → Execute → contracts paused
 
-## Fast Forward Buttons
+### 22 ❌ RAT Tahunan
+Main: RAT Tahunan → Vote → Execute
 
-| Button | Seconds | Use Case |
+## Fast Forward
+
+| Button | Seconds | Use |
 |---|---|---|
-| ⏩ 7 Hari (Voting) | 604800 | End voting period |
-| ⏩ 1 Hari (Timelock) | 86400 | End timelock before execution |
+| ⏩ 7 Hari (Voting) | 604800 | End voting |
+| ⏩ 1 Hari (Timelock) | 86400 | End timelock |
 
-## Contract Addresses (deterministic)
+## Contract Addresses
 
 | Contract | Address |
 |---|---|

@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /**
  * @title MockIDRX
- * @notice Mock USDC token for testing
+ * @notice Mock IDRX token — stablecoin yang dipatok ke Rupiah
  */
 contract MockIDRX is ERC20 {
     uint8 private constant DECIMALS = 6;

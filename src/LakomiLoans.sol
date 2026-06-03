@@ -219,7 +219,7 @@ contract LakomiLoans is AccessControl, ReentrancyGuard, Pausable {
 
         // Calculate collateral needed
         uint256 collateralNeeded = (amount * collateralRatio) / 10000;
-        // Convert USDC amount to LAK token amount (assuming 1:1 for simplicity)
+        // Convert IDRX amount to LAK token amount (assuming 1:1 for simplicity)
         // In production, you'd use a price oracle
         uint256 collateralInTokens = collateralNeeded * 10**12; // USDC 6 decimals -> LAK 18 decimals
 

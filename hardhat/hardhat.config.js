@@ -29,5 +29,10 @@ module.exports = {
       chainId: 2713017997578000,
       accounts: process.env.DCHAIN_PK ? [process.env.DCHAIN_PK] : [],
     },
+    dchain: {
+      url: process.env.DCHAIN_RPC_URL || "https://rpc.dchain.id",
+      chainId: 17845,
+      accounts: process.env.DCHAIN_PK ? [process.env.DCHAIN_PK] : [],
+    },
   },
 };

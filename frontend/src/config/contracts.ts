@@ -10,26 +10,28 @@ const DEPLOYER_URL = typeof import.meta.env.VITE_DEPLOYER_URL === 'string'
   ? import.meta.env.VITE_DEPLOYER_URL
   : 'http://localhost:3030'
 
+import { IS_DEV, CHAIN_ID } from '../wagmi'
+
 export const CONTRACTS: Record<string, string> = { ...FALLBACK }
 
 export let contractsReady = false
 
 export async function loadContracts(): Promise<void> {
+  if (!IS_DEV) {
+    contractsReady = true
+    return
+  }
   try {
     const res = await fetch(`${DEPLOYER_URL}/contracts`)
     if (res.ok) {
       const data = await res.json()
       Object.assign(CONTRACTS, data)
     }
-  } catch (e) {
-    // use fallback addresses (DChain/production)
-  }
+  } catch (e) {}
   contractsReady = true
 }
 
 loadContracts()
-
-import { CHAIN_ID } from '../wagmi'
 
 export const PROPOSAL_STATES = [
   'Menunggu',

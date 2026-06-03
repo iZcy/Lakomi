@@ -121,20 +121,20 @@
 \contentsline {section}{\numberline {4.5}Perbandingan Sistem}{75}{section.4.5}%
 \contentsline {section}{\numberline {4.6}Diskusi}{76}{section.4.6}%
 \contentsline {subsection}{\numberline {4.6.1}Signifikansi Kepatuhan 100\%}{76}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Kelayakan dari Perspektif Gas}{76}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.2}Kelayakan dari Perspektif Gas}{77}{subsection.4.6.2}%
 \contentsline {subsection}{\numberline {4.6.3}Keterbatasan dan Validitas Eksternal}{77}{subsection.4.6.3}%
 \contentsline {section}{\numberline {4.7}Validasi Formula}{77}{section.4.7}%
 \contentsline {subsection}{\numberline {4.7.1}Validasi Formula Bunga Pinjaman}{77}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Validasi Formula Kuorum}{77}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.2}Validasi Formula Kuorum}{78}{subsection.4.7.2}%
 \contentsline {subsection}{\numberline {4.7.3}Validasi Formula Distribusi SHU}{78}{subsection.4.7.3}%
-\contentsline {chapter}{\numberline {V}Penutup}{79}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kesimpulan}{79}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Analisis Dimensional Ketercapaian Tujuan}{80}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Perbandingan dengan State of the Art}{80}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Keterbatasan Penelitian}{81}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Saran}{82}{section.5.3}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{84}{section*.52}%
-\contentsline {chapter}{LAMPIRAN}{L-1}{section*.54}%
+\contentsline {chapter}{\numberline {V}Penutup}{80}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kesimpulan}{80}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Analisis Dimensional Ketercapaian Tujuan}{81}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Perbandingan dengan State of the Art}{81}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Keterbatasan Penelitian}{82}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Saran}{83}{section.5.3}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{85}{section*.53}%
+\contentsline {chapter}{LAMPIRAN}{L-1}{section*.55}%
 \contentsline {section}{\numberline {L.1}Daftar Smart Contract Lakomi}{L-1}{section.Alph0.1}%
 \contentsline {section}{\numberline {L.2}Struktur Data Utama}{L-1}{section.Alph0.2}%
 \contentsline {subsection}{\numberline {L.2.1}LakomiToken --- Keanggotaan}{L-1}{subsection.Alph0.2.1}%

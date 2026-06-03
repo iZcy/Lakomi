@@ -2,17 +2,34 @@
 
 ## Accounts
 
-| # | MetaMask | Address | Role | Test Purpose |
-|---|---|---|---|---|
-| Main | Wallet 1 | `0x66534dD42A65a2386aA9cB9c36d37A35c01C77b6` | Member | Primary user |
-| Acc1 | Acc1 | `0x7099...79C8` | Pengawas | Veto (case 12) |
-| Acc2 | Acc2 | `0x3C44...93BC` | Pengurus | Approve/Reject loans (cases 1,17) |
-| Acc3 | Acc3 | `0x90F7...B906` | Member | Quorum voter + kick target |
-| Acc4 | Acc4 | `0x15d3...6A65` | Bendahara | Sertifikat (case 20) |
-| Acc5 | Acc5 | `0x9965...A4dc` | Govern | SHU + Election admin (10,15) |
-| Acc6 | Acc6 | `0x976E...0AA9` | Member | Quorum voter |
-| Acc7 | Acc7 | `0x14dc...9955` | Member | Quorum voter |
-| Acc8 | Acc8 | `0x2361...1E8f` | Member | Quorum voter |
+| # | MetaMask | Address | PK | Role | Purpose |
+|---|---|---|---|---|---|
+| 0 | Deployer | `0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266` | `0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80` | Admin | Deploy |
+| 1 | Acc1 | `0x70997970C51812dc3A010C7d01b50e0d17dc79C8` | `0x59c6995e998f97a5a0044966f0945389dc9e86dae88c7a8412f4603b6b78690d` | Pengawas | Veto (12) |
+| 2 | Acc2 | `0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC` | `0x5de4111afa1a4b94908f83103eb1f1706367c2e68ca870fc3fb9a804cdab365a` | Pengurus | Approve/Reject (1,17) |
+| 3 | Acc3 | `0x90F79bf6EB2c4f870365E785982E1f101E93b906` | `0x7c852118294e51e653712a81e05800f419141751be58f605c371e15141b007a6` | Member | Voter + target (3,8) |
+| 4 | Acc4 | `0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65` | `0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a` | Bendahara | Sertifikat (20) |
+| 5 | Acc5 | `0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc` | `0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba` | Govern | SHU + Election (10,15) |
+| 6 | Acc6 | `0x976EA74026E726554dB657fA54763abd0C3a0aa9` | `0x92db14e403b83dfe3df233f83dfa3a0d7096f21ca9b0d6d6b8d88b2b4ec1564e` | Member | Voter (3,5) |
+| 7 | Acc7 | `0x14dC79964da2C08b23698B3D3cc7Ca32193d9955` | `0x4bbbf85ce3377467afe5d46f804f221813b2bb87f24d81f60f1fcdbf7cbf4356` | Member | Voter (3,5) |
+| Main | Wallet 1 | `0x66534dD42A65a2386aA9cB9c36d37A35c01C77b6` | *(your wallet)* | Member | Primary user |
+
+## Import Instructions
+
+```
+MetaMask → Account icon → Add account → Import account → Paste PK → Import
+```
+
+Import order (label them in MetaMask):
+1. Acc1 (Pengawas) — PK `0x59c699...`
+2. Acc2 (Pengurus) — PK `0x5de411...`
+3. Acc3 (Member) — PK `0x7c8521...`
+4. Acc4 (Bendahara) — PK `0x47e179...`
+5. Acc5 (Govern) — PK `0x8b3a35...`
+6. Acc6 (Member) — PK `0x92db14...`
+7. Acc7 (Member) — PK `0x4bbbf8...`
+
+Chain: `localhost:8545` / Chain ID `313377`
 
 ## Setup (every restart)
 

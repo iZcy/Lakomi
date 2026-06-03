@@ -40,7 +40,7 @@ const PASAL: PasalEntry[] = [
   { regulation: 'uu2592', pasal: 'Pasal 33-35', title: 'Pembubaran Koperasi', lawText: 'Pembubaran Koperasi dilakukan berdasarkan keputusan Rapat Anggota. Dalam hal Koperasi dibubarkan, dilakukan penyelesaian pembubaran.', contract: 'executeDissolution()', evidence: 'Pause semua kontrak.', feature: 'Tata Kelola' },
   { regulation: 'uu2592', pasal: 'Pasal 38', title: 'Pengawas', lawText: 'Untuk melakukan pengawasan terhadap pelaksanaan kebijakan dan pengelolaan Koperasi, Rapat Anggota mengangkat Pengawas dari dan oleh anggota.', contract: 'vetoProposal() + PENGAWAS_ROLE', evidence: 'Veto, pause, audit.', feature: 'Tata Kelola' },
   { regulation: 'uu2592', pasal: 'Pasal 39 ayat (2)', title: 'Hak Pengawas Memeriksa', lawText: 'Pengawas berwenang untuk meneliti catatan dan laporan yang ada pada Koperasi.', contract: 'getPengawasAuditReport()', evidence: 'Audit: simpanan, SHU, dana.', feature: 'Tata Kelola' },
-  { regulation: 'uu2592', pasal: 'Pasal 41 ayat (1)', title: 'Simpanan Pokok', lawText: 'Modal Koperasi terdiri dari simpanan pokok yang dibayar oleh anggota pada saat masuk menjadi anggota.', contract: 'paySimpananPokok()', evidence: '100 USDC saat pendaftaran.', feature: 'Simpanan' },
+  { regulation: 'uu2592', pasal: 'Pasal 41 ayat (1)', title: 'Simpanan Pokok', lawText: 'Modal Koperasi terdiri dari simpanan pokok yang dibayar oleh anggota pada saat masuk menjadi anggota.', contract: 'paySimpananPokok()', evidence: '100 IDRX saat pendaftaran.', feature: 'Simpanan' },
   { regulation: 'uu2592', pasal: 'Pasal 41 ayat (2)', title: 'Simpanan Wajib', lawText: 'Simpanan wajib yang dibayar oleh anggota secara berkala dalam jangka waktu tertentu.', contract: 'paySimpananWajib()', evidence: 'Bulanan, jumlah via tata kelola.', feature: 'Simpanan' },
   { regulation: 'uu2592', pasal: 'Pasal 41 ayat (3)', title: 'Simpanan Sukarela', lawText: 'Atas simpanan sukarela, Koperasi dapat menerbitkan sertifikat simpanan Koperasi.', contract: 'deposit() / issueCertificate()', evidence: 'Deposit bebas + sertifikat on-chain.', feature: 'Simpanan' },
   { regulation: 'permenkop82023', pasal: 'Pasal 6 ayat (1)', title: 'Batasan Maksimum Pinjaman', lawText: 'KSP/USP Koperasi wajib menetapkan batas maksimum pemberian pinjaman. Pemberian pinjaman kepada anggota didasarkan pada kemampuan membayar dan agunan.', contract: 'LakomiLoans (maxLoan, 25% collateral)', evidence: 'LTV tiered: 30%/50%/70%.', feature: 'Pinjaman' },
@@ -167,15 +167,15 @@ function PengawasAudit() {
       <CardHeader className="pb-2"><CardTitle className="text-sm">Laporan Pengawas (Pasal 39.2 + 46-47)</CardTitle></CardHeader>
       <CardContent>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-          <div><span className="text-muted-foreground">Simpanan Pokok</span><p className="font-medium">{Number(r[0]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Simpanan Wajib</span><p className="font-medium">{Number(r[1]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Simpanan Sukarela</span><p className="font-medium">{Number(r[2]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Revenue</span><p className="font-medium text-amber-500">{Number(r[3]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">SHU Didistribusi</span><p className="font-medium">{Number(r[4]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Dana Cadangan</span><p className="font-medium">{Number(r[5]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Dana Pendidikan</span><p className="font-medium">{Number(r[6]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Dana Pengurus</span><p className="font-medium">{Number(r[7]) / 1e6} USDC</p></div>
-          <div><span className="text-muted-foreground">Dana Kesejahteraan</span><p className="font-medium">{Number(r[8]) / 1e6} USDC</p></div>
+          <div><span className="text-muted-foreground">Simpanan Pokok</span><p className="font-medium">{Number(r[0]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Simpanan Wajib</span><p className="font-medium">{Number(r[1]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Simpanan Sukarela</span><p className="font-medium">{Number(r[2]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Revenue</span><p className="font-medium text-amber-500">{Number(r[3]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">SHU Didistribusi</span><p className="font-medium">{Number(r[4]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Dana Cadangan</span><p className="font-medium">{Number(r[5]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Dana Pendidikan</span><p className="font-medium">{Number(r[6]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Dana Pengurus</span><p className="font-medium">{Number(r[7]) / 1e6} IDRX</p></div>
+          <div><span className="text-muted-foreground">Dana Kesejahteraan</span><p className="font-medium">{Number(r[8]) / 1e6} IDRX</p></div>
           <div><span className="text-muted-foreground">Jumlah Anggota</span><p className="font-medium">{String(r[9])}</p></div>
         </div>
       </CardContent>

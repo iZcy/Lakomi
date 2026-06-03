@@ -184,7 +184,7 @@ function CreateProposalForm() {
 
         {needsAmount && (
           <div className="space-y-1.5">
-            <label className="text-xs text-muted-foreground">Jumlah (USDC) *</label>
+            <label className="text-xs text-muted-foreground">Jumlah (IDRX) *</label>
             <Input
               type="number"
               placeholder="0.0"
@@ -309,7 +309,7 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
               <div className="text-xs space-y-1">
                 <div><span className="text-muted-foreground/60">Alamat Tujuan:</span> <span className="font-mono">{target}</span></div>
                 {value !== undefined && value > 0n && (
-                  <div><span className="text-muted-foreground/60">Nilai Transfer:</span> <span className="font-semibold">{formatUnits(value, 6)} USDC</span></div>
+                  <div><span className="text-muted-foreground/60">Nilai Transfer:</span> <span className="font-semibold">{formatUnits(value, 6)} IDRX</span></div>
                 )}
                 {callData && callData !== '0x' && callData.length >= 138 && proposal.proposalType === 0 && (
                   (() => {
@@ -321,7 +321,7 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
                     return (
                       <div>
                         <div><span className="text-muted-foreground/60">Penerima:</span> <span className="font-mono text-[10px]">{name}</span></div>
-                        <div><span className="text-muted-foreground/60">Jumlah Belanja:</span> <span className="font-semibold text-amber-500">{formatUnits(amt, 6)} USDC</span></div>
+                        <div><span className="text-muted-foreground/60">Jumlah Belanja:</span> <span className="font-semibold text-amber-500">{formatUnits(amt, 6)} IDRX</span></div>
                       </div>
                     )
                   })()

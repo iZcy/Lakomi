@@ -108,7 +108,7 @@ export function MemberRegistration() {
           <DataPreview form={form} />
           <Separator />
           <p className="text-xs text-muted-foreground">
-            Simpanan Pokok 100 USDC akan dibayarkan terlebih dahulu sesuai Pasal 22(2) jo. Pasal 41 UU 25/1992
+            Simpanan Pokok 100 IDRX akan dibayarkan terlebih dahulu sesuai Pasal 22(2) jo. Pasal 41 UU 25/1992
           </p>
           <div className="space-y-2">
             {busy && (
@@ -123,7 +123,7 @@ export function MemberRegistration() {
                 Kembali
               </Button>
               <Button onClick={handleRegister} disabled={busy} className="flex-1">
-                {regStep === 'approve' ? '1/3 Setujui USDC...' : regStep === 'pay' ? '2/3 Bayar Pokok...' : regStep === 'register' ? '3/3 Mendaftar...' : 'Konfirmasi & Daftar'}
+                {regStep === 'approve' ? '1/3 Setujui IDRX...' : regStep === 'pay' ? '2/3 Bayar Pokok...' : regStep === 'register' ? '3/3 Mendaftar...' : 'Konfirmasi & Daftar'}
               </Button>
             </div>
           </div>

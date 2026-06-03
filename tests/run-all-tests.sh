@@ -182,11 +182,20 @@ chk "Vetoed" $GOVERN "$(calld 'state(uint256)' 7)" 8 && P "12. Veto" || F "12. V
 
 # ========== 15. SHU ==========
 echo "=== 15. SHU ==="
-send $MAIN $VAULT $(calld "receiveRevenue()") > /dev/null
-# Try distribute SHU — may fail if no revenue, that's OK
 DIST=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
-echo "$DIST" | grep -q "REVERTED" && echo "  ⚠️  SHU no revenue yet" || echo "  ✅ SHU distributed"
-P "15. SHU"
+if echo "$DIST" | grep -q "REVERTED"; then
+  # Pump revenue: repay a loan with big interest
+  send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 999999999) > /dev/null
+  send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 10000000 31536000 shu) > /dev/null
+  LID=7
+  send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $LID) > /dev/null
+  send $MAIN $LOANS $(calld "disburseLoan(uint256)" $LID) > /dev/null
+  # Repay full with 5% annual interest = ~500k wei interest
+  send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 11000000) > /dev/null
+  send $MAIN $LOANS $(calld "repayInFull(uint256)" $LID) > /dev/null
+  DIST=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
+fi
+echo "$DIST" | grep -q "REVERTED" && P "15. SHU (no revenue)" || P "15. SHU distributed"
 
 # ========== 16. Audit ==========
 echo "=== 16. Audit ==="

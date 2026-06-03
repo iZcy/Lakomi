@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  4 JUN 2026 06:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  4 JUN 2026 06:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1285,7 +1285,7 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<sample/logougm.png, id=618, 110.5731pt x 112.2594pt>
+<sample/logougm.png, id=610, 110.5731pt x 112.2594pt>
 File: sample/logougm.png Graphic file (type png)
 <use sample/logougm.png>
 Package pdftex.def Info: sample/logougm.png  used on input line 97.
@@ -1356,7 +1356,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 (./contents/statement/statement.tex
-<figures/signature.png, id=633, 513.92pt x 286.06876pt>
+<figures/signature.png, id=625, 513.92pt x 286.06876pt>
 File: figures/signature.png Graphic file (type png)
 <use figures/signature.png>
 Package pdftex.def Info: figures/signature.png  used on input line 23.
@@ -1414,28 +1414,28 @@ Package pdftex.def Info: figures/signature.png  used on input line 23.
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [10] [11] (./main.lot)
+ [10] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [12
+ [11
 
 ] (./main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
+ [12
 
-[13
-
-] (./contents/nomenclature/nomenclature.tex) [14
+]
+(./contents/nomenclature/nomenclature.tex) [13
 
 
 ]
-(./contents/abstract/intisari.tex) [15
+(./contents/abstract/intisari.tex) [14
 
 
 ] (./contents/abstract/abstract.tex)
-[16
+[15
 
 
 ]
@@ -2145,12 +2145,12 @@ Overfull \hbox (4.47028pt too wide) in paragraph at lines 261--262
  []
 
 [67]
-<figures/dashboard.png, id=1705, 1412.27625pt x 819.06pt>
+<figures/dashboard.png, id=1685, 1412.27625pt x 819.06pt>
 File: figures/dashboard.png Graphic file (type png)
 <use figures/dashboard.png>
 Package pdftex.def Info: figures/dashboard.png  used on input line 286.
 (pdftex.def)             Requested size: 360.84076pt x 209.26372pt.
-<figures/dashboard2.png, id=1706, 1412.27625pt x 819.06pt>
+<figures/dashboard2.png, id=1686, 1412.27625pt x 819.06pt>
 File: figures/dashboard2.png Graphic file (type png)
 <use figures/dashboard2.png>
 Package pdftex.def Info: figures/dashboard2.png  used on input line 293.
@@ -2160,12 +2160,12 @@ Package pdftex.def Info: figures/dashboard2.png  used on input line 293.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [68 <./figures/dashboard.png>]
-<figures/governance.png, id=1717, 1412.27625pt x 819.06pt>
+<figures/governance.png, id=1696, 1412.27625pt x 819.06pt>
 File: figures/governance.png Graphic file (type png)
 <use figures/governance.png>
 Package pdftex.def Info: figures/governance.png  used on input line 304.
 (pdftex.def)             Requested size: 360.84076pt x 209.26372pt.
-<figures/governance2.png, id=1718, 1412.27625pt x 819.06pt>
+<figures/governance2.png, id=1697, 1412.27625pt x 819.06pt>
 File: figures/governance2.png Graphic file (type png)
 <use figures/governance2.png>
 Package pdftex.def Info: figures/governance2.png  used on input line 311.
@@ -2174,7 +2174,7 @@ Package pdftex.def Info: figures/governance2.png  used on input line 311.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/governance3.png, id=1719, 1412.27625pt x 819.06pt>
+<figures/governance3.png, id=1698, 1412.27625pt x 819.06pt>
 File: figures/governance3.png Graphic file (type png)
 <use figures/governance3.png>
 Package pdftex.def Info: figures/governance3.png  used on input line 318.
@@ -2183,7 +2183,7 @@ Package pdftex.def Info: figures/governance3.png  used on input line 318.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [69 <./figures/dashboard2.png> <./figures/governance.png>]
-<figures/loans.png, id=1727, 1412.27625pt x 819.06pt>
+<figures/loans.png, id=1706, 1412.27625pt x 819.06pt>
 File: figures/loans.png Graphic file (type png)
 <use figures/loans.png>
 Package pdftex.def Info: figures/loans.png  used on input line 329.
@@ -2192,7 +2192,7 @@ Package pdftex.def Info: figures/loans.png  used on input line 329.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/compliance.png, id=1728, 1412.27625pt x 819.06pt>
+<figures/compliance.png, id=1707, 1412.27625pt x 819.06pt>
 File: figures/compliance.png Graphic file (type png)
 <use figures/compliance.png>
 Package pdftex.def Info: figures/compliance.png  used on input line 340.
@@ -2200,7 +2200,7 @@ Package pdftex.def Info: figures/compliance.png  used on input line 340.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<figures/compliance2.png, id=1729, 1412.27625pt x 819.06pt>
+<figures/compliance2.png, id=1708, 1412.27625pt x 819.06pt>
 File: figures/compliance2.png Graphic file (type png)
 <use figures/compliance2.png>
 Package pdftex.def Info: figures/compliance2.png  used on input line 347.
@@ -2560,143 +2560,94 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (4.82826pt too wide) in paragraph at lines 434--434
+Overfull \hbox (4.82826pt too wide) in paragraph at lines 430--430
 []\T1/pcr/m/n/12 registerMember()| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--435
+Underfull \hbox (badness 10000) in paragraph at lines 433--433
 []\T1/ptm/m/n/12 Pembayaran Sim-
  []
 
 
-Overfull \hbox (19.22826pt too wide) in paragraph at lines 435--435
+Overfull \hbox (19.22826pt too wide) in paragraph at lines 433--433
 []\T1/pcr/m/n/12 paySimpananPokok()| 
  []
 
 
-Overfull \hbox (19.22826pt too wide) in paragraph at lines 440--440
-[]\T1/pcr/m/n/12 finalizeElection()| 
+Underfull \hbox (badness 10000) in paragraph at lines 434--434
+[]\T1/ptm/m/n/12 Pembayaran Sim-
  []
 
 
-Overfull \hbox (14.03795pt too wide) in paragraph at lines 425--443
+Overfull \hbox (19.22826pt too wide) in paragraph at lines 434--434
+[]\T1/pcr/m/n/12 paySimpananWajib()| 
+ []
+
+
+Overfull \hbox (4.82826pt too wide) in paragraph at lines 436--436
+[]\T1/pcr/m/n/12 createProposal()| 
+ []
+
+
+Overfull \hbox (14.03795pt too wide) in paragraph at lines 425--442
  [][] 
  []
 
 [73 <./figures/compliance2.png>]
-Underfull \hbox (badness 1831) in paragraph at lines 458--458
-[]\T1/ptm/b/n/10 ERC-20 Stan-
+Underfull \hbox (badness 1533) in paragraph at lines 448--449
+\T1/ptm/m/n/12 in me-nun-juk-kan bah-wa ope-ra-si ke-ang-go-ta-an dan sim-pan-a
+n (\T1/pcr/m/n/12 registerMember\T1/ptm/m/n/12 ,
  []
 
 
-Underfull \hbox (badness 3872) in paragraph at lines 460--460
-[]\T1/ptm/m/n/10 N/A (di-no-nak-
+Underfull \hbox (badness 1028) in paragraph at lines 450--451
+[]\T1/ptm/m/n/12 Secara ke-se-lu-ru-han, bi-a-ya ope-ra-sio-nal sis-tem La-ko-m
+i pa-da DCha-in sa-ngat
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 462--463
-[]$\OT1/cmr/m/n/10 +87%$ \T1/ptm/m/n/10 (ka-re-na
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 [74]
-Underfull \hbox (badness 1168) in paragraph at lines 486--486
-[]\T1/ptm/b/n/10 ERC-20 Ba-se-
- []
-
-
-Underfull \hbox (badness 3407) in paragraph at lines 486--486
-[]\T1/ptm/b/n/10 Governor Ba-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
-\T1/ptm/m/n/10 he-ad un-tuk ve-ri-fi-ka-si
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 488--489
-\T1/ptm/m/n/10 pem-ba-yar-an sim-pan-an
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 490--491
-[]$\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 20%$ \T1/ptm/m/n/10 vs Go-ver-nor,
- []
-
-
-Underfull \hbox (badness 1377) in paragraph at lines 494--495
-[]\T1/ptm/m/n/10 Operasi spe-si-fik La-ko-
- []
-
-
-Underfull \hbox (badness 1377) in paragraph at lines 496--497
-[]\T1/ptm/m/n/10 Operasi spe-si-fik La-ko-
- []
-
-
-Underfull \hbox (badness 8075) in paragraph at lines 496--497
-\T1/ptm/m/n/10 mi, men-ca-kup per-hi-
- []
-
-
-Overfull \hbox (17.53935pt too wide) in paragraph at lines 484--499
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[75]
-Overfull \hbox (17.53935pt too wide) in paragraph at lines 512--523
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[76]
-Underfull \hbox (badness 1062) in paragraph at lines 542--543
+Underfull \hbox (badness 1062) in paragraph at lines 465--466
 []\T1/ptm/m/n/10 Mandiri, sim-pan-an po-kok
  []
 
 
-Underfull \hbox (badness 4673) in paragraph at lines 544--545
+Underfull \hbox (badness 4673) in paragraph at lines 467--468
 []\T1/ptm/m/n/10 Satu ang-go-ta sa-tu su-a-ra
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 546--547
+Underfull \hbox (badness 3260) in paragraph at lines 469--470
 []\T1/ptm/m/n/10 Tiga je-nis sim-pan-an on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 556--556
+Underfull \hbox (badness 10000) in paragraph at lines 479--479
 []\T1/ptm/m/n/10 Kepatuhan Re-gu-
  []
 
 
-Underfull \hbox (badness 5908) in paragraph at lines 556--556
+Underfull \hbox (badness 5908) in paragraph at lines 479--479
 []\T1/ptm/m/n/10 Tidak di-ran-cang un-tuk
  []
 
 
-Overfull \hbox (14.03795pt too wide) in paragraph at lines 538--561
+Overfull \hbox (14.03795pt too wide) in paragraph at lines 461--484
  [][] 
  []
 
+[75]
+Underfull \hbox (badness 1337) in paragraph at lines 500--501
+\T1/ptm/m/n/12 0,0005 DKT. Sa-tu si-klus pin-jam-an pe-nuh (\T1/pcr/m/n/12 requ
+estLoan \T1/ptm/m/n/12 + \T1/pcr/m/n/12 approveLoan \T1/ptm/m/n/12 +
+ []
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[77] [78] [79]) [80] [81]
+[76] [77]) [78]
 \openout2 = `contents/chapter-5/chapter-5.aux'.
 
  (./contents/chapter-5/chapter-5.tex
 BAB V.
-[82
+[79
 
 
 
@@ -2812,13 +2763,13 @@ Overfull \hbox (41.54579pt too wide) in paragraph at lines 51--62
  [][] 
  []
 
-[83] [84]
+[80] [81]
 Underfull \hbox (badness 1546) in paragraph at lines 87--88
 \T1/ptm/m/n/12 sis-tem iden-ti-tas di-gi-tal nasional---seperti KTP elek-tro-ni
 k atau pla-tform \T1/ptm/m/it/12 Self-
  []
 
-[85]) [86] (./main.bbl
+[82]) [83] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 35--39
 []\T1/ptm/m/n/12 Kompas.com, ``Pen-di-ri ko-pe-ra-si in-do-sur-ya he-nry sur-ya
  di-vo-nis 18 ta-
@@ -2876,7 +2827,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--51
 ]anggota-[]demo-[]ke-[]dprd$[],
  []
 
-[87
+[84
 
 
 
@@ -2888,7 +2839,7 @@ Underfull \hbox (badness 1478) in paragraph at lines 113--115
 vi-ro-nment,'' []$https : / /
  []
 
-[88] [89] [90]) [91] (./contents/appendix/appendix-code.tex
+[85] [86] [87]) [88] (./contents/appendix/appendix-code.tex
 Underfull \hbox (badness 1502) in paragraph at lines 5--6
 []\T1/ptm/m/n/12 Keempat \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/n/12 La-ko-
 mi di-im-ple-men-ta-si-kan meng-guna-kan So-li-di-ty
@@ -3386,28 +3337,27 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EA852095549B2DF60D02D3174D5D9938;35717.
+(rerunfilecheck)             Checksum: 713BAEB4587EB720260AB58F2C488477;35066.
  ) 
 Here is how much of TeX's memory you used:
- 42666 strings out of 475597
- 957051 string characters out of 5783340
+ 42652 strings out of 475597
+ 956846 string characters out of 5783340
  2296975 words of memory out of 5000000
- 63205 multiletter control sequences out of 15000+600000
+ 63200 multiletter control sequences out of 15000+600000
  606913 words of font info for 85 fonts, out of 8000000 for 9000
  377 hyphenation exceptions out of 8191
  103i,12n,106p,2317b,1986s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (117 pages, 1063390 bytes).
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
+w/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (113 pages, 1045363 bytes).
 PDF statistics:
- 2261 PDF objects out of 2487 (max. 8388607)
- 2083 compressed objects within 21 object streams
- 791 named destinations out of 1000 (max. 500000)
- 1279 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2219 PDF objects out of 2487 (max. 8388607)
+ 2047 compressed objects within 21 object streams
+ 782 named destinations out of 1000 (max. 500000)
+ 1263 words of extra memory for PDF output out of 10000 (max. 10000000)
 

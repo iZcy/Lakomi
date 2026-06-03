@@ -180,22 +180,42 @@ ff 604800
 send $PENGAWAS $GOVERN $(calld "vetoProposal(uint256)" 7) > /dev/null
 chk "Vetoed" $GOVERN "$(calld 'state(uint256)' 7)" 8 && P "12. Veto" || F "12. Veto"
 
-# ========== 15. SHU ==========
-echo "=== 15. SHU ==="
+# ========== 15. SHU (6 sub-cases) ==========
+echo "=== 15a. SHU: No revenue → revert ==="
+RESULT=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
+echo "$RESULT" | grep -q "REVERTED" && P "15a. SHU no revenue reverts" || F "15a. SHU no revenue"
+
+echo "=== 15b. Generate revenue: Big loan + full year ==="
+# 100 USDC loan for 365 days = 100000000 * 5% = 5,000,000 wei = 5 USDC interest
+send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 999999999) > /dev/null
+send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 100000000 31536000 shu365) > /dev/null
+SHU_LID=7
+send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SHU_LID) > /dev/null
+send $MAIN $LOANS $(calld "disburseLoan(uint256)" $SHU_LID) > /dev/null
+send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 106000000) > /dev/null
+send $MAIN $LOANS $(calld "repayInFull(uint256)" $SHU_LID) > /dev/null
+# Verify revenue > 0
+REV=$(call $VAULT "$(calld 'accumulatedRevenue()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
+[ "$REV" -gt 0 ] && P "15b. Revenue accumulated ($REV)" || F "15b. Revenue"
+
+echo "=== 15c. SHU: Normal distribute ==="
 DIST=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
-if echo "$DIST" | grep -q "REVERTED"; then
-  # Pump revenue: repay a loan with big interest
-  send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 999999999) > /dev/null
-  send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 10000000 31536000 shu) > /dev/null
-  LID=7
-  send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $LID) > /dev/null
-  send $MAIN $LOANS $(calld "disburseLoan(uint256)" $LID) > /dev/null
-  # Repay full with 5% annual interest = ~500k wei interest
-  send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 11000000) > /dev/null
-  send $MAIN $LOANS $(calld "repayInFull(uint256)" $LID) > /dev/null
-  DIST=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
-fi
-echo "$DIST" | grep -q "REVERTED" && P "15. SHU (no revenue)" || P "15. SHU distributed"
+echo "$DIST" | grep -q "ok" && P "15c. SHU distributed" || F "15c. SHU distribute"
+
+echo "=== 15d. SHU: 6-category split ==="
+# Check danaCadangan > 0
+CADANGAN=$(call $VAULT "$(calld 'danaCadangan()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
+DANAPEND=$(call $VAULT "$(calld 'danaPendidikan()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
+[ "$CADANGAN" -gt 0 ] && [ "$DANAPEND" -gt 0 ] && P "15d. 6-category split OK" || F "15d. 6-category"
+
+echo "=== 15e. SHU: Member claim ==="
+# Main claims distribution 0
+CLAIM=$(send $MAIN $VAULT $(calld "claimSHU(uint256)" 0))
+echo "$CLAIM" | grep -q "ok" && P "15e. SHU claimed" || F "15e. SHU claim"
+
+echo "=== 15f. SHU: Double claim → revert ==="
+CLAIM2=$(send $MAIN $VAULT $(calld "claimSHU(uint256)" 0))
+echo "$CLAIM2" | grep -q "REVERTED" && P "15f. Double claim reverts" || F "15f. Double claim"
 
 # ========== 16. Audit ==========
 echo "=== 16. Audit ==="

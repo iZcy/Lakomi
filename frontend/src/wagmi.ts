@@ -3,19 +3,19 @@ import { injected } from 'wagmi/connectors'
 
 const RPC_URL = typeof import.meta.env.VITE_RPC_URL === 'string'
   ? import.meta.env.VITE_RPC_URL
-  : 'http://127.0.0.1:8545'
+  : 'https://mainnet.dchain.id'
 
 export const CHAIN_ID = typeof import.meta.env.VITE_CHAIN_ID === 'string'
   ? parseInt(import.meta.env.VITE_CHAIN_ID)
-  : 313377
+  : 17845
 
 export const CHAIN_ID_HEX = typeof import.meta.env.VITE_CHAIN_ID_HEX === 'string'
   ? import.meta.env.VITE_CHAIN_ID_HEX
-  : '0x4c95b9'
+  : '0x45b1'
 
 export const CHAIN_NAME = typeof import.meta.env.VITE_CHAIN_NAME === 'string'
   ? import.meta.env.VITE_CHAIN_NAME
-  : 'Anvil Lokal'
+  : 'DChain Mainnet'
 
 export const anvil = {
   id: CHAIN_ID,
@@ -24,7 +24,7 @@ export const anvil = {
   rpcUrls: {
     default: { http: [RPC_URL] },
   },
-  testnet: true,
+  testnet: false,
 } as const
 
 export const WALLET_CHAIN_PARAMS = {

@@ -288,14 +288,14 @@ Bagian ini mendokumentasikan langkah-langkah teknis untuk melakukan \textit{depl
 	\item \textbf{Kompilasi kontrak:} Jalankan \texttt{npx hardhat compile} untuk mengompilasi seluruh kontrak Solidity. Pastikan tidak ada \textit{compilation error} atau \textit{warning}.
 	\item \textbf{Deployment:} Jalankan \texttt{npx hardhat run scripts/deploy.js --network dchain}. Skrip \textit{deploy} akan melakukan langkah-langkah berikut secara berurutan:
 	\begin{enumerate}
-		\item \textit{Deploy} MockUSDC sebagai \textit{stablecoin} untuk pengujian.
+		\item \textit{Deploy} MockIDRX sebagai \textit{stablecoin} yang dipatok ke Rupiah.
 		\item \textit{Deploy} LakomiToken dengan parameter dasar.
-		\item \textit{Deploy} LakomiVault dengan parameter: alamat USDC, jumlah simpanan pokok, periode simpanan wajib, jumlah simpanan wajib, \textit{threshold} penarikan, dan \textit{timelock} penarikan.
+		\item \textit{Deploy} LakomiVault dengan parameter: alamat IDRX, jumlah simpanan pokok, periode simpanan wajib, jumlah simpanan wajib, \textit{threshold} penarikan, dan \textit{timelock} penarikan.
 		\item \textit{Deploy} LakomiGovern dengan parameter: alamat token, periode voting, numerator kuorum, dan \textit{timelock} eksekusi.
 		\item \textit{Deploy} LakomiLoans dengan parameter: alamat token dan alamat \textit{vault}.
 		\item \textit{Wiring}: menghubungkan keempat kontrak melalui fungsi \texttt{setLakomiVault}, \texttt{setLakomiGovern}, \texttt{setLakomiLoans}, dan \texttt{setLakomiToken}.
 		\item \textit{Role assignment}: memberikan peran LOCKER\_ROLE dan BURNER\_ROLE ke LakomiLoans, MEMBERSHIP\_ROLE ke LakomiGovern, GOVERN\_ROLE ke LakomiGovern dan \textit{deployer}, LOAN\_ROLE ke LakomiLoans, TREASURER\_ROLE ke akun bendahara, APPROVER\_ROLE ke akun pengurus, PENGAWAS\_ROLE ke akun pengawas.
-		\item \textit{USDC approval}: menyetujui pengeluaran USDC oleh LakomiLoans dari LakomiVault.
+		\item \textit{IDRX approval}: menyetujui pengeluaran IDRX oleh LakomiLoans dari LakomiVault.
 	\end{enumerate}
 	\item \textbf{Verifikasi:} Setelah \textit{deployment} berhasil, catat alamat kontrak yang dihasilkan dan verifikasi melalui \textit{block explorer} DChain pada \url{https://dchain.id/explorer/}. Pastikan seluruh kontrak ter-\textit{deploy} dengan benar dan fungsi dasar dapat dipanggil.
 	\item \textbf{Konfigurasi Frontend:} Perbarui \texttt{contract-addresses.json} pada direktori \textit{frontend} dengan alamat kontrak yang baru di-\textit{deploy}. Jalankan \texttt{npm run dev} untuk memulai \textit{development server} React dan verifikasi integrasi \textit{frontend} dengan \textit{smart contract} melalui MetaMask.
@@ -314,7 +314,7 @@ Berdasarkan pengujian pada lingkungan DChain, estimasi gas untuk \textit{deploym
 \toprule
 \textbf{Kontrak} & \textbf{Ukuran Bytecode} & \textbf{Gas Deployment} & \textbf{Kompleksitas} \\
 \midrule
-MockUSDC & $\sim$5 KB & $\sim$1.200.000 & Rendah \\
+MockIDRX & $\sim$5 KB & $\sim$1.200.000 & Rendah \\
 LakomiToken & $\sim$9 KB & $\sim$2.200.000 & Sedang \\
 LakomiVault & $\sim$14 KB & $\sim$3.500.000 & Tinggi \\
 LakomiGovern & $\sim$11 KB & $\sim$2.800.000 & Tinggi \\
@@ -340,14 +340,14 @@ Tabel~\ref{tab:system-params} merangkum seluruh parameter yang dapat dikonfigura
 \toprule
 \textbf{Parameter} & \textbf{Nilai Default} & \textbf{Otoritas} & \textbf{Keterangan} \\
 \midrule
-Simpanan Pokok & 100 USDC & \texttt{Govern} & Dibayarkan sekali saat pendaftaran \\
-Simpanan Wajib & 10 USDC/30 hari & \texttt{Govern} & Dibayarkan berkala oleh anggota \\
+Simpanan Pokok & 100 IDRX & \texttt{Govern} & Dibayarkan sekali saat pendaftaran \\
+Simpanan Wajib & 10 IDRX/30 hari & \texttt{Govern} & Dibayarkan berkala oleh anggota \\
 Kuorum Voting & 67\% & \texttt{Govern} & Persentase minimum suara untuk sah \\
 Periode Voting & 7 hari & \texttt{Govern} & Durasi pemungutan suara proposal \\
 \textit{Timelock} Eksekusi & 24 jam & \texttt{Govern} & Jeda sebelum proposal dieksekusi \\
 Suku Bunga Pinjaman & 5\% APY & \texttt{Govern} & Bunga tetap tahunan \\
 Rasio Agunan & 25\% & \texttt{Govern} & Persentase pokok yang dijaminkan \\
-\textit{Auto-Approve} & $\leq$200 USDC & \texttt{Govern} & Ambang persetujuan otomatis \\
+\textit{Auto-Approve} & $\leq$200 IDRX & \texttt{Govern} & Ambang persetujuan otomatis \\
 LTV \textit{Tier} 1/2/3 & 30/50/70\% & \texttt{Govern} & Kapasitas pinjaman per \textit{tier} \\
 BPS Cadangan SHU & 500 (5\%) & \texttt{Govern} & Alokasi dana cadangan \\
 BPS Jasa Modal & 4000 (40\%) & \texttt{Govern} & Alokasi jasa modal \\

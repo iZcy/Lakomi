@@ -25,7 +25,7 @@ Ketiga siklus DSR tidak berjalan secara linear, melainkan saling terkait secara 
 
 \subsection{Perangkat Lunak}
 
-Perangkat lunak yang digunakan dalam pengembangan sistem terdiri dari komponen \textit{smart contract}, \textit{frontend}, dan infrastruktur pendukung, sebagaimana dirangkum dalam Tabel~\ref{tab:alat-lunak}.
+Perangkat lunak yang digunakan dalam pengembangan sistem terdiri dari komponen \textit{smart contract}, \textit{frontend}, dan infrastruktur pendukung, sebagaimana dirangkum dalam Tabel~\ref{tab:alat-lunak}. Pengembangan dan pengujian awal dilakukan pada lingkungan lokal menggunakan Anvil (\textit{local Ethereum node}) sebelum di-\textit{deploy} ke jaringan DChain untuk pengujian integrasi dan evaluasi akhir.
 
 \begin{table}[h]
 \centering
@@ -160,7 +160,7 @@ Keempat \textit{smart contract} dan perannya dalam arsitektur adalah sebagai ber
 	\item \textbf{\textit{Membership Layer}} --- LakomiToken (LAK) berfungsi sebagai \textit{registry} keanggotaan berbasis ERC-20~\cite{eip20}. Setiap anggota yang terdaftar memiliki tepat satu suara dalam tata kelola, terlepas dari jumlah token yang dimiliki atau kontribusi simpanan. Kontrak ini mengelola empat peran: MINTER, BURNER, LOCKER, dan MEMBERSHIP.
 	\item \textbf{\textit{Contract Layer}} --- Tiga kontrak yang menangani fungsi inti koperasi:
 	\begin{itemize}
-		\item LakomiVault mengelola \textit{treasury} USDC, tiga jenis simpanan (pokok, wajib, sukarela), dan distribusi SHU enam kategori sesuai Pasal 45(2).
+		\item LakomiVault mengelola \textit{treasury} IDRX, tiga jenis simpanan (pokok, wajib, sukarela), dan distribusi SHU enam kategori sesuai Pasal 45(2).
 		\item LakomiGovern menangani pembuatan proposal, pemungutan suara demokratis (satu-anggota-satu-suara), pemilihan pengurus, \textit{veto} pengawas, RAT tahunan, dan pembubaran koperasi.
 		\item LakomiLoans menyediakan pinjaman mikro dengan \textit{loan-to-value} berbasis kontribusi, suku bunga tetap 5\% APY, dan jaminan 25\%.
 	\end{itemize}
@@ -306,14 +306,14 @@ Suku Bunga & 5\% APY & Lebih rendah dari suku bunga komersial, sesuai prinsip ko
 \addlinespace
 Agunan & 25\% & Memberikan perlindungan terhadap risiko gagal bayar tanpa membebani anggota secara berlebihan. \\
 \addlinespace
-Auto-approval & $\leq$ 200 USDC & Memungkinkan akses cepat ke dana darurat untuk pinjaman kecil tanpa menunggu proses tata kelola. \\
+Auto-approval & $\leq$ 200 IDRX & Memungkinkan akses cepat ke dana darurat untuk pinjaman kecil tanpa menunggu proses tata kelola. \\
 \addlinespace
 LTV Tier 1/2/3 & 30\%/50\%/70\% & Memberikan insentif bagi anggota untuk meningkatkan kontribusi simpanan---semakin besar kontribusi, semakin besar kapasitas pinjaman---tanpa memengaruhi hak suara. \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Parameter-parameter dalam Tabel~\ref{tab:parameter} membentuk kerangka operasional koperasi yang mencerminkan keseimbangan antara efisiensi, keamanan, dan kepatuhan regulasi. Kuorum 67\% dan periode voting 7 hari memastikan bahwa keputusan tata kelola memiliki legitimasi demokratis yang kuat---setiap anggota memiliki waktu yang cukup untuk meninjau proposal dan memberikan suara, sementara ambang dua per tiga mencegah keputusan diambil oleh minoritas kecil. Timelock 24 jam memberikan jendela keamanan yang memungkinkan pengawas melakukan intervensi terhadap proposal yang berpotensi merugikan, mencerminkan mekanisme \textit{checks and balances} yang diamanatkan Pasal 38. Suku bunga 5\% APY menyeimbangkan keberlanjutan operasional koperasi dengan prinsip kesejahteraan anggota---cukup rendah untuk tidak membebani peminjam, namun cukup untuk menghasilkan pendapatan yang mendanai operasional dan distribusi SHU. Agunan 25\% dipilih sebagai titik tengah antara perlindungan terhadap gagal bayar dan aksesibilitas pinjaman---terlalu tinggi akan mengecualikan anggota dengan kontribusi terbatas, terlalu rendah akan meningkatkan risiko bagi \textit{vault}. Auto-approval untuk pinjaman kecil ($\leq$ 200 USDC) mengakui bahwa pinjaman darurat memerlukan respons cepat, sementara mekanisme LTV bertingkat (30\%/50\%/70\%) menciptakan insentif positif: anggota yang berkontribusi lebih besar melalui simpanan mendapatkan kapasitas pinjaman yang lebih besar, namun hak suara mereka tetap setara dengan anggota lainnya.
+Parameter-parameter dalam Tabel~\ref{tab:parameter} membentuk kerangka operasional koperasi yang mencerminkan keseimbangan antara efisiensi, keamanan, dan kepatuhan regulasi. Kuorum 67\% dan periode voting 7 hari memastikan bahwa keputusan tata kelola memiliki legitimasi demokratis yang kuat---setiap anggota memiliki waktu yang cukup untuk meninjau proposal dan memberikan suara, sementara ambang dua per tiga mencegah keputusan diambil oleh minoritas kecil. Timelock 24 jam memberikan jendela keamanan yang memungkinkan pengawas melakukan intervensi terhadap proposal yang berpotensi merugikan, mencerminkan mekanisme \textit{checks and balances} yang diamanatkan Pasal 38. Suku bunga 5\% APY menyeimbangkan keberlanjutan operasional koperasi dengan prinsip kesejahteraan anggota---cukup rendah untuk tidak membebani peminjam, namun cukup untuk menghasilkan pendapatan yang mendanai operasional dan distribusi SHU. Agunan 25\% dipilih sebagai titik tengah antara perlindungan terhadap gagal bayar dan aksesibilitas pinjaman---terlalu tinggi akan mengecualikan anggota dengan kontribusi terbatas, terlalu rendah akan meningkatkan risiko bagi \textit{vault}. Auto-approval untuk pinjaman kecil ($\leq$ 200 IDRX) mengakui bahwa pinjaman darurat memerlukan respons cepat, sementara mekanisme LTV bertingkat (30\%/50\%/70\%) menciptakan insentif positif: anggota yang berkontribusi lebih besar melalui simpanan mendapatkan kapasitas pinjaman yang lebih besar, namun hak suara mereka tetap setara dengan anggota lainnya.
 
 LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Siklus hidup proposal diilustrasikan pada Gambar~\ref{fig:proposal-lifecycle}.
 
@@ -382,7 +382,7 @@ Bunga pinjaman dihitung menggunakan formula bunga sederhana tahunan:
 \label{eq:bunga}
 \end{equation}
 
-\noindent dengan $P$ adalah pokok pinjaman dalam USDC dan $D$ adalah durasi pinjaman dalam hari. Suku bunga 5\% APY (\textit{Annual Percentage Yield}) ditetapkan sebagai suku bunga tetap yang lebih rendah dibandingkan suku bunga pinjaman komersial, sesuai ketentuan Permenkop 8/2023~\cite{permenkop82023} yang membatasi maksimum suku bunga wajar untuk koperasi simpan pinjam. Formula ini memastikan bahwa perhitungan bunga bersifat proporsional terhadap durasi---semakin singkat periode pinjaman, semakin kecil bunga yang dibebankan---sehingga memberikan insentif bagi anggota untuk melunasi pinjaman tepat waktu.
+\noindent dengan $P$ adalah pokok pinjaman dalam IDRX dan $D$ adalah durasi pinjaman dalam hari. Suku bunga 5\% APY (\textit{Annual Percentage Yield}) ditetapkan sebagai suku bunga tetap yang lebih rendah dibandingkan suku bunga pinjaman komersial, sesuai ketentuan Permenkop 8/2023~\cite{permenkop82023} yang membatasi maksimum suku bunga wajar untuk koperasi simpan pinjam. Formula ini memastikan bahwa perhitungan bunga bersifat proporsional terhadap durasi---semakin singkat periode pinjaman, semakin kecil bunga yang dibebankan---sehingga memberikan insentif bagi anggota untuk melunasi pinjaman tepat waktu.
 
 \section{Perancangan Keamanan}
 
@@ -417,11 +417,11 @@ Komunikasi dengan \textit{smart contract} dilakukan melalui \textit{provider} JS
 Sistem menyediakan empat halaman utama yang dirancang sesuai dengan peran pengguna:
 
 \begin{enumerate}
-	\item \textbf{\textit{Dashboard} Anggota} --- Halaman utama yang menampilkan status keanggotaan (\texttt{isRegisteredMember}), saldo simpanan pokok, simpanan wajib, dan simpanan sukarela, serta \textit{tier} kontribusi terkini. Anggota dapat melakukan pembayaran simpanan pokok (100 USDC, satu kali), simpanan wajib (10 USDC per 30 hari), dan simpanan sukarela (jumlah bebas) melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan riwayat transaksi simpanan dan klaim SHU.
+	\item \textbf{\textit{Dashboard} Anggota} --- Halaman utama yang menampilkan status keanggotaan (\texttt{isRegisteredMember}), saldo simpanan pokok, simpanan wajib, dan simpanan sukarela, serta \textit{tier} kontribusi terkini. Anggota dapat melakukan pembayaran simpanan pokok (100 IDRX, satu kali), simpanan wajib (10 IDRX per 30 hari), dan simpanan sukarela (jumlah bebas) melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan riwayat transaksi simpanan dan klaim SHU.
 	
 	\item \textbf{Portal Tata Kelola} --- Menyediakan antarmuka lengkap untuk partisipasi dalam tata kelola koperasi. Anggota dapat membuat proposal baru dengan memilih tipe proposal (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM) dan memberikan deskripsi. Halaman ini menampilkan daftar proposal aktif beserta status, jumlah suara, dan waktu tersisa. Anggota memberikan suara (For, Against, Abstain) melalui tombol yang terhubung ke fungsi \texttt{castVote()}. Portal ini juga menampilkan status RAT tahunan dan informasi pemilihan pengurus, termasuk daftar kandidat dan hasil pemilihan.
 	
-	\item \textbf{Portal Pinjaman} --- Memungkinkan anggota mengajukan pinjaman dengan menentukan jumlah (dalam USDC) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi anggota dan menampilkan jumlah pinjaman yang tersedia. Anggota dapat melihat status permohonan pinjaman (Pending, Approved, Active, Repaid), melakukan pembayaran cicilan, dan melunasi pinjaman. Agunan dalam token LAK ditampilkan secara transparan.
+	\item \textbf{Portal Pinjaman} --- Memungkinkan anggota mengajukan pinjaman dengan menentukan jumlah (dalam IDRX) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi anggota dan menampilkan jumlah pinjaman yang tersedia. Anggota dapat melihat status permohonan pinjaman (Pending, Approved, Active, Repaid), melakukan pembayaran cicilan, dan melunasi pinjaman. Agunan dalam token LAK ditampilkan secara transparan.
 	
 	\item \textbf{Halaman Kepatuhan Regulasi} --- Menampilkan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, bukti implementasi berupa nama fungsi dan parameter, serta status verifikasi. Ketentuan dikelompokkan berdasarkan kategori: Anggota, Simpanan, Pinjaman, dan Tata Kelola. Halaman ini berfungsi sebagai bukti \textit{on-chain compliance} yang dapat diverifikasi secara publik.
 \end{enumerate}
@@ -434,10 +434,10 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 
 \begin{enumerate}
 	\item Calon anggota membuka aplikasi dan menghubungkan \textit{wallet} MetaMask ke jaringan DChain.
-	\item Calon anggota mengisi formulir pendaftaran dan melakukan pembayaran simpanan pokok (100 USDC) melalui \textit{smart contract} LakomiVault.
+	\item Calon anggota mengisi formulir pendaftaran dan melakukan pembayaran simpanan pokok (100 IDRX) melalui \textit{smart contract} LakomiVault.
 	\item LakomiVault memverifikasi pembayaran dan memberi sinyal ke LakomiToken.
 	\item LakomiToken mencetak 100 LAK dan menetapkan \texttt{isRegisteredMember = true}.
-	\item Anggota dapat melakukan pembayaran simpanan wajib (10 USDC per 30 hari) dan simpanan sukarela kapan saja.
+	\item Anggota dapat melakukan pembayaran simpanan wajib (10 IDRX per 30 hari) dan simpanan sukarela kapan saja.
 \end{enumerate}
 
 \subsection{Skenario 2: Tata Kelola dan Pemungutan Suara}
@@ -456,8 +456,8 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 	\item Anggota mengajukan pinjaman melalui \texttt{requestLoan()} dengan menentukan jumlah dan durasi.
 	\item LakomiLoans menghitung \textit{loan-to-value} berdasarkan \textit{tier} kontribusi: $\text{maxLoan} = \text{contribution} \times \text{LTV} / 10000$.
 	\item Agunan sebesar 25\% dari pokok pinjaman dalam token LAK dikunci oleh LOCKER\_ROLE.
-	\item Pinjaman di bawah 200 USDC disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE.
-	\item Dana USDC ditransfer dari LakomiVault ke peminjam.
+	\item Pinjaman di bawah 200 IDRX disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE.
+	\item Dana IDRX ditransfer dari LakomiVault ke peminjam.
 	\item Peminjam melunasi pinjaman melalui \texttt{repayInFull()}. Bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}. Agunan dibuka.
 \end{enumerate}
 
@@ -467,7 +467,7 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 	\item Anggota mengajukan pengunduran diri melalui \texttt{resignMembership()}. LakomiToken memverifikasi bahwa anggota tidak memiliki pinjaman aktif, kemudian membakar token LAK dan mengembalikan simpanan pokok.
 	\item Untuk pencabutan paksa, anggota menginisiasi proposal MEMBERSHIP melalui LakomiGovern dengan target anggota yang akan dicabut keanggotaannya.
 	\item Proposal melalui siklus pemungutan suara standar (7 hari, kuorum 67\%). Jika lolos dan tidak diveto, LakomiGovern memanggil \texttt{revokeMembership()} pada LakomiToken.
-	\item Pengawas melakukan audit keuangan melalui \texttt{getPengawasAuditReport()} pada LakomiVault yang menampilkan ringkasan: total aset dalam USDC, saldo simpanan pokok/wajib/sukarela, dana cadangan, akumulasi pendapatan bunga, dan daftar pinjaman aktif.
+	\item Pengawas melakukan audit keuangan melalui \texttt{getPengawasAuditReport()} pada LakomiVault yang menampilkan ringkasan: total aset dalam IDRX, saldo simpanan pokok/wajib/sukarela, dana cadangan, akumulasi pendapatan bunga, dan daftar pinjaman aktif.
 	\item Audit pengawas memastikan bahwa dana \textit{vault} sesuai dengan kewajiban simpanan anggota dan cadangan wajib---setiap ketidakcocokan dapat ditindaklanjuti melalui proposal tata kelola.
 	\item Pengawas juga dapat memeriksa riwayat distribusi SHU untuk memverifikasi bahwa alokasi telah sesuai dengan \textit{basis points} yang ditetapkan melalui tata kelola.
 \end{enumerate}
@@ -479,7 +479,7 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 	\item Sistem menghitung SHU yang dapat didistribusikan: 10\% dari total pendapatan (\texttt{accumulatedRevenue}) disisihkan sebagai cadangan operasional, sisanya didistribusikan.
 	\item SHU dialokasikan ke enam kategori berdasarkan \textit{basis points}: Dana Cadangan (500 bps), Jasa Modal (4000 bps), Jasa Usaha (4000 bps), Dana Pendidikan (500 bps), Dana Pengurus (500 bps), Dana Kesejahteraan Sosial (500 bps).
 	\item Jasa Modal dan Jasa Usaha dihitung secara pro-rata berdasarkan \textit{shares} masing-masing anggota, memastikan distribusi yang proporsional terhadap kontribusi.
-	\item Setiap anggota memanggil \texttt{claimSHU(id)} untuk mengklaim bagian SHU-nya. Sistem memverifikasi bahwa anggota belum mengklaim distribusi yang sama dan mentransfer USDC dari \textit{vault}.
+	\item Setiap anggota memanggil \texttt{claimSHU(id)} untuk mengklaim bagian SHU-nya. Sistem memverifikasi bahwa anggota belum mengklaim distribusi yang sama dan mentransfer IDRX dari \textit{vault}.
 	\item Pengawas dapat memverifikasi seluruh proses melalui \textit{event} \texttt{SHUDistributed} yang dipancarkan dan laporan \texttt{getPengawasAuditReport()}.
 \end{enumerate}
 
@@ -532,7 +532,7 @@ Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingk
 Pengujian mencakup tujuh area fungsional utama yang dipetakan ke ketentuan UU 25/1992:
 
 \begin{enumerate}
-	\item \textbf{Pendaftaran dan Keanggotaan (Pasal 5(1), 17--18, 19--21, 31)} --- Skenario pengujian meliputi: pendaftaran anggota mandiri dengan pembayaran simpanan pokok 100 USDC dan penerimaan 100 token LAK; verifikasi bahwa \texttt{isRegisteredMember} bernilai \texttt{true} setelah pendaftaran; penolakan pendaftaran ganda; pengunduran diri sukarela melalui \texttt{resignMembership()}; dan pencabutan keanggotaan melalui proposal tata kelola menggunakan \texttt{revokeMembership()}.
+	\item \textbf{Pendaftaran dan Keanggotaan (Pasal 5(1), 17--18, 19--21, 31)} --- Skenario pengujian meliputi: pendaftaran anggota mandiri dengan pembayaran simpanan pokok 100 IDRX dan penerimaan 100 token LAK; verifikasi bahwa \texttt{isRegisteredMember} bernilai \texttt{true} setelah pendaftaran; penolakan pendaftaran ganda; pengunduran diri sukarela melalui \texttt{resignMembership()}; dan pencabutan keanggotaan melalui proposal tata kelola menggunakan \texttt{revokeMembership()}.
 	
 	\item \textbf{Satu Anggota Satu Suara (Pasal 22(1))} --- Skenario pengujian meliputi: verifikasi bahwa dua anggota dengan saldo token berbeda sama-sama mengembalikan \texttt{getVotingPower() = 1}; dan verifikasi bahwa alamat yang tidak terdaftar ditolak saat mencoba membuat proposal atau memberikan suara.
 	
@@ -544,7 +544,7 @@ Pengujian mencakup tujuh area fungsional utama yang dipetakan ke ketentuan UU 25
 	
 	\item \textbf{Distribusi SHU (Pasal 45(1--2))} --- Skenario pengujian meliputi: akumulasi pendapatan dari bunga pinjaman; distribusi SHU oleh GOVERN\_ROLE ke enam kategori (Cadangan 5\%, Jasa Modal 40\%, Jasa Usaha 40\%, Pendidikan 5\%, Pengurus 5\%, Kesejahteraan Sosial 5\%); klaim SHU oleh anggota dengan verifikasi jumlah yang diterima sesuai dengan \textit{shares}; dan pencegahan klaim ganda pada distribusi yang sama.
 	
-	\item \textbf{Pinjaman (Pasal 18, Permenkop 8/2023 Pasal 6--7)} --- Skenario pengujian meliputi: pengajuan pinjaman dengan perhitungan \textit{loan-to-value} berbasis \textit{tier} kontribusi (30\%, 50\%, 70\%); verifikasi kecukupan agunan 25\% dalam token LAK; penguncian agunan saat pencairan; \textit{auto-approval} untuk pinjaman di bawah 200 USDC; persetujuan manual oleh APPROVER\_ROLE untuk pinjaman besar; pelunasan penuh dengan pembukaan agunan; dan verifikasi bahwa bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}.
+	\item \textbf{Pinjaman (Pasal 18, Permenkop 8/2023 Pasal 6--7)} --- Skenario pengujian meliputi: pengajuan pinjaman dengan perhitungan \textit{loan-to-value} berbasis \textit{tier} kontribusi (30\%, 50\%, 70\%); verifikasi kecukupan agunan 25\% dalam token LAK; penguncian agunan saat pencairan; \textit{auto-approval} untuk pinjaman di bawah 200 IDRX; persetujuan manual oleh APPROVER\_ROLE untuk pinjaman besar; pelunasan penuh dengan pembukaan agunan; dan verifikasi bahwa bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}.
 \end{enumerate}
 
 Seluruh hasil pengujian fungsional disajikan dan dibahas secara rinci pada Bab~\ref{ch4}.

@@ -5,7 +5,7 @@ Bab ini menyajikan hasil implementasi sistem Lakomi beserta pembahasan terhadap 
 
 \section{Hasil Implementasi Smart Contract}
 
-Empat \textit{smart contract} Lakomi---LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans---beserta satu kontrak pendukung MockUSDC telah berhasil dikompilasi menggunakan Solidity 0.8.20 dan di-\textit{deploy} pada jaringan DChain (Chain ID 17845). Seluruh kontrak mewarisi pustaka standar OpenZeppelin: ERC-20 untuk token keanggotaan, AccessControl untuk otorisasi berbasis peran, dan ReentrancyGuard untuk perlindungan terhadap serangan \textit{reentrancy}.
+Empat \textit{smart contract} Lakomi---LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans---beserta satu kontrak pendukung MockIDRX telah berhasil dikompilasi menggunakan Solidity 0.8.20 dan di-\textit{deploy} pada jaringan DChain (Chain ID 17845). Seluruh kontrak mewarisi pustaka standar OpenZeppelin: ERC-20 untuk token keanggotaan, AccessControl untuk otorisasi berbasis peran, dan ReentrancyGuard untuk perlindungan terhadap serangan \textit{reentrancy}.
 
 \subsection{Bukti Deployment pada Jaringan DChain}
 
@@ -13,26 +13,29 @@ Empat \textit{smart contract} Lakomi---LakomiToken, LakomiVault, LakomiGovern, d
 
 \begin{table}[h]
 \centering
-\caption{Informasi Deployment Smart Contract pada Jaringan DChain}
+\caption{Alamat \textit{Deployment Smart Contract} pada DChain Mainnet}
 \label{tab:deployment}
 \footnotesize
 \begin{tabular}{p{0.22\textwidth}p{0.70\textwidth}}
 \toprule
-\textbf{Parameter} & \textbf{Nilai} \\
+\textbf{Kontrak} & \textbf{Alamat} \\
 \midrule
-Jaringan & DChain (Chain ID 17845) \\
+Jaringan & DChain Mainnet (Chain ID 17845) \\
 Kompiler & Solidity 0.8.20 \\
 Library & OpenZeppelin Contracts 5.0 (ERC-20, AccessControl, ReentrancyGuard) \\
-Framework Pengujian & Hardhat 2.22 + Ethers.js 6.x \\
+Framework & Hardhat 2.22 + Ethers.js 6.x \\
+Deployer & \texttt{0x66534dD42A65a2386aA9cB9c36d37A35c01C77b6} \\
 \midrule
-\texttt{LakomiToken} & \texttt{0x4826533B4897376654Bb4d4AD88B7faFD0C98528} \\
-\texttt{LakomiVault} & \texttt{0x99bbA657f2BbC93c02D617f8bA121cB8Fc104Acf} \\
-\texttt{LakomiGovern} & \texttt{0x0E801D84Fa97b50751Dbf25036d067dCf18858bF} \\
-\texttt{LakomiLoans} & \texttt{0x8f86403A4DE0BB5791fa46B8e795C547942fE4Cf} \\
-\texttt{MockUSDC} & \texttt{0x70e0bA845a1A0F2DA3359C97E0285013525FFC49} \\
+\texttt{MockIDRX} & \texttt{0xC05A8D92702253C5db45762399D39dCc3c2cB525} \\
+\texttt{LakomiToken} & \texttt{0xa23E3E4BfEAfC485Bb26021609F2CB4a0FbCF0a1} \\
+\texttt{LakomiVault} & \texttt{0x2f72d86fbA46A418EA83a9986d62EBEEA8CE284D} \\
+\texttt{LakomiGovern} & \texttt{0xC9c16965a9B010785Dc8B0A7a46D2e6B00948C80} \\
+\texttt{LakomiLoans} & \texttt{0x48eC878AD39722d76cFD6393d2d2dcc0Eab9A8b3} \\
 \bottomrule
 \end{tabular}
 \end{table}
+
+Pengembangan dan pengujian awal dilakukan pada lingkungan lokal menggunakan Anvil (Chain ID 313377) sebelum di-\textit{deploy} ke DChain \textit{mainnet}. Seluruh transaksi \textit{deployment} tercatat pada \textit{block explorer} DChain di \url{https://explorer.dchain.id} dan dapat diverifikasi secara independen oleh siapa pun.
 
 \subsection{Inisialisasi Parameter Sistem}
 
@@ -50,9 +53,9 @@ Setiap kontrak diinisialisasi dengan parameter yang mencerminkan ketentuan UU 25
 \multirow{2}{*}{LakomiToken} & MAX\_SUPPLY & 1.000.000 LAK (18 desimal) \\
  & Alokasi per anggota & 100 LAK (simbolis, tidak memengaruhi suara) \\
 \midrule
-\multirow{3}{*}{LakomiVault} & Simpanan Pokok & 100 USDC (sekali saat pendaftaran) \\
- & Simpanan Wajib & 10 USDC per 30 hari \\
- & Denda keterlambatan & 1.000 USDC per 48 jam \\
+\multirow{3}{*}{LakomiVault} & Simpanan Pokok & 100 IDRX (sekali saat pendaftaran) \\
+ & Simpanan Wajib & 10 IDRX per 30 hari \\
+ & Denda keterlambatan & 1.000 IDRX per 48 jam \\
 \midrule
 \multirow{3}{*}{LakomiGovern} & Periode Voting & 7 hari (waktu peninjauan memadai) \\
  & Kuorum & 67\% (dua per tiga anggota) \\
@@ -170,7 +173,7 @@ function disburse(uint256 loanId) external {
     l.status = LoanStatus.Active;
     l.disbursedAt = block.timestamp;
     token.lockCollateral(l.borrower, l.collateralAmount);
-    vault.approveUSDCSpending(address(this), l.principal);
+    vault.approveIDRXSpending(address(this), l.principal);
     vault.governanceSpend(l.borrower, l.principal);
     emit LoanDisbursed(loanId, l.borrower, l.principal);
 }
@@ -293,7 +296,7 @@ function claimSHU(uint256 distributionId) external
 
 \subsection{Dashboard Anggota}
 
-Halaman \textit{Dashboard} (Gambar~\ref{fig:dashboard}) menampilkan status keanggotaan pengguna secara \textit{real-time}: status terdaftar (\texttt{isRegisteredMember}), saldo token LAK, dan ringkasan tiga jenis simpanan (pokok, wajib, sukarela). Anggota dapat melakukan pembayaran simpanan pokok (100 USDC, satu kali), simpanan wajib (10 USDC per 30 hari), dan simpanan sukarela melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan \textit{tier} kontribusi anggota (Basic/Silver/Gold) berdasarkan akumulasi simpanan, yang memengaruhi kapasitas pinjaman namun tidak memengaruhi hak suara.
+Halaman \textit{Dashboard} (Gambar~\ref{fig:dashboard}) menampilkan status keanggotaan pengguna secara \textit{real-time}: status terdaftar (\texttt{isRegisteredMember}), saldo token LAK, dan ringkasan tiga jenis simpanan (pokok, wajib, sukarela). Anggota dapat melakukan pembayaran simpanan pokok (100 IDRX, satu kali), simpanan wajib (10 IDRX per 30 hari), dan simpanan sukarela melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan \textit{tier} kontribusi anggota (Basic/Silver/Gold) berdasarkan akumulasi simpanan, yang memengaruhi kapasitas pinjaman namun tidak memengaruhi hak suara.
 
 \begin{figure}[h]
 \centering
@@ -315,7 +318,7 @@ Portal Tata Kelola (Gambar~\ref{fig:governance}) menyediakan antarmuka lengkap u
 
 \subsection{Portal Pinjaman}
 
-Portal Pinjaman (Gambar~\ref{fig:loans}) memungkinkan anggota mengajukan pinjaman mikro dengan menentukan jumlah (dalam USDC) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi (30\%/50\%/70\%) dan menampilkan estimasi bunga menggunakan formula bunga sederhana. Pinjaman di bawah 200 USDC disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE. Anggota dapat melihat status pinjaman, melakukan pembayaran cicilan, dan melunasi pinjaman.
+Portal Pinjaman (Gambar~\ref{fig:loans}) memungkinkan anggota mengajukan pinjaman mikro dengan menentukan jumlah (dalam IDRX) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi (30\%/50\%/70\%) dan menampilkan estimasi bunga menggunakan formula bunga sederhana. Pinjaman di bawah 200 IDRX disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE. Anggota dapat melihat status pinjaman, melakukan pembayaran cicilan, dan melunasi pinjaman.
 
 \begin{figure}[h]
 \centering
@@ -339,12 +342,12 @@ Halaman Kepatuhan Regulasi (Gambar~\ref{fig:compliance}) menyajikan seluruh 26 k
 
 Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingkungan DChain. Seluruh 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} diuji melalui skenario pengujian yang mencakup \textit{happy path} (jalur normal), \textit{error path} (jalur kesalahan), dan verifikasi kontrol akses. Tabel~\ref{tab:compliance-results} menyajikan hasil pengujian secara lengkap.
 
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \caption{Hasil Pengujian Kepatuhan terhadap 26 Ketentuan UU 25/1992}
 \label{tab:compliance-results}
-\footnotesize
-\begin{tabular}{p{0.05\textwidth}p{0.18\textwidth}p{0.37\textwidth}p{0.30\textwidth}}
+\scriptsize
+\begin{tabular}{p{0.04\textwidth}p{0.12\textwidth}p{0.42\textwidth}p{0.08\textwidth}p{0.24\textwidth}}
 \toprule
 \textbf{No} & \textbf{Pasal} & \textbf{Skenario Pengujian} & \textbf{Hasil} \\
 \midrule
@@ -367,8 +370,8 @@ Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingk
 17 & 38 & Pengawas dapat mem-veto proposal; \texttt{proposalVetoed = true} & \checkmark \\
 18 & 38 & Akun non-pengawas ditolak saat mencoba veto & \checkmark \\
 19 & 39(2) & Pengawas mengakses laporan keuangan via \texttt{getPengawasAuditReport()} & \checkmark \\
-20 & 41(1) & Pembayaran simpanan pokok 100 USDC pada pendaftaran & \checkmark \\
-21 & 41(2) & Pembayaran simpanan wajib 10 USDC periodik & \checkmark \\
+20 & 41(1) & Pembayaran simpanan pokok 100 IDRX pada pendaftaran & \checkmark \\
+21 & 41(2) & Pembayaran simpanan wajib 10 IDRX periodik & \checkmark \\
 22 & 41(3) & Penyetoran simpanan sukarela dengan perhitungan \textit{shares} proporsional & \checkmark \\
 23 & 43 & Pelacakan dana cadangan dalam \texttt{danaCadangan} & \checkmark \\
 24 & 45(1--2) & Distribusi SHU ke 6 kategori sesuai basis poin & \checkmark \\
@@ -404,11 +407,11 @@ SHU \& Pinjaman & 3 (45, Permenkop 8/2023) & 4 & 4/4 \checkmark \\
 
 Analisis gas dilakukan untuk mengukur konsumsi komputasi setiap operasi utama koperasi pada lingkungan DChain. Pengukuran dilakukan menggunakan \textit{gas reporter} Hardhat yang mencatat konsumsi gas untuk setiap fungsi \textit{smart contract}. Tabel~\ref{tab:gas-costs} menyajikan estimasi konsumsi gas untuk tujuh operasi utama.
 
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \caption{Estimasi Konsumsi Gas per Operasi Koperasi}
 \label{tab:gas-costs}
-\begin{tabular}{p{0.28\textwidth}p{0.22\textwidth}p{0.22\textwidth}p{0.20\textwidth}}
+\begin{tabular}{p{0.24\textwidth}p{0.26\textwidth}p{0.18\textwidth}p{0.24\textwidth}}
 \toprule
 \textbf{Operasi} & \textbf{Fungsi} & \textbf{Gas (est.)} & \textbf{Kategori} \\
 \midrule
@@ -572,13 +575,13 @@ Tiga formula utama dalam sistem Lakomi---bunga pinjaman, kuorum tata kelola, dan
 
 \subsection{Validasi Formula Bunga Pinjaman}
 
-Bunga pinjaman dihitung menggunakan formula bunga sederhana (Persamaan~\ref{eq:bunga}). Contoh perhitungan untuk pinjaman 1.000 USDC selama 90 hari:
+Bunga pinjaman dihitung menggunakan formula bunga sederhana (Persamaan~\ref{eq:bunga}). Contoh perhitungan untuk pinjaman 1.000 IDRX selama 90 hari:
 
 \begin{equation}
-\text{Bunga} = \frac{1.000 \times 5\% \times 90}{365} = \frac{1.000 \times 0,05 \times 90}{365} = \frac{4.500}{365} \approx 12,33 \text{ USDC}
+\text{Bunga} = \frac{1.000 \times 5\% \times 90}{365} = \frac{1.000 \times 0,05 \times 90}{365} = \frac{4.500}{365} \approx 12,33 \text{ IDRX}
 \end{equation}
 
-Total pengembalian yang harus dibayarkan peminjam adalah $1.000 + 12,33 = 1.012,33$ USDC. Hasil eksekusi \texttt{calculateInterest(1000, 90)} pada \textit{smart contract} mengembalikan nilai yang sama (12,33 USDC dengan presisi 6 desimal), mengonfirmasi bahwa implementasi on-chain sesuai dengan spesifikasi formula.
+Total pengembalian yang harus dibayarkan peminjam adalah $1.000 + 12,33 = 1.012,33$ IDRX. Hasil eksekusi \texttt{calculateInterest(1000, 90)} pada \textit{smart contract} mengembalikan nilai yang sama (12,33 IDRX dengan presisi 6 desimal), mengonfirmasi bahwa implementasi on-chain sesuai dengan spesifikasi formula.
 
 \subsection{Validasi Formula Kuorum}
 
@@ -592,19 +595,19 @@ Pembulatan ke atas (\textit{ceiling}) memastikan bahwa kuorum tidak dapat dicapa
 
 \subsection{Validasi Formula Distribusi SHU}
 
-Distribusi SHU dihitung berdasarkan basis poin (\textit{basis points}) yang dialokasikan ke enam kategori (Persamaan~\ref{eq:shu-split}). Contoh perhitungan untuk total pendapatan 1.000 USDC:
+Distribusi SHU dihitung berdasarkan basis poin (\textit{basis points}) yang dialokasikan ke enam kategori (Persamaan~\ref{eq:shu-split}). Contoh perhitungan untuk total pendapatan 1.000 IDRX:
 
 \begin{align}
-\text{Cadangan Operasional} &= 1.000 \times 10\% = 100 \text{ USDC} \nonumber \\
-\text{SHU}_{\text{distributable}} &= 1.000 - 100 = 900 \text{ USDC} \nonumber \\
-\text{Dana Cadangan} &= 900 \times 5\% = 45 \text{ USDC} \nonumber \\
-\text{Jasa Modal} &= 900 \times 40\% = 360 \text{ USDC} \nonumber \\
-\text{Jasa Usaha} &= 900 \times 40\% = 360 \text{ USDC} \nonumber \\
-\text{Dana Pendidikan} &= 900 \times 5\% = 45 \text{ USDC} \nonumber \\
-\text{Dana Pengurus} &= 900 \times 5\% = 45 \text{ USDC} \nonumber \\
-\text{Dana Kesejahteraan Sosial} &= 900 \times 5\% = 45 \text{ USDC} \nonumber
+\text{Cadangan Operasional} &= 1.000 \times 10\% = 100 \text{ IDRX} \nonumber \\
+\text{SHU}_{\text{distributable}} &= 1.000 - 100 = 900 \text{ IDRX} \nonumber \\
+\text{Dana Cadangan} &= 900 \times 5\% = 45 \text{ IDRX} \nonumber \\
+\text{Jasa Modal} &= 900 \times 40\% = 360 \text{ IDRX} \nonumber \\
+\text{Jasa Usaha} &= 900 \times 40\% = 360 \text{ IDRX} \nonumber \\
+\text{Dana Pendidikan} &= 900 \times 5\% = 45 \text{ IDRX} \nonumber \\
+\text{Dana Pengurus} &= 900 \times 5\% = 45 \text{ IDRX} \nonumber \\
+\text{Dana Kesejahteraan Sosial} &= 900 \times 5\% = 45 \text{ IDRX} \nonumber
 \end{align}
 
-Total alokasi: $45 + 360 + 360 + 45 + 45 + 45 = 900$ USDC, yang sama dengan $\text{SHU}_{\text{distributable}}$. Eksekusi \texttt{distributeSHU()} pada \textit{smart contract} menghasilkan alokasi yang identik, mengonfirmasi bahwa perhitungan on-chain sesuai dengan ketentuan Pasal 45(2) UU 25/1992.
+Total alokasi: $45 + 360 + 360 + 45 + 45 + 45 = 900$ IDRX, yang sama dengan $\text{SHU}_{\text{distributable}}$. Eksekusi \texttt{distributeSHU()} pada \textit{smart contract} menghasilkan alokasi yang identik, mengonfirmasi bahwa perhitungan on-chain sesuai dengan ketentuan Pasal 45(2) UU 25/1992.
 
 Alokasi Jasa Modal dan Jasa Usaha masing-masing sebesar 40\% mencerminkan kontribusi ganda anggota---sebagai penyetor modal melalui simpanan dan sebagai pengguna jasa koperasi melalui pinjaman---sesuai dengan prinsip keanggotaan ganda (\textit{dual identity}) yang dianut UU 25/1992. Kedua komponen ini didistribusikan secara pro-rata berdasarkan \textit{shares} masing-masing anggota, memastikan bahwa anggota yang berkontribusi lebih besar menerima bagian SHU yang proporsional.

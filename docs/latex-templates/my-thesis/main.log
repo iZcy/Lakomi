@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 11:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 11:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1889,50 +1889,46 @@ Underfull \hbox (badness 2452) in paragraph at lines 47--48
  []
 
 
-Overfull \hbox (5.54582pt too wide) in paragraph at lines 34--51
+Overfull \hbox (5.54582pt too wide) in paragraph at lines 34--52
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[45] [46]
+[44] [45] [46]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-62.
+63.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (7.80544pt too wide) in paragraph at lines 166--167
+Overfull \hbox (7.80544pt too wide) in paragraph at lines 167--168
 []\T1/ptm/b/it/12 Blockchain La-yer \T1/ptm/m/n/12 --- Se-lu-ruh kon-trak di-de
 ploy pa-da DCha-in (EVM-compatible [[]14[]],
  []
 
 [47] [48]
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 []\T1/ptm/m/n/10 Kehilangan in-te-ro-pe-ra-bi-li-tas
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--200
+Underfull \hbox (badness 10000) in paragraph at lines 201--201
 []\T1/ptm/m/n/10 RBAC 8-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 []\T1/ptm/m/n/10 Tetap 5%
  []
 
 
-Underfull \hbox (badness 5175) in paragraph at lines 202--203
+Underfull \hbox (badness 5175) in paragraph at lines 203--204
 []\T1/ptm/m/n/10 Rentan ma-ni-pu-la-si, le-gi-ti-ma-si
  []
 
 
-Overfull \hbox (5.54582pt too wide) in paragraph at lines 194--206
+Overfull \hbox (5.54582pt too wide) in paragraph at lines 195--207
  [][] 
  []
 
@@ -1940,65 +1936,65 @@ Overfull \hbox (5.54582pt too wide) in paragraph at lines 194--206
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [49] [50]
-Overfull \hbox (56.27185pt too wide) in paragraph at lines 234--235
+Overfull \hbox (56.27185pt too wide) in paragraph at lines 235--236
 []\T1/ptm/m/n/12 Setiap fung-si \T1/ptm/m/it/12 state-modifying \T1/ptm/m/n/12 
 di-lin-du-ngi oleh \T1/pcr/m/n/12 onlyRole \T1/ptm/m/n/12 atau \T1/pcr/m/n/12 o
 nlyRegisteredMember\T1/ptm/m/n/12 .
  []
 
 
-Underfull \hbox (badness 4647) in paragraph at lines 252--253
+Underfull \hbox (badness 4647) in paragraph at lines 253--254
 []\T1/ptm/m/n/10 Pencabutan me-la-lui ta-ta
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 261--261
+Underfull \hbox (badness 10000) in paragraph at lines 262--262
 []\T1/pcr/m/n/10 beginElection() $\OMS/cmsy/m/n/10 !$
  []
 
 
-Underfull \hbox (badness 6493) in paragraph at lines 263--264
+Underfull \hbox (badness 6493) in paragraph at lines 264--265
 []\T1/ptm/m/n/10 Pinjaman LTV ber-ba-sis
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--264
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []\T1/ptm/m/n/10 Permenkop
  []
 
 
-Overfull \hbox (22.5236pt too wide) in paragraph at lines 245--267
+Overfull \hbox (22.5236pt too wide) in paragraph at lines 246--268
  [][] 
  []
 
-
-Overfull \hbox (53.6843pt too wide) in paragraph at lines 276--277
+[51]
+Overfull \hbox (53.6843pt too wide) in paragraph at lines 277--278
 []\T1/pcr/m/n/12 SimpananPaid(address member, uint256 amount, string simpananTy
 pe)
  []
 
-[51]
-Overfull \hbox (17.68431pt too wide) in paragraph at lines 277--278
+
+Overfull \hbox (17.68431pt too wide) in paragraph at lines 278--279
 []\T1/pcr/m/n/12 SHUDistributed(uint256 distributionsId, uint256 totalAmount)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 281--282
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 []\T1/pcr/m/n/12 LoanRequested(uint256 loanId, address borrower, uint256
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
+Underfull \hbox (badness 10000) in paragraph at lines 309--309
 []$\OMS/cmsy/m/n/10 ^^T$ \T1/ptm/m/n/10 200
  []
 
 
-Overfull \hbox (9.60988pt too wide) in paragraph at lines 310--310
+Overfull \hbox (9.60988pt too wide) in paragraph at lines 311--311
 []\T1/ptm/m/n/10 30%/50%/70%| 
  []
 
 
-Overfull \hbox (2.03146pt too wide) in paragraph at lines 294--313
+Overfull \hbox (2.03146pt too wide) in paragraph at lines 295--314
  [][] 
  []
 
@@ -2010,123 +2006,123 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [53] [54] [55]
-Underfull \hbox (badness 1107) in paragraph at lines 412--413
+Underfull \hbox (badness 1107) in paragraph at lines 413--414
 []\T1/ptm/m/n/12 Komunikasi de-ngan \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/
 n/12 di-la-ku-kan me-la-lui \T1/ptm/m/it/12 pro-vi-der \T1/ptm/m/n/12 JSON-RPC
  []
 
 [56]
-Overfull \hbox (9.8096pt too wide) in paragraph at lines 447--448
+Overfull \hbox (9.8096pt too wide) in paragraph at lines 448--449
 []\T1/ptm/m/n/12 Setelah per-i-o-de ber-a-khir, sis-tem me-mve-ri-fi-ka-si ku-o
 -rum: $[] \OMS/cmsy/m/n/12 ^^U [] ^^B
  []
 
 [57] [58]
-Underfull \hbox (badness 6725) in paragraph at lines 498--499
+Underfull \hbox (badness 6725) in paragraph at lines 499--500
 \T1/ptm/m/n/10 sim-pan-an po-kok se-ba-gai
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 500--500
+Underfull \hbox (badness 10000) in paragraph at lines 501--501
 []\T1/ptm/m/n/10 Proporsional ter-ha-dap
  []
 
 
-Underfull \hbox (badness 4673) in paragraph at lines 500--501
+Underfull \hbox (badness 4673) in paragraph at lines 501--502
 []\T1/ptm/m/n/10 Satu ang-go-ta sa-tu su-a-ra
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 502--503
+Underfull \hbox (badness 1484) in paragraph at lines 503--504
 []\T1/ptm/m/n/10 Tiga je-nis sim-pan-an (po-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 504--504
+Underfull \hbox (badness 10000) in paragraph at lines 505--505
 []\T1/ptm/m/n/10 Proporsional ter-ha-dap
  []
 
 
-Underfull \hbox (badness 3108) in paragraph at lines 504--505
+Underfull \hbox (badness 3108) in paragraph at lines 505--506
 []\T1/ptm/m/n/10 Enam ka-te-go-ri SHU de-
  []
 
 
-Underfull \hbox (badness 1024) in paragraph at lines 508--509
+Underfull \hbox (badness 1024) in paragraph at lines 509--510
 []\T1/ptm/m/n/10 Veto pe-nga-was + la-por-an
  []
 
 
-Underfull \hbox (badness 3138) in paragraph at lines 512--512
+Underfull \hbox (badness 3138) in paragraph at lines 513--513
 []\T1/ptm/m/n/10 Bergantung pa-da ke-pa-
  []
 
 
-Underfull \hbox (badness 5908) in paragraph at lines 512--512
+Underfull \hbox (badness 5908) in paragraph at lines 513--513
 []\T1/ptm/m/n/10 Tidak di-ran-cang un-tuk
  []
 
 
-Underfull \hbox (badness 2726) in paragraph at lines 512--513
+Underfull \hbox (badness 2726) in paragraph at lines 513--514
 \T1/ptm/m/n/10 ter-pe-tak-an ke fung-si on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--514
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
 []\T1/ptm/m/n/10 Tidak ada me-ka-nis-me
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 514--514
+Underfull \hbox (badness 10000) in paragraph at lines 515--515
 []\T1/ptm/m/it/10 Staking \T1/ptm/m/n/10 me-me-nga-ru-hi
  []
 
 
-Overfull \hbox (22.53008pt too wide) in paragraph at lines 494--517
+Overfull \hbox (22.53008pt too wide) in paragraph at lines 495--518
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[59]
-Underfull \hbox (badness 2401) in paragraph at lines 534--535
+[59] [60]
+Underfull \hbox (badness 2401) in paragraph at lines 535--536
 \T1/ptm/m/n/12 pe-ngu-ji-an me-li-pu-ti: pen-daf-tar-an ang-go-ta man-di-ri de-
 ngan pem-ba-yar-an sim-
  []
 
 
-Underfull \hbox (badness 1132) in paragraph at lines 534--535
-\T1/ptm/m/n/12 pan-an po-kok 100 USDC dan pe-ne-ri-ma-an 100 to-ken LAK; ve-ri-
+Underfull \hbox (badness 1371) in paragraph at lines 535--536
+\T1/ptm/m/n/12 pan-an po-kok 100 IDRX dan pe-ne-ri-ma-an 100 to-ken LAK; ve-ri-
 fi-ka-si bah-wa
  []
 
 
-Overfull \hbox (54.16177pt too wide) in paragraph at lines 534--535
+Overfull \hbox (54.16177pt too wide) in paragraph at lines 535--536
 \T1/ptm/m/n/12 pen-ca-but-an ke-ang-go-ta-an me-la-lui pro-po-sal ta-ta ke-lo-l
 a meng-guna-kan \T1/pcr/m/n/12 revokeMembership()\T1/ptm/m/n/12 . 
  []
 
-[60]
-Underfull \hbox (badness 1077) in paragraph at lines 542--543
+
+Underfull \hbox (badness 1077) in paragraph at lines 543--544
 \T1/ptm/m/n/12 de-ngan ve-ri-fi-ka-si bah-wa \T1/pcr/m/n/12 proposalVetoed \T1/
 ptm/m/n/12 ber-ni-lai \T1/pcr/m/n/12 true\T1/ptm/m/n/12 ; pe-no-lak-an ve-to
  []
 
 [61]
-Underfull \hbox (badness 2707) in paragraph at lines 572--573
+Underfull \hbox (badness 2707) in paragraph at lines 573--574
 []\T1/ptm/b/n/12 Non-transferabilitas To-ken Ke-ang-go-ta-an \T1/ptm/m/n/12 ---
  Ve-ri-fi-ka-si bah-wa se-ti-ap upa-
  []
 
 
-Underfull \hbox (badness 1127) in paragraph at lines 572--573
+Underfull \hbox (badness 1127) in paragraph at lines 573--574
 \T1/ptm/m/n/12 ya un-tuk men-tran-sfer to-ken LAK an-tar akun ak-an di-to-lak (
 \T1/ptm/m/it/12 re-ver-ted\T1/ptm/m/n/12 ) ka-re-na
  []
 
 
-Underfull \hbox (badness 1755) in paragraph at lines 572--573
+Underfull \hbox (badness 1755) in paragraph at lines 573--574
 \T1/pcr/m/n/12 transfersEnabled = false\T1/ptm/m/n/12 . Pe-ngu-ji-an di-la-ku-k
 an de-ngan me-mang-gil
  []
@@ -2136,84 +2132,66 @@ an de-ngan me-mang-gil
 
  (./contents/chapter-4/chapter-4.tex
 BAB IV.
-
-Overfull \hbox (2.03796pt too wide) in paragraph at lines 46--65
- [][] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [64
 
 
 
 
 
-] [65] [66] [67]
-Overfull \hbox (68.66727pt too wide) in paragraph at lines 207--219
+]
+Overfull \hbox (2.03796pt too wide) in paragraph at lines 49--68
+ [][] 
+ []
+
+[65] [66] [67]
+Overfull \hbox (68.66727pt too wide) in paragraph at lines 210--222
 \T1/ptm/m/n/12 qu-i-re(proposal.status == Pro-po-salS-ta-tus.Active, "Not acti-
 ve"); re-qu-i-re(!proposal.hasVoted[msg.sender],
  []
 
 
-Underfull \hbox (badness 1286) in paragraph at lines 207--219
+Underfull \hbox (badness 1286) in paragraph at lines 210--222
 \T1/ptm/m/n/12 "Alre-a-dy vo-ted"); re-qu-i-re(block.timestamp <= pro-po-sal.vo
 teEnd, "Vo-ting en-ded");
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 207--219
+Underfull \hbox (badness 1194) in paragraph at lines 210--222
 \T1/ptm/m/n/12 pro-po-sal.hasVoted[msg.sender] = true; pro-po-sal.totalVotes++;
  if (vo-te == 1) pro-
  []
 
-[68] [69] [70]
-Underfull \hbox (badness 1902) in paragraph at lines 318--319
+[68] [69]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 321--322
 \T1/ptm/m/n/12 se-ca-ra oto-ma-tis meng-hi-tung \T1/ptm/m/it/12 loan-to-value \
 T1/ptm/m/n/12 mak-si-mum ber-da-sar-kan \T1/ptm/m/it/12 ti-er \T1/ptm/m/n/12 ko
 n-tri-bu-si
  []
 
+[70]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [71]
-Underfull \hbox (badness 10000) in paragraph at lines 351--351
-\T1/ptm/m/n/10 ve-ri-fi-ka-si \T1/pcr/m/n/10 isRegisteredMember
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+[]\T1/ptm/m/n/8 Pendaftaran man-di-ri oleh ala-mat ba-ru; ve-ri-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\T1/ptm/m/n/8 fi-ka-si \T1/pcr/m/n/8 isRegisteredMember = true \T1/ptm/m/n/8 da
+n
  []
 
 ! Undefined control sequence.
-l.351 ...exttt{memberCount} bertambah & \checkmark
-                                                   \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 352--352
-[]\T1/ptm/m/n/10 Penolakan pen-daf-tar-an gan-da
- []
-
-! Undefined control sequence.
-l.352 ...\texttt{Already registered}) & \checkmark
-                                                   \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.353 ...kan 100 LAK pada pendaftaran & \checkmark
-                                                   \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.354 ...kan satu suara pada proposal & \checkmark
+l.354 ...exttt{memberCount} bertambah & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2223,16 +2201,11 @@ and I'll forget about whatever was undefined.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 355--355
-[]\T1/ptm/m/n/10 Pendaftaran ang-go-ta ba-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 355--355
-\T1/ptm/m/n/10 ru oleh admin me-la-lui
+[]\T1/ptm/m/n/8 Penolakan pen-daf-tar-an gan-da (\T1/pcr/m/n/8 Already
  []
 
 ! Undefined control sequence.
-l.355 ...exttt{registerMemberAdmin()} & \checkmark
+l.355 ...\texttt{Already registered}) & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2240,13 +2213,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 356--356
-[]\T1/ptm/m/n/10 Transfer to-ken LAK di-to-lak
- []
-
 ! Undefined control sequence.
-l.356 ...t{transfersEnabled = false}) & \checkmark
+l.356 ...kan 100 LAK pada pendaftaran & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2254,13 +2222,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 357--357
-[]\T1/ptm/m/n/10 Pengunduran di-ri su-ka-re-la me-la-lui
- []
-
 ! Undefined control sequence.
-l.357 ... \texttt{resignMembership()} & \checkmark
+l.357 ...kan satu suara pada proposal & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2270,16 +2233,20 @@ and I'll forget about whatever was undefined.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 358--358
-[]\T1/ptm/m/n/10 Tiga ang-go-ta ter-daf-tar masing-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 358--358
-\T1/ptm/m/n/10 masing meng-em-ba-lik-an
+[]\T1/ptm/m/n/8 Pendaftaran ang-go-ta ba-ru oleh admin me-la-lui
  []
 
 ! Undefined control sequence.
-l.358 ...texttt{getVotingPower() = 1} & \checkmark
+l.358 ...exttt{registerMemberAdmin()} & \checkmark
+                                                   \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.359 ...t{transfersEnabled = false}) & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2288,12 +2255,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 359--359
-[]\T1/ptm/m/n/10 Alamat ti-dak ter-daf-tar di-to-lak sa-at
+Underfull \hbox (badness 10000) in paragraph at lines 360--360
+[]\T1/ptm/m/n/8 Pengunduran di-ri su-ka-re-la me-la-lui
  []
 
 ! Undefined control sequence.
-l.359 ...itolak saat memberikan suara & \checkmark
+l.360 ... \texttt{resignMembership()} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2302,7 +2269,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.360 ...; penolakan pembayaran ganda & \checkmark
+l.361 ...texttt{getVotingPower() = 1} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2311,7 +2278,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.361 ...nyatakan lolos (kuorum 67\%) & \checkmark
+l.362 ...itolak saat memberikan suara & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2320,7 +2287,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.362 ...dinyatakan \textit{Defeated} & \checkmark
+l.363 ...; penolakan pembayaran ganda & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2329,7 +2296,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.363 ...han RAT ganda dalam 365 hari & \checkmark
+l.364 ...nyatakan lolos (kuorum 67\%) & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2338,7 +2305,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.364 ...engan suara terbanyak menang & \checkmark
+l.365 ...dinyatakan \textit{Defeated} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2347,7 +2314,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.365 ...ri; pemberian peran otomatis & \checkmark
+l.366 ...han RAT ganda dalam 365 hari & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2356,21 +2323,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.366 ...melalui proposal tata kelola & \checkmark
-                                                   \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-Underfull \hbox (badness 1303) in paragraph at lines 367--367
-[]\T1/ptm/m/n/10 Pengawas da-pat mem-veto pro-po-sal;
- []
-
-! Undefined control sequence.
-l.367 ...exttt{proposalVetoed = true} & \checkmark
+l.367 ...engan suara terbanyak menang & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2379,7 +2332,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.368 ...as ditolak saat mencoba veto & \checkmark
+l.368 ...ri; pemberian peran otomatis & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2387,18 +2340,8 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
-[]\T1/ptm/m/n/10 Pengawas meng-ak-ses la-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 369--369
-\T1/ptm/m/n/10 por-an ke-u-ang-an via
- []
-
 ! Undefined control sequence.
-l.369 ...tt{getPengawasAuditReport()} & \checkmark
+l.369 ...melalui proposal tata kelola & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2408,11 +2351,11 @@ and I'll forget about whatever was undefined.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 370--370
-[]\T1/ptm/m/n/10 Pembayaran sim-pan-an po-kok 100
+[]\T1/ptm/m/n/8 Pengawas da-pat mem-veto pro-po-sal;
  []
 
 ! Undefined control sequence.
-l.370 ...ok 100 USDC pada pendaftaran & \checkmark
+l.370 ...exttt{proposalVetoed = true} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2421,16 +2364,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.371 ...panan wajib 10 USDC periodik & \checkmark
-                                                   \\
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.372 ...\textit{shares} proporsional & \checkmark
+l.371 ...as ditolak saat mencoba veto & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2439,12 +2373,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 373--373
-[]\T1/ptm/m/n/10 Pelacakan da-na ca-dang-an da-lam
+Underfull \hbox (badness 10000) in paragraph at lines 372--372
+[]\T1/ptm/m/n/8 Pengawas meng-ak-ses la-por-an ke-u-ang-an via
  []
 
 ! Undefined control sequence.
-l.373 ... dalam \texttt{danaCadangan} & \checkmark
+l.372 ...tt{getPengawasAuditReport()} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2453,7 +2387,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.374 ...6 kategori sesuai basis poin & \checkmark
+l.373 ...ok 100 IDRX pada pendaftaran & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2462,7 +2396,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.375 ...gota; pencegahan klaim ganda & \checkmark
+l.374 ...panan wajib 10 IDRX periodik & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2471,7 +2405,34 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.376 ...u bunga 5\% APY; agunan 25\% & \checkmark
+l.375 ...\textit{shares} proporsional & \checkmark
+                                                   \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.376 ... dalam \texttt{danaCadangan} & \checkmark
+                                                   \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.377 ...6 kategori sesuai basis poin & \checkmark
+                                                   \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.378 ...gota; pencegahan klaim ganda & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2480,18 +2441,21 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (5.54582pt too wide) in paragraph at lines 347--379
- [][] 
+Underfull \hbox (badness 10000) in paragraph at lines 379--379
+[]\T1/ptm/m/n/8 Permenkop
  []
 
-
-LaTeX Warning: Float too large for page by 86.65134pt on input line 379.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+! Undefined control sequence.
+l.379 ...u bunga 5\% APY; agunan 25\% & \checkmark
+                                                   \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.381 ...io pengujian menunjukkan hasil \checkmark
+l.384 ...io pengujian menunjukkan hasil \checkmark
                                                   \ (\textit{Pass}), yang me...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2500,12 +2464,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 391--391
+Underfull \hbox (badness 2103) in paragraph at lines 394--394
 []\T1/ptm/b/n/12 Jumlah Pa-
  []
 
 ! Undefined control sequence.
-l.393 ... & 5 (5, 17--21, 31) & 7 & 7/7 \checkmark
+l.396 ... & 5 (5, 17--21, 31) & 7 & 7/7 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2514,7 +2478,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.394 ... & 4 (22(2), 41, 43) & 5 & 5/5 \checkmark
+l.397 ... & 4 (22(2), 41, 43) & 5 & 5/5 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2523,12 +2487,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 7944) in paragraph at lines 395--395
+Underfull \hbox (badness 7944) in paragraph at lines 398--398
 \T1/ptm/m/n/12 26--27, 29--
  []
 
 ! Undefined control sequence.
-l.395 ..., 29--30, 38--39) & 10 & 10/10 \checkmark
+l.398 ..., 29--30, 38--39) & 10 & 10/10 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2537,17 +2501,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 396--396
+Underfull \hbox (badness 3240) in paragraph at lines 399--399
 []\T1/ptm/m/n/12 3 (45, Per-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--396
+Underfull \hbox (badness 10000) in paragraph at lines 399--399
 \T1/ptm/m/n/12 men-kop
  []
 
 ! Undefined control sequence.
-l.396 ...5, Permenkop 8/2023) & 4 & 4/4 \checkmark
+l.399 ...5, Permenkop 8/2023) & 4 & 4/4 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2558,7 +2522,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> 26/26 \checkmark 
                             
-l.398 ...& \textbf{26} & \textbf{26/26 \checkmark}
+l.401 ...& \textbf{26} & \textbf{26/26 \checkmark}
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2566,150 +2530,132 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[72]
-Overfull \hbox (21.80603pt too wide) in paragraph at lines 420--420
+[72] [73]
+Overfull \hbox (4.82826pt too wide) in paragraph at lines 423--423
 []\T1/pcr/m/n/12 registerMember()| 
  []
 
 
-Overfull \hbox (36.20602pt too wide) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
+[]\T1/ptm/m/n/12 Pembayaran Sim-
+ []
+
+
+Overfull \hbox (19.22826pt too wide) in paragraph at lines 424--424
 []\T1/pcr/m/n/12 paySimpananPokok()| 
  []
 
 
-Overfull \hbox (14.60603pt too wide) in paragraph at lines 424--424
-[]\T1/pcr/m/n/12 distributeSHU()| 
- []
-
-
-Overfull \hbox (36.20602pt too wide) in paragraph at lines 426--426
+Overfull \hbox (19.22826pt too wide) in paragraph at lines 429--429
 []\T1/pcr/m/n/12 finalizeElection()| 
  []
 
 
-Overfull \hbox (14.03795pt too wide) in paragraph at lines 411--429
+Overfull \hbox (14.03795pt too wide) in paragraph at lines 414--432
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 1831) in paragraph at lines 444--444
+[74]
+Underfull \hbox (badness 1831) in paragraph at lines 447--447
 []\T1/ptm/b/n/10 ERC-20 Stan-
  []
 
 
-Underfull \hbox (badness 3872) in paragraph at lines 446--446
+Underfull \hbox (badness 3872) in paragraph at lines 449--449
 []\T1/ptm/m/n/10 N/A (di-no-nak-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 448--449
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 []$\OT1/cmr/m/n/10 +87%$ \T1/ptm/m/n/10 (ka-re-na
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[73]
-Underfull \hbox (badness 1168) in paragraph at lines 472--472
+[75]
+Underfull \hbox (badness 1168) in paragraph at lines 475--475
 []\T1/ptm/b/n/10 ERC-20 Ba-se-
  []
 
 
-Underfull \hbox (badness 3407) in paragraph at lines 472--472
+Underfull \hbox (badness 3407) in paragraph at lines 475--475
 []\T1/ptm/b/n/10 Governor Ba-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
 \T1/ptm/m/n/10 he-ad un-tuk ve-ri-fi-ka-si
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 477--478
 \T1/ptm/m/n/10 pem-ba-yar-an sim-pan-an
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 476--477
+Underfull \hbox (badness 10000) in paragraph at lines 479--480
 []$\OMS/cmsy/m/n/10 ^^@\OT1/cmr/m/n/10 20%$ \T1/ptm/m/n/10 vs Go-ver-nor,
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 480--481
+Underfull \hbox (badness 1377) in paragraph at lines 483--484
 []\T1/ptm/m/n/10 Operasi spe-si-fik La-ko-
  []
 
 
-Underfull \hbox (badness 1377) in paragraph at lines 482--483
+Underfull \hbox (badness 1377) in paragraph at lines 485--486
 []\T1/ptm/m/n/10 Operasi spe-si-fik La-ko-
  []
 
 
-Underfull \hbox (badness 8075) in paragraph at lines 482--483
+Underfull \hbox (badness 8075) in paragraph at lines 485--486
 \T1/ptm/m/n/10 mi, men-ca-kup per-hi-
  []
 
 
-Overfull \hbox (17.53935pt too wide) in paragraph at lines 470--485
+Overfull \hbox (17.53935pt too wide) in paragraph at lines 473--488
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (17.53935pt too wide) in paragraph at lines 498--509
+[76]
+Overfull \hbox (17.53935pt too wide) in paragraph at lines 501--512
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[74]
-Underfull \hbox (badness 1062) in paragraph at lines 528--529
+[77]
+Underfull \hbox (badness 1062) in paragraph at lines 531--532
 []\T1/ptm/m/n/10 Mandiri, sim-pan-an po-kok
  []
 
 
-Underfull \hbox (badness 4673) in paragraph at lines 530--531
+Underfull \hbox (badness 4673) in paragraph at lines 533--534
 []\T1/ptm/m/n/10 Satu ang-go-ta sa-tu su-a-ra
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 532--533
+Underfull \hbox (badness 3260) in paragraph at lines 535--536
 []\T1/ptm/m/n/10 Tiga je-nis sim-pan-an on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 542--542
+Underfull \hbox (badness 10000) in paragraph at lines 545--545
 []\T1/ptm/m/n/10 Kepatuhan Re-gu-
  []
 
 
-Underfull \hbox (badness 5908) in paragraph at lines 542--542
+Underfull \hbox (badness 5908) in paragraph at lines 545--545
 []\T1/ptm/m/n/10 Tidak di-ran-cang un-tuk
  []
 
 
-Overfull \hbox (14.03795pt too wide) in paragraph at lines 524--547
+Overfull \hbox (14.03795pt too wide) in paragraph at lines 527--550
  [][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[75] [76]) [77] [78] [79] [80] [81] [82]
+[78] [79] [80]) [81]
 \openout2 = `contents/chapter-5/chapter-5.aux'.
 
  (./contents/chapter-5/chapter-5.tex
 BAB V.
-[83
+[82
 
 
 
@@ -2830,13 +2776,13 @@ Overfull \hbox (41.54579pt too wide) in paragraph at lines 51--62
  [][] 
  []
 
-[84] [85]
+[83] [84]
 Underfull \hbox (badness 1546) in paragraph at lines 87--88
 \T1/ptm/m/n/12 sis-tem iden-ti-tas di-gi-tal nasional---seperti KTP elek-tro-ni
 k atau pla-tform \T1/ptm/m/it/12 Self-
  []
 
-[86]) [87] (./main.bbl
+[85]) [86] (./main.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 35--39
 []\T1/ptm/m/n/12 Kompas.com, ``Pen-di-ri ko-pe-ra-si in-do-sur-ya he-nry sur-ya
  di-vo-nis 18 ta-
@@ -2894,7 +2840,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--51
 ]anggota-[]demo-[]ke-[]dprd$[],
  []
 
-[88
+[87
 
 
 
@@ -2906,7 +2852,7 @@ Underfull \hbox (badness 1478) in paragraph at lines 113--115
 vi-ro-nment,'' []$https : / /
  []
 
-[89] [90] [91]) [92] (./contents/appendix/appendix-code.tex
+[88] [89] [90]) [91] (./contents/appendix/appendix-code.tex
 Underfull \hbox (badness 1502) in paragraph at lines 5--6
 []\T1/ptm/m/n/12 Keempat \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/n/12 La-ko-
 mi di-im-ple-men-ta-si-kan meng-guna-kan So-li-di-ty
@@ -3476,17 +3422,21 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 21FA2297B85B3898D8BF24D1764E2C6C;36076.
  ) 
 Here is how much of TeX's memory you used:
- 42609 strings out of 475597
- 955293 string characters out of 5783340
- 2284975 words of memory out of 5000000
- 63139 multiletter control sequences out of 15000+600000
- 603431 words of font info for 81 fonts, out of 8000000 for 9000
+ 42613 strings out of 475597
+ 955329 string characters out of 5783340
+ 2328975 words of memory out of 5000000
+ 63141 multiletter control sequences out of 15000+600000
+ 607991 words of font info for 86 fonts, out of 8000000 for 9000
  377 hyphenation exceptions out of 8191
- 103i,12n,106p,2317b,1990s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,12n,106p,2317b,1986s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texliv
@@ -3495,10 +3445,10 @@ f-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 /utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (118 pages, 526811 bytes).
+Output written on main.pdf (117 pages, 527650 bytes).
 PDF statistics:
- 2264 PDF objects out of 2487 (max. 8388607)
- 2102 compressed objects within 22 object streams
- 802 named destinations out of 1000 (max. 500000)
+ 2262 PDF objects out of 2487 (max. 8388607)
+ 2101 compressed objects within 22 object streams
+ 801 named destinations out of 1000 (max. 500000)
  1250 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,18 +12,18 @@
 \contentsline {table}{\numberline {3.4}{\ignorespaces Justifikasi Parameter Sistem}}{53}{table.caption.30}%
 \contentsline {table}{\numberline {3.5}{\ignorespaces Perbandingan Arsitektur Lakomi dengan Sistem Lain}}{60}{table.caption.32}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Informasi Deployment Smart Contract pada Jaringan DChain}}{64}{table.caption.34}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Alamat \textit {Deployment Smart Contract} pada DChain Mainnet}}{64}{table.caption.34}%
 \contentsline {table}{\numberline {4.2}{\ignorespaces Parameter Inisialisasi Smart Contract}}{65}{table.caption.35}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Hasil Pengujian Kepatuhan terhadap 26 Ketentuan UU 25/1992}}{79}{table.caption.40}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Ringkasan Hasil Pengujian per Kategori Ketentuan UU 25/1992}}{80}{table.caption.41}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Estimasi Konsumsi Gas per Operasi Koperasi}}{80}{table.caption.42}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Perbandingan Estimasi Gas dengan Kontrak Referensi}}{80}{table.caption.43}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Analisis Efisiensi Gas: Lakomi vs Baseline}}{81}{table.caption.44}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Estimasi Biaya Operasional Bulanan (100 Anggota)}}{81}{table.caption.45}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Perbandingan Lakomi dengan Sistem Lain}}{82}{table.caption.46}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Hasil Pengujian Kepatuhan terhadap 26 Ketentuan UU 25/1992}}{73}{table.caption.40}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Ringkasan Hasil Pengujian per Kategori Ketentuan UU 25/1992}}{74}{table.caption.41}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Estimasi Konsumsi Gas per Operasi Koperasi}}{74}{table.caption.42}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Perbandingan Estimasi Gas dengan Kontrak Referensi}}{75}{table.caption.43}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Analisis Efisiensi Gas: Lakomi vs Baseline}}{76}{table.caption.44}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Estimasi Biaya Operasional Bulanan (100 Anggota)}}{77}{table.caption.45}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Perbandingan Lakomi dengan Sistem Lain}}{78}{table.caption.46}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Analisis Dimensional Ketercapaian Tujuan Penelitian}}{85}{table.caption.48}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Perbandingan dengan \textit {State of the Art}}}{85}{table.caption.49}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Analisis Dimensional Ketercapaian Tujuan Penelitian}}{84}{table.caption.48}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Perbandingan dengan \textit {State of the Art}}}{84}{table.caption.49}%
 \contentsline {table}{\numberline {L.1}{\ignorespaces Daftar \textit {Smart Contract} Lakomi}}{L-1}{table.caption.55}%
 \contentsline {table}{\numberline {L.2}{\ignorespaces Matriks Akses Berbasis Peran pada Sistem Lakomi}}{L-5}{table.caption.57}%
 \contentsline {table}{\numberline {L.3}{\ignorespaces Daftar Skenario Pengujian Fungsional UU 25/1992}}{L-9}{table.caption.58}%

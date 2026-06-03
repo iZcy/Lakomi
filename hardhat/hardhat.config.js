@@ -27,6 +27,7 @@ module.exports = {
     dchainTestnet: {
       url: "https://dchaintestnet-2713017997578000-1.jsonrpc.testnet.sagarpc.io",
       chainId: 2713017997578000,
+      accounts: process.env.DCHAIN_PK ? [process.env.DCHAIN_PK] : [],
     },
   },
 };

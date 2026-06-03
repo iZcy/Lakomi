@@ -51,13 +51,36 @@
 
 %======================================
 
-% correct bad hyphenation here [example]
-% \babelhyphenation[<<english/bahasa>>]{op-tical net-works semi-conduc-tor}
-%% Uncomment block of code below to disable hyphenation
-%\tolerance=1
-%\emergencystretch=\maxdimen
-%\hyphenpenalty=10000
-%\hbadness=10000
+% EYD-compliant Indonesian hyphenation patterns (EYD Edisi V, 2022)
+% Rule: split between root word and affix, not inside affix clusters
+\babelhyphenation[bahasa]{
+  me-nye-le-sai-kan me-la-ku-kan meng-guna-kan me-mi-liki
+  me-la-por-kan men-da-pat-kan meng-e-ta-hui mem-beri-kan
+  di-la-ku-kan di-gu-na-kan di-te-rap-kan di-ha-sil-kan
+  di-te-tap-kan di-ka-te-go-ri-kan di-im-ple-men-ta-si-kan
+  pe-ngem-ba-ngan pe-ne-li-ti-an per-an-ca-ngan
+  ke-ang-go-ta-an per-ko-pe-ra-si-an per-ben-da-ha-ra-an
+  pe-nga-wa-san pe-ngu-ji-an pe-me-ta-an pe-nye-le-sai-an
+  ber-da-sar-kan ber-te-ri-ma ber-gantung ber-je-nis
+  mem-be-ri-kan mem-ba-yar-kan me-me-ta-kan men-ci-ta-kan
+  me-nun-juk-kan me-ning-kat-kan me-mas-ti-kan me-me-ga-ngi
+  me-ner-je-mah-kan me-mi-sah-kan men-ce-ri-ta-kan
+  ter-se-but ter-hu-bung ter-li-hat ter-ca-tat ter-in-te-gra-si
+  per-ang-kat per-masalah-an per-tang-gung-ja-wab-an
+  se-hing-ga se-men-ta-ra se-ba-gai-ma-na se-dang-kan
+  me-nerap-kan di-se-but di-ka-te-go-ri-kan di-de-fi-ni-si-kan
+  ke-pa-tuh-an ke-se-lu-ru-han ke-se-jahte-ra-an ke-ber-lan-jut-an
+  meng-ak-ses meng-a-ju-kan meng-o-pe-ra-si-kan meng-i-dent-ifi-ka-si
+  trans-pa-ran-si aku-mu-la-si au-to-ma-ti-sa-si
+  dis-tri-bu-si kon-tri-bu-si ope-ra-sio-nal im-ple-men-ta-si
+  \hspace{0pt}
+}
+% Increase tolerance to reduce overfull hboxes with Indonesian text
+\tolerance=200
+\emergencystretch=2em
+% EYD guide: /docs/EYD.md
+%% %\hyphenpenalty=10000 % uncomment to fully disable hyphenation
+%% %\hbadness=10000
 
 \begin{document}
 %======================================
@@ -186,9 +209,9 @@
 \appendixfigures
 
 \cleardoublepage \phantomsection
-\chapterappendix{contents/appendix/appendix-isi-lampiran}
-\chapterappendixadd{contents/appendix/appendix-latex}
-\chapterappendixadd{contents/appendix/appendix-penulisan-referensi}
+\chapterappendix{contents/appendix/appendix-code}
+%\chapterappendixadd{contents/appendix/appendix-latex}
+%\chapterappendixadd{contents/appendix/appendix-penulisan-referensi}
 \chapterappendixadd{contents/appendix/appendix-code}
 
 

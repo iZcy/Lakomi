@@ -1,10 +1,11 @@
 \babel@toc {english}{}\relax 
 \babel@toc {bahasa}{}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{20}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{21}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{25}{figure.caption.27}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Halaman Dashboard Anggota Lakomi}}{39}{figure.caption.32}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Portal Tata Kelola Lakomi}}{40}{figure.caption.33}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Portal Pinjaman Lakomi}}{40}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Halaman Kepatuhan Regulasi UU 25/1992}}{41}{figure.caption.35}%
-\contentsline {figure}{\numberline {L.1}{\ignorespaces Contoh gambar.}}{L-2}{figure.caption.47}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Arsitektur Empat Lapisan Blockchain. Lakomi beroperasi pada lapisan aplikasi melalui \textit {smart contract} yang di-deploy pada DChain (lapisan konsensus dan data).}}{11}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{28}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{29}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{34}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Halaman Dashboard Anggota Lakomi}}{49}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Portal Tata Kelola Lakomi}}{50}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Portal Pinjaman Lakomi}}{50}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Halaman Kepatuhan Regulasi UU 25/1992}}{51}{figure.caption.37}%
+\contentsline {figure}{\numberline {L.1}{\ignorespaces Contoh gambar.}}{L-2}{figure.caption.48}%

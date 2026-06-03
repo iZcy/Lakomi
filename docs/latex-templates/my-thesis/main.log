@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 07:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 07:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1140,10 +1140,7 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count365
 \l__pdf_internal_box=\box100
 )
-(./main.aux (./contents/chapter-1/chapter-1.aux)
-(./contents/chapter-2/chapter-2.aux) (./contents/chapter-3/chapter-3.aux)
-(./contents/chapter-4/chapter-4.aux) (./contents/chapter-5/chapter-5.aux)
-(./contents/chapter-6/chapter-6.aux))
+No file main.aux.
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
@@ -1164,7 +1161,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
-
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count366
@@ -1286,7 +1282,7 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<sample/logougm.png, id=493, 110.5731pt x 112.2594pt>
+<sample/logougm.png, id=513, 110.5731pt x 112.2594pt>
 File: sample/logougm.png Graphic file (type png)
 <use sample/logougm.png>
 Package pdftex.def Info: sample/logougm.png  used on input line 69.
@@ -1415,7 +1411,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [10
 
 ] (./main.lof
-Overfull \hbox (0.76117pt too wide) in paragraph at lines 3--3
+Overfull \hbox (0.76117pt too wide) in paragraph at lines 4--4
  [][] [][]\T1/ptm/m/n/12 Alur Pe-ne-li-ti-an da-lam Ti-ga Si-klus \T1/ptm/m/it/
 12 De-sign Sci-en-ce Re-se-ar-ch \T1/ptm/m/n/12 (He- 
  []
@@ -1454,10 +1450,42 @@ Overfull \hbox (4.28668pt too wide) in paragraph at lines 15--16
  (./contents/chapter-1/chapter-1.tex
 BAB I.
 
+LaTeX Warning: Citation `sailana2023pengaruh' on page 1 undefined on input line
+ 5.
+
+
+LaTeX Warning: Citation `kartika2024tanggung' on page 1 undefined on input line
+ 8.
+
+
+LaTeX Warning: Citation `novatiani2023pengaruh' on page 1 undefined on input li
+ne 8.
+
+
+LaTeX Warning: Citation `sailana2023pengaruh' on page 1 undefined on input line
+ 8.
+
+
 Overfull \hbox (7.38445pt too wide) in paragraph at lines 8--9
 \T1/ptm/m/n/12 Permasalahan per-ta-ma ada-lah ta-ta ke-lo-la yang opak. Pen-ca-
 tat-an ke-u-ang-an se-ca-ra manual---
  []
+
+
+LaTeX Warning: Citation `nakamoto2008bitcoin' on page 1 undefined on input line
+ 11.
+
+
+LaTeX Warning: Citation `buterin2014ethereum' on page 1 undefined on input line
+ 11.
+
+
+LaTeX Warning: Citation `sun2022multiparty' on page 1 undefined on input line 1
+4.
+
+
+LaTeX Warning: Citation `sharma2024future' on page 1 undefined on input line 14
+.
 
 
 Overfull \hbox (10.67255pt too wide) in paragraph at lines 14--15
@@ -1471,10 +1499,27 @@ mpound---menggunakan
 
 
 ]
+
+LaTeX Warning: Citation `maryam2025pendirian' on page 2 undefined on input line
+ 17.
+
+
+LaTeX Warning: Citation `arisudhana2025pelatihan' on page 2 undefined on input 
+line 17.
+
+
 Overfull \hbox (41.09273pt too wide) in paragraph at lines 17--18
 \T1/ptm/m/n/12 Regulasi per-ko-pe-ra-si-an Indonesia---khususnya UU 25/1992 ten
 -tang Perkoperasian---mengandung
  []
+
+
+LaTeX Warning: Citation `wood2014ethereum' on page 2 undefined on input line 20
+.
+
+
+LaTeX Warning: Citation `hevner2004design' on page 2 undefined on input line 23
+.
 
 
 Overfull \hbox (0.91573pt too wide) in paragraph at lines 23--24
@@ -1501,10 +1546,18 @@ m/n/12 , ha-sil pe-ngu-ji-an ke-pa-tuh-an ter-ha-dap 26 ke-ten-tu-an UU 25/1992
  (./contents/chapter-2/chapter-2.tex
 BAB II.
 
+LaTeX Warning: Citation `nakamoto2008bitcoin' on page 7 undefined on input line
+ 9.
+
+
 Overfull \hbox (0.48242pt too wide) in paragraph at lines 9--10
 []\T1/ptm/m/n/12 Blockchain ada-lah sis-tem \T1/ptm/m/it/12 dis-tri-bu-ted le-d
 ger \T1/ptm/m/n/12 yang me-mung-kink-an pen-ca-tat-an tran-
  []
+
+
+LaTeX Warning: Citation `zheng2018blockchain' on page 7 undefined on input line
+ 13.
 
 [7
 
@@ -1512,237 +1565,584 @@ ger \T1/ptm/m/n/12 yang me-mung-kink-an pen-ca-tat-an tran-
 
 
 
-] [8]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 33
+]
+
+LaTeX Warning: Citation `buterin2014ethereum' on page 8 undefined on input line
+ 21.
+
+
+LaTeX Warning: Citation `wood2014ethereum' on page 8 undefined on input line 21
 .
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 27
+.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Overfull \hbox (51.98997pt too wide) in paragraph at lines 35--36
+) [8]
+
+LaTeX Warning: Citation `szabo1997smart' on page 9 undefined on input line 31.
+
+
+LaTeX Warning: Citation `eip20' on page 9 undefined on input line 39.
+
+[9]
+Overfull \hbox (51.98997pt too wide) in paragraph at lines 41--42
 \T1/ptm/m/n/12 kon-teks La-ko-mi, stan-dar ERC-20 di-per-lu-as de-ngan fung-si 
 ke-ang-go-ta-an (\T1/pcr/m/n/12 isRegisteredMember\T1/ptm/m/n/12 )
  []
 
 
-Overfull \hbox (20.82681pt too wide) in paragraph at lines 39--40
+LaTeX Warning: Citation `openzeppelin' on page 10 undefined on input line 45.
+
+
+Overfull \hbox (20.82681pt too wide) in paragraph at lines 45--46
 \T1/pcr/m/n/12 ReentrancyGuard \T1/ptm/m/n/12 un-tuk per-lin-dung-an ter-ha-dap
  se-rang-an \T1/ptm/m/it/12 re-en-tran-cy\T1/ptm/m/n/12 . \T1/pcr/m/n/12 Access
 Control
  []
 
 
-Overfull \hbox (34.09798pt too wide) in paragraph at lines 41--42
+Overfull \hbox (34.09798pt too wide) in paragraph at lines 47--48
 \T1/ptm/m/n/12 kur-sif se-be-lum \T1/ptm/m/it/12 sta-te \T1/ptm/m/n/12 di-per-b
 a-rui. \T1/pcr/m/n/12 ReentrancyGuard \T1/ptm/m/n/12 me-nye-di-ak-an \T1/ptm/m/
 it/12 mo-di-fi-er \T1/pcr/m/n/12 nonReentrant
  []
 
-[9] [10] [11] [12]
-Overfull \hbox (19.85184pt too wide) in paragraph at lines 105--106
-\T1/ptm/m/n/12 kum pa-da ke-gi-at-an KSP di In-do-ne-sia yang me-li-pu-ti: (1) 
-ke-sen-jang-an regulasi---ketidakjelasan
- []
 
-[13]
-Overfull \hbox (15.843pt too wide) in paragraph at lines 113--114
-[]\T1/ptm/m/n/12 UU 25/1992 [[]21[]] ada-lah lan-das-an hu-kum uta-ma per-ko-pe
--ra-si-an di In-do-ne-sia. Undang-
- []
+LaTeX Warning: Citation `hardhat' on page 10 undefined on input line 51.
+
+[10]
+
+LaTeX Warning: Reference `fig:blockchain-architecture' on page 11 undefined on 
+input line 57.
 
 
-Overfull \hbox (1.86432pt too wide) in paragraph at lines 125--126
-\T1/ptm/m/n/12 ne-li-ti-an ini---memungkinkan ve-ri-fi-ka-si ke-pa-tuh-an se-ca
--ra oto-ma-tis dan ber-ke-lan-jut-an. Ber-
- []
+LaTeX Warning: Reference `tab:blockchain-platforms' on page 11 undefined on inp
+ut line 77.
 
-[14]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 136.
+(Font)              <5> on input line 84.
 
-Overfull \hbox (5.33527pt too wide) in paragraph at lines 138--138
-[]\T1/ptm/b/n/10 Blockchain| 
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+[]\T1/ptm/m/n/10 Biaya ting-gi un-tuk
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
-[]\T1/ptm/b/n/10 Kepatuhan
+Underfull \hbox (badness 10000) in paragraph at lines 92--92
+[]\T1/ptm/m/n/10 Hyperledger Fa-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-[]\T1/ptm/m/n/10 Arisudhana dkk.
+Overfull \hbox (9.91487pt too wide) in paragraph at lines 92--92
+[]\T1/ptm/m/n/10 Private/Consortium| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-[]\T1/ptm/m/n/10 Transparansi
+Underfull \hbox (badness 7540) in paragraph at lines 92--93
+[]\T1/ptm/m/n/10 Privasi ting-gi, kom-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-\T1/ptm/m/n/10 & akun-ta-bi-li-tas
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
+[]\T1/ptm/m/n/10 Binance Smart
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
-[]\T1/ptm/m/n/10 Tidak di-ba-
+Underfull \hbox (badness 6526) in paragraph at lines 96--97
+[]\T1/ptm/b/n/10 Transparansi pu-blik
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-[]\T1/ptm/m/n/10 Pengaruh sim-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-\T1/ptm/m/n/10 pan-an ter-ha-dap
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--142
-[]\T1/ptm/m/n/10 Tidak di-ba-
- []
-
-
-Underfull \hbox (badness 3428) in paragraph at lines 142--143
-[]\T1/ptm/m/n/10 Proporsional ter-
- []
-
-
-Underfull \hbox (badness 5771) in paragraph at lines 144--144
-[]\T1/ptm/m/n/10 El Ami-ne & Sa-ri
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
-[]\T1/ptm/m/n/10 Token-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
-[]\T1/ptm/m/n/10 Kerangka hu-
- []
-
-
-Underfull \hbox (badness 2359) in paragraph at lines 146--146
-[]\T1/ptm/m/n/10 Ya (Ethe-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
-[]\T1/ptm/m/n/10 Token-
- []
-
-
-Underfull \hbox (badness 2359) in paragraph at lines 148--148
-[]\T1/ptm/m/n/10 Ya (Ethe-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 148--148
-[]\T1/ptm/m/n/10 Token-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]\T1/ptm/m/n/10 Analisis ska-la
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 150--150
-[]\T1/ptm/m/n/10 Token-
- []
-
-
-Underfull \hbox (badness 3895) in paragraph at lines 152--152
-[]\T1/ptm/m/n/10 Tamai & Ka-sa-ha-ra
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
-[]\T1/ptm/m/n/10 Voting tah-an
- []
-
-
-Underfull \hbox (badness 2359) in paragraph at lines 152--152
-[]\T1/ptm/m/n/10 Ya (Ethe-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
-[]\T1/ptm/m/n/10 Hybrid
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
-\T1/ptm/m/n/10 (to-ken +
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
-[]\T1/ptm/m/n/10 Smart so-ci-al
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
-[]\T1/ptm/m/n/10 Ya (kon-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 154--154
-[]\T1/ptm/m/n/10 Demokratis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
-[]\T1/ptm/m/n/10 Reputasi di
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--158
-[]\T1/ptm/m/n/10 Berbasis
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
-[]\T1/ptm/b/n/10 Ya
- []
-
-
-Underfull \hbox (badness 5802) in paragraph at lines 160--160
-[]\T1/ptm/b/n/10 Lengkap (26
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--160
-[]\T1/ptm/b/n/10 1-anggota-1-
- []
-
-
-Underfull \hbox (badness 7631) in paragraph at lines 160--161
-[]\T1/ptm/b/n/10 6 ka-te-go-ri on-
- []
-
-
-Overfull \hbox (29.55229pt too wide) in paragraph at lines 136--163
+Overfull \hbox (17.5458pt too wide) in paragraph at lines 84--99
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [15] [16]
+[11]
+
+LaTeX Warning: Citation `hassan2021dao' on page 12 undefined on input line 107.
+
+
+
+LaTeX Warning: Citation `sharma2024future' on page 12 undefined on input line 1
+11.
+
+[12]
+
+LaTeX Warning: Citation `sun2022multiparty' on page 13 undefined on input line 
+115.
+
+
+LaTeX Warning: Citation `tamai2024dao' on page 13 undefined on input line 117.
+
+
+LaTeX Warning: Citation `elamine2024blockchain' on page 13 undefined on input l
+ine 121.
+
+
+LaTeX Warning: Citation `liu2024economics' on page 13 undefined on input line 1
+21.
+
+
+LaTeX Warning: Citation `carata2024smart' on page 13 undefined on input line 12
+1.
+
+[13]
+
+LaTeX Warning: Citation `saito2023reputation' on page 14 undefined on input lin
+e 129.
+
+
+LaTeX Warning: Citation `messias2023understanding' on page 14 undefined on inpu
+t line 129.
+
+
+LaTeX Warning: Citation `ma2023comprehensive' on page 14 undefined on input lin
+e 131.
+
+
+LaTeX Warning: Citation `sharma2023unpacking' on page 14 undefined on input lin
+e 131.
+
+
+LaTeX Warning: Citation `uu251992' on page 14 undefined on input line 137.
+
+[14]
+
+LaTeX Warning: Citation `maryam2025pendirian' on page 15 undefined on input lin
+e 141.
+
+
+LaTeX Warning: Citation `kartika2024tanggung' on page 15 undefined on input lin
+e 147.
+
+
+LaTeX Warning: Citation `kartika2024tanggung' on page 15 undefined on input lin
+e 149.
+
+
+LaTeX Warning: Citation `putra2025dualisme' on page 15 undefined on input line 
+149.
+
+[15]
+
+LaTeX Warning: Citation `sailana2023pengaruh' on page 16 undefined on input lin
+e 155.
+
+[16]
+
+LaTeX Warning: Citation `arisudhana2025pelatihan' on page 17 undefined on input
+ line 163.
+
+
+LaTeX Warning: Citation `antoni2024permasalahan' on page 17 undefined on input 
+line 167.
+
+
+Overfull \hbox (19.85184pt too wide) in paragraph at lines 167--168
+\T1/ptm/m/n/12 kum pa-da ke-gi-at-an KSP di In-do-ne-sia yang me-li-pu-ti: (1) 
+ke-sen-jang-an regulasi---ketidakjelasan
+ []
+
+
+LaTeX Warning: Citation `novatiani2023pengaruh' on page 17 undefined on input l
+ine 169.
+
+
+LaTeX Warning: Citation `hapsari2022perlindungan' on page 17 undefined on input
+ line 169.
+
+
+LaTeX Warning: Citation `supatminingsih2025statistik' on page 17 undefined on i
+nput line 171.
+
+
+LaTeX Warning: Citation `indriani2025model' on page 17 undefined on input line 
+171.
+
+[17]
+
+LaTeX Warning: Citation `nashoha2024transformasi' on page 18 undefined on input
+ line 175.
+
+
+LaTeX Warning: Citation `fadhilah2023transformasi' on page 18 undefined on inpu
+t line 177.
+
+
+LaTeX Warning: Citation `farida2025peran' on page 18 undefined on input line 17
+7.
+
+
+LaTeX Warning: Citation `rustariyuni2021pemanfaatan' on page 18 undefined on in
+put line 179.
+
+
+LaTeX Warning: Citation `galib2025penguatan' on page 18 undefined on input line
+ 179.
+
+
+LaTeX Warning: Citation `muslim2024implementasi' on page 18 undefined on input 
+line 183.
+
+
+LaTeX Warning: Citation `maryati2024model' on page 18 undefined on input line 1
+83.
+
+
+LaTeX Warning: Citation `rahma2026analisis' on page 18 undefined on input line 
+185.
+
+
+LaTeX Warning: Citation `zahra2021penilaian' on page 18 undefined on input line
+ 185.
+
+[18]
+
+LaTeX Warning: Citation `putra2025dualisme' on page 19 undefined on input line 
+189.
+
+
+LaTeX Warning: Citation `tania2025investigasi' on page 19 undefined on input li
+ne 191.
+
+
+LaTeX Warning: Citation `pebrianti2024peran' on page 19 undefined on input line
+ 191.
+
+
+LaTeX Warning: Citation `fauzi2022pengaruh' on page 19 undefined on input line 
+195.
+
+
+LaTeX Warning: Citation `gunawan2018faktor' on page 19 undefined on input line 
+195.
+
+
+LaTeX Warning: Citation `sahputr2024peran' on page 19 undefined on input line 1
+95.
+
+
+LaTeX Warning: Citation `pratama2015upaya' on page 19 undefined on input line 1
+97.
+
+
+LaTeX Warning: Citation `anjani2023pendampingan' on page 19 undefined on input 
+line 197.
+
+[19]
+
+LaTeX Warning: Citation `wilson2024analisis' on page 20 undefined on input line
+ 201.
+
+
+LaTeX Warning: Citation `kurniawan2026analisis' on page 20 undefined on input l
+ine 201.
+
+
+LaTeX Warning: Citation `widodo2024pengembangan' on page 20 undefined on input 
+line 203.
+
+
+LaTeX Warning: Citation `winarto2020peran' on page 20 undefined on input line 2
+03.
+
+
+LaTeX Warning: Citation `smartcontract2021analisis' on page 20 undefined on inp
+ut line 205.
+
+
+LaTeX Warning: Citation `satibi2025governance' on page 20 undefined on input li
+ne 205.
+
+
+LaTeX Warning: Citation `uu251992' on page 20 undefined on input line 211.
+
+[20]
+
+LaTeX Warning: Citation `maryam2025pendirian' on page 21 undefined on input lin
+e 213.
+
+
+LaTeX Warning: Citation `pp72021' on page 21 undefined on input line 217.
+
+
+LaTeX Warning: Citation `permenkop82023' on page 21 undefined on input line 221
+.
+
+
+LaTeX Warning: Citation `permenkop92018' on page 21 undefined on input line 221
+.
+
+[21]
+Overfull \hbox (1.86432pt too wide) in paragraph at lines 227--228
+\T1/ptm/m/n/12 ne-li-ti-an ini---memungkinkan ve-ri-fi-ka-si ke-pa-tuh-an se-ca
+-ra oto-ma-tis dan ber-ke-lan-jut-an. Ber-
+ []
+
+
+Overfull \hbox (34.8048pt too wide) in paragraph at lines 229--230
+\T1/ptm/m/n/12 da-na ke-se-ja-hte-ra-an so-si-al" (Pa-sal 45 ayat 2) di-ter-je-
+mahk-an men-ja-di fung-si \T1/pcr/m/n/12 distributeSHU()
+ []
+
+[22]
+
+LaTeX Warning: Reference `tab:prior-art' on page 23 undefined on input line 235
+.
+
+
+Overfull \hbox (5.33527pt too wide) in paragraph at lines 244--244
+[]\T1/ptm/b/n/10 Blockchain| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--244
+[]\T1/ptm/b/n/10 Kepatuhan
+ []
+
+
+LaTeX Warning: Citation `arisudhana2025pelatihan' on page 23 undefined on input
+ line 246.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\T1/ptm/m/n/10 Arisudhana dkk.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\T1/ptm/m/n/10 Transparansi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+\T1/ptm/m/n/10 & akun-ta-bi-li-tas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
+[]\T1/ptm/m/n/10 Tidak di-ba-
+ []
+
+
+LaTeX Warning: Citation `sailana2023pengaruh' on page 23 undefined on input lin
+e 248.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]\T1/ptm/m/n/10 Pengaruh sim-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+\T1/ptm/m/n/10 pan-an ter-ha-dap
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--248
+[]\T1/ptm/m/n/10 Tidak di-ba-
+ []
+
+
+Underfull \hbox (badness 3428) in paragraph at lines 248--249
+[]\T1/ptm/m/n/10 Proporsional ter-
+ []
+
+
+LaTeX Warning: Citation `elamine2024blockchain' on page 23 undefined on input l
+ine 250.
+
+
+Underfull \hbox (badness 5771) in paragraph at lines 250--250
+[]\T1/ptm/m/n/10 El Ami-ne & Sa-ri
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+LaTeX Warning: Citation `hassan2021dao' on page 23 undefined on input line 252.
+
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+[]\T1/ptm/m/n/10 Kerangka hu-
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 252--252
+[]\T1/ptm/m/n/10 Ya (Ethe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 252--252
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+LaTeX Warning: Citation `sun2022multiparty' on page 23 undefined on input line 
+254.
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 254--254
+[]\T1/ptm/m/n/10 Ya (Ethe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 254--254
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+LaTeX Warning: Citation `sharma2024future' on page 23 undefined on input line 2
+56.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+[]\T1/ptm/m/n/10 Analisis ska-la
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--256
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+LaTeX Warning: Citation `tamai2024dao' on page 23 undefined on input line 258.
+
+
+Underfull \hbox (badness 3895) in paragraph at lines 258--258
+[]\T1/ptm/m/n/10 Tamai & Ka-sa-ha-ra
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--258
+[]\T1/ptm/m/n/10 Voting tah-an
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 258--258
+[]\T1/ptm/m/n/10 Ya (Ethe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--258
+[]\T1/ptm/m/n/10 Hybrid
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 258--258
+\T1/ptm/m/n/10 (to-ken +
+ []
+
+
+LaTeX Warning: Citation `carata2024smart' on page 23 undefined on input line 26
+0.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--260
+[]\T1/ptm/m/n/10 Smart so-ci-al
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--260
+[]\T1/ptm/m/n/10 Ya (kon-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 260--260
+[]\T1/ptm/m/n/10 Demokratis
+ []
+
+
+LaTeX Warning: Citation `liu2024economics' on page 23 undefined on input line 2
+62.
+
+
+LaTeX Warning: Citation `saito2023reputation' on page 23 undefined on input lin
+e 264.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
+[]\T1/ptm/m/n/10 Reputasi di
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--264
+[]\T1/ptm/m/n/10 Berbasis
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/b/n/10 Ya
+ []
+
+
+Underfull \hbox (badness 5802) in paragraph at lines 266--266
+[]\T1/ptm/b/n/10 Lengkap (26
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/b/n/10 1-anggota-1-
+ []
+
+
+Underfull \hbox (badness 7631) in paragraph at lines 266--267
+[]\T1/ptm/b/n/10 6 ka-te-go-ri on-
+ []
+
+
+Overfull \hbox (29.55229pt too wide) in paragraph at lines 242--269
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `tab:prior-art' on page 23 undefined on input line 271
+.
+
+[23]) [24]
 \openout2 = `contents/chapter-3/chapter-3.aux'.
 
  (./contents/chapter-3/chapter-3.tex
 BAB III.
-[17
+
+LaTeX Warning: Citation `hevner2004design' on page 25 undefined on input line 7
+.
+
+
+LaTeX Warning: Citation `peffers2007design' on page 25 undefined on input line 
+9.
+
+
+LaTeX Warning: Citation `hevner2007design' on page 25 undefined on input line 1
+1.
+
+
+LaTeX Warning: Citation `antoni2024permasalahan' on page 25 undefined on input 
+line 14.
+
+
+LaTeX Warning: Citation `putra2025dualisme' on page 25 undefined on input line 
+14.
+
+[25
 
 
 
 
 
 ]
+
+LaTeX Warning: Reference `tab:alat-lunak' on page 26 undefined on input line 27
+.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 37--38
 []\T1/ptm/m/n/12 Bahasa pem-ro-gram-an
  []
@@ -1800,40 +2200,56 @@ Overfull \hbox (5.54582pt too wide) in paragraph at lines 33--50
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[18]
-Overfull \hbox (2.1626pt too wide) in paragraph at lines 69--70
-[]\T1/ptm/m/n/12 Penelitian di-lak-sa-nak-an da-lam enam ta-hap-an yang di-i-lu
-s-tra-sik-an pa-da Gam-bar []3.1[]. 
- []
+[26]
+
+LaTeX Warning: Reference `fig:alur-penelitian' on page 27 undefined on input li
+ne 69.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19] [20]
+[27]
+
+LaTeX Warning: Reference `fig:arsitektur-3' on page 28 undefined on input line 
+125.
+
+[28]
+
+LaTeX Warning: Citation `eip20' on page 29 undefined on input line 158.
+
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 61.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (7.80544pt too wide) in paragraph at lines 165--166
+
+LaTeX Warning: Citation `wood2014ethereum' on page 29 undefined on input line 1
+65.
+
+
+Overfull \hbox (1.80544pt too wide) in paragraph at lines 165--166
 []\T1/ptm/b/it/12 Blockchain La-yer \T1/ptm/m/n/12 --- Se-lu-ruh kon-trak di-de
-ploy pa-da DCha-in (EVM-compatible [[]10[]],
+ploy pa-da DCha-in (EVM-compatible [\T1/ptm/b/n/12 ?\T1/ptm/m/n/12 ],
  []
 
-[21]
+[29]
 Overfull \hbox (1.51717pt too wide) in paragraph at lines 177--178
 \T1/ptm/m/n/12 ti-tas ke-ang-go-ta-an da-ri ke-pe-mi-lik-an to-ken. \T1/pcr/m/n
 /12 MAX_SUPPLY \T1/ptm/m/n/12 di-te-tapk-an 1.000.000 LAK
  []
 
-
+[30]
 Overfull \hbox (56.27185pt too wide) in paragraph at lines 198--199
 []\T1/ptm/m/n/12 Setiap fung-si \T1/ptm/m/it/12 state-modifying \T1/ptm/m/n/12 
 di-lin-du-ngi oleh \T1/pcr/m/n/12 onlyRole \T1/ptm/m/n/12 atau \T1/pcr/m/n/12 o
 nlyRegisteredMember\T1/ptm/m/n/12 .
  []
 
-[22]
+
+LaTeX Warning: Reference `tab:fungsi-uu' on page 31 undefined on input line 202
+.
+
+
 Underfull \hbox (badness 4647) in paragraph at lines 216--217
 []\T1/ptm/m/n/10 Pencabutan me-la-lui ta-ta
  []
@@ -1870,12 +2286,12 @@ Overfull \hbox (53.6843pt too wide) in paragraph at lines 240--241
 pe)
  []
 
-
+[31]
 Overfull \hbox (17.68431pt too wide) in paragraph at lines 241--242
 []\T1/pcr/m/n/12 SHUDistributed(uint256 distributionsId, uint256 totalAmount)
  []
 
-[23]
+
 Overfull \hbox (14.24017pt too wide) in paragraph at lines 243--244
 []\T1/pcr/m/n/12 VoteCast(uint256 proposalId, address voter, uint8 vote) \T1/pt
 m/m/n/12 --- Di-
@@ -1886,6 +2302,10 @@ Overfull \hbox (39.2843pt too wide) in paragraph at lines 245--246
 []\T1/pcr/m/n/12 LoanRequested(uint256 loanId, address borrower, uint256 amount
 )
  []
+
+
+LaTeX Warning: Reference `tab:parameter' on page 32 undefined on input line 251
+.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 272--272
@@ -1902,14 +2322,34 @@ Overfull \hbox (2.03146pt too wide) in paragraph at lines 258--277
  [][] 
  []
 
-[24] [25] [26] [27]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `tab:parameter' on page 32 undefined on input line 279
+.
+
+[32]
+
+LaTeX Warning: Reference `fig:proposal-lifecycle' on page 33 undefined on input
+ line 281.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[33]
+
+LaTeX Warning: Citation `permenkop82023' on page 34 undefined on input line 346
+.
+
+[34] [35]
 Overfull \hbox (1.10602pt too wide) in paragraph at lines 374--375
 []\T1/ptm/m/n/12 Komunikasi de-ngan \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/
 n/12 di-la-kuk-an me-la-lui \T1/ptm/m/it/12 pro-vi-der \T1/ptm/m/n/12 JSON-RPC 
 DCha-
  []
 
-[28]
+[36]
 Overfull \hbox (9.8096pt too wide) in paragraph at lines 409--410
 []\T1/ptm/m/n/12 Setelah per-i-o-de ber-a-khir, sis-tem me-mve-ri-fi-ka-si ku-o
 -rum: $[] \OMS/cmsy/m/n/12 ^^U [] ^^B
@@ -1921,7 +2361,12 @@ Overfull \hbox (5.55005pt too wide) in paragraph at lines 417--418
 estLoan() \T1/ptm/m/n/12 de-ngan me-nen-tuk-an jum-
  []
 
-[29] [30]
+[37] [38]
+
+LaTeX Warning: Reference `tab:arsitektur-comparison' on page 39 undefined on in
+put line 449.
+
+
 Underfull \hbox (badness 6725) in paragraph at lines 460--461
 \T1/ptm/m/n/10 sim-pan-an po-kok se-ba-gai
  []
@@ -1989,7 +2434,7 @@ Overfull \hbox (22.53008pt too wide) in paragraph at lines 456--479
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31]
+[39]
 Overfull \hbox (0.1356pt too wide) in paragraph at lines 491--492
 []\T1/ptm/m/n/12 Pengujian fung-sio-nal di-la-kuk-an meng-gu-nak-an \T1/ptm/m/i
 t/12 fra-me-work \T1/ptm/m/n/12 Ha-rdhat pa-da ling-kung-
@@ -2001,7 +2446,7 @@ Overfull \hbox (21.13797pt too wide) in paragraph at lines 496--497
 a \T1/pcr/m/n/12 isRegisteredMember
  []
 
-[32]
+[40]
 Overfull \hbox (43.79305pt too wide) in paragraph at lines 502--503
 \T1/ptm/m/n/12 ku-o-rum di-nya-tak-an \T1/ptm/m/it/12 de-fe-a-ted\T1/ptm/m/n/12
  ; pen-ja-dwal-an RAT ta-hun-an me-la-lui \T1/pcr/m/n/12 scheduleAnnualRAT()
@@ -2013,11 +2458,18 @@ Overfull \hbox (112.4342pt too wide) in paragraph at lines 504--505
 g-an me-la-lui \T1/pcr/m/n/12 getPengawasAuditReport()
  []
 
-[33]
-Overfull \hbox (1.05878pt too wide) in paragraph at lines 511--512
+[41]
+
+LaTeX Warning: Reference `ch4' on page 42 undefined on input line 511.
+
+
+Overfull \hbox (0.39886pt too wide) in paragraph at lines 511--512
 []\T1/ptm/m/n/12 Seluruh ha-sil pe-ngu-ji-an fung-sio-nal di-sa-jik-an dan di-b
-a-has se-ca-ra rin-ci pa-da Bab []IV[]. 
+a-has se-ca-ra rin-ci pa-da Bab []. 
  []
+
+
+LaTeX Warning: Reference `ch4' on page 42 undefined on input line 527.
 
 
 Overfull \hbox (26.68098pt too wide) in paragraph at lines 534--535
@@ -2025,19 +2477,31 @@ Overfull \hbox (26.68098pt too wide) in paragraph at lines 534--535
 it/12 re-ver-ted\T1/ptm/m/n/12 ) ka-re-na \T1/pcr/m/n/12 transfersEnabled
  []
 
-[34]) [35]
+[42]
+
+LaTeX Warning: Reference `ch4' on page 43 undefined on input line 540.
+
+) [43]
 \openout2 = `contents/chapter-4/chapter-4.aux'.
 
  (./contents/chapter-4/chapter-4.tex
 BAB IV.
 
-LaTeX Warning: Reference `ch1' on page 36 undefined on input line 4.
+LaTeX Warning: Reference `ch1' on page 44 undefined on input line 4.
 
 
 Overfull \hbox (1.57573pt too wide) in paragraph at lines 8--9
 []\T1/ptm/m/n/12 Empat \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/n/12 Lakomi--
 -LakomiToken, La-ko-mi-Va-ult, La-ko-mi-Go-vern, dan
  []
+
+
+LaTeX Warning: Reference `tab:deployment' on page 44 undefined on input line 12
+.
+
+
+LaTeX Warning: Reference `tab:init-params' on page 44 undefined on input line 3
+9.
 
 
 Overfull \hbox (2.03796pt too wide) in paragraph at lines 46--65
@@ -2047,7 +2511,7 @@ Overfull \hbox (2.03796pt too wide) in paragraph at lines 46--65
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[36
+[44
 
 
 
@@ -2065,7 +2529,7 @@ Overfull \hbox (79.48428pt too wide) in paragraph at lines 104--104
 ntrant {[] 
  []
 
-[37]
+[45]
 Overfull \hbox (14.68431pt too wide) in paragraph at lines 104--104
 []        \T1/pcr/m/n/12 uint256 allocation = (dist * categoryBPS[i]) / 10000;[
 ] 
@@ -2083,57 +2547,106 @@ Overfull \hbox (29.0843pt too wide) in paragraph at lines 104--104
 ;[] 
  []
 
+[46]
+Overfull \hbox (0.28432pt too wide) in paragraph at lines 177--177
+[]    \T1/pcr/m/n/12 require(l.status == LoanStatus.Pending, "Not pending");[] 
 
-Overfull \hbox (65.08429pt too wide) in paragraph at lines 126--126
-[]    \T1/pcr/m/n/12 require(proposal.status == ProposalStatus.Active, "Not act
-ive");[] 
  []
 
 
-Overfull \hbox (14.68431pt too wide) in paragraph at lines 126--126
-[]    \T1/pcr/m/n/12 require(!proposal.hasVoted[msg.sender], "Already voted");[
+Overfull \hbox (14.68431pt too wide) in paragraph at lines 177--177
+[]    \T1/pcr/m/n/12 require(l.status == LoanStatus.Approved, "Not approved");[
 ] 
  []
 
-
-Overfull \hbox (43.4843pt too wide) in paragraph at lines 126--126
-[]    \T1/pcr/m/n/12 require(block.timestamp <= proposal.voteEnd, "Voting ended
-");[] 
+[47]
+Overfull \hbox (2.20064pt too wide) in paragraph at lines 181--182
+[]\T1/ptm/m/n/12 Fungsi \T1/pcr/m/n/12 getPengawasAuditReport() \T1/ptm/m/n/12 
+me-nye-di-ak-an ak-ses \T1/ptm/m/it/12 read-only \T1/ptm/m/n/12 ba-gi pe-
  []
 
 
-Overfull \hbox (8.54727pt too wide) in paragraph at lines 130--131
+Overfull \hbox (68.66727pt too wide) in paragraph at lines 207--219
+\T1/ptm/m/n/12 qu-i-re(proposal.status == Pro-po-salS-ta-tus.Active, "Not acti-
+ve"); re-qu-i-re(!proposal.hasVoted[msg.sender],
+ []
+
+
+Overfull \hbox (23.29565pt too wide) in paragraph at lines 207--219
+\T1/ptm/m/n/12 po-sal.hasVoted[msg.sender] = true; pro-po-sal.totalVotes++; if 
+(vo-te == 1) pro-po-sal.forVotes++;
+ []
+
+[48]
+
+! LaTeX Error: \begin{document} ended by \end{verbatim}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.219 \end{verbatim}
+                    
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.219 \end{verbatim}
+                    
+Things are pretty mixed up, but I think the worst is over.
+
+
+Overfull \hbox (8.54727pt too wide) in paragraph at lines 223--224
 []\T1/ptm/m/it/12 Frontend \T1/ptm/m/n/12 La-ko-mi ber-ha-sil di-im-ple-men-ta-
 sik-an meng-gu-nak-an Re-a-ct 18 de-ngan Type-
  []
 
-[38]
+
+LaTeX Warning: Reference `fig:dashboard' on page 49 undefined on input line 227
+.
+
+
+LaTeX Warning: Reference `fig:governance' on page 49 undefined on input line 23
+8.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (3.5192pt too wide) in paragraph at lines 156--157
-[]\T1/ptm/m/n/12 Portal Pin-jam-an (Gam-bar []4.6[]) me-mung-kink-an ang-go-ta 
-meng-a-juk-an pin-jam-an mik-
+LaTeX Warning: Reference `fig:loans' on page 49 undefined on input line 249.
+
+
+Overfull \hbox (0.5192pt too wide) in paragraph at lines 249--250
+[]\T1/ptm/m/n/12 Portal Pin-jam-an (Gam-bar []) me-mung-kink-an ang-go-ta meng-
+a-juk-an pin-jam-an mik-
  []
 
-[39]
+[49]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: Reference `fig:compliance' on page 50 undefined on input line 26
+0.
+
+[50]
+
+LaTeX Warning: Reference `tab:compliance-results' on page 51 undefined on input
+ line 271.
 
 
-Overfull \hbox (0.1356pt too wide) in paragraph at lines 178--179
+Overfull \hbox (0.1356pt too wide) in paragraph at lines 271--272
 []\T1/ptm/m/n/12 Pengujian fung-sio-nal di-la-kuk-an meng-gu-nak-an \T1/ptm/m/i
 t/12 fra-me-work \T1/ptm/m/n/12 Ha-rdhat pa-da ling-kung-
  []
 
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 189--189
+
+Underfull \hbox (badness 10000) in paragraph at lines 282--282
 \T1/ptm/m/n/10 ve-ri-fi-ka-si \T1/pcr/m/n/10 isRegisteredMember
  []
 
 ! Undefined control sequence.
-l.189 ...exttt{memberCount} bertambah & \checkmark
+l.282 ...exttt{memberCount} bertambah & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2142,12 +2655,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--190
+Underfull \hbox (badness 10000) in paragraph at lines 283--283
 []\T1/ptm/m/n/10 Penolakan pen-daf-tar-an gan-da
  []
 
 ! Undefined control sequence.
-l.190 ...\texttt{Already registered}) & \checkmark
+l.283 ...\texttt{Already registered}) & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2156,7 +2669,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.191 ...kan 100 LAK pada pendaftaran & \checkmark
+l.284 ...kan 100 LAK pada pendaftaran & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2165,7 +2678,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.192 ...kan satu suara pada proposal & \checkmark
+l.285 ...kan satu suara pada proposal & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2174,17 +2687,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--193
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
 []\T1/ptm/m/n/10 Pendaftaran ang-go-ta ba-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 193--193
+Underfull \hbox (badness 10000) in paragraph at lines 286--286
 \T1/ptm/m/n/10 ru oleh admin me-la-lui
  []
 
 ! Undefined control sequence.
-l.193 ...exttt{registerMemberAdmin()} & \checkmark
+l.286 ...exttt{registerMemberAdmin()} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2193,12 +2706,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 194--194
+Underfull \hbox (badness 10000) in paragraph at lines 287--287
 []\T1/ptm/m/n/10 Transfer to-ken LAK di-to-lak
  []
 
 ! Undefined control sequence.
-l.194 ...t{transfersEnabled = false}) & \checkmark
+l.287 ...t{transfersEnabled = false}) & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2207,12 +2720,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--195
+Underfull \hbox (badness 10000) in paragraph at lines 288--288
 []\T1/ptm/m/n/10 Pengunduran di-ri su-ka-re-la me-la-lui
  []
 
 ! Undefined control sequence.
-l.195 ... \texttt{resignMembership()} & \checkmark
+l.288 ... \texttt{resignMembership()} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2221,17 +2734,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
 []\T1/ptm/m/n/10 Tiga ang-go-ta ter-daf-tar masing-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 196--196
+Underfull \hbox (badness 10000) in paragraph at lines 289--289
 \T1/ptm/m/n/10 masing meng-em-ba-lik-an
  []
 
 ! Undefined control sequence.
-l.196 ...texttt{getVotingPower() = 1} & \checkmark
+l.289 ...texttt{getVotingPower() = 1} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2240,12 +2753,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 197--197
+Underfull \hbox (badness 3942) in paragraph at lines 290--290
 []\T1/ptm/m/n/10 Alamat ti-dak ter-daf-tar di-to-lak sa-at
  []
 
 ! Undefined control sequence.
-l.197 ...itolak saat memberikan suara & \checkmark
+l.290 ...itolak saat memberikan suara & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2254,7 +2767,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.198 ...; penolakan pembayaran ganda & \checkmark
+l.291 ...; penolakan pembayaran ganda & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2263,7 +2776,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.199 ...nyatakan lolos (kuorum 67\%) & \checkmark
+l.292 ...nyatakan lolos (kuorum 67\%) & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2272,7 +2785,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.200 ...dinyatakan \textit{Defeated} & \checkmark
+l.293 ...dinyatakan \textit{Defeated} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2281,7 +2794,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.201 ...han RAT ganda dalam 365 hari & \checkmark
+l.294 ...han RAT ganda dalam 365 hari & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2290,7 +2803,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.202 ...engan suara terbanyak menang & \checkmark
+l.295 ...engan suara terbanyak menang & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2299,7 +2812,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.203 ...ri; pemberian peran otomatis & \checkmark
+l.296 ...ri; pemberian peran otomatis & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2308,7 +2821,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.204 ...melalui proposal tata kelola & \checkmark
+l.297 ...melalui proposal tata kelola & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2317,12 +2830,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 1303) in paragraph at lines 205--205
+Underfull \hbox (badness 1303) in paragraph at lines 298--298
 []\T1/ptm/m/n/10 Pengawas da-pat mem-veto pro-po-sal;
  []
 
 ! Undefined control sequence.
-l.205 ...exttt{proposalVetoed = true} & \checkmark
+l.298 ...exttt{proposalVetoed = true} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2331,7 +2844,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.206 ...as ditolak saat mencoba veto & \checkmark
+l.299 ...as ditolak saat mencoba veto & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2340,17 +2853,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
 []\T1/ptm/m/n/10 Pengawas meng-ak-ses la-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 207--207
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
 \T1/ptm/m/n/10 por-an ke-u-ang-an via
  []
 
 ! Undefined control sequence.
-l.207 ...tt{getPengawasAuditReport()} & \checkmark
+l.300 ...tt{getPengawasAuditReport()} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2359,12 +2872,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--208
+Underfull \hbox (badness 10000) in paragraph at lines 301--301
 []\T1/ptm/m/n/10 Pembayaran sim-pan-an po-kok 100
  []
 
 ! Undefined control sequence.
-l.208 ...ok 100 USDC pada pendaftaran & \checkmark
+l.301 ...ok 100 USDC pada pendaftaran & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2373,7 +2886,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.209 ...panan wajib 10 USDC periodik & \checkmark
+l.302 ...panan wajib 10 USDC periodik & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2382,7 +2895,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.210 ...\textit{shares} proporsional & \checkmark
+l.303 ...\textit{shares} proporsional & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2391,12 +2904,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 211--211
+Underfull \hbox (badness 10000) in paragraph at lines 304--304
 []\T1/ptm/m/n/10 Pelacakan da-na ca-dang-an da-lam
  []
 
 ! Undefined control sequence.
-l.211 ... dalam \texttt{danaCadangan} & \checkmark
+l.304 ... dalam \texttt{danaCadangan} & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2405,7 +2918,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.212 ...6 kategori sesuai basis poin & \checkmark
+l.305 ...6 kategori sesuai basis poin & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2414,7 +2927,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.213 ...gota; pencegahan klaim ganda & \checkmark
+l.306 ...gota; pencegahan klaim ganda & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2423,7 +2936,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.214 ...u bunga 5\% APY; agunan 25\% & \checkmark
+l.307 ...u bunga 5\% APY; agunan 25\% & \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2432,18 +2945,18 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (5.54582pt too wide) in paragraph at lines 185--217
+Overfull \hbox (5.54582pt too wide) in paragraph at lines 278--310
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 86.65134pt on input line 217.
+LaTeX Warning: Float too large for page by 86.65134pt on input line 310.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ! Undefined control sequence.
-l.219 ...io pengujian menunjukkan hasil \checkmark
+l.312 ...io pengujian menunjukkan hasil \checkmark
                                                   \ (\textit{Pass}), yang me...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2452,12 +2965,16 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 2103) in paragraph at lines 229--229
+LaTeX Warning: Reference `tab:category-summary' on page 51 undefined on input l
+ine 314.
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 322--322
 []\T1/ptm/b/n/12 Jumlah Pa-
  []
 
 ! Undefined control sequence.
-l.231 ... & 5 (5, 17--21, 31) & 7 & 7/7 \checkmark
+l.324 ... & 5 (5, 17--21, 31) & 7 & 7/7 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2466,7 +2983,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.232 ... & 4 (22(2), 41, 43) & 5 & 5/5 \checkmark
+l.325 ... & 4 (22(2), 41, 43) & 5 & 5/5 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2475,12 +2992,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 7944) in paragraph at lines 233--233
+Underfull \hbox (badness 7944) in paragraph at lines 326--326
 \T1/ptm/m/n/12 26--27, 29--
  []
 
 ! Undefined control sequence.
-l.233 ..., 29--30, 38--39) & 10 & 10/10 \checkmark
+l.326 ..., 29--30, 38--39) & 10 & 10/10 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2489,17 +3006,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 234--234
+Underfull \hbox (badness 3240) in paragraph at lines 327--327
 []\T1/ptm/m/n/12 3 (45, Per-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--234
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
 \T1/ptm/m/n/12 men-kop
  []
 
 ! Undefined control sequence.
-l.234 ...5, Permenkop 8/2023) & 4 & 4/4 \checkmark
+l.327 ...5, Permenkop 8/2023) & 4 & 4/4 \checkmark
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2510,7 +3027,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> 26/26 \checkmark 
                             
-l.236 ...& \textbf{26} & \textbf{26/26 \checkmark}
+l.329 ...& \textbf{26} & \textbf{26/26 \checkmark}
                                                    \\
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2522,27 +3039,31 @@ and I'll forget about whatever was undefined.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (21.80603pt too wide) in paragraph at lines 258--258
+LaTeX Warning: Reference `tab:gas-costs' on page 51 undefined on input line 336
+.
+
+
+Overfull \hbox (21.80603pt too wide) in paragraph at lines 351--351
 []\T1/pcr/m/n/12 registerMember()| 
  []
 
 
-Overfull \hbox (36.20602pt too wide) in paragraph at lines 259--259
+Overfull \hbox (36.20602pt too wide) in paragraph at lines 352--352
 []\T1/pcr/m/n/12 paySimpananPokok()| 
  []
 
 
-Overfull \hbox (14.60603pt too wide) in paragraph at lines 262--262
+Overfull \hbox (14.60603pt too wide) in paragraph at lines 355--355
 []\T1/pcr/m/n/12 distributeSHU()| 
  []
 
 
-Overfull \hbox (36.20602pt too wide) in paragraph at lines 264--264
+Overfull \hbox (36.20602pt too wide) in paragraph at lines 357--357
 []\T1/pcr/m/n/12 finalizeElection()| 
  []
 
 
-Overfull \hbox (14.03795pt too wide) in paragraph at lines 249--267
+Overfull \hbox (14.03795pt too wide) in paragraph at lines 342--360
  [][] 
  []
 
@@ -2550,58 +3071,76 @@ Overfull \hbox (14.03795pt too wide) in paragraph at lines 249--267
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (53.886pt too wide) in paragraph at lines 269--270
+Overfull \hbox (53.886pt too wide) in paragraph at lines 362--363
 \T1/ptm/m/n/12 ra-si pem-ba-ca-an da-ta (\T1/ptm/m/it/12 vi-ew fun-ctions\T1/pt
 m/m/n/12 ) se-per-ti \T1/pcr/m/n/12 getVotingPower()\T1/ptm/m/n/12 , \T1/pcr/m/
 n/12 isRegisteredMember()\T1/ptm/m/n/12 ,
  []
 
-[41]
-Underfull \hbox (badness 1062) in paragraph at lines 286--287
+[51]
+
+LaTeX Warning: Reference `tab:comparison' on page 52 undefined on input line 36
+8.
+
+
+Underfull \hbox (badness 1062) in paragraph at lines 379--380
 []\T1/ptm/m/n/10 Mandiri, sim-pan-an po-kok
  []
 
 
-Underfull \hbox (badness 4673) in paragraph at lines 288--289
+Underfull \hbox (badness 4673) in paragraph at lines 381--382
 []\T1/ptm/m/n/10 Satu ang-go-ta sa-tu su-a-ra
  []
 
 
-Underfull \hbox (badness 3260) in paragraph at lines 290--291
+Underfull \hbox (badness 3260) in paragraph at lines 383--384
 []\T1/ptm/m/n/10 Tiga je-nis sim-pan-an on-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 300--300
+Underfull \hbox (badness 10000) in paragraph at lines 393--393
 []\T1/ptm/m/n/10 Kepatuhan Re-gu-
  []
 
 
-Underfull \hbox (badness 5908) in paragraph at lines 300--300
+Underfull \hbox (badness 5908) in paragraph at lines 393--393
 []\T1/ptm/m/n/10 Tidak di-ran-cang un-tuk
  []
 
 
-Overfull \hbox (14.03795pt too wide) in paragraph at lines 282--305
+Overfull \hbox (14.03795pt too wide) in paragraph at lines 375--398
  [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42]
-Overfull \hbox (2.59999pt too wide) in paragraph at lines 323--324
+
+LaTeX Warning: Reference `eq:bunga' on page 52 undefined on input line 410.
+
+
+Overfull \hbox (2.52379pt too wide) in paragraph at lines 410--411
+[]\T1/ptm/m/n/12 Bunga pin-jam-an di-hi-tung meng-gu-nak-an for-mu-la bu-nga se
+-der-ha-na (Per-sa-ma-an []).
+ []
+
+[52]
+Overfull \hbox (2.59999pt too wide) in paragraph at lines 416--417
 \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 012\OML/cmm/m/it/12 ; \OT1/c
 mr/m/n/12 33$ \T1/ptm/m/n/12 USDC. Ha-sil ek-se-ku-si \T1/pcr/m/n/12 calculateI
 nterest(1000, 90) \T1/ptm/m/n/12 pa-da \T1/ptm/m/it/12 smart con-
  []
 
-[43]) [44] [45] [46] [47]
+
+LaTeX Warning: Reference `eq:shu-split' on page 53 undefined on input line 430.
+
+
+[53]) [54] [55] [56] [57]
 \openout2 = `contents/chapter-5/chapter-5.aux'.
 
  (./contents/chapter-5/chapter-5.tex
 BAB V.
-) [48
+) [58
 
 
 
@@ -2613,7 +3152,10 @@ BAB V.
  (./contents/chapter-6/chapter-6.tex
 BAB VI.
 
-LaTeX Warning: Reference `ch1' on page 49 undefined on input line 5.
+LaTeX Warning: Reference `ch4' on page 59 undefined on input line 5.
+
+
+LaTeX Warning: Reference `ch1' on page 59 undefined on input line 5.
 
 
 Overfull \hbox (34.81667pt too wide) in paragraph at lines 8--9
@@ -2621,7 +3163,7 @@ Overfull \hbox (34.81667pt too wide) in paragraph at lines 8--9
 12 Em-pat \T1/ptm/m/it/12 smart con-tra-ct\T1/ptm/m/n/12 ---LakomiToken,
  []
 
-[49
+[59
 
 
 
@@ -2633,33 +3175,68 @@ Overfull \hbox (0.91779pt too wide) in paragraph at lines 26--27
 -si anggota---seperti pan-
  []
 
-[50]
+[60]
 Overfull \hbox (1.79318pt too wide) in paragraph at lines 32--33
 []\T1/ptm/b/n/12 Evaluasi Ta-ta Ke-lo-la Jang-ka Pan-jang. \T1/ptm/m/n/12 Me-ka
 -nis-me ta-ta ke-lo-la on-chain---termasuk
  []
 
-) [51] (./main.bbl [52
+) [61]
+No file main.bbl.
+[62
 
 
 
-
-] [53]) [54]
-(./contents/appendix/appendix-isi-lampiran.tex) [1
+] (./contents/appendix/appendix-isi-lampiran.tex) [1
 
 
 ]
 (./contents/appendix/appendix-latex.tex
 
+LaTeX Warning: Citation `lukito2016' on page L-2 undefined on input line 10.
+
+
+LaTeX Warning: Citation `santosa2011user' on page L-2 undefined on input line 1
+0.
+
+
+LaTeX Warning: Citation `setiawan2014fuzzy' on page L-2 undefined on input line
+ 11.
+
+
+LaTeX Warning: Citation `wibowo2014line' on page L-2 undefined on input line 11
+.
+
+
 LaTeX Warning: Citation `marenda2016digitory' on page L-2 undefined on input li
 ne 11.
 
-<contents/chapter-1/sample-fig.png, id=1232, 578.16pt x 434.37282pt>
+
+LaTeX Warning: Citation `wibirama2013dual' on page L-2 undefined on input line 
+11.
+
+
+LaTeX Warning: Citation `wibowo2016clustering' on page L-2 undefined on input l
+ine 11.
+
+<contents/chapter-1/sample-fig.png, id=1171, 578.16pt x 434.37282pt>
 File: contents/chapter-1/sample-fig.png Graphic file (type png)
 <use contents/chapter-1/sample-fig.png>
 Package pdftex.def Info: contents/chapter-1/sample-fig.png  used on input line 
 17.
 (pdftex.def)             Requested size: 284.52756pt x 213.76582pt.
+
+LaTeX Warning: Reference `Fig: Contoh gambar' on page L-2 undefined on input li
+ne 22.
+
+
+LaTeX Warning: Citation `wibowo2016clustering' on page L-2 undefined on input l
+ine 22.
+
+
+LaTeX Warning: Reference `Tab: Tabel Tinggi Berat' on page L-2 undefined on inp
+ut line 39.
+
 [2
 
  <./contents/chapter-1/sample-fig.png (PNG copy)>]
@@ -2696,17 +3273,23 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 74F5C99EC0D7CEB54B264E500A6311C1;25798.
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: F2C9A4AA2A4F41E473ADD357929BD6D0;27382
+(rerunfilecheck)             After:  08CED7F317D01043EA4F1F0F94C9CD04;28597.
  ) 
 Here is how much of TeX's memory you used:
- 42837 strings out of 475597
- 957997 string characters out of 5783340
- 2089975 words of memory out of 5000000
- 63758 multiletter control sequences out of 15000+600000
+ 42870 strings out of 475597
+ 958174 string characters out of 5783340
+ 2088975 words of memory out of 5000000
+ 63824 multiletter control sequences out of 15000+600000
  613275 words of font info for 89 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
- 103i,12n,106p,1586b,1785s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 103i,12n,106p,1708b,1785s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
@@ -2718,10 +3301,10 @@ w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (80 pages, 464425 bytes).
+Output written on main.pdf (88 pages, 479845 bytes).
 PDF statistics:
- 1494 PDF objects out of 1728 (max. 8388607)
- 1371 compressed objects within 14 object streams
- 447 named destinations out of 1000 (max. 500000)
- 991 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1424 PDF objects out of 1440 (max. 8388607)
+ 1294 compressed objects within 13 object streams
+ 431 named destinations out of 1000 (max. 500000)
+ 1031 words of extra memory for PDF output out of 10000 (max. 10000000)
 

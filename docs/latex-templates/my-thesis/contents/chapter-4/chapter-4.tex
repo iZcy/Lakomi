@@ -112,6 +112,99 @@ function castVote(
     uint256 proposalId,
     uint8 vote
 ) external onlyRegisteredMember {
+    Proposal storage p = proposals[proposalId];
+    require(p.active, "Not active");
+    require(!p.hasVoted[msg.sender], "Already voted");
+    p.hasVoted[msg.sender] = true;
+    if (vote == 1) p.forVotes++;
+    else if (vote == 2) p.againstVotes++;
+    else p.abstainVotes++;
+    emit VoteCast(proposalId, msg.sender, vote);
+}
+\end{verbatim}
+
+\subsubsection{Pembuatan Proposal --- LakomiGovern.createProposal()}
+
+Fungsi \texttt{createProposal()} memungkinkan anggota terdaftar untuk menginisiasi proposal tata kelola. Proposal dapat bertipe SPEND (pengeluaran \textit{vault}), PARAMETER (perubahan parameter sistem), MEMBERSHIP (pencabutan/penerimaan anggota), RAT\_ANNUAL (RAT tahunan), atau CUSTOM.
+
+\begin{verbatim}
+function createProposal(
+    string calldata title,
+    string calldata description,
+    ProposalType pType,
+    bytes calldata data
+) external onlyRegisteredMember returns (uint256) {
+    uint256 id = proposalCount++;
+    Proposal storage p = proposals[id];
+    p.proposer = msg.sender;
+    p.title = title;
+    p.description = description;
+    p.pType = pType;
+    p.data = data;
+    p.startBlock = block.number;
+    p.endBlock = block.number + votingPeriod;
+    p.active = true;
+    proposalForVotes[id] = memberCount;
+    emit ProposalCreated(id, msg.sender);
+    return id;
+}
+\end{verbatim}
+
+\subsubsection{Persetujuan dan Pencairan Pinjaman --- LakomiLoans}
+
+Fungsi \texttt{approveLoan()} dan \texttt{disburse()} mengimplementasikan alur persetujuan pinjaman dua tahap: APPROVER\_ROLE menyetujui permohonan, kemudian dana dicairkan dari LakomiVault ke peminjam setelah agunan dikunci.
+
+\begin{verbatim}
+function approveLoan(uint256 loanId) 
+    external onlyRole(APPROVER_ROLE) {
+    Loan storage l = loans[loanId];
+    require(l.status == LoanStatus.Pending, "Not pending");
+    l.status = LoanStatus.Approved;
+    l.approvedBy = msg.sender;
+    emit LoanApproved(loanId, msg.sender);
+}
+
+function disburse(uint256 loanId) external {
+    Loan storage l = loans[loanId];
+    require(l.status == LoanStatus.Approved, "Not approved");
+    l.status = LoanStatus.Active;
+    l.disbursedAt = block.timestamp;
+    token.lockCollateral(l.borrower, l.collateralAmount);
+    vault.approveUSDCSpending(address(this), l.principal);
+    vault.governanceSpend(l.borrower, l.principal);
+    emit LoanDisbursed(loanId, l.borrower, l.principal);
+}
+\end{verbatim}
+
+\subsubsection{Laporan Keuangan Pengawas --- LakomiVault.getPengawasAuditReport()}
+
+Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} bagi pemegang PENGAWAS\_ROLE untuk memperoleh ringkasan keuangan \textit{vault} secara \textit{real-time}---mengimplementasikan fungsi pengawasan yang diamanatkan Pasal~38--39.
+
+\begin{verbatim}
+function getPengawasAuditReport() external view 
+    onlyRole(PENGAWAS_ROLE) returns (
+    uint256 totalAssets,
+    uint256 totalSimpananPokok,
+    uint256 totalSimpananWajib,
+    uint256 totalSimpananSukarela,
+    uint256 danaCadangan,
+    uint256 accumulatedRevenue,
+    uint256 memberCount,
+    uint256 activeLoans
+) {
+    return (
+        getTotalAssets(),
+        simpananPokokTotal,
+        simpananWajibTotal,
+        sharesTotal,
+        danaCadangan,
+        accumulatedRevenue,
+        controller.getMemberCount(),
+        controller.getActiveLoanCount()
+    );
+}
+\end{verbatim}
+) external onlyRegisteredMember {
     Proposal storage proposal = proposals[proposalId];
     require(proposal.status == ProposalStatus.Active, "Not active");
     require(!proposal.hasVoted[msg.sender], "Already voted");

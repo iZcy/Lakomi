@@ -22,86 +22,94 @@
 \contentsline {section}{\numberline {2.1}Teknologi Blockchain dan Smart Contract}{7}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Blockchain sebagai Distributed Ledger}{7}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Ethereum dan Ethereum Virtual Machine (EVM)}{8}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Smart Contract}{8}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.3}Smart Contract}{9}{subsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.1.4}Standar ERC-20 dan Token}{9}{subsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.1.5}Kontrol Akses dan Keamanan Smart Contract}{9}{subsection.2.1.5}%
-\contentsline {subsection}{\numberline {2.1.6}DChain: Blockchain Konsorsium Pendidikan Tinggi Indonesia}{9}{subsection.2.1.6}%
-\contentsline {section}{\numberline {2.2}Decentralized Autonomous Organization (DAO)}{10}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Definisi dan Karakteristik DAO}{10}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Model Tata Kelola DAO}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}DAO untuk Koperasi}{11}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Keterbatasan Model DAO Existing}{11}{subsection.2.2.4}%
-\contentsline {section}{\numberline {2.3}Koperasi di Indonesia}{11}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Definisi dan Prinsip Koperasi}{11}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Struktur Organisasi Koperasi}{12}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Sistem Simpanan}{13}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Sisa Hasil Usaha (SHU)}{13}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}Tantangan Koperasi Tradisional}{13}{subsection.2.3.5}%
-\contentsline {section}{\numberline {2.4}Regulasi Terkait}{14}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}UU 25/1992 tentang Perkoperasian}{14}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}PP 7/2021 tentang Kemudahan, Pelindungan, dan Pemberdayaan Koperasi dan UMKM}{14}{subsection.2.4.2}%
-\contentsline {subsection}{\numberline {2.4.3}Permenkop 8/2023 tentang Usaha Simpan Pinjam}{14}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}Kepatuhan Regulasi melalui Smart Contract}{15}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5}Penelitian Terdahulu}{15}{section.2.5}%
-\contentsline {chapter}{\numberline {III}Metode Penelitian}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Pendekatan Design Science Research}{17}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Alat dan Bahan}{18}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Perangkat Lunak}{18}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Perangkat Keras}{18}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Bahan Penelitian}{18}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Alur Penelitian}{19}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Arsitektur Sistem}{20}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Desain Smart Contract}{22}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Struktur Data}{22}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Kontrol Akses Berbasis Peran}{22}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Fungsi Utama per Ketentuan UU 25/1992}{23}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Event Logging}{23}{subsection.3.5.4}%
-\contentsline {subsection}{\numberline {3.5.5}Justifikasi Parameter Sistem}{24}{subsection.3.5.5}%
-\contentsline {section}{\numberline {3.6}Perancangan Keamanan}{27}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Kontrol Akses Berbasis Peran}{27}{subsection.3.6.1}%
-\contentsline {subsection}{\numberline {3.6.2}Perlindungan Reentrancy}{27}{subsection.3.6.2}%
-\contentsline {subsection}{\numberline {3.6.3}Veto Pengawas sebagai Circuit Breaker}{27}{subsection.3.6.3}%
-\contentsline {subsection}{\numberline {3.6.4}Non-Transferabilitas Token Keanggotaan}{27}{subsection.3.6.4}%
-\contentsline {section}{\numberline {3.7}Desain Frontend}{28}{section.3.7}%
-\contentsline {subsection}{\numberline {3.7.1}Arsitektur Aplikasi}{28}{subsection.3.7.1}%
-\contentsline {subsection}{\numberline {3.7.2}Halaman dan Fungsionalitas}{28}{subsection.3.7.2}%
-\contentsline {section}{\numberline {3.8}Alur Kerja Sistem}{29}{section.3.8}%
-\contentsline {subsection}{\numberline {3.8.1}Skenario 1: Pendaftaran Anggota dan Simpanan}{29}{subsection.3.8.1}%
-\contentsline {subsection}{\numberline {3.8.2}Skenario 2: Tata Kelola dan Pemungutan Suara}{29}{subsection.3.8.2}%
-\contentsline {subsection}{\numberline {3.8.3}Skenario 3: Pengajuan dan Pelunasan Pinjaman}{29}{subsection.3.8.3}%
-\contentsline {subsection}{\numberline {3.8.4}Skenario 4: Pencabutan Keanggotaan dan Audit Pengawas}{30}{subsection.3.8.4}%
-\contentsline {subsection}{\numberline {3.8.5}Skenario 5: Distribusi SHU dan Klaim Anggota}{30}{subsection.3.8.5}%
-\contentsline {section}{\numberline {3.9}Perbandingan Arsitektur dengan Sistem Lain}{31}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Pengujian}{31}{section.3.10}%
-\contentsline {subsection}{\numberline {3.10.1}Pengujian Fungsional Smart Contract}{32}{subsection.3.10.1}%
-\contentsline {subsection}{\numberline {3.10.2}Analisis Biaya Gas}{34}{subsection.3.10.2}%
-\contentsline {subsection}{\numberline {3.10.3}Pengujian Imutabilitas}{34}{subsection.3.10.3}%
-\contentsline {chapter}{\numberline {IV}Hasil dan Pembahasan}{36}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Hasil Implementasi Smart Contract}{36}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Bukti Deployment pada Jaringan DChain}{36}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Inisialisasi Parameter Sistem}{36}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Implementasi Fungsi Utama}{37}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}Pendaftaran Anggota --- LakomiToken.registerMember()}{37}{subsubsection.4.1.3.1}%
-\contentsline {subsubsection}{\numberline {4.1.3.2}Distribusi SHU --- LakomiVault.distributeSHU()}{37}{subsubsection.4.1.3.2}%
-\contentsline {subsubsection}{\numberline {4.1.3.3}Pemungutan Suara --- LakomiGovern.castVote()}{38}{subsubsection.4.1.3.3}%
-\contentsline {section}{\numberline {4.2}Hasil Implementasi Frontend}{38}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Dashboard Anggota}{39}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Portal Tata Kelola}{39}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Portal Pinjaman}{39}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Halaman Kepatuhan Regulasi}{40}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Hasil Pengujian Kepatuhan UU 25/1992}{41}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Analisis Biaya Gas}{41}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Perbandingan Sistem}{42}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Validasi Formula}{42}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Validasi Formula Bunga Pinjaman}{43}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Validasi Formula Kuorum}{43}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}Validasi Formula Distribusi SHU}{43}{subsection.4.6.3}%
-\contentsline {chapter}{\numberline {V}Tambahan (Opsional)}{48}{chapter.5}%
-\contentsline {chapter}{\numberline {VI}Kesimpulan dan Saran}{49}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Kesimpulan}{49}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Saran}{50}{section.6.2}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{52}{section*.42}%
-\contentsline {chapter}{LAMPIRAN}{L-1}{section*.44}%
+\contentsline {subsection}{\numberline {2.1.5}Kontrol Akses dan Keamanan Smart Contract}{10}{subsection.2.1.5}%
+\contentsline {subsection}{\numberline {2.1.6}DChain: Blockchain Konsorsium Pendidikan Tinggi Indonesia}{11}{subsection.2.1.6}%
+\contentsline {section}{\numberline {2.2}Decentralized Autonomous Organization (DAO)}{12}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Definisi dan Karakteristik DAO}{12}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Model Tata Kelola DAO}{13}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}DAO untuk Koperasi}{13}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Keterbatasan Model DAO Existing}{13}{subsection.2.2.4}%
+\contentsline {section}{\numberline {2.3}Koperasi di Indonesia}{14}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Definisi dan Prinsip Koperasi}{14}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Struktur Organisasi Koperasi}{15}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Sistem Simpanan}{16}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Sisa Hasil Usaha (SHU)}{16}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}Tantangan Koperasi Tradisional}{17}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}Transformasi Digital Koperasi}{18}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}Manajemen Keuangan dan Akuntansi Koperasi}{18}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}Pengawasan dan Fraud di Koperasi}{19}{subsection.2.3.8}%
+\contentsline {subsection}{\numberline {2.3.9}Partisipasi dan Pemberdayaan Anggota}{19}{subsection.2.3.9}%
+\contentsline {subsection}{\numberline {2.3.10}Blockchain dan Fintech dalam Konteks Koperasi Indonesia}{20}{subsection.2.3.10}%
+\contentsline {section}{\numberline {2.4}Regulasi Terkait}{21}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}UU 25/1992 tentang Perkoperasian}{21}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}PP 7/2021 tentang Kemudahan, Pelindungan, dan Pemberdayaan Koperasi dan UMKM}{21}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Permenkop 8/2023 tentang Usaha Simpan Pinjam oleh Koperasi}{21}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Kepatuhan Regulasi melalui Smart Contract}{22}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5}Penelitian Terdahulu}{23}{section.2.5}%
+\contentsline {chapter}{\numberline {III}Metode Penelitian}{25}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Pendekatan Design Science Research}{25}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Alat dan Bahan}{26}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Perangkat Lunak}{26}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Perangkat Keras}{26}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Bahan Penelitian}{27}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Alur Penelitian}{27}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Arsitektur Sistem}{29}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Desain Smart Contract}{30}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Struktur Data}{30}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Kontrol Akses Berbasis Peran}{30}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Fungsi Utama per Ketentuan UU 25/1992}{31}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Event Logging}{31}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Justifikasi Parameter Sistem}{32}{subsection.3.5.5}%
+\contentsline {section}{\numberline {3.6}Perancangan Keamanan}{35}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Kontrol Akses Berbasis Peran}{35}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Perlindungan Reentrancy}{35}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Veto Pengawas sebagai Circuit Breaker}{35}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Non-Transferabilitas Token Keanggotaan}{35}{subsection.3.6.4}%
+\contentsline {section}{\numberline {3.7}Desain Frontend}{36}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Arsitektur Aplikasi}{36}{subsection.3.7.1}%
+\contentsline {subsection}{\numberline {3.7.2}Halaman dan Fungsionalitas}{36}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}Alur Kerja Sistem}{37}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}Skenario 1: Pendaftaran Anggota dan Simpanan}{37}{subsection.3.8.1}%
+\contentsline {subsection}{\numberline {3.8.2}Skenario 2: Tata Kelola dan Pemungutan Suara}{37}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Skenario 3: Pengajuan dan Pelunasan Pinjaman}{37}{subsection.3.8.3}%
+\contentsline {subsection}{\numberline {3.8.4}Skenario 4: Pencabutan Keanggotaan dan Audit Pengawas}{38}{subsection.3.8.4}%
+\contentsline {subsection}{\numberline {3.8.5}Skenario 5: Distribusi SHU dan Klaim Anggota}{38}{subsection.3.8.5}%
+\contentsline {section}{\numberline {3.9}Perbandingan Arsitektur dengan Sistem Lain}{39}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Pengujian}{39}{section.3.10}%
+\contentsline {subsection}{\numberline {3.10.1}Pengujian Fungsional Smart Contract}{40}{subsection.3.10.1}%
+\contentsline {subsection}{\numberline {3.10.2}Analisis Biaya Gas}{42}{subsection.3.10.2}%
+\contentsline {subsection}{\numberline {3.10.3}Pengujian Imutabilitas}{42}{subsection.3.10.3}%
+\contentsline {chapter}{\numberline {IV}Hasil dan Pembahasan}{44}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Hasil Implementasi Smart Contract}{44}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Bukti Deployment pada Jaringan DChain}{44}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Inisialisasi Parameter Sistem}{44}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Implementasi Fungsi Utama}{45}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Pendaftaran Anggota --- LakomiToken.registerMember()}{45}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}Distribusi SHU --- LakomiVault.distributeSHU()}{45}{subsubsection.4.1.3.2}%
+\contentsline {subsubsection}{\numberline {4.1.3.3}Pemungutan Suara --- LakomiGovern.castVote()}{46}{subsubsection.4.1.3.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.4}Pembuatan Proposal --- LakomiGovern.createProposal()}{46}{subsubsection.4.1.3.4}%
+\contentsline {subsubsection}{\numberline {4.1.3.5}Persetujuan dan Pencairan Pinjaman --- LakomiLoans}{47}{subsubsection.4.1.3.5}%
+\contentsline {subsubsection}{\numberline {4.1.3.6}Laporan Keuangan Pengawas --- LakomiVault.getPengawasAuditReport()}{48}{subsubsection.4.1.3.6}%
+\contentsline {section}{\numberline {4.2}Hasil Implementasi Frontend}{49}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Dashboard Anggota}{49}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Portal Tata Kelola}{49}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Portal Pinjaman}{50}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Halaman Kepatuhan Regulasi}{50}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Hasil Pengujian Kepatuhan UU 25/1992}{51}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Analisis Biaya Gas}{51}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Perbandingan Sistem}{52}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Validasi Formula}{52}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Validasi Formula Bunga Pinjaman}{53}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Validasi Formula Kuorum}{53}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Validasi Formula Distribusi SHU}{53}{subsection.4.6.3}%
+\contentsline {chapter}{\numberline {V}Tambahan (Opsional)}{58}{chapter.5}%
+\contentsline {chapter}{\numberline {VI}Kesimpulan dan Saran}{59}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Kesimpulan}{59}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Saran}{60}{section.6.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{62}{section*.44}%
+\contentsline {chapter}{LAMPIRAN}{L-1}{section*.45}%
 \contentsline {section}{\numberline {L.1}Isi Lampiran}{L-1}{section.Alph0.1}%
 \contentsline {section}{\numberline {L.2}Panduan Latex}{L-2}{section.Alph0.2}%
 \contentsline {subsection}{\numberline {L.2.1}Syntax Dasar}{L-2}{subsection.Alph0.2.1}%

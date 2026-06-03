@@ -46,22 +46,46 @@ Tujuan penelitian ini adalah:
 
 \section{Batasan Penelitian}
 
-Penelitian ini memiliki batasan sebagai berikut:
+Penelitian ini memiliki beberapa batasan yang perlu dipertimbangkan dalam menginterpretasikan hasil dan merencanakan pengembangan selanjutnya:
 
 \begin{enumerate}
-	\item \textbf{Lingkungan Deployment.} Sistem di-deploy pada jaringan DChain \textit{testnet} (Chain ID 17845), sehingga evaluasi dilakukan dalam lingkungan pengembangan terkendali, bukan pada lingkungan produksi \textit{mainnet} dengan pengguna nyata.
-	
-	\item \textbf{Cakupan Regulasi.} Implementasi mencakup 26 ketentuan UU 25/1992 yang bersifat operasional dan dapat diterjemahkan ke dalam aturan yang dapat dieksekusi oleh \textit{smart contract}. Ketentuan yang bersifat administratif murni---seperti prosedur pendirian badan hukum koperasi, pembuatan Anggaran Dasar/Anggaran Rumah Tangga (AD/ART) oleh notaris, dan perizinan usaha---tidak termasuk dalam lingkup penelitian karena tidak dapat diotomatisasi melalui \textit{smart contract}.
-	
-	\item \textbf{Pengujian Keamanan.} Pengujian yang dilakukan terbatas pada pengujian fungsional untuk verifikasi kepatuhan terhadap UU 25/1992 dan analisis biaya gas. Audit keamanan formal---termasuk \textit{penetration testing}, verifikasi formal (\textit{formal verification}), dan analisis kerentanan menggunakan \textit{tool} seperti Slither atau Mythril---berada di luar lingkup penelitian ini.
-	
-	\item \textbf{Frontend.} Antarmuka pengguna (\textit{frontend}) dikembangkan menggunakan React 18 dan wagmi v2 sebagai prototipe untuk mendemonstrasikan interaksi dengan \textit{smart contract}. Optimasi \textit{production-grade}---termasuk \textit{server-side rendering}, \textit{caching}, dan \textit{responsive design} penuh---tidak dilakukan.
-	
-	\item \textbf{Manajemen Identitas.} Lima peran dalam sistem (PENGAWAS, APPROVER, MEMBERSHIP, TREASURER, GOVERN) diimplementasikan menggunakan akun Ethereum yang terpisah pada lingkungan pengujian. Integrasi dengan sistem identitas eksternal---seperti OAuth, \textit{Know Your Customer} (KYC), atau \textit{Single Sign-On}---berada di luar lingkup.
-	
-	\item \textbf{Interoperabilitas.} Sistem dirancang untuk beroperasi pada satu jaringan blockchain (DChain). Interoperabilitas \textit{cross-chain}---seperti transfer aset antar \textit{chain} atau integrasi dengan \textit{oracle} eksternal---tidak diimplementasikan.
-	
-	\item \textbf{Skalabilitas.} Pengujian dilakukan dengan jumlah anggota terbatas (5--10 akun pengujian). Analisis skalabilitas untuk jumlah anggota dalam orde ribuan atau puluhan ribu---termasuk strategi \textit{sharding} atau \textit{Layer-2 scaling}---berada di luar lingkup.
+	\item \textbf{Lingkungan Deployment.} Sistem di-deploy dan diuji pada lingkungan pengujian DChain, bukan pada \textit{mainnet} produksi DChain. Meskipun jaringan pengujian menggunakan arsitektur dan \textit{chain ID} yang identik, volume transaksi dan jumlah partisipan pada lingkungan produksi akan jauh lebih besar---sehingga hasil pengujian kinerja dan biaya gas pada lingkungan pengujian tidak dapat diekstrapolasi secara langsung ke lingkungan produksi tanpa validasi lebih lanjut.
+
+	\item \textbf{Cakupan Ketentuan UU 25/1992.} Penelitian ini membatasi pemetaan pada 26 ketentuan UU 25/1992 yang bersifat operasional dan dapat diterjemahkan ke dalam logika kondisional \textit{smart contract}. Ketentuan yang bersifat kualitatif---seperti "pengelolaan berdasarkan asas kekeluargaan" (Pasal 2) atau "memajukan kesejahteraan anggota pada khususnya dan masyarakat pada umumnya" (Pasal 3)---berada di luar lingkup karena memerlukan penilaian diskresioner yang tidak dapat diotomatisasi secara deterministik. Selain itu, ketentuan administratif seperti pendirian koperasi (akta notaris, pengesahan badan hukum) juga di luar lingkup karena bersifat prosedural dan melibatkan entitas di luar sistem blockchain.
+
+	\item \textbf{Metode Pengujian.} Pengujian dilakukan melalui \textit{unit testing} fungsional berbasis Hardhat yang memverifikasi kepatuhan terhadap ketentuan UU 25/1992. Pengujian tidak mencakup \textit{penetration testing}, \textit{formal verification}, \textit{fuzz testing}, atau \textit{invariant testing} yang umum dilakukan dalam audit keamanan \textit{smart contract}. Audit keamanan formal oleh pihak ketiga direkomendasikan sebelum sistem di-deploy pada lingkungan produksi yang menangani dana anggota secara riil.
+
+	\item \textbf{Autentikasi dan Identitas.} Sistem menggunakan alamat \textit{wallet} Ethereum sebagai identitas anggota. Meskipun mekanisme \texttt{onlyRegisteredMember} dan \textit{mapping} satu-alamat-satu-keanggotaan mencegah pendaftaran ganda secara teknis, sistem tidak mengintegrasikan verifikasi identitas \textit{off-chain} seperti KTP elektronik, biometrik, atau \textit{Self-Sovereign Identity} (SSI). Integrasi ini diperlukan untuk kepatuhan terhadap regulasi \textit{Know Your Customer} (KYC) dan pencegahan \textit{Sybil attack} pada skala produksi.
+
+	\item \textbf{Antarmuka Pengguna.} \textit{Frontend} yang dikembangkan berfungsi sebagai prototipe untuk mendemonstrasikan integrasi antara antarmuka web dan \textit{smart contract}. Antarmuka belum dioptimasi untuk aksesibilitas---terutama bagi anggota koperasi dengan literasi digital rendah---dan belum mencakup fitur-fitur seperti notifikasi, multi-bahasa, atau mode akses \textit{offline}. Pengembangan antarmuka yang \textit{user-friendly} dan inklusif merupakan prasyarat untuk adopsi oleh koperasi di lapangan.
+
+	\item \textbf{Skalabilitas dan Volume Data.} Pengujian dilakukan dengan jumlah anggota dan transaksi yang terbatas (skala laboratorium). Perilaku sistem pada skala koperasi riil---dengan ribuan anggota dan puluhan ribu transaksi per tahun---belum dievaluasi. \textit{Smart contract} menggunakan struktur data \textit{mapping} dan array yang memiliki karakteristik biaya gas yang berbeda pada volume data yang besar, sehingga analisis skalabilitas lebih lanjut diperlukan.
+\end{enumerate}
+
+\section{Manfaat Penelitian}
+
+Penelitian ini diharapkan memberikan manfaat dalam tiga dimensi:
+
+\begin{enumerate}
+	\item \textbf{Manfaat Akademis.} (1) Menyediakan implementasi lengkap pertama dari UU 25/1992 sebagai \textit{smart contract}, berkontribusi pada \textit{body of knowledge} di bidang \textit{blockchain for cooperative governance}; (2) Mengembangkan metodologi pemetaan regulasi-ke-kontrak (\textit{regulation-to-code mapping}) yang dapat direplikasi untuk regulasi lain---seperti regulasi UMKM, regulasi perbankan, atau regulasi tata kelola perusahaan; (3) Menjadi referensi akademik untuk penelitian di persimpangan antara ilmu hukum, teknologi informasi, dan ekonomi koperasi.
+
+	\item \textbf{Manfaat Praktis.} (1) Menyediakan cetak biru (\textit{blueprint}) untuk digitalisasi koperasi di Indonesia yang dapat diadaptasi oleh Kementerian Koperasi dan UKM, dinas koperasi daerah, atau koperasi individu; (2) Mendukung pengawasan kepatuhan melalui fungsi audit pengawas on-chain yang memberikan akses \textit{real-time} terhadap data keuangan koperasi, mengurangi ketergantungan pada laporan periodik yang rawan manipulasi; (3) Mengurangi biaya operasional koperasi melalui otomatisasi proses administrasi---pendaftaran anggota, pencatatan simpanan, perhitungan SHU---yang sebelumnya dilakukan secara manual.
+
+	\item \textbf{Manfaat Industri.} (1) Mendukung program pemerintah "Koperasi Digital" dan transformasi digital koperasi sebagaimana diamanatkan dalam PP 7/2021; (2) Kompatibel dengan infrastruktur DChain yang telah dikembangkan untuk institusi pendidikan tinggi Indonesia, memungkinkan adopsi oleh koperasi mahasiswa (KOPMA) dan koperasi institusi pendidikan; (3) Menyediakan model \textit{decentralized governance} yang dapat diadaptasi oleh sektor lain yang memerlukan prinsip demokrasi partisipatif---seperti organisasi non-pemerintah, asosiasi profesi, atau komunitas berbasis keanggotaan.
+\end{enumerate}
+
+\section{Kontribusi Penelitian}
+
+Penelitian ini memberikan empat kontribusi utama yang membedakannya dari penelitian-penelitian terdahulu:
+
+\begin{enumerate}
+	\item \textbf{Implementasi Lengkap UU 25/1992 sebagai Smart Contract.} Lakomi adalah sistem pertama yang secara sistematis memetakan 26 ketentuan operasional UU 25/1992 ke dalam empat \textit{smart contract} yang saling terintegrasi dan dapat dieksekusi pada jaringan blockchain. Sebelum Lakomi, belum ada penelitian yang mengimplementasikan kepatuhan UU 25/1992 secara menyeluruh dalam bentuk kode yang dapat diverifikasi secara on-chain.
+
+	\item \textbf{Arsitektur Dual-Track: Demokrasi dan Insentif.} Lakomi memperkenalkan arsitektur \textit{dual-track} yang memisahkan hak suara (demokratis, satu-anggota-satu-suara) dari insentif kontribusi (\textit{tier} LTV berbasis simpanan). Pemisahan ini mengatasi ketegangan fundamental antara prinsip demokrasi koperasi dan kebutuhan insentif finansial---sebuah masalah yang belum terselesaikan dalam desain DAO konvensional yang cenderung mengarah pada plutokrasi atau mengabaikan insentif kontribusi sama sekali.
+
+	\item \textbf{Metodologi Pemetaan Regulasi-ke-Kontrak.} Penelitian ini mengembangkan pendekatan sistematis untuk menerjemahkan ketentuan hukum yang bersifat operasional ke dalam fungsi \textit{smart contract}. Setiap pasal dianalisis untuk mengidentifikasi kondisi, aksi, dan konsekuensi yang dapat diekspresikan sebagai logika kondisional Solidity. Metodologi ini dapat direplikasi untuk regulasi lain, membuka peluang untuk \textit{Regulatory Technology} (RegTech) di luar domain perkoperasian.
+
+	\item \textbf{Distribusi SHU Enam Kategori On-Chain.} Lakomi adalah implementasi pertama yang mendistribusikan SHU koperasi ke dalam enam kategori---dana cadangan, jasa modal, jasa usaha, dana pendidikan, dana pengurus, dan dana kesejahteraan sosial---secara on-chain dengan parameter \textit{basis points} yang dapat dikonfigurasi melalui tata kelola. Hal ini mentransformasi SHU dari hasil perhitungan manual yang rentan kesalahan menjadi hasil komputasi deterministik yang dapat diaudit oleh setiap anggota melalui \textit{block explorer}.
 \end{enumerate}
 
 \section{Kontribusi Penelitian}

@@ -311,8 +311,20 @@ function ProposalDetail({ id, address }: { id: bigint; address?: `0x${string}` }
                 {value !== undefined && value > 0n && (
                   <div><span className="text-muted-foreground/60">Nilai Transfer:</span> <span className="font-semibold">{formatUnits(value, 6)} USDC</span></div>
                 )}
-                {callData && callData !== '0x' && (
-                  <div><span className="text-muted-foreground/60">Data Panggilan:</span> <span className="font-mono text-[10px]">{callData.slice(0, 20)}...</span></div>
+                {callData && callData !== '0x' && callData.length >= 138 && proposal.proposalType === 0 && (
+                  (() => {
+                    const to = '0x' + callData.slice(34, 74).slice(24)
+                    const amt = BigInt('0x' + callData.slice(74, 138))
+                    const name = (() => {
+                      try { const s = JSON.parse(localStorage.getItem('lakomi_members') || '{}'); return s[to.toLowerCase()]?.namaLengkap || to } catch { return to }
+                    })()
+                    return (
+                      <div>
+                        <div><span className="text-muted-foreground/60">Penerima:</span> <span className="font-mono text-[10px]">{name}</span></div>
+                        <div><span className="text-muted-foreground/60">Jumlah Belanja:</span> <span className="font-semibold text-amber-500">{formatUnits(amt, 6)} USDC</span></div>
+                      </div>
+                    )
+                  })()
                 )}
               </div>
             </div>

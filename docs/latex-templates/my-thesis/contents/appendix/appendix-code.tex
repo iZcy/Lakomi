@@ -1,74 +1,221 @@
 \chapter*{LAMPIRAN}
 
-\section{Contoh Source Code}
+\section{Daftar Smart Contract Lakomi}
 
-\subsection{Sample algorithm}
-\begin{algorithm}
-	\caption{Kruskal's Algorithm}\label{alg:kruskal}
-	\begin{algorithmic}[1]
-		\Procedure{MakeSet}{$v$}
-			\State Create new set containing $v$
-		\EndProcedure \\
-		
-		\Function{FindSet}{$v$} 
-			\State\Return a set containing $v$
-		\EndFunction \\
-		
-		\Procedure{Union}{$u$,$v$}
-			\State Unites the set that contain $u$ and $v$ into a new set
-		\EndProcedure \\
-		
-		\Function{Kruskal}{$V,E,w$}
-			\State $A \gets \{\}$
-			\For {each vertex $v$ in $V$}
-				\State MakeSet($v$)
-			\EndFor
-			\State Arrange $E$ in increasing costs, ordered by $w$
-			\For {each ($u$,$v$) taken from the sorted list}
-				\If {FindSet($u$) $\neq$ FindSet($v$)}
-					\State $A \gets A \cup \{(u,v)\}$
-					\State Union($u,v$)
-				\EndIf
-			\EndFor
-			\State \Return A
-		\EndFunction
-	\end{algorithmic}
-\end{algorithm}
+Keempat \textit{smart contract} Lakomi diimplementasikan menggunakan Solidity 0.8.20 dan di-deploy pada jaringan DChain (Chain ID 17845). Kode sumber lengkap tersedia pada repositori GitHub \url{https://github.com/iZcy/Lakomi}. Tabel \ref{tab:contract-list} merangkum informasi setiap kontrak.
 
-\newpage
-\subsection{Sample Python code}
-\begin{lstlisting}[language=Python]
-import numpy as np
+\begin{table}[h]
+\centering
+\caption{Daftar \textit{Smart Contract} Lakomi}
+\label{tab:contract-list}
+\footnotesize
+\begin{tabular}{p{0.18\textwidth}p{0.12\textwidth}p{0.14\textwidth}p{0.14\textwidth}p{0.28\textwidth}}
+\toprule
+\textbf{Nama Kontrak} & \textbf{Lines of Code} & \textbf{Inherits} & \textbf{Roles} & \textbf{Fungsi Utama} \\
+\midrule
+LakomiToken & \textasciitilde 230 & ERC20, AccessControl, ReentrancyGuard & DEFAULT\_ADMIN, MEMBERSHIP, MINTER, BURNER, LOCKER & registerMember, resignMember, revokeMembership, lockCollateral \\
+\midrule
+LakomiVault & \textasciitilde 410 & AccessControl, ReentrancyGuard, Pausable & DEFAULT\_ADMIN, TREASURER, GOVERN, PENGAWAS, LOAN & paySimpananPokok, paySimpananWajib, deposit, distributeSHU, claimSHU, getPengawasAuditReport \\
+\midrule
+LakomiGovern & \textasciitilde 280 & AccessControl, ReentrancyGuard, Pausable & DEFAULT\_ADMIN, PENGAWAS, GOVERN & createProposal, castVote, execute, vetoProposal, beginElection, finalizeElection, scheduleAnnualRAT \\
+\midrule
+LakomiLoans & \textasciitilde 270 & AccessControl, ReentrancyGuard, Pausable & DEFAULT\_ADMIN, APPROVER & requestLoan, approveLoan, disburse, repayInFull, markDefaulted, claimCollateral \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-def incmatrix(genl1,genl2):
-	m = len(genl1)
-	n = len(genl2)
-	M = None #to become the incidence matrix
-	VT = np.zeros((n*m,1), int)  #dummy variable
+\section{Struktur Data Utama}
 
-	#compute the bitwise xor matrix
-	M1 = bitxormatrix(genl1)
-	M2 = np.triu(bitxormatrix(genl2),1) 
+Setiap \textit{smart contract} mendefinisikan struktur data yang memetakan ketentuan UU 25/1992. Berikut adalah definisi \texttt{struct} dan \texttt{enum} utama yang digunakan dalam sistem.
 
-	for i in range(m-1):
-		for j in range(i+1, m):
-			[r,c] = np.where(M2 == M1[i,j])
-			for k in range(len(r)):
-				VT[(i)*n + r[k]] = 1;
-				VT[(i)*n + c[k]] = 1;
-				VT[(j)*n + r[k]] = 1;
-				VT[(j)*n + c[k]] = 1;
+\subsection{LakomiToken --- Keanggotaan}
 
-	if M is None:
-		M = np.copy(VT)
-	else:
-		M = np.concatenate((M, VT), 1)
+\begin{verbatim}
+enum MemberStatus { None, Active, Suspended, Resigned, Revoked }
+enum ContributionTier { None, Basic, Silver, Gold }
 
-	VT = np.zeros((n*m,1), int)
+struct MemberInfo {
+    MemberStatus status;
+    ContributionTier tier;
+    uint256 joinedAt;
+    uint256 resignedAt;
+    uint256 cumulativeSimpanan;
+    uint256 lockedCollateral;
+    uint256 outstandingLoans;
+}
+\end{verbatim}
 
-	return M
-\end{lstlisting}
+\subsection{LakomiVault --- Simpanan dan SHU}
 
-\newpage
-\subsection{Sample Matlab code}
-\lstinputlisting[language=Octave]{sample/sample-code.m}
+\begin{verbatim}
+enum SHUCategory {
+    Cadangan, JasaModal, JasaUsaha, 
+    Pendidikan, Pengurus, KesejahteraanSosial
+}
+
+struct Distribution {
+    uint256 totalAmount;
+    uint256 sharesTotal;
+    uint256 timestamp;
+    mapping(SHUCategory => uint256) categoryAmounts;
+    mapping(address => bool) claimed;
+}
+
+struct PendingWithdrawal {
+    uint256 amount;
+    uint256 requestTime;
+    uint256 approvalCount;
+    bool approved;
+}
+\end{verbatim}
+
+\subsection{LakomiGovern --- Proposal dan Pemilihan}
+
+\begin{verbatim}
+enum ProposalType { 
+    SPEND, PARAMETER, MEMBERSHIP, RAT_ANNUAL, CUSTOM 
+}
+enum ProposalStatus { 
+    Created, Active, Succeeded, Defeated, 
+    Queued, Executed, Vetoed, Canceled 
+}
+
+struct Proposal {
+    address proposer;
+    string title;
+    string description;
+    ProposalType pType;
+    bytes data;
+    ProposalStatus status;
+    uint256 startBlock;
+    uint256 endBlock;
+    uint256 forVotes;
+    uint256 againstVotes;
+    uint256 abstainVotes;
+    mapping(address => bool) hasVoted;
+    bool vetoed;
+    bool executed;
+}
+
+struct Election {
+    bytes32 role;
+    mapping(address => bool) candidates;
+    mapping(address => uint256) votes;
+    mapping(address => bool) hasVoted;
+    uint256 startTime;
+    uint256 endTime;
+    uint256 termLength;
+    bool finalized;
+    address winner;
+}
+\end{verbatim}
+
+\subsection{LakomiLoans --- Pinjaman}
+
+\begin{verbatim}
+enum LoanStatus { 
+    Pending, Approved, Active, Repaid, 
+    Defaulted, CollateralClaimed 
+}
+
+struct Loan {
+    address borrower;
+    uint256 principal;
+    uint256 interestRate;
+    uint256 duration;
+    uint256 collateralAmount;
+    uint256 disbursedAt;
+    uint256 repaidAmount;
+    uint256 lastPaymentAt;
+    LoanStatus status;
+    address approvedBy;
+    bool collateralLocked;
+}
+
+struct BorrowerInfo {
+    uint256 activeLoanCount;
+    uint256 totalBorrowed;
+    uint256 totalRepaid;
+    uint256 defaultCount;
+    uint256 lastLoanAt;
+}
+\end{verbatim}
+
+\section{Diagram Alur Transaksi}
+
+Gambar \ref{fig:transaction-flow} mengilustrasikan alur transaksi lengkap dalam sistem Lakomi, dari pendaftaran anggota hingga distribusi SHU.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    node distance=1.0cm,
+    box/.style={rectangle, draw, rounded corners=3pt, minimum width=2.8cm, minimum height=0.4cm, font=\footnotesize, align=center},
+    arr/.style={->, >=stealth, thick, blue!60},
+]
+\node[box, fill=green!10] (reg) at (0,5.5) {1. Pendaftaran\\(registerMember)};
+\node[box, fill=blue!8] (pokok) at (0,4.2) {2. Simpanan Pokok\\(paySimpananPokok)};
+\node[box, fill=blue!8] (wajib) at (0,2.9) {3. Simpanan Wajib\\(paySimpananWajib)};
+\node[box, fill=blue!8] (sukarela) at (0,1.6) {4. Simpanan Sukarela\\(deposit)};
+\node[box, fill=yellow!12] (loan) at (0,0.3) {5. Pinjaman\\(requestLoan $\to$ disburse)};
+\node[box, fill=orange!10] (repay) at (0,-1.0) {6. Pelunasan\\(repayInFull)};
+\node[box, fill=red!10] (shu) at (0,-2.3) {7. Distribusi SHU\\(distributeSHU)};
+\node[box, fill=green!12] (claim) at (0,-3.6) {8. Klaim SHU\\(claimSHU)};
+\draw[arr] (reg) -- (pokok);
+\draw[arr] (pokok) -- (wajib);
+\draw[arr] (wajib) -- (sukarela);
+\draw[arr] (sukarela) -- (loan);
+\draw[arr] (loan) -- (repay);
+\draw[arr] (repay) -- (shu);
+\draw[arr] (shu) -- (claim);
+\end{tikzpicture}
+\caption{Alur Transaksi Utama dalam Sistem Lakomi}
+\label{fig:transaction-flow}
+\end{figure}
+
+Siklus dimulai dengan pendaftaran anggota (langkah 1) yang mensyaratkan pembayaran Simpanan Pokok (langkah 2) dan pencetakan 100 token LAK. Anggota kemudian dapat membayar Simpanan Wajib secara periodik (langkah 3) dan menyetor Simpanan Sukarela (langkah 4). Setelah memiliki \textit{tier} kontribusi, anggota dapat mengajukan pinjaman (langkah 5) melalui proses persetujuan dan pencairan. Pelunasan pinjaman (langkah 6) mengalirkan bunga ke LakomiVault sebagai pendapatan. Secara periodik, GOVERN\_ROLE mendistribusikan SHU (langkah 7) dari akumulasi pendapatan ke enam kategori. Anggota kemudian mengklaim SHU masing-masing (langkah 8) berdasarkan \textit{shares}.
+
+\section{Konfigurasi Role-Based Access Control}
+
+Tabel \ref{tab:role-matrix} menyajikan matriks akses berbasis peran (\textit{role-based access matrix}) yang menunjukkan fungsi-fungsi mana yang dapat diakses oleh setiap peran. Simbol $\checkmark$ menunjukkan akses diizinkan, $\times$ menunjukkan akses ditolak.
+
+\begin{table}[h]
+\centering
+\caption{Matriks Akses Berbasis Peran pada Sistem Lakomi}
+\label{tab:role-matrix}
+\footnotesize
+\begin{tabular}{p{0.22\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.12\textwidth}}
+\toprule
+\textbf{Fungsi} & \textbf{Member} & \textbf{Treasurer} & \textbf{Pengawas} & \textbf{Approver} & \textbf{Govern} \\
+\midrule
+registerMember & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\midrule
+paySimpananPokok & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\midrule
+deposit & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\midrule
+requestLoan & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+\midrule
+approveLoan & $\times$ & $\times$ & $\times$ & $\checkmark$ & $\times$ \\
+\midrule
+disburse & $\times$ & $\times$ & $\times$ & $\checkmark$ & $\times$ \\
+\midrule
+createProposal & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\midrule
+castVote & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\midrule
+vetoProposal & $\times$ & $\times$ & $\checkmark$ & $\times$ & $\times$ \\
+\midrule
+beginElection & $\times$ & $\times$ & $\times$ & $\times$ & $\checkmark$ \\
+\midrule
+distributeSHU & $\times$ & $\times$ & $\times$ & $\times$ & $\checkmark$ \\
+\midrule
+getPengawasAudit & $\times$ & $\times$ & $\checkmark$ & $\times$ & $\times$ \\
+\midrule
+markDefaulted & $\times$ & $\times$ & $\times$ & $\checkmark$ & $\times$ \\
+\midrule
+claimCollateral & $\times$ & $\times$ & $\times$ & $\checkmark$ & $\times$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Matriks akses ini menunjukkan bahwa tidak ada satu peran pun yang memiliki akses ke seluruh fungsi sensitif. Sebagai contoh, APPROVER\_ROLE dapat menyetujui dan mencairkan pinjaman, namun tidak dapat mem-veto proposal (PENGAWAS\_ROLE) atau mendistribusikan SHU (GOVERN\_ROLE). Pemisahan ini menerapkan prinsip \textit{separation of duties} yang fundamental dalam tata kelola koperasi dan mencegah konsentrasi kekuasaan pada satu akun.

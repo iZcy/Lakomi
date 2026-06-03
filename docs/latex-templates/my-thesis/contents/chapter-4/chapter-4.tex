@@ -432,6 +432,32 @@ Biaya \textit{deployment} merupakan biaya satu kali (\textit{one-time cost}) yan
 
 Pola konsumsi gas menunjukkan bahwa operasi yang melibatkan banyak penulisan \textit{state} (\texttt{distributeSHU}, \texttt{requestLoan}) mengonsumsi gas lebih tinggi dibandingkan operasi sederhana (\texttt{castVote}, \texttt{paySimpananPokok}). Hal ini konsisten dengan model biaya EVM di mana setiap penulisan ke \textit{storage} (SSTORE) dikenakan biaya signifikan. Distribusi SHU merupakan operasi dengan konsumsi gas tertinggi karena melibatkan iterasi melalui enam kategori alokasi dengan beberapa penulisan \textit{state}. Optimisasi lebih lanjut dapat dilakukan dengan menggunakan \textit{packed storage} untuk mengurangi jumlah \textit{storage slot} yang diperlukan, sebagaimana direkomendasikan dalam pola desain gas-efficient Solidity.
 
+Untuk memberikan perspektif yang lebih luas, Tabel~\ref{tab:gas-comparison} membandingkan estimasi gas Lakomi dengan operasi serupa pada kontrak referensi ERC-20 standar dan DAO \textit{token-weighted} seperti Governor Bravo (OpenZeppelin).
+
+\begin{table}[h]
+\centering
+\caption{Perbandingan Estimasi Gas dengan Kontrak Referensi}
+\label{tab:gas-comparison}
+\footnotesize
+\begin{tabular}{p{0.22\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.15\textwidth}p{0.18\textwidth}}
+\toprule
+\textbf{Operasi} & \textbf{Lakomi} & \textbf{ERC-20 Standar} & \textbf{Governor Bravo} & \textbf{Selisih vs ERC-20} \\
+\midrule
+Transfer Token & N/A (dinonaktifkan) & $\sim$51.000 & N/A & N/A \\
+\midrule
+\textit{Minting} Anggota & $\sim$150.000 & $\sim$80.000 & N/A & $+87\%$ (karena simpanan) \\
+\midrule
+Voting & $\sim$80.000 & N/A & $\sim$100.000 & $-20\%$ \\
+\midrule
+Pembuatan Proposal & $\sim$120.000 & N/A & $\sim$150.000 & $-20\%$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Selisih gas antara Lakomi dan ERC-20 standar pada operasi \textit{minting} ($+87\%$) disebabkan oleh logika tambahan yang dijalankan LakomiToken---verifikasi pembayaran simpanan pokok, pencatatan \texttt{isRegisteredMember}, dan \textit{event} keanggotaan---yang tidak ada pada token ERC-20 standar. Namun, biaya tambahan ini sebanding dengan nilai fungsional yang diperoleh: setiap pendaftaran anggota tidak hanya mencatat token, tetapi juga memverifikasi kepatuhan terhadap Pasal 41(1) UU 25/1992. Pada operasi tata kelola (voting, proposal), LakomiGovern justru menunjukkan efisiensi gas yang lebih baik ($-20\%$) dibandingkan Governor Bravo standar, karena implementasi yang lebih sederhana---satu suara per anggota tanpa perhitungan bobot token---mengurangi kompleksitas komputasi.
+
+Secara keseluruhan, analisis gas menunjukkan bahwa penambahan fungsionalitas kepatuhan regulasi tidak mengakibatkan peningkatan biaya yang tidak proporsional. Dengan asumsi biaya gas DChain yang rendah (konsorsium, bukan \textit{public blockchain}), total biaya operasional bulanan untuk koperasi dengan 100 anggota---mencakup pendaftaran, pembayaran simpanan, beberapa pemungutan suara, dan satu distribusi SHU---diperkirakan berada dalam kisaran yang wajar dan jauh lebih rendah dibandingkan biaya administrasi manual (gaji staf, pencetakan dokumen, audit eksternal). Analisis \textit{cost-benefit} yang lebih komprehensif dengan data \textit{mainnet} aktual diperlukan untuk memvalidasi estimasi ini.
+
 \section{Perbandingan Sistem}
 
 Untuk mengontekstualisasikan hasil implementasi Lakomi, bagian ini membandingkan sistem dengan tiga model yang relevan: koperasi konvensional, \textit{Decentralized Autonomous Organization} (DAO) berbasis \textit{token-weighted voting}, dan \textit{blockchain cooperative} yang diusulkan dalam literatur. Perbandingan dirangkum dalam Tabel~\ref{tab:comparison}.

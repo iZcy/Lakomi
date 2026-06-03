@@ -1,12 +1,12 @@
 \babel@toc {english}{}\relax 
 \babel@toc {bahasa}{}\relax 
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Arsitektur Empat Lapisan Blockchain. Lakomi beroperasi pada lapisan aplikasi melalui \textit {smart contract} yang di-deploy pada DChain (lapisan konsensus dan data).}}{18}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{42}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{43}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{48}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Halaman Dashboard Anggota Lakomi}}{65}{figure.caption.34}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Portal Tata Kelola Lakomi}}{65}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Portal Pinjaman Lakomi}}{66}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Halaman Kepatuhan Regulasi UU 25/1992}}{67}{figure.caption.37}%
-\contentsline {figure}{\numberline {L.1}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-5}{figure.caption.48}%
-\contentsline {figure}{\numberline {L.2}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-11}{figure.caption.52}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{44}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{45}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{50}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Halaman Dashboard Anggota Lakomi}}{67}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Portal Tata Kelola Lakomi}}{67}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Portal Pinjaman Lakomi}}{68}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Halaman Kepatuhan Regulasi UU 25/1992}}{69}{figure.caption.37}%
+\contentsline {figure}{\numberline {L.1}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-5}{figure.caption.49}%
+\contentsline {figure}{\numberline {L.2}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-15}{figure.caption.55}%

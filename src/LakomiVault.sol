@@ -429,10 +429,7 @@ contract LakomiVault is AccessControl, ReentrancyGuard, Pausable {
 
     function receiveRevenue(uint256 amount) external nonReentrant {
         if (amount == 0) revert LakomiVault__ZeroAmount();
-
-        stableToken.safeTransferFrom(msg.sender, address(this), amount);
         accumulatedRevenue += amount;
-
         emit RevenueReceived(amount, block.timestamp);
     }
 

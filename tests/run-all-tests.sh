@@ -50,7 +50,7 @@ for U in $MAIN $M3 $M6 $M7 $PENGAWAS; do
 done
 for U in $MAIN $M3 $M6 $M7; do
   send $ADMIN $USDC $(calld "mint(address,uint256)" $U 1000000000000) > /dev/null
-  send $U $USDC $(calld "approve(address,uint256)" $VAULT 200000000) > /dev/null
+  send $U $USDC $(calld "approve(address,uint256)" $VAULT 9999999999) > /dev/null
   send $ADMIN $VAULT $(calld "paySimpananPokok(address)" $U) > /dev/null
   send $U $TOKEN $(calld "registerMember()") > /dev/null
 done
@@ -65,7 +65,7 @@ echo "=== 1. Loan ==="
 send $MAIN $VAULT $(calld "deposit(uint256)" 500000000) > /dev/null
 send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 50000000 2592000 test) > /dev/null
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" 0) > /dev/null
-send $MAIN $LOANS $(calld "disburseLoan(uint256)" 0) > /dev/null
+send $MAIN $LOANS $(calld "disburse(uint256)" 0) > /dev/null
 send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 52000000) > /dev/null
 send $MAIN $LOANS $(calld "repayInFull(uint256)" 0) > /dev/null
 chk "Loan repaid" $LOANS "$(calld 'loanCount()')" 1 && P "1. Loan cycle" || F "1. Loan cycle"
@@ -108,7 +108,7 @@ chk "Quorum fail" $GOVERN "$(calld 'state(uint256)' 4)" 3 && P "5. Quorum Fail" 
 echo "=== 6. Partial Repay ==="
 send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 10000000 2592000 partial) > /dev/null
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" 1) > /dev/null
-send $MAIN $LOANS $(calld "disburseLoan(uint256)" 1) > /dev/null
+send $MAIN $LOANS $(calld "disburse(uint256)" 1) > /dev/null
 send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 6000000) > /dev/null
 send $MAIN $LOANS $(calld "repayLoan(uint256,uint256)" 1 5000000) > /dev/null
 send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 6000000) > /dev/null
@@ -163,7 +163,7 @@ send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 999999999) > /dev/nul
 send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 100000000 31536000 shu365) > /dev/null
 SHU_LID=6
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SHU_LID) > /dev/null
-send $MAIN $LOANS $(calld "disburseLoan(uint256)" $SHU_LID) > /dev/null
+send $MAIN $LOANS $(calld "disburse(uint256)" $SHU_LID) > /dev/null
 send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 106000000) > /dev/null
 send $MAIN $LOANS $(calld "repayInFull(uint256)" $SHU_LID) > /dev/null
 # Verify revenue > 0
@@ -188,6 +188,38 @@ echo "$CLAIM" | grep -q "ok" && P "15e. SHU claimed" || F "15e. SHU claim"
 echo "=== 15f. SHU: Double claim → revert ==="
 CLAIM2=$(send $MAIN $VAULT $(calld "claimSHU(uint256)" 0))
 echo "$CLAIM2" | grep -q "REVERTED" && P "15f. Double claim reverts" || F "15f. Double claim"
+
+# ========== SHU Standalone (fresh loan + repay + distribute + claim) ==========
+echo "=== SHU-STANDALONE: Fresh loan for revenue ==="
+# Use Pengurus as borrower (still registered, has LAK)
+# First fund Pengurus with USDC and register
+send $ADMIN $USDC $(calld "mint(address,uint256)" $PENGURUS 100000000000) > /dev/null
+send $PENGURUS $USDC $(calld "approve(address,uint256)" $VAULT 200000000) > /dev/null
+send $ADMIN $VAULT $(calld "paySimpananPokok(address)" $PENGURUS) > /dev/null
+send $PENGURUS $TOKEN $(calld "registerMember()") > /dev/null
+# Deposit simpanan sukarela so shares > 0
+send $PENGURUS $VAULT $(calld "deposit(uint256)" 1000000000) > /dev/null
+# Big loan: 100 USDC × 365 days = ~5 USDC interest
+SID=7
+send $PENGURUS $LOANS $(calld "requestLoan(uint256,uint256,string)" 100000000 31536000 shu-test) > /dev/null
+send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SID) > /dev/null
+send $PENGURUS $LOANS $(calld "disburse(uint256)" $SID) > /dev/null
+send $PENGURUS $USDC $(calld "approve(address,uint256)" $LOANS 110000000) > /dev/null
+send $PENGURUS $LOANS $(calld "repayInFull(uint256)" $SID) > /dev/null
+SREV=$(call $VAULT "$(calld 'accumulatedRevenue()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
+[ "$SREV" -gt 0 ] && P "SHU-s1: Revenue ($SREV wei)" || F "SHU-s1: Revenue=$SREV"
+
+# Distribute
+SDIST=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
+echo "$SDIST" | grep -q "ok" && P "SHU-s2: Distributed" || F "SHU-s2: Distribute failed"
+
+# Claim  
+SCLAIM=$(send $PENGURUS $VAULT $(calld "claimSHU(uint256)" 1))
+echo "$SCLAIM" | grep -q "ok" && P "SHU-s3: Claimed" || F "SHU-s3: Claim failed"
+
+# Double claim
+SCLAIM2=$(send $PENGURUS $VAULT $(calld "claimSHU(uint256)" 1))
+echo "$SCLAIM2" | grep -q "REVERTED" && P "SHU-s4: Double claim reverts" || F "SHU-s4: Double claim"
 
 # ========== 13. Exit ==========
 echo "=== 13/14. Exit ==="
@@ -233,7 +265,7 @@ echo "=== 18. Loan Default ==="
 send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 3000000 30 test) > /dev/null
 PID=6  # next loan ID
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $PID) > /dev/null
-send $MAIN $LOANS $(calld "disburseLoan(uint256)" $PID) > /dev/null
+send $MAIN $LOANS $(calld "disburse(uint256)" $PID) > /dev/null
 ff 3888000  # 30 days + 7 day grace + buffer
 send $PENGURUS $LOANS $(calld "markDefaulted(uint256)" $PID) > /dev/null
 chk "Defaulted" $LOANS "$(calld 'loans(uint256)' $PID)" ""  # check state=4 (Defaulted)

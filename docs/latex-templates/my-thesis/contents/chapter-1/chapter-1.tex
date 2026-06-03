@@ -25,12 +25,12 @@ Penelitian ini mengimplementasikan Lakomi---sebuah sistem koperasi berbasis bloc
 
 \section{Rumusan Masalah}
 
-Berdasarkan latar belakang yang telah diuraikan, rumusan masalah dalam penelitian ini adalah:
+Berdasarkan latar belakang yang telah diuraikan, terdapat sejumlah permasalahan yang perlu diselesaikan, yaitu:
 
 \begin{enumerate}
-	\item Bagaimana merancang dan mengimplementasikan \textit{smart contract} yang memetakan ketentuan UU 25/1992 ke dalam sistem koperasi berbasis blockchain pada jaringan DChain?
-	\item Bagaimana memverifikasi kepatuhan 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} melalui pengujian fungsional?
-	\item Bagaimana mengevaluasi kinerja dan kelayakan sistem melalui analisis gas (\textit{gas analysis}) dan perbandingan dengan sistem koperasi tradisional serta DAO berbasis \textit{token-weighted voting}?
+	\item Pencatatan keuangan koperasi dilakukan manual tanpa jejak audit, sehingga anggota tidak dapat memverifikasi kebenaran data secara independen. Blockchain menyediakan \textit{distributed ledger} yang mencatat setiap transaksi secara permanen dan dapat diaudit publik.
+	\item Aturan UU 25/1992 hanya berupa teks hukum yang implementasinya bergantung pada kepatuhan sukarela pengurus. \textit{Smart contract} memungkinkan aturan tersebut dikodekan menjadi logika yang ditegakkan secara otomatis oleh mesin, bukan manusia.
+	\item Tidak tersedia data perbandingan antara koperasi konvensional, DAO, dan koperasi berbasis blockchain. Analisis gas dan perbandingan sistem diperlukan untuk mengukur kelayakan teknis dan ekonomis dari pendekatan ini.
 \end{enumerate}
 
 \noindent\textbf{Akibat Jika Masalah Tidak Diatasi.} Apabila koperasi tetap beroperasi tanpa transparansi berbasis blockchain, maka kasus-kasus seperti KSP Indosurya dan Pandawa akan terus berulang. Anggota akan tetap tidak memiliki cara untuk memverifikasi keuangan koperasi secara independen. Pengawas akan tetap bekerja tanpa akses data \textit{real-time}. Regulasi yang telah dirumuskan selama tiga dekade akan terus bergantung pada itikad baik individu, bukan pada sistem yang menegakkan kepatuhan secara otomatis.
@@ -40,9 +40,9 @@ Berdasarkan latar belakang yang telah diuraikan, rumusan masalah dalam penelitia
 Tujuan penelitian ini adalah:
 
 \begin{enumerate}
-	\item Merancang dan mengimplementasikan empat \textit{smart contract}---LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans---yang memetakan 26 ketentuan UU 25/1992 ke dalam sistem koperasi berbasis blockchain pada jaringan DChain.
-	\item Memverifikasi kepatuhan 26 ketentuan UU 25/1992 melalui pengujian fungsional berbasis skenario yang mencakup seluruh siklus operasional koperasi: pendaftaran anggota, simpanan, pinjaman, tata kelola, pemilihan pengurus, pengawasan, distribusi SHU, dan RAT tahunan.
-	\item Mengevaluasi kinerja dan kelayakan sistem melalui analisis gas untuk tujuh operasi utama koperasi serta perbandingan komprehensif dengan sistem koperasi tradisional dan DAO berbasis \textit{token-weighted voting}.
+	\item Merancang dan mengimplementasikan \textit{smart contract} (LakomiToken, LakomiVault, LakomiGovern, LakomiLoans) yang mencatat transaksi koperasi secara permanen pada \textit{distributed ledger} DChain, sehingga setiap anggota dapat memverifikasi data keuangan secara independen.
+	\item Memetakan ketentuan operasional UU 25/1992 ke dalam fungsi \textit{smart contract} yang dapat dieksekusi dan diverifikasi secara otomatis, sehingga kepatuhan ditegakkan oleh kode, bukan oleh kepatuhan sukarela pengurus.
+	\item Mengevaluasi kelayakan teknis dan ekonomis sistem melalui analisis gas serta perbandingan dengan koperasi konvensional dan DAO berbasis \textit{token-weighted voting}.
 \end{enumerate}
 
 \section{Batasan Penelitian}

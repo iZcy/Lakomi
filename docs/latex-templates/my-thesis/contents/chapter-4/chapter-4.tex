@@ -296,13 +296,81 @@ function claimSHU(uint256 distributionId) external
 
 \subsection{Dashboard Anggota}
 
-Halaman \textit{Dashboard} (Gambar~\ref{fig:dashboard}) menampilkan status keanggotaan pengguna secara \textit{real-time}: status terdaftar (\texttt{isRegisteredMember}), saldo token LAK, dan ringkasan tiga jenis simpanan (pokok, wajib, sukarela). Anggota dapat melakukan pembayaran simpanan pokok (100 IDRX, satu kali), simpanan wajib (10 IDRX per 30 hari), dan simpanan sukarela melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan \textit{tier} kontribusi anggota (Basic/Silver/Gold) berdasarkan akumulasi simpanan, yang memengaruhi kapasitas pinjaman namun tidak memengaruhi hak suara.
+Halaman \textit{Dashboard} (Gambar~\ref{fig:dashboard} dan \ref{fig:dashboard2}) menampilkan status keanggotaan pengguna secara \textit{real-time}: status terdaftar (\texttt{isRegisteredMember}), saldo token LAK, dan ringkasan tiga jenis simpanan (pokok, wajib, sukarela). Anggota dapat melakukan pembayaran simpanan pokok (100 IDRX, satu kali), simpanan wajib (10 IDRX per 30 hari), dan simpanan sukarela melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan \textit{tier} kontribusi anggota (Basic/Silver/Gold) berdasarkan akumulasi simpanan, yang memengaruhi kapasitas pinjaman namun tidak memengaruhi hak suara.
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}\footnotesize[Screenshot: Dashboard Anggota --- status keanggotaan, saldo simpanan, tier kontribusi, formulir pembayaran simpanan]\vspace{1cm}}}
-\caption{Halaman Dashboard Anggota Lakomi}
+\includegraphics[width=0.85\textwidth]{figures/dashboard.png}
+\caption{Halaman Dashboard Anggota 1}
 \label{fig:dashboard}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/dashboard2.png}
+\caption{Halaman Dashboard Anggota 2}
+\label{fig:dashboard2}
+\end{figure}
+
+\subsection{Portal Tata Kelola}
+
+Portal Tata Kelola menyediakan antarmuka lengkap untuk partisipasi demokratis anggota. Anggota dapat membuat proposal baru dengan memilih tipe (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM) dan memberikan deskripsi. Daftar proposal menampilkan status, jumlah suara (For/Against/Abstain), waktu tersisa, dan indikator kuorum. Setiap anggota memberikan tepat satu suara melalui tombol \texttt{castVote()}. Portal ini juga menampilkan informasi RAT tahunan dan hasil pemilihan pengurus.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/governance.png}
+\caption{Portal Tata Kelola 1}
+\label{fig:governance}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/governance2.png}
+\caption{Portal Tata Kelola 2}
+\label{fig:governance2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/governance3.png}
+\caption{Portal Tata Kelola 3}
+\label{fig:governance3}
+\end{figure}
+
+\subsection{Portal Pinjaman}
+
+Portal Pinjaman memungkinkan anggota mengajukan pinjaman mikro dengan menentukan jumlah (dalam IDRX) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi (30\%/50\%/70\%) dan menampilkan estimasi bunga menggunakan formula bunga sederhana. Pinjaman di bawah 200 IDRX disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE. Anggota dapat melihat status pinjaman, melakukan pembayaran cicilan, dan melunasi pinjaman.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/loans.png}
+\caption{Portal Pinjaman}
+\label{fig:loans}
+\end{figure}
+
+\subsection{Halaman Kepatuhan Regulasi}
+
+Halaman Kepatuhan Regulasi menyajikan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, parameter kunci, dan status verifikasi. Ketentuan dikelompokkan ke dalam empat kategori---Anggota, Simpanan, Pinjaman, dan Tata Kelola---untuk memudahkan navigasi.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/compliance.png}
+\caption{Halaman Kepatuhan Regulasi 1}
+\label{fig:compliance}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/compliance2.png}
+\caption{Halaman Kepatuhan Regulasi 2}
+\label{fig:compliance2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/dashboard2.png}
+\caption{Halaman Dashboard Anggota --- formulir pembayaran dan riwayat transaksi}
+\label{fig:dashboard2}
 \end{figure}
 
 \subsection{Portal Tata Kelola}
@@ -311,9 +379,23 @@ Portal Tata Kelola (Gambar~\ref{fig:governance}) menyediakan antarmuka lengkap u
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}\footnotesize[Screenshot: Portal Tata Kelola --- daftar proposal, form pembuatan proposal, panel voting, hasil pemilihan]\vspace{1cm}}}
-\caption{Portal Tata Kelola Lakomi}
+\includegraphics[width=0.85\textwidth]{figures/governance.png}
+\caption{Portal Tata Kelola --- daftar proposal dan pemungutan suara}
 \label{fig:governance}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/governance2.png}
+\caption{Portal Tata Kelola --- pembuatan proposal baru}
+\label{fig:governance2}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/governance3.png}
+\caption{Portal Tata Kelola --- pemilihan pengurus dan hasil}
+\label{fig:governance3}
 \end{figure}
 
 \subsection{Portal Pinjaman}
@@ -322,7 +404,7 @@ Portal Pinjaman (Gambar~\ref{fig:loans}) memungkinkan anggota mengajukan pinjama
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}\footnotesize[Screenshot: Portal Pinjaman --- form pengajuan, kalkulator LTV, daftar pinjaman aktif, riwayat pembayaran]\vspace{1cm}}}
+\includegraphics[width=0.85\textwidth]{figures/loans.png}
 \caption{Portal Pinjaman Lakomi}
 \label{fig:loans}
 \end{figure}
@@ -333,9 +415,16 @@ Halaman Kepatuhan Regulasi (Gambar~\ref{fig:compliance}) menyajikan seluruh 26 k
 
 \begin{figure}[h]
 \centering
-\fbox{\parbox{0.85\textwidth}{\centering\vspace{4cm}\footnotesize[Screenshot: Halaman Kepatuhan Hukum --- 26 kartu pasal dikelompokkan per kategori, status verifikasi]\vspace{1cm}}}
-\caption{Halaman Kepatuhan Regulasi UU 25/1992}
+\includegraphics[width=0.85\textwidth]{figures/compliance.png}
+\caption{Halaman Kepatuhan Regulasi --- ketentuan keanggotaan dan simpanan}
 \label{fig:compliance}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/compliance2.png}
+\caption{Halaman Kepatuhan Regulasi --- ketentuan tata kelola dan SHU}
+\label{fig:compliance2}
 \end{figure}
 
 \section{Hasil Pengujian Kepatuhan UU 25/1992}

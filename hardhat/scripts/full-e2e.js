@@ -6,7 +6,7 @@ async function main() {
   const F = hre.ethers.formatUnits;
 
   console.log("Deploying...");
-  const usdcF = await hre.ethers.getContractFactory("MockUSDC");
+  const usdcF = await hre.ethers.getContractFactory("MockIDRX");
   const usdc = await usdcF.deploy(); await usdc.waitForDeployment();
   const tokenF = await hre.ethers.getContractFactory("LakomiToken");
   const token = await tokenF.deploy(); await token.waitForDeployment();
@@ -23,7 +23,7 @@ async function main() {
     await token.getAddress(), await vault.getAddress()
   ); await loans.waitForDeployment();
 
-  console.log("USDC:", await usdc.getAddress());
+  console.log("IDRX:", await usdc.getAddress());
   console.log("Token:", await token.getAddress());
   console.log("Vault:", await vault.getAddress());
   console.log("Govern:", await govern.getAddress());
@@ -56,7 +56,7 @@ async function main() {
   console.log("\n=== 2. MINT USDC ===");
   tx = await usdc.mint(user1.address, P("10000", 6)); await tx.wait();
   tx = await usdc.mint(user2.address, P("10000", 6)); await tx.wait();
-  console.log("U1 USDC:", F(await usdc.balanceOf(user1.address), 6), "✓");
+  console.log("U1 IDRX:", F(await usdc.balanceOf(user1.address), 6), "✓");
 
   // 3. Pokok
   console.log("\n=== 3. SIMPANAN POKOK (Pasal 41) ===");
@@ -150,7 +150,7 @@ async function main() {
 
   console.log("\n✅ ALL 10 E2E TESTS PASSED");
   console.log("\nAddresses:", JSON.stringify({
-    MOCK_USDC: await usdc.getAddress(),
+    MOCK_IDRX: await usdc.getAddress(),
     LAKOMI_TOKEN: await token.getAddress(),
     LAKOMI_VAULT: await vault.getAddress(),
     LAKOMI_GOVERN: await govern.getAddress(),

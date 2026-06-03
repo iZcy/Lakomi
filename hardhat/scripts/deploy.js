@@ -76,7 +76,7 @@ async function main() {
   console.log("Vault: LOAN_ROLE granted to Loans");
 
   await vault.approveUSDCSpending(loansAddr, 10000000n * 10n ** 6n);
-  console.log("Vault: USDC spending approved for Loans");
+  console.log("Vault: IDRX spending approved for Loans");
 
   const PENGAWAS_ROLE = await govern.PENGAWAS_ROLE();
   await govern.grantRole(PENGAWAS_ROLE, deployer.address);

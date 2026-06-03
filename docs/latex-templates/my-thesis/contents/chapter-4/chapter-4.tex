@@ -217,6 +217,76 @@ function getPengawasAuditReport() external view
     emit VoteCast(proposalId, msg.sender, vote);
 }
 
+\subsubsection{Pembayaran Simpanan Wajib --- LakomiVault.paySimpananWajib()}
+
+Fungsi \texttt{paySimpananWajib()} mengimplementasikan Pasal~41(2) tentang kewajiban pembayaran simpanan wajib secara berkala. Sistem melacak periode pembayaran dan memungkinkan pembayaran untuk beberapa periode sekaligus.
+
+\begin{verbatim}
+function paySimpananWajib() external 
+    onlyRegisteredMember nonReentrant {
+    uint256 periods = getSimpananWajibPeriodsOwed(msg.sender);
+    require(periods > 0, "No periods owed");
+    uint256 amount = periods * simpananWajibAmount;
+    usdc.transferFrom(msg.sender, address(this), amount);
+    simpananWajibPaid[msg.sender] += amount;
+    lastSimpananWajibPayment[msg.sender] = block.timestamp;
+    emit SimpananPaid(msg.sender, amount, "wajib");
+}
+\end{verbatim}
+
+\subsubsection{Pemilihan Pengurus --- LakomiGovern.beginElection()}
+
+Fungsi \texttt{beginElection()} dan \texttt{finalizeElection()} mengimplementasikan Pasal~29--30. Kandidat dengan suara terbanyak memenangkan peran dengan masa jabatan 365 hari.
+
+\begin{verbatim}
+function beginElection(bytes32 role) external 
+    onlyRole(GOVERN_ROLE) returns (uint256) {
+    require(elections[role].endTime == 0 || 
+        block.timestamp > elections[role].endTime, "Active");
+    uint256 id = electionCount[role]++;
+    Election storage e = elections[role][id];
+    e.role = role; e.startTime = block.timestamp;
+    e.endTime = block.timestamp + 7 days;
+    e.termLength = 365 days;
+    emit ElectionStarted(role, id); return id;
+}
+
+function finalizeElection(bytes32 role, uint256 electionId) 
+    external onlyRole(GOVERN_ROLE) {
+    Election storage e = elections[role][electionId];
+    require(block.timestamp > e.endTime, "Active");
+    require(!e.finalized, "Done");
+    address winner; uint256 maxVotes;
+    for (uint i = 0; i < e.candidateList.length; i++) {
+        if (e.votes[e.candidateList[i]] > maxVotes) {
+            maxVotes = e.votes[e.candidateList[i]];
+            winner = e.candidateList[i];
+        }
+    }
+    e.finalized = true; e.winner = winner;
+    IAccessControl(target).grantRole(role, winner);
+    emit ElectionFinalized(role, electionId, winner);
+}
+\end{verbatim}
+
+\subsubsection{Klaim SHU Anggota --- LakomiVault.claimSHU()}
+
+Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah distribusi. Mencegah klaim ganda melalui \textit{mapping} \texttt{claimed}.
+
+\begin{verbatim}
+function claimSHU(uint256 distributionId) external 
+    onlyRegisteredMember nonReentrant {
+    Distribution storage d = distributions[distributionId];
+    require(!d.claimed[msg.sender], "Claimed");
+    uint256 shares = vaultShares[msg.sender];
+    uint256 amt = (d.categoryAmounts[0] * shares) / d.sharesTotal;
+    amt += (d.categoryAmounts[1] * shares) / d.sharesTotal;
+    d.claimed[msg.sender] = true;
+    usdc.transfer(msg.sender, amt);
+    emit SHUClaimed(distributionId, msg.sender, amt);
+}
+\end{verbatim}
+
 \section{Hasil Implementasi Frontend}
 
 \textit{Frontend} Lakomi berhasil diimplementasikan menggunakan React 18 dengan TypeScript dan \textit{library} wagmi v2 untuk interaksi dengan \textit{smart contract} melalui \textit{wallet} MetaMask. Antarmuka pengguna terdiri dari empat halaman utama yang masing-masing melayani fungsi koperasi yang berbeda.
@@ -398,7 +468,23 @@ Insentif Kontribusi & Tidak formal & \textit{Staking} $\to$ suara & LTV berbasis
 
 Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 22(1)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
 
-Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur---El Amine dan Sari (2024) untuk registri properti dan Saito dan Rose (2023) untuk sektor nirlaba---Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan (\textit{afterthought}) melainkan properti bawaan dari arsitektur sistem.
+Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur---El Amine dan Sari (2024) untuk registri properti dan Saito dan Rose (2023) untuk sektor nirlaba---Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan melainkan properti bawaan dari arsitektur sistem.
+
+\section{Diskusi}
+
+\subsection{Signifikansi Kepatuhan 100\%}
+
+Pencapaian tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992 memiliki signifikansi yang melampaui sekadar angka keberhasilan pengujian. Dalam konteks \textit{regulatory technology} (RegTech), ini adalah bukti empiris pertama bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang dieksekusi secara otomatis. Jika 26 pasal UU 25/1992 dapat dikodekan, regulasi lain dengan karakteristik serupa berpotensi untuk ditransformasi dengan pendekatan yang sama---membuka ranah penelitian baru tentang \textit{computational law} di Indonesia.
+
+Implikasi praktisnya juga signifikan. Audit kepatuhan konvensional memerlukan pemeriksaan manual ribuan transaksi oleh auditor eksternal dengan biaya tinggi. Dalam sistem Lakomi, verifikasi terjadi secara otomatis pada setiap transaksi: \texttt{onlyRole} memastikan otorisasi, \texttt{nonReentrant} mencegah serangan, dan logika bisnis yang dikodekan menegakkan aturan tanpa kemungkinan penyimpangan. Peralihan dari \textit{ex-post audit} ke \textit{ex-ante enforcement} ini merepresentasikan perubahan paradigma---dari "percaya lalu verifikasi" menjadi "verifikasi adalah bawaan sistem."
+
+\subsection{Kelayakan dari Perspektif Gas}
+
+Analisis gas menunjukkan konsumsi yang wajar untuk jaringan konsorsium. Namun, interpretasi memerlukan kehati-hatian: biaya pada lingkungan pengujian mungkin berbeda dari \textit{mainnet}. Perbandingan dengan biaya administrasi koperasi konvensional---yang diperkirakan mencapai 5--15\% dari pendapatan tahunan untuk gaji staf, dokumen fisik, dan audit eksternal---memberikan perspektif yang menjanjikan. Dengan biaya gas DChain yang rendah, total biaya operasional Lakomi berpotensi lebih rendah dalam jangka panjang, terutama karena audit eksternal dapat dikurangi secara signifikan berkat transparansi on-chain.
+
+\subsection{Keterbatasan dan Validitas Eksternal}
+
+Validitas eksternal terbatas pada konteks DChain. Hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya---penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini.
 
 \section{Validasi Formula}
 

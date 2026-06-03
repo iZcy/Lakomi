@@ -189,37 +189,43 @@ echo "=== 15f. SHU: Double claim → revert ==="
 CLAIM2=$(send $MAIN $VAULT $(calld "claimSHU(uint256)" 0))
 echo "$CLAIM2" | grep -q "REVERTED" && P "15f. Double claim reverts" || F "15f. Double claim"
 
-# ========== SHU Standalone (fresh loan + repay + distribute + claim) ==========
-echo "=== SHU-STANDALONE: Fresh loan for revenue ==="
-# Use Pengurus as borrower (still registered, has LAK)
-# First fund Pengurus with USDC and register
-send $ADMIN $USDC $(calld "mint(address,uint256)" $PENGURUS 100000000000) > /dev/null
-send $PENGURUS $USDC $(calld "approve(address,uint256)" $VAULT 200000000) > /dev/null
+# ========== SHU Standalone: Big Revenue ==========
+echo "=== SHU-STANDALONE: Big loan → revenue → distribute → claim ==="
+# Use Pengurus: register + deposit big + borrow big + repay = big interest
+send $ADMIN $USDC $(calld "mint(address,uint256)" $PENGURUS 10000000000000) > /dev/null
+send $PENGURUS $USDC $(calld "approve(address,uint256)" $VAULT 99999999999) > /dev/null
 send $ADMIN $VAULT $(calld "paySimpananPokok(address)" $PENGURUS) > /dev/null
 send $PENGURUS $TOKEN $(calld "registerMember()") > /dev/null
-# Deposit simpanan sukarela so shares > 0
+# Big deposit for big shares
 send $PENGURUS $VAULT $(calld "deposit(uint256)" 1000000000) > /dev/null
-# Big loan: 100 USDC × 365 days = ~5 USDC interest
+# 500 USDC × 365 days = 25 USDC interest = 25000000 wei
 SID=7
-send $PENGURUS $LOANS $(calld "requestLoan(uint256,uint256,string)" 100000000 31536000 shu-test) > /dev/null
+send $PENGURUS $LOANS $(calld "requestLoan(uint256,uint256,string)" 500000000 31536000 bigshu) > /dev/null
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SID) > /dev/null
 send $PENGURUS $LOANS $(calld "disburse(uint256)" $SID) > /dev/null
-send $PENGURUS $USDC $(calld "approve(address,uint256)" $LOANS 110000000) > /dev/null
+# Approve + repay full (principal + ~25 USDC interest)
+send $PENGURUS $USDC $(calld "approve(address,uint256)" $LOANS 530000000) > /dev/null
 send $PENGURUS $LOANS $(calld "repayInFull(uint256)" $SID) > /dev/null
 SREV=$(call $VAULT "$(calld 'accumulatedRevenue()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
-[ "$SREV" -gt 0 ] && P "SHU-s1: Revenue ($SREV wei)" || F "SHU-s1: Revenue=$SREV"
+echo "  Revenue: $SREV wei"
+[ "$SREV" -gt 1000000 ] && P "SHU-1: Revenue ${SREV} wei" || F "SHU-1: Revenue=$SREV"
 
 # Distribute
 SDIST=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
-echo "$SDIST" | grep -q "ok" && P "SHU-s2: Distributed" || F "SHU-s2: Distribute failed"
+echo "$SDIST" | grep -q "ok" && P "SHU-2: Distributed" || F "SHU-2: Failed"
 
-# Claim  
-SCLAIM=$(send $PENGURUS $VAULT $(calld "claimSHU(uint256)" 1))
-echo "$SCLAIM" | grep -q "ok" && P "SHU-s3: Claimed" || F "SHU-s3: Claim failed"
+# Check categories
+SCADANGAN=$(call $VAULT "$(calld 'danaCadangan()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
+SJASA=$(call $VAULT "$(calld 'danaPendidikan()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
+[ "$SCADANGAN" -gt 0 ] && [ "$SJASA" -gt 0 ] && P "SHU-3: Categories OK" || F "SHU-3: cad=$SCADANGAN pend=$SJASA"
+
+# Claim (Pengurus berhak)
+SCLAIM=$(send $PENGURUS $VAULT $(calld "claimSHU(uint256)" 0))
+echo "$SCLAIM" | grep -q "ok" && P "SHU-4: Claimed" || F "SHU-4: Claim failed"
 
 # Double claim
-SCLAIM2=$(send $PENGURUS $VAULT $(calld "claimSHU(uint256)" 1))
-echo "$SCLAIM2" | grep -q "REVERTED" && P "SHU-s4: Double claim reverts" || F "SHU-s4: Double claim"
+SCLAIM2=$(send $PENGURUS $VAULT $(calld "claimSHU(uint256)" 0))
+echo "$SCLAIM2" | grep -q "REVERTED" && P "SHU-5: Double claim reverts" || F "SHU-5"
 
 # ========== 13. Exit ==========
 echo "=== 13/14. Exit ==="

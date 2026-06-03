@@ -12,7 +12,55 @@ Penelitian ini telah berhasil merancang, mengimplementasikan, dan mengevaluasi s
 	\item \textbf{Evaluasi Kepatuhan Sistem.} Evaluasi kepatuhan dilakukan melalui tiga dimensi: pengujian fungsional, analisis gas, dan perbandingan sistem. Hasil pengujian fungsional menunjukkan tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992. Analisis gas menunjukkan bahwa operasi utama koperasi---pendaftaran anggota, pembayaran simpanan, pemungutan suara, distribusi SHU, dan pengajuan pinjaman---memiliki konsumsi gas yang wajar untuk jaringan blockchain konsorsium, dengan total biaya operasional yang jauh lebih rendah dibandingkan biaya administrasi manual koperasi konvensional. Perbandingan dengan koperasi konvensional dan DAO berbasis \textit{token-weighted voting} menunjukkan bahwa Lakomi unggul dalam tiga aspek utama: (1) transparansi melalui \textit{distributed ledger} yang dapat diaudit secara publik---setiap anggota dapat memverifikasi sendiri integritas catatan keuangan tanpa bergantung pada laporan pengurus; (2) demokrasi melalui mekanisme satu-anggota-satu-suara yang dijamin oleh \textit{smart contract}---tidak ada konsentrasi kekuasaan berdasarkan modal; dan (3) otomatisasi melalui distribusi SHU enam kategori yang dieksekusi secara on-chain---menghilangkan ketergantungan pada perhitungan manual yang rawan kesalahan dan manipulasi.
 \end{enumerate}
 
-Secara keseluruhan, penelitian ini membuktikan bahwa regulasi perkoperasian Indonesia---yang selama ini diimplementasikan melalui proses manual dan pengawasan administratif---dapat diterjemahkan ke dalam \textit{smart contract} yang dapat berjalan otomatis, transparan, dan dapat diaudit. Pendekatan pemetaan regulasi-ke-kontrak yang diterapkan dalam penelitian ini menghasilkan model \textit{on-chain compliance} di mana kepatuhan bukan merupakan fitur tambahan yang diverifikasi secara periodik oleh auditor eksternal, melainkan properti bawaan sistem yang ditegakkan secara deterministik oleh EVM pada setiap transaksi. Model ini membuka peluang bagi transformasi digital sektor koperasi Indonesia yang lebih luas---dari 127.000 koperasi yang saat ini sebagian besar masih bergantung pada pencatatan manual menuju ekosistem koperasi digital yang transparan, efisien, dan akuntabel.
+Secara keseluruhan, penelitian ini membuktikan bahwa regulasi perkoperasian Indonesia---yang selama ini diimplementasikan melalui proses manual dan pengawasan administratif---dapat diterjemahkan ke dalam \textit{smart contract} yang dapat berjalan otomatis, transparan, dan dapat diaudit. Pendekatan pemetaan regulasi-ke-kontrak yang diterapkan menghasilkan model \textit{on-chain compliance} di mana kepatuhan bukan fitur tambahan melainkan properti bawaan sistem. Model ini membuka peluang transformasi digital sektor koperasi Indonesia---dari 127.000 koperasi yang bergantung pada pencatatan manual menuju ekosistem koperasi digital yang transparan dan akuntabel.
+
+\subsection{Analisis Dimensional Ketercapaian Tujuan}
+
+Untuk evaluasi terstruktur, Tabel~\ref{tab:dimensional} memetakan setiap tujuan ke metode, bukti kuantitatif, dan tingkat ketercapaian.
+
+\begin{table}[h]
+\centering
+\caption{Analisis Dimensional Ketercapaian Tujuan Penelitian}
+\label{tab:dimensional}
+\footnotesize
+\begin{tabular}{p{0.03\textwidth}p{0.26\textwidth}p{0.28\textwidth}p{0.18\textwidth}p{0.15\textwidth}}
+\toprule
+\textbf{\#} & \textbf{Tujuan} & \textbf{Metode Pencapaian} & \textbf{Bukti Kuantitatif} & \textbf{Ketercapaian} \\
+\midrule
+T1 & Merancang 4 SC sesuai UU 25/1992 & DSR 3-siklus, arsitektur \textit{dual-track}, 8 peran RBAC, \textit{separation of duties} & 4 kontrak ter-\textit{deploy} di DChain, 5 \textit{role} terdistribusi, 0 \textit{single point of failure} & Tercapai penuh \\
+\midrule
+T2 & Memetakan 26 ketentuan ke fungsi SC & Kerangka 4-tahap: identifikasi, dekomposisi, pemetaan, verifikasi & 26/26 skenario Lulus (100\%), 6 kategori kepatuhan, \textit{test coverage} menyeluruh & Tercapai penuh \\
+\midrule
+T3 & Mengevaluasi kepatuhan via pengujian, gas, perbandingan & \textit{Unit testing} Hardhat, \textit{gas reporter}, analisis komparatif 3-sistem & 12,2M gas \textit{deployment}, 9-dimensi perbandingan vs koperasi \& DAO, 3 formula tervalidasi & Tercapai penuh \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Pencapaian T2 (100\% kepatuhan) adalah indikator paling signifikan---membuktikan bahwa pendekatan pemetaan regulasi-ke-kontrak dapat direalisasikan dan diverifikasi secara empiris, bukan sekadar konsep teoretis.
+
+\subsection{Perbandingan dengan State of the Art}
+
+Untuk memposisikan kontribusi dalam konteks yang lebih luas, Tabel~\ref{tab:sota} membandingkan Lakomi dengan sistem \textit{state of the art} dalam domain \textit{blockchain for cooperatives}.
+
+\begin{table}[h]
+\centering
+\caption{Perbandingan dengan \textit{State of the Art}}
+\label{tab:sota}
+\footnotesize
+\begin{tabular}{p{0.15\textwidth}p{0.12\textwidth}p{0.10\textwidth}p{0.10\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.19\textwidth}}
+\toprule
+\textbf{Sistem} & \textbf{Blockchain} & \textbf{Voting} & \textbf{Simpanan} & \textbf{SHU} & \textbf{Pengawas} & \textbf{Kepatuhan Regulasi} \\
+\midrule
+MakerDAO & Ethereum & Token-weight & Tidak & Tidak & Tidak & Tidak \\
+Compound & Ethereum & Token-weight & Tidak & Tidak & Tidak & Tidak \\
+El Amine (2024) & Private & Token-weight & Tidak & Tidak & Tidak & Tidak \\
+Saito (2023) & L1 & Reputasi & Tidak & Tidak & Tidak & Tidak \\
+\textbf{Lakomi} & \textbf{DChain} & \textbf{1-suara-1-anggota} & \textbf{3 jenis} & \textbf{6 kategori} & \textbf{Veto+audit} & \textbf{26 pasal (100\%)} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Dari lima sistem yang dibandingkan, hanya Lakomi yang mengimplementasikan seluruh dimensi fungsional koperasi secara bersamaan. Sistem lain hanya mencakup subset terbatas---umumnya tata kelola tanpa komponen operasional lainnya. Kesenjangan ini menegaskan posisi unik Lakomi sebagai sistem pertama dengan spektrum penuh operasional koperasi dalam \textit{smart contract} terintegrasi.
 
 \section{Keterbatasan Penelitian}
 

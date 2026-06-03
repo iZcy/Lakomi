@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 08:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 08:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1153,6 +1153,9 @@ LaTeX Warning: Label `fig:transaction-flow' multiply defined.
 LaTeX Warning: Label `tab:role-matrix' multiply defined.
 
 
+LaTeX Warning: Label `fig:state-machine' multiply defined.
+
+
 LaTeX Warning: Label `tab:test-scenarios' multiply defined.
 
 
@@ -1303,7 +1306,7 @@ enefit from \pgfplotsset{compat=1.18} (current compat level: 1.16).
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<sample/logougm.png, id=650, 110.5731pt x 112.2594pt>
+<sample/logougm.png, id=682, 110.5731pt x 112.2594pt>
 File: sample/logougm.png Graphic file (type png)
 <use sample/logougm.png>
 Package pdftex.def Info: sample/logougm.png  used on input line 91.
@@ -2221,32 +2224,137 @@ t line 371.
 
 LaTeX Warning: Citation `pp72021' on page 38 undefined on input line 375.
 
-[38] [39]) [40] [41]
+[38] [39]
+
+LaTeX Warning: Reference `tab:dao-gap' on page 40 undefined on input line 395.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--404
+[]\T1/ptm/b/n/10 Persyaratan UU
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 406--406
+[]\T1/ptm/m/n/10 Keanggotaan ter-bu-ka
+ []
+
+
+Underfull \hbox (badness 5008) in paragraph at lines 406--406
+\T1/ptm/m/n/10 siapa pun ber-ga-bung
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+[]\T1/ptm/m/it/10 Token-weighted vo-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+\T1/ptm/m/it/10 ting\T1/ptm/m/n/10 ---plutokratis,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--407
+\T1/ptm/m/n/10 ber-ten-tang-an de-ngan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 407--408
+[]\T1/pcr/m/n/10 getVotingPower() = 1
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--408
+[]\T1/ptm/m/n/10 Simpanan ber-ting-kat
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--408
+[]\T1/ptm/m/n/10 Tidak ada struk-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 408--408
+\T1/ptm/m/n/10 tur sim-pan-an
+ []
+
+
+Overfull \hbox (2.50514pt too wide) in paragraph at lines 408--408
+\T1/ptm/m/n/10 pokok/wajib/sukarela---
+ []
+
+
+Underfull \hbox (badness 4543) in paragraph at lines 409--409
+[]\T1/ptm/m/n/10 Proporsional ter-ha-dap
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 409--410
+[]\T1/ptm/m/n/10 Distribusi 6-kategori de-ngan
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
+[]\T1/ptm/m/n/10 Pengawasan for-mal
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
+[]\T1/ptm/m/n/10 Tidak ada me-ka-nis-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 410--410
+\T1/ptm/m/n/10 me pengawasan---
+ []
+
+
+Underfull \hbox (badness 5460) in paragraph at lines 410--410
+\T1/ptm/m/n/10 keamanan ber-gantung
+ []
+
+
+Overfull \hbox (17.55229pt too wide) in paragraph at lines 402--413
+ [][] 
+ []
+
+! Undefined control sequence.
+<recently read> \checkmark 
+                           
+l.415 \noindent $\checkmark
+                           $ = Memenuhi, $\triangle$ = Sebagian, $\times$ = ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[40] [41]) [42]
 \openout2 = `contents/chapter-3/chapter-3.aux'.
 
  (./contents/chapter-3/chapter-3.tex
 BAB III.
 
-LaTeX Warning: Citation `hevner2004design' on page 42 undefined on input line 7
+LaTeX Warning: Citation `hevner2004design' on page 43 undefined on input line 7
 .
 
 
-LaTeX Warning: Citation `peffers2007design' on page 42 undefined on input line 
+LaTeX Warning: Citation `peffers2007design' on page 43 undefined on input line 
 9.
 
 
-LaTeX Warning: Citation `hevner2007design' on page 42 undefined on input line 1
+LaTeX Warning: Citation `hevner2007design' on page 43 undefined on input line 1
 1.
 
 
-LaTeX Warning: Citation `antoni2024permasalahan' on page 42 undefined on input 
+LaTeX Warning: Citation `antoni2024permasalahan' on page 43 undefined on input 
 line 14.
 
 
-LaTeX Warning: Citation `putra2025dualisme' on page 42 undefined on input line 
+LaTeX Warning: Citation `putra2025dualisme' on page 43 undefined on input line 
 14.
 
-[42
+[43
 
 
 
@@ -2310,7 +2418,7 @@ Overfull \hbox (5.54582pt too wide) in paragraph at lines 33--50
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43]
+[44]
 Overfull \hbox (2.1626pt too wide) in paragraph at lines 69--70
 []\T1/ptm/m/n/12 Penelitian di-lak-sa-nak-an da-lam enam ta-hap-an yang di-i-lu
 s-tra-sik-an pa-da Gam-bar []3.2[]. 
@@ -2319,9 +2427,9 @@ s-tra-sik-an pa-da Gam-bar []3.2[].
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44] [45]
+[45] [46]
 
-LaTeX Warning: Citation `eip20' on page 46 undefined on input line 158.
+LaTeX Warning: Citation `eip20' on page 47 undefined on input line 158.
 
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 61.
@@ -2329,7 +2437,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-LaTeX Warning: Citation `wood2014ethereum' on page 46 undefined on input line 1
+LaTeX Warning: Citation `wood2014ethereum' on page 47 undefined on input line 1
 65.
 
 
@@ -2338,13 +2446,13 @@ Overfull \hbox (1.80544pt too wide) in paragraph at lines 165--166
 ploy pa-da DCha-in (EVM-compatible [\T1/ptm/b/n/12 ?\T1/ptm/m/n/12 ],
  []
 
-[46]
+[47]
 Overfull \hbox (1.51717pt too wide) in paragraph at lines 177--178
 \T1/ptm/m/n/12 ti-tas ke-ang-go-ta-an da-ri ke-pe-mi-lik-an to-ken. \T1/pcr/m/n
 /12 MAX_SUPPLY \T1/ptm/m/n/12 di-te-tap-kan 1.000.000 LAK
  []
 
-[47]
+[48]
 Overfull \hbox (56.27185pt too wide) in paragraph at lines 198--199
 []\T1/ptm/m/n/12 Setiap fung-si \T1/ptm/m/it/12 state-modifying \T1/ptm/m/n/12 
 di-lin-du-ngi oleh \T1/pcr/m/n/12 onlyRole \T1/ptm/m/n/12 atau \T1/pcr/m/n/12 o
@@ -2388,7 +2496,7 @@ Overfull \hbox (53.6843pt too wide) in paragraph at lines 240--241
 pe)
  []
 
-[48]
+[49]
 Overfull \hbox (17.68431pt too wide) in paragraph at lines 241--242
 []\T1/pcr/m/n/12 SHUDistributed(uint256 distributionsId, uint256 totalAmount)
  []
@@ -2423,23 +2531,23 @@ Overfull \hbox (2.03146pt too wide) in paragraph at lines 258--277
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[49]
+[50]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50]
+[51]
 
-LaTeX Warning: Citation `permenkop82023' on page 51 undefined on input line 346
+LaTeX Warning: Citation `permenkop82023' on page 52 undefined on input line 346
 .
 
-[51] [52]
+[52] [53]
 Overfull \hbox (1.10602pt too wide) in paragraph at lines 374--375
 []\T1/ptm/m/n/12 Komunikasi de-ngan \T1/ptm/m/it/12 smart con-tra-ct \T1/ptm/m/
 n/12 di-la-ku-kan me-la-lui \T1/ptm/m/it/12 pro-vi-der \T1/ptm/m/n/12 JSON-RPC 
 DCha-
  []
 
-[53]
+[54]
 Overfull \hbox (9.8096pt too wide) in paragraph at lines 409--410
 []\T1/ptm/m/n/12 Setelah per-i-o-de ber-a-khir, sis-tem me-mve-ri-fi-ka-si ku-o
 -rum: $[] \OMS/cmsy/m/n/12 ^^U [] ^^B
@@ -2451,7 +2559,7 @@ Overfull \hbox (5.55005pt too wide) in paragraph at lines 417--418
 estLoan() \T1/ptm/m/n/12 de-ngan me-nen-tuk-an jum-
  []
 
-[54] [55]
+[55] [56]
 Underfull \hbox (badness 6725) in paragraph at lines 460--461
 \T1/ptm/m/n/10 sim-pan-an po-kok se-ba-gai
  []
@@ -2519,7 +2627,7 @@ Overfull \hbox (22.53008pt too wide) in paragraph at lines 456--479
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[56]
+[57]
 Overfull \hbox (0.1356pt too wide) in paragraph at lines 491--492
 []\T1/ptm/m/n/12 Pengujian fung-sio-nal di-la-ku-kan meng-guna-kan \T1/ptm/m/it
 /12 fra-me-work \T1/ptm/m/n/12 Ha-rdhat pa-da ling-kung-
@@ -2531,7 +2639,7 @@ Overfull \hbox (21.13797pt too wide) in paragraph at lines 496--497
 a \T1/pcr/m/n/12 isRegisteredMember
  []
 
-[57]
+[58]
 Overfull \hbox (43.79305pt too wide) in paragraph at lines 502--503
 \T1/ptm/m/n/12 ku-o-rum di-nya-tak-an \T1/ptm/m/it/12 de-fe-a-ted\T1/ptm/m/n/12
  ; pen-ja-dwal-an RAT ta-hun-an me-la-lui \T1/pcr/m/n/12 scheduleAnnualRAT()
@@ -2543,7 +2651,7 @@ Overfull \hbox (112.4342pt too wide) in paragraph at lines 504--505
 g-an me-la-lui \T1/pcr/m/n/12 getPengawasAuditReport()
  []
 
-[58]
+[59]
 Overfull \hbox (1.05878pt too wide) in paragraph at lines 511--512
 []\T1/ptm/m/n/12 Seluruh ha-sil pe-ngu-ji-an fung-sio-nal di-sa-jik-an dan di-b
 a-has se-ca-ra rin-ci pa-da Bab []IV[]. 
@@ -2555,13 +2663,13 @@ Overfull \hbox (26.68098pt too wide) in paragraph at lines 534--535
 it/12 re-ver-ted\T1/ptm/m/n/12 ) ka-re-na \T1/pcr/m/n/12 transfersEnabled
  []
 
-[59]) [60]
+[60]) [61]
 \openout2 = `contents/chapter-4/chapter-4.aux'.
 
  (./contents/chapter-4/chapter-4.tex
 BAB IV.
 
-LaTeX Warning: Reference `ch1' on page 61 undefined on input line 4.
+LaTeX Warning: Reference `ch1' on page 62 undefined on input line 4.
 
 
 Overfull \hbox (1.57573pt too wide) in paragraph at lines 8--9
@@ -2577,7 +2685,7 @@ Overfull \hbox (2.03796pt too wide) in paragraph at lines 46--65
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[61
+[62
 
 
 
@@ -2595,7 +2703,7 @@ Overfull \hbox (79.48428pt too wide) in paragraph at lines 104--104
 ntrant {[] 
  []
 
-[62]
+[63]
 Overfull \hbox (14.68431pt too wide) in paragraph at lines 104--104
 []        \T1/pcr/m/n/12 uint256 allocation = (dist * categoryBPS[i]) / 10000;[
 ] 
@@ -2613,7 +2721,7 @@ Overfull \hbox (29.0843pt too wide) in paragraph at lines 104--104
 ;[] 
  []
 
-[63]
+[64]
 Overfull \hbox (0.28432pt too wide) in paragraph at lines 177--177
 []    \T1/pcr/m/n/12 require(l.status == LoanStatus.Pending, "Not pending");[] 
 
@@ -2625,7 +2733,7 @@ Overfull \hbox (14.68431pt too wide) in paragraph at lines 177--177
 ] 
  []
 
-[64]
+[65]
 Overfull \hbox (2.20064pt too wide) in paragraph at lines 181--182
 []\T1/ptm/m/n/12 Fungsi \T1/pcr/m/n/12 getPengawasAuditReport() \T1/ptm/m/n/12 
 me-nye-di-ak-an ak-ses \T1/ptm/m/it/12 read-only \T1/ptm/m/n/12 ba-gi pe-
@@ -2643,7 +2751,7 @@ Overfull \hbox (23.29565pt too wide) in paragraph at lines 207--219
 (vo-te == 1) pro-po-sal.forVotes++;
  []
 
-[65]
+[66]
 Overfull \hbox (21.88431pt too wide) in paragraph at lines 235--235
 []    \T1/pcr/m/n/12 uint256 periods = getSimpananWajibPeriodsOwed(msg.sender);
 [] 
@@ -2667,7 +2775,7 @@ Overfull \hbox (0.28432pt too wide) in paragraph at lines 270--270
 
  []
 
-[66]
+[67]
 Overfull \hbox (0.28432pt too wide) in paragraph at lines 288--288
 []    \T1/pcr/m/n/12 Distribution storage d = distributions[distributionId];[] 
 
@@ -2691,13 +2799,13 @@ Overfull \hbox (8.54727pt too wide) in paragraph at lines 292--293
 si-kan meng-guna-kan Re-a-ct 18 de-ngan Type-
  []
 
-[67]
+[68]
 Overfull \hbox (3.5192pt too wide) in paragraph at lines 318--319
 []\T1/ptm/m/n/12 Portal Pin-jam-an (Gam-bar []4.7[]) me-mung-kink-an ang-go-ta 
 meng-a-ju-kan pin-jam-an mik-
  []
 
-[68]
+[69]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -3031,7 +3139,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[69]
+[70]
 Underfull \hbox (badness 2103) in paragraph at lines 391--391
 []\T1/ptm/b/n/12 Jumlah Pa-
  []
@@ -3136,7 +3244,7 @@ m/m/n/12 ) se-per-ti \T1/pcr/m/n/12 getVotingPower()\T1/ptm/m/n/12 , \T1/pcr/m/
 n/12 isRegisteredMember()\T1/ptm/m/n/12 ,
  []
 
-[70]
+[71]
 Underfull \hbox (badness 1831) in paragraph at lines 444--444
 []\T1/ptm/b/n/10 ERC-20 Stan-
  []
@@ -3187,20 +3295,20 @@ Overfull \hbox (14.03795pt too wide) in paragraph at lines 470--493
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[71] [72]
+[72] [73]
 Overfull \hbox (2.59999pt too wide) in paragraph at lines 527--528
 \OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :\OT1/cmr/m/n/12 012\OML/cmm/m/it/12 ; \OT1/c
 mr/m/n/12 33$ \T1/ptm/m/n/12 USDC. Ha-sil ek-se-ku-si \T1/pcr/m/n/12 calculateI
 nterest(1000, 90) \T1/ptm/m/n/12 pa-da \T1/ptm/m/it/12 smart con-
  []
 
-[73]) [74] [75] [76] [77]
+[74]) [75] [76] [77] [78]
 \openout2 = `contents/chapter-5/chapter-5.aux'.
 
  (./contents/chapter-5/chapter-5.tex
 BAB V.
 
-LaTeX Warning: Reference `ch1' on page 78 undefined on input line 5.
+LaTeX Warning: Reference `ch1' on page 79 undefined on input line 5.
 
 
 Overfull \hbox (34.81667pt too wide) in paragraph at lines 8--9
@@ -3214,27 +3322,144 @@ Overfull \hbox (13.28864pt too wide) in paragraph at lines 8--9
 h-wa re-gu-la-si perkoperasian---
  []
 
-[78
+[79
 
 
 
 
 
-] [79]
-Overfull \hbox (8.39232pt too wide) in paragraph at lines 24--25
+]
+
+LaTeX Warning: Reference `tab:dimensional' on page 80 undefined on input line 1
+9.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--30
+[]\T1/ptm/m/n/10 4 kon-trak ter-
+ []
+
+
+Underfull \hbox (badness 1742) in paragraph at lines 30--30
+\T1/ptm/m/n/10 0 \T1/ptm/m/it/10 si-ngle po-int of
+ []
+
+
+Underfull \hbox (badness 3049) in paragraph at lines 32--32
+[]\T1/ptm/m/n/10 Memetakan 26 ke-ten-tu-an
+ []
+
+
+Underfull \hbox (badness 1163) in paragraph at lines 32--32
+[]\T1/ptm/m/n/10 Kerangka 4-tahap: iden-ti-fi-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--32
+[]\T1/ptm/m/n/10 26/26 ske-na-rio
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 32--32
+\T1/ptm/m/n/10 Lu-lus (100%), 6
+ []
+
+
+Underfull \hbox (badness 7759) in paragraph at lines 32--32
+\T1/ptm/m/n/10 ka-te-go-ri ke-pa-tuh-
+ []
+
+
+Underfull \hbox (badness 2142) in paragraph at lines 32--32
+\T1/ptm/m/n/10 an, \T1/ptm/m/it/10 test co-ve-ra-ge
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+[]\T1/ptm/m/n/10 Mengevaluasi ke-pa-tuh-an
+ []
+
+
+Underfull \hbox (badness 6461) in paragraph at lines 34--34
+\T1/ptm/m/it/10 yment\T1/ptm/m/n/10 , 9-dimensi
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--34
+\T1/ptm/m/n/10 per-ban-ding-an vs
+ []
+
+
+Overfull \hbox (17.53934pt too wide) in paragraph at lines 26--37
+ [][] 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \hbox (9.92734pt too wide) in paragraph at lines 39--40
+[]\T1/ptm/m/n/12 Pencapaian T2 (100% ke-pa-tuh-an) ada-lah in-di-ka-tor pa-ling
+ signifikan---membuktikan
+ []
+
+
+LaTeX Warning: Reference `tab:sota' on page 80 undefined on input line 43.
+
+
+Overfull \hbox (0.89546pt too wide) in paragraph at lines 52--52
+[]\T1/ptm/b/n/10 Simpanan| 
+ []
+
+
+Underfull \hbox (badness 3849) in paragraph at lines 52--53
+[]\T1/ptm/b/n/10 Kepatuhan Re-gu-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 54--54
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 55--55
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
+[]\T1/ptm/m/n/10 El Ami-ne
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 56--56
+[]\T1/ptm/m/n/10 Token-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
+[]\T1/ptm/b/n/10 1-suara-
+ []
+
+
+Overfull \hbox (41.54579pt too wide) in paragraph at lines 50--61
+ [][] 
+ []
+
+[80] [81]
+Overfull \hbox (8.39232pt too wide) in paragraph at lines 72--73
 []\T1/ptm/b/n/12 Cakupan Fung-sio-nal. \T1/ptm/m/n/12 Pe-me-ta-an ter-ba-tas pa
 -da 26 ke-ten-tu-an ope-ra-sio-nal UU 25/1992.
  []
 
 
-Overfull \hbox (0.96501pt too wide) in paragraph at lines 28--29
+Overfull \hbox (0.96501pt too wide) in paragraph at lines 76--77
 \T1/ptm/m/n/12 sak-si bloc-kcha-in. Da-lam prak-tik-nya, se-ba-gi-an be-sar ang
 -go-ta ko-pe-ra-si di Indonesia---
  []
 
-[80]) [81]
+[82]) [83]
 No file main.bbl.
-[82
+[84
 
 
 
@@ -3819,10 +4044,6 @@ Overfull \hbox (5.54582pt too wide) in paragraph at lines 339--363
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `fig:state-machine' on page L-8 undefined on input lin
-e 369.
 
 
 ! LaTeX Error: Unicode character ┌ (U+250C)
@@ -14585,10 +14806,6 @@ Overfull \hbox (5.54582pt too wide) in paragraph at lines 339--363
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Reference `fig:state-machine' on page L-20 undefined on input li
-ne 369.
-
-
 ! LaTeX Error: Unicode character ┌ (U+250C)
                not set up for use with LaTeX.
 
@@ -24788,44 +25005,84 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 561A499E39615C4B9834C7157D192598;37718
-(rerunfilecheck)             After:  4ED886031FB343DBD4B2E8D854F096D8;39695.
+(rerunfilecheck)             Before: 4ED886031FB343DBD4B2E8D854F096D8;39695
+(rerunfilecheck)             After:  F30EC7712993034402A8788B486BE16F;41056.
  ) 
 Here is how much of TeX's memory you used:
- 42010 strings out of 475597
- 947793 string characters out of 5783340
- 1972975 words of memory out of 5000000
- 62832 multiletter control sequences out of 15000+600000
+ 42044 strings out of 475597
+ 948290 string characters out of 5783340
+ 1973975 words of memory out of 5000000
+ 62843 multiletter control sequences out of 15000+600000
  600583 words of font info for 79 fonts, out of 8000000 for 9000
  377 hyphenation exceptions out of 8191
  103i,12n,106p,2321b,849s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-pdfTeX warning (dest): name{subsection.Alph0.13.3} has been referenced but does
- not exist, replaced by a fixed one
+pdfTeX warning (dest): name{figure.caption.56} has been referenced but does not
+ exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.Alph0.13.2} has been referenced but does
- not exist, replaced by a fixed one
+pdfTeX warning (dest): name{figure.caption.49} has been referenced but does not
+ exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.Alph0.13.1} has been referenced but does
- not exist, replaced by a fixed one
+pdfTeX warning (dest): name{figure.caption.34} has been referenced but does not
+ exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.Alph0.9.4} has been referenced but does 
-not exist, replaced by a fixed one
+pdfTeX warning (dest): name{figure.caption.29} has been referenced but does not
+ exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.Alph0.9.3} has been referenced but does 
-not exist, replaced by a fixed one
+pdfTeX warning (dest): name{figure.caption.25} has been referenced but does not
+ exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.Alph0.9.2} has been referenced but does 
-not exist, replaced by a fixed one
+pdfTeX warning (dest): name{table.caption.59} has been referenced but does not 
+exist, replaced by a fixed one
 
 
-pdfTeX warning (dest): name{subsection.Alph0.9.1} has been referenced but does 
-not exist, replaced by a fixed one
+pdfTeX warning (dest): name{table.caption.57} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.52} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.50} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.48} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.38} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.32} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.30} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.27} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{table.caption.24} has been referenced but does not 
+exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section*.46} has been referenced but does not exist
+, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{section*.45} has been referenced but does not exist
+, replaced by a fixed one
 
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
@@ -24835,10 +25092,10 @@ dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (121 pages, 491060 bytes).
+Output written on main.pdf (123 pages, 499012 bytes).
 PDF statistics:
- 1808 PDF objects out of 2073 (max. 8388607)
- 1648 compressed objects within 17 object streams
- 512 named destinations out of 1000 (max. 500000)
- 1298 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1878 PDF objects out of 2073 (max. 8388607)
+ 1715 compressed objects within 18 object streams
+ 535 named destinations out of 1000 (max. 500000)
+ 1362 words of extra memory for PDF output out of 10000 (max. 10000000)
 

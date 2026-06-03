@@ -388,7 +388,47 @@ Perkembangan teknologi blockchain terus berakselerasi, membuka peluang baru yang
 
 \textbf{Kecerdasan Buatan dan Otomatisasi.} Integrasi AI dengan \textit{smart contract} membuka kemungkinan untuk pengambilan keputusan yang lebih canggih dalam tata kelola koperasi. Model \textit{machine learning} dapat menganalisis pola transaksi historis untuk memberikan rekomendasi parameter---seperti suku bunga optimal atau alokasi SHU---yang kemudian dapat diusulkan ke anggota melalui proposal tata kelola. \textit{Oracle} terdesentralisasi seperti Chainlink dapat menyediakan data eksternal yang terverifikasi---nilai tukar, tingkat inflasi, suku bunga acuan---yang diperlukan untuk operasional koperasi yang lebih dinamis. Meskipun implementasi AI dalam tata kelola on-chain masih dalam tahap awal, tren ini menunjukkan arah evolusi yang potensial untuk sistem seperti Lakomi dalam jangka panjang.
 
-Keenam tren ini---RWA, DID, ZKP, interoperabilitas, dan AI---secara kolektif menunjukkan bahwa ekosistem blockchain terus berkembang menuju infrastruktur keuangan yang semakin matang, aman, dan inklusif. Lakomi, sebagai implementasi awal blockchain untuk koperasi di Indonesia, diposisikan sebagai fondasi yang dapat diperluas secara modular untuk mengadopsi inovasi-inovasi ini di masa depan---memastikan bahwa koperasi Indonesia tidak hanya mengejar ketertinggalan digital, tetapi juga siap memanfaatkan gelombang inovasi berikutnya dalam teknologi terdesentralisasi.
+Keenam tren ini---RWA, DID, ZKP, interoperabilitas, dan AI---secara kolektif menunjukkan bahwa ekosistem blockchain terus berkembang menuju infrastruktur keuangan yang semakin matang, aman, dan inklusif. Lakomi, sebagai implementasi awal blockchain untuk koperasi di Indonesia, diposisikan sebagai fondasi yang dapat diperluas secara modular untuk mengadopsi inovasi-inovasi ini di masa depan.
+
+\subsection{Kerangka Analitis: Pemetaan Kesenjangan DAO terhadap Koperasi}
+
+Untuk memberikan justifikasi sistematis terhadap kebutuhan sistem baru, Tabel~\ref{tab:dao-gap} menyajikan analisis kesenjangan antara kapabilitas DAO konvensional dengan persyaratan koperasi berdasarkan UU 25/1992 pada lima dimensi evaluasi.
+
+\begin{table}[h]
+\centering
+\caption{Analisis Kesenjangan DAO Konvensional terhadap Persyaratan UU 25/1992}
+\label{tab:dao-gap}
+\footnotesize
+\begin{tabular}{p{0.08\textwidth}p{0.22\textwidth}p{0.08\textwidth}p{0.22\textwidth}p{0.30\textwidth}}
+\toprule
+\textbf{Dim} & \textbf{Persyaratan UU 25/1992} & \textbf{DAO} & \textbf{Catatan Kesenjangan} & \textbf{Implikasi Desain untuk Lakomi} \\
+\midrule
+D1 & Keanggotaan terbuka (Pasal 5(1)) & $\times$ & DAO \textit{permissionless}---siapa pun bergabung tanpa verifikasi & Diperlukan registrasi + pembayaran simpanan pokok sebagai \textit{gate} \\
+D2 & Satu suara per anggota (Pasal 22(1)) & $\times$ & \textit{Token-weighted voting}---plutokratis, bertentangan dengan demokrasi koperasi & \texttt{getVotingPower() = 1} independen dari saldo token \\
+D3 & Simpanan bertingkat (Pasal 41) & $\times$ & Tidak ada struktur simpanan pokok/wajib/sukarela---hanya \textit{staking} & Tiga jenis simpanan terpisah dengan pencatatan on-chain \\
+D4 & SHU adil (Pasal 45) & $\triangle$ & Proporsional terhadap \textit{staking}, bukan kontribusi transaksi & Distribusi 6-kategori dengan \textit{basis points} terkonfigurasi \\
+D5 & Pengawasan formal (Pasal 38--39) & $\times$ & Tidak ada mekanisme pengawasan---keamanan bergantung pada kode & Peran pengawas dengan hak veto + akses laporan keuangan \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent $\checkmark$ = Memenuhi, $\triangle$ = Sebagian, $\times$ = Tidak memenuhi. DAO konvensional gagal pada 4 dari 5 dimensi. Kesenjangan paling kritis: D2 (satu suara) dan D3 (simpanan bertingkat).
+
+\subsection{Kerangka Metodologis: Pemetaan Regulasi ke Kode}
+
+Berdasarkan analisis kesenjangan, penelitian ini mengusulkan kerangka metodologis empat tahap untuk pemetaan regulasi ke kode yang dapat direplikasi:
+
+\begin{enumerate}
+	\item \textbf{Identifikasi.} Mengidentifikasi ketentuan operasional---yang menetapkan kondisi, aksi, dan konsekuensi jelas tanpa memerlukan penilaian diskresioner. Dari 67 pasal UU 25/1992, 26 pasal diidentifikasi memenuhi kriteria: (a) dapat diekspresikan sebagai logika boolean/aritmetika; (b) subjek dan objek terdefinisi jelas; (c) tidak memerlukan interpretasi kontekstual di luar sistem.
+	
+	\item \textbf{Dekomposisi.} Mendekomposisi setiap ketentuan menjadi komponen atomik: \textbf{kondisi} (prasyarat, contoh: "anggota terdaftar"), \textbf{aksi} (operasi yang diizinkan, contoh: "mencetak token"), \textbf{kendala} (batasan, contoh: "satu suara"), dan \textbf{aktor} (pihak berwenang, contoh: "pengawas"). Setiap pasal menghasilkan spesifikasi terstruktur yang siap dipetakan ke konstruksi pemrograman.
+	
+	\item \textbf{Pemetaan.} Memetakan hasil dekomposisi ke konstruksi Solidity: kondisi menjadi \texttt{require()}/\texttt{modifier}, aksi menjadi \texttt{function}, kendala menjadi logika internal, aktor menjadi \texttt{onlyRole}. Setiap pemetaan didokumentasikan dalam matriks ketertelusuran yang menghubungkan pasal sumber ke fungsi target.
+	
+	\item \textbf{Verifikasi.} Memverifikasi kebenaran pemetaan melalui pengujian fungsional berbasis skenario: \textit{positive testing} (input valid), \textit{negative testing} (input tidak valid), dan \textit{regression testing} (tidak merusak fungsionalitas yang ada). Hasil verifikasi didokumentasikan dalam tabel kepatuhan (Tabel~\ref{tab:compliance-results} pada Bab~\ref{ch4}).
+\end{enumerate}
+
+Kerangka empat tahap ini memberikan pendekatan sistematis dan dapat direproduksi untuk mentransformasi regulasi hukum menjadi kode. Keberhasilan penerapannya pada UU 25/1992---dibuktikan oleh tingkat kepatuhan 100\%---mendemonstrasikan kelayakan generalisasi ke domain regulasi lain. Kontribusi metodologis ini membedakan Lakomi dari penelitian terdahulu yang membahas blockchain untuk koperasi secara konseptual tanpa menyediakan metodologi implementasi yang sistematis.
 
 \subsection{Rangkuman Tinjauan Pustaka}
 

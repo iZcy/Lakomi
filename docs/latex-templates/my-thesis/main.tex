@@ -35,7 +35,7 @@
 \major{Teknologi Informasi}
 \yearsubmit{2026}
 \examdate{<<Exam date>>}
-\addsupervisor{Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., IPM.}{NIP 197506071999031002}
+\addsupervisor{Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., IPM.}{197506071999031002}
 %\addsupervisor{<<Supervisor 2>>}{<<NIP>>}
 %\addsupervisor{<<Supervisor 3>>}{<<NIP>>}
 % Name of examiners
@@ -74,9 +74,10 @@
   trans-pa-ran-si aku-mu-la-si au-to-ma-ti-sa-si
   dis-tri-bu-si kon-tri-bu-si ope-ra-sio-nal im-ple-men-ta-si
 }
-%% Default LaTeX tolerance — let text spread naturally
-%% \tolerance=200 commented out to increase page count
-%% \emergencystretch=2em commented out
+% EYD hyphenation patterns
+% Increase stretch to prevent right-margin breaks with long code names
+\emergencystretch=1.5em
+% EYD guide: /docs/EYD.md
 % EYD guide: /docs/EYD.md
 %% %\hyphenpenalty=10000 % uncomment to fully disable hyphenation
 %% %\hbadness=10000
@@ -183,15 +184,7 @@
 %======================================
 \cleardoublepage \phantomsection
 \thereferences
-% You can change 
-%    the filename and location of the files inputted
 \bibliography{references}
-
-%Hapus bagian di bawah setelah tidak diperlukan
-\begin{center}
-	\textcolor{red}{
-	Catatan: Daftar pustaka adalah apa yang dirujuk atau disitasi, bukan apa yang telah dibaca, jika tidak ada dalam sitasi maka tidak perlu dituliskan dalam daftar pustaka.}
-\end{center}
 
 %======================================
 
@@ -211,7 +204,6 @@
 \chapterappendix{contents/appendix/appendix-code}
 %\chapterappendixadd{contents/appendix/appendix-latex}
 %\chapterappendixadd{contents/appendix/appendix-penulisan-referensi}
-\chapterappendixadd{contents/appendix/appendix-code}
 
 
 

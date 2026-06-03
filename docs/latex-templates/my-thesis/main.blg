@@ -20,45 +20,45 @@ Warning--I didn't find a database entry for "marenda2016digitory"
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 14 entries,
+You've used 33 entries,
             4087 wiz_defined-function locations,
-            918 strings with 10111 characters,
-and the built_in function-call counts, 10286 in all, are:
-= -- 896
-> -- 178
-< -- 102
-+ -- 100
-- -- 25
-* -- 496
-:= -- 1652
-add.period$ -- 29
-call.type$ -- 14
-change.case$ -- 14
-chr.to.int$ -- 216
-cite$ -- 14
-duplicate$ -- 736
-empty$ -- 767
-format.name$ -- 31
-if$ -- 2359
+            1007 strings with 13559 characters,
+and the built_in function-call counts, 21141 in all, are:
+= -- 1802
+> -- 430
+< -- 157
++ -- 228
+- -- 76
+* -- 969
+:= -- 3405
+add.period$ -- 67
+call.type$ -- 33
+change.case$ -- 33
+chr.to.int$ -- 324
+cite$ -- 33
+duplicate$ -- 1607
+empty$ -- 1675
+format.name$ -- 95
+if$ -- 4868
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 115
-newline$ -- 67
-num.names$ -- 14
-pop$ -- 213
+int.to.str$ -- 33
+missing$ -- 271
+newline$ -- 124
+num.names$ -- 33
+pop$ -- 588
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 805
+skip$ -- 1676
 stack$ -- 0
-substring$ -- 516
-swap$ -- 620
-text.length$ -- 30
+substring$ -- 815
+swap$ -- 1237
+text.length$ -- 49
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 14
+type$ -- 33
 warning$ -- 0
-while$ -- 58
-width$ -- 16
-write$ -- 167
+while$ -- 99
+width$ -- 35
+write$ -- 338
 (There was 1 warning)

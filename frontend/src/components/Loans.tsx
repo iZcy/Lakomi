@@ -223,6 +223,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
   const { data: loanRaw } = useLoan(loanId)
   const loan = decodeLoan(loanRaw)
   const { data: isApprover } = useHasApproverRole(address)
+  const { approve, isPending: ap } = useApproveUsdc()
   const { repayInFull, isPending: rPending, isSuccess: rSuccess, error: rErr } = useRepayInFull()
   const { repayLoan, isPending: rpPending, isSuccess: rpSuccess, error: rpErr } = useRepayLoan()
   const { disburseLoan, isPending: dPending, isSuccess: dSuccess, error: dErr } = useDisburseLoan()

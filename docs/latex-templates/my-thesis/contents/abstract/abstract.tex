@@ -1,5 +1,18 @@
 \textit{
-	Abstract ditulis italic (miring) menggunakan bahasa Inggris dengan jarak antar baris 1 spasi dan maksimal 1 halaman. Abstract adalah versi Bahasa Inggris dari intisari. Abstract dapat ditulis dalam beberapa paragraf. Baris pertama paragraph harus menjorok ke dalam sekitar 1 cm. Tidak dsarankan menggunakan mesin penerjemah melainkan tulis ulang.
+Indonesian cooperatives face structural challenges including opaque governance, manual financial record-keeping prone to manipulation, limited member participation, and weak oversight due to the absence of real-time access to operational data. Blockchain technology and Decentralized Autonomous Organizations (DAOs) offer transparency and automation through smart contracts, yet existing DAO models employ token-weighted voting that conflicts with the one-member-one-vote principle mandated by Indonesian Law No. 25 of 1992 on Cooperatives (UU 25/1992). This research aims to design, implement, and evaluate a blockchain-based cooperative system---Lakomi---that maps 26 provisions of UU 25/1992 into executable smart contracts deployed on the DChain network.
 }
 
-\noindent\textbf{Keywords} : Keyword 1, Keyword 2, Keyword 3, Keyword 4, Keyword 5
+\vspace{0.5cm}
+
+\textit{
+The research adopts the Design Science Research (DSR) methodology with three cycles: relevance, rigor, and design. The resulting artifact comprises four integrated smart contracts: LakomiToken (ERC-20-based membership with non-transferability), LakomiVault (management of three deposit types and six-category Surplus (SHU) distribution), LakomiGovern (democratic governance with one-member-one-vote, 67\% quorum, officer elections, and supervisor veto), and LakomiLoans (microloans with contribution-based loan-to-value tiers and a fixed 5\% APY interest rate). The system implements Role-Based Access Control with eight roles distributed across separate accounts to ensure separation of powers. The frontend is built using React 18 with TypeScript and wagmi v2 for smart contract interaction.
+}
+
+\vspace{0.5cm}
+
+\textit{
+Testing was conducted through 26 functional scenarios verifying each UU 25/1992 provision on the DChain environment. Results demonstrate 100\% compliance---all 26 provisions were successfully implemented and functioned according to specification. Gas cost analysis indicates that core cooperative operations have reasonable computational consumption for a consortium blockchain network. Comparison with conventional cooperatives and token-based DAOs shows that Lakomi excels in transparency (publicly auditable distributed ledger), democracy (smart contract-guaranteed one-member-one-vote), and automation (on-chain SHU distribution). The dual-track architecture separating voting rights from contribution incentives is the key design contribution that distinguishes Lakomi from existing systems and aligns cooperative democratic principles with financial sustainability.
+}
+
+\vspace{0.5cm}
+\noindent\textbf{Keywords} : blockchain, cooperative, smart contract, UU 25/1992, Design Science Research

@@ -21,10 +21,136 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{ferdiana2012agile}
-R.~Ferdiana, ``Agile software engineering framework for evaluating mobile
-  application development,'' \emph{International Journal of Scientific \&
-  Engineering Research}, vol.~3, no.~12, pp. 89--93, 2012.
+\bibitem{sailana2023pengaruh}
+A.~Sailana, Y.~Maro, S.~Tang, and J.~Sabu, ``Analisis pengaruh simpanan pokok,
+  simpanan wajib, dan simpanan sukarela terhadap shu anggota koperasi,''
+  \emph{Jurnal Ilmiah Wahana Pendidikan}, vol.~9, no.~23, pp. 792--809, 2023.
+
+\bibitem{kartika2024tanggung}
+S.~Kartika, Hartana, and G.~Rae, ``Tanggung jawab pengawas koperasi atas
+  kesalahan pengelolaan yang berkepastian hukum,'' \emph{Mutiara}, vol.~2,
+  no.~12, pp. 56--67, 2024.
+
+\bibitem{novatiani2023pengaruh}
+R.~Novatiani, R.~Novianto, V.~Christina, B.~Asikin, and T.~Sarumpet, ``Pengaruh
+  tata kelola koperasi terhadap kinerja keuangan,'' \emph{EKUILNOMI}, vol.~5,
+  no.~2, 2023.
+
+\bibitem{nakamoto2008bitcoin}
+S.~Nakamoto, ``Bitcoin: A peer-to-peer electronic cash system,''
+  \url{https://bitcoin.org/bitcoin.pdf}, 2008.
+
+\bibitem{buterin2014ethereum}
+V.~Buterin, ``Ethereum: A next-generation smart contract and decentralized
+  application platform,'' \url{https://ethereum.org/en/whitepaper/}, 2014.
+
+\bibitem{sun2022multiparty}
+X.~Sun, X.~Chen, C.~Stasinakis \emph{et~al.}, ``Multiparty democracy in
+  decentralized autonomous organization (dao): Evidence from makerdao,''
+  \emph{arXiv preprint arXiv:2210.11203}, 2022.
+
+\bibitem{sharma2024future}
+T.~Sharma, Y.~Potter, K.~Pongmala, H.~Wang, A.~Miller, D.~Song, and Y.~Wang,
+  ``Future of algorithmic organization: Large scale analysis of decentralized
+  autonomous organizations (daos),'' \emph{ACM Transactions on the Web}, 2026.
+
+\bibitem{maryam2025pendirian}
+R.~Maryam, ``Pendirian koperasi desa merah putih ditinjau dari undang-undang
+  nomor 25 tahun 1992 tentang perkoperasian,'' \emph{JPH Galunggung}, vol.~2,
+  no.~2, pp. 120--140, 2025.
+
+\bibitem{arisudhana2025pelatihan}
+D.~Arisudhana, S.~Priyanto, T.~Hiram, and I.~Lestari, ``Pelatihan akuntansi
+  dasar sebagai pendekatan dalam meningkatkan transparansi dan akuntabilitas
+  pengurus koperasi simpan pinjam,'' \emph{Jurnal Padamu Negeri}, vol.~2,
+  no.~4, 2025.
+
+\bibitem{wood2014ethereum}
+G.~Wood, ``Ethereum: A secure decentralised generalised transaction ledger,''
+  \emph{Ethereum project yellow paper}, vol. 151, pp. 1--32, 2014.
+
+\bibitem{hevner2004design}
+A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
+  systems research,'' \emph{MIS quarterly}, vol.~28, no.~1, pp. 75--105, 2004.
+
+\bibitem{zheng2018blockchain}
+Z.~Zheng, S.~Xie, H.~Dai, X.~Chen, and H.~Wang, ``An overview of blockchain
+  technology: Architecture, consensus, and future trends,'' \emph{2018 IEEE
+  International Congress on Big Data (BigData Congress)}, pp. 557--564, 2018.
+
+\bibitem{szabo1997smart}
+N.~Szabo, ``The idea of smart contracts,'' \emph{Nick Szabo's Papers and
+  Concise Tutorials}, 1997.
+
+\bibitem{eip20}
+F.~Vogelsteller and V.~Buterin, ``Eip-20: Token standard,'' Ethereum
+  Improvement Proposals, 2015.
+
+\bibitem{openzeppelin}
+{OpenZeppelin}, ``Openzeppelin contracts,''
+  \url{https://docs.openzeppelin.com/contracts/5.x}, 2024.
+
+\bibitem{hassan2021dao}
+S.~Hassan and P.~De~Filippi, ``Decentralized autonomous organization,''
+  \emph{Internet Policy Review}, vol.~10, no.~2, 2021.
+
+\bibitem{tamai2024dao}
+S.~Tamai and S.~Kasahara, ``Dao voting mechanism resistant to whale and
+  collusion problems,'' \emph{Frontiers in Blockchain}, vol.~7, p. 1405516,
+  2024.
+
+\bibitem{elamine2024blockchain}
+B.~M. El~Amine and L.~Sari-T, ``Leveraging blockchain technology for secure and
+  transparent property registry management: Exploring applications in logistics
+  management, with decentralized decision-making for co-ownership,'' in
+  \emph{Proc. Int. Conf. African Fed. Oper. Res. Soc. (AFROS)}, 2024, pp. 1--6.
+
+\bibitem{liu2024economics}
+Y.~Liu and L.~Zhang, ``The economics of blockchain governance: Evaluate liquid
+  democracy on the internet computer,'' \emph{arXiv preprint arXiv:2404.13768},
+  2024.
+
+\bibitem{carata2024smart}
+C.~Carata, W.~J. Knottenbelt, and V.~Malinoiu, ``Governance in the blockchain
+  era: The smart social contract,'' in \emph{Proc. 25th Annu. Int. Conf. Digit.
+  Gov. Res. (dg.o)}, 2024, pp. 104--115.
+
+\bibitem{uu251992}
+{Pemerintah Republik Indonesia}, ``Undang-undang republik indonesia nomor 25
+  tahun 1992 tentang perkoperasian,'' \emph{Lembaran Negara Republik Indonesia
+  Tahun 1992 Nomor 116}, 1992.
+
+\bibitem{putra2025dualisme}
+M.~T.~P. Putra, W.~Susetyo, and Kasiani, ``Dualisme kewenangan pengawasan
+  koperasi simpan pinjam (ksp) antara kementerian koperasi dan ukm serta
+  otoritas jasa keuangan (ojk),'' \emph{Jurnal Supremasi}, vol.~15, no.~2, pp.
+  135--148, 2025.
+
+\bibitem{antoni2024permasalahan}
+V.~Antoni and A.~F. Razaga, ``Permasalahan hukum pada kegiatan koperasi simpan
+  pinjam di indonesia,'' \emph{VeJ (Veritas et Justitia)}, vol.~10, no.~1, pp.
+  179--202, 2024.
+
+\bibitem{pp72021}
+{Pemerintah Republik Indonesia}, ``Peraturan pemerintah nomor 7 tahun 2021
+  tentang kemudahan, pelindungan, dan pemberdayaan koperasi dan usaha mikro,
+  kecil, dan menengah,'' \emph{Lembaran Negara Republik Indonesia Tahun 2021
+  Nomor 17}, 2021.
+
+\bibitem{permenkop82023}
+{Kementerian Koperasi dan UKM}, ``Peraturan menteri koperasi dan ukm nomor 8
+  tahun 2023 tentang usaha simpan pinjam oleh koperasi,'' \emph{Berita Negara
+  Republik Indonesia Tahun 2023 Nomor 621}, 2023.
+
+\bibitem{saito2023reputation}
+Y.~Saito and J.~A. Rose, ``Reputation-based decentralized autonomous
+  organization for the non-profit sector: Leveraging blockchain to enhance good
+  governance,'' \emph{Frontiers in Blockchain}, vol.~5, p. 1083647, 2023.
+
+\bibitem{hevner2007design}
+A.~R. Hevner, ``A three cycle view of design science research,''
+  \emph{Scandinavian Journal of Information Systems}, vol.~19, no.~2, pp.
+  87--92, 2007.
 
 \bibitem{lukito2016}
 \BIBentryALTinterwordspacing
@@ -33,45 +159,6 @@ L.~E. Nugroho, ``E-book as a platform for exploratory learning interactions,''
   vol.~11, no.~01, pp. 62--65, 2016. [Online]. Available:
   \url{http://www.online-journals.org/index.php/i-jet/article/view/5011}
 \BIBentrySTDinterwordspacing
-
-\bibitem{wibirama2013dual}
-S.~Wibirama, S.~Tungjitkusolmun, and C.~Pintavirooj, ``Dual-camera acquisition
-  for accurate measurement of three-dimensional eye movements,'' \emph{IEEJ
-  Transactions on Electrical and Electronic Engineering}, vol.~8, no.~3, pp.
-  238--246, 2013.
-
-\bibitem{hevner2004design}
-A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
-  systems research,'' \emph{MIS quarterly}, vol.~28, no.~1, pp. 75--105, 2004.
-
-\bibitem{hevner2007design}
-A.~R. Hevner, ``A three cycle view of design science research,''
-  \emph{Scandinavian Journal of Information Systems}, vol.~19, no.~2, pp.
-  87--92, 2007.
-
-\bibitem{antoni2024permasalahan}
-V.~Antoni and A.~F. Razaga, ``Permasalahan hukum pada kegiatan koperasi simpan
-  pinjam di indonesia,'' \emph{VeJ (Veritas et Justitia)}, vol.~10, no.~1, pp.
-  179--202, 2024.
-
-\bibitem{putra2025dualisme}
-M.~T.~P. Putra, W.~Susetyo, and Kasiani, ``Dualisme kewenangan pengawasan
-  koperasi simpan pinjam (ksp) antara kementerian koperasi dan ukm serta
-  otoritas jasa keuangan (ojk),'' \emph{Jurnal Supremasi}, vol.~15, no.~2, pp.
-  135--148, 2025.
-
-\bibitem{eip20}
-F.~Vogelsteller and V.~Buterin, ``Eip-20: Token standard,'' Ethereum
-  Improvement Proposals, 2015.
-
-\bibitem{wood2014ethereum}
-G.~Wood, ``Ethereum: A secure decentralised generalised transaction ledger,''
-  \emph{Ethereum project yellow paper}, vol. 151, pp. 1--32, 2014.
-
-\bibitem{permenkop82023}
-{Kementerian Koperasi dan UKM}, ``Peraturan menteri koperasi dan ukm nomor 8
-  tahun 2023 tentang usaha simpan pinjam oleh koperasi,'' \emph{Berita Negara
-  Republik Indonesia Tahun 2023 Nomor 621}, 2023.
 
 \bibitem{santosa2011user}
 P.~I. Santosa, ``User?s preference of web page length,'' \emph{International
@@ -88,6 +175,12 @@ C.~P. Wibowo, P.~Thumwarin, and T.~Matsuura, ``On-line signature verification
   and Communication Technology, Electronic and Electrical Engineering (JICTEE),
   2014 4th Joint International Conference on}.\hskip 1em plus 0.5em minus
   0.4em\relax IEEE, 2014, pp. 1--5.
+
+\bibitem{wibirama2013dual}
+S.~Wibirama, S.~Tungjitkusolmun, and C.~Pintavirooj, ``Dual-camera acquisition
+  for accurate measurement of three-dimensional eye movements,'' \emph{IEEJ
+  Transactions on Electrical and Electronic Engineering}, vol.~8, no.~3, pp.
+  238--246, 2013.
 
 \bibitem{wibowo2016clustering}
 C.~P. Wibowo, ``Clustering seasonal performances of soccer teams based on

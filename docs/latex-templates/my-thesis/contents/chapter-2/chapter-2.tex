@@ -1,42 +1,201 @@
 \chapter{Tinjauan Pustaka dan Dasar Teori}
 
-\section{Tinjauan Pustaka}
+Bab ini menyajikan tinjauan pustaka dan dasar teori yang menjadi landasan penelitian. Pembahasan mencakup teknologi blockchain dan \textit{smart contract}, konsep \textit{Decentralized Autonomous Organization} (DAO), sistem perkoperasian di Indonesia, regulasi terkait, serta perbandingan dengan penelitian terdahulu.
 
-Berisi tugas akhir-tugas akhir terdahulu yang terkait dengan judul skripsi yang dilakukan. Hal ini meliputi skripsi, tesis, atau publikasi terdahulu yang terkait dengan judul skripsi yang diusulkan. Lakukan pembahasan secara sistemastis dengan menjelaskan masalah apa yang dilakukan oleh tugas akhir terdahulu, kontribusi yang dilakukan, serta analisis penulis terkait dengan keunggulan dan keterbatasan tugas akhir. 
+\section{Teknologi Blockchain dan Smart Contract}
 
-Setelah membahas berbagai tugas akhir terdahulu, maka alangkah baiknya penulis melakukan rangkuman terutama terkait dengan peluang pengembangan atau tugas akhir yang akan dilakukan.
+\subsection{Blockchain sebagai Distributed Ledger}
 
+Blockchain adalah sistem \textit{distributed ledger} yang memungkinkan pencatatan transaksi secara terdesentralisasi, transparan, dan imutabel. Konsep blockchain pertama kali diperkenalkan oleh Nakamoto \cite{nakamoto2008bitcoin} melalui Bitcoin, sebuah sistem pembayaran elektronik \textit{peer-to-peer} yang memungkinkan dua pihak bertransaksi secara langsung tanpa melalui institusi keuangan sebagai perantara. Setiap transaksi dicatat dalam blok yang saling terhubung secara kriptografis melalui fungsi \textit{hash}, membentuk rantai (\textit{chain}) yang tidak dapat diubah tanpa mengubah seluruh blok setelahnya.
 
-\section{Dasar Teori}
+Blockchain beroperasi pada jaringan \textit{peer-to-peer} di mana setiap \textit{node} menyimpan salinan lengkap \textit{ledger}. Konsensus dicapai melalui mekanisme seperti \textit{Proof of Work} (PoW) atau \textit{Proof of Stake} (PoS), yang memastikan bahwa seluruh \textit{node} memiliki salinan data yang identik tanpa memerlukan otoritas pusat. Transparansi tercapai karena setiap transaksi dapat diverifikasi secara independen oleh siapa pun yang memiliki akses ke \textit{ledger}. Imutabilitas tercapai karena modifikasi data di blok sebelumnya akan mengubah \textit{hash} blok tersebut dan seluruh blok setelahnya, sehingga secara komputasional tidak praktis untuk dilakukan.
 
-Berisi teori-teori yang menjadi dasar solusi atau produk hasil skripsi. Dasar teori pada umumnya diperoleh melalui buku referensi, publikasi tugas akhir, dan informasi web yang dapat dipertanggungjawabkan. Hindari penggunaan dasar teori melalui tautan wikipedia, surat kabar, atau portal berita.
+Zheng dkk. \cite{zheng2018blockchain} mengklasifikasikan blockchain ke dalam tiga kategori berdasarkan tingkat akses: (1) \textit{public blockchain}---setiap orang dapat membaca, mengirim transaksi, dan berpartisipasi dalam konsensus (contoh: Bitcoin, Ethereum); (2) \textit{consortium blockchain}---hanya sekelompok \textit{node} yang telah ditentukan yang berpartisipasi dalam konsensus (contoh: Hyperledger Fabric, DChain); dan (3) \textit{private blockchain}---hanya satu organisasi yang mengontrol jaringan. Untuk sistem koperasi, \textit{consortium blockchain} seperti DChain menawarkan keseimbangan antara transparansi dan kontrol akses---data transaksi dapat diverifikasi secara publik, namun partisipasi dalam konsensus dibatasi pada institusi yang terverifikasi.
 
-\subsection{Pengenalan Aplikasi Permainan}
+\subsection{Ethereum dan Ethereum Virtual Machine (EVM)}
 
-Proses pembuatan \textit{game} dimulai dari pembuatan \textit{game design document} dimana 
-dokumen ini akan menjadi landasan pengembangan game tersebut serta menginformasikan gambaran keseluruhan game yang akan dibuat \cite{ferdiana2012agile}. \textcolor{red}{\textit{Catatan: apapun yang diambil dari tulisan orang lain harus disitasi seperti dicontohkan \cite{ferdiana2012agile}.}}
+Ethereum, yang diusulkan oleh Buterin \cite{buterin2014ethereum} dan dispesifikasikan secara formal oleh Wood \cite{wood2014ethereum}, memperluas konsep blockchain dari sekadar sistem pembayaran menjadi platform komputasi terdesentralisasi. Inovasi utama Ethereum adalah \textit{Ethereum Virtual Machine} (EVM)---sebuah mesin virtual Turing-complete yang mengeksekusi \textit{smart contract} pada setiap \textit{node} jaringan.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=12cm]{contents/chapter-2/gambar-buatan-sendiri.png}
-	\caption[Contoh gambar]{Contoh gambar \cite{lukito2016}}
-	\label{Fig:gambar-buatan-sendiri}
-\end{figure}
+EVM adalah \textit{stack-based virtual machine} yang mengeksekusi \textit{bytecode} yang dihasilkan dari kompilasi bahasa pemrograman tingkat tinggi seperti Solidity. Setiap operasi dalam EVM---baik itu perhitungan aritmetika, penyimpanan data, atau pemanggilan fungsi---memiliki biaya komputasi yang diukur dalam satuan \textit{gas}. Mekanisme \textit{gas} mencegah \textit{infinite loop} dan serangan \textit{denial-of-service} dengan membatasi jumlah komputasi yang dapat dilakukan dalam satu transaksi. Pengirim transaksi membayar biaya \textit{gas} dalam mata uang kripto asli jaringan (Ether/ETH), yang mendorong penulisan kode yang efisien dan mencegah penyalahgunaan sumber daya jaringan.
 
+EVM mempertahankan \textit{state} global yang terdiri dari seluruh akun dan \textit{smart contract} yang ada di jaringan. Setiap transaksi---baik itu transfer ETH sederhana, pembuatan \textit{smart contract} baru, atau pemanggilan fungsi---merupakan transisi \textit{state} dari kondisi sebelum ke kondisi sesudah. Konsensus pada jaringan Ethereum (pasca-\textit{Merge}) dicapai melalui mekanisme \textit{Proof of Stake} (PoS) berbasis Gasper, yang menggantikan mekanisme PoW sebelumnya.
 
+\subsection{Smart Contract}
 
-\textit{Game design document} adalah sebuah bagian penting dalam pembuatan game baik itu elemen-elemen penyusunnya maupun proses pengembangannya. Game design yang telah dibuat, dijabarkan satu persatu mengenai tahapan dalam pembuatan game dan hasilnya disatukan dalam bentuk dokumentasi \textit{game design document} yang digunakan oleh \textit{developer} sebagai buku petunjuk bagaimana membuat \textit{game} \cite{lukito2016}.
+\textit{Smart contract} adalah program komputer yang berjalan pada blockchain dan secara otomatis mengeksekusi ketentuan yang telah ditentukan ketika kondisi yang telah diprogram terpenuhi. Konsep \textit{smart contract} pertama kali diusulkan oleh Szabo \cite{szabo1997smart} sebagai "seperangkat janji dalam bentuk digital, termasuk protokol di mana para pihak melaksanakan janji tersebut." Dalam konteks blockchain, \textit{smart contract} adalah kode yang disimpan pada alamat tertentu di \textit{ledger} dan dieksekusi oleh EVM ketika dipanggil melalui transaksi.
 
-Dalam buku \textit{Game Design Essentials} disebutkan \textit{game design document} merupakan metode yang menghubungkan elemen-elemen penyusun \textit{game}, baik itu \textit{art, sound, program, 
-gameplay} sehingga semuanya terdokumentasi menjadi satu dan menjadi acuan bagi para \textit{developer} dalam membuat \textit{game} \cite{wibirama2013dual}. 
+\textit{Smart contract} pada Ethereum ditulis dalam bahasa pemrograman tingkat tinggi seperti Solidity, yang kemudian dikompilasi menjadi \textit{bytecode} EVM. Setelah di-\textit{deploy}, \textit{smart contract} bersifat imutabel---kodenya tidak dapat diubah kecuali mekanisme \textit{upgradeability} seperti pola \textit{proxy} telah dirancang sebelumnya. Setiap interaksi dengan \textit{smart contract}---membaca data atau memodifikasi \textit{state}---dilakukan melalui transaksi yang tercatat secara permanen pada blockchain.
 
-\subsection{Dasar Teori Lainnya}
+\textit{Smart contract} dapat mendefinisikan antarmuka fungsi publik yang dapat dipanggil oleh pengguna eksternal atau kontrak lain. Fungsi yang membaca data (\textit{view/pure}) tidak mengonsumsi \textit{gas} ketika dipanggil secara lokal, sedangkan fungsi yang mengubah \textit{state} memerlukan transaksi berbiaya \textit{gas}. \textit{Smart contract} juga dapat memancarkan \textit{event}---catatan log yang disimpan pada blockchain---yang memungkinkan pemantauan aktivitas kontrak secara \textit{off-chain} melalui \textit{block explorer} atau aplikasi \textit{frontend}.
 
-\section{Analisis Perbandingan Metode}
+\subsection{Standar ERC-20 dan Token}
 
-Di dalam tinjauan pustaka hasil akhirnya adalah analisis secara kualitatif atau pun secara kuantitatif kelebihan dan kekurangan metode jika dikaitkan dengan masalah, batasan-batasan masalah dan solusi yang dinginkan. Analisis kuantitatif tidak wajib teapi mempunyai nilai tambah di dalam tugas akhir saudara. Bagian ini menjelaskan kenapa metode tersebut dipilih dan uraikan dengan lebih jelas metode pelaksanaan tugas akhir yang ingin Anda lakukan. 
+ERC-20 adalah standar teknis untuk \textit{fungible token} pada blockchain Ethereum yang didefinisikan dalam Ethereum Improvement Proposal (EIP) 20 \cite{eip20}. Standar ini menetapkan antarmuka wajib yang harus diimplementasikan oleh setiap \textit{token contract}, mencakup fungsi-fungsi seperti \texttt{transfer()}, \texttt{balanceOf()}, \texttt{approve()}, dan \texttt{transferFrom()}. Standarisasi ini memungkinkan interoperabilitas antara berbagai aplikasi---\textit{wallet}, \textit{exchange}, dan \textit{smart contract} lain---yang dapat berinteraksi dengan token ERC-20 tanpa perlu mengetahui detail implementasi internalnya.
 
-\section{Pertanyaan Tugas Akhir (Jika Perlu)}
+Token ERC-20 dapat dimodifikasi untuk memenuhi kebutuhan spesifik. Dalam konteks Lakomi, standar ERC-20 diperluas dengan fungsi keanggotaan (\texttt{isRegisteredMember}) dan non-transferabilitas (\texttt{transfersEnabled = false}) untuk mematuhi ketentuan UU 25/1992 tentang keanggotaan koperasi yang bersifat \textit{intuitu personae} dan tidak dapat diperjualbelikan.
 
-Pertanyaan tugas akhir bersifat opsional dan dapat ditambahkan untuk menekankan hal-hal yang hendak diketahui dari tugas akhir berdasar pada tujuan tugas akhir. Pertanyaan tugas akhir dikenal dengan RQ (\textit{Research Question}) dan harus memiliki keterkaitan dengan RO (\textit{Research Objective}). Satu RO dapat memiliki satu atau lebih dari satu RQ. 
+\subsection{Kontrol Akses dan Keamanan Smart Contract}
 
+OpenZeppelin \cite{openzeppelin} menyediakan pustaka \textit{smart contract} standar yang telah diaudit secara ekstensif, termasuk modul \texttt{AccessControl} untuk manajemen peran dan \texttt{ReentrancyGuard} untuk perlindungan terhadap serangan \textit{reentrancy}. \texttt{AccessControl} mengimplementasikan \textit{Role-Based Access Control} (RBAC) berbasis \textit{bytes32 role identifier}, di mana setiap peran dapat memiliki banyak pemegang dan setiap akun dapat memiliki banyak peran. Fungsi-fungsi sensitif dilindungi oleh \textit{modifier} \texttt{onlyRole} yang memverifikasi bahwa pemanggil memiliki peran yang sesuai. Pemisahan peran ini mencegah konsentrasi kekuasaan pada satu akun dan memungkinkan implementasi \textit{separation of duties} sebagaimana diamanatkan dalam tata kelola koperasi.
+
+Serangan \textit{reentrancy} adalah salah satu vektor serangan paling serius pada \textit{smart contract}, di mana penyerang memanggil fungsi yang melakukan transfer dana secara rekursif sebelum \textit{state} diperbarui. \texttt{ReentrancyGuard} menyediakan \textit{modifier} \texttt{nonReentrant} yang mencegah pemanggilan ulang fungsi yang sama dalam satu transaksi, mengeliminasi vektor serangan ini secara fundamental.
+
+\subsection{DChain: Blockchain Konsorsium Pendidikan Tinggi Indonesia}
+
+DChain adalah jaringan blockchain konsorsium yang dikembangkan untuk institusi pendidikan tinggi Indonesia. DChain menggunakan arsitektur \textit{EVM-compatible} dengan Chain ID 17845, yang berarti setiap \textit{smart contract} yang dikompilasi untuk Ethereum dapat di-\textit{deploy} pada DChain tanpa modifikasi. Sebagai blockchain konsorsium, DChain membatasi partisipasi dalam konsensus pada \textit{node} yang dioperasikan oleh institusi pendidikan tinggi yang terverifikasi, sementara data transaksi tetap dapat diakses dan diverifikasi secara publik melalui \textit{block explorer} pada \url{https://dchain.id/explorer/}. Biaya \textit{gas} pada DChain secara signifikan lebih rendah dibandingkan Ethereum \textit{mainnet}, menjadikannya platform yang layak untuk operasional koperasi yang melibatkan transaksi reguler.
+
+\section{Decentralized Autonomous Organization (DAO)}
+
+\subsection{Definisi dan Karakteristik DAO}
+
+\textit{Decentralized Autonomous Organization} (DAO) adalah bentuk organisasi yang diatur oleh aturan yang dikodekan dalam \textit{smart contract} pada blockchain, di mana keputusan dibuat secara kolektif oleh pemangku kepentingan melalui mekanisme pemungutan suara yang transparan. Hassan dan De Filippi \cite{hassan2021dao} mendefinisikan DAO sebagai "organisasi yang dijalankan melalui aturan yang dikodekan dalam program komputer yang disebut \textit{smart contract}, yang bersifat transparan dan berada di luar kendali pihak tunggal mana pun."
+
+Karakteristik utama DAO meliputi: (1) \textit{decentralization}---tidak ada otoritas pusat, keputusan dibuat secara kolektif; (2) \textit{autonomy}---aturan organisasi dijalankan secara otomatis oleh \textit{smart contract} tanpa intervensi manusia; (3) \textit{transparency}---seluruh aturan, proposal, suara, dan transaksi tercatat pada \textit{public ledger} yang dapat diverifikasi oleh siapa pun; dan (4) \textit{token-based participation}---hak partisipasi dalam tata kelola umumnya dikaitkan dengan kepemilikan \textit{governance token}.
+
+Sharma dkk. \cite{sharma2024future} melakukan analisis skala besar terhadap DAO dan menemukan bahwa partisipasi dalam tata kelola DAO sangat timpang---sebagian kecil pemegang token besar (\textit{whale}) mendominasi pemungutan suara, menciptakan dinamika plutokratis yang bertentangan dengan prinsip demokrasi partisipatif. Temuan ini relevan untuk sistem koperasi di mana kesetaraan hak suara merupakan prinsip fundamental.
+
+\subsection{Model Tata Kelola DAO}
+
+Tata kelola DAO umumnya mengimplementasikan salah satu dari beberapa model pemungutan suara. Model \textit{token-weighted voting}---di mana kekuatan suara proporsional terhadap jumlah token yang dimiliki---adalah yang paling umum dan digunakan oleh DAO besar seperti MakerDAO dan Compound. Sun dkk. \cite{sun2022multiparty} menganalisis dinamika pemungutan suara di MakerDAO dan mendokumentasikan pembentukan koalisi pemilih yang memusatkan kekuasaan, mengonfirmasi bahwa \textit{token-weighted voting} cenderung menghasilkan konsentrasi kekuasaan.
+
+Sebagai alternatif, beberapa DAO eksperimental mengadopsi model \textit{one-person-one-vote} atau mekanisme mitigasi seperti \textit{quadratic voting} di mana biaya suara meningkat secara kuadratik. Tamai dan Kasahara \cite{tamai2024dao} mengusulkan mekanisme pemungutan suara yang tahan terhadap \textit{whale} dan kolusi dengan memisahkan \textit{governance token} dari \textit{utility token}, sebuah pendekatan yang paralel dengan desain \textit{dual-track} Lakomi.
+
+\subsection{DAO untuk Koperasi}
+
+Beberapa penelitian telah mengeksplorasi penerapan DAO untuk koperasi. El Amine dan Sari \cite{elamine2024blockchain} memanfaatkan blockchain untuk manajemen registri properti dengan pengambilan keputusan terdesentralisasi untuk kepemilikan bersama, mendemonstrasikan potensi blockchain untuk koperasi properti. Liu dan Zhang \cite{liu2024economics} mengevaluasi demokrasi cair (\textit{liquid democracy}) pada blockchain Internet Computer sebagai model tata kelola untuk organisasi terdesentralisasi. Carata dkk. \cite{carata2024smart} mengusulkan konsep "\textit{smart social contract}" untuk tata kelola berbasis blockchain, menjembatani teori kontrak sosial dengan implementasi teknis.
+
+Meskipun penelitian-penelitian ini menunjukkan potensi DAO untuk koperasi, belum ada yang secara sistematis memetakan ketentuan hukum perkoperasian nasional---seperti UU 25/1992---ke dalam \textit{smart contract} yang dapat dieksekusi. Kesenjangan inilah yang diisi oleh penelitian Lakomi.
+
+\subsection{Keterbatasan Model DAO Existing}
+
+Model DAO existing memiliki beberapa keterbatasan fundamental ketika diterapkan pada koperasi. Pertama, \textit{token-weighted voting} menciptakan plutokrasi yang bertentangan dengan Pasal 22(1) UU 25/1992 yang menetapkan prinsip satu anggota satu suara. Kedua, DAO umumnya tidak memiliki mekanisme pengawasan formal seperti peran pengawas (\textit{supervisory board}) yang diamanatkan dalam Pasal 38--39 UU 25/1992. Ketiga, DAO tidak memiliki struktur simpanan bertingkat (pokok, wajib, sukarela) sebagaimana diatur dalam Pasal 41. Keempat, distribusi \textit{surplus} dalam DAO umumnya proporsional terhadap \textit{staking}, sedangkan UU 25/1992 Pasal 45 mengamanatkan distribusi berdasarkan kontribusi jasa usaha dan jasa modal. Kelima, DAO tidak mengakomodasi mekanisme Rapat Anggota Tahunan (RAT) sebagai forum pengambilan keputusan tertinggi sebagaimana diwajibkan dalam Pasal 26--27.
+
+\section{Koperasi di Indonesia}
+
+\subsection{Definisi dan Prinsip Koperasi}
+
+Berdasarkan Undang-Undang Nomor 25 Tahun 1992 tentang Perkoperasian \cite{uu251992}, koperasi didefinisikan sebagai "badan usaha yang beranggotakan orang-seorang atau badan hukum Koperasi dengan melandaskan kegiatannya berdasarkan prinsip Koperasi sekaligus sebagai gerakan ekonomi rakyat yang berdasar atas asas kekeluargaan." Definisi ini mengandung tiga elemen kunci: (1) koperasi adalah badan usaha---bukan sekadar perkumpulan sosial, melainkan entitas ekonomi yang menjalankan kegiatan usaha; (2) koperasi beranggotakan orang atau badan hukum---keanggotaan bersifat personal dan tidak dapat diperjualbelikan; dan (3) koperasi berdasarkan asas kekeluargaan---membedakannya dari perseroan terbatas yang berdasarkan asas kapital.
+
+Pasal 5 UU 25/1992 menjabarkan empat prinsip koperasi yang menjadi landasan operasional: (1) keanggotaan bersifat sukarela dan terbuka, (2) pengelolaan dilakukan secara demokratis, (3) pembagian Sisa Hasil Usaha (SHU) dilakukan secara adil sebanding dengan besarnya jasa usaha masing-masing anggota, dan (4) pemberian balas jasa yang terbatas terhadap modal. Prinsip-prinsip ini mencerminkan karakteristik unik koperasi sebagai badan usaha yang mengutamakan kesejahteraan anggota (\textit{member welfare}) di atas akumulasi modal (\textit{capital accumulation}).
+
+Maryam \cite{maryam2025pendirian} menganalisis pendirian Koperasi Desa Merah Putih dalam kerangka UU 25/1992 dan menekankan pentingnya kepatuhan terhadap prinsip-prinsip koperasi sejak tahap pendirian. Analisis ini relevan untuk implementasi on-chain di mana aturan kepatuhan harus dikodekan sejak awal dalam \textit{smart contract}.
+
+\subsection{Struktur Organisasi Koperasi}
+
+Struktur organisasi koperasi terdiri dari tiga organ utama: Rapat Anggota, Pengurus, dan Pengawas. Rapat Anggota (Pasal 26--27) adalah pemegang kekuasaan tertinggi dalam koperasi. RAT diselenggarakan paling sedikit sekali dalam setahun untuk menetapkan kebijakan umum, memilih dan memberhentikan pengurus dan pengawas, mengesahkan laporan keuangan, dan menetapkan pembagian SHU. Setiap anggota memiliki satu suara (Pasal 22(1)), tanpa memandang jumlah simpanan atau kontribusi modal.
+
+Pengurus (Pasal 29--32) adalah badan eksekutif yang dipilih oleh Rapat Anggota untuk mengelola operasional koperasi sehari-hari. Pengurus bertanggung jawab kepada Rapat Anggota dan dapat diberhentikan sewaktu-waktu melalui mekanisme tata kelola. Kartika dkk. \cite{kartika2024tanggung} menekankan bahwa pengurus memiliki kewajiban fidusia (\textit{fiduciary duty}) untuk mengelola aset koperasi dengan itikad baik.
+
+Pengawas (Pasal 38--39) adalah badan pengawas independen yang bertugas melakukan pemeriksaan terhadap pengelolaan koperasi oleh pengurus. Putra dkk. \cite{putra2025dualisme} menganalisis dualisme kewenangan pengawasan KSP antara Kementerian Koperasi dan UKM serta Otoritas Jasa Keuangan (OJK), mengidentifikasi ketidakjelasan batas wewenang yang berpotensi menciptakan celah pengawasan (\textit{regulatory gap}).
+
+\subsection{Sistem Simpanan}
+
+Pasal 41 UU 25/1992 mengatur tiga jenis simpanan koperasi. Simpanan Pokok adalah sejumlah uang yang wajib dibayarkan oleh setiap anggota pada saat mendaftar sebagai anggota, dibayarkan satu kali, dan jumlahnya sama untuk semua anggota. Simpanan Wajib adalah sejumlah uang yang wajib dibayarkan oleh anggota secara berkala dalam jangka waktu tertentu, jumlahnya dapat berbeda berdasarkan keputusan Rapat Anggota. Simpanan Sukarela adalah simpanan yang dibayarkan secara sukarela oleh anggota di luar kewajiban simpanan pokok dan wajib.
+
+Sailana dkk. \cite{sailana2023pengaruh} menganalisis pengaruh ketiga jenis simpanan terhadap SHU anggota koperasi dan menemukan bahwa Simpanan Pokok dan Simpanan Wajib memiliki pengaruh signifikan terhadap SHU, sedangkan Simpanan Sukarela tidak signifikan---menunjukkan bahwa kontribusi simpanan yang terstruktur dan berkelanjutan lebih penting daripada simpanan sporadis. Temuan ini mendukung desain Lakomi yang memberikan bobot lebih pada \textit{tier} kontribusi berbasis simpanan kumulatif.
+
+\subsection{Sisa Hasil Usaha (SHU)}
+
+Pasal 45 UU 25/1992 mengatur distribusi SHU. SHU adalah pendapatan koperasi yang diperoleh dalam satu tahun buku dikurangi biaya, penyusutan, dan kewajiban lainnya termasuk pajak. SHU dibagi untuk: (1) dana cadangan, (2) jasa anggota---proporsional berdasarkan jasa usaha dan jasa modal masing-masing anggota, (3) dana pendidikan koperasi, (4) dana pengurus, dan (5) dana kesejahteraan sosial. Pembagian SHU kepada anggota dilakukan secara proporsional berdasarkan kontribusi jasa usaha masing-masing anggota terhadap koperasi---bukan berdasarkan besarnya modal yang disetor.
+
+Arisudhana dkk. \cite{arisudhana2025pelatihan} menekankan pentingnya transparansi dalam perhitungan dan distribusi SHU sebagai salah satu prinsip koperasi yang membedakannya dari badan usaha kapitalis. Mereka mengusulkan penggunaan sistem informasi untuk meningkatkan transparansi dan akuntabilitas---sebuah argumen yang menjadi justifikasi kuat untuk penerapan blockchain dalam manajemen SHU koperasi.
+
+\subsection{Tantangan Koperasi Tradisional}
+
+Koperasi tradisional di Indonesia menghadapi beberapa tantangan struktural yang menghambat efektivitasnya. Antoni dan Razaga \cite{antoni2024permasalahan} mengidentifikasi permasalahan hukum pada kegiatan KSP di Indonesia yang meliputi: (1) kesenjangan regulasi---ketidakjelasan batas wewenang antara Kemenkop UKM dan OJK menciptakan celah pengawasan, (2) kegagalan pengawasan---pengawas koperasi seringkali tidak memiliki akses \textit{real-time} ke data keuangan, (3) masalah \textit{open-loop}---dana anggota keluar dari sistem koperasi tanpa mekanisme pelacakan yang memadai, dan (4) ketiadaan asuransi simpanan---tidak ada LPS untuk koperasi sebagaimana untuk perbankan.
+
+Novatiani dkk. \cite{novatiani2023pengaruh} meneliti pengaruh tata kelola koperasi terhadap kinerja keuangan pada 68 KSP di Bandung dan menemukan bahwa transparansi dan akuntabilitas memiliki pengaruh positif dan signifikan terhadap kinerja keuangan. Temuan ini menegaskan bahwa perbaikan tata kelola bukan hanya persyaratan regulasi tetapi juga berkontribusi langsung pada kesehatan finansial koperasi.
+
+\subsection{Transformasi Digital Koperasi}
+
+Sejumlah penelitian telah mengkaji adopsi teknologi digital dalam operasional koperasi Indonesia. Nashoha dkk. \cite{nashoha2024transformasi} melakukan studi kualitatif tentang transformasi digital dalam manajemen koperasi dan mengidentifikasi bahwa digitalisasi meningkatkan efisiensi operasional, transparansi pencatatan keuangan, dan aksesibilitas layanan bagi anggota. Namun, mereka juga mencatat bahwa keterbatasan infrastruktur teknologi dan literasi digital pengurus menjadi hambatan utama adopsi.
+
+Fadhilah dan Darmawati \cite{fadhilah2023transformasi} meneliti pengaruh digitalisasi layanan terhadap kinerja keuangan koperasi syariah menggunakan indikator ROA, ROE, dan BOPO. Hasil penelitian menunjukkan bahwa digitalisasi layanan berpengaruh positif signifikan terhadap kinerja keuangan, mendukung argumen bahwa investasi teknologi bukan sekadar biaya tetapi memberikan \textit{return} yang terukur. Farida dan Rofiq \cite{farida2025peran} mendokumentasikan transformasi komunikasi digital di koperasi melalui studi kasus KTKI dan aplikasi KITA, menunjukkan bahwa teknologi komunikasi digital meningkatkan keterlibatan anggota dan mempercepat penyebaran informasi koperasi.
+
+Rustariyuni dkk. \cite{rustariyuni2021pemanfaatan} meneliti adopsi teknologi digital pada koperasi di Provinsi Bali selama pandemi Covid-19 dan mengidentifikasi tiga faktor pendorong utama: kredibilitas teknologi, persepsi biaya, dan kondisi fasilitasi. Temuan ini relevan untuk desain antarmuka Lakomi yang perlu mempertimbangkan kemudahan penggunaan dan biaya akses bagi anggota koperasi di berbagai tingkat literasi digital. Galib dkk. \cite{galib2025penguatan} mengusulkan model pembentukan koperasi digital untuk pemberdayaan ekonomi masyarakat desa, menekankan bahwa koperasi digital dapat menjadi instrumen inklusi keuangan bagi masyarakat pedesaan yang selama ini terpinggirkan dari layanan keuangan formal.
+
+\subsection{Manajemen Keuangan dan Akuntansi Koperasi}
+
+Muslim dkk. \cite{muslim2024implementasi} mengimplementasikan sistem akuntansi berbasis teknologi untuk meningkatkan transparansi dan pengelolaan keuangan koperasi. Penelitian mereka menunjukkan bahwa sistem akuntansi digital memungkinkan pencatatan transaksi secara \textit{real-time}, meminimalkan kesalahan pencatatan manual, dan memfasilitasi audit yang lebih efisien. Maryati dkk. \cite{maryati2024model} mengusulkan model sistem simpan pinjam berbasis \textit{website} dengan arsitektur \textit{client-server}, mendemonstrasikan bahwa sistem informasi dapat mengotomatisasi perhitungan bunga, pelacakan angsuran, dan pelaporan keuangan yang sebelumnya dilakukan secara manual.
+
+Rahma dkk. \cite{rahma2026analisis} menganalisis dampak kredit macet terhadap perputaran arus kas pada koperasi pemasaran dan menemukan bahwa \textit{Non-Performing Loan} (NPL) memiliki pengaruh signifikan terhadap \textit{Cash Turnover Ratio} (CTR)---semakin tinggi NPL, semakin rendah perputaran kas. Temuan ini menjustifikasi mekanisme agunan dan \textit{loan-to-value} berbasis kontribusi dalam LakomiLoans yang bertujuan meminimalkan risiko gagal bayar. Zahra dan Mulawarman \cite{zahra2021penilaian} melakukan penilaian tingkat kesehatan KSP menggunakan kerangka 7 aspek Permenkop dan menemukan skor rata-rata 65,98---kategori "Cukup Sehat"---yang menunjukkan bahwa banyak KSP masih memerlukan perbaikan tata kelola dan manajemen risiko.
+
+\subsection{Pengawasan dan Fraud di Koperasi}
+
+Putra dkk. \cite{putra2025dualisme} menganalisis dualisme kewenangan pengawasan KSP antara Kementerian Koperasi dan UKM dengan Otoritas Jasa Keuangan (OJK). Penelitian mereka mengidentifikasi tumpang tindih regulasi yang menciptakan celah pengawasan---koperasi simpan pinjam berada dalam wilayah abu-abu antara pengawasan kementerian dan otoritas keuangan. Temuan ini menjustifikasi kebutuhan akan mekanisme pengawasan internal yang kuat---seperti PENGAWAS\_ROLE dengan hak veto dalam Lakomi---yang melengkapi pengawasan eksternal.
+
+Tania dkk. \cite{tania2025investigasi} menginvestigasi faktor risiko fraud di lembaga KSP menggunakan perspektif \textit{fraud diamond}---tekanan, kesempatan, rasionalisasi, dan kapabilitas. Penelitian mereka mengidentifikasi bahwa kesempatan (kelemahan pengendalian internal) adalah faktor dominan yang memungkinkan terjadinya fraud. Pebrianti dan Handayani \cite{pebrianti2024peran} meneliti peran kode etik profesi akuntan dalam pencegahan fraud pada laporan keuangan koperasi, menekankan pentingnya pengendalian internal dan audit independen. Kedua penelitian ini memperkuat justifikasi untuk sistem on-chain Lakomi di mana setiap transaksi tercatat secara imutabel dan dapat diaudit secara publik, secara fundamental mengurangi "kesempatan" sebagai faktor fraud dominan.
+
+\subsection{Partisipasi dan Pemberdayaan Anggota}
+
+Partisipasi anggota adalah inti dari koperasi sebagai organisasi berbasis keanggotaan. Fauzi \cite{fauzi2022pengaruh} meneliti pengaruh pemberdayaan terhadap partisipasi anggota koperasi pada 35 pengurus di Rokan Hilir dan menemukan bahwa pemberdayaan berpengaruh positif dan signifikan terhadap partisipasi. Gunawan \cite{gunawan2018faktor} mengidentifikasi faktor pendidikan dan pelatihan anggota sebagai determinan partisipasi anggota sebagai pemilik sekaligus pelanggan koperasi---konsep keanggotaan ganda (\textit{dual identity}) yang unik pada koperasi. Sahputr dkk. \cite{sahputr2024peran} meneliti peran Dinas Koperasi dan UMKM Provinsi NTB dalam meningkatkan partisipasi anggota pada RAT dan menemukan bahwa dukungan institusional signifikan memengaruhi tingkat kehadiran dan keterlibatan anggota.
+
+Pratama dan Soejoto \cite{pratama2015upaya} mendokumentasikan upaya pengurus koperasi wanita untuk meningkatkan partisipasi anggota melalui pendekatan personal dan program edukasi. Anjani dkk. \cite{anjani2023pendampingan} melaporkan program pendampingan tata kelola operasional koperasi yang mencakup komputerisasi administrasi, penyusunan SOP, dan perbaikan struktur organisasi. Kedua penelitian ini menunjukkan bahwa peningkatan partisipasi memerlukan kombinasi pendekatan teknologi, kelembagaan, dan sosial---sebuah wawasan yang diterjemahkan dalam Lakomi melalui antarmuka yang aksesibel, transparansi on-chain, dan mekanisme tata kelola yang inklusif.
+
+\subsection{Blockchain dan Fintech dalam Konteks Koperasi Indonesia}
+
+Wilson dkk. \cite{wilson2024analisis} melakukan \textit{Systematic Literature Review} (SLR) tentang implementasi blockchain untuk meningkatkan transparansi dan kepercayaan di sektor keuangan Indonesia. Penelitian mereka mengidentifikasi bahwa blockchain menawarkan tiga manfaat utama: (1) imutabilitas data yang mencegah manipulasi catatan keuangan, (2) transparansi melalui \textit{distributed ledger} yang dapat diakses dan diverifikasi oleh seluruh pemangku kepentingan, dan (3) otomatisasi melalui \textit{smart contract} yang mengurangi ketergantungan pada proses manual. Kurniawan dkk. \cite{kurniawan2026analisis} melakukan analisis bibliometrik dan SLR tentang hambatan implementasi blockchain di logistik negara berkembang dengan perspektif Indonesia, mengidentifikasi bahwa hambatan utama meliputi ketidakpastian regulasi, kurangnya standar teknis, dan resistensi organisasi terhadap perubahan.
+
+Widodo dkk. \cite{widodo2024pengembangan} meneliti ekosistem \textit{fintech} syariah berbasis blockchain dan implikasinya terhadap pertumbuhan ekonomi, menggunakan studi kasus KSU Kirap Entrepreneurship Klaten. Penelitian \textit{mixed-methods} ini menemukan bahwa integrasi blockchain dengan \textit{fintech} syariah menciptakan ekosistem yang lebih transparan dan efisien, serta meningkatkan kepercayaan anggota terhadap pengelolaan dana koperasi. Winarto \cite{winarto2020peran} meneliti peran \textit{fintech} dalam UMKM di Pekalongan, Batang, dan Pemalang, menunjukkan bahwa \textit{fintech} berperan signifikan dalam inklusi keuangan dan literasi keuangan pelaku UMKM---sebuah temuan yang mendukung potensi Lakomi sebagai platform inklusi keuangan berbasis koperasi.
+
+Analisis yuridis tentang keabsahan \textit{smart contract} dalam perspektif hukum perdata Indonesia \cite{smartcontract2021analisis} memberikan dasar hukum bahwa \textit{smart contract} dapat memenuhi syarat sah perjanjian sebagaimana diatur dalam Pasal 1320 KUH Perdata---kesepakatan, kecakapan, objek tertentu, dan causa yang halal---selama kode \textit{smart contract} dapat dibuktikan sebagai representasi dari kesepakatan para pihak. Analisis ini penting untuk memvalidasi bahwa pemetaan UU 25/1992 ke dalam \textit{smart contract} Lakomi memiliki landasan hukum yang sah dalam sistem hukum Indonesia. Satibi dkk. \cite{satibi2025governance} mengusulkan kerangka tata kelola hibrida untuk DAO yang menyelaraskan standar internasional (COBIT, ITIL) dengan regulasi kripto Indonesia (Bappebti, OJK, BI), menunjukkan adanya kesadaran yang berkembang tentang kebutuhan menyelaraskan inovasi blockchain dengan kerangka regulasi nasional.
+
+\section{Regulasi Terkait}
+
+\subsection{UU 25/1992 tentang Perkoperasian}
+
+UU 25/1992 \cite{uu251992} adalah landasan hukum utama perkoperasian di Indonesia. Undang-undang ini mengatur seluruh aspek operasional koperasi mulai dari pendirian, keanggotaan, permodalan, tata kelola, pengawasan, hingga pembubaran. Untuk keperluan penelitian ini, 26 ketentuan operasional dari UU 25/1992 telah diidentifikasi dan dipetakan ke dalam fungsi \textit{smart contract}. Ketentuan-ketentuan ini mencakup enam kategori: Keanggotaan (Pasal 5(1), 17--21), Simpanan (Pasal 22(2), 41, 43), Pinjaman (Pasal 18), Tata Kelola (Pasal 22(1), 23, 26--27, 29--31), SHU (Pasal 45), dan Pengawas (Pasal 38--39).
+
+\subsection{PP 7/2021 tentang Kemudahan, Pelindungan, dan Pemberdayaan Koperasi dan UMKM}
+
+Peraturan Pemerintah Nomor 7 Tahun 2021 \cite{pp72021} adalah peraturan pelaksana dari UU Cipta Kerja yang bertujuan memberikan kemudahan, pelindungan, dan pemberdayaan bagi koperasi dan usaha mikro, kecil, dan menengah (UMKM). PP ini mendorong digitalisasi koperasi dan penggunaan teknologi informasi dalam operasional koperasi, memberikan dasar hukum bagi implementasi sistem koperasi berbasis blockchain seperti Lakomi.
+
+\subsection{Permenkop 8/2023 tentang Usaha Simpan Pinjam}
+
+Peraturan Menteri Koperasi dan UKM Nomor 8 Tahun 2023 \cite{permenkop82023} mengatur secara spesifik pelaksanaan usaha simpan pinjam oleh koperasi. Peraturan ini menetapkan batas maksimum suku bunga pinjaman yang wajar, persyaratan agunan, mekanisme persetujuan pinjaman, dan prosedur penanganan pinjaman bermasalah. Permenkop 8/2023 mencabut Permenkop 9/2018 yang sebelumnya mengatur penyelenggaraan perkoperasian secara umum, dan merevisi ketentuan tentang usaha simpan pinjam untuk memperkuat pengawasan sektor keuangan koperasi.
+
+\subsection{Kepatuhan Regulasi melalui Smart Contract}
+
+Pemetaan regulasi ke dalam \textit{smart contract}---yang menjadi kontribusi utama penelitian ini---memungkinkan verifikasi kepatuhan secara otomatis dan berkelanjutan. Berbeda dengan sistem tradisional di mana kepatuhan bergantung pada audit periodik dan itikad baik pengurus, \textit{smart contract} menegakkan aturan secara deterministik: setiap transaksi yang melanggar ketentuan akan secara otomatis ditolak (\textit{reverted}) oleh EVM. Pendekatan ini mentransformasi kepatuhan dari proses reaktif (\textit{ex-post audit}) menjadi properti bawaan sistem (\textit{ex-ante enforcement}).
+
+\section{Penelitian Terdahulu}
+
+Bagian ini membandingkan penelitian Lakomi dengan penelitian-penelitian terdahulu yang relevan. Tabel \ref{tab:prior-art} merangkum perbandingan berdasarkan lima dimensi: fokus penelitian, penggunaan blockchain, kepatuhan terhadap UU 25/1992, mekanisme voting, dan implementasi distribusi SHU.
+
+\begin{table}[h]
+\centering
+\caption{Perbandingan Penelitian Terdahulu dengan Lakomi}
+\label{tab:prior-art}
+\footnotesize
+\begin{tabular}{p{0.20\textwidth}p{0.16\textwidth}p{0.10\textwidth}p{0.14\textwidth}p{0.13\textwidth}p{0.17\textwidth}}
+\toprule
+\textbf{Peneliti} & \textbf{Fokus} & \textbf{Blockchain} & \textbf{Kepatuhan UU 25/92} & \textbf{Voting} & \textbf{Distribusi SHU} \\
+\midrule
+Arisudhana dkk. (2025) \cite{arisudhana2025pelatihan} & Transparansi \& akuntabilitas KSP & Tidak & Tidak & Tidak dibahas & Tidak dibahas \\
+\midrule
+Sailana dkk. (2023) \cite{sailana2023pengaruh} & Pengaruh simpanan terhadap SHU & Tidak & Parsial & Tidak dibahas & Proporsional terhadap simpanan \\
+\midrule
+El Amine \& Sari (2024) \cite{elamine2024blockchain} & Registri properti koperasi & Ya (private) & Tidak & Token-weighted & Tidak dibahas \\
+\midrule
+Hassan \& De Filippi (2021) \cite{hassan2021dao} & Kerangka hukum DAO & Ya (Ethereum) & Tidak & Token-weighted & Tidak dibahas \\
+\midrule
+Sun dkk. (2022) \cite{sun2022multiparty} & Koalisi voting di MakerDAO & Ya (Ethereum) & Tidak & Token-weighted & Tidak dibahas \\
+\midrule
+Sharma dkk. (2024) \cite{sharma2024future} & Analisis skala besar DAO & Ya (multi-chain) & Tidak & Token-weighted & Tidak dibahas \\
+\midrule
+Tamai \& Kasahara (2024) \cite{tamai2024dao} & Voting tahan whale & Ya (Ethereum) & Tidak & Hybrid (token + reputasi) & Tidak dibahas \\
+\midrule
+Carata dkk. (2024) \cite{carata2024smart} & Smart social contract & Ya (konseptual) & Tidak & Demokratis (konsep) & Tidak dibahas \\
+\midrule
+Liu \& Zhang (2024) \cite{liu2024economics} & Liquid democracy & Ya (ICP) & Tidak & Liquid democracy & Tidak dibahas \\
+\midrule
+Saito \& Rose (2023) \cite{saito2023reputation} & Reputasi di nonprofit & Ya (L1) & Tidak & Berbasis reputasi & Tidak dibahas \\
+\midrule
+\textbf{Lakomi (ini)} & \textbf{Koperasi penuh UU 25/92} & \textbf{Ya (DChain)} & \textbf{Lengkap (26 pasal)} & \textbf{1-anggota-1-suara} & \textbf{6 kategori on-chain} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seperti ditunjukkan pada Tabel \ref{tab:prior-art}, belum ada penelitian yang mengimplementasikan UU 25/1992 secara menyeluruh ke dalam \textit{smart contract}. Penelitian-penelitian terdahulu mengenai \textit{blockchain cooperative} berfokus pada aspek spesifik---registri properti, tata kelola reputasi, atau demokrasi cair---tanpa pemetaan sistematis terhadap regulasi perkoperasian nasional. Lakomi mengisi kesenjangan ini dengan pendekatan pemetaan langsung: setiap ketentuan UU 25/1992 yang bersifat operasional diterjemahkan ke dalam fungsi \textit{smart contract} yang dapat dieksekusi dan diverifikasi secara on-chain.
+
+Kontribusi utama Lakomi yang membedakannya dari penelitian terdahulu adalah: (1) pemetaan lengkap 26 ketentuan UU 25/1992 ke dalam empat \textit{smart contract} yang saling terintegrasi, (2) arsitektur \textit{dual-track} yang memisahkan kontribusi finansial (LTV pinjaman) dari hak suara (satu-anggota-satu-suara), dan (3) implementasi distribusi SHU enam kategori secara on-chain dengan parameter \textit{basis points} yang dapat dikonfigurasi melalui tata kelola.

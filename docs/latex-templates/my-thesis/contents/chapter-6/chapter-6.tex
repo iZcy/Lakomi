@@ -2,14 +2,32 @@
 
 \section{Kesimpulan}
 
-Kesimpulan dapat diawali dengan apa yang dilakukan dengan tugas akhir ini lalu 
-dilanjutkan dengan poin-poin yang menjawab tujuan penelitian, apakah tujuan sudah tercapai atau belum, tentunya berdasarkan data ataupun hasil dari Bab pembahasan sebelumnya. Dalam beberapa hal, kesimpulan dapat juga berisi tentang temuan/\textit{findings} yang Anda dapatkan setelah melakukan pengamatan dan atau analisis terhadap hasil penelitian. 
+Penelitian ini telah berhasil merancang, mengimplementasikan, dan mengevaluasi sistem koperasi berbasis blockchain Lakomi yang memetakan 26 ketentuan Undang-Undang Nomor 25 Tahun 1992 tentang Perkoperasian ke dalam \textit{smart contract} yang dapat dieksekusi pada jaringan DChain. Berdasarkan hasil implementasi dan pengujian yang telah dibahas pada Bab~\ref{ch4}, kesimpulan penelitian ini disusun sesuai dengan tiga tujuan penelitian yang telah dirumuskan pada Bab~\ref{ch1}:
 
-Kesimpulan menjawab seberapa jauh rumusan masalah tercapai berdasarkan hasil penelitian. Semua rumusan masalah harus disimpulkan berdasarkan data penelitian.
+\begin{enumerate}
+	\item \textbf{Perancangan Smart Contract sesuai UU 25/1992.} Empat \textit{smart contract}---LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans---telah berhasil dirancang dan di-deploy pada jaringan DChain (Chain ID 17845). Arsitektur \textit{dual-track} yang memisahkan hak suara (demokratis, satu-anggota-satu-suara) dari insentif kontribusi (LTV berbasis simpanan) berhasil mengatasi ketegangan antara prinsip demokrasi koperasi dan kebutuhan insentif finansial. Sistem menerapkan \textit{Role-Based Access Control} dengan delapan peran yang didistribusikan ke akun terpisah, memastikan pemisahan kekuasaan antara pengurus, pengawas, dan anggota sesuai amanat UU 25/1992.
+
+	\item \textbf{Pemetaan Ketentuan ke Fungsi Smart Contract.} Sebanyak 26 ketentuan UU 25/1992 telah berhasil dipetakan ke dalam fungsi \textit{smart contract} yang spesifik dan terverifikasi. Pemetaan mencakup enam kategori: keanggotaan (Pasal 5(1), 17--18, 18(2), 19--21, 31), simpanan (Pasal 22(2), 41(1--3), 43), pinjaman (Pasal 18, Permenkop 8/2023 Pasal 6--7), tata kelola (Pasal 22(1), 23, 26--27, 29--30), SHU dan pelaporan (Pasal 45(1--2), 47), serta pengawas dan pembubaran (Pasal 38--39(2)). Seluruh 26 skenario pengujian fungsional menunjukkan status Lulus, membuktikan bahwa setiap ketentuan telah diimplementasikan dan berfungsi sesuai spesifikasi.
+
+	\item \textbf{Evaluasi Kepatuhan Sistem.} Evaluasi kepatuhan dilakukan melalui tiga dimensi: pengujian fungsional, analisis biaya gas, dan perbandingan sistem. Hasil pengujian fungsional menunjukkan tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992. Analisis biaya gas menunjukkan bahwa operasi utama koperasi---pendaftaran anggota, pembayaran simpanan, pemungutan suara, distribusi SHU, dan pengajuan pinjaman---memiliki biaya komputasi yang wajar untuk jaringan blockchain konsorsium. Perbandingan dengan koperasi konvensional dan DAO berbasis \textit{token-weighted voting} menunjukkan bahwa Lakomi unggul dalam tiga aspek utama: (1) transparansi melalui \textit{distributed ledger} yang dapat diaudit secara publik, (2) demokrasi melalui mekanisme satu-anggota-satu-suara yang dijamin oleh \textit{smart contract}, dan (3) otomatisasi melalui distribusi SHU enam kategori yang dieksekusi secara on-chain.
+\end{enumerate}
+
+Secara keseluruhan, penelitian ini membuktikan bahwa regulasi perkoperasian Indonesia---yang selama ini diimplementasikan melalui proses manual dan pengawasan administratif---dapat diterjemahkan ke dalam \textit{smart contract} yang \textit{self-executing}, transparan, dan \textit{auditable}. Pendekatan pemetaan regulasi-ke-kontrak yang diterapkan dalam penelitian ini menghasilkan model \textit{on-chain compliance} yang memastikan kepatuhan sebagai properti bawaan sistem, bukan sekadar \textit{afterthought} administratif.
 
 \section{Saran}
 
-Saran berisi hal-hal yang bisa dilanjutkan dari penelitian atau skripsi ini, yang belum dilakukan karena batasan permasalahan. Saran bukan berisi saran kepada sistem atau pengguna, tetapi saran diberikan kepada aspek penelitian yang dapat dikembangkan dan ditambahkan di penelitian atau skripsi selanjutnya.
+Berdasarkan hasil penelitian dan keterbatasan yang telah diidentifikasi, berikut adalah saran untuk penelitian dan pengembangan selanjutnya:
 
+\begin{enumerate}
+	\item \textbf{Deployment pada DChain Mainnet.} Sistem Lakomi saat ini di-deploy pada lingkungan pengujian. Deployment pada DChain \textit{mainnet} diperlukan untuk memvalidasi kinerja dan keandalan sistem dalam lingkungan produksi dengan volume transaksi dan jumlah anggota yang lebih besar. Deployment \textit{mainnet} juga memungkinkan evaluasi biaya gas dalam kondisi jaringan yang sesungguhnya.
 
-\noindent \textcolor{red}{Catatan: Mahasiswa perlu melihat sinkronisasi antara rumusan masalah, tujuan, metode, hasil penelitian, dan kesimpulan.}
+	\item \textbf{Integrasi dengan Sistem Identitas Digital.} Mekanisme keanggotaan saat ini menggunakan alamat \textit{wallet} Ethereum sebagai identitas anggota. Integrasi dengan sistem identitas digital nasional---seperti KTP elektronik atau platform \textit{Self-Sovereign Identity} (SSI)---akan memperkuat verifikasi identitas anggota dan mencegah pendaftaran ganda (\textit{Sybil attack}). Integrasi ini juga akan mendukung kepatuhan terhadap regulasi \textit{Know Your Customer} (KYC) yang semakin relevan untuk koperasi simpan pinjam.
+
+	\item \textbf{Pengembangan Antarmuka Pendidikan Anggota.} Penggunaan teknologi blockchain dalam koperasi memerlukan literasi digital yang memadai dari anggota. Pengembangan antarmuka yang dirancang khusus untuk edukasi anggota---seperti panduan interaktif, simulasi transaksi, dan penjelasan visual tentang mekanisme tata kelola on-chain---akan meningkatkan adopsi sistem, terutama di kalangan anggota koperasi yang belum terbiasa dengan teknologi \textit{wallet} kriptografis dan \textit{smart contract}.
+
+	\item \textbf{Audit Keamanan Formal.} Sistem Lakomi mengimplementasikan perlindungan keamanan dasar berupa AccessControl dan ReentrancyGuard. Sebelum deployment pada lingkungan produksi yang menangani dana anggota secara riil, audit keamanan formal oleh pihak ketiga---seperti CertiK, Trail of Bits, atau Quantstamp---sangat direkomendasikan untuk mengidentifikasi dan memitigasi kerentanan yang mungkin tidak terdeteksi melalui pengujian fungsional.
+
+	\item \textbf{Perluasan Cakupan Regulasi.} Penelitian ini membatasi pemetaan pada 26 ketentuan UU 25/1992 yang bersifat operasional. Penelitian selanjutnya dapat memperluas cakupan ke regulasi terkait lainnya, seperti Peraturan OJK tentang tata kelola koperasi simpan pinjam, peraturan perpajakan untuk SHU koperasi, dan integrasi dengan sistem pelaporan Kementerian Koperasi dan UKM.
+
+	\item \textbf{Evaluasi Tata Kelola Jangka Panjang.} Mekanisme tata kelola on-chain---termasuk kuorum, periode voting, dan \textit{timelock}---ditetapkan berdasarkan justifikasi regulasi dan praktis. Penelitian longitudinal diperlukan untuk mengevaluasi efektivitas parameter tata kelola ini dalam praktik, termasuk tingkat partisipasi anggota, pola pemungutan suara, dan dinamika kekuasaan antara pengurus dan pengawas dalam sistem yang sepenuhnya transparan.
+\end{enumerate}

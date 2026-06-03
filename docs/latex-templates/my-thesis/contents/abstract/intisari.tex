@@ -1,46 +1,8 @@
-Intisari ditulis menggunakan bahasa Indonesia dengan jarak antar baris 1 spasi dan maksimal 1 halaman. Intisari sekurang-kurangnya berisi tentang latar belakang dan tujuan penelitian, metodologi yang digunakan, hasil penelitian, kesimpulan dan implikasi, dan Kata kunci yang berhubungan dengan penelitian.
+Koperasi di Indonesia menghadapi permasalahan struktural berupa tata kelola yang opak, pencatatan keuangan manual yang rawan manipulasi, partisipasi anggota yang terbatas, dan pengawasan yang lemah akibat ketiadaan akses \textit{real-time} terhadap data operasional. Di sisi lain, teknologi blockchain dan \textit{Decentralized Autonomous Organization} (DAO) menawarkan transparansi dan otomatisasi melalui \textit{smart contract}, namun model DAO yang ada menggunakan \textit{token-weighted voting} yang bertentangan dengan prinsip satu-anggota-satu-suara sebagaimana diamanatkan dalam Undang-Undang Nomor 25 Tahun 1992 tentang Perkoperasian. Penelitian ini bertujuan untuk merancang, mengimplementasikan, dan mengevaluasi sistem koperasi berbasis blockchain---Lakomi---yang memetakan 26 ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi pada jaringan DChain.
 
-Kata Kunci ditulis maksimal 5 kata yang paling berhubungan dengan isi skripsi. Silakan mengacu pada ACM / IEEE \textit{Computing classification} jika Anda adalah mahasiswa Sarjana TI \textcolor{blue}{http://www.acm.org/about/class/} atau mengacu kepada IEEE keywords \textcolor{blue}{http://www.ieee.org/documents/taxonomy\_v101.pdf} jika Anda berasal dari Prodi Sarjana TE.
+Penelitian mengadopsi metodologi \textit{Design Science Research} (DSR) dengan tiga siklus: relevansi, rigor, dan desain. \textit{Artifact} yang dihasilkan berupa empat \textit{smart contract} yang saling terintegrasi: LakomiToken (keanggotaan berbasis ERC-20 dengan \textit{non-transferability}), LakomiVault (pengelolaan tiga jenis simpanan dan distribusi SHU enam kategori), LakomiGovern (tata kelola demokratis dengan mekanisme satu-anggota-satu-suara, kuorum 67\%, pemilihan pengurus, dan veto pengawas), dan LakomiLoans (pinjaman mikro dengan \textit{loan-to-value} berbasis kontribusi dan suku bunga tetap 5\% APY). Sistem menerapkan \textit{Role-Based Access Control} dengan delapan peran yang didistribusikan ke akun terpisah untuk memastikan pemisahan kekuasaan. \textit{Frontend} dibangun menggunakan React 18 dengan TypeScript dan wagmi v2 untuk interaksi dengan \textit{smart contract}.
 
-\noindent{Kata kunci} : Kata kunci 1, Kata kunci 2, Kata kunci 3, Kata kunci 4, Kata kunci 5
+Pengujian dilakukan melalui 26 skenario fungsional yang memverifikasi setiap ketentuan UU 25/1992 pada lingkungan DChain. Hasil pengujian menunjukkan tingkat kepatuhan 100\%---seluruh 26 ketentuan berhasil diimplementasikan dan berfungsi sesuai spesifikasi. Analisis biaya gas menunjukkan bahwa operasi utama koperasi memiliki konsumsi komputasi yang wajar untuk jaringan blockchain konsorsium. Perbandingan dengan koperasi konvensional dan DAO berbasis token menunjukkan bahwa Lakomi unggul dalam transparansi (\textit{distributed ledger} yang dapat diaudit publik), demokrasi (satu-anggota-satu-suara yang dijamin \textit{smart contract}), dan otomatisasi (distribusi SHU on-chain). Arsitektur \textit{dual-track} yang memisahkan hak suara dari insentif kontribusi merupakan kontribusi desain utama yang membedakan Lakomi dari sistem yang ada dan menyelaraskan prinsip demokrasi koperasi dengan keberlanjutan finansial.
 
 \vspace{1cm}
-
-%HAPUS YANG TIDAK PERLU
-%-------------------------------------------------
-\noindent\fbox{%
-	\parbox{\textwidth}{%
-\textbf{Contoh Abstrak Teknik Elektro:} \\
-
-\hspace{1cm} "Penelitian ini bertujuan untuk mengembangkan sistem pengendalian suhu ruangan dengan menggunakan microcontroller. Metodologi yang digunakan adalah desain sirkuit, implementasi sistem pengendalian, dan pengujian performa. Hasil penelitian menunjukkan 
-bahwa sistem pengendalian suhu ruangan yang dikembangkan mampu mengendalikan suhu ruangan dengan akurasi sebesar ±0,5°C. Kesimpulan dari penelitian ini adalah sistem pengendalian suhu ruangan yang dikembangkan efektif dan efisien. \\
-
-Kata kunci: microcontroller, sistem pengendalian suhu, akurasi."
-\vspace{5mm}
-
-\textbf{Contoh Abstrak Teknik Biomedis:} \\
-
-\hspace{1cm} "Penelitian ini bertujuan untuk mengevaluasi keefektifan prototipe alat pemantau denyut jantung berbasis elektrokardiogram (ECG) untuk pasien jantung. Metodologi yang digunakan meliputi desain dan pembuatan prototipe, pengujian dengan pasien, dan analisis data. Hasil penelitian menunjukkan bahwa prototipe alat pemantau denyut jantung berbasis ECG memiliki 
-akurasi yang baik dan mampu memantau denyut jantung pasien secara efektif. Kesimpulan dari penelitian ini adalah prototipe alat pemantau denyut jantung berbasis ECG merupakan solusi 
-yang efektif dan efisien untuk memantau pasien jantung. \\
-
-Kata kunci: elektrokardiogram, alat pemantau denyut jantung, akurasi."
-\vspace{5mm}
-
-	}%
-}
-
-%-------------------------------------------------
-
-\noindent\fbox{%
-	\parbox{\textwidth}{%
-		\textbf{Contoh Abstrak Teknologi Informasi:} \\
-		
-\hspace{1cm} "Penelitian ini bertujuan untuk mengevaluasi keamanan dan privasi pengguna aplikasi media sosial terpopuler. Metodologi yang digunakan meliputi analisis kebijakan privasi dan pengaturan keamanan, pengujian penetrasi, dan survei pengguna. Hasil penelitian 
-menunjukkan bahwa beberapa aplikasi media sosial memiliki kebijakan privasi yang kurang jelas dan rendahnya tingkat keamanan. Kesimpulan dari penelitian ini adalah pentingnya meningkatkan kebijakan privasi dan tingkat keamanan pada aplikasi media sosial untuk melindungi privasi dan data pengguna. \\
-		
-Kata kunci: media sosial, keamanan, privasi, pengguna."
-\vspace{5mm}
-		
-	}%
-}
+\noindent\textbf{Kata kunci} : blockchain, koperasi, smart contract, UU 25/1992, Design Science Research

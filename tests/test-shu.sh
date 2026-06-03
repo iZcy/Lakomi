@@ -1,7 +1,7 @@
 #!/bin/bash
 RPC=http://localhost:8545
 ADDR=$(curl -s http://localhost:3030/contracts)
-USDC=$(echo "$ADDR" | python3 -c "import sys,json; print(json.load(sys.stdin)['MOCK_USDC'])")
+USDC=$(echo "$ADDR" | python3 -c "import sys,json; print(json.load(sys.stdin)['MOCK_IDRX'])")
 VAULT=$(echo "$ADDR" | python3 -c "import sys,json; print(json.load(sys.stdin)['LAKOMI_VAULT'])")
 TOKEN=$(echo "$ADDR" | python3 -c "import sys,json; print(json.load(sys.stdin)['LAKOMI_TOKEN'])")
 LOANS=$(echo "$ADDR" | python3 -c "import sys,json; print(json.load(sys.stdin)['LAKOMI_LOANS'])")

@@ -4,10 +4,10 @@ pragma solidity ^0.8.20;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 /**
- * @title MockUSDC
+ * @title MockIDRX
  * @notice Mock USDC token for testing
  */
-contract MockUSDC is ERC20 {
+contract MockIDRX is ERC20 {
     uint8 private constant DECIMALS = 6;
 
     constructor() ERC20("Mock USDC", "USDC") {

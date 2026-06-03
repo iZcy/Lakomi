@@ -244,13 +244,13 @@ export function useActiveLoanCount() {
   })
 }
 
-export function useUsdcBalance(address?: `0x${string}`) {
+export function useNeracaIDRX(address?: `0x${string}`) {
   return useReadContract({
-    address: CONTRACTS.MOCK_USDC,
+    address: CONTRACTS.MOCK_IDRX,
     abi: USDC_ABI,
     functionName: 'balanceOf',
     args: address ? [address] : undefined,
-    query: { enabled: !!address && CONTRACTS.MOCK_USDC !== '0x0000000000000000000000000000000000000000' },
+    query: { enabled: !!address && CONTRACTS.MOCK_IDRX !== '0x0000000000000000000000000000000000000000' },
   })
 }
 

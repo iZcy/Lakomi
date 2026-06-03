@@ -5,11 +5,11 @@ async function main() {
   console.log("Deploying with:", deployer.address);
   console.log("Balance:", hre.ethers.formatEther(await hre.ethers.provider.getBalance(deployer.address)), "ETH");
 
-  const USDC = await hre.ethers.getContractFactory("MockUSDC");
+  const USDC = await hre.ethers.getContractFactory("MockIDRX");
   const usdc = await USDC.deploy();
   await usdc.waitForDeployment();
   const usdcAddr = await usdc.getAddress();
-  console.log("MockUSDC:", usdcAddr);
+  console.log("MockIDRX:", usdcAddr);
 
   const LakomiToken = await hre.ethers.getContractFactory("LakomiToken");
   const token = await LakomiToken.deploy();
@@ -100,7 +100,7 @@ async function main() {
   }
 
   const addresses = {
-    MOCK_USDC: usdcAddr,
+    MOCK_IDRX: usdcAddr,
     LAKOMI_TOKEN: tokenAddr,
     LAKOMI_VAULT: vaultAddr,
     LAKOMI_GOVERN: governAddr,

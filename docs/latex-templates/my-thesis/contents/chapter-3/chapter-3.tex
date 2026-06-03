@@ -44,7 +44,8 @@ Perangkat lunak yang digunakan dalam pengembangan sistem terdiri dari komponen \
  & TypeScript & 5.x & Bahasa pemrograman dengan \textit{type safety} \\
  & wagmi & 2.x & Library React Hooks untuk interaksi \textit{wallet} \\
 \midrule
-\multirow{2}{*}{Infrastruktur} & DChain & --- & Jaringan blockchain konsorsium (EVM-compatible, Chain ID 17845) \\
+\multirow{3}{*}{Infrastruktur} & DChain & --- & Jaringan blockchain konsorsium (EVM-compatible, Chain ID 17845) \\
+ & Anvil & --- & \textit{Local Ethereum node} untuk pengembangan dan pengujian awal \\
  & MetaMask & --- & \textit{Wallet} browser untuk interaksi pengguna \\
 \bottomrule
 \end{tabular}
@@ -72,7 +73,7 @@ Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{
 \begin{figure}[h]
 \centering
 \begin{tikzpicture}[
-    node distance=1.2cm,
+    node distance=1.8cm,
     stage/.style={rectangle, draw, rounded corners=4pt, fill=blue!8, minimum width=2.8cm, minimum height=0.7cm, text width=2.6cm, align=center, font=\footnotesize},
     arr/.style={->, >=stealth, thick, blue!60},
     darr/.style={->, >=stealth, dashed, gray!60, thick},
@@ -324,19 +325,21 @@ LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap ang
 ]
 \node[state, fill=gray!10] (create) at (0,3) {Created\\(anggota)};
 \node[state, fill=yellow!15] (active) at (0,1.8) {Active\\(7 hari voting)};
-\node[state, fill=green!15] (succ) at (-2.5,0.3) {Succeeded};
-\node[state, fill=red!15] (def) at (2.5,0.3) {Defeated};
-\node[state, fill=blue!10] (queue) at (-2.5,-1.2) {Queued\\(24h timelock)};
-\node[state, fill=green!25] (exec) at (-2.5,-2.7) {Executed};
-\node[state, fill=purple!15] (veto) at (2.5,-1.2) {Vetoed\\(pengawas)};
-\node[state, fill=gray!20] (cancel) at (0,-3.3) {Canceled};
+\node[state, fill=green!15] (succ) at (-3,0.3) {Succeeded};
+\node[state, fill=red!15] (def) at (3,0.3) {Defeated};
+\node[state, fill=orange!12] (expired) at (0,0.3) {Expired};
+\node[state, fill=purple!15] (veto) at (-3,-1.2) {Vetoed\\(pengawas)};
+\node[state, fill=blue!10] (queue) at (0,-1.2) {Queued\\(24h timelock)};
+\node[state, fill=green!25] (exec) at (0,-2.7) {Executed};
+\node[state, fill=gray!20] (cancel) at (3,-2.1) {Canceled};
 
 \draw[arr] (create) -- (active) node[midway, right, font=\footnotesize] {start};
-\draw[arr] (active) -- (succ) node[midway, left, font=\footnotesize] {quorum + majority};
+\draw[arr] (active) -- (succ) node[midway, left, font=\footnotesize] {quorum+maj};
 \draw[arr] (active) -- (def) node[midway, right, font=\footnotesize] {no quorum};
+\draw[arr] (active) -- (expired) node[midway, right, font=\footnotesize] {timeout};
 \draw[arr] (succ) -- (queue) node[midway, left, font=\footnotesize] {queue};
 \draw[arr] (queue) -- (exec) node[midway, left, font=\footnotesize] {execute};
-\draw[arr] (queue) -- (veto) node[midway, right, font=\footnotesize] {veto};
+\draw[arr] (queue) -- (veto) node[midway, left, font=\footnotesize] {veto};
 \draw[arr] (active) -- (cancel) node[midway, right, font=\footnotesize] {proposer};
 \end{tikzpicture}
 \caption{Siklus Hidup Proposal pada LakomiGovern}

@@ -5,7 +5,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
 import { WALLET_CHAIN_PARAMS } from '../wagmi'
-import { useTokenBalance, useUsdcBalance, useSimpananSummary, useLockedBalance } from '../hooks/useContractRead'
+import { useTokenBalance, useNeracaIDRX, useSimpananSummary, useLockedBalance } from '../hooks/useContractRead'
 import { decodeSummary } from '../types'
 
 const RPC = typeof import.meta.env.VITE_RPC_URL === 'string'
@@ -57,7 +57,7 @@ export function Navbar() {
   const { data: ethBalance } = useBalance({ address })
   const { data: lakBalance } = useTokenBalance(address)
   const { data: lakLocked } = useLockedBalance(address)
-  const { data: usdcBalance } = useUsdcBalance(address)
+  const { data: idrxBalance } = useNeracaIDRX(address)
   const { data: simpananRaw } = useSimpananSummary(address)
   const simpanan = decodeSummary(simpananRaw)
   const [adding, setAdding] = useState(false)
@@ -132,7 +132,7 @@ export function Navbar() {
             {isConnected && (
               <div className="hidden md:flex items-center gap-3 ml-3 pl-3 border-l border-border">
                 <BalanceItem label="ETH" value={ethBalance?.value} decimals={18} symbol="ETH" />
-                <BalanceItem label="USDC" value={usdcBalance} decimals={6} symbol="USDC" />
+                <BalanceItem label="IDRX" value={idrxBalance} decimals={6} symbol="IDRX" />
                 {lakBalance !== undefined && lakBalance > 0n && (
                   <span className="flex items-center gap-1 text-[11px]">
                     <span className="text-muted-foreground">LAK</span>
@@ -145,7 +145,7 @@ export function Navbar() {
                 {simpanan && simpanan.totalContribution > 0n && (
                   <span className="flex items-center gap-1 text-[11px]">
                     <span className="text-muted-foreground">Simpanan</span>
-                    <span className="font-mono font-medium text-emerald-500">{fmt(formatUnits(simpanan.totalContribution, 6))} USDC</span>
+                    <span className="font-mono font-medium text-emerald-500">{fmt(formatUnits(simpanan.totalContribution, 6))} IDRX</span>
                   </span>
                 )}
               </div>

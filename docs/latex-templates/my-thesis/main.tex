@@ -76,7 +76,12 @@
 }
 % EYD hyphenation patterns
 % Increase stretch to prevent right-margin breaks with long code names
-\emergencystretch=1.5em
+\emergencystretch=2em
+\tolerance=300
+% Fix TOC number overlap for deep section numbering
+\setlength{\cftsecnumwidth}{2.8em}
+\setlength{\cftsubsecnumwidth}{3.2em}
+\setlength{\cftsubsubsecnumwidth}{3.8em}
 % EYD guide: /docs/EYD.md
 % EYD guide: /docs/EYD.md
 %% %\hyphenpenalty=10000 % uncomment to fully disable hyphenation

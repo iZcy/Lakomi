@@ -68,11 +68,11 @@ Setiap kontrak diinisialisasi dengan parameter yang mencerminkan ketentuan UU 25
 
 Setiap fungsi \textit{smart contract} yang dirancang pada Subbab~3.5 telah berhasil diimplementasikan. Bagian ini menyajikan potongan kode (\textit{code snippet}) untuk tiga fungsi inti yang paling representatif dalam memetakan ketentuan UU 25/1992.
 
-\subsubsection{Pendaftaran Anggota --- LakomiToken.registerMember()}
+\subsubsection{Pendaftaran Anggota --- registerMember}
 
 Fungsi \texttt{registerMember()} mengimplementasikan Pasal~5(1) dan Pasal~17--18 UU 25/1992 tentang keanggotaan sukarela dan terbuka. Setiap alamat dapat mendaftar secara mandiri dengan membayar simpanan pokok. Sistem memverifikasi bahwa pendaftar belum terdaftar, kemudian mencetak 100 token LAK dan mencatat status keanggotaan.
 
-\begin{verbatim}
+\begin{lstlisting}
 function registerMember() external {
     require(!isRegisteredMember[msg.sender], "Already registered");
     isRegisteredMember[msg.sender] = true;
@@ -80,13 +80,13 @@ function registerMember() external {
     _mint(msg.sender, MEMBER_TOKENS);
     emit MemberRegistered(msg.sender);
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Distribusi SHU --- LakomiVault.distributeSHU()}
+\subsubsection{Distribusi SHU --- distributeSHU}
 
 Fungsi \texttt{distributeSHU()} mengimplementasikan Pasal~45(1--2) tentang pembagian Sisa Hasil Usaha (SHU). Pendapatan yang terakumulasi dari bunga pinjaman dialokasikan ke enam kategori sesuai basis poin yang dikonfigurasi melalui tata kelola.
 
-\begin{verbatim}
+\begin{lstlisting}
 function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
     uint256 dist = (accumulatedRevenue * 9000) / 10000;
     uint256 reserve = accumulatedRevenue - dist;
@@ -101,13 +101,13 @@ function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
     accumulatedRevenue = 0;
     emit SHUDistributed(distributionCount - 1, dist);
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Pemungutan Suara --- LakomiGovern.castVote()}
+\subsubsection{Pemungutan Suara --- castVote}
 
 Fungsi \texttt{castVote()} mengimplementasikan Pasal~22(1) tentang prinsip satu anggota satu suara. Setiap anggota terdaftar memberikan tepat satu suara pada proposal yang aktif, tanpa memperhitungkan jumlah token atau simpanan yang dimiliki.
 
-\begin{verbatim}
+\begin{lstlisting}
 function castVote(
     uint256 proposalId,
     uint8 vote
@@ -121,13 +121,13 @@ function castVote(
     else p.abstainVotes++;
     emit VoteCast(proposalId, msg.sender, vote);
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Pembuatan Proposal --- LakomiGovern.createProposal()}
+\subsubsection{Pembuatan Proposal --- createProposal}
 
 Fungsi \texttt{createProposal()} memungkinkan anggota terdaftar untuk menginisiasi proposal tata kelola. Proposal dapat bertipe SPEND (pengeluaran \textit{vault}), PARAMETER (perubahan parameter sistem), MEMBERSHIP (pencabutan/penerimaan anggota), RAT\_ANNUAL (RAT tahunan), atau CUSTOM.
 
-\begin{verbatim}
+\begin{lstlisting}
 function createProposal(
     string calldata title,
     string calldata description,
@@ -148,13 +148,13 @@ function createProposal(
     emit ProposalCreated(id, msg.sender);
     return id;
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Persetujuan dan Pencairan Pinjaman --- LakomiLoans}
+\subsubsection{Persetujuan dan Pencairan Pinjaman --- approveLoan + disburse}
 
 Fungsi \texttt{approveLoan()} dan \texttt{disburse()} mengimplementasikan alur persetujuan pinjaman dua tahap: APPROVER\_ROLE menyetujui permohonan, kemudian dana dicairkan dari LakomiVault ke peminjam setelah agunan dikunci.
 
-\begin{verbatim}
+\begin{lstlisting}
 function approveLoan(uint256 loanId) 
     external onlyRole(APPROVER_ROLE) {
     Loan storage l = loans[loanId];
@@ -174,13 +174,13 @@ function disburse(uint256 loanId) external {
     vault.governanceSpend(l.borrower, l.principal);
     emit LoanDisbursed(loanId, l.borrower, l.principal);
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Laporan Keuangan Pengawas --- LakomiVault.getPengawasAuditReport()}
+\subsubsection[Laporan Keuangan Pengawas]{Laporan Keuangan Pengawas --- getPengawasAuditReport}
 
 Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} bagi pemegang PENGAWAS\_ROLE untuk memperoleh ringkasan keuangan \textit{vault} secara \textit{real-time}---mengimplementasikan fungsi pengawasan yang diamanatkan Pasal~38--39.
 
-\begin{verbatim}
+\begin{lstlisting}
 function getPengawasAuditReport() external view 
     onlyRole(PENGAWAS_ROLE) returns (
     uint256 totalAssets,
@@ -203,7 +203,7 @@ function getPengawasAuditReport() external view
         controller.getActiveLoanCount()
     );
 }
-\end{verbatim}
+\end{lstlisting}
 ) external onlyRegisteredMember {
     Proposal storage proposal = proposals[proposalId];
     require(proposal.status == ProposalStatus.Active, "Not active");
@@ -217,11 +217,11 @@ function getPengawasAuditReport() external view
     emit VoteCast(proposalId, msg.sender, vote);
 }
 
-\subsubsection{Pembayaran Simpanan Wajib --- LakomiVault.paySimpananWajib()}
+\subsubsection[Pembayaran Simpanan Wajib]{Pembayaran Simpanan Wajib --- paySimpananWajib}
 
 Fungsi \texttt{paySimpananWajib()} mengimplementasikan Pasal~41(2) tentang kewajiban pembayaran simpanan wajib secara berkala. Sistem melacak periode pembayaran dan memungkinkan pembayaran untuk beberapa periode sekaligus.
 
-\begin{verbatim}
+\begin{lstlisting}
 function paySimpananWajib() external 
     onlyRegisteredMember nonReentrant {
     uint256 periods = getSimpananWajibPeriodsOwed(msg.sender);
@@ -232,13 +232,13 @@ function paySimpananWajib() external
     lastSimpananWajibPayment[msg.sender] = block.timestamp;
     emit SimpananPaid(msg.sender, amount, "wajib");
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Pemilihan Pengurus --- LakomiGovern.beginElection()}
+\subsubsection[Pemilihan Pengurus]{Pemilihan Pengurus --- beginElection}
 
 Fungsi \texttt{beginElection()} dan \texttt{finalizeElection()} mengimplementasikan Pasal~29--30. Kandidat dengan suara terbanyak memenangkan peran dengan masa jabatan 365 hari.
 
-\begin{verbatim}
+\begin{lstlisting}
 function beginElection(bytes32 role) external 
     onlyRole(GOVERN_ROLE) returns (uint256) {
     require(elections[role].endTime == 0 || 
@@ -267,13 +267,13 @@ function finalizeElection(bytes32 role, uint256 electionId)
     IAccessControl(target).grantRole(role, winner);
     emit ElectionFinalized(role, electionId, winner);
 }
-\end{verbatim}
+\end{lstlisting}
 
-\subsubsection{Klaim SHU Anggota --- LakomiVault.claimSHU()}
+\subsubsection[Klaim SHU Anggota]{Klaim SHU Anggota --- claimSHU}
 
 Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah distribusi. Mencegah klaim ganda melalui \textit{mapping} \texttt{claimed}.
 
-\begin{verbatim}
+\begin{lstlisting}
 function claimSHU(uint256 distributionId) external 
     onlyRegisteredMember nonReentrant {
     Distribution storage d = distributions[distributionId];
@@ -285,7 +285,7 @@ function claimSHU(uint256 distributionId) external
     usdc.transfer(msg.sender, amt);
     emit SHUClaimed(distributionId, msg.sender, amt);
 }
-\end{verbatim}
+\end{lstlisting}
 
 \section{Hasil Implementasi Frontend}
 

@@ -30,7 +30,7 @@ Setiap \textit{smart contract} mendefinisikan struktur data yang memetakan keten
 
 \subsection{LakomiToken --- Keanggotaan}
 
-\begin{verbatim}
+\begin{lstlisting}
 enum MemberStatus { None, Active, Suspended, Resigned, Revoked }
 enum ContributionTier { None, Basic, Silver, Gold }
 
@@ -43,11 +43,11 @@ struct MemberInfo {
     uint256 lockedCollateral;
     uint256 outstandingLoans;
 }
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{LakomiVault --- Simpanan dan SHU}
 
-\begin{verbatim}
+\begin{lstlisting}
 enum SHUCategory {
     Cadangan, JasaModal, JasaUsaha, 
     Pendidikan, Pengurus, KesejahteraanSosial
@@ -67,11 +67,11 @@ struct PendingWithdrawal {
     uint256 approvalCount;
     bool approved;
 }
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{LakomiGovern --- Proposal dan Pemilihan}
 
-\begin{verbatim}
+\begin{lstlisting}
 enum ProposalType { 
     SPEND, PARAMETER, MEMBERSHIP, RAT_ANNUAL, CUSTOM 
 }
@@ -108,11 +108,11 @@ struct Election {
     bool finalized;
     address winner;
 }
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{LakomiLoans --- Pinjaman}
 
-\begin{verbatim}
+\begin{lstlisting}
 enum LoanStatus { 
     Pending, Approved, Active, Repaid, 
     Defaulted, CollateralClaimed 
@@ -139,7 +139,7 @@ struct BorrowerInfo {
     uint256 defaultCount;
     uint256 lastLoanAt;
 }
-\end{verbatim}
+\end{lstlisting}
 
 \section{Diagram Alur Transaksi}
 
@@ -377,13 +377,11 @@ Gambar~\ref{fig:clean-architecture} mengilustrasikan arsitektur sistem Lakomi me
 ]
 \node[layer, fill=purple!10, minimum width=10cm] (fe) at (0,3.5) {\textbf{Presentation Layer} --- React 18 + TypeScript + wagmi v2};
 \node[layer, fill=green!8, minimum width=9cm] (app) at (0,1.8) {\textbf{Application Layer} --- Smart Contracts (Solidity 0.8.20)};
-\node[layer, fill=blue!8, minimum width=8cm] (domain) at (0,0.1) {\textbf{Domain Layer} --- UU 25/1992 Compliance Rules (26 Pasal)};
-\node[layer, fill=orange!10, minimum width=10.5cm] (infra) at (0,-1.6) {\textbf{Infrastructure Layer} --- DChain (EVM-Compatible, Chain ID 17845)};
+\node[layer, fill=blue!8, minimum width=8cm] (domain) at (0,0.1) {\textbf{Domain Layer} --- UU 25/1992 Rules (26 Pasal)};
+\node[layer, fill=orange!10, minimum width=10.5cm] (infra) at (0,-1.6) {\textbf{Infrastructure Layer} --- DChain (EVM, Chain ID 17845)};
 \draw[arrow] (fe.south) -- (app.north) node[midway, right, font=\footnotesize] {JSON-RPC};
 \draw[dep] (app.south) -- (domain.north) node[midway, right, font=\footnotesize] {implements};
 \draw[dep] (domain.south) -- (infra.north) node[midway, right, font=\footnotesize] {deployed on};
-% Cross-layer dependencies
-\draw[->, >=stealth, dashed, red!40] (app.west) to[out=180, in=180] (infra.west) node[midway, left, font=\footnotesize] {gas cost};
 \end{tikzpicture}
 \caption{Arsitektur \textit{Clean Architecture} Sistem Lakomi}
 \label{fig:clean-architecture}

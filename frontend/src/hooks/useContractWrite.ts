@@ -220,7 +220,7 @@ export function useApproveUsdc() {
 
   const approve = async (spender: `0x${string}`, amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
-      address: CONTRACTS.MOCK_USDC,
+      address: CONTRACTS.MOCK_IDRX,
       abi: USDC_ABI,
       functionName: 'approve',
       args: [spender, amount],
@@ -237,7 +237,7 @@ export function useMintUsdc() {
 
   const mintUsdc = async (to: `0x${string}`, amount: bigint): Promise<WriteResult> => {
     return writeContractAsync({
-      address: CONTRACTS.MOCK_USDC,
+      address: CONTRACTS.MOCK_IDRX,
       abi: USDC_ABI,
       functionName: 'mint',
       args: [to, amount],

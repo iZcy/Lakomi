@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import {
-  useIsMember, useMaxLoanAmount, useBorrowerLoans, useLoan, useUsdcBalance,
+  useIsMember, useMaxLoanAmount, useBorrowerLoans, useLoan, useNeracaIDRX,
   useTokenBalance, useLockedBalance, useRequiredCollateral, useLoanCount,
 } from '../hooks/useContractRead'
 import {
@@ -40,7 +40,7 @@ export function Loans() {
   const { data: isMember } = useIsMember(address)
   const { data: maxLoan } = useMaxLoanAmount(address)
   const { data: loanIds } = useBorrowerLoans(address)
-  const { data: usdcBal } = useUsdcBalance(address)
+  const { data: idrxBal } = useNeracaIDRX(address)
   const { data: isApprover } = useHasApproverRole(address)
   const { data: totalLoans } = useLoanCount()
 
@@ -59,13 +59,13 @@ export function Loans() {
             <Card>
               <CardContent className="">
                 <p className="text-xs text-muted-foreground">Maks. Pinjaman</p>
-                <p className="text-lg font-bold text-primary mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 USDC'}</p>
+                <p className="text-lg font-bold text-primary mt-1">{maxLoan ? formatUSDCAmount(maxLoan) : '0 IDRX'}</p>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="">
-                <p className="text-xs text-muted-foreground">Saldo USDC</p>
-                <p className="text-lg font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
+                <p className="text-xs text-muted-foreground">Saldo IDRX</p>
+                <p className="text-lg font-bold mt-1">{idrxBal !== undefined ? formatUSDCAmount(idrxBal) : '0 IDRX'}</p>
               </CardContent>
             </Card>
             <Card>
@@ -76,7 +76,7 @@ export function Loans() {
             </Card>
           </div>
 
-          <RequestLoanForm maxLoan={maxLoan} usdcBal={usdcBal} />
+          <RequestLoanForm maxLoan={maxLoan} idrxBal={idrxBal} />
 
           {loanIds && loanIds.length > 0 && (
             <div className="space-y-3">
@@ -121,7 +121,7 @@ export function Loans() {
   )
 }
 
-function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: bigint }) {
+function RequestLoanForm({ maxLoan, idrxBal }: { maxLoan?: bigint; idrxBal?: bigint }) {
   const [amount, setAmount] = useState('')
   const [duration, setDuration] = useState('30')
   const [reason, setReason] = useState('')
@@ -173,10 +173,10 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
       <CardHeader><CardTitle className="text-sm">Ajukan Pinjaman</CardTitle></CardHeader>
       <CardContent className="space-y-3">
         <div className="space-y-1.5">
-          <Label>Jumlah (USDC)</Label>
+          <Label>Jumlah (IDRX)</Label>
           <Input type="number" placeholder="0" value={amount} onChange={(e) => setAmount(e.target.value)} />
           {maxLoan && <p className="text-[10px] text-muted-foreground">Maks: {formatUSDCAmount(maxLoan)}</p>}
-          {usdcBal !== undefined && <p className="text-[10px] text-muted-foreground">Saldo: {formatUSDCAmount(usdcBal)}</p>}
+          {idrxBal !== undefined && <p className="text-[10px] text-muted-foreground">Saldo: {formatUSDCAmount(idrxBal)}</p>}
         </div>
         <div className="space-y-1.5">
           <Label>Jangka Waktu</Label>
@@ -210,7 +210,7 @@ function RequestLoanForm({ maxLoan, usdcBal }: { maxLoan?: bigint; usdcBal?: big
           </div>
         )}
         <Button onClick={handle} disabled={!amount || !reason || busy || exceedsMax} className="w-full">
-          {loanStep === 1 ? '1/2 Setujui USDC...' : loanStep === 2 ? '2/2 Ajukan Pinjaman...' : exceedsMax ? `Melebihi Maks (${formatUSDCAmount(maxLoan!)})` : 'Ajukan Pinjaman'}
+          {loanStep === 1 ? '1/2 Setujui IDRX...' : loanStep === 2 ? '2/2 Ajukan Pinjaman...' : exceedsMax ? `Melebihi Maks (${formatUSDCAmount(maxLoan!)})` : 'Ajukan Pinjaman'}
         </Button>
         {exceedsMax && <p className="text-[10px] text-red-400 text-center">Jumlah melebihi batas maksimum</p>}
         {isSuccess && <p className="text-xs text-emerald-500">Berhasil diajukan!</p>}
@@ -329,7 +329,7 @@ function LoanCard({ loanId, address }: { loanId: bigint; address?: `0x${string}`
             ) : (
               <div className="space-y-2">
                 <div className="flex flex-col sm:flex-row gap-2">
-                  <Input type="number" placeholder="Jumlah USDC" value={partialAmount} onChange={(e) => setPartialAmount(e.target.value)} className="flex-1" />
+                  <Input type="number" placeholder="Jumlah IDRX" value={partialAmount} onChange={(e) => setPartialAmount(e.target.value)} className="flex-1" />
                   <Button size="sm" onClick={handlePartialRepay} disabled={!partialAmount || rpPending || ap}>
                     {rpPending ? '...' : 'Bayar'}
                   </Button>

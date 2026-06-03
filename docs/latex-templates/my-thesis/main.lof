@@ -4,9 +4,9 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{46}{figure.caption.26}%
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{47}{figure.caption.27}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{54}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Halaman Dashboard Anggota Lakomi}}{71}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Halaman Dashboard Anggota Lakomi}}{70}{figure.caption.36}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Portal Tata Kelola Lakomi}}{71}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Portal Pinjaman Lakomi}}{72}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Halaman Kepatuhan Regulasi UU 25/1992}}{73}{figure.caption.39}%
-\contentsline {figure}{\numberline {L.1}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-5}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Portal Pinjaman Lakomi}}{71}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Halaman Kepatuhan Regulasi UU 25/1992}}{72}{figure.caption.39}%
+\contentsline {figure}{\numberline {L.1}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-4}{figure.caption.56}%
 \contentsline {figure}{\numberline {L.2}{\ignorespaces Arsitektur \textit {Clean Architecture} Sistem Lakomi}}{L-8}{figure.caption.61}%

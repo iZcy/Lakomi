@@ -4,7 +4,7 @@
 RPC=http://localhost:8545
 URL=http://localhost:5173
 ADDR_JSON=$(curl -s http://localhost:3030/contracts)
-USDC=$(echo "$ADDR_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['MOCK_USDC'])")
+USDC=$(echo "$ADDR_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['MOCK_IDRX'])")
 TOKEN=$(echo "$ADDR_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['LAKOMI_TOKEN'])")
 VAULT=$(echo "$ADDR_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['LAKOMI_VAULT'])")
 GOVERN=$(echo "$ADDR_JSON" | python3 -c "import sys,json; print(json.load(sys.stdin)['LAKOMI_GOVERN'])")
@@ -196,16 +196,24 @@ send $ADMIN $USDC $(calld "mint(address,uint256)" $PENGURUS 10000000000000) > /d
 send $PENGURUS $USDC $(calld "approve(address,uint256)" $VAULT 99999999999) > /dev/null
 send $ADMIN $VAULT $(calld "paySimpananPokok(address)" $PENGURUS) > /dev/null
 send $PENGURUS $TOKEN $(calld "registerMember()") > /dev/null
-# Big deposit for big shares
-send $PENGURUS $VAULT $(calld "deposit(uint256)" 1000000000) > /dev/null
-# 500 USDC × 365 days = 25 USDC interest = 25000000 wei
+# Mint extra LAK to Pengurus for collateral  
+echo -n "  mintLAK: "
+send $ADMIN $TOKEN $(calld "mint(address,uint256)" $PENGURUS 100000000000000000000000)
+# Big deposit for shares
+echo -n "  deposit: "
+send $PENGURUS $VAULT $(calld "deposit(uint256)" 5000000000)
+# 10000 USDC × 365 days = 500 USDC interest
 SID=7
-send $PENGURUS $LOANS $(calld "requestLoan(uint256,uint256,string)" 500000000 31536000 bigshu) > /dev/null
-send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SID) > /dev/null
-send $PENGURUS $LOANS $(calld "disburse(uint256)" $SID) > /dev/null
-# Approve + repay full (principal + ~25 USDC interest)
-send $PENGURUS $USDC $(calld "approve(address,uint256)" $LOANS 530000000) > /dev/null
-send $PENGURUS $LOANS $(calld "repayInFull(uint256)" $SID) > /dev/null
+echo -n "  request: "
+send $PENGURUS $LOANS $(calld "requestLoan(uint256,uint256,string)" 10000000000 31536000 bigshu)
+echo -n "  approve: "
+send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SID)
+echo -n "  disburse: "
+send $PENGURUS $LOANS $(calld "disburse(uint256)" $SID)
+echo -n "  repayApprove: "
+send $PENGURUS $USDC $(calld "approve(address,uint256)" $LOANS 11000000000)
+echo -n "  repay: "
+send $PENGURUS $LOANS $(calld "repayInFull(uint256)" $SID)
 SREV=$(call $VAULT "$(calld 'accumulatedRevenue()')" | python3 -c "import sys,json; print(int(json.load(sys.stdin).get('result','0x0'),16))" 2>/dev/null)
 echo "  Revenue: $SREV wei"
 [ "$SREV" -gt 1000000 ] && P "SHU-1: Revenue ${SREV} wei" || F "SHU-1: Revenue=$SREV"

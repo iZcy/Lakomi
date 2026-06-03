@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import {
   useIsMember, useHasPaidPokok, useSimpananSummary, useTotalAssets,
-  usePendingSHU, useAccumulatedRevenue, useUsdcBalance, useSimpananPokokAmount, useSimpananWajibAmount,
+  usePendingSHU, useAccumulatedRevenue, useNeracaIDRX, useSimpananPokokAmount, useSimpananWajibAmount,
   useShuDistributionCount, useShuDistribution,
 } from '../hooks/useContractRead'
 import {
@@ -30,7 +30,7 @@ export function Vault() {
   const { data: totalAssets } = useTotalAssets()
   const { data: pendingSHU } = usePendingSHU(address)
   const { data: revenue } = useAccumulatedRevenue()
-  const { data: usdcBal } = useUsdcBalance(address)
+  const { data: idrxBal } = useNeracaIDRX(address)
   const { data: pokokAmount } = useSimpananPokokAmount()
   const { data: wajibAmount } = useSimpananWajibAmount()
 
@@ -50,19 +50,19 @@ export function Vault() {
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">Total Simpanan</p>
-            <p className="text-xl sm:text-2xl font-bold text-emerald-500 mt-1">{s ? formatUSDCAmount(s.totalContribution) : '0 USDC'}</p>
+            <p className="text-xl sm:text-2xl font-bold text-emerald-500 mt-1">{s ? formatUSDCAmount(s.totalContribution) : '0 IDRX'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="">
-            <p className="text-xs text-muted-foreground">Saldo USDC</p>
-            <p className="text-xl sm:text-2xl font-bold mt-1">{usdcBal !== undefined ? formatUSDCAmount(usdcBal) : '0 USDC'}</p>
+            <p className="text-xs text-muted-foreground">Saldo IDRX</p>
+            <p className="text-xl sm:text-2xl font-bold mt-1">{idrxBal !== undefined ? formatUSDCAmount(idrxBal) : '0 IDRX'}</p>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="">
             <p className="text-xs text-muted-foreground">SHU Menunggu</p>
-            <p className="text-xl sm:text-2xl font-bold text-amber-500 mt-1">{pendingSHU && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 USDC'}</p>
+            <p className="text-xl sm:text-2xl font-bold text-amber-500 mt-1">{pendingSHU && pendingSHU > 0n ? formatUSDCAmount(pendingSHU) : '0 IDRX'}</p>
           </CardContent>
         </Card>
       </div>
@@ -87,7 +87,7 @@ export function Vault() {
               </CardContent>
             </Card>
           )}
-          {hasPaid && <DepositForm usdcBal={usdcBal} />}
+          {hasPaid && <DepositForm idrxBal={idrxBal} />}
         </div>
 
         <div className="space-y-4">
@@ -108,7 +108,7 @@ export function Vault() {
           <Card>
             <CardContent className="">
               <p className="text-xs text-muted-foreground">Pendapatan Koperasi</p>
-              <p className="text-xl font-bold text-primary mt-1">{revenue ? formatUSDCAmount(revenue) : '0 USDC'}</p>
+              <p className="text-xl font-bold text-primary mt-1">{revenue ? formatUSDCAmount(revenue) : '0 IDRX'}</p>
               <p className="text-[10px] text-muted-foreground mt-1">Akan didistribusikan sebagai SHU (Pasal 45)</p>
               {revenue && revenue > 0n && <DistributeSHUButton />}
             </CardContent>
@@ -217,7 +217,7 @@ function DistributeSHUButton() {
   )
 }
 
-function DepositForm({ usdcBal }: { usdcBal?: bigint }) {
+function DepositForm({ idrxBal }: { idrxBal?: bigint }) {
   const [amount, setAmount] = useState('')
   const { deposit, isPending: d1, isSuccess: s1 } = useDeposit()
   const { approve, isPending: d2 } = useApproveUsdc()
@@ -241,9 +241,9 @@ function DepositForm({ usdcBal }: { usdcBal?: bigint }) {
       <CardContent className="space-y-3">
         <p className="text-xs text-muted-foreground">Setor kapan saja, eligible untuk SHU</p>
         <div className="space-y-1.5">
-          <Label htmlFor="deposit">Jumlah USDC</Label>
+          <Label htmlFor="deposit">Jumlah IDRX</Label>
           <Input id="deposit" type="number" placeholder="0" value={amount} onChange={(e) => setAmount(e.target.value)} />
-          {usdcBal !== undefined && <p className="text-[10px] text-muted-foreground">Saldo: {formatUSDCAmount(usdcBal)}</p>}
+          {idrxBal !== undefined && <p className="text-[10px] text-muted-foreground">Saldo: {formatUSDCAmount(idrxBal)}</p>}
         </div>
         <Button onClick={handle} disabled={!amount || d1 || d2} className="w-full">
           {d2 ? 'Menyetujui...' : d1 ? 'Menyetor...' : 'Setor'}

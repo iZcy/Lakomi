@@ -748,17 +748,20 @@
 	keywordstyle=\color{magenta},
 	numberstyle=\tiny\color{codegray},
 	stringstyle=\color{codepurple},
-	basicstyle=\small,
+	basicstyle=\footnotesize\ttfamily,
 	breakatwhitespace=false,         
 	breaklines=true,                 
 	captionpos=b,                    
 	keepspaces=true,                 
-	numbers=left,                    
-	numbersep=5pt,                  
+	numbers=none,
 	showspaces=false,                
 	showstringspaces=false,
 	showtabs=false,                  
-	tabsize=2
+	tabsize=2,
+	frame=single,
+	framerule=0.5pt,
+	backgroundcolor=\color{gray!5},
+	rulecolor=\color{gray!30}
 }
 \lstset{style=mystyle}
 

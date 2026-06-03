@@ -104,17 +104,17 @@ export function DevFaucet() {
 
   const requestUsdc = async () => {
     if (!address) return
-    setBusy('usdc')
+    setBusy('idrx')
     try {
       await rpcCall('anvil_impersonateAccount', [address])
       await rpcCall('eth_sendTransaction', [{
         from: address,
-        to: CONTRACTS.MOCK_USDC,
+        to: CONTRACTS.MOCK_IDRX,
         data: encodeMint(address, 1000000000n),
         gas: '0x100000',
       }])
       await rpcCall('anvil_stopImpersonatingAccount', [address])
-      addToast('1,000 USDC berhasil dicetak!', 'success')
+      addToast('1,000 IDRX berhasil dicetak!', 'success')
     } catch (e: any) {
       await rpcCall('anvil_stopImpersonatingAccount', [address]).catch(() => {})
       addToast('Gagal: ' + e.message, 'error')
@@ -228,7 +228,7 @@ export function DevFaucet() {
             {busy === 'eth' ? 'Mengirim...' : '10 ETH'}
           </Button>
           <Button variant="outline" size="sm" onClick={requestUsdc} disabled={!!busy}>
-            {busy === 'usdc' ? 'Mencetak...' : '1,000 USDC'}
+            {busy === 'idrx' ? 'Mencetak...' : '1,000 IDRX'}
           </Button>
           <Button variant="outline" size="sm" onClick={() => fastForward(604800, '7 hari')} disabled={!!busy} className="text-amber-500 border-amber-500/30 hover:bg-amber-500/10">
             {busy === 'fastForward' ? '...' : '⏩ 7 Hari (Voting)'}

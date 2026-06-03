@@ -152,34 +152,6 @@ send $PENGURUS $LOANS $(calld "approveLoan(uint256)" 3) > /dev/null
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" 4) > /dev/null
 chk "2+ loans" $LOANS "$(calld 'loanCount()')" 5 && P "10. Multi Loans" || F "10. Multi Loans"
 
-# ========== 13. Exit ==========
-echo "=== 13/14. Exit ==="
-send $M3 $TOKEN $(calld "resignMembership()") > /dev/null
-chk "M3 exited" $TOKEN "$(calld 'isRegisteredMember(address)' $M3)" 0 && P "13. Exit success" || F "13. Exit success"
-# Exit denied: M7 has no loans so should work
-send $M7 $TOKEN $(calld "resignMembership()") > /dev/null
-chk "M7 exited" $TOKEN "$(calld 'isRegisteredMember(address)' $M7)" 0 && P "14. Exit M7" || F "14. Exit M7"
-
-# ========== 11. Election ==========
-echo "=== 11. Election ==="
-ROLE_HASH=$(python3 -c "from web3 import Web3; print(Web3.keccak(text='APPROVER_ROLE').hex())" 2>/dev/null || echo "0xdf6f1b2e7a5f4c3d8e9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d")
-send $ADMIN $GOVERN $(calld "beginElection(bytes32,uint256,uint256)" $ROLE_HASH 86400 86400) > /dev/null
-send $MAIN $GOVERN $(calld "registerAsCandidate(bytes32)" $ROLE_HASH) > /dev/null
-send $MAIN $GOVERN $(calld "castElectionVote(bytes32,address)" $ROLE_HASH $MAIN) > /dev/null
-ff 172800
-send $ADMIN $GOVERN $(calld "finalizeElection(bytes32)" $ROLE_HASH) > /dev/null
-chk "Election done" $GOVERN "$(calld 'getElection(bytes32)' $ROLE_HASH | tr -d '\n')" "" 
-P "11. Election"  # Pass even without specific check — election mechanics work
-
-# ========== 12. Veto ==========
-echo "=== 12. Veto ==="
-send $MAIN $GOVERN $(calld "createProposal(string,uint8,address,uint256,bytes)" "Veto test" 0 $MAIN 100000 0x00) > /dev/null
-send $MAIN $GOVERN $(calld "castVote(uint256,uint8)" 7 1) > /dev/null
-send $M3 $GOVERN $(calld "castVote(uint256,uint8)" 7 1) > /dev/null
-ff 604800
-send $PENGAWAS $GOVERN $(calld "vetoProposal(uint256)" 7) > /dev/null
-chk "Vetoed" $GOVERN "$(calld 'state(uint256)' 7)" 8 && P "12. Veto" || F "12. Veto"
-
 # ========== 15. SHU (6 sub-cases) ==========
 echo "=== 15a. SHU: No revenue → revert ==="
 RESULT=$(send $GOVERN_ACC $VAULT $(calld "distributeSHU()"))
@@ -189,7 +161,7 @@ echo "=== 15b. Generate revenue: Big loan + full year ==="
 # 100 USDC loan for 365 days = 100000000 * 5% = 5,000,000 wei = 5 USDC interest
 send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 999999999) > /dev/null
 send $MAIN $LOANS $(calld "requestLoan(uint256,uint256,string)" 100000000 31536000 shu365) > /dev/null
-SHU_LID=7
+SHU_LID=6
 send $PENGURUS $LOANS $(calld "approveLoan(uint256)" $SHU_LID) > /dev/null
 send $MAIN $LOANS $(calld "disburseLoan(uint256)" $SHU_LID) > /dev/null
 send $MAIN $USDC $(calld "approve(address,uint256)" $LOANS 106000000) > /dev/null
@@ -216,6 +188,36 @@ echo "$CLAIM" | grep -q "ok" && P "15e. SHU claimed" || F "15e. SHU claim"
 echo "=== 15f. SHU: Double claim → revert ==="
 CLAIM2=$(send $MAIN $VAULT $(calld "claimSHU(uint256)" 0))
 echo "$CLAIM2" | grep -q "REVERTED" && P "15f. Double claim reverts" || F "15f. Double claim"
+
+# ========== 13. Exit ==========
+echo "=== 13/14. Exit ==="
+send $M3 $TOKEN $(calld "resignMembership()") > /dev/null
+chk "M3 exited" $TOKEN "$(calld 'isRegisteredMember(address)' $M3)" 0 && P "13. Exit success" || F "13. Exit success"
+# Exit denied: M7 has no loans so should work
+send $M7 $TOKEN $(calld "resignMembership()") > /dev/null
+chk "M7 exited" $TOKEN "$(calld 'isRegisteredMember(address)' $M7)" 0 && P "14. Exit M7" || F "14. Exit M7"
+
+
+# ========== 11. Election ==========
+echo "=== 11. Election ==="
+ROLE_HASH=$(python3 -c "from web3 import Web3; print(Web3.keccak(text='APPROVER_ROLE').hex())" 2>/dev/null || echo "0xdf6f1b2e7a5f4c3d8e9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d")
+send $ADMIN $GOVERN $(calld "beginElection(bytes32,uint256,uint256)" $ROLE_HASH 86400 86400) > /dev/null
+send $MAIN $GOVERN $(calld "registerAsCandidate(bytes32)" $ROLE_HASH) > /dev/null
+send $MAIN $GOVERN $(calld "castElectionVote(bytes32,address)" $ROLE_HASH $MAIN) > /dev/null
+ff 172800
+send $ADMIN $GOVERN $(calld "finalizeElection(bytes32)" $ROLE_HASH) > /dev/null
+chk "Election done" $GOVERN "$(calld 'getElection(bytes32)' $ROLE_HASH | tr -d '\n')" "" 
+P "11. Election"  # Pass even without specific check — election mechanics work
+
+# ========== 12. Veto ==========
+echo "=== 12. Veto ==="
+send $MAIN $GOVERN $(calld "createProposal(string,uint8,address,uint256,bytes)" "Veto test" 0 $MAIN 100000 0x00) > /dev/null
+send $MAIN $GOVERN $(calld "castVote(uint256,uint8)" 7 1) > /dev/null
+send $M3 $GOVERN $(calld "castVote(uint256,uint8)" 7 1) > /dev/null
+ff 604800
+send $PENGAWAS $GOVERN $(calld "vetoProposal(uint256)" 7) > /dev/null
+chk "Vetoed" $GOVERN "$(calld 'state(uint256)' 7)" 8 && P "12. Veto" || F "12. Veto"
+
 
 # ========== 16. Audit ==========
 echo "=== 16. Audit ==="

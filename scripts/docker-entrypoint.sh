@@ -23,12 +23,12 @@ echo "Deploy complete!"
 
 echo "Funding default accounts..."
 npx hardhat console --network localhost --no-compile --config /app/hardhat/hardhat.config.js <<'SCRIPT'
-const [deployer, acc1, acc2] = await ethers.getSigners();
-for (const acc of [acc1, acc2]) {
+const [deployer, acc1, acc2, acc3, acc4, acc5, acc6, acc7, acc8] = await ethers.getSigners();
+for (const acc of [acc1, acc2, acc3, acc4, acc5, acc6, acc7, acc8]) {
   const tx = await deployer.sendTransaction({ to: acc.address, value: ethers.parseEther("10.0") });
   await tx.wait();
-  console.log("Funded", acc.address, "with 10 ETH");
 }
+console.log("Funded 8 test accounts with 10 ETH each");
 SCRIPT
 
 echo "All done! Contracts deployed and accounts funded."

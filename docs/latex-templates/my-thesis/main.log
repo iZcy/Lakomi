@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 07:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  3 JUN 2026 07:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1315,49 +1315,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 79.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 79.
-
-Overfull \hbox (0.17119pt too wide) in paragraph at lines 79--79
- [] 
- []
-
-[2
-
-
-]
-*geometry* verbose mode - [ newgeometry ] result:
-* driver: pdftex
-* paper: custom
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(100.72256pt, 424.5155pt, 72.2698pt)
-* v-part:(T,H,B)=(72.2698pt, 700.50714pt, 72.2698pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04675pt
-* \textwidth=424.5155pt
-* \textheight=700.50714pt
-* \oddsidemargin=28.45258pt
-* \evensidemargin=28.45258pt
-* \topmargin=-37.00018pt
-* \headheight=12.0pt
-* \headsep=25.0pt
-* \topskip=5.4pt
-* \footskip=42.67912pt
-* \marginparwidth=44.0pt
-* \marginparsep=10.0pt
-* \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
- (./contents/statement/statement.tex) [3
-
+ [2
 
 
 ]
@@ -1394,12 +1352,48 @@ Overfull \hbox (0.17119pt too wide) in paragraph at lines 79--79
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-(./contents/dedication/dedication.tex) [4
+(./contents/statement/statement.tex) [3
 
 
 
-] (./contents/preface/preface.tex)
-[5
+]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: custom
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(100.72256pt, 424.5155pt, 72.2698pt)
+* v-part:(T,H,B)=(72.2698pt, 700.50714pt, 72.2698pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04675pt
+* \textwidth=424.5155pt
+* \textheight=700.50714pt
+* \oddsidemargin=28.45258pt
+* \evensidemargin=28.45258pt
+* \topmargin=-37.00018pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=5.4pt
+* \footskip=42.67912pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ (./contents/dedication/dedication.tex) [4
+
+
+
+] (./contents/preface/preface.tex) [5
 
 
 
@@ -3692,10 +3686,10 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1377DC48BB3DEDE590C62D652F6FD271;30122.
  ) 
 Here is how much of TeX's memory you used:
- 41883 strings out of 475597
- 947907 string characters out of 5783340
+ 41881 strings out of 475597
+ 947892 string characters out of 5783340
  1964975 words of memory out of 5000000
- 62872 multiletter control sequences out of 15000+600000
+ 62870 multiletter control sequences out of 15000+600000
  607891 words of font info for 87 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
  103i,12n,106p,1708b,849s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -3710,7 +3704,7 @@ w/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (93 pages, 489179 bytes).
+Output written on main.pdf (93 pages, 489066 bytes).
 PDF statistics:
  1452 PDF objects out of 1728 (max. 8388607)
  1316 compressed objects within 14 object streams

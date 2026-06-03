@@ -92,13 +92,14 @@ async function main() {
   // acc3 = Membership (MEMBERSHIP_ROLE)
   // acc4 = Bendahara (TREASURER_ROLE)
   // acc5 = Govern (GOVERN_ROLE)
-  const [_, acc1, acc2, acc3, acc4, acc5] = signers
+  const [_, acc1, acc2, acc3, acc4, acc5, acc6, acc7, acc8] = signers
   await govern.grantRole(PENGAWAS_ROLE, acc1.address)
   await loans.grantRole(APPROVER_ROLE, acc2.address)
   await token.grantRole(MEMBERSHIP_ROLE, acc3.address)
   await vault.grantRole(TREASURER_ROLE, acc4.address)
   await vault.grantRole(GOVERN_ROLE, acc5.address)
   console.log("Roles: Acc1=Pengawas, Acc2=Pengurus, Acc3=Membership, Acc4=Bendahara, Acc5=Govern");
+  console.log("Test Members: Acc6, Acc7, Acc8 ready for registration");
 
   const addresses = {
     MOCK_USDC: usdcAddr,

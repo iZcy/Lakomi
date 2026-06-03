@@ -327,4 +327,136 @@ LakomiLoans & $\sim$10 KB & $\sim$2.500.000 & Sedang \\
 
 Total gas \textit{deployment} sekitar 12,2 juta unit gas---pada jaringan konsorsium seperti DChain dengan biaya gas rendah, biaya ini diperkirakan sangat terjangkau. Sebagai perbandingan, \textit{deployment} kontrak serupa pada Ethereum \textit{mainnet} dengan harga gas 20 Gwei dan harga ETH \$2.000 akan memakan biaya sekitar \$490, sementara pada DChain biayanya diproyeksikan jauh lebih rendah. Biaya \textit{deployment} ini bersifat satu kali (\textit{one-time cost}) dan tidak berulang untuk setiap transaksi operasional koperasi.
 
+\section{Spesifikasi Parameter Sistem}
+
+Tabel~\ref{tab:system-params} merangkum seluruh parameter yang dapat dikonfigurasi dalam sistem Lakomi beserta nilai \textit{default} dan otoritas yang berwenang mengubahnya. Parameter yang dikelola melalui tata kelola (\texttt{Govern}) memerlukan proposal, pemungutan suara, dan persetujuan kuorum sebelum perubahan diterapkan.
+
+\begin{table}[h]
+\centering
+\caption{Spesifikasi Parameter Sistem Lakomi}
+\label{tab:system-params}
+\footnotesize
+\begin{tabular}{p{0.22\textwidth}p{0.18\textwidth}p{0.12\textwidth}p{0.38\textwidth}}
+\toprule
+\textbf{Parameter} & \textbf{Nilai Default} & \textbf{Otoritas} & \textbf{Keterangan} \\
+\midrule
+Simpanan Pokok & 100 USDC & \texttt{Govern} & Dibayarkan sekali saat pendaftaran \\
+Simpanan Wajib & 10 USDC/30 hari & \texttt{Govern} & Dibayarkan berkala oleh anggota \\
+Kuorum Voting & 67\% & \texttt{Govern} & Persentase minimum suara untuk sah \\
+Periode Voting & 7 hari & \texttt{Govern} & Durasi pemungutan suara proposal \\
+\textit{Timelock} Eksekusi & 24 jam & \texttt{Govern} & Jeda sebelum proposal dieksekusi \\
+Suku Bunga Pinjaman & 5\% APY & \texttt{Govern} & Bunga tetap tahunan \\
+Rasio Agunan & 25\% & \texttt{Govern} & Persentase pokok yang dijaminkan \\
+\textit{Auto-Approve} & $\leq$200 USDC & \texttt{Govern} & Ambang persetujuan otomatis \\
+LTV \textit{Tier} 1/2/3 & 30/50/70\% & \texttt{Govern} & Kapasitas pinjaman per \textit{tier} \\
+BPS Cadangan SHU & 500 (5\%) & \texttt{Govern} & Alokasi dana cadangan \\
+BPS Jasa Modal & 4000 (40\%) & \texttt{Govern} & Alokasi jasa modal \\
+BPS Jasa Usaha & 4000 (40\%) & \texttt{Govern} & Alokasi jasa usaha \\
+BPS Pendidikan & 500 (5\%) & \texttt{Govern} & Alokasi dana pendidikan \\
+BPS Pengurus & 500 (5\%) & \texttt{Govern} & Alokasi dana pengurus \\
+BPS Kesejahteraan & 500 (5\%) & \texttt{Govern} & Alokasi kesejahteraan sosial \\
+\textit{MAX\_SUPPLY} Token & 1.000.000 LAK & \texttt{Admin} & Pasokan maksimum token \\
+Alokasi Token/Anggota & 100 LAK & \texttt{Admin} & Token dicetak per pendaftaran \\
+Masa Jabatan Peran & 365 hari & \texttt{Admin} & Durasi jabatan pengurus terpilih \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Seluruh parameter keuangan (simpanan, suku bunga, agunan, LTV, SHU) dikelola melalui mekanisme tata kelola---memungkinkan adaptasi terhadap perubahan kondisi ekonomi atau kebijakan tanpa memerlukan \textit{redeployment} kontrak. Parameter teknis (pasokan token, masa jabatan) dikelola oleh administrator sistem untuk menjaga stabilitas operasional. Pemisahan kewenangan ini mencerminkan prinsip \textit{separation of concerns} yang fundamental dalam desain sistem terdesentralisasi.
+
+\section{Diagram Alur Keadaan (State Machine)}
+
+Gambar~\ref{fig:state-machine} mengilustrasikan diagram alur keadaan (\textit{state machine}) untuk tiga entitas utama dalam sistem Lakomi: keanggotaan, proposal, dan pinjaman. Diagram ini memberikan pandangan tingkat tinggi tentang siklus hidup setiap entitas dan transisi keadaan yang dimungkinkan oleh sistem.
+
+\subsection{State Machine Keanggotaan}
+
+\begin{verbatim}
+                 ┌──────────┐
+                 │  None    │ (belum terdaftar)
+                 └────┬─────┘
+                      │ registerMember() + bayar simpanan pokok
+                      ▼
+                 ┌──────────┐
+         ┌───────│  Active  │───────────────┐
+         │       └────┬─────┘               │
+         │            │                     │
+         │ resignMember()             revokeMembership()
+         │ (sukarela, tidak ada        (proposal tata kelola)
+         │  pinjaman aktif)                 │
+         ▼                                 ▼
+  ┌───────────┐                    ┌───────────┐
+  │ Resigned  │                    │ Revoked   │
+  └───────────┘                    └───────────┘
+\end{verbatim}
+
+\subsection{State Machine Proposal}
+
+\begin{verbatim}
+  ┌─────────┐    createProposal()    ┌─────────┐
+  │ Created  │──────────────────────▶│ Active   │
+  └─────────┘                       └────┬─────┘
+                                         │
+              ┌──────────────────────────┼──────────────────────┐
+              │                          │                      │
+              ▼                          ▼                      ▼
+       ┌───────────┐              ┌───────────┐          ┌───────────┐
+       │ Succeeded │              │ Defeated  │          │ Canceled  │
+       │ (kuorum + │              │ (no       │          │ (oleh     │
+       │  majority)│              │  quorum)  │          │  pembuat) │
+       └─────┬─────┘              └───────────┘          └───────────┘
+             │
+             │ queue()
+             ▼
+       ┌───────────┐
+       │  Queued   │──────────vetoProposal()──────▶┌───────────┐
+       │ (24 jam)  │                               │  Vetoed   │
+       └─────┬─────┘                               └───────────┘
+             │
+             │ execute()
+             ▼
+       ┌───────────┐
+       │ Executed  │
+       └───────────┘
+\end{verbatim}
+
+\subsection{State Machine Pinjaman}
+
+\begin{verbatim}
+  ┌──────────┐   requestLoan()    ┌──────────┐
+  │  None    │───────────────────▶│ Pending  │
+  └──────────┘                    └────┬─────┘
+                                      │
+                                      │ approveLoan() / auto-approve
+                                      ▼
+                                 ┌──────────┐
+                                 │ Approved │
+                                 └────┬─────┘
+                                      │
+                                      │ disburse() + lockCollateral()
+                                      ▼
+                                 ┌──────────┐
+                         ┌───────│  Active  │───────┐
+                         │       └────┬─────┘       │
+                         │            │             │
+                    repayInFull()     │        markDefaulted()
+                         │            │             │
+                         ▼            │             ▼
+                   ┌──────────┐       │       ┌───────────┐
+                   │  Repaid  │       │       │ Defaulted │
+                   └──────────┘       │       └─────┬─────┘
+                         │            │             │
+                         │    claimCollateral()     │
+                         │            │             │
+                         ▼            ▼             ▼
+                      ┌────────────────────────────────┐
+                      │   Kembali ke None (pinjaman    │
+                      │   selesai, SHU terhitung)      │
+                      └────────────────────────────────┘
+\end{verbatim}
+
+Ketiga diagram alur keadaan ini mendemonstrasikan bahwa setiap entitas dalam sistem Lakomi memiliki siklus hidup yang terdefinisi dengan jelas dan transisi yang terkendali. Tidak ada jalur tidak sah (\textit{invalid state transition}) yang dimungkinkan oleh kode \textit{smart contract}---setiap perubahan keadaan harus melalui fungsi yang telah ditentukan dan dilindungi oleh mekanisme kontrol akses yang sesuai. Properti ini menjamin integritas sistem dan mencegah korupsi data yang mungkin terjadi dalam sistem manual tanpa pengawasan.
+\label{fig:state-machine}
+
+
+
 

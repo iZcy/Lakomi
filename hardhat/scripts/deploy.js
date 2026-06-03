@@ -86,20 +86,18 @@ async function main() {
   const signers = await hre.ethers.getSigners()
   const APPROVER_ROLE = await loans.APPROVER_ROLE();
   const TREASURER_ROLE = await vault.TREASURER_ROLE();
-  // acc0 = deployer (DEFAULT_ADMIN_ROLE on all contracts)
-  // acc1 = Pengawas (PENGAWAS_ROLE)
-  // acc2 = Pengurus (APPROVER_ROLE)
-  // acc3 = Membership (MEMBERSHIP_ROLE)
-  // acc4 = Bendahara (TREASURER_ROLE)
-  // acc5 = Govern (GOVERN_ROLE)
-  const [_, acc1, acc2, acc3, acc4, acc5, acc6, acc7, acc8] = signers
-  await govern.grantRole(PENGAWAS_ROLE, acc1.address)
-  await loans.grantRole(APPROVER_ROLE, acc2.address)
-  await token.grantRole(MEMBERSHIP_ROLE, acc3.address)
-  await vault.grantRole(TREASURER_ROLE, acc4.address)
-  await vault.grantRole(GOVERN_ROLE, acc5.address)
-  console.log("Roles: Acc1=Pengawas, Acc2=Pengurus, Acc3=Membership, Acc4=Bendahara, Acc5=Govern");
-  console.log("Test Members: Acc6, Acc7, Acc8 ready for registration");
+  if (signers.length >= 9) {
+    const [_, acc1, acc2, acc3, acc4, acc5, acc6, acc7, acc8] = signers
+    await govern.grantRole(PENGAWAS_ROLE, acc1.address)
+    await loans.grantRole(APPROVER_ROLE, acc2.address)
+    await token.grantRole(MEMBERSHIP_ROLE, acc3.address)
+    await vault.grantRole(TREASURER_ROLE, acc4.address)
+    await vault.grantRole(GOVERN_ROLE, acc5.address)
+    console.log("Roles: Acc1=Pengawas, Acc2=Pengurus, Acc3=Membership, Acc4=Bendahara, Acc5=Govern");
+    console.log("Test Members: Acc6, Acc7, Acc8 ready for registration");
+  } else {
+    console.log("DChain/production: deployer holds all roles. Skip test account setup.");
+  }
 
   const addresses = {
     MOCK_USDC: usdcAddr,

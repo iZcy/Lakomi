@@ -4,7 +4,7 @@ import { parseEther, encodeFunctionData, parseAbi, keccak256, toHex } from 'viem
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useToast } from './Toast'
-import { anvil } from '../wagmi'
+import { anvil, IS_DEV } from '../wagmi'
 import { CONTRACTS } from '../config/contracts'
 import { LAKOMI_TOKEN_ABI } from '../abis/LakomiToken'
 import { useQueryClient } from '@tanstack/react-query'
@@ -209,6 +209,7 @@ export function DevFaucet() {
     }
   }
 
+  if (!IS_DEV) return null
   if (chainId !== anvil.id) return null
 
   return (

@@ -17,6 +17,8 @@ export const CHAIN_NAME = typeof import.meta.env.VITE_CHAIN_NAME === 'string'
   ? import.meta.env.VITE_CHAIN_NAME
   : 'DChain Mainnet'
 
+export const IS_DEV = CHAIN_ID === 313377
+
 export const anvil = {
   id: CHAIN_ID,
   name: CHAIN_NAME,

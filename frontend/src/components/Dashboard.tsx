@@ -25,7 +25,7 @@ export function Dashboard() {
           <CardContent className="">
             <h3 className="text-sm font-semibold text-destructive mb-2">Gagal Membaca Kontrak</h3>
             <p className="text-xs text-muted-foreground mb-2">{memberErr.message}</p>
-            <p className="text-xs text-muted-foreground">Pastikan dompet terhubung ke jaringan Anvil (Chain ID 313377, RPC http://127.0.0.1:8545)</p>
+            <p className="text-xs text-muted-foreground">Pastikan dompet terhubung ke jaringan yang benar dan kontrak telah di-deploy.</p>
           </CardContent>
         </Card>
       </div>

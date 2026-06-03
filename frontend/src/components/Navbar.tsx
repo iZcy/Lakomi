@@ -106,7 +106,7 @@ export function Navbar() {
         method: 'wallet_addEthereumChain',
         params: [WALLET_CHAIN_PARAMS],
       })
-      addToast('Jaringan Anvil berhasil ditambahkan!', 'success')
+      addToast('Jaringan berhasil ditambahkan!', 'success')
     } catch (e: any) {
       if (e?.code === 4001) return
       addToast('Gagal menambahkan jaringan: ' + (e?.message || e), 'error')

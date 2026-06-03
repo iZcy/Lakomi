@@ -1,66 +1,82 @@
-## Foundry
+# Lakomi — Blockchain Cooperative System
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+**UU No. 25 Tahun 1992 Compliant Cooperative on Blockchain**
 
-Foundry consists of:
+A decentralized cooperative (koperasi) platform implementing all 26 pasals of Indonesian Cooperative Law (UU 25/1992) as smart contracts on Ethereum-compatible blockchains.
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## What It Does
 
-## Documentation
+- **Member Registration** — KYC + simpanan pokok via MetaMask wallet
+- **Simpanan** — Pokok (mandatory), Wajib (monthly), Sukarela (voluntary deposits)
+- **Pinjaman** — Collateralized loans with 5% APY, multi-tier LTV, Pengurus approval
+- **Governance** — 1-member-1-vote, proposals, quorum 67%, on-chain execution
+- **Elections** — On-chain voting for Pengurus/Bendahara/Pengawas with term tracking
+- **SHU Distribution** — 6-category split (cadangan, jasa modal, jasa usaha, pendidikan, pengurus, kesejahteraan)
+- **Pengawas Audit** — Real-time financial snapshot
+- **Voluntary Exit** — simpanan pokok refund, LAK burned
 
-https://book.getfoundry.sh/
+## Tech Stack
 
-## Usage
+| Layer | Technology |
+|---|---|
+| Smart Contracts | Solidity 0.8.20, Hardhat, OpenZeppelin |
+| Frontend | React + Vite + TypeScript, Wagmi, TailwindCSS |
+| Testing | Hardhat, Anvil RPC impersonation, Shell scripts |
+| Target Chains | Anvil (local), DChain Testnet |
 
-### Build
+## Quick Start
 
-```shell
-$ forge build
+```bash
+# Start local dev environment
+docker compose up -d
+
+# Frontend at http://localhost:5173
+# Anvil RPC at http://localhost:8545
 ```
 
-### Test
+## Deploy to DChain Testnet
 
-```shell
-$ forge test
+```bash
+cd hardhat
+DCHAIN_PK=0x... npx hardhat run scripts/deploy.js --network dchainTestnet
 ```
 
-### Format
-
-```shell
-$ forge fmt
+Then set frontend env vars:
+```
+VITE_CHAIN_ID=2713017997578000
+VITE_CHAIN_NAME=DChain Testnet
 ```
 
-### Gas Snapshots
+## Automated Testing
 
-```shell
-$ forge snapshot
+```bash
+# Full 22-case E2E test (no MetaMask required)
+bash tests/run-all-tests.sh
 ```
 
-### Anvil
+See `tests/TEST_ROADMAP.md` for complete test plan with accounts.
 
-```shell
-$ anvil
+## Contracts
+
+| Contract | Purpose |
+|---|---|
+| `LakomiToken.sol` | ERC-20 governance token, membership registry, locking |
+| `LakomiVault.sol` | Simpanan management, SHU distribution, treasury |
+| `LakomiGovern.sol` | Proposals, voting, quorum, elections, veto |
+| `LakomiLoans.sol` | Loan lifecycle, approval, repayment, default |
+| `MockUSDC.sol` | Test USDC stablecoin |
+
+## Regulation Compliance
+
+26 of 26 implementable pasals from UU 25/1992 mapped to smart contracts. See `frontend/src/components/Compliance.tsx` for the full audit.
+
+## Project Structure
+
 ```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+├── src/                  # Solidity contracts
+├── frontend/             # React + Vite frontend
+├── hardhat/              # Hardhat config + deploy scripts
+├── tests/                # Automated test scripts + roadmap
+├── docs/                 # Papers, compliance map, latex templates
+└── docker-compose.yml    # Local dev: Anvil + Deployer + Frontend
 ```

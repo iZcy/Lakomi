@@ -263,8 +263,8 @@
 				\vfill
 				\iftoggle{lang}{\textit{\textbf{\MakeUppercase{The Sustainable Development Goals}}}}{\textbf{\MakeUppercase{The Sustainable Development Goals}}}\\
 				\iftoggle{lang}{\textit{\textbf{Industry, Innovation and Infrastructure}}}{\textbf{Industry, Innovation and Infrastructure}}\\
-				\iftoggle{lang}{\textit{\textbf{Affordable and Clean Energy}}}{\textbf{Affordable and Clean Energy}}\\
-				\iftoggle{lang}{\textit{\textbf{Climate Action}}}{\textbf{Climate Action}}
+				\iftoggle{lang}{\textit{\textbf{Decent Work and Economic Growth}}}{\textbf{Decent Work and Economic Growth}}\\
+				\iftoggle{lang}{\textit{\textbf{Reduced Inequalities}}}{\textbf{Reduced Inequalities}}
 				\vfill
 				\iftoggle{lang}{\textbf{Disusun oleh:}}{Written by:}\\
 				\vspace{0.4em}
@@ -414,13 +414,10 @@
 				\iftoggle{lang}{Pada tanggal $\ldots\ldots$}{on $\ldots\ldots$}\\
 				\vfill
 				\begin{center}
-					\begin{tabular}{ccc}
-						\iftoggle{lang}{Dosen Pembimbing I}{Supervisor I} &\hspace{2cm} & \iftoggle{lang}{Dosen Pembimbing II}{Supervisor II} \\
-						\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
-						\textbf{\underline{\scalebox{.7}[1.0]{\getsupervisor{1}{1}}}}& &
-					              \textbf{\underline{\scalebox{.7}[1.0]{\getsupervisor{2}{1}}}} \\
-						\textbf{\getsupervisor{1}{2}} & & \textbf{\getsupervisor{2}{2}}\\
-					\end{tabular}
+					\iftoggle{lang}{Dosen Pembimbing}{Supervisor} \\
+					\vspace{0.3cm}
+					\textbf{\underline{\scalebox{.7}[1.0]{\getsupervisor{1}{1}}}}\\
+					\textbf{\getsupervisor{1}{2}}
 				\end{center}
 			\end{singlespacing}
 		\end{center}

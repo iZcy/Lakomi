@@ -9,17 +9,17 @@ Keempat \textit{smart contract} Lakomi diimplementasikan menggunakan Solidity 0.
 \caption{Daftar \textit{Smart Contract} Lakomi}
 \label{tab:contract-list}
 \footnotesize
-\begin{tabular}{p{0.18\textwidth}p{0.12\textwidth}p{0.14\textwidth}p{0.14\textwidth}p{0.28\textwidth}}
+\begin{tabular}{p{0.12\textwidth}p{0.08\textwidth}p{0.14\textwidth}p{0.24\textwidth}p{0.30\textwidth}}
 \toprule
 \textbf{Nama Kontrak} & \textbf{Lines of Code} & \textbf{Inherits} & \textbf{Roles} & \textbf{Fungsi Utama} \\
 \midrule
-LakomiToken & \textasciitilde 230 & ERC20, AccessControl, ReentrancyGuard & DEFAULT\_ADMIN, MEMBERSHIP, MINTER, BURNER, LOCKER & registerMember, resignMember, revokeMembership, lockCollateral \\
+LakomiToken & \textasciitilde 230 & ERC20, AccessControl, Reentrant & ADMIN, MEMBER, MINTER, BURNER, LOCKER & registerMember, resignMember, revokeMember, lockTokens \\
 \midrule
-LakomiVault & \textasciitilde 410 & AccessControl, ReentrancyGuard, Pausable & DEFAULT\_ADMIN, TREASURER, GOVERN, PENGAWAS, LOAN & paySimpananPokok, paySimpananWajib, deposit, distributeSHU, claimSHU, getPengawasAuditReport \\
+LakomiVault & \textasciitilde 410 & AccessControl, Reentrant, Pausable & ADMIN, TREASURER, GOVERN, PENGAWAS, LOAN & payPokok, payWajib, deposit, distributeSHU, claimSHU, getPengawasAudit \\
 \midrule
-LakomiGovern & \textasciitilde 280 & AccessControl, ReentrancyGuard, Pausable & DEFAULT\_ADMIN, PENGAWAS, GOVERN & createProposal, castVote, execute, vetoProposal, beginElection, finalizeElection, scheduleAnnualRAT \\
+LakomiGovern & \textasciitilde 280 & AccessControl, Reentrant, Pausable & ADMIN, PENGAWAS, GOVERN & createProposal, castVote, execute, veto, beginElection, finalizeElection, scheduleRAT \\
 \midrule
-LakomiLoans & \textasciitilde 270 & AccessControl, ReentrancyGuard, Pausable & DEFAULT\_ADMIN, APPROVER & requestLoan, approveLoan, disburse, repayInFull, markDefaulted, claimCollateral \\
+LakomiLoans & \textasciitilde 270 & AccessControl, Reentrant, Pausable & ADMIN, APPROVER & requestLoan, approveLoan, disburse, repay, markDefault, claimCollateral \\
 \bottomrule
 \end{tabular}
 \end{table}

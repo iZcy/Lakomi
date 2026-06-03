@@ -20,11 +20,11 @@ export async function loadContracts(): Promise<void> {
     if (res.ok) {
       const data = await res.json()
       Object.assign(CONTRACTS, data)
-      contractsReady = true
     }
   } catch (e) {
-    // silent: using fallback contract addresses
+    // use fallback addresses (DChain/production)
   }
+  contractsReady = true
 }
 
 loadContracts()

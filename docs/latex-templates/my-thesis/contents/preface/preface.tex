@@ -1,25 +1,43 @@
-Puji syukur ke hadirat Tuhan Yang Maha Esa atas limpahan rahmat, karunia, serta petunjuk-Nya sehingga tugas akhir berupa penyusunan skripsi dengan judul ``Blockchain-Based Cooperative System: Studi Kasus Implementasi DAO pada Jaringan DChain'' ini telah terselesaikan dengan baik. Skripsi ini disusun sebagai salah satu syarat untuk memperoleh gelar Sarjana Teknik pada Program Studi Teknologi Informasi, Departemen Teknik Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada.
+Puji syukur ke hadirat Tuhan Yang Maha Esa---Allah \textit{Subhanahu wa Ta'ala}, \textit{Eloah Yisrael}, Bapa di Surga---yang telah meletakkan jalan hidup yang unik dan penuh lika-liku tak lazim, namun justru menempa diri ini menjadi pribadi yang tangguh dan berani terus mengangkasa. Shalawat serta salam semoga senantiasa tercurah kepada Nabi Muhammad \textit{sallallahu 'alaihi wa sallam}, junjungan umat Islam pembawa risalah kebenaran, serta damai sejahtera kiranya menyertai junjungan kami Yesus Kristus, Sang Firman yang menjadi manusia, teladan kasih dan pengorbanan bagi segenap umat manusia. Berkat rahmat dan penyertaan-Nya, penulis dapat menyusun skripsi dengan judul \textbf{Blockchain-Based Cooperative System: Studi Kasus Implementasi DAO pada Jaringan DChain} dengan sebaik-baiknya sebagai salah satu syarat untuk memperoleh gelar Sarjana Teknik pada Program Studi Teknologi Informasi, Departemen Teknik Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada.
 
-Dalam proses penyusunan skripsi ini, penulis telah banyak mendapatkan arahan, bantuan, serta dukungan dari berbagai pihak. Oleh karena itu pada kesempatan ini penulis mengucapkan terima kasih yang sebesar-besarnya kepada:
+Dalam proses penyusunan skripsi ini, penulis telah banyak mendapatkan arahan, bantuan, serta dukungan dari berbagai pihak. Oleh karena itu, pada kesempatan ini penulis mengucapkan terima kasih yang sebesar-besarnya kepada:
 
-\begin{enumerate}
-	\item Bapak Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., IPM. selaku dosen pembimbing yang telah memberikan bimbingan, arahan, wawasan, dan motivasi selama proses penelitian dan penulisan skripsi ini.
+\begin{enumerate}[leftmargin=*]
+	\item \textbf{Bapak Prof. Ir. Hanung Adi Nugroho, S.T., M.Eng., Ph.D., IPM., SMIEEE.} selaku Ketua Departemen Teknik Elektro dan Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada.
 	
-	\item Seluruh dosen dan staf Departemen Teknik Elektro dan Teknologi Informasi, Universitas Gadjah Mada, yang telah memberikan ilmu, bimbingan, dan dukungan selama masa perkuliahan penulis.
+	\item \textbf{Bapak Dr. Ahmad Nasikun, S.T., M.Sc.} selaku Ketua Program Studi Teknologi Informasi, Fakultas Teknik, Universitas Gadjah Mada.
 	
-	\item Kedua orang tua penulis---Bapak dan Mama---yang senantiasa memberikan doa, dukungan moral, dan kasih sayang tanpa henti sepanjang perjalanan pendidikan penulis.
+	\item \textbf{Bapak Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., IPM.} selaku Dosen Pembimbing yang telah memberikan arahan dan bimbingan kepada penulis sehingga pengerjaan skripsi berjalan lancar dari awal hingga akhir.
 	
-	\item Teman-teman seperjuangan yang selalu memberikan semangat, diskusi, dan bantuan teknis---terutama dalam pengembangan \textit{smart contract} dan \textit{frontend}---yang sangat berarti bagi kelancaran penelitian ini.
+	\item \textbf{Bunda, Maria Magdalena}---ibu tercinta yang sendirian memperjuangkan masa depan ketiga anaknya. Mungkin belum banyak hal yang bisa diberikan sebagai bukti kasih guna membalas jasa seorang ibu. Tiada henti Bunda mendukung keperluan-keperluan yang penulis manfaatkan sebaik mungkin untuk meraih prestasi demi prestasi.
 	
-	\item Seluruh pihak yang tidak dapat penulis sebutkan satu per satu, yang telah memberikan kontribusi dalam bentuk apa pun terhadap penyelesaian skripsi ini.
+	\item \textbf{Syifa Aulia}---kekasih senada yang percaya pada asa, kata, dan laku nyata penulis dalam membaca masalah, melihat peluang, menyusun gagasan, merangkai inovasi, menciptakan solusi, dan menggerakkan roda perubahan. Sandaran ternyaman dalam menghadapi berbagai badai yang menghadang.
+	
+	\item \textbf{Hazon El Yeshua Manalu dan Waldensia Ebenz Shiloh Manalu}---adik-adik yang menjadi motivasi besar untuk bisa menjadi teladan yang baik. Membuktikan bahwa seterpuruk apa pun keluarga kami, kami tetap bisa menjadi anak-anak hebat yang berprestasi---bagi keluarga, kawan, masyarakat, dan negara.
+	
+	\item \textbf{Teteh Rena}---yang selalu mengingatkan bahwa hidup tidak runtuh hanya karena besarnya luka di masa lampau. Selalu ada cara untuk bersyukur dan terus berjuang menjadi pribadi yang lebih baik bagi diri sendiri maupun orang lain.
+	
+	\item \textbf{Rekan-rekan ArachnoVa}---secara profesional, panggung besar pengembangan karakter dan penciptaan gagasan inovatif dalam wujud teknologi yang bermanfaat. Secara personal, keluarga besar yang mengajarkan bahwa hidup bukan sekadar mencari uang, melainkan memberikan dampak yang dicapai bersama. Kepada \textbf{Hilmi}---partner hidup perkuliahan yang telah jatuh bangun membangun banyak hal bersama. Kepada \textbf{Grandiv}---yang selalu mendukung gagasan inovasi bersama. Kepada \textbf{Sakti}---sosok hebat yang mendedikasikan diri bagi kemajuan bersama. Kepada \textbf{Bian}---yang jarang mengeluh, tetap teguh ke mana pun gilanya misi ArachnoVa bergerak, bersama kehilangan malam menyelesaikan salah satu perubahan besar. Kepada \textbf{Varick}---yang membersamai masa-masa sulit. Kepada \textbf{Lutfi}---yang dukungannya mempercepat akselerasi pekerjaan. Kepada \textbf{Arden}---yang menyelamatkan penulis dari penghujung puncak FT di masa semester pertama, sekaligus teman diskusi berbagai hal: profesional, personal, bahkan candaan-candaan keterlaluan. Kepada \textbf{Brandon}, \textbf{Syaifullah}, dan seluruh kawan ArachnoVa yang belum tersebut namanya---terima kasih telah menjadi bagian dari perjalanan ini.
+	
+	\item \textbf{Rekan-rekan Kerja Praktik}---yang mengarungi DKI Jakarta bersama selama 1,5 bulan dalam satu atap. Kepada \textbf{Deren} yang bersama di VhiWeb. Kepada \textbf{Fawwaz}, \textbf{Benaya}, \textbf{Dani}, dan \textbf{Harun} yang menyemangati kehidupan bersama dalam apartemen sementara tetapi penuh warna.
+	
+	\item \textbf{Rekan-rekan Rumah Orkestra Jogja}---kepada \textbf{Mas Iwan Setianjaya} yang percaya kepada jiwa-jiwa nekat untuk menciptakan hal baru. Kepada \textbf{Mbak Dellin} yang tiada putus sabar menghadapi konsekuensi perjuangan kami. Kepada \textbf{Mbak Afifah} yang memegang tanggung jawab besar finansial dalam usaha kami. Kepada \textbf{Mas Bob} yang percaya pada pengalaman terbatas kami. Beserta seluruh rekan ROJ yang menjadi motivasi bahwa tiada batas dalam menggapai cita-cita besar.
+	
+	\item \textbf{Rekan-rekan DTETI FT UGM Angkatan 2022}, \textbf{Paguyuban Karya Salemba Empat Universitas Gadjah Mada}, \textbf{Night Login DTETI}, \textbf{KKN PPM UGM Lembaran Bayan 2025}, \textbf{AIESEC in UGM 23.24}, \textbf{AIESEC in UNS 22.23}, \textbf{Himaster Informatika UNS 2022}---setiap organisasi telah membentuk karakter dan memberikan pelajaran berharga yang turut mendewasakan penulis.
+	
+	\item \textbf{Father, Yand Abraham Delomo Manalu}---ayah yang telah membekali dasar-dasar berpikir serta semangat juang yang terwariskan dalam diri.
+	
+	\item \textbf{Keluarga besar Manalu}---yang menaruh harapan teladan bagi keturunan penerus, menjadi contoh baik bagi para sepupu, dan tak pernah putus mendoakan studi terbaik.
+	
+	\item \textbf{Seluruh dosen dan staf} Departemen Teknik Elektro dan Teknologi Informasi, Universitas Gadjah Mada, yang telah memberikan ilmu, bimbingan, dan dukungan selama masa perkuliahan.
 \end{enumerate}
 
-Akhir kata, penulis menyadari bahwa skripsi ini masih memiliki kekurangan dan keterbatasan. Kritik dan saran yang membangun sangat penulis harapkan untuk perbaikan di masa mendatang. Semoga skripsi ini dapat memberikan manfaat bagi pengembangan ilmu pengetahuan, khususnya di bidang \textit{blockchain} dan teknologi informasi, serta bagi kemajuan koperasi di Indonesia.
+Akhir kata, penulis menyadari bahwa skripsi ini masih memiliki kekurangan dan keterbatasan. Segala kritik dan saran yang membangun sangat penulis harapkan demi perbaikan di masa mendatang. Semoga karya ini dapat memberikan manfaat bagi pengembangan ilmu pengetahuan, khususnya di bidang teknologi blockchain dan sistem informasi, serta menjadi langkah kecil menuju transformasi digital koperasi di Indonesia. Sebab, sebagaimana langit dan bumi berjalan dalam ketetapan-Nya, demikian pula setiap usaha kecil yang dilakukan dengan ketulusan akan menemukan jalannya sendiri menuju kebaikan yang lebih besar.
 
 \begin{flushright}
 	\begin{tabular}{c}
 		Yogyakarta, \qquad \qquad \qquad 2026 \\
-		\vspace{1cm} \\
-		Yitzhak Edmund Tio Manalu
+		\vspace{1.2cm} \\
+		\textbf{Yitzhak Edmund Tio Manalu}
 	\end{tabular}
 \end{flushright}

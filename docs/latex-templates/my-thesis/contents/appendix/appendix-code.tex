@@ -364,98 +364,34 @@ Masa Jabatan Peran & 365 hari & \texttt{Admin} & Durasi jabatan pengurus terpili
 
 Seluruh parameter keuangan (simpanan, suku bunga, agunan, LTV, SHU) dikelola melalui mekanisme tata kelola---memungkinkan adaptasi terhadap perubahan kondisi ekonomi atau kebijakan tanpa memerlukan \textit{redeployment} kontrak. Parameter teknis (pasokan token, masa jabatan) dikelola oleh administrator sistem untuk menjaga stabilitas operasional. Pemisahan kewenangan ini mencerminkan prinsip \textit{separation of concerns} yang fundamental dalam desain sistem terdesentralisasi.
 
-\section{Diagram Alur Keadaan (State Machine)}
+\section{Arsitektur Sistem Terintegrasi}
 
-Gambar~\ref{fig:state-machine} mengilustrasikan diagram alur keadaan (\textit{state machine}) untuk tiga entitas utama dalam sistem Lakomi: keanggotaan, proposal, dan pinjaman. Diagram ini memberikan pandangan tingkat tinggi tentang siklus hidup setiap entitas dan transisi keadaan yang dimungkinkan oleh sistem.
+Gambar~\ref{fig:clean-architecture} mengilustrasikan arsitektur sistem Lakomi menggunakan diagram \textit{Clean Architecture} yang menunjukkan aliran dependensi antara lapisan sistem. Diagram ini melengkapi Gambar~\ref{fig:arsitektur-3} pada Bab~\ref{ch3} dengan penekanan pada arah ketergantungan antar komponen.
 
-\subsection{State Machine Keanggotaan}
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    layer/.style={rectangle, draw, rounded corners=3pt, minimum width=8cm, minimum height=0.5cm, font=\footnotesize, align=center},
+    arrow/.style={->, >=stealth, thick, blue!60},
+    dep/.style={->, >=stealth, dashed, gray!50},
+]
+\node[layer, fill=purple!10, minimum width=10cm] (fe) at (0,3.5) {\textbf{Presentation Layer} --- React 18 + TypeScript + wagmi v2};
+\node[layer, fill=green!8, minimum width=9cm] (app) at (0,1.8) {\textbf{Application Layer} --- Smart Contracts (Solidity 0.8.20)};
+\node[layer, fill=blue!8, minimum width=8cm] (domain) at (0,0.1) {\textbf{Domain Layer} --- UU 25/1992 Compliance Rules (26 Pasal)};
+\node[layer, fill=orange!10, minimum width=10.5cm] (infra) at (0,-1.6) {\textbf{Infrastructure Layer} --- DChain (EVM-Compatible, Chain ID 17845)};
+\draw[arrow] (fe.south) -- (app.north) node[midway, right, font=\footnotesize] {JSON-RPC};
+\draw[dep] (app.south) -- (domain.north) node[midway, right, font=\footnotesize] {implements};
+\draw[dep] (domain.south) -- (infra.north) node[midway, right, font=\footnotesize] {deployed on};
+% Cross-layer dependencies
+\draw[->, >=stealth, dashed, red!40] (app.west) to[out=180, in=180] (infra.west) node[midway, left, font=\footnotesize] {gas cost};
+\end{tikzpicture}
+\caption{Arsitektur \textit{Clean Architecture} Sistem Lakomi}
+\label{fig:clean-architecture}
+\end{figure}
 
-\begin{verbatim}
-                 ┌──────────┐
-                 │  None    │ (belum terdaftar)
-                 └────┬─────┘
-                      │ registerMember() + bayar simpanan pokok
-                      ▼
-                 ┌──────────┐
-         ┌───────│  Active  │───────────────┐
-         │       └────┬─────┘               │
-         │            │                     │
-         │ resignMember()             revokeMembership()
-         │ (sukarela, tidak ada        (proposal tata kelola)
-         │  pinjaman aktif)                 │
-         ▼                                 ▼
-  ┌───────────┐                    ┌───────────┐
-  │ Resigned  │                    │ Revoked   │
-  └───────────┘                    └───────────┘
-\end{verbatim}
+Arsitektur ini mengikuti prinsip \textit{dependency inversion}: lapisan yang lebih tinggi bergantung pada abstraksi yang didefinisikan oleh lapisan di bawahnya, bukan sebaliknya. \textit{Domain Layer} (aturan UU 25/1992) adalah inti sistem yang tidak bergantung pada teknologi spesifik---perubahan pada infrastruktur blockchain (misalnya migrasi dari DChain ke platform EVM lain) tidak memerlukan perubahan pada aturan kepatuhan. \textit{Application Layer} (smart contract) mengimplementasikan aturan domain dalam bentuk kode yang dapat dieksekusi. \textit{Infrastructure Layer} menyediakan lingkungan eksekusi dan penyimpanan. \textit{Presentation Layer} menyediakan antarmuka pengguna yang berkomunikasi dengan \textit{Application Layer} melalui JSON-RPC.
 
-\subsection{State Machine Proposal}
-
-\begin{verbatim}
-  ┌─────────┐    createProposal()    ┌─────────┐
-  │ Created  │──────────────────────▶│ Active   │
-  └─────────┘                       └────┬─────┘
-                                         │
-              ┌──────────────────────────┼──────────────────────┐
-              │                          │                      │
-              ▼                          ▼                      ▼
-       ┌───────────┐              ┌───────────┐          ┌───────────┐
-       │ Succeeded │              │ Defeated  │          │ Canceled  │
-       │ (kuorum + │              │ (no       │          │ (oleh     │
-       │  majority)│              │  quorum)  │          │  pembuat) │
-       └─────┬─────┘              └───────────┘          └───────────┘
-             │
-             │ queue()
-             ▼
-       ┌───────────┐
-       │  Queued   │──────────vetoProposal()──────▶┌───────────┐
-       │ (24 jam)  │                               │  Vetoed   │
-       └─────┬─────┘                               └───────────┘
-             │
-             │ execute()
-             ▼
-       ┌───────────┐
-       │ Executed  │
-       └───────────┘
-\end{verbatim}
-
-\subsection{State Machine Pinjaman}
-
-\begin{verbatim}
-  ┌──────────┐   requestLoan()    ┌──────────┐
-  │  None    │───────────────────▶│ Pending  │
-  └──────────┘                    └────┬─────┘
-                                      │
-                                      │ approveLoan() / auto-approve
-                                      ▼
-                                 ┌──────────┐
-                                 │ Approved │
-                                 └────┬─────┘
-                                      │
-                                      │ disburse() + lockCollateral()
-                                      ▼
-                                 ┌──────────┐
-                         ┌───────│  Active  │───────┐
-                         │       └────┬─────┘       │
-                         │            │             │
-                    repayInFull()     │        markDefaulted()
-                         │            │             │
-                         ▼            │             ▼
-                   ┌──────────┐       │       ┌───────────┐
-                   │  Repaid  │       │       │ Defaulted │
-                   └──────────┘       │       └─────┬─────┘
-                         │            │             │
-                         │    claimCollateral()     │
-                         │            │             │
-                         ▼            ▼             ▼
-                      ┌────────────────────────────────┐
-                      │   Kembali ke None (pinjaman    │
-                      │   selesai, SHU terhitung)      │
-                      └────────────────────────────────┘
-\end{verbatim}
-
-Ketiga diagram alur keadaan ini mendemonstrasikan bahwa setiap entitas dalam sistem Lakomi memiliki siklus hidup yang terdefinisi dengan jelas dan transisi yang terkendali. Tidak ada jalur tidak sah (\textit{invalid state transition}) yang dimungkinkan oleh kode \textit{smart contract}---setiap perubahan keadaan harus melalui fungsi yang telah ditentukan dan dilindungi oleh mekanisme kontrol akses yang sesuai. Properti ini menjamin integritas sistem dan mencegah korupsi data yang mungkin terjadi dalam sistem manual tanpa pengawasan.
-\label{fig:state-machine}
+Pemisahan yang ketat antara \textit{Domain Layer} (aturan hukum) dan \textit{Application Layer} (implementasi kode) adalah kontribusi arsitektural utama Lakomi: perubahan regulasi dapat diakomodasi melalui pembaruan \textit{smart contract} tanpa mengubah infrastruktur, sementara perubahan infrastruktur blockchain tidak memengaruhi aturan kepatuhan yang telah dikodekan.
 
 
 

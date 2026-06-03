@@ -169,6 +169,41 @@ Lima peran mengatur sistem: PENGAWAS\_ROLE (pengawas dengan hak veto), APPROVER\
 
 \section{Desain Smart Contract}
 
+\subsection{Rasionalisasi Pemilihan Arsitektur}
+
+Sebelum membahas detail implementasi, bagian ini menyajikan justifikasi desain untuk setiap keputusan arsitektural utama yang membedakan Lakomi dari pendekatan alternatif. Setiap keputusan dievaluasi terhadap tiga kriteria: kepatuhan terhadap UU 25/1992, keamanan teknis, dan kelayakan operasional.
+
+\textbf{Keputusan 1: Pemisahan Kontrak vs Monolitik.} Arsitektur empat kontrak (Token, Vault, Govern, Loans) dipilih dibandingkan pendekatan monolitik (satu kontrak besar). Justifikasi: (1) \textit{separation of concerns}---setiap kontrak bertanggung jawab atas satu domain fungsional, memudahkan verifikasi kepatuhan per pasal dan mengurangi kompleksitas kognitif; (2) \textit{blast radius} terbatas---jika satu kontrak mengalami kerentanan, kontrak lain tetap beroperasi secara independen, membatasi dampak serangan; (3) \textit{upgradeability} selektif---setiap kontrak dapat diperbarui secara independen tanpa memengaruhi kontrak lain, memungkinkan adaptasi bertahap terhadap perubahan regulasi; (4) \textit{gas optimization}---pengguna hanya membayar gas untuk kontrak yang relevan dengan transaksi mereka. Risiko pendekatan terpisah---kompleksitas interaksi antar-kontrak---dimitigasi melalui \textit{wiring} yang ketat pada saat \textit{deployment} dan verifikasi dependensi melalui pengujian integrasi.
+
+\textbf{Keputusan 2: ERC-20 dengan Transfer Dinonaktifkan.} LakomiToken mewarisi standar ERC-20 tetapi menonaktifkan fungsi transfer. Justifikasi: (1) kepatuhan terhadap Pasal 18(2)---token keanggotaan bersifat \textit{intuitu personae} dan tidak dapat diperjualbelikan; (2) kompatibilitas ekosistem---dengan mewarisi ERC-20, token tetap kompatibel dengan \textit{wallet}, \textit{block explorer}, dan alat analitik yang mengharapkan antarmuka ERC-20 standar; (3) \textit{future-proofing}---jika regulasi berubah dan transfer diizinkan di masa depan, perubahan hanya memerlukan satu \textit{boolean flag} tanpa \textit{redeployment} atau migrasi data. Alternatif yang dipertimbangkan---mengimplementasikan token kustom tanpa ERC-20---ditolak karena akan kehilangan interoperabilitas dengan ekosistem Ethereum yang luas.
+
+\textbf{Keputusan 3: RBAC 8-Peran vs Ownership Tunggal.} Sistem menggunakan 8 peran terdistribusi dibandingkan model \texttt{Ownable} dengan satu pemilik. Justifikasi: (1) kepatuhan terhadap struktur organisasi koperasi (Pasal 21--39) yang memisahkan pengurus, pengawas, dan anggota; (2) mitigasi \textit{single point of failure}---tidak ada satu akun yang memiliki kendali penuh atas sistem, sehingga kompromi satu kunci privat tidak serta-merta mengakibatkan kompromi seluruh sistem; (3) \textit{separation of duties}---pemisahan antara pengusul (anggota), peninjau (pengawas), dan pelaksana (pengurus) mencegah kolusi dan penyalahgunaan wewenang. Risiko---kompleksitas manajemen peran---dimitigasi melalui dokumentasi matriks akses (Lampiran) dan pengujian akses kontrol yang komprehensif.
+
+\textbf{Keputusan 4: Suku Bunga Tetap vs Dinamis.} Suku bunga pinjaman ditetapkan tetap 5\% APY dibandingkan model dinamis berbasis \textit{utilization rate} seperti pada Compound dan Aave. Justifikasi: (1) kepatuhan terhadap Permenkop 8/2023 yang menetapkan batas maksimum suku bunga wajar---suku bunga tetap menjamin kepatuhan berkelanjutan tanpa memerlukan penyesuaian parameter yang sering; (2) kesederhanaan dan prediktabilitas---anggota koperasi dapat menghitung biaya pinjaman di muka tanpa bergantung pada kondisi pasar yang fluktuatif; (3) inklusivitas---suku bunga tetap rendah (5\%) memastikan akses pinjaman bagi anggota dengan kapasitas finansial terbatas, berbeda dengan DeFi di mana suku bunga dapat melonjak saat permintaan tinggi. Alternatif dinamis dipertimbangkan untuk meningkatkan efisiensi alokasi modal, tetapi ditolak karena bertentangan dengan prinsip kesejahteraan anggota yang menjadi fondasi koperasi.
+
+\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Justifikasi: (1) legitimasi keputusan---ambang dua per tiga memastikan bahwa keputusan tata kelola mencerminkan konsensus yang kuat, bukan sekadar mayoritas tipis yang dapat dimanipulasi; (2) perlindungan minoritas---dengan kuorum tinggi, minoritas signifikan (hingga 33\%) tidak dapat diabaikan begitu saja, mendorong musyawarah dan kompromi; (3) stabilitas tata kelola---keputusan yang diambil dengan konsensus kuat cenderung lebih stabil dan kurang rentan terhadap pembalikan cepat. Risiko---potensi kebuntuan (\textit{gridlock}) jika partisipasi rendah---dimitigasi melalui mekanisme \textit{abstain} yang dihitung sebagai partisipasi tanpa memihak, sehingga anggota yang tidak memiliki preferensi kuat tetap berkontribusi pada pencapaian kuorum.
+
+Tabel~\ref{tab:design-decisions} merangkum justifikasi setiap keputusan desain utama beserta alternatif yang dipertimbangkan dan alasan penolakannya.
+
+\begin{table}[h]
+\centering
+\caption{Justifikasi Keputusan Desain Arsitektural}
+\label{tab:design-decisions}
+\footnotesize
+\begin{tabular}{p{0.18\textwidth}p{0.13\textwidth}p{0.28\textwidth}p{0.31\textwidth}}
+\toprule
+\textbf{Keputusan} & \textbf{Pilihan} & \textbf{Alternatif (Ditolak)} & \textbf{Alasan Penolakan} \\
+\midrule
+Arsitektur Kontrak & 4 kontrak terpisah & 1 kontrak monolitik & \textit{Blast radius} besar, sulit diverifikasi per pasal \\
+Model Token & ERC-20 non-transferable & Token kustom tanpa standar & Kehilangan interoperabilitas ekosistem \\
+Model Akses & RBAC 8-peran & \texttt{Ownable} tunggal & \textit{Single point of failure}, tidak sesuai UU \\
+Suku Bunga & Tetap 5\% APY & Dinamis (\textit{utilization rate}) & Tidak ada kepastian biaya, bertentangan dengan prinsip koperasi \\
+Kuorum & 67\% (dua per tiga) & 50\%+1 (mayoritas sederhana) & Rentan manipulasi, legitimasi rendah \\
+Agunan & 25\% tetap & 150\% (\textit{overcollateralized}) & Mengecualikan anggota bermodal kecil \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{Struktur Data}
 
 Setiap \textit{smart contract} mendefinisikan struktur data yang memetakan ketentuan UU 25/1992:

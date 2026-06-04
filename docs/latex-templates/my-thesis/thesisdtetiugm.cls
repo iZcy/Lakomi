@@ -417,7 +417,7 @@
 					\iftoggle{lang}{Dosen Pembimbing}{Supervisor} \\
 					\vspace{0.3cm}
 					\textbf{\underline{\scalebox{.7}[1.0]{\getsupervisor{1}{1}}}}\\
-					\textbf{\getsupervisor{1}{2}}
+					\textbf{NIP \getsupervisor{1}{2}}
 				\end{center}
 			\end{singlespacing}
 		\end{center}

@@ -362,37 +362,37 @@ Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingk
 \toprule
 \textbf{No} & \textbf{Pasal} & \textbf{Skenario Pengujian} & \textbf{Hasil} \\
 \midrule
-1 & 5(1) & Pendaftaran mandiri oleh alamat baru; verifikasi \texttt{isRegisteredMember = true} dan \texttt{memberCount} bertambah & \checkmark \\
-2 & 5(1) & Penolakan pendaftaran ganda (\texttt{Already registered}) & \checkmark \\
-3 & 5(1) & Pencetakan 100 LAK pada pendaftaran & \checkmark \\
-4 & 5(2) & Satu anggota memberikan satu suara pada proposal & \checkmark \\
-5 & 17--18 & Pendaftaran anggota baru oleh admin melalui \texttt{registerMemberAdmin()} & \checkmark \\
-6 & 18(2) & Transfer token LAK ditolak (\texttt{transfersEnabled = false}) & \checkmark \\
-7 & 19--21 & Pengunduran diri sukarela melalui \texttt{resignMembership()} & \checkmark \\
-8 & 22(1) & Tiga anggota terdaftar masing-masing mengembalikan \texttt{getVotingPower() = 1} & \checkmark \\
-9 & 22(1) & Alamat tidak terdaftar ditolak saat memberikan suara & \checkmark \\
-10 & 22(2) & Pembayaran simpanan pokok satu kali; penolakan pembayaran ganda & \checkmark \\
-11 & 23 & Proposal dengan 3 anggota dan 2 suara \textit{For} dinyatakan lolos (kuorum 67\%) & \checkmark \\
-12 & 23 & Proposal dengan partisipasi di bawah kuorum dinyatakan \textit{Defeated} & \checkmark \\
-13 & 26--27 & Penjadwalan RAT tahunan; pencegahan RAT ganda dalam 365 hari & \checkmark \\
-14 & 29--30 & Pemilihan pengurus: kandidat dengan suara terbanyak menang & \checkmark \\
-15 & 29--30 & Masa jabatan pengurus 365 hari; pemberian peran otomatis & \checkmark \\
-16 & 31 & Pencabutan keanggotaan melalui proposal tata kelola & \checkmark \\
-17 & 38 & Pengawas dapat mem-veto proposal; \texttt{proposalVetoed = true} & \checkmark \\
-18 & 38 & Akun non-pengawas ditolak saat mencoba veto & \checkmark \\
-19 & 39(2) & Pengawas mengakses laporan keuangan via \texttt{getPengawasAuditReport()} & \checkmark \\
-20 & 41(1) & Pembayaran simpanan pokok 100 IDRX pada pendaftaran & \checkmark \\
-21 & 41(2) & Pembayaran simpanan wajib 10 IDRX periodik & \checkmark \\
-22 & 41(3) & Penyetoran simpanan sukarela dengan perhitungan \textit{shares} proporsional & \checkmark \\
-23 & 43 & Pelacakan dana cadangan dalam \texttt{danaCadangan} & \checkmark \\
-24 & 45(1--2) & Distribusi SHU ke 6 kategori sesuai basis poin & \checkmark \\
-25 & 45(1--2) & Klaim SHU oleh anggota; pencegahan klaim ganda & \checkmark \\
-26 & Permenkop 8/2023 Ps 6--7 & Pinjaman LTV berbasis \textit{tier} kontribusi; suku bunga 5\% APY; agunan 25\% & \checkmark \\
+1 & 5(1) & Pendaftaran mandiri oleh alamat baru; verifikasi \texttt{isRegisteredMember = true} dan \texttt{memberCount} bertambah & $\checkmark$ \\
+2 & 5(1) & Penolakan pendaftaran ganda (\texttt{Already registered}) & $\checkmark$ \\
+3 & 5(1) & Pencetakan 100 LAK pada pendaftaran & $\checkmark$ \\
+4 & 5(2) & Satu anggota memberikan satu suara pada proposal & $\checkmark$ \\
+5 & 17--18 & Pendaftaran anggota baru oleh admin melalui \texttt{registerMemberAdmin()} & $\checkmark$ \\
+6 & 18(2) & Transfer token LAK ditolak (\texttt{transfersEnabled = false}) & $\checkmark$ \\
+7 & 19--21 & Pengunduran diri sukarela melalui \texttt{resignMembership()} & $\checkmark$ \\
+8 & 22(1) & Tiga anggota terdaftar masing-masing mengembalikan \texttt{getVotingPower() = 1} & $\checkmark$ \\
+9 & 22(1) & Alamat tidak terdaftar ditolak saat memberikan suara & $\checkmark$ \\
+10 & 22(2) & Pembayaran simpanan pokok satu kali; penolakan pembayaran ganda & $\checkmark$ \\
+11 & 23 & Proposal dengan 3 anggota dan 2 suara \textit{For} dinyatakan lolos (kuorum 67\%) & $\checkmark$ \\
+12 & 23 & Proposal dengan partisipasi di bawah kuorum dinyatakan \textit{Defeated} & $\checkmark$ \\
+13 & 26--27 & Penjadwalan RAT tahunan; pencegahan RAT ganda dalam 365 hari & $\checkmark$ \\
+14 & 29--30 & Pemilihan pengurus: kandidat dengan suara terbanyak menang & $\checkmark$ \\
+15 & 29--30 & Masa jabatan pengurus 365 hari; pemberian peran otomatis & $\checkmark$ \\
+16 & 31 & Pencabutan keanggotaan melalui proposal tata kelola & $\checkmark$ \\
+17 & 38 & Pengawas dapat mem-veto proposal; \texttt{proposalVetoed = true} & $\checkmark$ \\
+18 & 38 & Akun non-pengawas ditolak saat mencoba veto & $\checkmark$ \\
+19 & 39(2) & Pengawas mengakses laporan keuangan via \texttt{getPengawasAuditReport()} & $\checkmark$ \\
+20 & 41(1) & Pembayaran simpanan pokok 100 IDRX pada pendaftaran & $\checkmark$ \\
+21 & 41(2) & Pembayaran simpanan wajib 10 IDRX periodik & $\checkmark$ \\
+22 & 41(3) & Penyetoran simpanan sukarela dengan perhitungan \textit{shares} proporsional & $\checkmark$ \\
+23 & 43 & Pelacakan dana cadangan dalam \texttt{danaCadangan} & $\checkmark$ \\
+24 & 45(1--2) & Distribusi SHU ke 6 kategori sesuai basis poin & $\checkmark$ \\
+25 & 45(1--2) & Klaim SHU oleh anggota; pencegahan klaim ganda & $\checkmark$ \\
+26 & Permenkop 8/2023 Ps 6--7 & Pinjaman LTV berbasis \textit{tier} kontribusi; suku bunga 5\% APY; agunan 25\% & $\checkmark$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Seluruh 26 skenario pengujian menunjukkan hasil \checkmark\ (\textit{Pass}), yang mengonfirmasi bahwa \textit{smart contract} Lakomi berfungsi sesuai spesifikasi dan memenuhi ketentuan UU 25/1992. Pengujian mencakup verifikasi fungsionalitas inti (No.~1, 3--8, 10--11, 13--15, 20--22, 24--26), verifikasi penanganan kesalahan (No.~2, 9, 12, 18), dan verifikasi mekanisme kontrol akses berbasis peran (No.~16--17, 19). Tidak ditemukan kegagalan (\textit{failure}) pada seluruh skenario yang diuji.
+Seluruh 26 skenario pengujian menunjukkan hasil $\checkmark$\ (\textit{Pass}), yang mengonfirmasi bahwa \textit{smart contract} Lakomi berfungsi sesuai spesifikasi dan memenuhi ketentuan UU 25/1992. Pengujian mencakup verifikasi fungsionalitas inti (No.~1, 3--8, 10--11, 13--15, 20--22, 24--26), verifikasi penanganan kesalahan (No.~2, 9, 12, 18), dan verifikasi mekanisme kontrol akses berbasis peran (No.~16--17, 19). Tidak ditemukan kegagalan (\textit{failure}) pada seluruh skenario yang diuji.
 
 Pengelompokan hasil pengujian berdasarkan kategori ketentuan UU 25/1992 disajikan pada Tabel~\ref{tab:category-summary}.
 
@@ -404,12 +404,12 @@ Pengelompokan hasil pengujian berdasarkan kategori ketentuan UU 25/1992 disajika
 \toprule
 \textbf{Kategori} & \textbf{Jumlah Pasal} & \textbf{Skenario} & \textbf{Hasil} \\
 \midrule
-Keanggotaan & 5 (5, 17--21, 31) & 7 & 7/7 \checkmark \\
-Simpanan & 4 (22(2), 41, 43) & 5 & 5/5 \checkmark \\
-Tata Kelola & 6 (22(1), 23, 26--27, 29--30, 38--39) & 10 & 10/10 \checkmark \\
-SHU \& Pinjaman & 3 (45, Permenkop 8/2023) & 4 & 4/4 \checkmark \\
+Keanggotaan & 5 (5, 17--21, 31) & 7 & 7/7 $\checkmark$ \\
+Simpanan & 4 (22(2), 41, 43) & 5 & 5/5 $\checkmark$ \\
+Tata Kelola & 6 (22(1), 23, 26--27, 29--30, 38--39) & 10 & 10/10 $\checkmark$ \\
+SHU \& Pinjaman & 3 (45, Permenkop 8/2023) & 4 & 4/4 $\checkmark$ \\
 \midrule
-\textbf{Total} & \textbf{18} & \textbf{26} & \textbf{26/26 \checkmark} \\
+\textbf{Total} & \textbf{18} & \textbf{26} & \textbf{26/26 $\checkmark$} \\
 \bottomrule
 \end{tabular}
 \end{table}

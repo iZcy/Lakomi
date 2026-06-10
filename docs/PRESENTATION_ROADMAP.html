@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakomi — Thesis Defense Presentation Roadmap</title>
+<style>
+:root {
+  --bg:#060918; --card:#0d1425; --border:#1a2540;
+  --red:#f87171; --amber:#fbbf24; --green:#34d399; --blue:#60a5fa; --purple:#c084fc;
+  --dim:#64748b; --text:#e2e8f0; --hi:#f8fafc;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,9,24,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem;height:52px;display:flex;align-items:center;justify-content:space-between}
+.topbar .logo{font-weight:700;font-size:1rem;color:var(--hi);letter-spacing:.02em}
+.topbar .logo span{color:var(--green)}
+.topbar nav{display:flex;gap:1.5rem}
+.topbar nav a{color:var(--dim);text-decoration:none;font-size:.78rem;transition:color .2s}
+.topbar nav a:hover,.topbar nav a.active{color:var(--green)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(52,211,153,.08),transparent 70%)}
+.hero h1{font-size:3.2rem;font-weight:800;color:var(--hi);letter-spacing:-.02em;line-height:1.15;position:relative}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero .sub{font-size:1.1rem;color:var(--dim);margin-top:1rem;position:relative}
+.hero .sub strong{color:var(--blue)}
+.hero .stats{margin-top:2.5rem;display:flex;gap:3rem;position:relative}
+.hero .stats .stat{text-align:center}
+.hero .stats .stat .val{font-size:2.2rem;font-weight:800;color:var(--hi)}
+.hero .stats .stat .lbl{font-size:.7rem;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-top:.25rem}
+.hero .flow-bar{margin-top:3rem;width:min(700px,90%);position:relative}
+.hero .flow-bar .track{height:3px;background:linear-gradient(90deg,var(--red),var(--amber),var(--green),var(--blue),var(--purple));border-radius:2px}
+.hero .scroll-hint{margin-top:3rem;color:var(--dim);font-size:.72rem;animation:bounce 2s infinite;position:relative}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+
+/* ── SECTION TITLES ── */
+.sec-head{text-align:center;padding:4rem 2rem 1.5rem}
+.sec-head h2{font-size:2rem;font-weight:700;color:var(--hi)}
+.sec-head p{color:var(--dim);font-size:.85rem;margin-top:.4rem;max-width:600px;margin-inline:auto}
+
+/* ── NARRATIVE FLOW ── */
+.narrative{max-width:1100px;margin:0 auto;padding:0 2rem 3rem}
+.flow-road{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center}
+.flow-step{flex:1 1 180px;max-width:210px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.5rem 1rem 1rem;text-align:center;position:relative;transition:transform .25s,border-color .25s,box-shadow .25s;cursor:pointer}
+.flow-step:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.flow-step .ix{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem;color:#fff;margin-bottom:.75rem}
+.flow-step .ix.i1{background:var(--red)} .flow-step .ix.i2{background:var(--amber)} .flow-step .ix.i3{background:var(--green)} .flow-step .ix.i4{background:var(--blue)} .flow-step .ix.i5{background:var(--purple)}
+.flow-step h3{font-size:.85rem;color:var(--hi);margin-bottom:.35rem}
+.flow-step p{font-size:.68rem;color:var(--dim);line-height:1.45}
+.flow-step.active{border-color:var(--green);box-shadow:0 0 0 1px var(--green)}
+
+/* ── EXPANDABLE CARDS ── */
+.cards-wrap{max-width:1100px;margin:0 auto;padding:0 2rem 4rem}
+.chapter-card{background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:1rem;overflow:hidden;transition:border-color .2s}
+.chapter-card.open{border-color:var(--green)}
+.chapter-card .card-head{display:flex;align-items:center;gap:.75rem;padding:.85rem 1.2rem;cursor:pointer;user-select:none;transition:background .15s}
+.chapter-card .card-head:hover{background:rgba(255,255,255,.03)}
+.chapter-card .card-head .ch-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.chapter-card .card-head .ch-label{font-weight:700;font-size:.82rem;color:var(--hi)}
+.chapter-card .card-head .ch-pages{font-size:.68rem;color:var(--dim);margin-left:auto}
+.chapter-card .card-head .ch-arrow{font-size:.7rem;color:var(--dim);transition:transform .3s}
+.chapter-card.open .card-head .ch-arrow{transform:rotate(180deg)}
+.chapter-card .card-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.chapter-card.open .card-body{max-height:2000px}
+.chapter-card .card-inner{padding:0 1.2rem 1rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.6rem}
+.chapter-card .talk{background:rgba(255,255,255,.025);border-radius:8px;padding:.65rem .75rem;font-size:.7rem;line-height:1.45}
+.chapter-card .talk .tl{color:var(--hi);font-weight:600;display:block;margin-bottom:.2rem;font-size:.73rem}
+.chapter-card .talk .td{color:var(--dim)}
+.chapter-card .talk .td b{color:var(--green);font-weight:600}
+.chapter-card .talk .td .k{color:var(--blue);font-weight:500}
+
+/* ── FRONTEND GALLERY ── */
+.gallery-wrap{max-width:1200px;margin:0 auto;padding:0 2rem 3rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.gallery-item{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.gallery-item:hover{transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.gallery-item .gi-label{font-size:.7rem;color:var(--dim);padding:.5rem .75rem .2rem;font-weight:600}
+.gallery-item .gi-img{aspect-ratio:16/10;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:2.5rem}
+
+/* ── LIGHTBOX ── */
+.lb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column}
+.lb-overlay.show{display:flex}
+.lb-overlay img{max-width:90vw;max-height:80vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb-overlay .lb-cap{color:var(--dim);font-size:.78rem;margin-top:.75rem}
+.lb-overlay .lb-close{position:fixed;top:1.5rem;right:2rem;font-size:2rem;color:var(--dim);cursor:pointer;background:none;border:none}
+.lb-overlay .lb-close:hover{color:#fff}
+.lb-overlay .lb-nav{position:fixed;top:50%;transform:translateY(-50%);font-size:2.5rem;color:var(--dim);cursor:pointer;background:none;border:none;padding:1rem}
+.lb-overlay .lb-nav:hover{color:#fff}
+.lb-overlay .lb-prev{left:1rem}
+.lb-overlay .lb-next{right:1rem}
+
+/* ── PRESENTATION SCRIPT ── */
+.script-wrap{max-width:1000px;margin:0 auto;padding:0 2rem 4rem}
+.script-timeline{position:relative}
+.script-timeline::before{content:"";position:absolute;left:1.35rem;top:0;bottom:0;width:2px;background:var(--border)}
+.script-seg{position:relative;padding-left:3.2rem;margin-bottom:2rem}
+.script-seg::before{content:"";position:absolute;left:.6rem;top:.35rem;width:1.5rem;height:1.5rem;border-radius:50%}
+.script-seg.s1::before{background:var(--red)} .script-seg.s2::before{background:var(--amber)} .script-seg.s3::before{background:var(--green)} .script-seg.s4::before{background:var(--blue)} .script-seg.s5::before{background:var(--purple)}
+.script-seg .seg-time{font-size:.65rem;color:var(--dim);letter-spacing:.05em;text-transform:uppercase}
+.script-seg .seg-title{font-size:.95rem;font-weight:700;color:var(--hi);margin:.15rem 0}
+.script-seg .seg-talk{font-size:.72rem;color:var(--dim);line-height:1.55;max-width:700px}
+
+/* ── MODALS ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:300;display:none;align-items:center;justify-content:center}
+.modal-overlay.show{display:flex}
+.modal-content{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;max-width:700px;width:90%;max-height:80vh;overflow-y:auto}
+.modal-content h3{color:var(--hi);margin-bottom:1rem}
+.modal-content p{font-size:.75rem;color:var(--dim);line-height:1.6}
+.modal-content .close-btn{float:right;background:none;border:none;color:var(--dim);font-size:1.3rem;cursor:pointer}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero h1{font-size:2rem}
+  .hero .stats{gap:1.5rem}
+  .topbar nav{gap:.8rem}
+  .topbar nav a{font-size:.68rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ TOPBAR ════════════ -->
+<div class="topbar">
+  <div class="logo">Lakomi <span>Roadmap</span></div>
+  <nav>
+    <a href="#narrative" class="active">Narrative</a>
+    <a href="#details">Details</a>
+    <a href="#frontend">Frontend</a>
+    <a href="#script">Script</a>
+  </nav>
+</div>
+
+<!-- ════════════ HERO ════════════ -->
+<div class="hero">
+  <h1>Sistem Koperasi Berbasis<br><em>Blockchain</em> pada DChain</h1>
+  <p class="sub">4 <strong>Smart Contract</strong> · 26 Ketentuan UU 25/1992 · <strong>100% Kepatuhan</strong> · DSR Hevner</p>
+  <div class="stats">
+    <div class="stat"><div class="val">4</div><div class="lbl">Smart Contract</div></div>
+    <div class="stat"><div class="val">26/26</div><div class="lbl">Uji Kepatuhan</div></div>
+    <div class="stat"><div class="val">8</div><div class="lbl">Peran RBAC</div></div>
+    <div class="stat"><div class="val">+87%</div><div class="lbl">Gas Overhead</div></div>
+  </div>
+  <div class="flow-bar"><div class="track"></div></div>
+  <div class="scroll-hint">scroll untuk memulai perjalanan &darr;</div>
+</div>
+
+<!-- ════════════ NARRATIVE FLOW ════════════ -->
+<div class="sec-head" id="narrative">
+  <h2>Alur Narasi Presentasi</h2>
+  <p>5 babak — dari masalah nyata koperasi hingga solusi blockchain yang terverifikasi</p>
+</div>
+<div class="narrative">
+  <div class="flow-road">
+    <div class="flow-step open" onclick="document.getElementById('cd1').scrollIntoView({behavior:'smooth'})">
+      <div class="ix i1">1</div>
+      <h3>Masalah</h3>
+      <p>4 kasus fraud koperasi nasional, 40% koperasi tidak aktif, transparansi rendah</p>
+    </div>
+    <div class="flow-step" onclick="document.getElementById('cd2').scrollIntoView({behavior:'smooth'})">
+      <div class="ix i2">2</div>
+      <h3>Kesenjangan</h3>
+      <p>DAO token-weight vs 1-anggota-1-suara, 26 pasal UU25 belum pernah dipetakan</p>
+    </div>
+    <div class="flow-step" onclick="document.getElementById('cd3').scrollIntoView({behavior:'smooth'})">
+      <div class="ix i3">3</div>
+      <h3>Desain</h3>
+      <p>4 kontrak, 8 peran RBAC, 5 justifikasi desain, 4 portal frontend</p>
+    </div>
+    <div class="flow-step" onclick="document.getElementById('cd4').scrollIntoView({behavior:'smooth'})">
+      <div class="ix i4">4</div>
+      <h3>Hasil</h3>
+      <p>26/26 lulus uji, gas 46K–246K, biaya operasional $0.12/bulan</p>
+    </div>
+    <div class="flow-step" onclick="document.getElementById('cd5').scrollIntoView({behavior:'smooth'})">
+      <div class="ix i5">5</div>
+      <h3>Kontribusi</h3>
+      <p>Pertama: UU koperasi sebagai SC, dual-track, ex-ante enforcement</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ DETAILED CARDS ════════════ -->
+<div class="sec-head" id="details"><h2>Rincian Per Bab</h2><p>Klik untuk membuka poin presentasi utama</p></div>
+<div class="cards-wrap">
+
+  <!-- CH1 -->
+  <div class="chapter-card open" id="cd1">
+    <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+      <span class="ch-dot" style="background:var(--red)"></span>
+      <span class="ch-label">Bab 1 — Pendahuluan</span>
+      <span class="ch-pages">hal 1–9</span>
+      <span class="ch-arrow">&#9660;</span>
+    </div>
+    <div class="card-body"><div class="card-inner">
+      <div class="talk"><span class="tl">Buka dengan data</span><span class="td">127.000+ koperasi di Indonesia, total aset &gt;$10B — tetapi <b>40% tidak aktif</b>. Mengapa?</span></div>
+      <div class="talk"><span class="tl">4 Kasus Fraud</span><span class="td"><b>Indosurya Rp106T</b>, <b>Pandawa Rp3.9T</b>, Lima Garuda, Intidana — semua melibatkan manipulasi catatan keuangan oleh pengurus.</span></div>
+      <div class="talk"><span class="tl">Peluang Blockchain</span><span class="td">Transparansi, immutabilitas, dan otomatisasi menjawab akar masalah: <b>informasi asimetris</b> dan <b>tata kelola tidak transparan</b>.</span></div>
+      <div class="talk"><span class="tl">2 Kesenjangan Kunci</span><span class="td">(1) DAO pakai token-weight — bertentangan dengan <b>Pasal 22 (1 suara per anggota)</b>. (2) 26 pasal operasional UU 25/1992 <b>belum pernah dipetakan</b> menjadi smart contract.</span></div>
+      <div class="talk"><span class="tl">3 Tujuan Penelitian</span><span class="td"><b>T1</b>: Desain + implementasi SC. <b>T2</b>: Pemetaan 26 pasal → fungsi. <b>T3</b>: Evaluasi gas + kepatuhan.</span></div>
+      <div class="talk"><span class="tl">4 Kontribusi</span><span class="td">(1) Pertama: UU 25/1992 sebagai SC. (2) Arsitektur <b>dual-track</b>. (3) Metodologi regulasi-ke-kode. (4) <b>6 kategori SHU</b>.</span></div>
+    </div></div>
+  </div>
+
+  <!-- CH2 -->
+  <div class="chapter-card" id="cd2">
+    <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+      <span class="ch-dot" style="background:var(--amber)"></span>
+      <span class="ch-label">Bab 2 — Tinjauan Pustaka</span>
+      <span class="ch-pages">hal 10–42</span>
+      <span class="ch-arrow">&#9660;</span>
+    </div>
+    <div class="card-body"><div class="card-inner">
+      <div class="talk"><span class="tl">Blockchain Fundamentals</span><span class="td">Distributed ledger, EVM, Solidity, ERC-20, RBAC, proxy upgradeability — <b>teknologi fondasi</b>.</span></div>
+      <div class="talk"><span class="tl">DChain</span><span class="td">Blockchain konsorsium Indonesia, EVM-compatible, Chain ID 17845, <b>gas rendah</b> — menjawab keterbatasan skalabilitas Ethereum.</span></div>
+      <div class="talk"><span class="tl">DAO & Keterbatasannya</span><span class="td">5 kesenjangan vs UU 25/1992: <b>voting</b>, <b>pengawasan</b>, <b>simpanan</b>, <b>SHU</b>, <b>RAT</b> — DAO tidak bisa langsung diadopsi.</span></div>
+      <div class="talk"><span class="tl">Koperasi di Indonesia</span><span class="td">Struktur RAT→Pengurus→Pengawas, 3 jenis simpanan (Pasal 41), 6 kategori SHU (Pasal 45).</span></div>
+      <div class="talk"><span class="tl">Regulasi</span><span class="td">UU 25/1992 (17 bab, 67 pasal), PP 7/2021 (Omnibus Law), Permenkop 8/2023 (batas pinjaman, suku bunga).</span></div>
+      <div class="talk"><span class="tl">Gap Analysis</span><span class="td">10 studi sebelumnya dibandingkan — <b>tidak ada</b> yang memetakan UU 25/1992 secara menyeluruh ke smart contract.</span></div>
+    </div></div>
+  </div>
+
+  <!-- CH3 -->
+  <div class="chapter-card" id="cd3">
+    <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+      <span class="ch-dot" style="background:var(--green)"></span>
+      <span class="ch-label">Bab 3 — Metodologi & Desain</span>
+      <span class="ch-pages">hal 43–60</span>
+      <span class="ch-arrow">&#9660;</span>
+    </div>
+    <div class="card-body"><div class="card-inner">
+      <div class="talk"><span class="tl">DSR Hevner</span><span class="td">3 siklus: <b>Relevance</b> (masalah koperasi) → <b>Design</b> (4 SC) → <b>Rigor</b> (teori blockchain).</span></div>
+      <div class="talk"><span class="tl">Tech Stack</span><span class="td">Solidity 0.8.20, Hardhat 2.22, OpenZeppelin 5.0, React 18, wagmi v2, DChain IDRX.</span></div>
+      <div class="talk"><span class="tl">4 Smart Contract</span><span class="td"><b>LakomiToken</b> (keanggotaan), <b>LakomiVault</b> (simpanan), <b>LakomiGovern</b> (voting & proposal), <b>LakomiLoans</b> (pinjaman).</span></div>
+      <div class="talk"><span class="tl">RBAC</span><span class="td">8 peran: ADMIN, MEMBER, MINTER, BURNER, LOCKER, TREASURER, PENGAWAS, APPROVER.</span></div>
+      <div class="talk"><span class="tl">5 Justifikasi Desain</span><span class="td">1-member-1-vote vs token-weight, 6-kategori SHU vs sederhana, dual-track vs monolitik, 67% kuorum, 5% APR.</span></div>
+      <div class="talk"><span class="tl">Pemetaan Fungsi→Pasal</span><span class="td">13 fungsi dipetakan ke 26 ketentuan UU 25/1992 — termasuk registerMember (Pasal 18–22), distributeSHU (Pasal 45), castVote (Pasal 22).</span></div>
+    </div></div>
+  </div>
+
+  <!-- CH4 -->
+  <div class="chapter-card" id="cd4">
+    <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+      <span class="ch-dot" style="background:var(--blue)"></span>
+      <span class="ch-label">Bab 4 — Hasil & Pembahasan</span>
+      <span class="ch-pages">hal 61–82</span>
+      <span class="ch-arrow">&#9660;</span>
+    </div>
+    <div class="card-body"><div class="card-inner">
+      <div class="talk"><span class="tl">Deployment</span><span class="td">5 kontrak berhasil dideploy di DChain mainnet — dibuktikan dengan alamat dan hash transaksi.</span></div>
+      <div class="talk"><span class="tl">9 Cuplikan Kode</span><span class="td">registerMember, paySimpananWajib, distributeSHU, castVote, createProposal, approveLoan+disburse, getPengawasAuditReport, beginElection, claimSHU — <b>semua sesuai deployed contracts</b>.</span></div>
+      <div class="talk"><span class="tl">Frontend</span><span class="td">4 portal + 8 tangkapan layar: Dashboard, Tata Kelola, Pinjaman, Kepatuhan.</span></div>
+      <div class="talk"><span class="tl">26/26 Lulus Uji</span><span class="td">Seluruh skenario pengujian (happy path + error path + kontrol akses) terhadap 26 pasal <b>lulus 100%</b>.</span></div>
+      <div class="talk"><span class="tl">Analisis Gas</span><span class="td">11 fungsi, 46K–246K gas. Biaya operasional <b>DChain $0.12/bulan</b> vs manual <b>$300–1.000/bulan</b>.</span></div>
+      <div class="talk"><span class="tl">Ex-ante Enforcement</span><span class="td">Pergeseran paradigma: dari "percaya lalu verifikasi" menjadi <b>"verifikasi adalah bawaan sistem"</b>.</span></div>
+    </div></div>
+  </div>
+
+  <!-- CH5 -->
+  <div class="chapter-card" id="cd5">
+    <div class="card-head" onclick="this.parentElement.classList.toggle('open')">
+      <span class="ch-dot" style="background:var(--purple)"></span>
+      <span class="ch-label">Bab 5 — Penutup</span>
+      <span class="ch-pages">hal 83–87</span>
+      <span class="ch-arrow">&#9660;</span>
+    </div>
+    <div class="card-body"><div class="card-inner">
+      <div class="talk"><span class="tl">Kesimpulan T1</span><span class="td">4 smart contract berhasil dirancang dan diimplementasikan di DChain, mencapai <b>100% kepatuhan</b> terhadap 26 ketentuan UU 25/1992.</span></div>
+      <div class="talk"><span class="tl">Kesimpulan T2</span><span class="td">13 fungsi dipetakan ke 26 pasal UU 25/1992 — <b>pertama kalinya</b> regulasi perkoperasian nasional direpresentasikan sebagai kode.</span></div>
+      <div class="talk"><span class="tl">Kesimpulan T3</span><span class="td">Gas 46K–246K, biaya operasional $0.12/bulan, <b>layak secara ekonomi</b> untuk skala koperasi nasional.</span></div>
+      <div class="talk"><span class="tl">SOTA Comparison</span><span class="td">vs MakerDAO, Compound, El Amine 2024, Saito 2023 — Lakomi <b>unggul pada 5 dari 6 dimensi</b> (voting, SHU, simpanan, kepatuhan, arsitektur).</span></div>
+      <div class="talk"><span class="tl">Saran</span><span class="td">Mainnet penuh, DID, edukasi anggota, audit keamanan, longitudinal study, interoperabilitas cross-chain.</span></div>
+      <div class="talk"><span class="tl">Unique Contribution</span><span class="td">Sistem koperasi nasional pertama sebagai executable smart contract — membuka ranah <b>computational law di Indonesia</b>.</span></div>
+    </div></div>
+  </div>
+</div>
+
+<!-- ════════════ FRONTEND GALLERY ════════════ -->
+<div class="sec-head" id="frontend">
+  <h2>Jelajah Frontend</h2>
+  <p>4 portal aplikasi Lakomi — klik untuk memperbesar</p>
+</div>
+<div class="gallery-wrap">
+  <div class="gallery-grid" id="galleryGrid"></div>
+</div>
+
+<!-- Lightbox -->
+<div class="lb-overlay" id="lightbox" onclick="closeLB()">
+  <button class="lb-close" onclick="closeLB()">&times;</button>
+  <button class="lb-nav lb-prev" onclick="event.stopPropagation();navLB(-1)">&#8249;</button>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-cap" id="lbCap"></div>
+  <button class="lb-nav lb-next" onclick="event.stopPropagation();navLB(1)">&#8250;</button>
+</div>
+
+<!-- ════════════ PRESENTATION SCRIPT ════════════ -->
+<div class="sec-head" id="script">
+  <h2>Naskah Presentasi</h2>
+  <p>Alokasi waktu ~20 menit — apa yang harus disampaikan di setiap segmen</p>
+</div>
+<div class="script-wrap">
+  <div class="script-timeline">
+    <div class="script-seg s1">
+      <div class="seg-time">0:00 – 3:00 &bull; Pembuka & Masalah</div>
+      <div class="seg-title">Mengapa penelitian ini penting?</div>
+      <div class="seg-talk">Buka dengan statistik: 127 ribu koperasi, aset &gt;$10 miliar, tetapi 40% tidak aktif. Sebutkan 4 kasus fraud bernilai triliunan rupiah. Akar masalah: pengurus mengendalikan catatan keuangan secara sepihak — tidak ada transparansi. Tunjukkan bahwa blockchain menawarkan tiga properti kunci: trustless, tamper-resistant, dan auditable.</div>
+    </div>
+    <div class="script-seg s2">
+      <div class="seg-time">3:00 – 6:00 &bull; Kesenjangan & Tinjauan Pustaka</div>
+      <div class="seg-title">Apa yang belum dilakukan?</div>
+      <div class="seg-talk">Jelaskan dua kesenjangan utama: (1) DAO menggunakan token-weighted voting — ini bertentangan dengan Pasal 22 UU 25/1992 yang menetapkan 1 anggota = 1 suara. (2) Dari 67 pasal UU 25/1992, 26 bersifat operasional — tetapi belum pernah ada yang memetakan semuanya menjadi smart contract. Tampilkan tabel perbandingan 10 studi sebelumnya.</div>
+    </div>
+    <div class="script-seg s3">
+      <div class="seg-time">6:00 – 11:00 &bull; Metodologi & Desain</div>
+      <div class="seg-title">Bagaimana cara menyelesaikannya?</div>
+      <div class="seg-talk">Gunakan Design Science Research (Hevner 2004). Tampilkan diagram arsitektur 3-layer: Presentation → Contract → Blockchain. Jelaskan 4 smart contract dan 8 peran RBAC. Fokus pada 5 keputusan desain kunci: 1-member-1-vote, 6-kategori SHU, arsitektur dual-track, kuorum 67%, dan APR 5%. Tunjukkan tabel pemetaan fungsi-ke-pasal.</div>
+    </div>
+    <div class="script-seg s4">
+      <div class="seg-time">11:00 – 17:00 &bull; Hasil & Demonstrasi</div>
+      <div class="seg-title">Apa yang berhasil dicapai?</div>
+      <div class="seg-talk">Tunjukkan deployment di DChain mainnet dengan alamat kontrak. Tampilkan 2–3 cuplikan kode kunci (registerMember, castVote, distributeSHU). <b>Demo frontend</b>: buka Dashboard, tunjukkan tata kelola proposal + voting, pinjaman, dan halaman kepatuhan. Tampilkan tabel hasil pengujian: 26/26 lulus. Bahas analisis gas: biaya operasional $0.12/bulan — 3 orde magnitud lebih murah dari audit manual.</div>
+    </div>
+    <div class="script-seg s5">
+      <div class="seg-time">17:00 – 20:00 &bull; Kesimpulan & Penutup</div>
+      <div class="seg-title">Apa kontribusinya & ke mana selanjutnya?</div>
+      <div class="seg-talk">Tutup dengan 3 kesimpulan yang dipetakan ke 3 tujuan. Tampilkan tabel SOTA: Lakomi unggul di 5 dari 6 dimensi dibanding MakerDAO, Compound, dll. Tekankan kontribusi unik: pertama kalinya UU koperasi nasional menjadi executable smart contract — membuka ranah computational law. Akhiri dengan saran: DID, mainnet penuh, audit keamanan, edukasi.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<div style="text-align:center;padding:2rem;color:var(--dim);font-size:.7rem;border-top:1px solid var(--border)">
+  Yitzhak Edmund Tio Manalu · 22/499769/TK/54763 · DTETI FT UGM · 4 Juni 2026
+</div>
+
+<script>
+// ── GALLERY DATA ──
+const screenshots = [
+  {src:"figures/dashboard.png", cap:"Dashboard Anggota 1 — Status keanggotaan & simpanan", cat:"Dashboard"},
+  {src:"figures/dashboard2.png", cap:"Dashboard Anggota 2 — Tier kontribusi & riwayat", cat:"Dashboard"},
+  {src:"figures/governance.png", cap:"Portal Tata Kelola 1 — Daftar proposal", cat:"Governance"},
+  {src:"figures/governance2.png", cap:"Portal Tata Kelola 2 — Detail proposal & voting", cat:"Governance"},
+  {src:"figures/governance3.png", cap:"Portal Tata Kelola 3 — RAT & hasil pemilihan", cat:"Governance"},
+  {src:"figures/loans.png", cap:"Portal Pinjaman — Pengajuan, kalkulasi, pelunasan", cat:"Loans"},
+  {src:"figures/compliance.png", cap:"Halaman Kepatuhan 1 — 26 ketentuan UU 25/1992", cat:"Compliance"},
+  {src:"figures/compliance2.png", cap:"Halaman Kepatuhan 2 — Detail pasal & verifikasi", cat:"Compliance"},
+];
+const basePath = "/home/izcy-tuf/Desktop/UGM/Skripsi/docs/latex-templates/my-thesis/";
+const grid = document.getElementById("galleryGrid");
+let lbIdx = 0;
+
+const catColors = {Dashboard:"var(--green)",Governance:"var(--blue)",Loans:"var(--amber)",Compliance:"var(--purple)"};
+const catIcons = {Dashboard:"📊",Governance:"🗳️",Loans:"💰",Compliance:"✅"};
+
+screenshots.forEach((s,i) => {
+  const el = document.createElement("div");
+  el.className = "gallery-item";
+  el.onclick = () => openLB(i);
+  el.innerHTML = `
+    <div class="gi-img" style="background:linear-gradient(135deg,${catColors[s.cat]}22,${catColors[s.cat]}08)">
+      <span>${catIcons[s.cat]}</span>
+    </div>
+    <div class="gi-label">${s.cap}</div>
+  `;
+  grid.appendChild(el);
+});
+
+// ── LIGHTBOX ──
+function openLB(i){ lbIdx=i; showLB(); }
+function closeLB(){ document.getElementById("lightbox").classList.remove("show"); }
+function navLB(d){ lbIdx=(lbIdx+d+screenshots.length)%screenshots.length; showLB(); }
+function showLB(){
+  const s = screenshots[lbIdx];
+  document.getElementById("lbImg").src = basePath + s.src;
+  document.getElementById("lbCap").textContent = s.cap;
+  document.getElementById("lightbox").classList.add("show");
+}
+document.addEventListener("keydown",e=>{
+  if(!document.getElementById("lightbox").classList.contains("show")) return;
+  if(e.key==="Escape") closeLB();
+  if(e.key==="ArrowLeft") navLB(-1);
+  if(e.key==="ArrowRight") navLB(1);
+});
+
+// ── ACTIVE NAV ──
+const navLinks = document.querySelectorAll(".topbar nav a");
+const sections = [...document.querySelectorAll(".sec-head")].map(s => s.id);
+window.addEventListener("scroll", () => {
+  let cur = sections[0];
+  sections.forEach(id => { if(window.scrollY >= document.getElementById(id).offsetTop-100) cur=id; });
+  navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href")==="#"+cur));
+});
+</script>
+
+</body>
+</html>

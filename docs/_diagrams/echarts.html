@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Domain Diagram — ECharts</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0b1121;color:#e2e8f0}
+#chart{width:100vw;height:100vh}
+.badge{position:fixed;top:12px;left:12px;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:6px 14px;font-size:13px;z-index:10;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="badge">ECharts — 3 Domain Diagram</div>
+<div id="chart"></div>
+<script>
+const chart = echarts.init(document.getElementById('chart'), null, { renderer: 'svg' });
+
+const nodes = [
+  // Visi
+  { id:'dream', name:'Dream', x:200,y:120, category:'visi', symbolSize:60 },
+  // Realita
+  { id:'koperasi', name:'Koperasi\n*KI(2)', x:550,y:100, category:'realita', symbolSize:70 },
+  { id:'teknologi', name:'Teknologi', x:550,y:280, category:'realita', symbolSize:65 },
+  { id:'regulasi', name:'Regulasi\n*KI 1 *KI 4', x:400,y:180, category:'realita', symbolSize:65 },
+  { id:'praktik', name:'Praktik\n*KI 3 *KI 5', x:400,y:250, category:'realita', symbolSize:65 },
+  { id:'blockchain', name:'Blockchain\n*B 3 *B 4', x:400,y:360, category:'realita', symbolSize:70 },
+  { id:'dao', name:'DAO\n*B 1', x:240,y:450, category:'realita', symbolSize:55 },
+  { id:'dchain', name:'DChain\n*B 2', x:400,y:450, category:'realita', symbolSize:60 },
+  { id:'prospek', name:'Prospek\n*B 5', x:560,y:450, category:'realita', symbolSize:55 },
+  // Batasan
+  { id:'batasan', name:'Batasan Masalah\n*L3 *L16', x:950,y:260, category:'batasan', symbolSize:80 },
+  // Misi
+  { id:'regobj', name:'Regulasi\nObjektif', x:1100,y:100, category:'misi', symbolSize:65 },
+  { id:'kopdig', name:'Koperasi\nMelek Digital', x:1100,y:200, category:'misi', symbolSize:65 },
+  { id:'dao2', name:'DAO', x:1100,y:320, category:'misi', symbolSize:55 },
+  { id:'dchain2', name:'DChain\nStabil', x:1100,y:430, category:'misi', symbolSize:60 },
+];
+
+const edges = [
+  { source:'dream', target:'koperasi', label:{show:true,formatter:'fokus',fontSize:11} },
+  { source:'dream', target:'teknologi', label:{show:true,formatter:'bidang',fontSize:11} },
+  { source:'koperasi', target:'regulasi', label:{show:true,formatter:'diatur',fontSize:11} },
+  { source:'koperasi', target:'praktik', label:{show:true,formatter:'menghasilkan',fontSize:11} },
+  { source:'teknologi', target:'blockchain', label:{show:true,formatter:'relevansi\nkoperasi',fontSize:10} },
+  { source:'blockchain', target:'dao', label:{show:true,formatter:'konsep',fontSize:11} },
+  { source:'blockchain', target:'dchain', label:{show:true,formatter:'network',fontSize:11} },
+  { source:'blockchain', target:'prospek', label:{show:true,formatter:'potensi',fontSize:11} },
+  // Batasan lines (dashed)
+  { source:'regulasi', target:'batasan', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:false} },
+  { source:'praktik', target:'batasan', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:false} },
+  { source:'dao', target:'batasan', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:false} },
+  { source:'dchain', target:'batasan', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:false} },
+  // Cross to misi
+  { source:'batasan', target:'regobj', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:true,formatter:'convert',fontSize:10} },
+  { source:'batasan', target:'kopdig', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:true,formatter:'convert',fontSize:10} },
+  { source:'batasan', target:'dao2', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:true,formatter:'stays',fontSize:10} },
+  { source:'batasan', target:'dchain2', lineStyle:{type:'dashed',color:'#fbbf24'}, label:{show:true,formatter:'convert',fontSize:10} },
+];
+
+chart.setOption({
+  backgroundColor: '#0b1121',
+  tooltip: {},
+  animation: true,
+  series: [{
+    type:'graph', layout:'none', roam:true, draggable:true,
+    data: nodes, links: edges,
+    label: { show:true, color:'#e2e8f0', fontSize:12 },
+    categories: [
+      { name:'visi', itemStyle:{color:'#2e1065'}, symbol:'roundRect' },
+      { name:'realita', itemStyle:{color:'#1e3a5f'}, symbol:'roundRect' },
+      { name:'misi', itemStyle:{color:'#064e3b'}, symbol:'roundRect' },
+      { name:'batasan', itemStyle:{color:'#422006'}, symbol:'roundRect' },
+    ],
+    lineStyle: { color:'#475569', curveness:0.2, width:2 },
+    emphasis: { focus:'adjacency', lineStyle:{width:4} },
+    itemStyle: { borderColor:'#334155', borderWidth:2 },
+  }],
+});
+window.addEventListener('resize', () => chart.resize());
+</script>
+</body>
+</html>

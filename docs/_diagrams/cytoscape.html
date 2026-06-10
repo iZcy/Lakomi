@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Domain Diagram — Cytoscape.js</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0b1121;color:#e2e8f0;overflow:hidden}
+#cy{width:100vw;height:100vh;position:absolute;top:0;left:0}
+.badge{position:fixed;top:12px;left:12px;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:6px 14px;font-size:13px;z-index:10;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="badge">Cytoscape.js — 3 Domain Diagram</div>
+<div id="cy"></div>
+<script>
+const cy = cytoscape({
+  container: document.getElementById('cy'),
+  style: [
+    { selector: 'node', style: {
+      'background-color': '#1e293b', 'label': 'data(label)', 'color': '#e2e8f0',
+      'font-size': '12px', 'text-valign': 'center', 'text-halign': 'center',
+      'border-width': 2, 'border-color': '#334155', 'width': '120px', 'height': '50px',
+      'shape': 'roundrectangle', 'padding': '10px', 'text-wrap': 'wrap'
+    }},
+    { selector: 'node[domain="visi"]', style: { 'border-color': '#c084fc', 'background-color': '#2e1065' }},
+    { selector: 'node[domain="realita"]', style: { 'border-color': '#60a5fa', 'background-color': '#1e3a5f' }},
+    { selector: 'node[domain="misi"]', style: { 'border-color': '#34d399', 'background-color': '#064e3b' }},
+    { selector: 'node.phantom', style: { 'opacity': 0.25, 'width': '80px', 'height': '30px', 'font-size': '10px' }},
+    { selector: 'node.batasan', style: { 'border-color': '#fbbf24', 'background-color': '#422006', 'width': '200px', 'font-size': '11px' }},
+    { selector: 'node.domain-label', style: { 'background-opacity': 0, 'border-opacity': 0, 'font-size': '16px',
+      'font-weight': 'bold', 'color': '#94a3b8', 'text-valign': 'top', 'text-halign': 'center', 'width': '1px', 'height': '1px' }},
+    { selector: 'edge', style: { 'width': 2, 'curve-style': 'bezier', 'line-color': '#475569',
+      'target-arrow-shape': 'triangle', 'target-arrow-color': '#475569', 'arrow-scale': 1.2 }},
+    { selector: 'edge[label]', style: { 'label': 'data(label)', 'font-size': '10px', 'color': '#64748b', 'text-rotation': 'autorotate', 'text-margin-y': -8 }},
+    { selector: '.domain-bg-visi', style: { 'background-opacity': 0, 'border-color': '#c084fc', 'border-width': 1, 'border-style': 'dashed', 'border-opacity': 0.4 }},
+    { selector: '.domain-bg-realita', style: { 'background-opacity': 0, 'border-color': '#60a5fa', 'border-width': 1, 'border-style': 'dashed', 'border-opacity': 0.4 }},
+    { selector: '.domain-bg-misi', style: { 'background-opacity': 0, 'border-color': '#34d399', 'border-width': 1, 'border-style': 'dashed', 'border-opacity': 0.4 }},
+  ],
+  elements: [
+    // Domain backgrounds
+    { data: { id: 'bg-visi' }, classes: 'domain-bg-visi' },
+    { data: { id: 'bg-realita' }, classes: 'domain-bg-realita' },
+    { data: { id: 'bg-misi' }, classes: 'domain-bg-misi' },
+
+    // Domain labels
+    { data: { id: 'lbl-visi', label: 'DOMAIN VISI' }, classes: 'domain-label' },
+    { data: { id: 'lbl-realita', label: 'DOMAIN MASA KINI' }, classes: 'domain-label' },
+    { data: { id: 'lbl-misi', label: 'DOMAIN MISI' }, classes: 'domain-label' },
+
+    // Visi nodes
+    { data: { id: 'dream', label: 'Dream' }, classes: 'visi' },
+
+    // Realita nodes
+    { data: { id: 'koperasi', label: 'Koperasi' }, classes: 'realita' },
+    { data: { id: 'teknologi', label: 'Teknologi' }, classes: 'realita' },
+    { data: { id: 'regulasi', label: 'Regulasi' }, classes: 'realita' },
+    { data: { id: 'praktik', label: 'Praktik' }, classes: 'realita' },
+    { data: { id: 'blockchain', label: 'Blockchain' }, classes: 'realita' },
+    { data: { id: 'dao', label: 'DAO' }, classes: 'realita' },
+    { data: { id: 'dchain', label: 'DChain' }, classes: 'realita' },
+    { data: { id: 'prospek', label: 'Prospek' }, classes: 'realita' },
+
+    // Batasan
+    { data: { id: 'batasan', label: 'Batasan Masalah\n*L3 *L16' }, classes: 'batasan' },
+
+    // Misi nodes
+    { data: { id: 'regobj', label: 'Regulasi Objektif' }, classes: 'misi' },
+    { data: { id: 'kopdig', label: 'Koperasi Melek\nDigital' }, classes: 'misi' },
+    { data: { id: 'dao2', label: 'DAO' }, classes: 'misi' },
+    { data: { id: 'dchain2', label: 'DChain Stabil' }, classes: 'misi' },
+
+    // Edges
+    { data: { id: 'e1', source: 'dream', target: 'koperasi', label: 'fokus' } },
+    { data: { id: 'e2', source: 'dream', target: 'teknologi', label: 'bidang' } },
+    { data: { id: 'e3', source: 'koperasi', target: 'regulasi', label: 'diatur' } },
+    { data: { id: 'e4', source: 'koperasi', target: 'praktik', label: 'menghasilkan' } },
+    { data: { id: 'e5', source: 'teknologi', target: 'blockchain', label: 'relevansi\nkoperasi' } },
+    { data: { id: 'e6', source: 'blockchain', target: 'dao', label: 'konsep' } },
+    { data: { id: 'e7', source: 'blockchain', target: 'dchain', label: 'network' } },
+    { data: { id: 'e8', source: 'blockchain', target: 'prospek', label: 'potensi' } },
+    { data: { id: 'e9', source: 'regulasi', target: 'batasan' }, classes: 'batasan-edge' },
+    // Misi edges
+    { data: { id: 'e10', source: 'regulasi', target: 'regobj', label: 'convert' } },
+    { data: { id: 'e11', source: 'praktik', target: 'kopdig', label: 'convert' } },
+    { data: { id: 'e12', source: 'dao', target: 'dao2', label: 'stays' } },
+    { data: { id: 'e13', source: 'dchain', target: 'dchain2', label: 'convert' } },
+  ],
+  layout: { name: 'preset', positions: {
+    // Label positions
+    'lbl-visi': { x: 200, y: 30 },
+    'lbl-realita': { x: 700, y: 30 },
+    'lbl-misi': { x: 1250, y: 30 },
+    // Backgrounds (same positions, larger)
+    'bg-visi': { x: 200, y: 240 },
+    'bg-realita': { x: 700, y: 240 },
+    'bg-misi': { x: 1250, y: 240 },
+    // Visi
+    'dream': { x: 200, y: 100 },
+    // Realita
+    'koperasi': { x: 530, y: 100 },
+    'teknologi': { x: 530, y: 280 },
+    'regulasi': { x: 380, y: 170 },
+    'praktik': { x: 380, y: 240 },
+    'blockchain': { x: 380, y: 350 },
+    'dao': { x: 250, y: 420 },
+    'dchain': { x: 400, y: 420 },
+    'prospek': { x: 560, y: 420 },
+    'batasan': { x: 930, y: 240 },
+    // Misi
+    'regobj': { x: 1100, y: 100 },
+    'kopdig': { x: 1100, y: 200 },
+    'dao2': { x: 1100, y: 300 },
+    'dchain2': { x: 1100, y: 400 },
+  }},
+  wheelSensitivity: 0.3,
+});
+
+// Animate domain backgrounds
+const bgPos = cy.getElementById('bg-visi').position();
+bgPos.x -= 120; bgPos.y = 200;
+['bg-visi', 'bg-realita', 'bg-misi'].forEach(id => {
+  const n = cy.getElementById(id);
+  const dims = { 'bg-visi': { w: 280, h: 220 }, 'bg-realita': { w: 550, h: 420 }, 'bg-misi': { w: 280, h: 420 } };
+  const d = dims[id];
+  n.style({ width: d.w, height: d.h });
+  if (id === 'bg-visi') n.position({ x: 200, y: 140 });
+  if (id === 'bg-realita') n.position({ x: 630, y: 250 });
+  if (id === 'bg-misi') n.position({ x: 1100, y: 250 });
+});
+
+// Style batasan edge
+cy.getElementById('e9').style({ 'line-style': 'dashed', 'line-color': '#fbbf24', 'target-arrow-color': '#fbbf24' });
+// Phantom batasan line to Regulasi too
+cy.add({ data: { id: 'e9b', source: 'praktik', target: 'batasan' }, classes: 'batasan-edge' })
+  .style({ 'line-style': 'dashed', 'line-color': '#fbbf24', 'target-arrow-color': '#fbbf24' });
+cy.add({ data: { id: 'e9c', source: 'dao', target: 'batasan' }, classes: 'batasan-edge' })
+  .style({ 'line-style': 'dashed', 'line-color': '#fbbf24', 'target-arrow-color': '#fbbf24' });
+cy.add({ data: { id: 'e9d', source: 'dchain', target: 'batasan' }, classes: 'batasan-edge' })
+  .style({ 'line-style': 'dashed', 'line-color': '#fbbf24', 'target-arrow-color': '#fbbf24' });
+
+cy.panzoom({});
+</script>
+</body>
+</html>

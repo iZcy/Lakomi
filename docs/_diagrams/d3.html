@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Domain Diagram — D3.js</title>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0b1121;color:#e2e8f0;overflow:hidden}
+svg{width:100vw;height:100vh}
+.badge{position:fixed;top:12px;left:12px;background:#1e293b;border:1px solid #334155;border-radius:8px;padding:6px 14px;font-size:13px;z-index:10;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="badge">D3.js — 3 Domain Diagram</div>
+<svg id="svg"></svg>
+<script>
+const W = window.innerWidth, H = window.innerHeight;
+const svg = d3.select('#svg');
+const g = svg.append('g');
+
+const colors = { visi:'#c084fc', realita:'#60a5fa', misi:'#34d399', batasan:'#fbbf24' };
+const fills  = { visi:'#2e1065', realita:'#1e3a5f', misi:'#064e3b', batasan:'#422006' };
+
+// Define nodes
+const nodes = [
+  { id:'dream', label:'Dream', x:180, y:100, domain:'visi' },
+  { id:'koperasi',label:'Koperasi\n*KI(2)',x:550,y:90,domain:'realita' },
+  { id:'teknologi',label:'Teknologi',x:550,y:280,domain:'realita' },
+  { id:'regulasi',label:'Regulasi\n*KI 1 *KI 4',x:400,y:170,domain:'realita' },
+  { id:'praktik',label:'Praktik\n*KI 3 *KI 5',x:400,y:240,domain:'realita' },
+  { id:'blockchain',label:'Blockchain\n*B 3 *B 4',x:400,y:360,domain:'realita' },
+  { id:'dao',label:'DAO\n*B 1',x:240,y:460,domain:'realita' },
+  { id:'dchain',label:'DChain\n*B 2',x:400,y:460,domain:'realita' },
+  { id:'prospek',label:'Prospek\n*B 5',x:560,y:460,domain:'realita' },
+  { id:'batasan',label:'Batasan Masalah\n*L3 *L16',x:950,y:260,domain:'batasan' },
+  { id:'regobj',label:'Regulasi Objektif',x:1150,y:90,domain:'misi' },
+  { id:'kopdig',label:'Koperasi\nMelek Digital',x:1150,y:195,domain:'misi' },
+  { id:'dao2',label:'DAO',x:1150,y:320,domain:'misi' },
+  { id:'dchain2',label:'DChain\nStabil',x:1150,y:445,domain:'misi' },
+];
+const edges = [
+  { s:'dream',t:'koperasi',label:'fokus' },
+  { s:'dream',t:'teknologi',label:'bidang' },
+  { s:'koperasi',t:'regulasi',label:'diatur' },
+  { s:'koperasi',t:'praktik',label:'menghasilkan' },
+  { s:'teknologi',t:'blockchain',label:'relevansi\nkoperasi' },
+  { s:'blockchain',t:'dao',label:'konsep' },
+  { s:'blockchain',t:'dchain',label:'network' },
+  { s:'blockchain',t:'prospek',label:'potensi' },
+  // Batasan dashed
+  { s:'regulasi',t:'batasan',label:'batasan',dashed:true },
+  { s:'praktik',t:'batasan',label:'batasan',dashed:true },
+  { s:'dao',t:'batasan',label:'batasan',dashed:true },
+  { s:'dchain',t:'batasan',label:'batasan',dashed:true },
+  // Cross domain
+  { s:'batasan',t:'regobj',label:'convert',dashed:true },
+  { s:'batasan',t:'kopdig',label:'convert',dashed:true },
+  { s:'batasan',t:'dao2',label:'stays',dashed:true },
+  { s:'batasan',t:'dchain2',label:'convert',dashed:true },
+];
+
+const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+// Draw edges
+const edgeGroup = g.append('g').attr('class','edges');
+edges.forEach(e => {
+  const s = nodeMap.get(e.s), t = nodeMap.get(e.t);
+  if (!s || !t) return;
+  edgeGroup.append('line')
+    .attr('x1',s.x).attr('y1',s.y).attr('x2',t.x).attr('y2',t.y)
+    .attr('stroke', e.dashed ? colors.batasan : '#475569')
+    .attr('stroke-width', 2)
+    .attr('stroke-dasharray', e.dashed ? '6,4' : null)
+    .attr('marker-end', e.dashed ? 'url(#arrow-batasan)' : 'url(#arrow)');
+  // Label midpoint
+  const mx = (s.x + t.x) / 2, my = (s.y + t.y) / 2;
+  e.label.split('\n').forEach((line, i) => {
+    edgeGroup.append('text')
+      .attr('x', mx).attr('y', my - 8 + i * 14)
+      .attr('text-anchor','middle').attr('fill','#64748b').attr('font-size',10)
+      .text(line);
+  });
+});
+
+// Draw nodes
+const nodeGroup = g.append('g').attr('class','nodes');
+nodes.forEach(n => {
+  const w = Math.max(100, n.label.split('\n').reduce((a,l)=>Math.max(a,l.length*7.5),0) + 20);
+  const h = n.label.split('\n').length * 16 + 12;
+  const ng = nodeGroup.append('g');
+  ng.append('rect')
+    .attr('x', n.x - w/2).attr('y', n.y - h/2)
+    .attr('width', w).attr('height', h)
+    .attr('rx', 6).attr('ry', 6)
+    .attr('fill', fills[n.domain]).attr('stroke', colors[n.domain]).attr('stroke-width', 2);
+  n.label.split('\n').forEach((line, i) => {
+    ng.append('text')
+      .attr('x', n.x).attr('y', n.y - (n.label.split('\n').length-1)*8 + i*16)
+      .attr('text-anchor','middle').attr('fill','#e2e8f0').attr('font-size',12)
+      .attr('dominant-baseline','middle').text(line);
+  });
+});
+
+// Domain backgrounds
+function drawDomain(id, x, y, w, h, color) {
+  g.insert('rect',':first-child')
+    .attr('x',x).attr('y',y).attr('width',w).attr('height',h)
+    .attr('fill','none').attr('stroke',colors[color]).attr('stroke-width',1)
+    .attr('stroke-dasharray','6,4').attr('rx',10).attr('opacity',0.35);
+  g.insert('text',':first-child')
+    .attr('x',x+w/2).attr('y',y-8).attr('text-anchor','middle')
+    .attr('fill','#94a3b8').attr('font-size',14).attr('font-weight','bold')
+    .text(id === 'visi' ? 'DOMAIN VISI' : id === 'realita' ? 'DOMAIN MASA KINI' : 'DOMAIN MISI');
+}
+drawDomain('visi', 60, 30, 250, 200, 'visi');
+drawDomain('realita', 170, 30, 500, 480, 'realita');
+drawDomain('misi', 1060, 30, 200, 480, 'misi');
+
+// Arrow markers
+svg.append('defs').append('marker')
+  .attr('id','arrow').attr('viewBox','0 0 10 10').attr('refX',20).attr('refY',5)
+  .attr('markerWidth',6).attr('markerHeight',6).attr('orient','auto-start-reverse')
+  .append('path').attr('d','M 0 0 L 10 5 L 0 10 z').attr('fill','#475569');
+svg.select('defs').append('marker')
+  .attr('id','arrow-batasan').attr('viewBox','0 0 10 10').attr('refX',20).attr('refY',5)
+  .attr('markerWidth',6).attr('markerHeight',6).attr('orient','auto-start-reverse')
+  .append('path').attr('d','M 0 0 L 10 5 L 0 10 z').attr('fill','#fbbf24');
+
+// Zoom
+const zoom = d3.zoom().scaleExtent([0.3,3]).on('zoom', e => g.attr('transform', e.transform));
+svg.call(zoom);
+</script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakomi Thesis — Presentation Roadmap</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0b1121;color:#e2e8f0;overflow-x:hidden}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:#0b1121}
+::-webkit-scrollbar-thumb{background:#334155;border-radius:3px}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,rgba(99,102,241,.15) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:800;color:#f8fafc;margin-bottom:.5rem;z-index:1}
+.hero h1 span{background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-size:1.1rem;color:#94a3b8;max-width:600px;z-index:1;margin-bottom:1.5rem}
+.hero .badges{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;z-index:1}
+.hero .badge{font-size:.7rem;padding:.3rem .7rem;border-radius:20px;background:#1e293b;border:1px solid #334155;color:#cbd5e1}
+
+/* NAVIGATION */
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(11,17,33,.92);backdrop-filter:blur(12px);border-bottom:1px solid #1e293b;z-index:100;padding:.6rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.nav button{background:none;border:1px solid #334155;color:#94a3b8;padding:.35rem .8rem;border-radius:6px;cursor:pointer;font-size:.72rem;transition:all .2s}
+.nav button:hover,.nav button.active{background:#1e293b;color:#f8fafc;border-color:#6366f1}
+
+/* FLOW BAR (top progress) */
+.flow{position:fixed;top:48px;left:0;right:0;height:3px;background:#1e293b;z-index:100}
+.flow-inner{height:100%;background:linear-gradient(90deg,#f87171,#fbbf24,#34d399,#60a5fa,#c084fc);transition:width .3s;width:0%}
+
+/* SECTIONS */
+.section{min-height:100vh;padding:6rem 2rem 4rem;display:flex;flex-direction:column;align-items:center;scroll-margin-top:80px}
+.section-inner{max-width:1100px;width:100%}
+.section h2{font-size:2rem;margin-bottom:2rem;text-align:center}
+.section h2 .step{display:block;font-size:.7rem;color:#64748b;text-transform:uppercase;letter-spacing:2px;margin-bottom:.5rem}
+
+/* CHAPTER COLORS */
+.s-1 h2{color:#f87171} .s-1 .step{color:#f87171}
+.s-2 h2{color:#fbbf24} .s-2 .step{color:#fbbf24}
+.s-3 h2{color:#34d399} .s-3 .step{color:#34d399}
+.s-4 h2{color:#60a5fa} .s-4 .step{color:#60a5fa}
+.s-5 h2{color:#c084fc} .s-5 .step{color:#c084fc}
+
+/* NARRATIVE BOX */
+.narrative{background:#1e293b;border-radius:12px;padding:1.5rem;margin-bottom:2rem;border-left:4px solid #6366f1}
+.narrative .label{font-size:.65rem;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem}
+.narrative p{font-size:.9rem;color:#cbd5e1;line-height:1.6}
+.narrative strong{color:#f8fafc}
+
+/* CARDS GRID */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.card{background:#1e293b;border-radius:10px;border:1px solid #334155;padding:1.25rem;transition:all .25s;cursor:pointer}
+.card:hover{border-color:#6366f1;transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.3)}
+.card h4{font-size:.85rem;margin-bottom:.5rem;color:#f8fafc}
+.card p{font-size:.75rem;color:#94a3b8;line-height:1.5}
+.card .tag{display:inline-block;font-size:.6rem;padding:.15rem .4rem;border-radius:3px;margin-top:.5rem;background:#1e3a5f;color:#60a5fa}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem;margin:2rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,#f87171,#fbbf24,#34d399,#60a5fa,#c084fc)}
+.timeline-item{position:relative;margin-bottom:2rem;padding-left:1.5rem}
+.timeline-item::before{content:'';position:absolute;left:-2rem;top:.5rem;width:12px;height:12px;border-radius:50%;background:#6366f1;border:2px solid #1e293b}
+.timeline-item h4{font-size:.9rem;color:#f8fafc;margin-bottom:.25rem}
+.timeline-item p{font-size:.75rem;color:#94a3b8;line-height:1.5}
+
+/* STATS ROW */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.75rem;margin:2rem 0}
+.stat{background:#1e293b;border-radius:10px;padding:1.25rem;text-align:center;border:1px solid #334155}
+.stat .num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,#818cf8,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat .label{font-size:.7rem;color:#64748b;margin-top:.3rem}
+
+/* EXPANDABLE */
+.expandable{background:#1e293b;border-radius:10px;border:1px solid #334155;margin-bottom:.75rem;overflow:hidden}
+.expandable .header{padding:1rem 1.25rem;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s}
+.expandable .header:hover{background:#283448}
+.expandable .header .title{font-size:.85rem;color:#f8fafc;font-weight:600}
+.expandable .header .arrow{color:#64748b;transition:transform .3s;font-size:.8rem}
+.expandable.open .header .arrow{transform:rotate(180deg)}
+.expandable .content{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease}
+.expandable.open .content{max-height:2000px;padding:0 1.25rem 1.25rem}
+.expandable .content p{font-size:.75rem;color:#94a3b8;line-height:1.6;padding:.25rem 0}
+
+/* FRONTEND GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin:1rem 0}
+.gallery-item{background:#0f172a;border-radius:8px;overflow:hidden;border:1px solid #1e293b;transition:all .25s}
+.gallery-item:hover{border-color:#6366f1;transform:scale(1.02)}
+.gallery-item .thumb{height:140px;background:linear-gradient(135deg,#1e293b,#0f172a);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#334155}
+.gallery-item .info{padding:.75rem}
+.gallery-item .info h5{font-size:.75rem;color:#f8fafc;margin-bottom:.25rem}
+.gallery-item .info span{font-size:.65rem;color:#64748b}
+
+/* PRESENTATION ORDER */
+.pres-order{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin:2rem 0}
+.pres-step{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:.75rem 1rem;text-align:center;min-width:100px;transition:all .25s}
+.pres-step:hover{border-color:#6366f1;background:#283448}
+.pres-step .num{font-size:1.5rem;font-weight:800;color:#6366f1}
+.pres-step .label{font-size:.65rem;color:#94a3b8;margin-top:.25rem}
+.pres-arrow{display:flex;align-items:center;color:#334155;font-size:1.2rem}
+
+@media(max-width:768px){.pres-arrow{display:none}.hero h1{font-size:1.6rem}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <button onclick="scrollToSection('problem')" class="active">Problem</button>
+  <button onclick="scrollToSection('gap')">Gap</button>
+  <button onclick="scrollToSection('design')">Design</button>
+  <button onclick="scrollToSection('results')">Results</button>
+  <button onclick="scrollToSection('conclusion')">Conclusion</button>
+  <button onclick="scrollToSection('present')">How to Present</button>
+</nav>
+<div class="flow"><div class="flow-inner" id="flowBar"></div></div>
+
+<div class="hero">
+  <h1>Presenting <span>Lakomi</span></h1>
+  <p class="subtitle">Interactive Presentation Roadmap — Blockchain-Based Cooperative System on DChain</p>
+  <div class="badges">
+    <span class="badge">127K Koperasi</span>
+    <span class="badge">4 Fraud Cases</span>
+    <span class="badge">26 Pasals Mapped</span>
+    <span class="badge">4 Smart Contracts</span>
+    <span class="badge">100% Compliance</span>
+    <span class="badge">DChain Mainnet</span>
+  </div>
+  <p style="margin-top:2rem;color:#475569;font-size:.75rem;z-index:1">Scroll down to explore the narrative arc. Click cards to expand details.</p>
+</div>
+
+<section class="section s-1" id="problem">
+  <div class="section-inner">
+    <h2><span class="step">CHAPTER 1 · The Problem</span>Pendahuluan — Why This Research Exists</h2>
+    <div class="narrative">
+      <div class="label">NARRATIVE HOOK FOR DEFENSE</div>
+      <p><strong>Opening:</strong> "Indonesia has <strong>127,000 koperasi</strong> managing assets over <strong>~$10 billion</strong> — yet <strong>40% are inactive</strong>. Four major fraud cases — Indosurya (Rp106T), Pandawa (Rp3.9T), Lima Garuda, Intidana — prove that traditional governance fails. Blockchain offers transparency, but existing DAO models use <strong>token-weighted voting</strong> which conflicts with <strong>Pasal 22 UU 25/1992</strong> (1 member = 1 vote). No one has ever mapped Indonesia's cooperative law into executable smart contracts. <strong>This is the gap we fill.</strong>"</p>
+    </div>
+    <div class="cards">
+      <div class="card" onclick="this.classList.toggle('open')">
+        <h4>1.1 Latar Belakang</h4>
+        <p>7 escalating paragraphs: scale (127K koperasi) → fraud evidence (4 cases) → blockchain opportunity → DAO gap → legal gap → DChain infrastructure → Lakomi solution</p>
+        <span class="tag">STRUCTURED BUILD-UP</span>
+      </div>
+      <div class="card">
+        <h4>1.2 Rumusan Masalah</h4>
+        <p>3 engineering-style problem statements: T1: design SC architecture → T2: map 26 pasals → T3: evaluate compliance + gas</p>
+        <span class="tag">ENGINEERING FORMAT</span>
+      </div>
+      <div class="card">
+        <h4>1.6 Kontribusi</h4>
+        <p>4 novel contributions: first UU25 SC implementation, dual-track architecture, 4-stage regulation-to-code methodology, 6-category SHU</p>
+        <span class="tag">NOVELTY</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section s-2" id="gap">
+  <div class="section-inner">
+    <h2><span class="step">CHAPTER 2 · The Gap</span>Tinjauan Pustaka — What Exists &amp; What's Missing</h2>
+    <div class="narrative">
+      <div class="label">NARRATIVE HOOK FOR DEFENSE</div>
+      <p>"We surveyed <strong>4 knowledge domains</strong>: Blockchain technology, DAO governance, Indonesian cooperatives, and regulatory frameworks. The finding: <strong>DAO models are incompatible with cooperative law</strong> across 5 dimensions — voting mechanism, supervision, deposits, SHU distribution, and RAT. No prior work addresses all 5 simultaneously."</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>2.1 Blockchain &amp; SC</h4><p>11 subsections covering all fundamentals — from Merkle trees to EVM gas model to OpenZeppelin security patterns</p><span class="tag">FOUNDATION</span></div>
+      <div class="card"><h4>2.2 DAO</h4><p>6 subsections: definitions, models (token vs reputation), prior cooperative-DAO work, DeFi lending comparison, and <strong>5 key limitations</strong></p><span class="tag">GAP ANALYSIS</span></div>
+      <div class="card"><h4>2.3 Koperasi Indonesia</h4><p>10 subsections: legal structure, 3 deposit types, 6 SHU categories, fraud patterns, digital transformation trends</p><span class="tag">DOMAIN</span></div>
+      <div class="card"><h4>2.4 Regulasi</h4><p>7 subsections: UU 25/1992, PP 7/2021, Permenkop 8/2023 — with <strong>ex-ante enforcement paradigm</strong> insight</p><span class="tag">LEGAL</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section s-3" id="design">
+  <div class="section-inner">
+    <h2><span class="step">CHAPTER 3 · The Design</span>Metodologi — How We Built It</h2>
+    <div class="narrative">
+      <div class="label">NARRATIVE HOOK FOR DEFENSE</div>
+      <p>"We applied <strong>Design Science Research</strong> (Hevner 2004+2007, Peffers 2007) with 3 interconnected cycles — Relevance (real fraud cases) → Design (4 SC architecture) → Rigor (26-pasal compliance testing). The system has <strong>3 layers</strong>: Membership → Smart Contract → Blockchain. <strong>4 smart contracts</strong> with <strong>8 RBAC roles</strong> map <strong>13 functions to 26 pasals</strong>."</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>3.1 DSR Methodology</h4><p>Hevner 2004+2007 3-cycle framework with TikZ flow diagram showing 6-stage process</p><span class="tag">METHOD</span></div>
+      <div class="card"><h4>3.2 Tech Stack</h4><p>Solidity 0.8.20, Hardhat 2.22, OpenZeppelin 5.0, React 18, TypeScript, wagmi v2, MetaMask</p><span class="tag">TOOLS</span></div>
+      <div class="card"><h4>3.5 SC Design</h4><p>4 contracts (Token, Vault, Govern, Loans) with 5 key justifications table (why ERC-20, why RBAC, etc.)</p><span class="tag">ARCHITECTURE</span></div>
+        <div class="card"><h4>3.5.4 Function→Pasal Map</h4><p>13 functions mapping to 26 UU 25/1992 provisions — the <strong>core contribution</strong></p><span class="tag">INNOVATION</span></div>
+        <div class="card"><h4>3.5.3 RBAC</h4><p>8 roles: ADMIN, MEMBER, MINTER, BURNER, LOCKER, TREASURER, PENGAWAS, APPROVER</p><span class="tag">SECURITY</span></div>
+        <div class="card"><h4>3.6 Security</h4><p>4 layers: RBAC, ReentrancyGuard, Veto breaker mechanism, Non-transferable membership tokens</p><span class="tag">DEFENSE</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section s-4" id="results">
+  <div class="section-inner">
+    <h2><span class="step">CHAPTER 4 · The Results</span>Hasil &amp; Pembahasan — What We Achieved</h2>
+    <div class="narrative">
+      <div class="label">NARRATIVE HOOK FOR DEFENSE</div>
+      <p>"<strong>All 4 contracts deployed on DChain mainnet</strong> with verified addresses. <strong>26/26 pasals tested — 100% compliance.</strong> Gas costs measured from real DChain mainnet: registration ~46K gas, SHU distribution ~246K gas — <strong>$0.12/month</strong> operational cost vs <strong>$300-1000/month</strong> for conventional manual auditing. The frontend has <strong>4 portals with 8 screenshots</strong> showing actual working UI."</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="num">4</div><div class="label">Smart Contracts</div></div>
+      <div class="stat"><div class="num">26/26</div><div class="label">Pasal Compliance</div></div>
+      <div class="stat"><div class="num">$0.12</div><div class="label">Monthly Gas Cost</div></div>
+      <div class="stat"><div class="num">8</div><div class="label">Frontend Screenshots</div></div>
+      <div class="stat"><div class="num">8</div><div class="label">RBAC Roles</div></div>
+    </div>
+    <h3 style="color:#94a3b8;font-size:.85rem;margin:1.5rem 0 1rem">Frontend Portal Gallery</h3>
+    <div class="gallery">
+      <div class="gallery-item"><div class="thumb">&#x1F4CA;</div><div class="info"><h5>Dashboard (1/2)</h5><span>Status real-time, saldo LAK, 3 jenis simpanan, tier kontribusi</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x1F4B0;</div><div class="info"><h5>Dashboard (2/2)</h5><span>Form pembayaran simpanan pokok (100 IDRX), wajib (10 IDRX), sukarela</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x1F3DB;</div><div class="info"><h5>Governance (1/3)</h5><span>Buat proposal (5 tipe), castVote — 1 member 1 vote</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x1F5F3;</div><div class="info"><h5>Governance (2/3)</h5><span>Daftar proposal, suara (For/Against/Abstain), indikator kuorum</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x1F4CB;</div><div class="info"><h5>Governance (3/3)</h5><span>RAT tahunan, hasil pemilihan pengurus</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x1F4B3;</div><div class="info"><h5>Loans Portal</h5><span>Pengajuan pinjaman, kalkulasi LTV, auto-approval &lt;200 IDRX</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x2705;</div><div class="info"><h5>Compliance (1/2)</h5><span>26 pasal sebagai kartu interaktif — kategori Anggota &amp; Simpanan</span></div></div>
+      <div class="gallery-item"><div class="thumb">&#x1F6E1;</div><div class="info"><h5>Compliance (2/2)</h5><span>Kategori Pinjaman &amp; Tata Kelola, status verifikasi checked</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section s-5" id="conclusion">
+  <div class="section-inner">
+    <h2><span class="step">CHAPTER 5 · The Conclusion</span>Penutup — What It All Means</h2>
+    <div class="narrative">
+      <div class="label">NARRATIVE HOOK FOR DEFENSE</div>
+      <p>"<strong>Three conclusions</strong> mapped 1:1 to research objectives: (1) 4-contract architecture with 8 RBAC roles was successfully designed and deployed, (2) 26 pasals fully mapped to 13 functions with 100% compliance verified, (3) DChain gas proves commercially feasible at <strong>$0.12/month</strong>. We compared Lakomi against <strong>5 SOTA systems</strong> across 6 dimensions — Lakomi is the <strong>only one achieving full cooperative law compliance</strong>. Future work: DID integration, mainnet scaling, longitudinal economic impact study."</p>
+    </div>
+    <div class="cards">
+      <div class="card"><h4>5.1 Dimensional Analysis</h4><p>T1-T3 achievement table with quantitative evidence per goal</p><span class="tag">SYNTHESIS</span></div>
+      <div class="card"><h4>5.1.2 SOTA Comparison</h4><p>5 systems (MakerDAO, Compound, El Amine 2024, Saito 2023, Lakomi) × 6 dimensions</p><span class="tag">POSITIONING</span></div>
+      <div class="card"><h4>5.3 Saran</h4><p>7 future directions: DID, ZKP, mainnet, education, audit, regulation, cross-chain interoperability</p><span class="tag">FUTURE</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="present" style="background:#0f1620">
+  <div class="section-inner">
+    <h2 style="color:#f8fafc"><span class="step" style="color:#818cf8">DEFENSE STRATEGY</span>How to Present This Thesis</h2>
+    <div class="narrative" style="border-color:#c084fc">
+      <div class="label">20-MINUTE DEFENSE FLOW</div>
+      <p><strong>Slide 1-2 (2 min): Problem.</strong> 127K koperasi, 40% inactive. Fraud cases: Indosurya Rp106T, Pandawa Rp3.9T. Trust is broken. <strong>Slide 3-4 (3 min): Gap.</strong> DAO exists but token-weighted ≠ 1-member-1-vote. UU 25/1992 never mapped to SC. <strong>Slide 5-7 (5 min): Design.</strong> 4 contracts, 8 roles, 13 functions → 26 pasals. RBAC + ReentrancyGuard. <strong>Slide 8-12 (6 min): Demo.</strong> Walk through the 4 portals live — register → deposit → propose → vote → loan → audit. <strong>Slide 13-14 (3 min): Results.</strong> 26/26 compliance, $0.12/mo gas, SOTA comparison table. <strong>Slide 15 (1 min): Conclusion.</strong> "Lakomi is the first system to make Indonesian cooperative law executable."</p>
+    </div>
+    <div class="pres-order">
+      <div class="pres-step"><div class="num">1</div><div class="label">Problem Statement</div></div>
+      <div class="pres-arrow">→</div>
+      <div class="pres-step"><div class="num">2</div><div class="label">Literature Gap</div></div>
+      <div class="pres-arrow">→</div>
+      <div class="pres-step"><div class="num">3</div><div class="label">Architecture Design</div></div>
+      <div class="pres-arrow">→</div>
+      <div class="pres-step"><div class="num">4</div><div class="label">LIVE DEMO</div></div>
+      <div class="pres-arrow">→</div>
+      <div class="pres-step"><div class="num">5</div><div class="label">Results + Compliance</div></div>
+      <div class="pres-arrow">→</div>
+      <div class="pres-step"><div class="num">6</div><div class="label">SOTA Positioning</div></div>
+      <div class="pres-arrow">→</div>
+      <div class="pres-step"><div class="num">7</div><div class="label">Conclusion</div></div>
+    </div>
+    <div class="cards" style="margin-top:2rem">
+      <div class="card"><h4>Key Talking Points</h4><p>• "First executable Indonesian cooperative law"</p><p>• "Not token-weighted — true 1-member-1-vote per UU"</p><p>• "26/26 compliance — not theoretical, empirically verified"</p><p>• "$0.12/mo vs $300-1000 conventional"</p><p>• "DChain: Indonesian consortium blockchain"</p></div>
+      <div class="card"><h4>Expected Questions</h4><p>• Why DChain, not Ethereum? → $0.12/mo cost, Indonesian consortium</p><p>• How to prevent collusion? → RBAC + event audit trail + pengawas role</p><p>• What about non-tech members? → UI designed as simple web app with MetaMask</p><p>• Scalability? → Current gas <250K fits any EVM chain</p></div>
+      <div class="card"><h4>Live Demo Script</h4><p>1. MetaMask connect → 2. registerMember → 3. paySimpananPokok (100 IDRX) → 4. paySimpananWajib → 5. createProposal → 6. castVote → 7. approveLoan → 8. disburse → 9. getPengawasAuditReport → 10. distributeSHU → 11. claimSHU</p></div>
+    </div>
+  </div>
+</section>
+
+<script>
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
+window.addEventListener('scroll',()=>{
+  const sections=document.querySelectorAll('.section');
+  const buttons=document.querySelectorAll('.nav button');
+  const total=document.body.scrollHeight-window.innerHeight;
+  const progress=(window.scrollY/total)*100;
+  document.getElementById('flowBar').style.width=progress+'%';
+  sections.forEach((s,i)=>{
+    const rect=s.getBoundingClientRect();
+    if(rect.top<window.innerHeight/2&&rect.bottom>0){
+      buttons.forEach(b=>b.classList.remove('active'));
+      if(buttons[i])buttons[i].classList.add('active');
+    }
+  })
+})
+</script>
+</body>
+</html>

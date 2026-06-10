@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakomi — Presentasi Skripsi</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0b;color:#d4d4d8;font-family:system-ui,sans-serif;min-height:100vh}
+.poster{max-width:1100px;margin:0 auto;padding:32px 24px}
+
+/* Title */
+.title-block{text-align:center;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid #1f1f23}
+.title-block h1{font-size:26px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(135deg,#f43f5e,#f59e0b,#10b981,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.title-block .sub{font-size:13px;color:#52525b;margin-top:4px}
+.title-block .meta{display:flex;gap:8px;justify-content:center;margin-top:10px}
+.title-block .meta span{font-size:11px;padding:3px 10px;border-radius:99px;border:1px solid #1f1f23;color:#71717a}
+
+/* Flow section */
+.flow{display:grid;grid-template-columns:1fr 40px 1fr 40px 1fr;gap:0;margin-bottom:28px;align-items:start}
+.step{text-align:center}
+.step .num{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;margin:0 auto 8px;color:#fff}
+.step .num.s1{background:#f43f5e}.step .num.s2{background:#f59e0b}.step .num.s3{background:#3b82f6}
+.step h3{font-size:14px;font-weight:600;margin-bottom:6px}
+.step h3.s1{color:#f43f5e}.step h3.s2{color:#f59e0b}.step h3.s3{color:#3b82f6}
+.step p{font-size:11px;line-height:1.6;color:#71717a}
+.arrow-col{display:flex;align-items:center;justify-content:center}
+.arrow-col svg{width:32px;opacity:.3}
+
+/* Main grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.card{border:1px solid #1f1f23;border-radius:12px;background:#131316;overflow:hidden}
+.card.highlight{border-color:#f43f5e20;background:linear-gradient(135deg,#f43f5e08,#0a0a0b)}
+.card .hd{padding:14px 16px 0;display:flex;align-items:center;gap:8px}
+.card .hd .ico{font-size:16px}
+.card .hd h4{font-size:13px;font-weight:600;color:#a1a1aa}
+.card .hd h4.red{color:#f43f5e}.card .hd h4.amber{color:#f59e0b}.card .hd h4.green{color:#10b981}.card .hd h4.blue{color:#3b82f6}
+.card .bd{padding:8px 16px 14px;font-size:12px;line-height:1.7;color:#71717a}
+.card .bd .em{color:#d4d4d8;font-weight:500}
+.card .bd em{color:#f59e0b;font-style:normal;font-size:11px}
+
+/* Two-column cards */
+.col2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{border:1px solid #1f1f23;border-radius:10px;padding:12px 14px;background:#131316}
+.tile .th{font-size:11px;font-weight:600;color:#a1a1aa;margin-bottom:4px}
+.tile .th.red{color:#f43f5e}.tile .th.amber{color:#f59e0b}.tile .th.green{color:#10b981}.tile .th.blue{color:#3b82f6}
+.tile .tv{font-size:20px;font-weight:700;color:#e4e4e7}
+.tile .tv.red{color:#f43f5e}.tile .tv.amber{color:#f59e0b}.tile .tv.green{color:#10b981}.tile .tv.blue{color:#3b82f6}
+.tile .ts{font-size:11px;color:#52525b}
+
+/* Bottom bar */
+.bar{display:flex;gap:8px;margin-top:20px;padding-top:16px;border-top:1px solid #1f1f23}
+.bar-item{flex:1;text-align:center;padding:10px 8px;border-radius:10px;background:#131316;border:1px solid #1f1f23}
+.bar-item .bi{font-size:18px;margin-bottom:4px}
+.bar-item .bt{font-size:11px;font-weight:500;color:#a1a1aa}
+.bar-item .bv{font-size:13px;font-weight:700;color:#e4e4e7}
+.bar-item .bs{font-size:10px;color:#52525b;margin-top:2px}
+
+/* Foot */
+.foot{text-align:center;margin-top:20px;font-size:11px;color:#3f3f46}
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <!-- TITLE -->
+  <div class="title-block">
+    <h1>Lakomi: Blockchain-Based Cooperative System</h1>
+    <div class="sub">Studi Kasus Implementasi DAO pada Jaringan DChain — Skripsi S1 Teknologi Informasi UGM</div>
+    <div class="meta">
+      <span>Yitzhak Edmund Tio Manalu · 22/499769/TK/54763</span>
+      <span>Pembimbing: Ir. Noor Akhmad Setiawan, S.T., M.T., Ph.D., IPM.</span>
+    </div>
+  </div>
+
+  <!-- FLOW -->
+  <div class="flow">
+    <div class="step">
+      <div class="num s1">1</div>
+      <h3 class="s1">Masalah & Celah</h3>
+      <p>4 kasus fraud nasional membuktikan koperasi tradisional rentan manipulasi. DAO menjanjikan transparansi tetapi <b>token-weighted voting</b> melanggar Pasal 22(1) UU 25/1992. <b>26 ketentuan</b> UU belum pernah dikodekan sebagai smart contract.</p>
+    </div>
+    <div class="arrow-col"><svg viewBox="0 0 24 24" fill="none" stroke="#3f3f46" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="step">
+      <div class="num s2">2</div>
+      <h3 class="s2">Rancangan & Metode</h3>
+      <p><b>Design Science Research</b> (Hevner 2004). <b>4 smart contract</b> · <b>8 peran RBAC</b> · 13 fungsi dipetakan ke <b>26 pasal UU 25/1992</b>. Dual-track: hak suara = 1 (egaliter), LTV naik seiring kontribusi.</p>
+    </div>
+    <div class="arrow-col"><svg viewBox="0 0 24 24" fill="none" stroke="#3f3f46" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="step">
+      <div class="num s3">3</div>
+      <h3 class="s3">Hasil & Kontribusi</h3>
+      <p><b>100% kepatuhan</b> — 26/26 pasal terverifikasi. Gas layak (72K–210K/operasi). Lakomi <b>satu-satunya sistem</b> yang menggabungkan kepatuhan UU 25/1992 + transparansi blockchain + 1-suara egaliter.</p>
+    </div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="grid">
+    <!-- LEFT: Problems -->
+    <div class="card highlight">
+      <div class="hd"><span class="ico">⚠</span><h4 class="red">4 Kasus Fraud Koperasi Nasional</h4></div>
+      <div class="bd">
+        <span class="em">Indosurya</span> — Rp 106 triliun · KSP gagal bayar massal<br>
+        <span class="em">KSP Pandawa</span> — Rp 3,9 triliun · investasi bodong<br>
+        <span class="em">KSP Intidana</span> — Rp 500 miliar · manipulasi simpanan<br>
+        <span class="em">KSPPS BMT BIF</span> — penggelapan dana anggota<br>
+        <em>Pola: tata kelola opak · buku manual · tanpa audit trail · pengawasan lemah</em>
+      </div>
+    </div>
+
+    <!-- RIGHT: Gap -->
+    <div class="card">
+      <div class="hd"><span class="ico">🔍</span><h4 class="amber">5 Dimensi Celah DAO vs UU 25/1992</h4></div>
+      <div class="bd">
+        <b>Pasal 22(1)</b> — 1 anggota 1 suara → DAO: token-weighted voting<br>
+        <b>Pasal 38–39</b> — Pengawas independen → DAO: tanpa pengawas<br>
+        <b>Pasal 41</b> — 3 jenis simpanan → DAO: treasury tunggal<br>
+        <b>Pasal 45</b> — SHU 6 kategori → DAO: distribusi tidak spesifik<br>
+        <b>Pasal 26–27</b> — RAT tahunan → DAO: voting kontinu<br>
+        <em>Tidak ada sistem yang memetakan UU 25/1992 ke smart contract</em>
+      </div>
+    </div>
+
+    <!-- LEFT: Architecture -->
+    <div class="card">
+      <div class="hd"><span class="ico">🏗</span><h4 class="green">4 Smart Contract Lakomi</h4></div>
+      <div class="bd">
+        <span class="em">LakomiToken</span> · ERC-20 non-transferable · registry keanggotaan · Minter/Burner/Locker/Membership<br>
+        <span class="em">LakomiVault</span> · 3 simpanan (Pokok/Wajib/Sukarela) · SHU 6 kategori · Treasurer<br>
+        <span class="em">LakomiGovern</span> · 1-anggota-1-suara · kuorum 67% · proposal→vote→timelock→execute · pemilu on-chain · veto pengawas<br>
+        <span class="em">LakomiLoans</span> · LTV bertingkat 30/50/70% · 5% APY · agunan 25% · auto-approve ≤200 USDC · Approver<br>
+        <em>8 peran RBAC terpisah — tidak ada konsentrasi kekuasaan</em>
+      </div>
+    </div>
+
+    <!-- RIGHT: Key Design Decisions -->
+    <div class="card">
+      <div class="hd"><span class="ico">🎯</span><h4 class="green">5 Keputusan Desain Kunci</h4></div>
+      <div class="bd">
+        <b>1.</b> Hak suara dipisahkan dari kepemilikan token — getVotingPower() = 1<br>
+        <b>2.</b> Token non-transferable — cegah spekulasi, patuhi Pasal 18(2)<br>
+        <b>3.</b> LTV bertingkat — insentif kontribusi TANPA menambah suara<br>
+        <b>4.</b> Kuorum 67% + timelock 24h + veto pengawas — checks & balances<br>
+        <b>5.</b> 8 akun peran terpisah — pencegahan sentralisasi kekuasaan<br>
+        <em>Dual-track: kontribusi membangun reputasi, bukan kekuasaan</em>
+      </div>
+    </div>
+
+    <!-- LEFT: Implementation -->
+    <div class="card">
+      <div class="hd"><span class="ico">⚙</span><h4 class="blue">Implementasi & Pengujian</h4></div>
+      <div class="bd">
+        <b>Tech Stack:</b> Solidity 0.8.20 · Hardhat 2.22 · React 18 · TypeScript · wagmi v2<br>
+        <b>Deploy:</b> DChain — EVM consortium · 13 universitas · Chain ID 17845<br>
+        <b>Security:</b> OpenZeppelin AccessControl + ReentrancyGuard · checks-effects-interactions<br>
+        <b>7 Area Uji:</b> keanggotaan · voting · simpanan · kuorum · pengawas · SHU · pinjaman<br>
+        <em>Fungsional (26 pasal) + Gas Analysis + Immutability Testing</em>
+      </div>
+    </div>
+
+    <!-- RIGHT: SHU Formula -->
+    <div class="card">
+      <div class="hd"><span class="ico">💰</span><h4 class="blue">Distribusi SHU & Bunga</h4></div>
+      <div class="bd">
+        <b>SHU Distributable</b> = Revenue − Cadangan Operasional (10%)<br>
+        <b>6 Kategori:</b> Cadangan 5% · Jasa Modal 40% · Jasa Usaha 40% · Pendidikan 5% · Pengurus 5% · Kesejahteraan 5%<br>
+        <b>Bunga:</b> Interest = P × 5% × D / 365<br>
+        <b>LTV:</b> Tier 1 (≤500 USDC) = 30% · Tier 2 (≤2000) = 50% · Tier 3 (>2000) = 70%<br>
+        <em>Basis points dikonfigurasi via governance — tanpa redeploy kontrak</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="bar">
+    <div class="bar-item"><div class="bi">📜</div><div class="bt">Kontrak</div><div class="bv">4 SC</div><div class="bs">ERC-20 + 3 bisnis</div></div>
+    <div class="bar-item"><div class="bi">✅</div><div class="bt">Kepatuhan</div><div class="bv">26/26 Pasal</div><div class="bs">100% terverifikasi</div></div>
+    <div class="bar-item"><div class="bi">⚡</div><div class="bt">Gas Operasi</div><div class="bv">72K–210K</div><div class="bs">Setara ≤4× transfer ERC-20</div></div>
+    <div class="bar-item"><div class="bi">🗳</div><div class="bt">Tata Kelola</div><div class="bv">1 suara/anggota</div><div class="bs">Kuorum 67%</div></div>
+    <div class="bar-item"><div class="bi">🔒</div><div class="bt">Keamanan</div><div class="bv">8 peran RBAC</div><div class="bs">Veto pengawas</div></div>
+    <div class="bar-item"><div class="bi">⛓</div><div class="bt">Blockchain</div><div class="bv">DChain</div><div class="bs">13 universitas</div></div>
+    <div class="bar-item"><div class="bi">📚</div><div class="bt">Referensi</div><div class="bv">55 sumber</div><div class="bs">Terverifikasi</div></div>
+  </div>
+
+  <!-- CONCLUSION -->
+  <div class="card highlight" style="margin-top:16px">
+    <div class="hd"><span class="ico">★</span><h4 class="red">3 Kontribusi & 4 Arah Pengembangan</h4></div>
+    <div class="bd">
+      <b>Kontribusi:</b> (1) Dual-track architecture — pisahkan suara dari insentif finansial, menyelesaikan plutokrasi DAO. (2) 6-kategori SHU sebagai smart contract logic — pertama kalinya Pasal 45 dikodekan on-chain. (3) Verifikasi 26 pasal — bukti bahwa kerangka hukum koperasi dapat dieksekusi secara terprogram.<br>
+      <b>Future:</b> DChain mainnet · DID/KYC · Certora formal verification · Federasi koperasi (Pasal 36–37)
+    </div>
+  </div>
+
+  <div class="foot">Lakomi · Blockchain-Based Cooperative System · DTETI UGM 2026</div>
+
+</div>
+</body>
+</html>

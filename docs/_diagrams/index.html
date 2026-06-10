@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3-Domain Diagram — Compare All Libraries</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:system-ui,-apple-system,sans-serif;background:#0b1121;color:#e2e8f0;min-height:100vh}
+h1{text-align:center;padding:24px 0 8px;font-size:1.5rem;color:#f8fafc}
+h1 small{display:block;font-size:.7rem;color:#64748b;margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:16px;max-width:1600px;margin:0 auto}
+.card{background:#1e293b;border:1px solid #334155;border-radius:12px;overflow:hidden;transition:border-color .2s}
+.card:hover{border-color:#60a5fa}
+.card h2{padding:10px 14px;font-size:14px;background:#111827;border-bottom:1px solid #334155;display:flex;justify-content:space-between;align-items:center}
+.card h2 .lib{color:#60a5fa;font-size:11px}
+.card iframe{width:100%;height:500px;border:0}
+.card a{display:block;padding:8px 14px;text-align:right;font-size:12px;color:#60a5fa;text-decoration:none}
+.card a:hover{color:#93c5fd}
+</style>
+</head>
+<body>
+<h1>3-Domain Diagram — Cross-Library Comparison<br><small>Domain Visi → Domain Masa Kini → Batasan Masalah → Domain Misi</small></h1>
+<div class="grid">
+  <div class="card">
+    <h2><span>Cytoscape.js</span><span class="lib">Network Graph</span></h2>
+    <iframe src="cytoscape.html" loading="lazy"></iframe>
+    <a href="cytoscape.html" target="_blank">Full screen →</a>
+  </div>
+  <div class="card">
+    <h2><span>ECharts</span><span class="lib">Graph Chart</span></h2>
+    <iframe src="echarts.html" loading="lazy"></iframe>
+    <a href="echarts.html" target="_blank">Full screen →</a>
+  </div>
+  <div class="card">
+    <h2><span>Mermaid.js</span><span class="lib">Flowchart</span></h2>
+    <iframe src="mermaid.html" loading="lazy"></iframe>
+    <a href="mermaid.html" target="_blank">Full screen →</a>
+  </div>
+  <div class="card">
+    <h2><span>D3.js</span><span class="lib">Custom SVG</span></h2>
+    <iframe src="d3.html" loading="lazy"></iframe>
+    <a href="d3.html" target="_blank">Full screen →</a>
+  </div>
+</div>
+</body>
+</html>

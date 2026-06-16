@@ -334,7 +334,7 @@ Bagian ini membandingkan penelitian Lakomi dengan penelitian-penelitian terdahul
 \caption{Perbandingan Penelitian Terdahulu dengan Lakomi}
 \label{tab:prior-art}
 \footnotesize
-\begin{tabular}{p{0.20\textwidth}p{0.16\textwidth}p{0.10\textwidth}p{0.14\textwidth}p{0.13\textwidth}p{0.17\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.20\textwidth}p{0.16\textwidth}p{0.10\textwidth}p{0.14\textwidth}p{0.13\textwidth}p{0.17\textwidth}}
 \toprule
 \textbf{Peneliti} & \textbf{Fokus} & \textbf{Blockchain} & \textbf{Kepatuhan UU 25/92} & \textbf{Voting} & \textbf{Distribusi SHU} \\
 \midrule
@@ -360,7 +360,7 @@ Saito \& Rose (2023) \cite{saito2023reputation} & Reputasi di nonprofit & Ya (L1
 \midrule
 \textbf{Lakomi (ini)} & \textbf{Koperasi penuh UU 25/92} & \textbf{Ya (DChain)} & \textbf{Lengkap (26 pasal)} & \textbf{1-anggota-1-suara} & \textbf{6 kategori on-chain} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Seperti ditunjukkan pada Tabel \ref{tab:prior-art}, belum ada penelitian yang mengimplementasikan UU 25/1992 secara menyeluruh ke dalam \textit{smart contract}. Analisis sistematis terhadap 10 penelitian terdahulu mengungkapkan tiga kesenjangan utama: (1) \textbf{Kepatuhan Regulasi}, dari 10 penelitian, tidak satu pun yang mengimplementasikan ketentuan UU 25/1992 secara lengkap. Arisudhana dkk. membahas prinsip koperasi dalam konteks blockchain tetapi tidak menghasilkan implementasi on-chain. Sailana dkk. menganalisis pengaruh simpanan terhadap SHU namun terbatas pada analisis statistik tanpa komponen blockchain. (2) \textbf{Mekanisme Voting}, mayoritas penelitian DAO (Hassan, Sun, Sharma, Liu) menggunakan \textit{token-weighted voting}, yang secara fundamental bertentangan dengan prinsip satu-anggota-satu-suara dalam UU 25/1992. Tamai dan Kasahara adalah pengecualian dengan pendekatan \textit{hybrid voting}, namun mekanisme mereka dirancang untuk DAO umum, bukan untuk kepatuhan regulasi spesifik. (3) \textbf{Distribusi SHU}, dari seluruh penelitian terdahulu, tidak ada yang mengimplementasikan distribusi SHU on-chain dengan kategori yang ditentukan regulasi. El Amine dan Sari berfokus pada registri properti, Liu dan Zhang pada demokrasi cair, dan Saito dan Rose pada reputasi, ketiganya tidak mencakup mekanisme distribusi surplus koperasi.
@@ -400,7 +400,7 @@ Untuk memberikan justifikasi sistematis terhadap kebutuhan sistem baru, Tabel~\r
 \caption{Analisis Kesenjangan DAO Konvensional terhadap Persyaratan UU 25/1992}
 \label{tab:dao-gap}
 \footnotesize
-\begin{tabular}{p{0.08\textwidth}p{0.22\textwidth}p{0.08\textwidth}p{0.22\textwidth}p{0.30\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.08\textwidth}p{0.22\textwidth}p{0.08\textwidth}p{0.22\textwidth}p{0.30\textwidth}}
 \toprule
 \textbf{Dim} & \textbf{Persyaratan UU 25/1992} & \textbf{DAO} & \textbf{Catatan Kesenjangan} & \textbf{Implikasi Desain untuk Lakomi} \\
 \midrule
@@ -410,7 +410,7 @@ D3 & Simpanan bertingkat (Pasal 41) & $\times$ & Tidak ada struktur simpanan pok
 D4 & SHU adil (Pasal 45) & $\triangle$ & Proporsional terhadap \textit{staking}, bukan kontribusi transaksi & Distribusi 6-kategori dengan \textit{basis points} terkonfigurasi \\
 D5 & Pengawasan formal (Pasal 38--39) & $\times$ & Tidak ada mekanisme pengawasan, keamanan bergantung pada kode & Peran pengawas dengan hak veto + akses laporan keuangan \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \noindent $\checkmark$ = Memenuhi, $\triangle$ = Sebagian, $\times$ = Tidak memenuhi. DAO konvensional gagal pada 4 dari 5 dimensi. Kesenjangan paling kritis: D2 (satu suara) dan D3 (simpanan bertingkat).

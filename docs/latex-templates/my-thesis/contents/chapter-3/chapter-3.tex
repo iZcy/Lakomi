@@ -31,6 +31,7 @@ Perangkat lunak yang digunakan dalam pengembangan sistem terdiri dari komponen \
 \centering
 \caption{Perangkat Lunak yang Digunakan}
 \label{tab:alat-lunak}
+\small
 \begin{tabular}{p{0.22\textwidth}p{0.25\textwidth}p{0.12\textwidth}p{0.31\textwidth}}
 \toprule
 \textbf{Kategori} & \textbf{Nama} & \textbf{Versi} & \textbf{Kegunaan} \\
@@ -187,7 +188,7 @@ Tabel~\ref{tab:design-decisions} merangkum justifikasi setiap keputusan desain u
 \centering
 \caption{Justifikasi Keputusan Desain Arsitektural}
 \label{tab:design-decisions}
-\footnotesize
+\small
 \begin{tabular}{p{0.18\textwidth}p{0.13\textwidth}p{0.28\textwidth}p{0.31\textwidth}}
 \toprule
 \textbf{Keputusan} & \textbf{Pilihan} & \textbf{Alternatif (Ditolak)} & \textbf{Alasan Penolakan} \\
@@ -239,7 +240,7 @@ Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan k
 \caption{Pemetaan Fungsi Smart Contract ke Ketentuan UU 25/1992}
 \label{tab:fungsi-uu}
 \footnotesize
-\begin{tabular}{p{0.15\textwidth}p{0.14\textwidth}p{0.40\textwidth}p{0.25\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.15\textwidth}p{0.14\textwidth}p{0.40\textwidth}p{0.25\textwidth}}
 \toprule
 \textbf{Kontrak} & \textbf{Pasal} & \textbf{Fungsi} & \textbf{Deskripsi} \\
 \midrule
@@ -260,7 +261,7 @@ Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan k
 \multirow{2}{*}{LakomiLoans} & 41(2)(a), 44 & \texttt{requestLoan()} & Pinjaman LTV berbasis kontribusi \\
  & Permenkop 8/2023 Ps 43--45 & \texttt{tieredLTV + 5\% APY} & Batas pinjaman dan suku bunga \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \subsection{Event Logging}
@@ -488,7 +489,7 @@ Untuk mengontekstualisasikan kontribusi arsitektur Lakomi, bagian ini membanding
 \caption{Perbandingan Arsitektur Lakomi dengan Sistem Lain}
 \label{tab:arsitektur-comparison}
 \footnotesize
-\begin{tabular}{p{0.20\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.26\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.20\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.26\textwidth}}
 \toprule
 \textbf{Aspek} & \textbf{Koperasi Konvensional} & \textbf{DAO Token-Weighted} & \textbf{Lakomi (Penelitian Ini)} \\
 \midrule
@@ -510,7 +511,7 @@ Kepatuhan Regulasi & Bergantung pada kepatuhan manual & Tidak dirancang untuk re
 \midrule
 Insentif Kontribusi & Tidak ada mekanisme formal & \textit{Staking} memengaruhi hak suara & \textit{Tier} kontribusi menentukan LTV tanpa memengaruhi suara \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Arsitektur Lakomi menjembatani kesenjangan antara koperasi konvensional dan DAO dengan pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara sesuai Pasal 24(3) UU 25/1992, dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan prinsip kesetaraan suara. Pemisahan ini merupakan kontribusi desain utama yang membedakan Lakomi dari DAO berbasis token (\textit{token-weighted voting}) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.

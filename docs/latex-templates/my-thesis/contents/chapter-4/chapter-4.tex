@@ -422,7 +422,7 @@ Analisis gas dilakukan dengan mengukur konsumsi komputasi setiap operasi koperas
 \centering
 \caption{Konsumsi Gas per Operasi Koperasi pada DChain Mainnet}
 \label{tab:gas-costs}
-\begin{tabular}{p{0.24\textwidth}p{0.26\textwidth}p{0.18\textwidth}p{0.24\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.24\textwidth}p{0.26\textwidth}p{0.18\textwidth}p{0.24\textwidth}}
 \toprule
 \textbf{Operasi} & \textbf{Fungsi} & \textbf{Gas} & \textbf{Kategori} \\
 \midrule
@@ -438,7 +438,7 @@ Pencairan Pinjaman & \texttt{disburse()} & 174.499 & Pinjaman \\
 Distribusi SHU & \texttt{distributeSHU()} & $\sim$200.000 & SHU \\
 Pengajuan Pinjaman & \texttt{requestLoan()} & 245.599 & Pinjaman \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Dengan harga gas DChain sebesar 2 nano-DKT, seluruh operasi memiliki biaya di bawah 0,001 DKT. Satu siklus pinjaman penuh, \texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}, mengonsumsi sekitar 620.000 gas atau setara 0,001 DKT. Operasi pembacaan data (\textit{view functions}) tidak mengonsumsi gas karena tidak memodifikasi \textit{state} blockchain.
@@ -453,7 +453,7 @@ Secara keseluruhan, biaya operasional sistem Lakomi pada DChain sangat rendah, s
 \centering
 \caption{Perbandingan Biaya Operasional: Lakomi vs Koperasi Konvensional}
 \label{tab:cost-comparison}
-\footnotesize
+\small
 \begin{tabular}{p{0.22\textwidth}p{0.22\textwidth}p{0.22\textwidth}p{0.24\textwidth}}
 \toprule
 \textbf{Item} & \textbf{Koperasi Konvensional} & \textbf{Lakomi (DChain)} & \textbf{Penghematan} \\
@@ -482,7 +482,7 @@ Untuk mengontekstualisasikan hasil implementasi Lakomi, bagian ini membandingkan
 \caption{Perbandingan Lakomi dengan Sistem Lain}
 \label{tab:comparison}
 \footnotesize
-\begin{tabular}{p{0.18\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.26\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.18\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.26\textwidth}}
 \toprule
 \textbf{Aspek} & \textbf{Koperasi Konvensional} & \textbf{DAO Token-Weighted} & \textbf{Lakomi} \\
 \midrule
@@ -504,7 +504,7 @@ Kepatuhan Regulasi & Bergantung manual & Tidak dirancang untuk regulasi & 26 ket
 \midrule
 Insentif Kontribusi & Tidak formal & \textit{Staking} $\to$ suara & LTV berbasis simpanan, suara tetap \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 24(3)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.

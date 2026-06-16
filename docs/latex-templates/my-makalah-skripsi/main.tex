@@ -46,15 +46,15 @@ blockchain, cooperative, koperasi, DAO, smart contract, UU 25/1992, one-member-o
 
 Indonesia's cooperative (\textit{koperasi}) movement, rooted in \textit{gotong royong} (mutual cooperation), encompasses over 127,000 registered cooperatives serving 27 million members nationwide. These cooperatives manage member savings (\textit{simpanan}), provide microloans, and distribute surplus (\textit{Sisa Hasil Usaha} or SHU) according to principles codified in Undang-Undang No.~25 Tahun 1992 tentang Perkoperasian~\cite{uu251992}. Despite their scale, traditional cooperatives face persistent operational challenges: opaque decision-making processes, manual treasury management susceptible to errors, limited member participation in governance, bureaucratic loan approval workflows, and inconsistent SHU distribution. These issues stem from a fundamental architectural limitation---cooperative rules exist only as paper documents with no mechanisms for automated enforcement or independent verification.
 
-Blockchain technology and Decentralized Autonomous Organizations (DAOs) offer a compelling alternative~\cite{nakamoto2008bitcoin,buterin2014ethereum,wood2014ethereum}. Smart contracts can encode cooperative rules as immutable, self-executing programs, enabling transparent governance, automated treasury operations, and verifiable member participation. However, a fundamental tension exists between DAO design patterns and cooperative legal principles. Most DAOs allocate voting power proportionally to token holdings, creating plutocratic dynamics where wealthy members dominate governance~\cite{tamai2024dao,sharma2024future,sun2022multiparty}. This directly contradicts Pasal 22(1) of UU 25/1992, which mandates equal voting rights for every member regardless of capital contribution: \textit{``Setiap anggota mempunyai hak satu suara.''}
+Blockchain technology and Decentralized Autonomous Organizations (DAOs) offer a compelling alternative~\cite{nakamoto2008bitcoin,buterin2014ethereum,wood2014ethereum}. Smart contracts can encode cooperative rules as immutable, self-executing programs, enabling transparent governance, automated treasury operations, and verifiable member participation. However, a fundamental tension exists between DAO design patterns and cooperative legal principles. Most DAOs allocate voting power proportionally to token holdings, creating plutocratic dynamics where wealthy members dominate governance~\cite{tamai2024dao,sharma2024future,sun2022multiparty}. This directly contradicts Pasal 24(3) of UU 25/1992, which mandates equal voting rights for every member regardless of capital contribution: \textit{``Setiap anggota mempunyai hak satu suara.''}
 
-Beyond the voting conflict, no existing blockchain cooperative system systematically implements the full Indonesian regulatory framework. UU 25/1992 establishes comprehensive requirements spanning voluntary membership (Pasal 5), mandatory simpanan pokok and simpanan wajib (Pasal 22(2), 41), annual member meetings or RAT (Pasal 26--27), elected management with term limits (Pasal 29--30), pengawas supervisory authority (Pasal 38--39), mandatory reserve funds (Pasal 43), and multi-category SHU distribution (Pasal 45). These provisions are complemented by PP No.~7 Tahun 2021~\cite{pp72021} on cooperative empowerment and Permenkop No.~8 Tahun 2023~\cite{permenkop82023} on savings and loan operations. No prior work has translated these legal provisions into executable smart contract functions.
+Beyond the voting conflict, no existing blockchain cooperative system systematically implements the full Indonesian regulatory framework. UU 25/1992 establishes comprehensive requirements spanning voluntary membership (Pasal 5), mandatory simpanan pokok and simpanan wajib as equity capital (Pasal 41(2)), annual member meetings or RAT (Pasal 26--27), elected management with term limits (Pasal 29--30), pengawas supervisory authority (Pasal 38--39), mandatory reserve funds (Pasal 41(2)(c), 45(3)), and multi-category SHU distribution (Pasal 45). These provisions are complemented by PP No.~7 Tahun 2021~\cite{pp72021} on cooperative empowerment and Permenkop No.~8 Tahun 2023~\cite{permenkop82023} on savings and loan operations. No prior work has translated these legal provisions into executable smart contract functions.
 
 This paper presents \textbf{Lakomi}, a blockchain-based cooperative system that directly addresses this gap by encoding 26 provisions of UU 25/1992 and its derivative regulations into four interoperable smart contracts---LakomiToken (membership), LakomiVault (treasury and SHU), LakomiGovern (democratic governance and elections), and LakomiLoans (collateralized lending)---deployed on DChain (EVM-compatible, chain ID 17845), a consortium blockchain for Indonesian higher education. The primary contributions of this work are:
 
 \begin{enumerate}
     \item The design and implementation of four smart contracts that collectively implement 26 provisions of UU 25/1992, covering membership, simpanan, tiered lending, one-member-one-vote governance, role-based elections, six-category SHU distribution, and pengawas audit functions.
-    \item A dual-track architecture that separates governance power---strictly one-member-one-vote per Pasal 22(1)---from financial privileges---contribution-based loan-to-value tiers per Pasal 18---resolving the DAO plutocracy problem while maintaining cooperative legal compliance.
+    \item A dual-track architecture that separates governance power---strictly one-member-one-vote per Pasal 24(3)---from financial privileges---contribution-based loan-to-value tiers incentivizing participation without affecting voting power---resolving the DAO plutocracy problem while maintaining cooperative legal compliance.
     \item A comprehensive functional verification demonstrating 100\% compliance across all 26 legal provisions, with gas profiling for seven key cooperative operations and a feature comparison against traditional cooperatives and token-based DAOs.
 \end{enumerate}
 
@@ -72,11 +72,11 @@ However, these works do not systematically map cooperative law to smart contract
 
 DAO governance mechanisms have been extensively studied in decentralized finance (DeFi) contexts. Sun et al.~\cite{sun2022multiparty} analyzed multi-party democracy in MakerDAO, revealing through voter coalition analysis how token-weighted voting leads to centralized governance outcomes where large holders control protocol decisions. Messias et al.~\cite{messias2023understanding} examined decentralized voting for amending DeFi smart contracts, identifying voter apathy and whale dominance as systemic challenges that undermine democratic governance ideals. Tamai and Kasahara~\cite{tamai2024dao} proposed voting mechanisms resistant to whale and collusion problems, while Sharma et al.~\cite{sharma2024future} analyzed large-scale DAO behavior, finding significant divergence between formal governance structures and actual decision-making patterns.
 
-Lakomi's one-member-one-vote model draws on these findings by deliberately avoiding token-weighted voting entirely. Unlike compromise solutions that cap voting power or implement quadratic voting, Lakomi enforces strict egalitarianism: each registered member holds exactly one vote, matching the cooperative principle codified in Pasal 22(1). This design eliminates whale dominance as a structural possibility rather than mitigating it post-hoc.
+Lakomi's one-member-one-vote model draws on these findings by deliberately avoiding token-weighted voting entirely. Unlike compromise solutions that cap voting power or implement quadratic voting, Lakomi enforces strict egalitarianism: each registered member holds exactly one vote, matching the cooperative principle codified in Pasal 24(3). This design eliminates whale dominance as a structural possibility rather than mitigating it post-hoc.
 
 \subsection{Indonesian Cooperative Regulation}
 
-UU No.~25 Tahun 1992~\cite{uu251992} establishes the comprehensive legal framework for Indonesian cooperatives. Key provisions include: voluntary and open membership (Pasal 5(1)), democratic management with one-member-one-vote (Pasal 22(1)), mandatory simpanan pokok and simpanan wajib (Pasal 22(2), 41), annual member meetings or RAT (Pasal 26--27), elected management board with term limits (Pasal 29--30), pengawas supervisory authority (Pasal 38--39), mandatory reserve funds (Pasal 43), and proportional SHU distribution (Pasal 45). PP No.~7 Tahun 2021~\cite{pp72021} modernized the framework under the Cipta Kerja omnibus law, while Permenkop No.~8 Tahun 2023~\cite{permenkop82023} specifically governs cooperative savings and loan operations.
+UU No.~25 Tahun 1992~\cite{uu251992} establishes the comprehensive legal framework for Indonesian cooperatives. Key provisions include: voluntary and open membership (Pasal 5(1)), democratic management with one-member-one-vote (Pasal 24(3)), simpanan pokok and simpanan wajib as components of equity capital (Pasal 41(2)), annual member meetings or RAT (Pasal 26--27), elected management board with term limits (Pasal 29--30), pengawas supervisory authority (Pasal 38--39), mandatory reserve funds drawn from SHU (Pasal 41(2)(c), 45(2-3)), and proportional SHU distribution (Pasal 45). PP No.~7 Tahun 2021~\cite{pp72021} modernized the framework under the Cipta Kerja omnibus law, while Permenkop No.~8 Tahun 2023~\cite{permenkop82023} specifically governs cooperative savings and loan operations.
 
 These regulations collectively define the operational, financial, and governance requirements that any cooperative system---whether traditional or blockchain-based---must satisfy. No prior work has attempted to encode these legal provisions as executable smart contracts, creating a gap between regulatory intent and technical implementation that Lakomi directly addresses.
 
@@ -154,7 +154,7 @@ The Lakomi system comprises four smart contracts deployed on an EVM-compatible b
 
 The design follows a layered architecture where LakomiToken serves as the foundational membership layer through an \texttt{isRegisteredMember} mapping. LakomiVault manages three types of simpanan---pokok (mandatory one-time), wajib (monthly), and sukarela (voluntary)---and implements six-category SHU distribution. LakomiGovern handles proposal creation, democratic voting with 67\% quorum, role-based elections, pengawas veto, and dissolution. LakomiLoans provides collateralized microloans with contribution-based loan-to-value tiers.
 
-Five roles govern the system: PENGAWAS\_ROLE (supervisor with veto power), APPROVER\_ROLE (loan approval), MEMBERSHIP\_ROLE (member management), TREASURER\_ROLE (vault operations), and GOVERN\_ROLE (SHU distribution). The LakomiGovern contract holds MEMBERSHIP\_ROLE on the token, enabling governance-driven member revocation per Pasal 31.
+Five roles govern the system: PENGAWAS\_ROLE (supervisor with veto power), APPROVER\_ROLE (loan approval), MEMBERSHIP\_ROLE (member management), TREASURER\_ROLE (vault operations), and GOVERN\_ROLE (SHU distribution). The LakomiGovern contract holds MEMBERSHIP\_ROLE on the token, enabling governance-driven member revocation per Pasal 19(2) and 30(2)(b).
 
 \subsection{Governance Model and SHU Distribution}
 
@@ -207,21 +207,21 @@ Each smart contract function maps to specific UU 25/1992 provisions. Table~\ref{
 \textbf{Pasal} & \textbf{Smart Contract Function} & \textbf{Status} \\
 \midrule
 Pasal 5(1), 17--18 & LakomiToken.\texttt{registerMember()} & \ding{51} \\
-Pasal 18(2) & LakomiToken.\texttt{transfersEnabled = false} & \ding{51} \\
+Pasal 19(3) & LakomiToken.\texttt{transfersEnabled = false} & \ding{51} \\
 Pasal 19--21 & LakomiToken.\texttt{resignMembership()} & \ding{51} \\
-Pasal 22(1) & \texttt{getVotingPower()} $\rightarrow$ 1 & \ding{51} \\
-Pasal 22(2), 41 & LakomiVault.\texttt{paySimpananPokok/Wajib()} & \ding{51} \\
-Pasal 23 & LakomiGovern.\texttt{quorumNumerator = 67} & \ding{51} \\
+Pasal 24(3) & \texttt{getVotingPower()} $\rightarrow$ 1 & \ding{51} \\
+Pasal 41(2) & LakomiVault.\texttt{paySimpananPokok/Wajib()} & \ding{51} \\
+Pasal 24(2) \& design & LakomiGovern.\texttt{quorumNumerator = 67} & \ding{51} \\
 Pasal 26--27 & LakomiGovern.\texttt{scheduleAnnualRAT()} & \ding{51} \\
 Pasal 29--30 & \texttt{beginElection()} $\rightarrow$ \texttt{finalizeElection()} & \ding{51} \\
-Pasal 31 & LakomiToken.\texttt{revokeMembership()} via governance & \ding{51} \\
-Pasal 33--35 & LakomiGovern.\texttt{executeDissolution()} & \ding{51} \\
+Pasal 19(2), 30(2)(b) & LakomiToken.\texttt{revokeMembership()} via governance & \ding{51} \\
+Pasal 46--47, 51--52 & LakomiGovern.\texttt{executeDissolution()} & \ding{51} \\
 Pasal 38--39(2) & \texttt{vetoProposal()} + PENGAWAS\_ROLE & \ding{51} \\
-Pasal 41(1--3) & Simpanan Pokok, Wajib, Sukarela & \ding{51} \\
-Pasal 43 & LakomiVault.\texttt{danaCadangan} tracking & \ding{51} \\
+Pasal 41(2) \& Permenkop 8/2023 & Simpanan Pokok, Wajib, Sukarela & \ding{51} \\
+Pasal 41(2)(c), 45(2-3) & LakomiVault.\texttt{danaCadangan} tracking & \ding{51} \\
 Pasal 45(1--2) & LakomiVault.\texttt{distributeSHU()} 6 categories & \ding{51} \\
-Pasal 46--47 & LakomiVault.\texttt{generateFinancialSnapshot()} & \ding{51} \\
-Permenkop 8/2023 Ps 6--7 & Tiered LTV + 5\% APY flat & \ding{51} \\
+Pasal 35--36 & LakomiVault.\texttt{generateFinancialSnapshot()} & \ding{51} \\
+Permenkop 8/2023 Ps 43--45 & Tiered LTV + 5\% APY flat & \ding{51} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -230,7 +230,7 @@ Permenkop 8/2023 Ps 6--7 & Tiered LTV + 5\% APY flat & \ding{51} \\
 
 The four smart contracts are implemented in Solidity 0.8.20 using the Hardhat development framework~\cite{hardhat}. Each contract inherits from OpenZeppelin's AccessControl for role-based authorization and ReentrancyGuard for reentrancy protection~\cite{openzeppelin}. The contracts were deployed on DChain (EVM-compatible, chain ID 17845), a consortium blockchain operated by Indonesian higher education institutions. Frontend interaction uses the wagmi React hooks library with MetaMask as the wallet provider.
 
-Key implementation decisions include: (1) the membership registry (\texttt{isRegisteredMember}) as a boolean mapping decoupled from token balance, ensuring voting power is strictly identity-based per Pasal 22(1); (2) the vault's six-category SHU split as configurable basis points settable via governance, enabling cooperative-specific adjustments over time; (3) the election mechanism using nested mappings for candidates, votes, and terms, with automatic role granting on finalization; and (4) the loans contract's tiered LTV calculation based on cumulative simpanan in the vault, with auto-approval for small loans (up to 200 USDC) to enable rapid emergency fund access.
+Key implementation decisions include: (1) the membership registry (\texttt{isRegisteredMember}) as a boolean mapping decoupled from token balance, ensuring voting power is strictly identity-based per Pasal 24(3); (2) the vault's six-category SHU split as configurable basis points settable via governance, enabling cooperative-specific adjustments over time; (3) the election mechanism using nested mappings for candidates, votes, and terms, with automatic role granting on finalization; and (4) the loans contract's tiered LTV calculation based on cumulative simpanan in the vault, with auto-approval for small loans (up to 200 USDC) to enable rapid emergency fund access.
 
 Each contract is initialized with five role accounts: PENGAWAS\_ROLE (supervisor), APPROVER\_ROLE (loan approval), MEMBERSHIP\_ROLE (member management), TREASURER\_ROLE (vault operations), and GOVERN\_ROLE (SHU distribution), with the deployer holding DEFAULT\_ADMIN\_ROLE for initial configuration.
 
@@ -250,13 +250,13 @@ All 26 UU 25/1992 provisions were verified through functional testing on DChain 
 \textbf{Pasal} & \textbf{Verification Scenario} & \textbf{Result} \\
 \midrule
 5(1), 17--18 & Member self-registers with simpanan pokok $\rightarrow$ \texttt{isRegisteredMember == true} & Pass \\
-18(2) & Token transfer attempted $\rightarrow$ reverted (\texttt{transfersEnabled == false}) & Pass \\
-22(1) & Two members query voting power $\rightarrow$ both return 1 & Pass \\
-22(2), 41 & Simpanan pokok paid $\rightarrow$ \texttt{simpananPokok[member] > 0} & Pass \\
-23 & Proposal with 3 members, 2 votes $\rightarrow$ quorum met (2/3 $\geq$ 67\%) & Pass \\
+19(3) & Token transfer attempted $\rightarrow$ reverted (\texttt{transfersEnabled == false}) & Pass \\
+24(3) & Two members query voting power $\rightarrow$ both return 1 & Pass \\
+41(2) & Simpanan pokok paid $\rightarrow$ \texttt{simpananPokok[member] > 0} & Pass \\
+24(2) & Proposal with 3 members, 2 votes $\rightarrow$ quorum met (2/3 $\geq$ 67\%) & Pass \\
 26--27 & \texttt{scheduleAnnualRAT()} $\rightarrow$ RAT proposal created; duplicate blocked & Pass \\
 29--30 & Election: start $\rightarrow$ candidate $\rightarrow$ vote $\rightarrow$ finalize $\rightarrow$ role granted & Pass \\
-31 & Governance proposal $\rightarrow$ vote $\rightarrow$ execute \texttt{revokeMembership()} & Pass \\
+19(2), 30(2)(b) & Governance proposal $\rightarrow$ vote $\rightarrow$ execute \texttt{revokeMembership()} & Pass \\
 38 & PENGAWAS\_ROLE vetoes proposal $\rightarrow$ \texttt{proposalVetoed == true} & Pass \\
 45(2) & Revenue accumulated $\rightarrow$ \texttt{distributeSHU()} $\rightarrow$ 6 categories allocated & Pass \\
 \bottomrule
@@ -324,7 +324,7 @@ Lakomi uniquely combines the regulatory compliance of traditional cooperatives w
 
 \subsection{Security Considerations}
 
-The system implements multiple security measures: (1) OpenZeppelin's AccessControl for granular role-based authorization, preventing unauthorized access to critical functions such as SHU distribution and loan approval; (2) ReentrancyGuard on all state-modifying functions, protecting against reentrancy attacks during loan disbursement and SHU claims; (3) the pengawas veto mechanism as a circuit breaker against malicious governance proposals, implementing Pasal 38 oversight; and (4) the 24-hour execution timelock providing a safety window for proposal review. The non-transferability of membership tokens (\texttt{transfersEnabled = false}) prevents secondary market speculation on voting rights, enforcing Pasal 18(2).
+The system implements multiple security measures: (1) OpenZeppelin's AccessControl for granular role-based authorization, preventing unauthorized access to critical functions such as SHU distribution and loan approval; (2) ReentrancyGuard on all state-modifying functions, protecting against reentrancy attacks during loan disbursement and SHU claims; (3) the pengawas veto mechanism as a circuit breaker against malicious governance proposals, implementing Pasal 38 oversight; and (4) the 24-hour execution timelock providing a safety window for proposal review. The non-transferability of membership tokens (\texttt{transfersEnabled = false}) prevents secondary market speculation on voting rights, enforcing Pasal 19(3).
 
 \section{Conclusion}
 
@@ -332,7 +332,7 @@ This paper presented Lakomi, a blockchain-based cooperative system that encodes 
 
 Three key findings emerge from this work. First, the dual-track architecture---separating governance power (one-member-one-vote) from financial privileges (contribution-based LTV tiers)---resolves the fundamental tension between DAO token-weighted voting and cooperative democratic principles without sacrificing economic incentives for member participation. Second, the six-category SHU distribution mechanism, with configurable basis points administered through governance, implements the full Pasal 45(2) framework as enforceable smart contract logic rather than manual accounting. Third, gas cost analysis demonstrates that blockchain-based cooperative operations are economically feasible, with per-operation costs ranging from \$0.14 to \$0.42.
 
-Future work includes: (1) deployment on DChain mainnet with real member onboarding to validate scalability and user experience; (2) integration with decentralized identity (DID) for KYC compliance, enabling legal enforceability of on-chain cooperative membership; (3) formal verification of key contract invariants using tools such as Certora to provide mathematical guarantees of compliance; and (4) extension to support federated cooperatives per Pasal 36--37, enabling multi-cooperative coordination on-chain.
+Future work includes: (1) deployment on DChain mainnet with real member onboarding to validate scalability and user experience; (2) integration with decentralized identity (DID) for KYC compliance, enabling legal enforceability of on-chain cooperative membership; (3) formal verification of key contract invariants using tools such as Certora to provide mathematical guarantees of compliance; and (4) extension to support federated cooperatives per Pasal 15 and 57, enabling multi-cooperative coordination on-chain.
 
 \bibliography{references}{}
 \bibliographystyle{IEEEtran}

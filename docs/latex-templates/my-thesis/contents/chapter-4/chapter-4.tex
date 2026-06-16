@@ -5,7 +5,7 @@ Bab ini menyajikan hasil implementasi sistem Lakomi beserta pembahasan terhadap 
 
 \section{Hasil Implementasi Smart Contract}
 
-Empat \textit{smart contract} Lakomi---LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans---beserta satu kontrak pendukung MockIDRX telah berhasil dikompilasi menggunakan Solidity 0.8.20 dan di-\textit{deploy} pada jaringan DChain (Chain ID 17845). Seluruh kontrak mewarisi pustaka standar OpenZeppelin: ERC-20 untuk token keanggotaan, AccessControl untuk otorisasi berbasis peran, dan ReentrancyGuard untuk perlindungan terhadap serangan \textit{reentrancy}.
+Empat \textit{smart contract} Lakomi, LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans, beserta satu kontrak pendukung MockIDRX telah berhasil dikompilasi menggunakan Solidity 0.8.20 dan di-\textit{deploy} pada jaringan DChain (Chain ID 17845). Seluruh kontrak mewarisi pustaka standar OpenZeppelin: ERC-20 untuk token keanggotaan, AccessControl untuk otorisasi berbasis peran, dan ReentrancyGuard untuk perlindungan terhadap serangan \textit{reentrancy}.
 
 \subsection{Bukti Deployment pada Jaringan DChain}
 
@@ -71,7 +71,7 @@ Setiap kontrak diinisialisasi dengan parameter yang mencerminkan ketentuan UU 25
 
 Setiap fungsi \textit{smart contract} yang dirancang pada Subbab~3.5 telah berhasil diimplementasikan. Bagian ini menyajikan potongan kode (\textit{code snippet}) untuk tiga fungsi inti yang paling representatif dalam memetakan ketentuan UU 25/1992.
 
-\subsubsection{Pendaftaran Anggota --- registerMember}
+\subsubsection{Pendaftaran Anggota ,  registerMember}
 
 Fungsi \texttt{registerMember()} mengimplementasikan Pasal~5(1) dan Pasal~17--18 UU 25/1992 tentang keanggotaan sukarela dan terbuka. Setiap alamat dapat mendaftar secara mandiri setelah membayar simpanan pokok melalui LakomiVault. Sistem memverifikasi pembayaran simpanan pokok, kemudian mencetak token LAK dan mencatat status keanggotaan.
 
@@ -86,7 +86,7 @@ function registerMember() external nonReentrant {
 }
 \end{lstlisting}
 
-\subsubsection{Distribusi SHU --- distributeSHU}
+\subsubsection{Distribusi SHU ,  distributeSHU}
 
 Fungsi \texttt{distributeSHU()} mengimplementasikan Pasal~45(1--2) tentang pembagian Sisa Hasil Usaha (SHU). Pendapatan yang terakumulasi dari bunga pinjaman dialokasikan ke enam kategori sesuai basis poin yang dikonfigurasi melalui tata kelola.
 
@@ -106,9 +106,9 @@ function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
 }
 \end{lstlisting}
 
-\subsubsection{Pemungutan Suara --- castVote}
+\subsubsection{Pemungutan Suara ,  castVote}
 
-Fungsi \texttt{castVote()} mengimplementasikan Pasal~22(1) tentang prinsip satu anggota satu suara. Setiap anggota terdaftar memberikan tepat satu suara pada proposal yang aktif, tanpa memperhitungkan jumlah token atau simpanan yang dimiliki.
+Fungsi \texttt{castVote()} mengimplementasikan Pasal~24(3) tentang prinsip satu anggota satu suara.
 
 \begin{lstlisting}
 function castVote(uint256 proposalId, Vote support) 
@@ -130,7 +130,7 @@ function _castVote(uint256 proposalId, Vote support)
 }
 \end{lstlisting}
 
-\subsubsection{Pembuatan Proposal --- createProposal}
+\subsubsection{Pembuatan Proposal ,  createProposal}
 
 Fungsi \texttt{createProposal()} memungkinkan anggota terdaftar untuk menginisiasi proposal tata kelola. Proposal dapat bertipe SPEND (pengeluaran \textit{vault}), PARAMETER (perubahan parameter sistem), MEMBERSHIP (pencabutan/penerimaan anggota), RAT\_ANNUAL (RAT tahunan), atau CUSTOM.
 
@@ -159,7 +159,7 @@ function createProposal(
 }
 \end{lstlisting}
 
-\subsubsection{Persetujuan dan Pencairan Pinjaman --- approveLoan + disburse}
+\subsubsection{Persetujuan dan Pencairan Pinjaman ,  approveLoan + disburse}
 
 Fungsi \texttt{approveLoan()} dan \texttt{disburse()} mengimplementasikan alur persetujuan pinjaman dua tahap: APPROVER\_ROLE menyetujui permohonan, kemudian dana dicairkan dari LakomiVault ke peminjam setelah agunan dikunci.
 
@@ -183,9 +183,9 @@ function disburse(uint256 loanId) external nonReentrant {
 }
 \end{lstlisting}
 
-\subsubsection[Laporan Keuangan Pengawas]{Laporan Keuangan Pengawas --- getPengawasAuditReport}
+\subsubsection[Laporan Keuangan Pengawas]{Laporan Keuangan Pengawas ,  getPengawasAuditReport}
 
-Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} bagi pemegang PENGAWAS\_ROLE untuk memperoleh ringkasan keuangan \textit{vault} secara \textit{real-time}---mengimplementasikan fungsi pengawasan yang diamanatkan Pasal~38--39.
+Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} bagi pemegang PENGAWAS\_ROLE untuk memperoleh ringkasan keuangan \textit{vault} secara \textit{real-time}, mengimplementasikan fungsi pengawasan yang diamanatkan Pasal~38--39.
 
 \begin{lstlisting}
 function getPengawasAuditReport() external view returns (
@@ -204,7 +204,7 @@ function getPengawasAuditReport() external view returns (
 }
 \end{lstlisting}
 
-\subsubsection[Pembayaran Simpanan Wajib]{Pembayaran Simpanan Wajib --- paySimpananWajib}
+\subsubsection[Pembayaran Simpanan Wajib]{Pembayaran Simpanan Wajib ,  paySimpananWajib}
 
 Fungsi \texttt{paySimpananWajib()} mengimplementasikan Pasal~41(2) tentang kewajiban pembayaran simpanan wajib secara berkala. Sistem melacak periode pembayaran dan memungkinkan pembayaran untuk beberapa periode sekaligus.
 
@@ -221,7 +221,7 @@ function paySimpananWajib() external nonReentrant {
 }
 \end{lstlisting}
 
-\subsubsection[Pemilihan Pengurus]{Pemilihan Pengurus --- beginElection}
+\subsubsection[Pemilihan Pengurus]{Pemilihan Pengurus ,  beginElection}
 
 Fungsi \texttt{beginElection()} dan \texttt{finalizeElection()} mengimplementasikan Pasal~29--30. Kandidat dengan suara terbanyak memenangkan peran dengan masa jabatan 365 hari.
 
@@ -256,7 +256,7 @@ function finalizeElection(bytes32 role, uint256 eId)
 }
 \end{lstlisting}
 
-\subsubsection[Klaim SHU Anggota]{Klaim SHU Anggota --- claimSHU}
+\subsubsection[Klaim SHU Anggota]{Klaim SHU Anggota ,  claimSHU}
 
 Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah distribusi. Mencegah klaim ganda melalui \textit{mapping} \texttt{shuClaimedForDistribution}.
 
@@ -333,7 +333,7 @@ Portal Pinjaman memungkinkan anggota mengajukan pinjaman mikro dengan menentukan
 
 \subsection{Halaman Kepatuhan Regulasi}
 
-Halaman Kepatuhan Regulasi menyajikan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, parameter kunci, dan status verifikasi. Ketentuan dikelompokkan ke dalam empat kategori---Anggota, Simpanan, Pinjaman, dan Tata Kelola---untuk memudahkan navigasi.
+Halaman Kepatuhan Regulasi menyajikan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, parameter kunci, dan status verifikasi. Ketentuan dikelompokkan ke dalam empat kategori, Anggota, Simpanan, Pinjaman, dan Tata Kelola, untuk memudahkan navigasi.
 
 \begin{figure}[h]
 \centering
@@ -367,27 +367,27 @@ Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingk
 3 & 5(1) & Pencetakan 100 LAK pada pendaftaran & $\checkmark$ \\
 4 & 5(2) & Satu anggota memberikan satu suara pada proposal & $\checkmark$ \\
 5 & 17--18 & Pendaftaran anggota baru oleh admin melalui \texttt{registerMemberAdmin()} & $\checkmark$ \\
-6 & 18(2) & Transfer token LAK ditolak (\texttt{transfersEnabled = false}) & $\checkmark$ \\
+6 & 19(3) & Transfer token LAK ditolak (\texttt{transfersEnabled = false}) & $\checkmark$ \\
 7 & 19--21 & Pengunduran diri sukarela melalui \texttt{resignMembership()} & $\checkmark$ \\
-8 & 22(1) & Tiga anggota terdaftar masing-masing mengembalikan \texttt{getVotingPower() = 1} & $\checkmark$ \\
-9 & 22(1) & Alamat tidak terdaftar ditolak saat memberikan suara & $\checkmark$ \\
-10 & 22(2) & Pembayaran simpanan pokok satu kali; penolakan pembayaran ganda & $\checkmark$ \\
-11 & 23 & Proposal dengan 3 anggota dan 2 suara \textit{For} dinyatakan lolos (kuorum 67\%) & $\checkmark$ \\
-12 & 23 & Proposal dengan partisipasi di bawah kuorum dinyatakan \textit{Defeated} & $\checkmark$ \\
+8 & 24(3) & Tiga anggota terdaftar masing-masing mengembalikan \texttt{getVotingPower() = 1} & $\checkmark$ \\
+9 & 24(3) & Alamat tidak terdaftar ditolak saat memberikan suara & $\checkmark$ \\
+10 & 41(2) & Pembayaran simpanan pokok satu kali; penolakan pembayaran ganda & $\checkmark$ \\
+11 & 24(2) & Proposal dengan 3 anggota dan 2 suara \textit{For} dinyatakan lolos (kuorum 67\%) & $\checkmark$ \\
+12 & 24(2) & Proposal dengan partisipasi di bawah kuorum dinyatakan \textit{Defeated} & $\checkmark$ \\
 13 & 26--27 & Penjadwalan RAT tahunan; pencegahan RAT ganda dalam 365 hari & $\checkmark$ \\
 14 & 29--30 & Pemilihan pengurus: kandidat dengan suara terbanyak menang & $\checkmark$ \\
 15 & 29--30 & Masa jabatan pengurus 365 hari; pemberian peran otomatis & $\checkmark$ \\
-16 & 31 & Pencabutan keanggotaan melalui proposal tata kelola & $\checkmark$ \\
+16 & 19(2), 30(2)(b) & Pencabutan keanggotaan melalui proposal tata kelola & $\checkmark$ \\
 17 & 38 & Pengawas dapat mem-veto proposal; \texttt{proposalVetoed = true} & $\checkmark$ \\
 18 & 38 & Akun non-pengawas ditolak saat mencoba veto & $\checkmark$ \\
 19 & 39(2) & Pengawas mengakses laporan keuangan via \texttt{getPengawasAuditReport()} & $\checkmark$ \\
-20 & 41(1) & Pembayaran simpanan pokok 100 IDRX pada pendaftaran & $\checkmark$ \\
-21 & 41(2) & Pembayaran simpanan wajib 10 IDRX periodik & $\checkmark$ \\
-22 & 41(3) & Penyetoran simpanan sukarela dengan perhitungan \textit{shares} proporsional & $\checkmark$ \\
-23 & 43 & Pelacakan dana cadangan dalam \texttt{danaCadangan} & $\checkmark$ \\
+20 & 41(2)(a) & Pembayaran simpanan pokok 100 IDRX pada pendaftaran & $\checkmark$ \\
+21 & 41(2)(b) & Pembayaran simpanan wajib 10 IDRX periodik & $\checkmark$ \\
+22 & Permenkop 8/2023 & Penyetoran simpanan sukarela dengan perhitungan \textit{shares} proporsional & $\checkmark$ \\
+23 & 41(2)(c), 45(2-3) & Pelacakan dana cadangan dalam \texttt{danaCadangan} & $\checkmark$ \\
 24 & 45(1--2) & Distribusi SHU ke 6 kategori sesuai basis poin & $\checkmark$ \\
 25 & 45(1--2) & Klaim SHU oleh anggota; pencegahan klaim ganda & $\checkmark$ \\
-26 & Permenkop 8/2023 Ps 6--7 & Pinjaman LTV berbasis \textit{tier} kontribusi; suku bunga 5\% APY; agunan 25\% & $\checkmark$ \\
+26 & Permenkop 8/2023 Ps 43--45 & Pinjaman LTV berbasis \textit{tier} kontribusi; suku bunga 5\% APY; agunan 25\% & $\checkmark$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -404,10 +404,10 @@ Pengelompokan hasil pengujian berdasarkan kategori ketentuan UU 25/1992 disajika
 \toprule
 \textbf{Kategori} & \textbf{Jumlah Pasal} & \textbf{Skenario} & \textbf{Hasil} \\
 \midrule
-Keanggotaan & 5 (5, 17--21, 31) & 7 & 7/7 $\checkmark$ \\
-Simpanan & 4 (22(2), 41, 43) & 5 & 5/5 $\checkmark$ \\
-Tata Kelola & 6 (22(1), 23, 26--27, 29--30, 38--39) & 10 & 10/10 $\checkmark$ \\
-SHU \& Pinjaman & 3 (45, Permenkop 8/2023) & 4 & 4/4 $\checkmark$ \\
+Keanggotaan & 5 (5, 17--21, 19(3), 30(2)(b)) & 7 & 7/7 $\checkmark$ \\
+Simpanan & 3 (41(2), Permenkop 8/2023) & 5 & 5/5 $\checkmark$ \\
+Tata Kelola & 6 (24(3), 24(2), 26--27, 29--30, 38--39) & 10 & 10/10 $\checkmark$ \\
+SHU \& Pinjaman & 2 (45, Permenkop 8/2023 Ps 43--45) & 4 & 4/4 $\checkmark$ \\
 \midrule
 \textbf{Total} & \textbf{18} & \textbf{26} & \textbf{26/26 $\checkmark$} \\
 \bottomrule
@@ -441,13 +441,13 @@ Pengajuan Pinjaman & \texttt{requestLoan()} & 245.599 & Pinjaman \\
 \end{tabular}
 \end{table}
 
-Dengan harga gas DChain sebesar 2 nano-DKT, seluruh operasi memiliki biaya di bawah 0,001 DKT. Satu siklus pinjaman penuh---\texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}---mengonsumsi sekitar 620.000 gas atau setara 0,001 DKT. Operasi pembacaan data (\textit{view functions}) tidak mengonsumsi gas karena tidak memodifikasi \textit{state} blockchain.
+Dengan harga gas DChain sebesar 2 nano-DKT, seluruh operasi memiliki biaya di bawah 0,001 DKT. Satu siklus pinjaman penuh, \texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}, mengonsumsi sekitar 620.000 gas atau setara 0,001 DKT. Operasi pembacaan data (\textit{view functions}) tidak mengonsumsi gas karena tidak memodifikasi \textit{state} blockchain.
 
-Pola konsumsi gas menunjukkan bahwa operasi yang melibatkan penulisan \textit{state} (\texttt{requestLoan}, \texttt{distributeSHU}) mengonsumsi gas lebih tinggi dibandingkan operasi sederhana (\texttt{approve}, \texttt{castVote}). Hal ini konsisten dengan model biaya EVM di mana penulisan ke \textit{storage} (SSTORE) dikenakan biaya signifikan---20.000 gas untuk penulisan baru dan 5.000 gas untuk pembaruan. \texttt{requestLoan} merupakan operasi dengan konsumsi tertinggi (245.599 gas) karena mencakup beberapa penulisan \textit{state}: pembuatan entri pinjaman baru, pencatatan agunan, dan pembaruan \textit{tier} kontribusi peminjam.
+Pola konsumsi gas menunjukkan bahwa operasi yang melibatkan penulisan \textit{state} (\texttt{requestLoan}, \texttt{distributeSHU}) mengonsumsi gas lebih tinggi dibandingkan operasi sederhana (\texttt{approve}, \texttt{castVote}). Hal ini konsisten dengan model biaya EVM di mana penulisan ke \textit{storage} (SSTORE) dikenakan biaya signifikan, 20.000 gas untuk penulisan baru dan 5.000 gas untuk pembaruan. \texttt{requestLoan} merupakan operasi dengan konsumsi tertinggi (245.599 gas) karena mencakup beberapa penulisan \textit{state}: pembuatan entri pinjaman baru, pencatatan agunan, dan pembaruan \textit{tier} kontribusi peminjam.
 
-Dibandingkan dengan estimasi EVM teoretis, hasil pengukuran pada DChain menunjukkan bahwa operasi keanggotaan dan simpanan (\texttt{registerMember}, \texttt{paySimpananPokok}) berada dalam rentang 90--130 ribu gas---lebih rendah dari estimasi awal 120--150 ribu gas, mengindikasikan efisiensi implementasi yang lebih baik dari perkiraan. Operasi tata kelola (\texttt{castVote}, \texttt{createProposal}) berkisar 110--160 ribu gas, konsisten dengan karakteristik penulisan \textit{state} tunggal per operasi.
+Dibandingkan dengan estimasi EVM teoretis, hasil pengukuran pada DChain menunjukkan bahwa operasi keanggotaan dan simpanan (\texttt{registerMember}, \texttt{paySimpananPokok}) berada dalam rentang 90--130 ribu gas, lebih rendah dari estimasi awal 120--150 ribu gas, mengindikasikan efisiensi implementasi yang lebih baik dari perkiraan. Operasi tata kelola (\texttt{castVote}, \texttt{createProposal}) berkisar 110--160 ribu gas, konsisten dengan karakteristik penulisan \textit{state} tunggal per operasi.
 
-Secara keseluruhan, biaya operasional sistem Lakomi pada DChain sangat rendah---seluruh operasi bulanan untuk koperasi dengan 100 anggota diperkirakan di bawah 0,01 DKT, menjadikannya layak secara ekonomi untuk operasional koperasi sehari-hari. Tabel~\ref{tab:cost-comparison} membandingkan estimasi biaya operasional Lakomi dengan biaya administrasi koperasi konvensional.
+Secara keseluruhan, biaya operasional sistem Lakomi pada DChain sangat rendah, seluruh operasi bulanan untuk koperasi dengan 100 anggota diperkirakan di bawah 0,01 DKT, menjadikannya layak secara ekonomi untuk operasional koperasi sehari-hari. Tabel~\ref{tab:cost-comparison} membandingkan estimasi biaya operasional Lakomi dengan biaya administrasi koperasi konvensional.
 
 \begin{table}[h]
 \centering
@@ -507,29 +507,29 @@ Insentif Kontribusi & Tidak formal & \textit{Staking} $\to$ suara & LTV berbasis
 \end{tabular}
 \end{table}
 
-Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 22(1)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
+Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 24(3)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
 
-Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur---El Amine dan Sari (2024) untuk registri properti dan Saito dan Rose (2023) untuk sektor nirlaba---Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan melainkan properti bawaan dari arsitektur sistem.
+Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur, El Amine dan Sari (2024) untuk registri properti dan Saito dan Rose (2023) untuk sektor nirlaba, Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan melainkan properti bawaan dari arsitektur sistem.
 
 \section{Diskusi}
 
 \subsection{Signifikansi Kepatuhan 100\%}
 
-Pencapaian tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992 memiliki signifikansi yang melampaui sekadar angka keberhasilan pengujian. Dalam konteks \textit{regulatory technology} (RegTech), ini adalah bukti empiris pertama bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang dieksekusi secara otomatis. Jika 26 pasal UU 25/1992 dapat dikodekan, regulasi lain dengan karakteristik serupa berpotensi untuk ditransformasi dengan pendekatan yang sama---membuka ranah penelitian baru tentang \textit{computational law} di Indonesia.
+Pencapaian tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992 memiliki signifikansi yang melampaui sekadar angka keberhasilan pengujian. Dalam konteks \textit{regulatory technology} (RegTech), ini adalah bukti empiris pertama bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang dieksekusi secara otomatis. Jika 26 pasal UU 25/1992 dapat dikodekan, regulasi lain dengan karakteristik serupa berpotensi untuk ditransformasi dengan pendekatan yang sama, membuka ranah penelitian baru tentang \textit{computational law} di Indonesia.
 
-Implikasi praktisnya juga signifikan. Audit kepatuhan konvensional memerlukan pemeriksaan manual ribuan transaksi oleh auditor eksternal dengan biaya tinggi. Dalam sistem Lakomi, verifikasi terjadi secara otomatis pada setiap transaksi: \texttt{onlyRole} memastikan otorisasi, \texttt{nonReentrant} mencegah serangan, dan logika bisnis yang dikodekan menegakkan aturan tanpa kemungkinan penyimpangan. Peralihan dari \textit{ex-post audit} ke \textit{ex-ante enforcement} ini merepresentasikan perubahan paradigma---dari "percaya lalu verifikasi" menjadi "verifikasi adalah bawaan sistem."
+Implikasi praktisnya juga signifikan. Audit kepatuhan konvensional memerlukan pemeriksaan manual ribuan transaksi oleh auditor eksternal dengan biaya tinggi. Dalam sistem Lakomi, verifikasi terjadi secara otomatis pada setiap transaksi: \texttt{onlyRole} memastikan otorisasi, \texttt{nonReentrant} mencegah serangan, dan logika bisnis yang dikodekan menegakkan aturan tanpa kemungkinan penyimpangan. Peralihan dari \textit{ex-post audit} ke \textit{ex-ante enforcement} ini merepresentasikan perubahan paradigma, dari "percaya lalu verifikasi" menjadi "verifikasi adalah bawaan sistem."
 
 \subsection{Kelayakan dari Perspektif Gas}
 
-Berdasarkan pengukuran pada DChain mainnet dengan harga gas 0,000000002 DKT/gas (2 nano-DKT), seluruh operasi koperasi memiliki biaya sangat rendah---operasi termahal (\texttt{requestLoan} pada 245.599 gas) hanya memerlukan kurang dari 0,0005 DKT. Satu siklus pinjaman penuh (\texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}) mengonsumsi sekitar 620.000 gas, atau sekitar 0,001 DKT. Biaya ini praktis dapat diabaikan untuk operasional koperasi sehari-hari, memvalidasi bahwa DChain sebagai blockchain konsorsium menawarkan kelayakan ekonomi yang sangat baik untuk aplikasi koperasi. Sebagai perbandingan, biaya administrasi koperasi konvensional---mencakup gaji staf, pencetakan dokumen, dan audit eksternal---diperkirakan mencapai 5--15\% dari pendapatan tahunan, jauh melampaui biaya gas sistem on-chain.
+Berdasarkan pengukuran pada DChain mainnet dengan harga gas 0,000000002 DKT/gas (2 nano-DKT), seluruh operasi koperasi memiliki biaya sangat rendah, operasi termahal (\texttt{requestLoan} pada 245.599 gas) hanya memerlukan kurang dari 0,0005 DKT. Satu siklus pinjaman penuh (\texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}) mengonsumsi sekitar 620.000 gas, atau sekitar 0,001 DKT. Biaya ini praktis dapat diabaikan untuk operasional koperasi sehari-hari, memvalidasi bahwa DChain sebagai blockchain konsorsium menawarkan kelayakan ekonomi yang sangat baik untuk aplikasi koperasi. Sebagai perbandingan, biaya administrasi koperasi konvensional, mencakup gaji staf, pencetakan dokumen, dan audit eksternal, diperkirakan mencapai 5--15\% dari pendapatan tahunan, jauh melampaui biaya gas sistem on-chain.
 
 \subsection{Keterbatasan dan Validitas Eksternal}
 
-Validitas eksternal terbatas pada konteks DChain. Hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya---penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini.
+Validitas eksternal terbatas pada konteks DChain. Hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya, penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini.
 
 \section{Validasi Formula}
 
-Tiga formula utama dalam sistem Lakomi---bunga pinjaman, kuorum tata kelola, dan distribusi SHU---divalidasi melalui perhitungan manual yang dibandingkan dengan hasil eksekusi \textit{smart contract}.
+Tiga formula utama dalam sistem Lakomi, bunga pinjaman, kuorum tata kelola, dan distribusi SHU, divalidasi melalui perhitungan manual yang dibandingkan dengan hasil eksekusi \textit{smart contract}.
 
 \subsection{Validasi Formula Bunga Pinjaman}
 
@@ -568,4 +568,4 @@ Distribusi SHU dihitung berdasarkan basis poin (\textit{basis points}) yang dial
 
 Total alokasi: $45 + 360 + 360 + 45 + 45 + 45 = 900$ IDRX, yang sama dengan $\text{SHU}_{\text{distributable}}$. Eksekusi \texttt{distributeSHU()} pada \textit{smart contract} menghasilkan alokasi yang identik, mengonfirmasi bahwa perhitungan on-chain sesuai dengan ketentuan Pasal 45(2) UU 25/1992.
 
-Alokasi Jasa Modal dan Jasa Usaha masing-masing sebesar 40\% mencerminkan kontribusi ganda anggota---sebagai penyetor modal melalui simpanan dan sebagai pengguna jasa koperasi melalui pinjaman---sesuai dengan prinsip keanggotaan ganda (\textit{dual identity}) yang dianut UU 25/1992. Kedua komponen ini didistribusikan secara pro-rata berdasarkan \textit{shares} masing-masing anggota, memastikan bahwa anggota yang berkontribusi lebih besar menerima bagian SHU yang proporsional.
+Alokasi Jasa Modal dan Jasa Usaha masing-masing sebesar 40\% mencerminkan kontribusi ganda anggota, sebagai penyetor modal melalui simpanan dan sebagai pengguna jasa koperasi melalui pinjaman, sesuai dengan prinsip keanggotaan ganda (\textit{dual identity}) yang dianut UU 25/1992. Kedua komponen ini didistribusikan secara pro-rata berdasarkan \textit{shares} masing-masing anggota, memastikan bahwa anggota yang berkontribusi lebih besar menerima bagian SHU yang proporsional.

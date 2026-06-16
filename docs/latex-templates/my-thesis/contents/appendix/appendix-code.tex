@@ -28,7 +28,7 @@ LakomiLoans & \textasciitilde 270 & AccessControl, Reentrant, Pausable & ADMIN, 
 
 Setiap \textit{smart contract} mendefinisikan struktur data yang memetakan ketentuan UU 25/1992. Berikut adalah definisi \texttt{struct} dan \texttt{enum} utama yang digunakan dalam sistem.
 
-\subsection{LakomiToken --- Keanggotaan}
+\subsection{LakomiToken ,  Keanggotaan}
 
 \begin{lstlisting}
 enum MemberStatus { None, Active, Suspended, Resigned, Revoked }
@@ -45,7 +45,7 @@ struct MemberInfo {
 }
 \end{lstlisting}
 
-\subsection{LakomiVault --- Simpanan dan SHU}
+\subsection{LakomiVault ,  Simpanan dan SHU}
 
 \begin{lstlisting}
 enum SHUCategory {
@@ -69,7 +69,7 @@ struct PendingWithdrawal {
 }
 \end{lstlisting}
 
-\subsection{LakomiGovern --- Proposal dan Pemilihan}
+\subsection{LakomiGovern ,  Proposal dan Pemilihan}
 
 \begin{lstlisting}
 enum ProposalType { 
@@ -110,7 +110,7 @@ struct Election {
 }
 \end{lstlisting}
 
-\subsection{LakomiLoans --- Pinjaman}
+\subsection{LakomiLoans ,  Pinjaman}
 
 \begin{lstlisting}
 enum LoanStatus { 
@@ -242,11 +242,11 @@ Tabel~\ref{tab:test-scenarios} merangkum 26 skenario pengujian fungsional yang d
 7 & 22(1) & Penolakan voting oleh non-anggota & Govern & \texttt{castVote()} \\
 8 & 22(2) & Pembayaran simpanan pokok satu kali & Vault & \texttt{paySimpananPokok()} \\
 9 & 22(2) & Penolakan pembayaran simpanan pokok ganda & Vault & \texttt{paySimpananPokok()} \\
-10 & 23 & Verifikasi kuorum---proposal lolos dengan 3 dari 3 suara & Govern & \texttt{castVote()} \\
+10 & 23 & Verifikasi kuorum, proposal lolos dengan 3 dari 3 suara & Govern & \texttt{castVote()} \\
 11 & 23 & Proposal gagal karena di bawah kuorum & Govern & \texttt{castVote()} \\
 12 & 26--27 & Penjadwalan RAT tahunan & Govern & \texttt{scheduleAnnualRAT()} \\
 13 & 26--27 & Pencegahan RAT ganda dalam satu periode & Govern & \texttt{scheduleAnnualRAT()} \\
-14 & 29--30 & Pemilihan pengurus---kandidat dengan suara terbanyak menang & Govern & \texttt{beginElection()} \\
+14 & 29--30 & Pemilihan pengurus, kandidat dengan suara terbanyak menang & Govern & \texttt{beginElection()} \\
 15 & 31 & Pencabutan keanggotaan melalui proposal tata kelola & Token+Govern & \texttt{revokeMembership()} \\
 16 & 38 & Veto proposal oleh pengawas & Govern & \texttt{vetoProposal()} \\
 17 & 38 & Penolakan veto oleh non-pengawas & Govern & \texttt{vetoProposal()} \\
@@ -320,12 +320,12 @@ LakomiVault & $\sim$14 KB & $\sim$3.500.000 & Tinggi \\
 LakomiGovern & $\sim$11 KB & $\sim$2.800.000 & Tinggi \\
 LakomiLoans & $\sim$10 KB & $\sim$2.500.000 & Sedang \\
 \midrule
-\textbf{Total} & \textbf{$\sim$49 KB} & \textbf{$\sim$12.200.000} & --- \\
+\textbf{Total} & \textbf{$\sim$49 KB} & \textbf{$\sim$12.200.000} & ,  \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Total gas \textit{deployment} sekitar 12,2 juta unit gas---pada jaringan konsorsium seperti DChain dengan biaya gas rendah, biaya ini diperkirakan sangat terjangkau. Sebagai perbandingan, \textit{deployment} kontrak serupa pada Ethereum \textit{mainnet} dengan harga gas 20 Gwei dan harga ETH \$2.000 akan memakan biaya sekitar \$490, sementara pada DChain biayanya diproyeksikan jauh lebih rendah. Biaya \textit{deployment} ini bersifat satu kali (\textit{one-time cost}) dan tidak berulang untuk setiap transaksi operasional koperasi.
+Total gas \textit{deployment} sekitar 12,2 juta unit gas, pada jaringan konsorsium seperti DChain dengan biaya gas rendah, biaya ini diperkirakan sangat terjangkau. Sebagai perbandingan, \textit{deployment} kontrak serupa pada Ethereum \textit{mainnet} dengan harga gas 20 Gwei dan harga ETH \$2.000 akan memakan biaya sekitar \$490, sementara pada DChain biayanya diproyeksikan jauh lebih rendah. Biaya \textit{deployment} ini bersifat satu kali (\textit{one-time cost}) dan tidak berulang untuk setiap transaksi operasional koperasi.
 
 \section{Spesifikasi Parameter Sistem}
 
@@ -362,7 +362,7 @@ Masa Jabatan Peran & 365 hari & \texttt{Admin} & Durasi jabatan pengurus terpili
 \end{tabular}
 \end{table}
 
-Seluruh parameter keuangan (simpanan, suku bunga, agunan, LTV, SHU) dikelola melalui mekanisme tata kelola---memungkinkan adaptasi terhadap perubahan kondisi ekonomi atau kebijakan tanpa memerlukan \textit{redeployment} kontrak. Parameter teknis (pasokan token, masa jabatan) dikelola oleh administrator sistem untuk menjaga stabilitas operasional. Pemisahan kewenangan ini mencerminkan prinsip \textit{separation of concerns} yang fundamental dalam desain sistem terdesentralisasi.
+Seluruh parameter keuangan (simpanan, suku bunga, agunan, LTV, SHU) dikelola melalui mekanisme tata kelola, memungkinkan adaptasi terhadap perubahan kondisi ekonomi atau kebijakan tanpa memerlukan \textit{redeployment} kontrak. Parameter teknis (pasokan token, masa jabatan) dikelola oleh administrator sistem untuk menjaga stabilitas operasional. Pemisahan kewenangan ini mencerminkan prinsip \textit{separation of concerns} yang fundamental dalam desain sistem terdesentralisasi.
 
 \section{Arsitektur Sistem Terintegrasi}
 
@@ -375,10 +375,10 @@ Gambar~\ref{fig:clean-architecture} mengilustrasikan arsitektur sistem Lakomi me
     arrow/.style={->, >=stealth, thick, blue!60},
     dep/.style={->, >=stealth, dashed, gray!50},
 ]
-\node[layer, fill=purple!10, minimum width=10cm] (fe) at (0,3.5) {\textbf{Presentation Layer} --- React 18 + TypeScript + wagmi v2};
-\node[layer, fill=green!8, minimum width=9cm] (app) at (0,1.8) {\textbf{Application Layer} --- Smart Contracts (Solidity 0.8.20)};
-\node[layer, fill=blue!8, minimum width=8cm] (domain) at (0,0.1) {\textbf{Domain Layer} --- UU 25/1992 Rules (26 Pasal)};
-\node[layer, fill=orange!10, minimum width=10.5cm] (infra) at (0,-1.6) {\textbf{Infrastructure Layer} --- DChain (EVM, Chain ID 17845)};
+\node[layer, fill=purple!10, minimum width=10cm] (fe) at (0,3.5) {\textbf{Presentation Layer} ,  React 18 + TypeScript + wagmi v2};
+\node[layer, fill=green!8, minimum width=9cm] (app) at (0,1.8) {\textbf{Application Layer} ,  Smart Contracts (Solidity 0.8.20)};
+\node[layer, fill=blue!8, minimum width=8cm] (domain) at (0,0.1) {\textbf{Domain Layer} ,  UU 25/1992 Rules (26 Pasal)};
+\node[layer, fill=orange!10, minimum width=10.5cm] (infra) at (0,-1.6) {\textbf{Infrastructure Layer} ,  DChain (EVM, Chain ID 17845)};
 \draw[arrow] (fe.south) -- (app.north) node[midway, right, font=\footnotesize] {JSON-RPC};
 \draw[dep] (app.south) -- (domain.north) node[midway, right, font=\footnotesize] {implements};
 \draw[dep] (domain.south) -- (infra.north) node[midway, right, font=\footnotesize] {deployed on};
@@ -387,7 +387,7 @@ Gambar~\ref{fig:clean-architecture} mengilustrasikan arsitektur sistem Lakomi me
 \label{fig:clean-architecture}
 \end{figure}
 
-Arsitektur ini mengikuti prinsip \textit{dependency inversion}: lapisan yang lebih tinggi bergantung pada abstraksi yang didefinisikan oleh lapisan di bawahnya, bukan sebaliknya. \textit{Domain Layer} (aturan UU 25/1992) adalah inti sistem yang tidak bergantung pada teknologi spesifik---perubahan pada infrastruktur blockchain (misalnya migrasi dari DChain ke platform EVM lain) tidak memerlukan perubahan pada aturan kepatuhan. \textit{Application Layer} (smart contract) mengimplementasikan aturan domain dalam bentuk kode yang dapat dieksekusi. \textit{Infrastructure Layer} menyediakan lingkungan eksekusi dan penyimpanan. \textit{Presentation Layer} menyediakan antarmuka pengguna yang berkomunikasi dengan \textit{Application Layer} melalui JSON-RPC.
+Arsitektur ini mengikuti prinsip \textit{dependency inversion}: lapisan yang lebih tinggi bergantung pada abstraksi yang didefinisikan oleh lapisan di bawahnya, bukan sebaliknya. \textit{Domain Layer} (aturan UU 25/1992) adalah inti sistem yang tidak bergantung pada teknologi spesifik, perubahan pada infrastruktur blockchain (misalnya migrasi dari DChain ke platform EVM lain) tidak memerlukan perubahan pada aturan kepatuhan. \textit{Application Layer} (smart contract) mengimplementasikan aturan domain dalam bentuk kode yang dapat dieksekusi. \textit{Infrastructure Layer} menyediakan lingkungan eksekusi dan penyimpanan. \textit{Presentation Layer} menyediakan antarmuka pengguna yang berkomunikasi dengan \textit{Application Layer} melalui JSON-RPC.
 
 Pemisahan yang ketat antara \textit{Domain Layer} (aturan hukum) dan \textit{Application Layer} (implementasi kode) adalah kontribusi arsitektural utama Lakomi: perubahan regulasi dapat diakomodasi melalui pembaruan \textit{smart contract} tanpa mengubah infrastruktur, sementara perubahan infrastruktur blockchain tidak memengaruhi aturan kepatuhan yang telah dikodekan.
 

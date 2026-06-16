@@ -507,7 +507,7 @@ Insentif Kontribusi & Tidak formal & \textit{Staking} $\to$ suara & LTV berbasis
 
 Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 24(3)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
 
-Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur, El Amine dan Sari (2024) untuk registri properti dan Saito dan Rose (2023) untuk sektor nirlaba, Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan melainkan properti bawaan dari arsitektur sistem.
+Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur, El Amine dan Sari~\cite{elamine2024blockchain} untuk registri properti dan Saito dan Rose~\cite{saito2023reputation} untuk sektor nirlaba, Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan melainkan properti bawaan dari arsitektur sistem.
 
 \section{Diskusi}
 
@@ -523,7 +523,11 @@ Berdasarkan pengukuran pada DChain mainnet dengan harga gas 0,000000002 DKT/gas 
 
 \subsection{Keterbatasan dan Validitas Eksternal}
 
-Validitas eksternal terbatas pada konteks DChain. Hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya, penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini.
+Penelitian ini tidak bertujuan menghasilkan produk yang siap diadopsi oleh koperasi riil, melainkan merancang dan memverifikasi artefak \textit{proof-of-concept} yang membuktikan kelayakan pendekatan pemetaan regulasi-ke-kode. Dalam kerangka DSR, evaluasi artefak tidak mensyaratkan deployment produksi — Hevner \cite{hevner2004design} mengakui bahwa evaluasi dapat dilakukan melalui metode analitis (verifikasi kepatuhan), eksperimental (analisis gas), dan komparatif (perbandingan sistem), yang ketiganya telah dilaksanakan dalam penelitian ini. Ketiga metode evaluasi tersebut mendemonstrasikan \textit{utility} artefak — fungsionalitas yang benar (26/26 skenario lulus), kelayakan ekonomi (biaya gas minimal), dan posisi unik terhadap sistem pembanding — tanpa memerlukan organisasi koperasi riil sebagai subjek pengujian.
+
+Empat \textit{smart contract} Lakomi merupakan implementasi langsung dari 26 ketentuan UU 25/1992 yang telah diverifikasi kata demi kata terhadap teks hukum autentik. Validitas pemetaan tidak bergantung pada apakah koperasi sungguhan menggunakan sistem ini — melainkan pada apakah logika yang dikodekan sesuai dengan bunyi pasal. Setiap pasal diterjemahkan menjadi kondisi persyaratan, aksi, kendala, dan aktor berwenang yang dapat diverifikasi melalui pengujian fungsional berbasis Hardhat. Dengan demikian, kontribusi utama penelitian ini adalah bukti empiris bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang \textit{self-executing}, bukan sekadar argumen konseptual.
+
+Validitas eksternal memang terbatas pada konteks DChain, dan hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi dengan ribuan anggota dan puluhan ribu transaksi per tahun. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya — penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini, sebagaimana diidentifikasi pada Batasan Penelitian (Subbab 1.4) dan Saran (Subbab 5.3).
 
 \section{Validasi Formula}
 
@@ -567,3 +571,45 @@ Distribusi SHU dihitung berdasarkan basis poin (\textit{basis points}) yang dial
 Total alokasi: $45 + 360 + 360 + 45 + 45 + 45 = 900$ IDRX, yang sama dengan $\text{SHU}_{\text{distributable}}$. Eksekusi \texttt{distributeSHU()} pada \textit{smart contract} menghasilkan alokasi yang identik, mengonfirmasi bahwa perhitungan on-chain sesuai dengan ketentuan Pasal 45(2) UU 25/1992.
 
 Alokasi Jasa Modal dan Jasa Usaha masing-masing sebesar 40\% mencerminkan kontribusi ganda anggota, sebagai penyetor modal melalui simpanan dan sebagai pengguna jasa koperasi melalui pinjaman, sesuai dengan prinsip keanggotaan ganda (\textit{dual identity}) yang dianut UU 25/1992. Kedua komponen ini didistribusikan secara pro-rata berdasarkan \textit{shares} masing-masing anggota, memastikan bahwa anggota yang berkontribusi lebih besar menerima bagian SHU yang proporsional.
+
+\section{Pencapaian Tujuan dan Perbandingan Sistem}
+
+Tabel~\ref{tab:dimensional} menyajikan analisis dimensional ketercapaian ketiga tujuan penelitian berdasarkan metode, bukti kuantitatif, dan tingkat ketercapaian. Ketiga tujuan dinyatakan tercapai penuh berdasarkan bukti yang telah disajikan pada bab ini.
+
+\begin{table}[H]
+\centering
+\caption{Analisis Dimensional Ketercapaian Tujuan Penelitian}
+\label{tab:dimensional}
+\footnotesize
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.03\textwidth}p{0.26\textwidth}p{0.28\textwidth}p{0.18\textwidth}p{0.15\textwidth}}
+\toprule
+\textbf{\#} & \textbf{Tujuan} & \textbf{Metode Pencapaian} & \textbf{Bukti Kuantitatif} & \textbf{Ketercapaian} \\
+\midrule
+T1 & Merancang 4 SC sesuai UU 25/1992 & DSR 3-siklus, arsitektur \textit{dual-track}, 8 peran RBAC, \textit{separation of duties} & 4 kontrak di DChain, 5 \textit{role} terdistribusi, 0 \textit{single point of failure} & Tercapai penuh \\
+\midrule
+T2 & Memetakan 26 ketentuan ke fungsi SC & Kerangka 4-tahap: identifikasi, dekomposisi, pemetaan, verifikasi & 26/26 skenario Lulus (100\%), 6 kategori kepatuhan & Tercapai penuh \\
+\midrule
+T3 & Mengevaluasi kepatuhan via pengujian, gas, perbandingan & \textit{Unit testing} Hardhat, \textit{gas reporter}, analisis 3-sistem & 12,2M gas \textit{deployment}, 9 dimensi perbandingan, 3 formula tervalidasi & Tercapai penuh \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+Tabel~\ref{tab:sota} membandingkan Lakomi dengan sistem \textit{state of the art} dalam domain \textit{blockchain for cooperatives} berdasarkan tujuh dimensi fungsional. Dari lima sistem yang dibandingkan, hanya Lakomi yang mengimplementasikan seluruh dimensi secara bersamaan.
+
+\begin{table}[H]
+\centering
+\caption{Perbandingan dengan \textit{State of the Art}}
+\label{tab:sota}
+\footnotesize
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.15\textwidth}p{0.12\textwidth}p{0.10\textwidth}p{0.10\textwidth}p{0.12\textwidth}p{0.12\textwidth}p{0.19\textwidth}}
+\toprule
+\textbf{Sistem} & \textbf{Blockchain} & \textbf{Voting} & \textbf{Simpanan} & \textbf{SHU} & \textbf{Pengawas} & \textbf{Kepatuhan Regulasi} \\
+\midrule
+MakerDAO & Ethereum & Token-weight & Tidak & Tidak & Tidak & Tidak \\
+Compound & Ethereum & Token-weight & Tidak & Tidak & Tidak & Tidak \\
+El Amine \& Sari & Private & Token-weight & Tidak & Tidak & Tidak & Tidak \\
+Saito \& Rose & L1 & Reputasi & Tidak & Tidak & Tidak & Tidak \\
+\textbf{Lakomi} & \textbf{DChain} & \textbf{1-suara-1-anggota} & \textbf{3 jenis} & \textbf{6 kategori} & \textbf{Veto+audit} & \textbf{26 pasal (100\%)} \\
+\bottomrule
+\end{tabular}}
+\end{table}

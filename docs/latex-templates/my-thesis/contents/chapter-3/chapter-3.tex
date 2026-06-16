@@ -125,7 +125,7 @@ Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{l
     darr/.style={->, >=stealth, thick, dashed, gray!50},
 ]
 \node[box, fill=black!6, minimum width=10cm] (token)
-    at (0,2.5) {LakomiToken (LAK) --- ERC-20 --- \texttt{isRegisteredMember}\\[2pt]
+    at (0,2.5) {LakomiToken (LAK) $\mid$ ERC-20 $\mid$ \texttt{isRegisteredMember}\\[2pt]
     {\footnotesize\textit{Minter $\cdot$ Burner $\cdot$ Locker $\cdot$ Membership}}};
 \draw[arr] (-3.2,2.2) -- (-3.2,1.0);
 \draw[arr] (0,2.2)    -- (0,1.0);
@@ -139,7 +139,7 @@ Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{l
 \draw[arr] (0,-0.1)    -- (0,-0.8);
 \draw[arr] (3.2,-0.1)  -- (3.2,-0.8);
 \node[box, fill=black!6, minimum width=10.5cm]
-    (chain) at (0,-1.1) {DChain --- EVM-Compatible --- Chain ID 17845};
+    (chain) at (0,-1.1) {DChain $\mid$ EVM-Compatible $\mid$ Chain ID 17845};
 \end{tikzpicture}
 \caption{Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit{registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit{loan-to-value} berbasis kontribusi.}
 \label{fig:arsitektur-3}
@@ -166,15 +166,17 @@ Lima peran mengatur sistem: PENGAWAS\_ROLE (pengawas dengan hak veto), APPROVER\
 
 Sebelum membahas detail implementasi, bagian ini menyajikan justifikasi desain untuk setiap keputusan arsitektural utama yang membedakan Lakomi dari pendekatan alternatif. Setiap keputusan dievaluasi terhadap tiga kriteria: kepatuhan terhadap UU 25/1992, keamanan teknis, dan kelayakan operasional.
 
-\textbf{Keputusan 1: Pemisahan Kontrak vs Monolitik.} Arsitektur empat kontrak (Token, Vault, Govern, Loans) dipilih dibandingkan pendekatan monolitik (satu kontrak besar). Justifikasi: (1) \textit{separation of concerns}, setiap kontrak bertanggung jawab atas satu domain fungsional, memudahkan verifikasi kepatuhan per pasal dan mengurangi kompleksitas kognitif; (2) \textit{blast radius} terbatas, jika satu kontrak mengalami kerentanan, kontrak lain tetap beroperasi secara independen, membatasi dampak serangan; (3) \textit{upgradeability} selektif, setiap kontrak dapat diperbarui secara independen tanpa memengaruhi kontrak lain, memungkinkan adaptasi bertahap terhadap perubahan regulasi; (4) \textit{gas optimization}, pengguna hanya membayar gas untuk kontrak yang relevan dengan transaksi mereka. Risiko pendekatan terpisah, kompleksitas interaksi antar-kontrak, dimitigasi melalui \textit{wiring} yang ketat pada saat \textit{deployment} dan verifikasi dependensi melalui pengujian integrasi.
+\textbf{Keputusan 1: Pemisahan Kontrak vs Monolitik.} Arsitektur empat kontrak (Token, Vault, Govern, Loans) dipilih dibandingkan pendekatan monolitik (satu kontrak besar). Kepatuhan: setiap kontrak bertanggung jawab atas satu domain fungsional (keanggotaan, perbendaharaan, tata kelola, pinjaman), memudahkan verifikasi kepatuhan per pasal UU 25/1992 secara independen. Keamanan: \textit{blast radius} terbatas — jika satu kontrak mengalami kerentanan, kontrak lain tetap beroperasi, membatasi dampak serangan terhadap seluruh sistem. Kelayakan operasional: setiap kontrak dapat diperbarui secara independen tanpa memengaruhi kontrak lain, memungkinkan adaptasi bertahap terhadap perubahan regulasi; pengguna hanya membayar gas untuk kontrak yang relevan dengan transaksi mereka. Risiko kompleksitas interaksi antar-kontrak dimitigasi melalui \textit{wiring} yang ketat pada saat \textit{deployment} dan verifikasi dependensi melalui pengujian integrasi.
 
-\textbf{Keputusan 2: ERC-20 dengan Transfer Dinonaktifkan.} LakomiToken mewarisi standar ERC-20 tetapi menonaktifkan fungsi transfer. Justifikasi: (1) kepatuhan terhadap Pasal 19(3), token keanggotaan bersifat \textit{intuitu personae} dan tidak dapat diperjualbelikan; (2) kompatibilitas ekosistem, dengan mewarisi ERC-20, token tetap kompatibel dengan \textit{wallet}, \textit{block explorer}, dan alat analitik yang mengharapkan antarmuka ERC-20 standar; (3) \textit{future-proofing}, jika regulasi berubah dan transfer diizinkan di masa depan, perubahan hanya memerlukan satu \textit{boolean flag} tanpa \textit{redeployment} atau migrasi data. Alternatif yang dipertimbangkan, mengimplementasikan token kustom tanpa ERC-20, ditolak karena akan kehilangan interoperabilitas dengan ekosistem Ethereum yang luas.
+\textbf{Keputusan 2: ERC-20 dengan Transfer Dinonaktifkan.} LakomiToken mewarisi standar ERC-20 tetapi menonaktifkan fungsi transfer. Kepatuhan: sesuai Pasal 19(3) UU 25/1992, token keanggotaan bersifat \textit{intuitu personae} dan tidak dapat diperjualbelikan, sehingga mencegah spekulasi hak suara. Keamanan: dengan menonaktifkan transfer, token tidak dapat dicuri melalui \texttt{transferFrom()} atau disalahgunakan di pasar sekunder untuk memanipulasi tata kelola. Kelayakan operasional: dengan mewarisi ERC-20, token tetap kompatibel dengan \textit{wallet}, \textit{block explorer}, dan alat analitik yang mengharapkan antarmuka standar; jika regulasi berubah dan transfer diizinkan di masa depan, perubahan hanya memerlukan satu \textit{boolean flag} tanpa \textit{redeployment} atau migrasi data. Alternatif token kustom tanpa standar ditolak karena akan kehilangan interoperabilitas dengan ekosistem Ethereum.
 
-\textbf{Keputusan 3: RBAC 8-Peran vs Ownership Tunggal.} Sistem menggunakan 8 peran terdistribusi dibandingkan model \texttt{Ownable} dengan satu pemilik. Justifikasi: (1) kepatuhan terhadap struktur organisasi koperasi (Pasal 21--39) yang memisahkan pengurus, pengawas, dan anggota; (2) mitigasi \textit{single point of failure}, tidak ada satu akun yang memiliki kendali penuh atas sistem, sehingga kompromi satu kunci privat tidak serta-merta mengakibatkan kompromi seluruh sistem; (3) \textit{separation of duties}, pemisahan antara pengusul (anggota), peninjau (pengawas), dan pelaksana (pengurus) mencegah kolusi dan penyalahgunaan wewenang. Risiko, kompleksitas manajemen peran, dimitigasi melalui dokumentasi matriks akses (Lampiran) dan pengujian akses kontrol yang komprehensif.
+\textbf{Keputusan 3: RBAC 8-Peran vs Ownership Tunggal.} Sistem menggunakan 8 peran terdistribusi dibandingkan model \texttt{Ownable} dengan satu pemilik. Kepatuhan: mencerminkan struktur organisasi koperasi (Pasal 21--39 UU 25/1992) yang memisahkan pengurus, pengawas, dan anggota, di mana setiap peran memiliki wewenang terbatas dan saling mengawasi. Keamanan: mitigasi \textit{single point of failure} — tidak ada satu akun yang memiliki kendali penuh, sehingga kompromi satu kunci privat tidak serta-merta membahayakan seluruh sistem; pemisahan antara pengusul, peninjau, dan pelaksana mencegah kolusi. Kelayakan operasional: setiap peran dapat diberikan kepada akun terpisah sesuai struktur organisasi koperasi riil, dan peran dapat dicabut atau dialihkan melalui mekanisme tata kelola tanpa \textit{redeployment} kontrak. Risiko kompleksitas manajemen peran dimitigasi melalui dokumentasi matriks akses pada Lampiran.
 
-\textbf{Keputusan 4: Suku Bunga Tetap vs Dinamis.} Suku bunga pinjaman ditetapkan tetap 5\% APY dibandingkan model dinamis berbasis \textit{utilization rate} seperti pada Compound dan Aave. Justifikasi: (1) kepatuhan terhadap Permenkop 8/2023 yang menetapkan batas maksimum suku bunga wajar, suku bunga tetap menjamin kepatuhan berkelanjutan tanpa memerlukan penyesuaian parameter yang sering; (2) kesederhanaan dan prediktabilitas, anggota koperasi dapat menghitung biaya pinjaman di muka tanpa bergantung pada kondisi pasar yang fluktuatif; (3) inklusivitas, suku bunga tetap rendah (5\%) memastikan akses pinjaman bagi anggota dengan kapasitas finansial terbatas, berbeda dengan DeFi di mana suku bunga dapat melonjak saat permintaan tinggi. Alternatif dinamis dipertimbangkan untuk meningkatkan efisiensi alokasi modal, tetapi ditolak karena bertentangan dengan prinsip kesejahteraan anggota yang menjadi fondasi koperasi.
+\textbf{Keputusan 4: Suku Bunga Tetap vs Dinamis.} Suku bunga pinjaman ditetapkan tetap 5\% APY dibandingkan model dinamis berbasis \textit{utilization rate}. Kepatuhan: Permenkop 8/2023 Pasal 43 mewajibkan prinsip kehati-hatian dalam pemberian pinjaman; suku bunga tetap rendah menjamin kepatuhan berkelanjutan dan melindungi anggota dari fluktuasi biaya. Keamanan: suku bunga tetap menghilangkan vektor serangan manipulasi pasar (\textit{oracle manipulation}) yang umum terjadi pada protokol DeFi dengan suku bunga dinamis. Kelayakan operasional: anggota dapat menghitung biaya pinjaman di muka tanpa bergantung pada kondisi pasar; suku bunga 5\% memastikan akses pinjaman bagi anggota dengan kapasitas finansial terbatas. Alternatif dinamis ditolak karena bertentangan dengan prinsip kesejahteraan anggota.
 
-\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Justifikasi: (1) legitimasi keputusan, ambang dua per tiga memastikan bahwa keputusan tata kelola mencerminkan konsensus yang kuat, bukan sekadar mayoritas tipis yang dapat dimanipulasi; (2) perlindungan minoritas, dengan kuorum tinggi, minoritas signifikan (hingga 33\%) tidak dapat diabaikan begitu saja, mendorong musyawarah dan kompromi; (3) stabilitas tata kelola, keputusan yang diambil dengan konsensus kuat cenderung lebih stabil dan kurang rentan terhadap pembalikan cepat. Risiko, potensi kebuntuan (\textit{gridlock}) jika partisipasi rendah, dimitigasi melalui mekanisme \textit{abstain} yang dihitung sebagai partisipasi tanpa memihak, sehingga anggota yang tidak memiliki preferensi kuat tetap berkontribusi pada pencapaian kuorum. Tabel~\ref{tab:design-decisions} merangkum justifikasi setiap keputusan desain utama beserta alternatif yang dipertimbangkan dan alasan penolakannya.
+\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Kepatuhan: Pasal 24(2) UU 25/1992 mengamanatkan keputusan berdasarkan suara terbanyak; Lakomi menetapkan ambang dua per tiga sebagai interpretasi dukungan mayoritas yang memastikan legitimasi setara semangat musyawarah koperasi. Keamanan: kuorum tinggi melindungi dari serangan \textit{governance takeover} di mana penyerang mendaftarkan anggota palsu untuk meloloskan proposal berbahaya — dibutuhkan 67\% dari total anggota, bukan sekadar 50\%+1. Kelayakan operasional: perlindungan minoritas — anggota minoritas hingga 33\% tidak dapat diabaikan begitu saja, mendorong musyawarah dan kompromi; mekanisme \textit{abstain} dihitung sebagai partisipasi tanpa memihak, membantu pencapaian kuorum. Risiko kebuntuan dimitigasi melalui penghitungan suara \textit{abstain} sebagai kontribusi kuorum.
+
+\textbf{Keputusan 6: Agunan 25\% vs Overcollateralization.} Agunan ditetapkan 25\% dari pokok pinjaman dibandingkan model \textit{overcollateralization} 150\% pada protokol DeFi. Kepatuhan: Permenkop 8/2023 Pasal 43--45 mengatur BMPP dan prinsip kehati-hatian; agunan 25\% memberikan perlindungan terhadap gagal bayar tanpa membebani anggota secara berlebihan, sesuai prinsip kesejahteraan anggota. Keamanan: agunan dalam token LAK dikunci secara on-chain melalui LOCKER\_ROLE, tidak dapat dilepaskan sepihak oleh peminjam; \textit{markDefaulted()} dan \texttt{claimCollateral()} memungkinkan pemulihan kerugian secara terprogram. Kelayakan operasional: agunan rendah (25\%) memungkinkan akses pinjaman bagi anggota bermodal kecil yang tidak mampu memenuhi \textit{overcollateralization} 150\%; dikombinasikan dengan LTV bertingkat (30\%/50\%/70\%), sistem memberikan insentif bagi anggota untuk meningkatkan kontribusi simpanan tanpa menghalangi akses pinjaman dasar.
 
 \begin{table}[H]
 \centering
@@ -423,6 +425,13 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 
 \subsection{Skenario 1: Pendaftaran Anggota dan Simpanan}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/swimlane-daftar.png}
+\caption{Diagram Alir Skenario 1: Pendaftaran Anggota dan Simpanan}
+\label{fig:swimlane-1}
+\end{figure}
+
 \begin{enumerate}
 	\item Calon anggota membuka aplikasi dan menghubungkan \textit{wallet} MetaMask ke jaringan DChain.
 	\item Calon anggota mengisi formulir pendaftaran dan melakukan pembayaran simpanan pokok (100 IDRX) melalui \textit{smart contract} LakomiVault.
@@ -433,6 +442,13 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 
 \subsection{Skenario 2: Tata Kelola dan Pemungutan Suara}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/swimlane-tatakelola.png}
+\caption{Diagram Alir Skenario 2: Tata Kelola dan Pemungutan Suara}
+\label{fig:swimlane-2}
+\end{figure}
+
 \begin{enumerate}
 	\item Anggota terdaftar membuat proposal melalui LakomiGovern dengan menentukan tipe (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM).
 	\item Proposal memasuki masa pemungutan suara 7 hari. Setiap anggota memberikan satu suara (For, Against, atau Abstain).
@@ -442,6 +458,13 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 \end{enumerate}
 
 \subsection{Skenario 3: Pengajuan dan Pelunasan Pinjaman}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/swimlane-pinjaman.png}
+\caption{Diagram Alir Skenario 3: Pengajuan dan Pelunasan Pinjaman}
+\label{fig:swimlane-3}
+\end{figure}
 
 \begin{enumerate}
 	\item Anggota mengajukan pinjaman melalui \texttt{requestLoan()} dengan menentukan jumlah dan durasi.
@@ -454,6 +477,13 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 
 \subsection{Skenario 4: Pencabutan Keanggotaan dan Audit Pengawas}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/swimlane-cabut.png}
+\caption{Diagram Alir Skenario 4: Pencabutan Keanggotaan dan Audit Pengawas}
+\label{fig:swimlane-4}
+\end{figure}
+
 \begin{enumerate}
 	\item Anggota mengajukan pengunduran diri melalui \texttt{resignMembership()}. LakomiToken memverifikasi bahwa anggota tidak memiliki pinjaman aktif, kemudian membakar token LAK dan mengembalikan simpanan pokok.
 	\item Untuk pencabutan paksa, anggota menginisiasi proposal MEMBERSHIP melalui LakomiGovern dengan target anggota yang akan dicabut keanggotaannya.
@@ -464,6 +494,13 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 \end{enumerate}
 
 \subsection{Skenario 5: Distribusi SHU dan Klaim Anggota}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/swimlane-shu.png}
+\caption{Diagram Alir Skenario 5: Distribusi SHU dan Klaim Anggota}
+\label{fig:swimlane-5}
+\end{figure}
 
 \begin{enumerate}
 	\item GOVERN\_ROLE memanggil \texttt{distributeSHU()} pada LakomiVault setelah periode akuntansi (setiap 365 hari atau setelah RAT tahunan).
@@ -537,6 +574,141 @@ Pengujian mencakup tujuh area fungsional utama yang dipetakan ke ketentuan UU 25
 	
 	\item \textbf{Pinjaman (Pasal 41(2)(a), 44, Permenkop 8/2023 Pasal 43--45)} ,  Skenario pengujian meliputi: pengajuan pinjaman dengan perhitungan \textit{loan-to-value} berbasis \textit{tier} kontribusi (30\%, 50\%, 70\%); verifikasi kecukupan agunan 25\% dalam token LAK; penguncian agunan saat pencairan; \textit{auto-approval} untuk pinjaman di bawah 200 IDRX; persetujuan manual oleh APPROVER\_ROLE untuk pinjaman besar; pelunasan penuh dengan pembukaan agunan; dan verifikasi bahwa bunga dialirkan ke LakomiVault sebagai \texttt{accumulatedRevenue}.
 \end{enumerate}
+
+Sebagai ilustrasi, Penggalan Kode~\ref{lst:test-register} dan~\ref{lst:test-vote} menyajikan implementasi skrip pengujian untuk dua area fungsional utama. Seluruh skrip pengujian tersedia pada repositori GitHub penelitian.
+
+\begin{lstlisting}[language={}, caption={Skrip Pengujian: Pendaftaran Anggota (Pasal 5(1) UU 25/1992)}, label={lst:test-register}, basicstyle=\ttfamily\scriptsize, breaklines=true]
+describe("Pasal 5(1): Open & Voluntary Membership", function () {
+  it("should allow self-registration", async function () {
+    await token.connect(alice).registerMember();
+    expect(await token.isRegisteredMember(alice.address)).to.be.true;
+    expect(await token.memberCount()).to.equal(1);
+  });
+
+  it("should mint 100 LAK tokens on registration", async function () {
+    await token.connect(alice).registerMember();
+    expect(await token.balanceOf(alice.address)).to.equal(LAK(100));
+  });
+
+  it("should not allow duplicate registration", async function () {
+    await token.connect(alice).registerMember();
+    await expect(
+      token.connect(alice).registerMember()
+    ).to.be.revertedWith("Already registered");
+  });
+});
+\end{lstlisting}
+
+\begin{lstlisting}[language={}, caption={Skrip Pengujian: Satu Anggota Satu Suara (Pasal 24(3) UU 25/1992)}, label={lst:test-vote}, basicstyle=\ttfamily\scriptsize, breaklines=true]
+describe("Pasal 24(3): One Member One Vote", function () {
+  it("each member has 1 voting power", async function () {
+    expect(await token.getVotingPower(alice.address)).to.equal(1);
+    expect(await token.getVotingPower(bob.address)).to.equal(1);
+    expect(await token.getVotingPower(dave.address)).to.equal(0);
+  });
+
+  it("non-members cannot vote", async function () {
+    await expect(
+      govern.connect(dave).castVote(0, 1)
+    ).to.be.reverted;
+  });
+});
+\end{lstlisting}
+
+\begin{lstlisting}[language={}, caption={Skrip Pengujian: Simpanan (Pasal 41(2) UU 25/1992)}, label={lst:test-simpanan}, basicstyle=\ttfamily\scriptsize, breaklines=true]
+describe("Pasal 41: Simpanan (Deposits)", function () {
+  it("should pay Simpanan Pokok (one-time join fee)", async function () {
+    await usdc.connect(alice).approve(await vault.getAddress(), USDC(100));
+    await vault.paySimpananPokok(alice.address);
+    expect(await vault.simpananPokok(alice.address)).to.equal(USDC(100));
+    expect(await vault.hasPaidSimpananPokok(alice.address)).to.be.true;
+  });
+
+  it("should not pay Simpanan Pokok twice", async function () {
+    await usdc.connect(alice).approve(await vault.getAddress(), USDC(200));
+    await vault.paySimpananPokok(alice.address);
+    await expect(vault.paySimpananPokok(alice.address)).to.be.reverted;
+  });
+
+  it("should pay Simpanan Wajib (periodic mandatory)", async function () {
+    await usdc.connect(alice).approve(await vault.getAddress(), USDC(200));
+    await vault.paySimpananPokok(alice.address);
+    await usdc.connect(alice).approve(await vault.getAddress(), USDC(10));
+    await vault.connect(alice).paySimpananWajib();
+    expect(await vault.simpananWajibTotal(alice.address)).to.equal(USDC(10));
+  });
+});
+\end{lstlisting}
+
+\begin{lstlisting}[language={}, caption={Skrip Pengujian: Pengawas (Pasal 38 UU 25/1992)}, label={lst:test-pengawas}, basicstyle=\ttfamily\scriptsize, breaklines=true]
+describe("Pasal 38: Pengawas (Supervisor)", function () {
+  it("pengawas can veto a proposal", async function () {
+    await token.connect(alice).registerMember();
+    await token.connect(bob).registerMember();
+    await govern.connect(alice).createProposal(
+      "Test proposal", 0, await vault.getAddress(), 0, "0x"
+    );
+    await govern.vetoProposal(0);
+    const state = await govern.state(0);
+    expect(state).to.equal(8);
+  });
+
+  it("non-pengawas cannot veto", async function () {
+    await token.connect(alice).registerMember();
+    await govern.connect(alice).createProposal(
+      "Test", 0, await vault.getAddress(), 0, "0x"
+    );
+    await expect(govern.connect(alice).vetoProposal(0)).to.be.reverted;
+  });
+});
+\end{lstlisting}
+
+\begin{lstlisting}[language={}, caption={Skrip Pengujian: Distribusi SHU (Pasal 45(1--2) UU 25/1992)}, label={lst:test-shu}, basicstyle=\ttfamily\scriptsize, breaklines=true]
+describe("Pasal 45: SHU Distribution", function () {
+  it("should distribute SHU by shares", async function () {
+    await usdc.connect(alice).approve(await vault.getAddress(), USDC(1000));
+    await vault.connect(alice).receiveRevenue(USDC(1000));
+    await vault.distributeSHU();
+    expect(await vault.shuDistributionCount()).to.equal(1);
+    const dist = await vault.shuDistributions(0);
+    expect(dist.totalAmount).to.be.gt(0);
+  });
+
+  it("should not claim SHU twice", async function () {
+    await usdc.connect(alice).approve(await vault.getAddress(), USDC(1000));
+    await vault.connect(alice).receiveRevenue(USDC(1000));
+    await vault.distributeSHU();
+    await vault.connect(alice).claimSHU(0);
+    await expect(vault.connect(alice).claimSHU(0)).to.be.reverted;
+  });
+});
+\end{lstlisting}
+
+\begin{lstlisting}[language={}, caption={Skrip Pengujian: Pinjaman (Pasal 44 UU 25/1992 dan Permenkop 8/2023)}, label={lst:test-loan}, basicstyle=\ttfamily\scriptsize, breaklines=true]
+describe("LakomiLoans: Basic Flow", function () {
+  it("should request and auto-approve small loan", async function () {
+    await usdc.connect(alice).approve(await loans.getAddress(), USDC(1000));
+    await loans.connect(alice).requestLoan(
+      USDC(100), 30n * 24n * 3600n, "Emergency"
+    );
+    const loan = await loans.getLoan(0);
+    expect(loan.status).to.equal(1);
+  });
+
+  it("should repay loan and unlock collateral", async function () {
+    await usdc.connect(alice).approve(await loans.getAddress(), USDC(1000));
+    await loans.connect(alice).requestLoan(
+      USDC(100), 30n * 24n * 3600n, "Emergency"
+    );
+    await loans.disburse(0);
+    const loan = await loans.getLoan(0);
+    const totalOwed = loan.principal + loan.interest;
+    await usdc.connect(alice).approve(await loans.getAddress(), totalOwed);
+    await loans.connect(alice).repayInFull(0);
+    expect((await loans.getLoan(0)).status).to.equal(3);
+  });
+});
+\end{lstlisting}
 
 Seluruh hasil pengujian fungsional disajikan dan dibahas secara rinci pada Bab~\ref{ch4}.
 

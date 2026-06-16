@@ -2,9 +2,9 @@
 
 \section{Daftar Smart Contract Lakomi}
 
-Keempat \textit{smart contract} Lakomi diimplementasikan menggunakan Solidity 0.8.20 dan di-deploy pada jaringan DChain (Chain ID 17845). Kode sumber lengkap tersedia pada repositori GitHub \url{https://github.com/iZcy/Lakomi}. Tabel \ref{tab:contract-list} merangkum informasi setiap kontrak.
+Keempat \textit{smart contract} Lakomi diimplementasikan menggunakan Solidity 0.8.20 dan diterapkan pada jaringan DChain (Chain ID 17845). Kode sumber lengkap tersedia pada repositori GitHub \url{https://github.com/iZcy/Lakomi}. Tabel \ref{tab:contract-list} merangkum informasi setiap kontrak.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Daftar \textit{Smart Contract} Lakomi}
 \label{tab:contract-list}
@@ -145,7 +145,7 @@ struct BorrowerInfo {
 
 Gambar \ref{fig:transaction-flow} mengilustrasikan alur transaksi lengkap dalam sistem Lakomi, dari pendaftaran anggota hingga distribusi SHU.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     node distance=1.0cm,
@@ -178,7 +178,7 @@ Siklus dimulai dengan pendaftaran anggota (langkah 1) yang mensyaratkan pembayar
 
 Tabel \ref{tab:role-matrix} menyajikan matriks akses berbasis peran (\textit{role-based access matrix}) yang menunjukkan fungsi-fungsi mana yang dapat diakses oleh setiap peran. Simbol $\checkmark$ menunjukkan akses diizinkan, $\times$ menunjukkan akses ditolak.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Matriks Akses Berbasis Peran pada Sistem Lakomi}
 \label{tab:role-matrix}
@@ -224,43 +224,43 @@ Matriks akses ini menunjukkan bahwa tidak ada satu peran pun yang memiliki akses
 
 Tabel~\ref{tab:test-scenarios} merangkum 26 skenario pengujian fungsional yang digunakan untuk memverifikasi kepatuhan sistem terhadap UU 25/1992. Setiap skenario mewakili satu ketentuan pasal dan diverifikasi melalui pengujian unit berbasis Hardhat.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Daftar Skenario Pengujian Fungsional UU 25/1992}
 \label{tab:test-scenarios}
-\footnotesize
-\begin{tabular}{p{0.05\textwidth}p{0.12\textwidth}p{0.35\textwidth}p{0.18\textwidth}p{0.20\textwidth}}
+\scriptsize
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.04\textwidth}p{0.12\textwidth}p{0.33\textwidth}p{0.16\textwidth}p{0.25\textwidth}}
 \toprule
 \textbf{No} & \textbf{Pasal} & \textbf{Skenario} & \textbf{Kontrak} & \textbf{Fungsi} \\
 \midrule
 1 & 5(1) & Pendaftaran anggota mandiri dengan pembayaran simpanan pokok & Token+Vault & \texttt{registerMember()} \\
 2 & 5(1) & Penolakan pendaftaran ganda & Token & \texttt{registerMember()} \\
-3 & 5(2) & Verifikasi satu suara per anggota (dua anggota beda token) & Token & \texttt{getVotingPower()} \\
+3 & 24(3) & Verifikasi satu suara per anggota (dua anggota beda token) & Token & \texttt{getVotingPower()} \\
 4 & 17--18 & Pencetakan 100 LAK pada pendaftaran & Token & \texttt{registerMember()} \\
-5 & 18(2) & Penolakan transfer token antar akun & Token & \texttt{transfer()} \\
+5 & 19(3) & Penolakan transfer token antar akun & Token & \texttt{transfer()} \\
 6 & 19--21 & Pengunduran diri sukarela tanpa pinjaman aktif & Token & \texttt{resignMembership()} \\
-7 & 22(1) & Penolakan voting oleh non-anggota & Govern & \texttt{castVote()} \\
-8 & 22(2) & Pembayaran simpanan pokok satu kali & Vault & \texttt{paySimpananPokok()} \\
-9 & 22(2) & Penolakan pembayaran simpanan pokok ganda & Vault & \texttt{paySimpananPokok()} \\
-10 & 23 & Verifikasi kuorum, proposal lolos dengan 3 dari 3 suara & Govern & \texttt{castVote()} \\
-11 & 23 & Proposal gagal karena di bawah kuorum & Govern & \texttt{castVote()} \\
+7 & 24(3) & Penolakan voting oleh non-anggota & Govern & \texttt{castVote()} \\
+8 & 41(2)(a) & Pembayaran simpanan pokok satu kali & Vault & \texttt{paySimpananPokok()} \\
+9 & 41(2)(a) & Penolakan pembayaran simpanan pokok ganda & Vault & \texttt{paySimpananPokok()} \\
+10 & 24(2) & Verifikasi kuorum, proposal lolos dengan 3 dari 3 suara & Govern & \texttt{castVote()} \\
+11 & 24(2) & Proposal gagal karena di bawah kuorum & Govern & \texttt{castVote()} \\
 12 & 26--27 & Penjadwalan RAT tahunan & Govern & \texttt{scheduleAnnualRAT()} \\
 13 & 26--27 & Pencegahan RAT ganda dalam satu periode & Govern & \texttt{scheduleAnnualRAT()} \\
 14 & 29--30 & Pemilihan pengurus, kandidat dengan suara terbanyak menang & Govern & \texttt{beginElection()} \\
-15 & 31 & Pencabutan keanggotaan melalui proposal tata kelola & Token+Govern & \texttt{revokeMembership()} \\
+15 & 19(2), 30(2)(b) & Pencabutan keanggotaan melalui proposal tata kelola & Token+Govern & \texttt{revokeMembership()} \\
 16 & 38 & Veto proposal oleh pengawas & Govern & \texttt{vetoProposal()} \\
 17 & 38 & Penolakan veto oleh non-pengawas & Govern & \texttt{vetoProposal()} \\
 18 & 39(2) & Akses laporan keuangan oleh pengawas & Vault & \texttt{getPengawasAuditReport()} \\
-19 & 41(1--3) & Pembayaran simpanan wajib periodik & Vault & \texttt{paySimpananWajib()} \\
-20 & 41(1--3) & Penyetoran simpanan sukarela & Vault & \texttt{deposit()} \\
-21 & 43 & Akumulasi dana cadangan dari pendapatan & Vault & \texttt{distributeSHU()} \\
+19 & 41(2)(b) & Pembayaran simpanan wajib periodik & Vault & \texttt{paySimpananWajib()} \\
+20 & Permenkop 8/2023 & Penyetoran simpanan sukarela & Vault & \texttt{deposit()} \\
+21 & 41(2)(c), 45(2-3) & Akumulasi dana cadangan dari pendapatan & Vault & \texttt{distributeSHU()} \\
 22 & 45(1--2) & Distribusi SHU ke enam kategori & Vault & \texttt{distributeSHU()} \\
 23 & 45(1--2) & Klaim SHU oleh anggota & Vault & \texttt{claimSHU()} \\
 24 & 45(1--2) & Pencegahan klaim SHU ganda & Vault & \texttt{claimSHU()} \\
-25 & 18 & Pengajuan pinjaman dengan LTV berbasis kontribusi & Loans & \texttt{requestLoan()} \\
-26 & 18 & Pelunasan pinjaman dan pelepasan agunan & Loans & \texttt{repayInFull()} \\
+25 & 41(2)(a), 44 & Pengajuan pinjaman dengan LTV berbasis kontribusi & Loans & \texttt{requestLoan()} \\
+26 & 41(2)(a), 44 & Pelunasan pinjaman dan pelepasan agunan & Loans & \texttt{repayInFull()} \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Seluruh 26 skenario menunjukkan status Lulus (100\%), mengonfirmasi bahwa sistem Lakomi berhasil mengimplementasikan dan memverifikasi setiap ketentuan UU 25/1992 yang ditargetkan. Pengujian dilakukan menggunakan Hardhat pada lingkungan DChain dengan 5 akun pengujian yang merepresentasikan peran-peran berbeda dalam sistem: \texttt{deployer} (admin), \texttt{alice}, \texttt{bob}, \texttt{charlie}, dan \texttt{dave} (anggota).
@@ -305,7 +305,7 @@ Bagian ini mendokumentasikan langkah-langkah teknis untuk melakukan \textit{depl
 
 Berdasarkan pengujian pada lingkungan DChain, estimasi gas untuk \textit{deployment} kelima kontrak adalah sebagai berikut:
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Estimasi Gas Deployment per Kontrak}
 \label{tab:deploy-gas}
@@ -331,7 +331,7 @@ Total gas \textit{deployment} sekitar 12,2 juta unit gas, pada jaringan konsorsi
 
 Tabel~\ref{tab:system-params} merangkum seluruh parameter yang dapat dikonfigurasi dalam sistem Lakomi beserta nilai \textit{default} dan otoritas yang berwenang mengubahnya. Parameter yang dikelola melalui tata kelola (\texttt{Govern}) memerlukan proposal, pemungutan suara, dan persetujuan kuorum sebelum perubahan diterapkan.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Spesifikasi Parameter Sistem Lakomi}
 \label{tab:system-params}
@@ -368,7 +368,7 @@ Seluruh parameter keuangan (simpanan, suku bunga, agunan, LTV, SHU) dikelola mel
 
 Gambar~\ref{fig:clean-architecture} mengilustrasikan arsitektur sistem Lakomi menggunakan diagram \textit{Clean Architecture} yang menunjukkan aliran dependensi antara lapisan sistem. Diagram ini melengkapi Gambar~\ref{fig:arsitektur-3} pada Bab~\ref{ch3} dengan penekanan pada arah ketergantungan antar komponen.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     layer/.style={rectangle, draw, rounded corners=3pt, minimum width=8cm, minimum height=0.5cm, font=\footnotesize, align=center},

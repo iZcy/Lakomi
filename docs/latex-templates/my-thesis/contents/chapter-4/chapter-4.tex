@@ -11,7 +11,7 @@ Empat \textit{smart contract} Lakomi, LakomiToken, LakomiVault, LakomiGovern, da
 
 \textit{Smart contract} Lakomi telah di-\textit{deploy} secara permanen pada jaringan DChain dan tercatat secara publik pada \textit{block explorer} jaringan tersebut. Tabel~\ref{tab:deployment} menyajikan detail informasi \textit{deployment} yang dapat diverifikasi secara independen.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Alamat \textit{Deployment Smart Contract} pada DChain Mainnet}
 \label{tab:deployment}
@@ -41,7 +41,7 @@ Pengembangan dan pengujian awal dilakukan pada lingkungan lokal menggunakan Anvi
 
 Setiap kontrak diinisialisasi dengan parameter yang mencerminkan ketentuan UU 25/1992 dan kebijakan operasional koperasi. Tabel~\ref{tab:init-params} merangkum parameter inisialisasi utama.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Parameter Inisialisasi Smart Contract}
 \label{tab:init-params}
@@ -281,14 +281,14 @@ function claimSHU(uint256 distributionId) external nonReentrant {
 
 Halaman \textit{Dashboard} (Gambar~\ref{fig:dashboard} dan \ref{fig:dashboard2}) menampilkan status keanggotaan pengguna secara \textit{real-time}: status terdaftar (\texttt{isRegisteredMember}), saldo token LAK, dan ringkasan tiga jenis simpanan (pokok, wajib, sukarela). Anggota dapat melakukan pembayaran simpanan pokok (100 IDRX, satu kali), simpanan wajib (10 IDRX per 30 hari), dan simpanan sukarela melalui formulir yang terhubung langsung ke LakomiVault. Halaman ini juga menampilkan \textit{tier} kontribusi anggota (Basic/Silver/Gold) berdasarkan akumulasi simpanan, yang memengaruhi kapasitas pinjaman namun tidak memengaruhi hak suara.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/dashboard.png}
 \caption{Halaman Dashboard Anggota 1}
 \label{fig:dashboard}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/dashboard2.png}
 \caption{Halaman Dashboard Anggota 2}
@@ -299,21 +299,21 @@ Halaman \textit{Dashboard} (Gambar~\ref{fig:dashboard} dan \ref{fig:dashboard2})
 
 Portal Tata Kelola menyediakan antarmuka lengkap untuk partisipasi demokratis anggota. Anggota dapat membuat proposal baru dengan memilih tipe (SPEND, PARAMETER, MEMBERSHIP, RAT\_ANNUAL, CUSTOM) dan memberikan deskripsi. Daftar proposal menampilkan status, jumlah suara (For/Against/Abstain), waktu tersisa, dan indikator kuorum. Setiap anggota memberikan tepat satu suara melalui tombol \texttt{castVote()}. Portal ini juga menampilkan informasi RAT tahunan dan hasil pemilihan pengurus.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/governance.png}
 \caption{Portal Tata Kelola 1}
 \label{fig:governance}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/governance2.png}
 \caption{Portal Tata Kelola 2}
 \label{fig:governance2}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/governance3.png}
 \caption{Portal Tata Kelola 3}
@@ -324,7 +324,7 @@ Portal Tata Kelola menyediakan antarmuka lengkap untuk partisipasi demokratis an
 
 Portal Pinjaman memungkinkan anggota mengajukan pinjaman mikro dengan menentukan jumlah (dalam IDRX) dan durasi (dalam hari). Sistem secara otomatis menghitung \textit{loan-to-value} maksimum berdasarkan \textit{tier} kontribusi (30\%/50\%/70\%) dan menampilkan estimasi bunga menggunakan formula bunga sederhana. Pinjaman di bawah 200 IDRX disetujui otomatis; pinjaman lebih besar memerlukan persetujuan APPROVER\_ROLE. Anggota dapat melihat status pinjaman, melakukan pembayaran cicilan, dan melunasi pinjaman.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/loans.png}
 \caption{Portal Pinjaman}
@@ -335,14 +335,14 @@ Portal Pinjaman memungkinkan anggota mengajukan pinjaman mikro dengan menentukan
 
 Halaman Kepatuhan Regulasi menyajikan seluruh 26 ketentuan UU 25/1992 yang telah diimplementasikan dalam sistem. Setiap ketentuan ditampilkan sebagai kartu (\textit{card}) yang berisi: nomor dan teks pasal, fungsi \textit{smart contract} yang mengimplementasikannya, parameter kunci, dan status verifikasi. Ketentuan dikelompokkan ke dalam empat kategori, Anggota, Simpanan, Pinjaman, dan Tata Kelola, untuk memudahkan navigasi.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/compliance.png}
 \caption{Halaman Kepatuhan Regulasi 1}
 \label{fig:compliance}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/compliance2.png}
 \caption{Halaman Kepatuhan Regulasi 2}
@@ -353,7 +353,7 @@ Halaman Kepatuhan Regulasi menyajikan seluruh 26 ketentuan UU 25/1992 yang telah
 
 Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingkungan DChain. Seluruh 26 ketentuan UU 25/1992 yang telah dipetakan ke dalam fungsi \textit{smart contract} diuji melalui skenario pengujian yang mencakup \textit{happy path} (jalur normal), \textit{error path} (jalur kesalahan), dan verifikasi kontrol akses. Tabel~\ref{tab:compliance-results} menyajikan hasil pengujian secara lengkap.
 
-\begin{table}[!htbp]
+\begin{table}[H]
 \centering
 \caption{Hasil Pengujian Kepatuhan terhadap 26 Ketentuan UU 25/1992}
 \label{tab:compliance-results}
@@ -392,11 +392,9 @@ Pengujian fungsional dilakukan menggunakan \textit{framework} Hardhat pada lingk
 \end{tabular}
 \end{table}
 
-Seluruh 26 skenario pengujian menunjukkan hasil $\checkmark$\ (\textit{Pass}), yang mengonfirmasi bahwa \textit{smart contract} Lakomi berfungsi sesuai spesifikasi dan memenuhi ketentuan UU 25/1992. Pengujian mencakup verifikasi fungsionalitas inti (No.~1, 3--8, 10--11, 13--15, 20--22, 24--26), verifikasi penanganan kesalahan (No.~2, 9, 12, 18), dan verifikasi mekanisme kontrol akses berbasis peran (No.~16--17, 19). Tidak ditemukan kegagalan (\textit{failure}) pada seluruh skenario yang diuji.
+Seluruh 26 skenario pengujian menunjukkan hasil $\checkmark$\ (\textit{Pass}), yang mengonfirmasi bahwa \textit{smart contract} Lakomi berfungsi sesuai spesifikasi dan memenuhi ketentuan UU 25/1992. Pengujian mencakup verifikasi fungsionalitas inti (No.~1, 3--8, 10--11, 13--15, 20--22, 24--26), verifikasi penanganan kesalahan (No.~2, 9, 12, 18), dan verifikasi mekanisme kontrol akses berbasis peran (No.~16--17, 19). Tidak ditemukan kegagalan (\textit{failure}) pada seluruh skenario yang diuji. Pengelompokan hasil pengujian berdasarkan kategori ketentuan UU 25/1992 disajikan pada Tabel~\ref{tab:category-summary} untuk memberikan gambaran agregat distribusi keberhasilan per domain fungsional.
 
-Pengelompokan hasil pengujian berdasarkan kategori ketentuan UU 25/1992 disajikan pada Tabel~\ref{tab:category-summary}.
-
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Ringkasan Hasil Pengujian per Kategori Ketentuan UU 25/1992}
 \label{tab:category-summary}
@@ -418,7 +416,7 @@ SHU \& Pinjaman & 2 (45, Permenkop 8/2023 Ps 43--45) & 4 & 4/4 $\checkmark$ \\
 
 Analisis gas dilakukan dengan mengukur konsumsi komputasi setiap operasi koperasi secara langsung pada DChain \textit{mainnet} (Chain ID 17845) menggunakan \textit{gas reporter} Hardhat. Harga gas DChain adalah 0,000000002 DKT/gas (2 nano-DKT), sehingga seluruh operasi memiliki biaya yang sangat rendah. Tabel~\ref{tab:gas-costs} menyajikan hasil pengukuran untuk seluruh operasi utama koperasi.
 
-\begin{table}[!htbp]
+\begin{table}[H]
 \centering
 \caption{Konsumsi Gas per Operasi Koperasi pada DChain Mainnet}
 \label{tab:gas-costs}
@@ -449,12 +447,12 @@ Dibandingkan dengan estimasi EVM teoretis, hasil pengukuran pada DChain menunjuk
 
 Secara keseluruhan, biaya operasional sistem Lakomi pada DChain sangat rendah, seluruh operasi bulanan untuk koperasi dengan 100 anggota diperkirakan di bawah 0,01 DKT, menjadikannya layak secara ekonomi untuk operasional koperasi sehari-hari. Tabel~\ref{tab:cost-comparison} membandingkan estimasi biaya operasional Lakomi dengan biaya administrasi koperasi konvensional.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Perbandingan Biaya Operasional: Lakomi vs Koperasi Konvensional}
 \label{tab:cost-comparison}
 \small
-\begin{tabular}{p{0.22\textwidth}p{0.22\textwidth}p{0.22\textwidth}p{0.24\textwidth}}
+\resizebox{\textwidth}{!}{\begin{tabular}{p{0.22\textwidth}p{0.22\textwidth}p{0.22\textwidth}p{0.24\textwidth}}
 \toprule
 \textbf{Item} & \textbf{Koperasi Konvensional} & \textbf{Lakomi (DChain)} & \textbf{Penghematan} \\
 \midrule
@@ -468,7 +466,7 @@ Pemungutan suara & Fisik/paper-based & On-chain (gas $\sim$110K) & 100\% \\
 \midrule
 Biaya operasional/bulan & Rp300.000--1.000.000 & <0,01 DKT ($\sim$Rp0) & $\sim$100\% \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 Dengan harga gas DChain yang sangat rendah (2 nano-DKT), biaya transaksi on-chain praktis dapat diabaikan dibandingkan biaya administrasi manual. Penghematan terbesar berasal dari eliminasi kebutuhan staf administrasi untuk pencatatan transaksi harian dan otomatisasi perhitungan SHU yang sebelumnya memerlukan waktu berhari-hari setiap akhir tahun buku.
@@ -477,7 +475,7 @@ Dengan harga gas DChain yang sangat rendah (2 nano-DKT), biaya transaksi on-chai
 
 Untuk mengontekstualisasikan hasil implementasi Lakomi, bagian ini membandingkan sistem dengan tiga model yang relevan: koperasi konvensional, \textit{Decentralized Autonomous Organization} (DAO) berbasis \textit{token-weighted voting}, dan \textit{blockchain cooperative} yang diusulkan dalam literatur. Perbandingan dirangkum dalam Tabel~\ref{tab:comparison}.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Perbandingan Lakomi dengan Sistem Lain}
 \label{tab:comparison}

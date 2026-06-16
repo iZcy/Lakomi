@@ -27,7 +27,7 @@ Ketiga siklus DSR tidak berjalan secara linear, melainkan saling terkait secara 
 
 Perangkat lunak yang digunakan dalam pengembangan sistem terdiri dari komponen \textit{smart contract}, \textit{frontend}, dan infrastruktur pendukung, sebagaimana dirangkum dalam Tabel~\ref{tab:alat-lunak}. Pengembangan dan pengujian awal dilakukan pada lingkungan lokal menggunakan Anvil (\textit{local Ethereum node}) sebelum di-\textit{deploy} ke jaringan DChain untuk pengujian integrasi dan evaluasi akhir.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Perangkat Lunak yang Digunakan}
 \label{tab:alat-lunak}
@@ -69,32 +69,26 @@ Bahan penelitian yang digunakan meliputi:
 
 \section{Alur Penelitian}
 
-Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{fig:alur-penelitian}.
+Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{fig:alur-penelitian}. Tahapan ini disusun dalam kerangka tiga siklus DSR: Relevansi (studi literatur dan identifikasi kesenjangan), Desain (perancangan arsitektur, implementasi smart contract, dan implementasi frontend), serta Rigor (pengujian fungsional dan evaluasi kepatuhan). Setiap tahapan menghasilkan luaran yang menjadi masukan bagi tahapan berikutnya, mencerminkan sifat iteratif dari metodologi DSR. Uraian rinci setiap tahapan disajikan setelah diagram alur.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     node distance=1.8cm,
-    stage/.style={rectangle, draw, rounded corners=4pt, fill=blue!8, minimum width=2.8cm, minimum height=0.7cm, text width=2.6cm, align=center, font=\footnotesize},
-    arr/.style={->, >=stealth, thick, blue!60},
-    darr/.style={->, >=stealth, dashed, gray!60, thick},
+    stage/.style={rectangle, draw, rounded corners=4pt, fill=black!5, minimum width=2.8cm, minimum height=0.7cm, text width=2.6cm, align=center, font=\footnotesize},
+    arr/.style={->, >=stealth, thick, black!60},
+    darr/.style={->, >=stealth, dashed, black!40, thick},
 ]
-
-% Row 1: Relevance
-\node[rectangle, draw=none, font=\footnotesize\bfseries, text=red!60, anchor=east] at (-0.3,1.5) {Relevansi};
-\node[stage, fill=red!8] (s1) at (1.8,1.5) {Studi Literatur\\\& Analisis\\Regulasi};
-\node[stage, fill=red!8] (s2) at (5.2,1.5) {Identifikasi\\Kesenjangan\\Hukum-Kode};
-
-% Row 2: Design
-\node[rectangle, draw=none, font=\footnotesize\bfseries, text=green!50!black, anchor=east] at (-0.3,0) {Desain};
-\node[stage, fill=green!8] (s3) at (1.8,0) {Perancangan\\Arsitektur \&\\Pemetaan Pasal};
-\node[stage, fill=green!8] (s4) at (5.2,0) {Implementasi\\4 Smart\\Contracts};
-\node[stage, fill=green!8] (s5) at (8.6,0) {Implementasi\\Frontend\\React + wagmi};
-
-% Row 3: Rigor
-\node[rectangle, draw=none, font=\footnotesize\bfseries, text=purple!60, anchor=east] at (-0.3,-1.5) {Rigor};
-\node[stage, fill=purple!8] (s6) at (1.8,-1.5) {Pengujian\\Fungsional \&\\Gas Analysis};
-\node[stage, fill=purple!8] (s7) at (5.2,-1.5) {Evaluasi\\Kepatuhan \&\\Penulisan};
+\node[rectangle, draw=none, font=\footnotesize\bfseries, text=black!70, anchor=east] at (-0.3,1.5) {Relevansi};
+\node[stage] (s1) at (1.8,1.5) {Studi Literatur\\\& Analisis\\Regulasi};
+\node[stage] (s2) at (5.2,1.5) {Identifikasi\\Kesenjangan\\Hukum-Kode};
+\node[rectangle, draw=none, font=\footnotesize\bfseries, text=black!70, anchor=east] at (-0.3,0) {Desain};
+\node[stage] (s3) at (1.8,0) {Perancangan\\Arsitektur \&\\Pemetaan Pasal};
+\node[stage] (s4) at (5.2,0) {Implementasi\\4 Smart\\Contracts};
+\node[stage] (s5) at (8.6,0) {Implementasi\\Frontend\\React + wagmi};
+\node[rectangle, draw=none, font=\footnotesize\bfseries, text=black!70, anchor=east] at (-0.3,-1.5) {Rigor};
+\node[stage] (s6) at (1.8,-1.5) {Pengujian\\Fungsional \&\\Gas Analysis};
+\node[stage] (s7) at (5.2,-1.5) {Evaluasi\\Kepatuhan \&\\Penulisan};
 
 % Horizontal
 \draw[arr] (s1) -- (s2);
@@ -123,29 +117,29 @@ Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{
 
 Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{layer} keanggotaan, \textit{layer} kontrak, dan \textit{layer} blockchain. Diagram arsitektur sistem ditunjukkan pada Gambar~\ref{fig:arsitektur-3}.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
     box/.style={rectangle, rounded corners=3pt, draw, minimum width=2.8cm, minimum height=0.45cm, font=\footnotesize, align=center, inner sep=3pt},
     arr/.style={->, >=stealth, thick},
     darr/.style={->, >=stealth, thick, dashed, gray!50},
 ]
-\node[box, fill=purple!10, minimum width=10cm] (token)
-    at (0,2.5) {LakomiToken (LAK) ,  ERC-20 ,  \texttt{isRegisteredMember}\\[2pt]
+\node[box, fill=black!6, minimum width=10cm] (token)
+    at (0,2.5) {LakomiToken (LAK) --- ERC-20 --- \texttt{isRegisteredMember}\\[2pt]
     {\footnotesize\textit{Minter $\cdot$ Burner $\cdot$ Locker $\cdot$ Membership}}};
 \draw[arr] (-3.2,2.2) -- (-3.2,1.0);
 \draw[arr] (0,2.2)    -- (0,1.0);
 \draw[arr] (3.2,2.2)  -- (3.2,1.0);
-\node[box, fill=blue!8] (vault)  at (-3.2,0.6)  {LakomiVault\\{\footnotesize\textit{Treasurer}}};
-\node[box, fill=blue!8] (govern) at (0,0.6)     {LakomiGovern\\{\footnotesize\textit{Pengawas}}};
-\node[box, fill=blue!8] (loans)  at (3.2,0.6)   {LakomiLoans\\{\footnotesize\textit{Approver}}};
+\node[box, fill=black!4] (vault)  at (-3.2,0.6)  {LakomiVault\\{\footnotesize\textit{Treasurer}}};
+\node[box, fill=black!4] (govern) at (0,0.6)     {LakomiGovern\\{\footnotesize\textit{Pengawas}}};
+\node[box, fill=black!4] (loans)  at (3.2,0.6)   {LakomiLoans\\{\footnotesize\textit{Approver}}};
 \draw[darr] (vault.east)  -- (govern.west);
 \draw[darr] (govern.east) -- (loans.west);
 \draw[arr] (-3.2,-0.1) -- (-3.2,-0.8);
 \draw[arr] (0,-0.1)    -- (0,-0.8);
 \draw[arr] (3.2,-0.1)  -- (3.2,-0.8);
-\node[box, fill=orange!12, minimum width=10.5cm]
-    (chain) at (0,-1.1) {DChain ,  EVM-Compatible ,  Chain ID 17845};
+\node[box, fill=black!6, minimum width=10.5cm]
+    (chain) at (0,-1.1) {DChain --- EVM-Compatible --- Chain ID 17845};
 \end{tikzpicture}
 \caption{Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit{registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit{loan-to-value} berbasis kontribusi.}
 \label{fig:arsitektur-3}
@@ -161,7 +155,7 @@ Keempat \textit{smart contract} dan perannya dalam arsitektur adalah sebagai ber
 		\item LakomiGovern menangani pembuatan proposal, pemungutan suara demokratis (satu-anggota-satu-suara), pemilihan pengurus, \textit{veto} pengawas, RAT tahunan, dan pembubaran koperasi.
 		\item LakomiLoans menyediakan pinjaman mikro dengan \textit{loan-to-value} berbasis kontribusi, suku bunga tetap 5\% APY, dan jaminan 25\%.
 	\end{itemize}
-	\item \textbf{\textit{Blockchain Layer}} ,  Seluruh kontrak di-deploy pada DChain (EVM-compatible~\cite{wood2014ethereum}, Chain ID 17845), jaringan blockchain konsorsium pendidikan tinggi Indonesia.
+	\item \textbf{\textit{Blockchain Layer}} ,  Seluruh kontrak diterapkan pada DChain (EVM-compatible~\cite{wood2014ethereum}, Chain ID 17845), jaringan blockchain konsorsium pendidikan tinggi Indonesia.
 \end{enumerate}
 
 Lima peran mengatur sistem: PENGAWAS\_ROLE (pengawas dengan hak veto), APPROVER\_ROLE (persetujuan pinjaman), MEMBERSHIP\_ROLE (manajemen anggota), TREASURER\_ROLE (operasional \textit{vault}), dan GOVERN\_ROLE (distribusi SHU). Kontrak LakomiGovern memegang MEMBERSHIP\_ROLE pada token, memungkinkan pencabutan keanggotaan melalui tata kelola sesuai Pasal 31.
@@ -180,11 +174,9 @@ Sebelum membahas detail implementasi, bagian ini menyajikan justifikasi desain u
 
 \textbf{Keputusan 4: Suku Bunga Tetap vs Dinamis.} Suku bunga pinjaman ditetapkan tetap 5\% APY dibandingkan model dinamis berbasis \textit{utilization rate} seperti pada Compound dan Aave. Justifikasi: (1) kepatuhan terhadap Permenkop 8/2023 yang menetapkan batas maksimum suku bunga wajar, suku bunga tetap menjamin kepatuhan berkelanjutan tanpa memerlukan penyesuaian parameter yang sering; (2) kesederhanaan dan prediktabilitas, anggota koperasi dapat menghitung biaya pinjaman di muka tanpa bergantung pada kondisi pasar yang fluktuatif; (3) inklusivitas, suku bunga tetap rendah (5\%) memastikan akses pinjaman bagi anggota dengan kapasitas finansial terbatas, berbeda dengan DeFi di mana suku bunga dapat melonjak saat permintaan tinggi. Alternatif dinamis dipertimbangkan untuk meningkatkan efisiensi alokasi modal, tetapi ditolak karena bertentangan dengan prinsip kesejahteraan anggota yang menjadi fondasi koperasi.
 
-\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Justifikasi: (1) legitimasi keputusan, ambang dua per tiga memastikan bahwa keputusan tata kelola mencerminkan konsensus yang kuat, bukan sekadar mayoritas tipis yang dapat dimanipulasi; (2) perlindungan minoritas, dengan kuorum tinggi, minoritas signifikan (hingga 33\%) tidak dapat diabaikan begitu saja, mendorong musyawarah dan kompromi; (3) stabilitas tata kelola, keputusan yang diambil dengan konsensus kuat cenderung lebih stabil dan kurang rentan terhadap pembalikan cepat. Risiko, potensi kebuntuan (\textit{gridlock}) jika partisipasi rendah, dimitigasi melalui mekanisme \textit{abstain} yang dihitung sebagai partisipasi tanpa memihak, sehingga anggota yang tidak memiliki preferensi kuat tetap berkontribusi pada pencapaian kuorum.
+\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Justifikasi: (1) legitimasi keputusan, ambang dua per tiga memastikan bahwa keputusan tata kelola mencerminkan konsensus yang kuat, bukan sekadar mayoritas tipis yang dapat dimanipulasi; (2) perlindungan minoritas, dengan kuorum tinggi, minoritas signifikan (hingga 33\%) tidak dapat diabaikan begitu saja, mendorong musyawarah dan kompromi; (3) stabilitas tata kelola, keputusan yang diambil dengan konsensus kuat cenderung lebih stabil dan kurang rentan terhadap pembalikan cepat. Risiko, potensi kebuntuan (\textit{gridlock}) jika partisipasi rendah, dimitigasi melalui mekanisme \textit{abstain} yang dihitung sebagai partisipasi tanpa memihak, sehingga anggota yang tidak memiliki preferensi kuat tetap berkontribusi pada pencapaian kuorum. Tabel~\ref{tab:design-decisions} merangkum justifikasi setiap keputusan desain utama beserta alternatif yang dipertimbangkan dan alasan penolakannya.
 
-Tabel~\ref{tab:design-decisions} merangkum justifikasi setiap keputusan desain utama beserta alternatif yang dipertimbangkan dan alasan penolakannya.
-
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Justifikasi Keputusan Desain Arsitektural}
 \label{tab:design-decisions}
@@ -233,9 +225,9 @@ Setiap fungsi \textit{state-modifying} dilindungi oleh \texttt{onlyRole} atau \t
 
 \subsection{Fungsi Utama per Ketentuan UU 25/1992}
 
-Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan ketentuan spesifik UU 25/1992.
+Tabel~\ref{tab:fungsi-uu} merangkum fungsi utama setiap kontrak yang memetakan ketentuan spesifik UU 25/1992. Pemetaan ini mencakup 13 fungsi yang tersebar di empat kontrak, masing-masing mengimplementasikan satu atau lebih pasal dari UU 25/1992 dan peraturan turunannya. Setiap fungsi dirancang untuk memenuhi kondisi persyaratan (prasyarat), aksi (operasi yang dijalankan), kendala (batasan), dan aktor berwenang (pihak yang memiliki otorisasi) yang diturunkan langsung dari teks hukum. Tabel ini berfungsi sebagai acuan utama untuk memverifikasi bahwa setiap ketentuan UU 25/1992 memiliki representasi yang dapat dieksekusi dalam kode.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Pemetaan Fungsi Smart Contract ke Ketentuan UU 25/1992}
 \label{tab:fungsi-uu}
@@ -284,7 +276,7 @@ Setiap \textit{smart contract} mendefinisikan \textit{event} yang memfasilitasi 
 
 Setiap parameter dalam sistem ditetapkan berdasarkan pertimbangan regulasi dan praktis. Tabel~\ref{tab:parameter} merangkum justifikasi untuk setiap parameter utama.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Justifikasi Parameter Sistem}
 \label{tab:parameter}
@@ -312,38 +304,40 @@ LTV Tier 1/2/3 & 30\%/50\%/70\% & Memberikan insentif bagi anggota untuk meningk
 
 Parameter-parameter dalam Tabel~\ref{tab:parameter} membentuk kerangka operasional koperasi yang mencerminkan keseimbangan antara efisiensi, keamanan, dan kepatuhan regulasi. Kuorum 67\% dan periode voting 7 hari memastikan bahwa keputusan tata kelola memiliki legitimasi demokratis yang kuat, setiap anggota memiliki waktu yang cukup untuk meninjau proposal dan memberikan suara, sementara ambang dua per tiga mencegah keputusan diambil oleh minoritas kecil. Timelock 24 jam memberikan jendela keamanan yang memungkinkan pengawas melakukan intervensi terhadap proposal yang berpotensi merugikan, mencerminkan mekanisme \textit{checks and balances} yang diamanatkan Pasal 38. Suku bunga 5\% APY menyeimbangkan keberlanjutan operasional koperasi dengan prinsip kesejahteraan anggota, cukup rendah untuk tidak membebani peminjam, namun cukup untuk menghasilkan pendapatan yang mendanai operasional dan distribusi SHU. Agunan 25\% dipilih sebagai titik tengah antara perlindungan terhadap gagal bayar dan aksesibilitas pinjaman, terlalu tinggi akan mengecualikan anggota dengan kontribusi terbatas, terlalu rendah akan meningkatkan risiko bagi \textit{vault}. Auto-approval untuk pinjaman kecil ($\leq$ 200 IDRX) mengakui bahwa pinjaman darurat memerlukan respons cepat, sementara mekanisme LTV bertingkat (30\%/50\%/70\%) menciptakan insentif positif: anggota yang berkontribusi lebih besar melalui simpanan mendapatkan kapasitas pinjaman yang lebih besar, namun hak suara mereka tetap setara dengan anggota lainnya.
 
-LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Siklus hidup proposal diilustrasikan pada Gambar~\ref{fig:proposal-lifecycle}.
+LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap anggota terdaftar memegang tepat satu suara. Siklus hidup proposal diilustrasikan pada Gambar~\ref{fig:proposal-lifecycle}. Proposal dimulai dari status Created ketika anggota menginisiasi pengajuan, kemudian memasuki masa Active selama 7 hari di mana anggota memberikan suara. Setelah periode voting berakhir, proposal yang memenuhi kuorum 67\% dan memiliki suara For lebih banyak dari Against akan berstatus Succeeded dan masuk ke antrean eksekusi.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    state/.style={rectangle, draw, rounded corners=3pt, minimum width=2.2cm, minimum height=0.55cm, font=\footnotesize, align=center, inner sep=4pt},
-    arr/.style={->, >=stealth, thick, blue!60},
+    box/.style={rectangle, draw, rounded corners=4pt, minimum width=3.8cm, minimum height=0.8cm, font=\footnotesize, align=center, inner sep=6pt, fill=black!4},
+    endbox/.style={box, fill=black!14},
+    arr/.style={->, >=stealth, thick, black!60, shorten >=3pt, shorten <=3pt},
+    lbl/.style={font=\scriptsize, fill=white, inner sep=1pt, text=black!70},
 ]
-\node[state, fill=gray!10] (create) at (0,3) {Created\\(anggota)};
-\node[state, fill=yellow!15] (active) at (0,1.8) {Active\\(7 hari voting)};
-\node[state, fill=green!15] (succ) at (-3,0.3) {Succeeded};
-\node[state, fill=red!15] (def) at (3,0.3) {Defeated};
-\node[state, fill=orange!12] (expired) at (0,0.3) {Expired};
-\node[state, fill=purple!15] (veto) at (-3,-1.2) {Vetoed\\(pengawas)};
-\node[state, fill=blue!10] (queue) at (0,-1.2) {Queued\\(24h timelock)};
-\node[state, fill=green!25] (exec) at (0,-2.7) {Executed};
-\node[state, fill=gray!20] (cancel) at (3,-2.1) {Canceled};
+\node[box] (create) at (0,9.0) {Dibuat (oleh anggota)};
+\node[box] (voting) at (0,7.0) {Aktif: pemungutan suara\\selama 7 hari};
+\node[box] (timeout) at (5.5,7.0) {Kadaluarsa};
+\node[box] (cancel) at (-5.5,7.0) {Dibatalkan};
+\node[box] (def) at (5.5,5.0) {Ditolak\\(tidak capai kuorum)};
+\node[box] (succ) at (0,5.0) {Disetujui\\(kuorum 67\% + mayoritas)};
+\node[box] (queue) at (0,3.0) {Antre (24 jam timelock)};
+\node[box] (vetoed) at (5.5,1.0) {Veto (oleh pengawas)};
+\node[endbox] (exec) at (0,1.0) {Tereksekusi};
 
-\draw[arr] (create) -- (active) node[midway, right, font=\footnotesize] {start};
-\draw[arr] (active) -- (succ) node[midway, left, font=\footnotesize] {quorum+maj};
-\draw[arr] (active) -- (def) node[midway, right, font=\footnotesize] {no quorum};
-\draw[arr] (active) -- (expired) node[midway, right, font=\footnotesize] {timeout};
-\draw[arr] (succ) -- (queue) node[midway, left, font=\footnotesize] {queue};
-\draw[arr] (queue) -- (exec) node[midway, left, font=\footnotesize] {execute};
-\draw[arr] (queue) -- (veto) node[midway, left, font=\footnotesize] {veto};
-\draw[arr] (active) -- (cancel) node[midway, right, font=\footnotesize] {proposer};
+\draw[arr] (create) -- (voting) node[lbl, midway, right] {diajukan};
+\draw[arr] (voting.west) -- (cancel.east) node[lbl, midway, above] {dibatalkan};
+\draw[arr] (voting.east) -- (timeout.west) node[lbl, midway, above] {waktu habis};
+\draw[arr] (voting) -- (succ) node[lbl, midway, right] {lolos};
+\draw[arr] (voting.south east) -- (def.north west) node[lbl, midway, above, sloped] {tidak lolos};
+\draw[arr] (succ) -- (queue) node[lbl, midway, right] {masuk antre};
+\draw[arr] (queue) -- (exec) node[lbl, midway, right] {eksekusi};
+\draw[arr] (queue.east) -- (vetoed.west) node[lbl, midway, above] {veto};
 \end{tikzpicture}
 \caption{Siklus Hidup Proposal pada LakomiGovern}
 \label{fig:proposal-lifecycle}
 \end{figure}
 
-Proposal melalui empat tahap: (1) pembuatan oleh anggota terdaftar, (2) pemungutan suara selama 7 hari, (3) verifikasi kuorum 67\%, dan (4) eksekusi setelah \textit{timelock} 24 jam. Pemegang PENGAWAS\_ROLE dapat mem-veto proposal sebelum eksekusi.
+Proposal melalui empat tahap: (1) pembuatan oleh anggota terdaftar, (2) pemungutan suara selama 7 hari, (3) verifikasi kuorum 67\%, dan (4) eksekusi setelah \textit{timelock} 24 jam. Proposal yang tidak mencapai kuorum dinyatakan Ditolak, sementara yang melebihi batas waktu dinyatakan Kadaluarsa. Pemegang PENGAWAS\_ROLE dapat mem-veto proposal yang telah masuk antre sebelum eksekusi. Pengusul proposal juga dapat membatalkan proposalnya sendiri selama masih dalam masa Aktif.
 
 Untuk pemilihan pengurus (Pasal 29--30), setiap anggota dapat mendaftar sebagai kandidat. Anggota memberikan satu suara per pemilihan, dan kandidat dengan suara terbanyak menang. Peran diberikan secara otomatis dengan masa jabatan 365 hari.
 
@@ -484,7 +478,7 @@ Bagian ini menjelaskan alur kerja sistem untuk tiga skenario penggunaan utama.
 
 Untuk mengontekstualisasikan kontribusi arsitektur Lakomi, bagian ini membandingkan pendekatan sistem dengan tiga model sistem yang relevan: koperasi konvensional, \textit{Decentralized Autonomous Organization} (DAO) berbasis \textit{token-weighted voting}, dan \textit{blockchain cooperative} yang telah diusulkan dalam literatur. Perbandingan dirangkum dalam Tabel~\ref{tab:arsitektur-comparison}.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Perbandingan Arsitektur Lakomi dengan Sistem Lain}
 \label{tab:arsitektur-comparison}

@@ -13,6 +13,46 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
+Repeated entry---line 412 of file references.bib
+ : @article{widodo2024pengembangan
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 419 of file references.bib
+ : @article{kurniawan2026analisis
+ :                               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 429 of file references.bib
+ : @article{muslim2024implementasi
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 478 of file references.bib
+ : @article{farida2025peran
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 488 of file references.bib
+ : @article{galib2025penguatan
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 498 of file references.bib
+ : @article{maryati2024model
+ :                          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 519 of file references.bib
+ : @article{pebrianti2024peran
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 561 of file references.bib
+ : @article{indriani2025model
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 570 of file references.bib
+ : @article{zahra2021penilaian
+ :                            ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 577 of file references.bib
+ : @article{anjani2023pendampingan
+ :                                ,
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -20,42 +60,43 @@ Database file #1: references.bib
 Done.
 You've used 63 entries,
             4087 wiz_defined-function locations,
-            1116 strings with 18410 characters,
-and the built_in function-call counts, 34948 in all, are:
-= -- 2950
-> -- 780
-< -- 182
-+ -- 393
+            1125 strings with 18755 characters,
+and the built_in function-call counts, 38164 in all, are:
+= -- 3239
+> -- 839
+< -- 250
++ -- 436
 - -- 160
-* -- 1604
-:= -- 5874
+* -- 1758
+:= -- 6229
 add.period$ -- 126
 call.type$ -- 63
 change.case$ -- 67
-chr.to.int$ -- 303
+chr.to.int$ -- 480
 cite$ -- 63
-duplicate$ -- 2807
-empty$ -- 2858
+duplicate$ -- 2964
+empty$ -- 3033
 format.name$ -- 203
-if$ -- 7955
+if$ -- 8746
 int.to.chr$ -- 0
 int.to.str$ -- 63
-missing$ -- 525
+missing$ -- 534
 newline$ -- 212
 num.names$ -- 63
-pop$ -- 1176
+pop$ -- 1177
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 2768
+skip$ -- 3014
 stack$ -- 0
-substring$ -- 803
-swap$ -- 2002
-text.length$ -- 81
+substring$ -- 1219
+swap$ -- 2227
+text.length$ -- 90
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 63
 warning$ -- 0
-while$ -- 121
+while$ -- 154
 width$ -- 65
-write$ -- 610
+write$ -- 619
+(There were 10 error messages)

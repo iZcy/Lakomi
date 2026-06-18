@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {2.1.7}Protokol DeFi dan Model Pinjaman Terdesentralisasi}{15}{subsection.2.1.7}%
 \contentsline {subsection}{\numberline {2.1.8}Keterbatasan Model DAO Existing}{15}{subsection.2.1.8}%
 \contentsline {subsection}{\numberline {2.1.9}Evolusi Regulasi Perkoperasian Indonesia}{16}{subsection.2.1.9}%
-\contentsline {subsection}{\numberline {2.1.10}Tantangan Koperasi Tradisional}{18}{subsection.2.1.10}%
+\contentsline {subsection}{\numberline {2.1.10}Tantangan Koperasi Tradisional}{17}{subsection.2.1.10}%
 \contentsline {subsection}{\numberline {2.1.11}Transformasi Digital Koperasi}{18}{subsection.2.1.11}%
 \contentsline {subsection}{\numberline {2.1.12}Manajemen Keuangan dan Akuntansi Koperasi}{19}{subsection.2.1.12}%
 \contentsline {subsection}{\numberline {2.1.13}Pengawasan dan Fraud di Koperasi}{19}{subsection.2.1.13}%
@@ -49,7 +49,7 @@
 \contentsline {subsubsection}{\numberline {2.2.1.6}Ekosistem Pengembangan Smart Contract}{31}{subsubsection.2.2.1.6}%
 \contentsline {subsubsection}{\numberline {2.2.1.7}Kontrol Akses dan Keamanan Smart Contract}{32}{subsubsection.2.2.1.7}%
 \contentsline {subsubsection}{\numberline {2.2.1.8}Skalabilitas dan Solusi Layer 2}{33}{subsubsection.2.2.1.8}%
-\contentsline {subsubsection}{\numberline {2.2.1.9}Pola Upgradeability Smart Contract}{34}{subsubsection.2.2.1.9}%
+\contentsline {subsubsection}{\numberline {2.2.1.9}Pola Upgradeability Smart Contract}{33}{subsubsection.2.2.1.9}%
 \contentsline {subsubsection}{\numberline {2.2.1.10}Perbandingan Framework Pengembangan}{34}{subsubsection.2.2.1.10}%
 \contentsline {subsubsection}{\numberline {2.2.1.11}DChain: Blockchain Konsorsium Pendidikan Tinggi Indonesia}{34}{subsubsection.2.2.1.11}%
 \contentsline {subsection}{\numberline {2.2.2}Decentralized Autonomous Organization (DAO)}{35}{subsection.2.2.2}%
@@ -76,9 +76,9 @@
 \contentsline {section}{\numberline {3.4}Arsitektur Sistem}{48}{section.3.4}%
 \contentsline {section}{\numberline {3.5}Desain Smart Contract}{49}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Rasionalisasi Pemilihan Arsitektur}{49}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Struktur Data}{52}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.2}Struktur Data}{51}{subsection.3.5.2}%
 \contentsline {subsection}{\numberline {3.5.3}Kontrol Akses Berbasis Peran}{52}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Fungsi Utama per Ketentuan UU 25/1992}{53}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.4}Fungsi Utama per Ketentuan UU 25/1992}{52}{subsection.3.5.4}%
 \contentsline {subsection}{\numberline {3.5.5}Event Logging}{53}{subsection.3.5.5}%
 \contentsline {subsection}{\numberline {3.5.6}Justifikasi Parameter Sistem}{54}{subsection.3.5.6}%
 \contentsline {section}{\numberline {3.6}Perancangan Keamanan}{58}{section.3.6}%
@@ -152,4 +152,4 @@
 \contentsline {subsection}{\numberline {L.6.2}Langkah Deployment}{L-7}{subsection.Alph0.6.2}%
 \contentsline {subsection}{\numberline {L.6.3}Estimasi Biaya Deployment}{L-8}{subsection.Alph0.6.3}%
 \contentsline {section}{\numberline {L.7}Spesifikasi Parameter Sistem}{L-9}{section.Alph0.7}%
-\contentsline {section}{\numberline {L.8}Arsitektur Sistem Terintegrasi}{L-10}{section.Alph0.8}%
+\contentsline {section}{\numberline {L.8}Arsitektur Sistem Terintegrasi}{L-9}{section.Alph0.8}%

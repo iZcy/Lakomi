@@ -723,13 +723,13 @@ Seluruh hasil pengujian fungsional disajikan dan dibahas secara rinci pada Bab~\
 Analisis gas dilakukan untuk mengukur konsumsi komputasi setiap operasi koperasi pada lingkungan DChain. Pengukuran dilakukan menggunakan \textit{gas reporter} Hardhat yang mencatat konsumsi gas untuk setiap fungsi \textit{smart contract} yang dieksekusi. Operasi yang diukur meliputi:
 
 \begin{enumerate}
-	\item \textbf{Deployment kontrak}, Biaya \textit{deployment} satu kali untuk masing-masing dari empat kontrak: LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans.
-	\item \textbf{Pendaftaran anggota} (\texttt{registerMember()}), Operasi yang melibatkan \textit{minting} token dan penulisan \textit{state} keanggotaan.
-	\item \textbf{Pembayaran simpanan} (\texttt{paySimpananPokok()}), Operasi penulisan saldo simpanan dan \textit{shares}.
-	\item \textbf{Pengajuan pinjaman} (\texttt{requestLoan()}), Operasi yang melibatkan perhitungan LTV, verifikasi agunan, dan penulisan \textit{state} pinjaman.
-	\item \textbf{Pemungutan suara} (\texttt{castVote()}), Operasi pencatatan suara pada proposal.
-	\item \textbf{Distribusi SHU} (\texttt{distributeSHU()}), Operasi distribusi dana ke enam kategori dengan perhitungan \textit{basis points}.
-	\item \textbf{Pelunasan pinjaman} (\texttt{repayInFull()}), Operasi transfer dana, pembukaan agunan, dan pencatatan pendapatan bunga.
+	\item Deployment kontrak, Biaya \textit{deployment} satu kali untuk masing-masing dari empat kontrak: LakomiToken, LakomiVault, LakomiGovern, dan LakomiLoans.
+	\item Pendaftaran anggota (\texttt{registerMember()}), Operasi yang melibatkan \textit{minting} token dan penulisan \textit{state} keanggotaan.
+	\item Pembayaran simpanan (\texttt{paySimpananPokok()}), Operasi penulisan saldo simpanan dan \textit{shares}.
+	\item Pengajuan pinjaman (\texttt{requestLoan()}), Operasi yang melibatkan perhitungan LTV, verifikasi agunan, dan penulisan \textit{state} pinjaman.
+	\item Pemungutan suara (\texttt{castVote()}), Operasi pencatatan suara pada proposal.
+	\item Distribusi SHU (\texttt{distributeSHU()}), Operasi distribusi dana ke enam kategori dengan perhitungan \textit{basis points}.
+	\item Pelunasan pinjaman (\texttt{repayInFull()}), Operasi transfer dana, pembukaan agunan, dan pencatatan pendapatan bunga.
 \end{enumerate}
 
 Hasil analisis gas disajikan dan dibahas pada Bab~\ref{ch4}.
@@ -739,10 +739,10 @@ Hasil analisis gas disajikan dan dibahas pada Bab~\ref{ch4}.
 Pengujian imutabilitas dilakukan untuk memverifikasi bahwa sistem memenuhi prinsip \textit{append-only} dan \textit{non-transferable} yang merupakan fondasi kepercayaan dalam sistem berbasis blockchain. Pengujian ini mencakup:
 
 \begin{enumerate}
-	\item \textbf{Non-transferabilitas Token Keanggotaan}, Verifikasi bahwa setiap upaya untuk mentransfer token LAK antar akun akan ditolak (\textit{reverted}) karena \texttt{transfersEnabled = false}. Pengujian dilakukan dengan memanggil fungsi \texttt{transfer()} standar ERC-20 dan memverifikasi bahwa transaksi gagal.
-	\item \textbf{Imutabilitas Data Simpanan}, Verifikasi bahwa setelah pembayaran simpanan dicatat dalam \texttt{simpananPokok} dan \texttt{simpananWajib}, data tersebut tidak dapat diubah atau dihapus oleh pihak mana pun kecuali melalui fungsi yang telah ditentukan (misalnya, \texttt{refundSimpananPokok()} pada saat pengunduran diri).
-	\item \textbf{Imutabilitas Riwayat Proposal}, Verifikasi bahwa proposal yang telah dieksekusi atau diveto tetap tercatat dalam \textit{state} kontrak dan tidak dapat dimodifikasi. Setiap perubahan status proposal (dari Active ke Succeeded/Defeated/Vetoed) bersifat final dan tidak dapat dikembalikan.
-	\item \textbf{Imutabilitas Catatan Pinjaman}, Verifikasi bahwa riwayat pinjaman, termasuk pengajuan, persetujuan, pencairan, pembayaran, dan pelunasan, tercatat secara permanen dalam \texttt{Loan} struct dan tidak dapat dihapus.
+	\item Non-transferabilitas Token Keanggotaan, Verifikasi bahwa setiap upaya untuk mentransfer token LAK antar akun akan ditolak (\textit{reverted}) karena \texttt{transfersEnabled = false}. Pengujian dilakukan dengan memanggil fungsi \texttt{transfer()} standar ERC-20 dan memverifikasi bahwa transaksi gagal.
+	\item Imutabilitas Data Simpanan, Verifikasi bahwa setelah pembayaran simpanan dicatat dalam \texttt{simpananPokok} dan \texttt{simpananWajib}, data tersebut tidak dapat diubah atau dihapus oleh pihak mana pun kecuali melalui fungsi yang telah ditentukan (misalnya, \texttt{refundSimpananPokok()} pada saat pengunduran diri).
+	\item Imutabilitas Riwayat Proposal, Verifikasi bahwa proposal yang telah dieksekusi atau diveto tetap tercatat dalam \textit{state} kontrak dan tidak dapat dimodifikasi. Setiap perubahan status proposal (dari Active ke Succeeded/Defeated/Vetoed) bersifat final dan tidak dapat dikembalikan.
+	\item Imutabilitas Catatan Pinjaman, Verifikasi bahwa riwayat pinjaman, termasuk pengajuan, persetujuan, pencairan, pembayaran, dan pelunasan, tercatat secara permanen dalam \texttt{Loan} struct dan tidak dapat dihapus.
 \end{enumerate}
 
 Seluruh hasil pengujian fungsional, analisis gas, dan pengujian imutabilitas disajikan secara rinci pada Bab~\ref{ch4}.

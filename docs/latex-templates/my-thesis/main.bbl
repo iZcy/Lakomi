@@ -67,6 +67,10 @@ S.~Nakamoto, ``Bitcoin: A peer-to-peer electronic cash system,''
 V.~Buterin, ``Ethereum: A next-generation smart contract and decentralized
   application platform,'' \url{https://ethereum.org/en/whitepaper/}, 2014.
 
+\bibitem{wood2014ethereum}
+G.~Wood, ``Ethereum: A secure decentralised generalised transaction ledger,''
+  \emph{Ethereum project yellow paper}, vol. 151, pp. 1--32, 2014.
+
 \bibitem{sun2022multiparty}
 X.~Sun, X.~Chen, C.~Stasinakis \emph{et~al.}, ``Multiparty democracy in
   decentralized autonomous organization (dao): Evidence from makerdao,''
@@ -88,42 +92,18 @@ D.~Arisudhana, S.~Priyanto, T.~Hiram, and I.~Lestari, ``Pelatihan akuntansi
   pengurus koperasi simpan pinjam,'' \emph{Jurnal Padamu Negeri}, vol.~2,
   no.~4, 2025.
 
-\bibitem{wood2014ethereum}
-G.~Wood, ``Ethereum: A secure decentralised generalised transaction ledger,''
-  \emph{Ethereum project yellow paper}, vol. 151, pp. 1--32, 2014.
-
 \bibitem{hevner2004design}
 A.~R. Hevner, S.~T. March, J.~Park, and S.~Ram, ``Design science in information
   systems research,'' \emph{MIS quarterly}, vol.~28, no.~1, pp. 75--105, 2004.
 
-\bibitem{zheng2018blockchain}
-Z.~Zheng, S.~Xie, H.~Dai, X.~Chen, and H.~Wang, ``An overview of blockchain
-  technology: Architecture, consensus, and future trends,'' \emph{2018 IEEE
-  International Congress on Big Data (BigData Congress)}, pp. 557--564, 2018.
-
-\bibitem{szabo1997smart}
-N.~Szabo, ``The idea of smart contracts,'' \emph{Nick Szabo's Papers and
-  Concise Tutorials}, 1997.
-
-\bibitem{eip20}
-F.~Vogelsteller and V.~Buterin, ``Eip-20: Token standard,'' Ethereum
-  Improvement Proposals, 2015.
-
-\bibitem{hardhat}
-{Nomic Foundation}, ``Hardhat: Ethereum development environment,''
-  \url{https://hardhat.org}, 2024.
-
-\bibitem{foundry}
-{Paradigm}, ``Foundry: Ethereum development framework,''
-  \url{https://book.getfoundry.sh}, 2024.
-
-\bibitem{openzeppelin}
-{OpenZeppelin}, ``Openzeppelin contracts,''
-  \url{https://docs.openzeppelin.com/contracts/5.x}, 2024.
-
 \bibitem{hassan2021dao}
 S.~Hassan and P.~De~Filippi, ``Decentralized autonomous organization,''
   \emph{Internet Policy Review}, vol.~10, no.~2, 2021.
+
+\bibitem{liu2024economics}
+Y.~Liu and L.~Zhang, ``The economics of blockchain governance: Evaluate liquid
+  democracy on the internet computer,'' \emph{arXiv preprint arXiv:2404.13768},
+  2024.
 
 \bibitem{tamai2024dao}
 S.~Tamai and S.~Kasahara, ``Dao voting mechanism resistant to whale and
@@ -136,20 +116,30 @@ B.~M. El~Amine and L.~Sari-T, ``Leveraging blockchain technology for secure and
   management, with decentralized decision-making for co-ownership,'' in
   \emph{Proc. Int. Conf. African Fed. Oper. Res. Soc. (AFROS)}, 2024, pp. 1--6.
 
-\bibitem{liu2024economics}
-Y.~Liu and L.~Zhang, ``The economics of blockchain governance: Evaluate liquid
-  democracy on the internet computer,'' \emph{arXiv preprint arXiv:2404.13768},
+\bibitem{saito2023reputation}
+Y.~Saito and J.~A. Rose, ``Reputation-based decentralized autonomous
+  organization for the non-profit sector: Leveraging blockchain to enhance good
+  governance,'' \emph{Frontiers in Blockchain}, vol.~5, p. 1083647, 2023.
+
+\bibitem{nashoha2024transformasi}
+A.~Nashoha, Rusmiati, and S.~Karima, ``Transformasi digital dalam manajemen
+  koperasi: Peluang dan tantangan,'' \emph{Central Publisher}, vol.~2, no.~7,
   2024.
+
+\bibitem{fadhilah2023transformasi}
+N.~Fadhilah and Darmawati, ``Transformasi digital: Meningkatkan kinerja
+  keuangan koperasi syariah,'' \emph{SYARIKAT}, vol.~6, no.~2, 2023.
+
+\bibitem{pp72021}
+{Pemerintah Republik Indonesia}, ``Peraturan pemerintah nomor 7 tahun 2021
+  tentang kemudahan, pelindungan, dan pemberdayaan koperasi dan usaha mikro,
+  kecil, dan menengah,'' \emph{Lembaran Negara Republik Indonesia Tahun 2021
+  Nomor 17}, 2021.
 
 \bibitem{carata2024smart}
 C.~Carata, W.~J. Knottenbelt, and V.~Malinoiu, ``Governance in the blockchain
   era: The smart social contract,'' in \emph{Proc. 25th Annu. Int. Conf. Digit.
   Gov. Res. (dg.o)}, 2024, pp. 104--115.
-
-\bibitem{saito2023reputation}
-Y.~Saito and J.~A. Rose, ``Reputation-based decentralized autonomous
-  organization for the non-profit sector: Leveraging blockchain to enhance good
-  governance,'' \emph{Frontiers in Blockchain}, vol.~5, p. 1083647, 2023.
 
 \bibitem{messias2023understanding}
 J.~Messias, V.~Pahari, B.~Chandrasekaran \emph{et~al.}, ``Understanding
@@ -177,11 +167,6 @@ M.~T.~P. Putra, W.~Susetyo, and Kasiani, ``Dualisme kewenangan pengawasan
   tahun 2023 tentang usaha simpan pinjam oleh koperasi,'' \emph{Berita Negara
   Republik Indonesia Tahun 2023 Nomor 621}, 2023.
 
-\bibitem{uu251992}
-{Pemerintah Republik Indonesia}, ``Undang-undang republik indonesia nomor 25
-  tahun 1992 tentang perkoperasian,'' \emph{Lembaran Negara Republik Indonesia
-  Tahun 1992 Nomor 116}, 1992.
-
 \bibitem{antoni2024permasalahan}
 V.~Antoni and A.~F. Razaga, ``Permasalahan hukum pada kegiatan koperasi simpan
   pinjam di indonesia,'' \emph{VeJ (Veritas et Justitia)}, vol.~10, no.~1, pp.
@@ -201,15 +186,6 @@ T.~Supatminingsih and A.~Handayani, ``Statistik ekonomi: Perbandingan
 Indriani, R.~Atje, and W.~Setiawan, ``Model pengelolaan simpan pinjam di
   koperasi pegawai dinas ketahanan pangan dan peternakan,'' \emph{RIGGS},
   vol.~4, no.~1, 2025.
-
-\bibitem{nashoha2024transformasi}
-A.~Nashoha, Rusmiati, and S.~Karima, ``Transformasi digital dalam manajemen
-  koperasi: Peluang dan tantangan,'' \emph{Central Publisher}, vol.~2, no.~7,
-  2024.
-
-\bibitem{fadhilah2023transformasi}
-N.~Fadhilah and Darmawati, ``Transformasi digital: Meningkatkan kinerja
-  keuangan koperasi syariah,'' \emph{SYARIKAT}, vol.~6, no.~2, 2023.
 
 \bibitem{farida2025peran}
 Farida and I.~Rofiq, ``Peran teknologi dalam layanan komunikasi koperasi di era
@@ -289,9 +265,9 @@ F.~Kurniawan, Y.~Sukrawan, and S.~Puspanikan, ``Analisis bibliometrik dan
 
 \bibitem{widodo2024pengembangan}
 P.~Widodo, Isman, and M.~Shohib, ``Pengembangan ekosistem industri (technology
-  blockchain) fintech syariah dan implikasinya terhadap pertumbuhan
-  ekonomi---studi kasus ksu kirap entrepreneurship klaten,'' \emph{UMS Magister
-  Hukum Ekonomi Syariah}, 2024.
+  blockchain) fintech syariah dan implikasinya terhadap pertumbuhan ekonomi,
+  studi kasus ksu kirap entrepreneurship klaten,'' \emph{UMS Magister Hukum
+  Ekonomi Syariah}, 2024.
 
 \bibitem{smartcontract2021analisis}
 ``Analisis yuridis keabsahan smart contract dalam perspektif hukum perdata
@@ -302,19 +278,43 @@ I.~Satibi, M.~Leksmana, and D.~Ramadhani, ``Governance in decentralized
   finance: Aligning daos with it management and regulatory compliance in
   indonesia,'' in \emph{IEEE ITIS}, 2025.
 
-\bibitem{pp72021}
-{Pemerintah Republik Indonesia}, ``Peraturan pemerintah nomor 7 tahun 2021
-  tentang kemudahan, pelindungan, dan pemberdayaan koperasi dan usaha mikro,
-  kecil, dan menengah,'' \emph{Lembaran Negara Republik Indonesia Tahun 2021
-  Nomor 17}, 2021.
+\bibitem{winarto2020peran}
+W.~Winarto, ``Peran fintech dalam usaha mikro kecil dan menengah (umkm),''
+  \emph{JESYA}, vol.~3, no.~1, 2020.
+
+\bibitem{zheng2018blockchain}
+Z.~Zheng, S.~Xie, H.~Dai, X.~Chen, and H.~Wang, ``An overview of blockchain
+  technology: Architecture, consensus, and future trends,'' \emph{2018 IEEE
+  International Congress on Big Data (BigData Congress)}, pp. 557--564, 2018.
+
+\bibitem{szabo1997smart}
+N.~Szabo, ``The idea of smart contracts,'' \emph{Nick Szabo's Papers and
+  Concise Tutorials}, 1997.
+
+\bibitem{eip20}
+F.~Vogelsteller and V.~Buterin, ``Eip-20: Token standard,'' Ethereum
+  Improvement Proposals, 2015.
+
+\bibitem{hardhat}
+{Nomic Foundation}, ``Hardhat: Ethereum development environment,''
+  \url{https://hardhat.org}, 2024.
+
+\bibitem{foundry}
+{Paradigm}, ``Foundry: Ethereum development framework,''
+  \url{https://book.getfoundry.sh}, 2024.
+
+\bibitem{openzeppelin}
+{OpenZeppelin}, ``Openzeppelin contracts,''
+  \url{https://docs.openzeppelin.com/contracts/5.x}, 2024.
+
+\bibitem{uu251992}
+{Pemerintah Republik Indonesia}, ``Undang-undang republik indonesia nomor 25
+  tahun 1992 tentang perkoperasian,'' \emph{Lembaran Negara Republik Indonesia
+  Tahun 1992 Nomor 116}, 1992.
 
 \bibitem{permenkop92018}
 {Kementerian Koperasi dan UKM}, ``Peraturan menteri koperasi dan ukm nomor 9
   tahun 2018 tentang penyelenggaraan dan pembinaan perkoperasian,'' 2018.
-
-\bibitem{winarto2020peran}
-W.~Winarto, ``Peran fintech dalam usaha mikro kecil dan menengah (umkm),''
-  \emph{JESYA}, vol.~3, no.~1, 2020.
 
 \bibitem{peffers2007design}
 K.~Peffers, T.~Tuunanen, M.~A. Rothenberger, and S.~Chatterjee, ``A design

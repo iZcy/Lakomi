@@ -1,16 +1,21 @@
 \babel@toc {english}{}\relax 
 \babel@toc {bahasa}{}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Arsitektur Empat Lapisan Blockchain. Lakomi beroperasi pada lapisan aplikasi melalui \textit {smart contract} yang di-deploy pada DChain (lapisan konsensus dan data).}}{16}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{44}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{45}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{52}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Halaman Dashboard Anggota 1}}{68}{figure.caption.36}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Halaman Dashboard Anggota 2}}{69}{figure.caption.37}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Portal Tata Kelola 1}}{69}{figure.caption.38}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Portal Tata Kelola 2}}{70}{figure.caption.39}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Portal Tata Kelola 3}}{70}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Portal Pinjaman}}{71}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Halaman Kepatuhan Regulasi 1}}{71}{figure.caption.42}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Halaman Kepatuhan Regulasi 2}}{73}{figure.caption.43}%
-\contentsline {figure}{\numberline {L.1}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-4}{figure.caption.58}%
-\contentsline {figure}{\numberline {L.2}{\ignorespaces Arsitektur \textit {Clean Architecture} Sistem Lakomi}}{L-8}{figure.caption.63}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Arsitektur Empat Lapisan Blockchain. Lakomi beroperasi pada lapisan aplikasi melalui \textit {smart contract} yang diterapkan pada DChain (lapisan konsensus dan data).}}{35}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Alur Penelitian dalam Tiga Siklus \textit {Design Science Research} (Hevner, 2007)}}{47}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit {registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit {loan-to-value} berbasis kontribusi.}}{48}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Siklus Hidup Proposal pada LakomiGovern}}{56}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Diagram Alir Skenario 1: Pendaftaran Anggota dan Simpanan}}{60}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Diagram Alir Skenario 2: Tata Kelola dan Pemungutan Suara}}{61}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram Alir Skenario 3: Pengajuan dan Pelunasan Pinjaman}}{62}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Diagram Alir Skenario 4: Pencabutan Keanggotaan dan Audit Pengawas}}{63}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram Alir Skenario 5: Distribusi SHU dan Klaim Anggota}}{64}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Halaman Dashboard Anggota 1}}{79}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Halaman Dashboard Anggota 2}}{80}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Portal Tata Kelola 1}}{80}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Portal Tata Kelola 2}}{81}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Portal Tata Kelola 3}}{81}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Portal Pinjaman}}{82}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces Halaman Kepatuhan Regulasi 1}}{82}{figure.caption.47}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces Halaman Kepatuhan Regulasi 2}}{83}{figure.caption.48}%
+\contentsline {figure}{\numberline {L.1}{\ignorespaces Alur Transaksi Utama dalam Sistem Lakomi}}{L-4}{figure.caption.63}%
+\contentsline {figure}{\numberline {L.2}{\ignorespaces Arsitektur \textit {Clean Architecture} Sistem Lakomi}}{L-10}{figure.caption.68}%

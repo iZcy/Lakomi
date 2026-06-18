@@ -71,205 +71,205 @@ Setiap kontrak diinisialisasi dengan parameter yang mencerminkan ketentuan UU 25
 
 Setiap fungsi \textit{smart contract} yang dirancang pada Subbab~3.5 telah berhasil diimplementasikan. Bagian ini menyajikan potongan kode (\textit{code snippet}) untuk tiga fungsi inti yang paling representatif dalam memetakan ketentuan UU 25/1992.
 
-\subsubsection{Pendaftaran Anggota ,  registerMember}
+\subsubsection{Pendaftaran Anggota, registerMember}
 
 Fungsi \texttt{registerMember()} mengimplementasikan Pasal~5(1) dan Pasal~17--18 UU 25/1992 tentang keanggotaan sukarela dan terbuka. Setiap alamat dapat mendaftar secara mandiri setelah membayar simpanan pokok melalui LakomiVault. Sistem memverifikasi pembayaran simpanan pokok, kemudian mencetak token LAK dan mencatat status keanggotaan.
 
 \begin{lstlisting}
 function registerMember() external nonReentrant {
-    require(!isRegisteredMember[msg.sender], "Already registered");
-    require(ILakomiVault(lakomiVault).hasPaidSimpananPokok(msg.sender),
-        "Simpanan Pokok must be paid first");
-    isRegisteredMember[msg.sender] = true;
-    _mint(msg.sender, MEMBER_TOKENS);
-    emit MemberRegistered(msg.sender);
+  require(!isRegisteredMember[msg.sender], "Already registered");
+  require(ILakomiVault(lakomiVault).hasPaidSimpananPokok(msg.sender),
+    "Simpanan Pokok must be paid first");
+  isRegisteredMember[msg.sender] = true;
+  _mint(msg.sender, MEMBER_TOKENS);
+  emit MemberRegistered(msg.sender);
 }
 \end{lstlisting}
 
-\subsubsection{Distribusi SHU ,  distributeSHU}
+\subsubsection{Distribusi SHU, distributeSHU}
 
 Fungsi \texttt{distributeSHU()} mengimplementasikan Pasal~45(1--2) tentang pembagian Sisa Hasil Usaha (SHU). Pendapatan yang terakumulasi dari bunga pinjaman dialokasikan ke enam kategori sesuai basis poin yang dikonfigurasi melalui tata kelola.
 
 \begin{lstlisting}
 function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
-    uint256 reserve = (accumulatedRevenue * operationalReserveBps) / 10000;
-    uint256 dist = accumulatedRevenue - reserve;
-    uint256 cadangan = (dist * shuCadanganBps) / 10000;
-    uint256 jasaModal = (dist * shuJasaModalBps) / 10000;
-    uint256 jasaUsaha = (dist * shuJasaUsahaBps) / 10000;
-    uint256 pendidikan = (dist * shuPendidikanBps) / 10000;
-    uint256 pengurus = (dist * shuPengurusBps) / 10000;
-    danaCadangan += cadangan;
-    totalSHUDistributed += dist;
-    accumulatedRevenue = 0;
-    emit SHUDistributed(distributionId++, dist);
+  uint256 reserve = (accumulatedRevenue * operationalReserveBps) / 10000;
+  uint256 dist = accumulatedRevenue - reserve;
+  uint256 cadangan = (dist * shuCadanganBps) / 10000;
+  uint256 jasaModal = (dist * shuJasaModalBps) / 10000;
+  uint256 jasaUsaha = (dist * shuJasaUsahaBps) / 10000;
+  uint256 pendidikan = (dist * shuPendidikanBps) / 10000;
+  uint256 pengurus = (dist * shuPengurusBps) / 10000;
+  danaCadangan += cadangan;
+  totalSHUDistributed += dist;
+  accumulatedRevenue = 0;
+  emit SHUDistributed(distributionId++, dist);
 }
 \end{lstlisting}
 
-\subsubsection{Pemungutan Suara ,  castVote}
+\subsubsection{Pemungutan Suara, castVote}
 
 Fungsi \texttt{castVote()} mengimplementasikan Pasal~24(3) tentang prinsip satu anggota satu suara.
 
 \begin{lstlisting}
 function castVote(uint256 proposalId, Vote support) 
-    external nonReentrant {
-    _castVote(proposalId, support);
+  external nonReentrant {
+  _castVote(proposalId, support);
 }
 
 function _castVote(uint256 proposalId, Vote support) 
-    internal {
-    ProposalVoting storage p = proposals[proposalId];
-    require(block.timestamp >= p.voteStart, "Not started");
-    require(block.timestamp <= p.voteEnd, "Ended");
-    require(!p.hasVoted[msg.sender], "Voted");
-    p.hasVoted[msg.sender] = true;
-    if (support == Vote.For) p.forVotes++;
-    else if (support == Vote.Against) p.againstVotes++;
-    else p.abstainVotes++;
-    emit VoteCast(proposalId, msg.sender, support);
+  internal {
+  ProposalVoting storage p = proposals[proposalId];
+  require(block.timestamp >= p.voteStart, "Not started");
+  require(block.timestamp <= p.voteEnd, "Ended");
+  require(!p.hasVoted[msg.sender], "Voted");
+  p.hasVoted[msg.sender] = true;
+  if (support == Vote.For) p.forVotes++;
+  else if (support == Vote.Against) p.againstVotes++;
+  else p.abstainVotes++;
+  emit VoteCast(proposalId, msg.sender, support);
 }
 \end{lstlisting}
 
-\subsubsection{Pembuatan Proposal ,  createProposal}
+\subsubsection{Pembuatan Proposal, createProposal}
 
 Fungsi \texttt{createProposal()} memungkinkan anggota terdaftar untuk menginisiasi proposal tata kelola. Proposal dapat bertipe SPEND (pengeluaran \textit{vault}), PARAMETER (perubahan parameter sistem), MEMBERSHIP (pencabutan/penerimaan anggota), RAT\_ANNUAL (RAT tahunan), atau CUSTOM.
 
 \begin{lstlisting}
 function createProposal(
-    string calldata description,
-    ProposalType _proposalType,
-    address target,
-    uint256 value,
-    bytes calldata callData
+  string calldata description,
+  ProposalType _proposalType,
+  address target,
+  uint256 value,
+  bytes calldata callData
 ) external nonReentrant returns (uint256) {
-    require(token.isRegisteredMember(msg.sender),
-        "Not registered");
-    uint256 id = proposalCount++;
-    Proposal storage p = proposals[id];
-    p.proposer = msg.sender;
-    p.description = description;
-    p.proposalType = _proposalType;
-    p.target = target;
-    p.value = value;
-    p.callData = callData;
-    p.voteStart = block.timestamp;
-    p.voteEnd = block.timestamp + votingPeriod;
-    emit ProposalCreated(id, msg.sender);
-    return id;
+  require(token.isRegisteredMember(msg.sender),
+    "Not registered");
+  uint256 id = proposalCount++;
+  Proposal storage p = proposals[id];
+  p.proposer = msg.sender;
+  p.description = description;
+  p.proposalType = _proposalType;
+  p.target = target;
+  p.value = value;
+  p.callData = callData;
+  p.voteStart = block.timestamp;
+  p.voteEnd = block.timestamp + votingPeriod;
+  emit ProposalCreated(id, msg.sender);
+  return id;
 }
 \end{lstlisting}
 
-\subsubsection{Persetujuan dan Pencairan Pinjaman ,  approveLoan + disburse}
+\subsubsection{Persetujuan dan Pencairan Pinjaman, approveLoan + disburse}
 
 Fungsi \texttt{approveLoan()} dan \texttt{disburse()} mengimplementasikan alur persetujuan pinjaman dua tahap: APPROVER\_ROLE menyetujui permohonan, kemudian dana dicairkan dari LakomiVault ke peminjam setelah agunan dikunci.
 
 \begin{lstlisting}
 function approveLoan(uint256 loanId) 
-    external onlyRole(APPROVER_ROLE) nonReentrant {
-    Loan storage l = loans[loanId];
-    require(l.status == LoanStatus.Pending, "Not pending");
-    l.status = LoanStatus.Approved;
-    emit LoanApproved(loanId, msg.sender);
+  external onlyRole(APPROVER_ROLE) nonReentrant {
+  Loan storage l = loans[loanId];
+  require(l.status == LoanStatus.Pending, "Not pending");
+  l.status = LoanStatus.Approved;
+  emit LoanApproved(loanId, msg.sender);
 }
 
 function disburse(uint256 loanId) external nonReentrant {
-    Loan storage l = loans[loanId];
-    require(l.status == LoanStatus.Approved, "Not approved");
-    token.lockTokens(l.borrower, l.collateralTokens);
-    l.status = LoanStatus.Active;
-    l.startTime = block.timestamp;
-    l.dueTime = block.timestamp + defaultLoanDuration;
-    emit LoanDisbursed(loanId, l.borrower, l.principal);
+  Loan storage l = loans[loanId];
+  require(l.status == LoanStatus.Approved, "Not approved");
+  token.lockTokens(l.borrower, l.collateralTokens);
+  l.status = LoanStatus.Active;
+  l.startTime = block.timestamp;
+  l.dueTime = block.timestamp + defaultLoanDuration;
+  emit LoanDisbursed(loanId, l.borrower, l.principal);
 }
 \end{lstlisting}
 
-\subsubsection[Laporan Keuangan Pengawas]{Laporan Keuangan Pengawas ,  getPengawasAuditReport}
+\subsubsection[Laporan Keuangan Pengawas]{Laporan Keuangan Pengawas, getPengawasAuditReport}
 
 Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} bagi pemegang PENGAWAS\_ROLE untuk memperoleh ringkasan keuangan \textit{vault} secara \textit{real-time}, mengimplementasikan fungsi pengawasan yang diamanatkan Pasal~38--39.
 
 \begin{lstlisting}
 function getPengawasAuditReport() external view returns (
-    uint256 totalSimpananPokok,
-    uint256 totalSimpananWajib,
-    uint256 totalSimpananSukarela,
-    uint256 revenueAccumulated,
-    uint256 shuDistributed,
-    uint256 cadangan
+  uint256 totalSimpananPokok,
+  uint256 totalSimpananWajib,
+  uint256 totalSimpananSukarela,
+  uint256 revenueAccumulated,
+  uint256 shuDistributed,
+  uint256 cadangan
 ) {
-    return (
-        totalPokok, totalWajib, totalSukarela,
-        accumulatedRevenue, totalSHUDistributed,
-        danaCadangan
-    );
+  return (
+    totalPokok, totalWajib, totalSukarela,
+    accumulatedRevenue, totalSHUDistributed,
+    danaCadangan
+  );
 }
 \end{lstlisting}
 
-\subsubsection[Pembayaran Simpanan Wajib]{Pembayaran Simpanan Wajib ,  paySimpananWajib}
+\subsubsection[Pembayaran Simpanan Wajib]{Pembayaran Simpanan Wajib, paySimpananWajib}
 
 Fungsi \texttt{paySimpananWajib()} mengimplementasikan Pasal~41(2) tentang kewajiban pembayaran simpanan wajib secara berkala. Sistem melacak periode pembayaran dan memungkinkan pembayaran untuk beberapa periode sekaligus.
 
 \begin{lstlisting}
 function paySimpananWajib() external nonReentrant {
-    require(simpananPokok[msg.sender] > 0, "Pokok not paid");
-    stableToken.safeTransferFrom(msg.sender, address(this),
-        simpananWajibAmount);
-    simpananWajibTotal[msg.sender] += simpananWajibAmount;
-    simpananWajibPeriodsPaid[msg.sender]++;
-    simpananWajibLastPaid[msg.sender] = block.timestamp;
-    contributions[msg.sender] += simpananWajibAmount;
-    emit SimpananPaid(msg.sender, simpananWajibAmount, "wajib");
+  require(simpananPokok[msg.sender] > 0, "Pokok not paid");
+  stableToken.safeTransferFrom(msg.sender, address(this),
+    simpananWajibAmount);
+  simpananWajibTotal[msg.sender] += simpananWajibAmount;
+  simpananWajibPeriodsPaid[msg.sender]++;
+  simpananWajibLastPaid[msg.sender] = block.timestamp;
+  contributions[msg.sender] += simpananWajibAmount;
+  emit SimpananPaid(msg.sender, simpananWajibAmount, "wajib");
 }
 \end{lstlisting}
 
-\subsubsection[Pemilihan Pengurus]{Pemilihan Pengurus ,  beginElection}
+\subsubsection[Pemilihan Pengurus]{Pemilihan Pengurus, beginElection}
 
 Fungsi \texttt{beginElection()} dan \texttt{finalizeElection()} mengimplementasikan Pasal~29--30. Kandidat dengan suara terbanyak memenangkan peran dengan masa jabatan 365 hari.
 
 \begin{lstlisting}
 function beginElection(bytes32 role, uint256 regPeriod, uint256 votePeriod) 
-    external onlyRole(DEFAULT_ADMIN_ROLE) {
-    uint256 eId = electionCount[role]++;
-    elections[role][eId] = Election({
-        startTime: block.timestamp,
-        registrationEnd: block.timestamp + regPeriod,
-        votingEnd: block.timestamp + regPeriod + votePeriod,
-        finalized: false, winner: address(0), forVotes: 0
-    });
-    emit ElectionStarted(role, eId);
+  external onlyRole(DEFAULT_ADMIN_ROLE) {
+  uint256 eId = electionCount[role]++;
+  elections[role][eId] = Election({
+    startTime: block.timestamp,
+    registrationEnd: block.timestamp + regPeriod,
+    votingEnd: block.timestamp + regPeriod + votePeriod,
+    finalized: false, winner: address(0), forVotes: 0
+  });
+  emit ElectionStarted(role, eId);
 }
 
 function finalizeElection(bytes32 role, uint256 eId)
-    external onlyRole(DEFAULT_ADMIN_ROLE) {
-    Election storage e = elections[role][eId];
-    require(block.timestamp > e.votingEnd, "Ongoing");
-    require(!e.finalized, "Done");
-    address winner; uint256 maxVotes;
-    for (uint i = 0; i < e.candidateList.length; i++) {
-        if (e.votes[e.candidateList[i]] > maxVotes) {
-            maxVotes = e.votes[e.candidateList[i]];
-            winner = e.candidateList[i];
-        }
+  external onlyRole(DEFAULT_ADMIN_ROLE) {
+  Election storage e = elections[role][eId];
+  require(block.timestamp > e.votingEnd, "Ongoing");
+  require(!e.finalized, "Done");
+  address winner; uint256 maxVotes;
+  for (uint i = 0; i < e.candidateList.length; i++) {
+    if (e.votes[e.candidateList[i]] > maxVotes) {
+      maxVotes = e.votes[e.candidateList[i]];
+      winner = e.candidateList[i];
     }
-    e.finalized = true; e.winner = winner;
-    AccessControl(target).grantRole(role, winner);
-    emit ElectionFinalized(role, eId, winner);
+  }
+  e.finalized = true; e.winner = winner;
+  AccessControl(target).grantRole(role, winner);
+  emit ElectionFinalized(role, eId, winner);
 }
 \end{lstlisting}
 
-\subsubsection[Klaim SHU Anggota]{Klaim SHU Anggota ,  claimSHU}
+\subsubsection[Klaim SHU Anggota]{Klaim SHU Anggota, claimSHU}
 
 Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah distribusi. Mencegah klaim ganda melalui \textit{mapping} \texttt{shuClaimedForDistribution}.
 
 \begin{lstlisting}
 function claimSHU(uint256 distributionId) external nonReentrant {
-    require(!shuClaimedForDistribution[distributionId][msg.sender],
-        "Already claimed");
-    SHUDistribution storage dist = shuDistributions[distributionId];
-    uint256 memberShares = vaultShares[msg.sender];
-    uint256 amount = memberShares * dist.perShare;
-    shuClaimedForDistribution[distributionId][msg.sender] = true;
-    stableToken.safeTransfer(msg.sender, amount);
-    emit SHUClaimed(distributionId, msg.sender, amount);
+  require(!shuClaimedForDistribution[distributionId][msg.sender],
+    "Already claimed");
+  SHUDistribution storage dist = shuDistributions[distributionId];
+  uint256 memberShares = vaultShares[msg.sender];
+  uint256 amount = memberShares * dist.perShare;
+  shuClaimedForDistribution[distributionId][msg.sender] = true;
+  stableToken.safeTransfer(msg.sender, amount);
+  emit SHUClaimed(distributionId, msg.sender, amount);
 }
 \end{lstlisting}
 
@@ -523,11 +523,11 @@ Berdasarkan pengukuran pada DChain mainnet dengan harga gas 0,000000002 DKT/gas 
 
 \subsection{Keterbatasan dan Validitas Eksternal}
 
-Penelitian ini tidak bertujuan menghasilkan produk yang siap diadopsi oleh koperasi riil, melainkan merancang dan memverifikasi artefak \textit{proof-of-concept} yang membuktikan kelayakan pendekatan pemetaan regulasi-ke-kode. Dalam kerangka DSR, evaluasi artefak tidak mensyaratkan deployment produksi — Hevner \cite{hevner2004design} mengakui bahwa evaluasi dapat dilakukan melalui metode analitis (verifikasi kepatuhan), eksperimental (analisis gas), dan komparatif (perbandingan sistem), yang ketiganya telah dilaksanakan dalam penelitian ini. Ketiga metode evaluasi tersebut mendemonstrasikan \textit{utility} artefak — fungsionalitas yang benar (26/26 skenario lulus), kelayakan ekonomi (biaya gas minimal), dan posisi unik terhadap sistem pembanding — tanpa memerlukan organisasi koperasi riil sebagai subjek pengujian.
+Penelitian ini tidak bertujuan menghasilkan produk yang siap diadopsi oleh koperasi riil, melainkan merancang dan memverifikasi artefak \textit{proof-of-concept} yang membuktikan kelayakan pendekatan pemetaan regulasi-ke-kode. Dalam kerangka DSR, evaluasi artefak tidak mensyaratkan deployment produksi, Hevner \cite{hevner2004design} mengakui bahwa evaluasi dapat dilakukan melalui metode analitis (verifikasi kepatuhan), eksperimental (analisis gas), dan komparatif (perbandingan sistem), yang ketiganya telah dilaksanakan dalam penelitian ini. Ketiga metode evaluasi tersebut mendemonstrasikan \textit{utility} artefak, fungsionalitas yang benar (26/26 skenario lulus), kelayakan ekonomi (biaya gas minimal), dan posisi unik terhadap sistem pembanding, tanpa memerlukan organisasi koperasi riil sebagai subjek pengujian.
 
-Empat \textit{smart contract} Lakomi merupakan implementasi langsung dari 26 ketentuan UU 25/1992 yang telah diverifikasi kata demi kata terhadap teks hukum autentik. Validitas pemetaan tidak bergantung pada apakah koperasi sungguhan menggunakan sistem ini — melainkan pada apakah logika yang dikodekan sesuai dengan bunyi pasal. Setiap pasal diterjemahkan menjadi kondisi persyaratan, aksi, kendala, dan aktor berwenang yang dapat diverifikasi melalui pengujian fungsional berbasis Hardhat. Dengan demikian, kontribusi utama penelitian ini adalah bukti empiris bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang \textit{self-executing}, bukan sekadar argumen konseptual.
+Empat \textit{smart contract} Lakomi merupakan implementasi langsung dari 26 ketentuan UU 25/1992 yang telah diverifikasi kata demi kata terhadap teks hukum autentik. Validitas pemetaan tidak bergantung pada apakah koperasi sungguhan menggunakan sistem ini, melainkan pada apakah logika yang dikodekan sesuai dengan bunyi pasal. Setiap pasal diterjemahkan menjadi kondisi persyaratan, aksi, kendala, dan aktor berwenang yang dapat diverifikasi melalui pengujian fungsional berbasis Hardhat. Dengan demikian, kontribusi utama penelitian ini adalah bukti empiris bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang \textit{self-executing}, bukan sekadar argumen konseptual.
 
-Validitas eksternal memang terbatas pada konteks DChain, dan hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi dengan ribuan anggota dan puluhan ribu transaksi per tahun. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya — penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini, sebagaimana diidentifikasi pada Batasan Penelitian (Subbab 1.4) dan Saran (Subbab 5.3).
+Validitas eksternal memang terbatas pada konteks DChain, dan hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi dengan ribuan anggota dan puluhan ribu transaksi per tahun. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya, penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini, sebagaimana diidentifikasi pada Batasan Penelitian (Subbab 1.4) dan Saran (Subbab 5.3).
 
 \section{Validasi Formula}
 

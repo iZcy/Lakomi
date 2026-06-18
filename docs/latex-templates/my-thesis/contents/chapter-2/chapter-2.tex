@@ -341,13 +341,13 @@ Gambar~\ref{fig:blockchain-architecture} mengilustrasikan arsitektur umum blockc
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-    layer/.style={rectangle, draw, rounded corners=3pt, minimum width=9cm, minimum height=0.45cm, font=\footnotesize, align=center, fill=blue!5},
-    arrow/.style={<->, >=stealth, thick, gray!60},
+  layer/.style={rectangle, draw, rounded corners=3pt, minimum width=9cm, minimum height=0.45cm, font=\footnotesize, align=center, fill=blue!5},
+  arrow/.style={<->, >=stealth, thick, gray!60},
 ]
-\node[layer, fill=green!8] (app) at (0,1.8) {\textbf{Lapisan Aplikasi} ,  Smart Contract (Solidity), DApp (React + wagmi), Wallet (MetaMask)};
-\node[layer, fill=yellow!10] (cons) at (0,0.6) {\textbf{Lapisan Konsensus} ,  PoS/PBFT, Validator Nodes, Block Finalization};
-\node[layer, fill=orange!10] (net) at (0,-0.6) {\textbf{Lapisan Jaringan} ,  P2P Network, Transaction Propagation, Node Discovery};
-\node[layer, fill=blue!8] (data) at (0,-1.8) {\textbf{Lapisan Data} ,  Distributed Ledger, Merkle Patricia Trie, Block Structure};
+\node[layer, fill=green!8] (app) at (0,1.8) {\textbf{Lapisan Aplikasi}, Smart Contract (Solidity), DApp (React + wagmi), Wallet (MetaMask)};
+\node[layer, fill=yellow!10] (cons) at (0,0.6) {\textbf{Lapisan Konsensus}, PoS/PBFT, Validator Nodes, Block Finalization};
+\node[layer, fill=orange!10] (net) at (0,-0.6) {\textbf{Lapisan Jaringan}, P2P Network, Transaction Propagation, Node Discovery};
+\node[layer, fill=blue!8] (data) at (0,-1.8) {\textbf{Lapisan Data}, Distributed Ledger, Merkle Patricia Trie, Block Structure};
 \draw[arrow] (app) -- (cons);
 \draw[arrow] (cons) -- (net);
 \draw[arrow] (net) -- (data);

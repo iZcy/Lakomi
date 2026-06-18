@@ -77,12 +77,12 @@ Fungsi \texttt{registerMember()} mengimplementasikan Pasal~5(1) dan Pasal~17--18
 
 \begin{lstlisting}
 function registerMember() external nonReentrant {
-  require(!isRegisteredMember[msg.sender], "Already registered");
-  require(ILakomiVault(lakomiVault).hasPaidSimpananPokok(msg.sender),
-    "Simpanan Pokok must be paid first");
-  isRegisteredMember[msg.sender] = true;
-  _mint(msg.sender, MEMBER_TOKENS);
-  emit MemberRegistered(msg.sender);
+ require(!isRegisteredMember[msg.sender], "Already registered");
+ require(ILakomiVault(lakomiVault).hasPaidSimpananPokok(msg.sender),
+  "Simpanan Pokok must be paid first");
+ isRegisteredMember[msg.sender] = true;
+ _mint(msg.sender, MEMBER_TOKENS);
+ emit MemberRegistered(msg.sender);
 }
 \end{lstlisting}
 
@@ -92,17 +92,17 @@ Fungsi \texttt{distributeSHU()} mengimplementasikan Pasal~45(1--2) tentang pemba
 
 \begin{lstlisting}
 function distributeSHU() external onlyRole(GOVERN_ROLE) nonReentrant {
-  uint256 reserve = (accumulatedRevenue * operationalReserveBps) / 10000;
-  uint256 dist = accumulatedRevenue - reserve;
-  uint256 cadangan = (dist * shuCadanganBps) / 10000;
-  uint256 jasaModal = (dist * shuJasaModalBps) / 10000;
-  uint256 jasaUsaha = (dist * shuJasaUsahaBps) / 10000;
-  uint256 pendidikan = (dist * shuPendidikanBps) / 10000;
-  uint256 pengurus = (dist * shuPengurusBps) / 10000;
-  danaCadangan += cadangan;
-  totalSHUDistributed += dist;
-  accumulatedRevenue = 0;
-  emit SHUDistributed(distributionId++, dist);
+ uint256 reserve = (accumulatedRevenue * operationalReserveBps) / 10000;
+ uint256 dist = accumulatedRevenue - reserve;
+ uint256 cadangan = (dist * shuCadanganBps) / 10000;
+ uint256 jasaModal = (dist * shuJasaModalBps) / 10000;
+ uint256 jasaUsaha = (dist * shuJasaUsahaBps) / 10000;
+ uint256 pendidikan = (dist * shuPendidikanBps) / 10000;
+ uint256 pengurus = (dist * shuPengurusBps) / 10000;
+ danaCadangan += cadangan;
+ totalSHUDistributed += dist;
+ accumulatedRevenue = 0;
+ emit SHUDistributed(distributionId++, dist);
 }
 \end{lstlisting}
 
@@ -112,21 +112,21 @@ Fungsi \texttt{castVote()} mengimplementasikan Pasal~24(3) tentang prinsip satu 
 
 \begin{lstlisting}
 function castVote(uint256 proposalId, Vote support) 
-  external nonReentrant {
-  _castVote(proposalId, support);
+ external nonReentrant {
+ _castVote(proposalId, support);
 }
 
 function _castVote(uint256 proposalId, Vote support) 
-  internal {
-  ProposalVoting storage p = proposals[proposalId];
-  require(block.timestamp >= p.voteStart, "Not started");
-  require(block.timestamp <= p.voteEnd, "Ended");
-  require(!p.hasVoted[msg.sender], "Voted");
-  p.hasVoted[msg.sender] = true;
-  if (support == Vote.For) p.forVotes++;
-  else if (support == Vote.Against) p.againstVotes++;
-  else p.abstainVotes++;
-  emit VoteCast(proposalId, msg.sender, support);
+ internal {
+ ProposalVoting storage p = proposals[proposalId];
+ require(block.timestamp >= p.voteStart, "Not started");
+ require(block.timestamp <= p.voteEnd, "Ended");
+ require(!p.hasVoted[msg.sender], "Voted");
+ p.hasVoted[msg.sender] = true;
+ if (support == Vote.For) p.forVotes++;
+ else if (support == Vote.Against) p.againstVotes++;
+ else p.abstainVotes++;
+ emit VoteCast(proposalId, msg.sender, support);
 }
 \end{lstlisting}
 
@@ -136,26 +136,26 @@ Fungsi \texttt{createProposal()} memungkinkan anggota terdaftar untuk menginisia
 
 \begin{lstlisting}
 function createProposal(
-  string calldata description,
-  ProposalType _proposalType,
-  address target,
-  uint256 value,
-  bytes calldata callData
+ string calldata description,
+ ProposalType _proposalType,
+ address target,
+ uint256 value,
+ bytes calldata callData
 ) external nonReentrant returns (uint256) {
-  require(token.isRegisteredMember(msg.sender),
-    "Not registered");
-  uint256 id = proposalCount++;
-  Proposal storage p = proposals[id];
-  p.proposer = msg.sender;
-  p.description = description;
-  p.proposalType = _proposalType;
-  p.target = target;
-  p.value = value;
-  p.callData = callData;
-  p.voteStart = block.timestamp;
-  p.voteEnd = block.timestamp + votingPeriod;
-  emit ProposalCreated(id, msg.sender);
-  return id;
+ require(token.isRegisteredMember(msg.sender),
+  "Not registered");
+ uint256 id = proposalCount++;
+ Proposal storage p = proposals[id];
+ p.proposer = msg.sender;
+ p.description = description;
+ p.proposalType = _proposalType;
+ p.target = target;
+ p.value = value;
+ p.callData = callData;
+ p.voteStart = block.timestamp;
+ p.voteEnd = block.timestamp + votingPeriod;
+ emit ProposalCreated(id, msg.sender);
+ return id;
 }
 \end{lstlisting}
 
@@ -165,21 +165,21 @@ Fungsi \texttt{approveLoan()} dan \texttt{disburse()} mengimplementasikan alur p
 
 \begin{lstlisting}
 function approveLoan(uint256 loanId) 
-  external onlyRole(APPROVER_ROLE) nonReentrant {
-  Loan storage l = loans[loanId];
-  require(l.status == LoanStatus.Pending, "Not pending");
-  l.status = LoanStatus.Approved;
-  emit LoanApproved(loanId, msg.sender);
+ external onlyRole(APPROVER_ROLE) nonReentrant {
+ Loan storage l = loans[loanId];
+ require(l.status == LoanStatus.Pending, "Not pending");
+ l.status = LoanStatus.Approved;
+ emit LoanApproved(loanId, msg.sender);
 }
 
 function disburse(uint256 loanId) external nonReentrant {
-  Loan storage l = loans[loanId];
-  require(l.status == LoanStatus.Approved, "Not approved");
-  token.lockTokens(l.borrower, l.collateralTokens);
-  l.status = LoanStatus.Active;
-  l.startTime = block.timestamp;
-  l.dueTime = block.timestamp + defaultLoanDuration;
-  emit LoanDisbursed(loanId, l.borrower, l.principal);
+ Loan storage l = loans[loanId];
+ require(l.status == LoanStatus.Approved, "Not approved");
+ token.lockTokens(l.borrower, l.collateralTokens);
+ l.status = LoanStatus.Active;
+ l.startTime = block.timestamp;
+ l.dueTime = block.timestamp + defaultLoanDuration;
+ emit LoanDisbursed(loanId, l.borrower, l.principal);
 }
 \end{lstlisting}
 
@@ -189,18 +189,18 @@ Fungsi \texttt{getPengawasAuditReport()} menyediakan akses \textit{read-only} ba
 
 \begin{lstlisting}
 function getPengawasAuditReport() external view returns (
-  uint256 totalSimpananPokok,
-  uint256 totalSimpananWajib,
-  uint256 totalSimpananSukarela,
-  uint256 revenueAccumulated,
-  uint256 shuDistributed,
-  uint256 cadangan
+ uint256 totalSimpananPokok,
+ uint256 totalSimpananWajib,
+ uint256 totalSimpananSukarela,
+ uint256 revenueAccumulated,
+ uint256 shuDistributed,
+ uint256 cadangan
 ) {
-  return (
-    totalPokok, totalWajib, totalSukarela,
-    accumulatedRevenue, totalSHUDistributed,
-    danaCadangan
-  );
+ return (
+  totalPokok, totalWajib, totalSukarela,
+  accumulatedRevenue, totalSHUDistributed,
+  danaCadangan
+ );
 }
 \end{lstlisting}
 
@@ -210,14 +210,14 @@ Fungsi \texttt{paySimpananWajib()} mengimplementasikan Pasal~41(2) tentang kewaj
 
 \begin{lstlisting}
 function paySimpananWajib() external nonReentrant {
-  require(simpananPokok[msg.sender] > 0, "Pokok not paid");
-  stableToken.safeTransferFrom(msg.sender, address(this),
-    simpananWajibAmount);
-  simpananWajibTotal[msg.sender] += simpananWajibAmount;
-  simpananWajibPeriodsPaid[msg.sender]++;
-  simpananWajibLastPaid[msg.sender] = block.timestamp;
-  contributions[msg.sender] += simpananWajibAmount;
-  emit SimpananPaid(msg.sender, simpananWajibAmount, "wajib");
+ require(simpananPokok[msg.sender] > 0, "Pokok not paid");
+ stableToken.safeTransferFrom(msg.sender, address(this),
+  simpananWajibAmount);
+ simpananWajibTotal[msg.sender] += simpananWajibAmount;
+ simpananWajibPeriodsPaid[msg.sender]++;
+ simpananWajibLastPaid[msg.sender] = block.timestamp;
+ contributions[msg.sender] += simpananWajibAmount;
+ emit SimpananPaid(msg.sender, simpananWajibAmount, "wajib");
 }
 \end{lstlisting}
 
@@ -227,32 +227,32 @@ Fungsi \texttt{beginElection()} dan \texttt{finalizeElection()} mengimplementasi
 
 \begin{lstlisting}
 function beginElection(bytes32 role, uint256 regPeriod, uint256 votePeriod) 
-  external onlyRole(DEFAULT_ADMIN_ROLE) {
-  uint256 eId = electionCount[role]++;
-  elections[role][eId] = Election({
-    startTime: block.timestamp,
-    registrationEnd: block.timestamp + regPeriod,
-    votingEnd: block.timestamp + regPeriod + votePeriod,
-    finalized: false, winner: address(0), forVotes: 0
-  });
-  emit ElectionStarted(role, eId);
+ external onlyRole(DEFAULT_ADMIN_ROLE) {
+ uint256 eId = electionCount[role]++;
+ elections[role][eId] = Election({
+  startTime: block.timestamp,
+  registrationEnd: block.timestamp + regPeriod,
+  votingEnd: block.timestamp + regPeriod + votePeriod,
+  finalized: false, winner: address(0), forVotes: 0
+ });
+ emit ElectionStarted(role, eId);
 }
 
 function finalizeElection(bytes32 role, uint256 eId)
-  external onlyRole(DEFAULT_ADMIN_ROLE) {
-  Election storage e = elections[role][eId];
-  require(block.timestamp > e.votingEnd, "Ongoing");
-  require(!e.finalized, "Done");
-  address winner; uint256 maxVotes;
-  for (uint i = 0; i < e.candidateList.length; i++) {
-    if (e.votes[e.candidateList[i]] > maxVotes) {
-      maxVotes = e.votes[e.candidateList[i]];
-      winner = e.candidateList[i];
-    }
+ external onlyRole(DEFAULT_ADMIN_ROLE) {
+ Election storage e = elections[role][eId];
+ require(block.timestamp > e.votingEnd, "Ongoing");
+ require(!e.finalized, "Done");
+ address winner; uint256 maxVotes;
+ for (uint i = 0; i < e.candidateList.length; i++) {
+  if (e.votes[e.candidateList[i]] > maxVotes) {
+   maxVotes = e.votes[e.candidateList[i]];
+   winner = e.candidateList[i];
   }
-  e.finalized = true; e.winner = winner;
-  AccessControl(target).grantRole(role, winner);
-  emit ElectionFinalized(role, eId, winner);
+ }
+ e.finalized = true; e.winner = winner;
+ AccessControl(target).grantRole(role, winner);
+ emit ElectionFinalized(role, eId, winner);
 }
 \end{lstlisting}
 
@@ -262,14 +262,14 @@ Fungsi \texttt{claimSHU()} memungkinkan anggota mengklaim bagian SHU setelah dis
 
 \begin{lstlisting}
 function claimSHU(uint256 distributionId) external nonReentrant {
-  require(!shuClaimedForDistribution[distributionId][msg.sender],
-    "Already claimed");
-  SHUDistribution storage dist = shuDistributions[distributionId];
-  uint256 memberShares = vaultShares[msg.sender];
-  uint256 amount = memberShares * dist.perShare;
-  shuClaimedForDistribution[distributionId][msg.sender] = true;
-  stableToken.safeTransfer(msg.sender, amount);
-  emit SHUClaimed(distributionId, msg.sender, amount);
+ require(!shuClaimedForDistribution[distributionId][msg.sender],
+  "Already claimed");
+ SHUDistribution storage dist = shuDistributions[distributionId];
+ uint256 memberShares = vaultShares[msg.sender];
+ uint256 amount = memberShares * dist.perShare;
+ shuClaimedForDistribution[distributionId][msg.sender] = true;
+ stableToken.safeTransfer(msg.sender, amount);
+ emit SHUClaimed(distributionId, msg.sender, amount);
 }
 \end{lstlisting}
 
@@ -414,7 +414,7 @@ SHU \& Pinjaman & 2 (45, Permenkop 8/2023 Ps 43--45) & 4 & 4/4 $\checkmark$ \\
 
 \section{Analisis Gas}
 
-Analisis gas dilakukan dengan mengukur konsumsi komputasi setiap operasi koperasi secara langsung pada DChain \textit{mainnet} (Chain ID 17845) menggunakan \textit{gas reporter} Hardhat. Harga gas DChain adalah 0,000000002 DKT/gas (2 nano-DKT), sehingga seluruh operasi memiliki biaya yang sangat rendah. Tabel~\ref{tab:gas-costs} menyajikan hasil pengukuran untuk seluruh operasi utama koperasi.
+Analisis gas dilakukan dengan mengukur konsumsi komputasi setiap operasi koperasi secara langsung pada DChain \textit{mainnet} (Chain ID 17845) menggunakan \textit{gas reporter} Hardhat. Harga gas DChain adalah 0,000000002 DKT/gas (2 nano-DKT), sehingga seluruh operasi memiliki biaya yang minimal. Tabel~\ref{tab:gas-costs} menyajikan hasil pengukuran untuk seluruh operasi utama koperasi.
 
 \begin{table}[H]
 \centering
@@ -445,7 +445,7 @@ Pola konsumsi gas menunjukkan bahwa operasi yang melibatkan penulisan \textit{st
 
 Dibandingkan dengan estimasi EVM teoretis, hasil pengukuran pada DChain menunjukkan bahwa operasi keanggotaan dan simpanan (\texttt{registerMember}, \texttt{paySimpananPokok}) berada dalam rentang 90--130 ribu gas, lebih rendah dari estimasi awal 120--150 ribu gas, mengindikasikan efisiensi implementasi yang lebih baik dari perkiraan. Operasi tata kelola (\texttt{castVote}, \texttt{createProposal}) berkisar 110--160 ribu gas, konsisten dengan karakteristik penulisan \textit{state} tunggal per operasi.
 
-Secara keseluruhan, biaya operasional sistem Lakomi pada DChain sangat rendah, seluruh operasi bulanan untuk koperasi dengan 100 anggota diperkirakan di bawah 0,01 DKT, menjadikannya layak secara ekonomi untuk operasional koperasi sehari-hari. Tabel~\ref{tab:cost-comparison} membandingkan estimasi biaya operasional Lakomi dengan biaya administrasi koperasi konvensional.
+Secara keseluruhan, biaya operasional sistem Lakomi pada DChain minimal, seluruh operasi bulanan untuk koperasi dengan 100 anggota diperkirakan di bawah 0,01 DKT, menjadikannya layak secara ekonomi untuk operasional koperasi harian. Tabel~\ref{tab:cost-comparison} membandingkan estimasi biaya operasional Lakomi dengan biaya administrasi koperasi konvensional.
 
 \begin{table}[H]
 \centering
@@ -469,7 +469,7 @@ Biaya operasional/bulan & Rp300.000--1.000.000 & <0,01 DKT ($\sim$Rp0) & $\sim$1
 \end{tabular}}
 \end{table}
 
-Dengan harga gas DChain yang sangat rendah (2 nano-DKT), biaya transaksi on-chain praktis dapat diabaikan dibandingkan biaya administrasi manual. Penghematan terbesar berasal dari eliminasi kebutuhan staf administrasi untuk pencatatan transaksi harian dan otomatisasi perhitungan SHU yang sebelumnya memerlukan waktu berhari-hari setiap akhir tahun buku.
+Dengan harga gas DChain yang minimal (2 nano-DKT), biaya transaksi on-chain hampir dapat diabaikan dibandingkan biaya administrasi manual. Penghematan terbesar berasal dari eliminasi kebutuhan staf administrasi untuk pencatatan transaksi harian dan otomatisasi perhitungan SHU yang sebelumnya memerlukan waktu berhari-hari setiap akhir tahun buku.
 
 \section{Perbandingan Sistem}
 
@@ -505,7 +505,7 @@ Insentif Kontribusi & Tidak formal & \textit{Staking} $\to$ suara & LTV berbasis
 \end{tabular}}
 \end{table}
 
-Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 24(3)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
+Arsitektur Lakomi menjembatani kesenjangan fundamental antara koperasi konvensional dan DAO melalui pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara (Pasal 24(3)), dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan kesetaraan suara. Pemisahan ini membedakan Lakomi dari DAO berbasis \textit{token-weighted voting} (seperti MakerDAO dan Compound) yang berpotensi menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
 
 Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur, El Amine dan Sari~\cite{elamine2024blockchain} untuk registri properti dan Saito dan Rose~\cite{saito2023reputation} untuk sektor nirlaba, Lakomi adalah sistem pertama yang secara sistematis memetakan ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi dan diverifikasi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan melainkan properti bawaan dari arsitektur sistem.
 
@@ -513,19 +513,19 @@ Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literat
 
 \subsection{Signifikansi Kepatuhan 100\%}
 
-Pencapaian tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992 memiliki signifikansi yang melampaui sekadar angka keberhasilan pengujian. Dalam konteks \textit{regulatory technology} (RegTech), ini adalah bukti empiris pertama bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang dieksekusi secara otomatis. Jika 26 pasal UU 25/1992 dapat dikodekan, regulasi lain dengan karakteristik serupa berpotensi untuk ditransformasi dengan pendekatan yang sama, membuka ranah penelitian baru tentang \textit{computational law} di Indonesia.
+Pencapaian tingkat kepatuhan 100\% terhadap 26 ketentuan UU 25/1992 memiliki signifikansi yang melampaui sebagai angka keberhasilan pengujian. Dalam konteks \textit{regulatory technology} (RegTech), ini adalah bukti empiris pertama bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang dieksekusi secara otomatis. Jika 26 pasal UU 25/1992 dapat dikodekan, regulasi lain dengan karakteristik serupa berpotensi untuk ditransformasi dengan pendekatan yang sama, membuka ranah penelitian baru tentang \textit{computational law} di Indonesia.
 
 Implikasi praktisnya juga signifikan. Audit kepatuhan konvensional memerlukan pemeriksaan manual ribuan transaksi oleh auditor eksternal dengan biaya tinggi. Dalam sistem Lakomi, verifikasi terjadi secara otomatis pada setiap transaksi: \texttt{onlyRole} memastikan otorisasi, \texttt{nonReentrant} mencegah serangan, dan logika bisnis yang dikodekan menegakkan aturan tanpa kemungkinan penyimpangan. Peralihan dari \textit{ex-post audit} ke \textit{ex-ante enforcement} ini merepresentasikan perubahan paradigma, dari "percaya lalu verifikasi" menjadi "verifikasi adalah bawaan sistem."
 
 \subsection{Kelayakan dari Perspektif Gas}
 
-Berdasarkan pengukuran pada DChain mainnet dengan harga gas 0,000000002 DKT/gas (2 nano-DKT), seluruh operasi koperasi memiliki biaya sangat rendah, operasi termahal (\texttt{requestLoan} pada 245.599 gas) hanya memerlukan kurang dari 0,0005 DKT. Satu siklus pinjaman penuh (\texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}) mengonsumsi sekitar 620.000 gas, atau sekitar 0,001 DKT. Biaya ini praktis dapat diabaikan untuk operasional koperasi sehari-hari, memvalidasi bahwa DChain sebagai blockchain konsorsium menawarkan kelayakan ekonomi yang sangat baik untuk aplikasi koperasi. Sebagai perbandingan, biaya administrasi koperasi konvensional, mencakup gaji staf, pencetakan dokumen, dan audit eksternal, diperkirakan mencapai 5--15\% dari pendapatan tahunan, jauh melampaui biaya gas sistem on-chain.
+Berdasarkan pengukuran pada DChain mainnet dengan harga gas 0,000000002 DKT/gas (2 nano-DKT), seluruh operasi koperasi memiliki biaya minimal, operasi termahal (\texttt{requestLoan} pada 245.599 gas) hanya memerlukan kurang dari 0,0005 DKT. Satu siklus pinjaman penuh (\texttt{requestLoan} + \texttt{approveLoan} + \texttt{disburse} + \texttt{repayInFull}) mengonsumsi sekitar 620.000 gas, atau sekitar 0,001 DKT. Biaya ini hampir dapat diabaikan untuk operasional koperasi harian, memvalidasi bahwa DChain sebagai blockchain konsorsium menawarkan kelayakan ekonomi yang baik untuk aplikasi koperasi. Sebagai perbandingan, biaya administrasi koperasi konvensional, mencakup gaji staf, pencetakan dokumen, dan audit eksternal, diperkirakan mencapai 5--15\% dari pendapatan tahunan, jauh melampaui biaya gas sistem on-chain.
 
 \subsection{Keterbatasan dan Validitas Eksternal}
 
 Penelitian ini tidak bertujuan menghasilkan produk yang siap diadopsi oleh koperasi riil, melainkan merancang dan memverifikasi artefak \textit{proof-of-concept} yang membuktikan kelayakan pendekatan pemetaan regulasi-ke-kode. Dalam kerangka DSR, evaluasi artefak tidak mensyaratkan deployment produksi, Hevner \cite{hevner2004design} mengakui bahwa evaluasi dapat dilakukan melalui metode analitis (verifikasi kepatuhan), eksperimental (analisis gas), dan komparatif (perbandingan sistem), yang ketiganya telah dilaksanakan dalam penelitian ini. Ketiga metode evaluasi tersebut mendemonstrasikan \textit{utility} artefak, fungsionalitas yang benar (26/26 skenario lulus), kelayakan ekonomi (biaya gas minimal), dan posisi unik terhadap sistem pembanding, tanpa memerlukan organisasi koperasi riil sebagai subjek pengujian.
 
-Empat \textit{smart contract} Lakomi merupakan implementasi langsung dari 26 ketentuan UU 25/1992 yang telah diverifikasi kata demi kata terhadap teks hukum autentik. Validitas pemetaan tidak bergantung pada apakah koperasi sungguhan menggunakan sistem ini, melainkan pada apakah logika yang dikodekan sesuai dengan bunyi pasal. Setiap pasal diterjemahkan menjadi kondisi persyaratan, aksi, kendala, dan aktor berwenang yang dapat diverifikasi melalui pengujian fungsional berbasis Hardhat. Dengan demikian, kontribusi utama penelitian ini adalah bukti empiris bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang \textit{self-executing}, bukan sekadar argumen konseptual.
+Empat \textit{smart contract} Lakomi merupakan implementasi langsung dari 26 ketentuan UU 25/1992 yang telah diverifikasi kata demi kata terhadap teks hukum autentik. Validitas pemetaan tidak bergantung pada apakah koperasi riil menggunakan sistem ini, melainkan pada apakah logika yang dikodekan sesuai dengan bunyi pasal. Setiap pasal diterjemahkan menjadi kondisi persyaratan, aksi, kendala, dan aktor berwenang yang dapat diverifikasi melalui pengujian fungsional berbasis Hardhat. Dengan demikian, kontribusi utama penelitian ini adalah bukti empiris bahwa regulasi perkoperasian nasional dapat direpresentasikan sebagai logika komputasional yang \textit{self-executing}, bukan hanya argumen konseptual.
 
 Validitas eksternal memang terbatas pada konteks DChain, dan hasil tidak dapat digeneralisasi ke platform lain tanpa validasi ulang. Pengujian skala laboratorium dengan jumlah anggota dan transaksi terbatas belum mencerminkan kondisi produksi dengan ribuan anggota dan puluhan ribu transaksi per tahun. Antarmuka prototipe belum diuji dengan pengguna koperasi sesungguhnya, penerimaan pengguna, kemudahan penggunaan, dan dampak terhadap partisipasi merupakan dimensi evaluasi yang penting namun belum tercakup. Validasi pada DChain \textit{mainnet} dengan partisipan koperasi riil, \textit{stress testing}, dan evaluasi pengalaman pengguna merupakan langkah esensial untuk mengonfirmasi temuan-temuan awal ini, sebagaimana diidentifikasi pada Batasan Penelitian (Subbab 1.4) dan Saran (Subbab 5.3).
 

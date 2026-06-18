@@ -80,10 +80,10 @@ Penelitian dilaksanakan dalam enam tahapan yang diilustrasikan pada Gambar~\ref{
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-  node distance=1.8cm,
-  stage/.style={rectangle, draw, rounded corners=4pt, fill=black!5, minimum width=2.8cm, minimum height=0.7cm, text width=2.6cm, align=center, font=\footnotesize},
-  arr/.style={->, >=stealth, thick, black!60},
-  darr/.style={->, >=stealth, dashed, black!40, thick},
+ node distance=1.8cm,
+ stage/.style={rectangle, draw, rounded corners=4pt, fill=black!5, minimum width=2.8cm, minimum height=0.7cm, text width=2.6cm, align=center, font=\footnotesize},
+ arr/.style={->, >=stealth, thick, black!60},
+ darr/.style={->, >=stealth, dashed, black!40, thick},
 ]
 \node[rectangle, draw=none, font=\footnotesize\bfseries, text=black!70, anchor=east] at (-0.3,1.5) {Relevansi};
 \node[stage] (s1) at (1.8,1.5) {Studi Literatur\\\& Analisis\\Regulasi};
@@ -126,26 +126,26 @@ Lakomi dirancang dengan arsitektur tiga \textit{layer} yang memisahkan \textit{l
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-  box/.style={rectangle, rounded corners=3pt, draw, minimum width=2.8cm, minimum height=0.45cm, font=\footnotesize, align=center, inner sep=3pt},
-  arr/.style={->, >=stealth, thick},
-  darr/.style={->, >=stealth, thick, dashed, gray!50},
+ box/.style={rectangle, rounded corners=3pt, draw, minimum width=2.8cm, minimum height=0.45cm, font=\footnotesize, align=center, inner sep=3pt},
+ arr/.style={->, >=stealth, thick},
+ darr/.style={->, >=stealth, thick, dashed, gray!50},
 ]
 \node[box, fill=black!6, minimum width=10cm] (token)
-  at (0,2.5) {LakomiToken (LAK) $\mid$ ERC-20 $\mid$ \texttt{isRegisteredMember}\\[2pt]
-  {\footnotesize\textit{Minter $\cdot$ Burner $\cdot$ Locker $\cdot$ Membership}}};
+ at (0,2.5) {LakomiToken (LAK) $\mid$ ERC-20 $\mid$ \texttt{isRegisteredMember}\\[2pt]
+ {\footnotesize\textit{Minter $\cdot$ Burner $\cdot$ Locker $\cdot$ Membership}}};
 \draw[arr] (-3.2,2.2) -- (-3.2,1.0);
-\draw[arr] (0,2.2)  -- (0,1.0);
+\draw[arr] (0,2.2) -- (0,1.0);
 \draw[arr] (3.2,2.2) -- (3.2,1.0);
 \node[box, fill=black!4] (vault) at (-3.2,0.6) {LakomiVault\\{\footnotesize\textit{Treasurer}}};
-\node[box, fill=black!4] (govern) at (0,0.6)   {LakomiGovern\\{\footnotesize\textit{Pengawas}}};
-\node[box, fill=black!4] (loans) at (3.2,0.6)  {LakomiLoans\\{\footnotesize\textit{Approver}}};
+\node[box, fill=black!4] (govern) at (0,0.6)  {LakomiGovern\\{\footnotesize\textit{Pengawas}}};
+\node[box, fill=black!4] (loans) at (3.2,0.6) {LakomiLoans\\{\footnotesize\textit{Approver}}};
 \draw[darr] (vault.east) -- (govern.west);
 \draw[darr] (govern.east) -- (loans.west);
 \draw[arr] (-3.2,-0.1) -- (-3.2,-0.8);
-\draw[arr] (0,-0.1)  -- (0,-0.8);
+\draw[arr] (0,-0.1) -- (0,-0.8);
 \draw[arr] (3.2,-0.1) -- (3.2,-0.8);
 \node[box, fill=black!6, minimum width=10.5cm]
-  (chain) at (0,-1.1) {DChain $\mid$ EVM-Compatible $\mid$ Chain ID 17845};
+ (chain) at (0,-1.1) {DChain $\mid$ EVM-Compatible $\mid$ Chain ID 17845};
 \end{tikzpicture}
 \caption{Arsitektur sistem Lakomi. LakomiToken berfungsi sebagai \textit{registry} keanggotaan. LakomiVault mengelola simpanan dan distribusi SHU. LakomiGovern menangani proposal, pemungutan suara, dan pemilihan. LakomiLoans menyediakan pinjaman dengan \textit{loan-to-value} berbasis kontribusi.}
 \label{fig:arsitektur-3}
@@ -180,7 +180,7 @@ Sebelum membahas detail implementasi, bagian ini menyajikan justifikasi desain u
 
 \textbf{Keputusan 4: Suku Bunga Tetap vs Dinamis.} Suku bunga pinjaman ditetapkan tetap 5\% APY dibandingkan model dinamis berbasis \textit{utilization rate}. Kepatuhan: Permenkop 8/2023 Pasal 43 mewajibkan prinsip kehati-hatian dalam pemberian pinjaman; suku bunga tetap rendah menjamin kepatuhan berkelanjutan dan melindungi anggota dari fluktuasi biaya. Keamanan: suku bunga tetap menghilangkan vektor serangan manipulasi pasar (\textit{oracle manipulation}) yang umum terjadi pada protokol DeFi dengan suku bunga dinamis. Kelayakan operasional: anggota dapat menghitung biaya pinjaman di muka tanpa bergantung pada kondisi pasar; suku bunga 5\% memastikan akses pinjaman bagi anggota dengan kapasitas finansial terbatas. Alternatif dinamis ditolak karena bertentangan dengan prinsip kesejahteraan anggota.
 
-\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Kepatuhan: Pasal 24(2) UU 25/1992 mengamanatkan keputusan berdasarkan suara terbanyak; Lakomi menetapkan ambang dua per tiga sebagai interpretasi dukungan mayoritas yang memastikan legitimasi setara semangat musyawarah koperasi. Keamanan: kuorum tinggi melindungi dari serangan \textit{governance takeover} di mana penyerang mendaftarkan anggota palsu untuk meloloskan proposal berbahaya, dibutuhkan 67\% dari total anggota, bukan sekadar 50\%+1. Kelayakan operasional: perlindungan minoritas, anggota minoritas hingga 33\% tidak dapat diabaikan begitu saja, mendorong musyawarah dan kompromi; mekanisme \textit{abstain} dihitung sebagai partisipasi tanpa memihak, membantu pencapaian kuorum. Risiko kebuntuan dimitigasi melalui penghitungan suara \textit{abstain} sebagai kontribusi kuorum.
+\textbf{Keputusan 5: Kuorum 67\% vs Mayoritas Sederhana.} Kuorum ditetapkan 67\% (dua per tiga) dibandingkan mayoritas sederhana (50\%+1). Kepatuhan: Pasal 24(2) UU 25/1992 mengamanatkan keputusan berdasarkan suara terbanyak; Lakomi menetapkan ambang dua per tiga sebagai interpretasi dukungan mayoritas yang memastikan legitimasi setara semangat musyawarah koperasi. Keamanan: kuorum tinggi melindungi dari serangan \textit{governance takeover} di mana penyerang mendaftarkan anggota palsu untuk meloloskan proposal berbahaya, dibutuhkan 67\% dari total anggota, bukan hanya 50\%+1. Kelayakan operasional: perlindungan minoritas, anggota minoritas hingga 33\% tidak dapat diabaikan sepenuhnya, mendorong musyawarah dan kompromi; mekanisme \textit{abstain} dihitung sebagai partisipasi tanpa memihak, membantu pencapaian kuorum. Risiko kebuntuan dimitigasi melalui penghitungan suara \textit{abstain} sebagai kontribusi kuorum.
 
 \textbf{Keputusan 6: Agunan 25\% vs Overcollateralization.} Agunan ditetapkan 25\% dari pokok pinjaman dibandingkan model \textit{overcollateralization} 150\% pada protokol DeFi. Kepatuhan: Permenkop 8/2023 Pasal 43--45 mengatur BMPP dan prinsip kehati-hatian; agunan 25\% memberikan perlindungan terhadap gagal bayar tanpa membebani anggota secara berlebihan, sesuai prinsip kesejahteraan anggota. Keamanan: agunan dalam token LAK dikunci secara on-chain melalui LOCKER\_ROLE, tidak dapat dilepaskan sepihak oleh peminjam; \textit{markDefaulted()} dan \texttt{claimCollateral()} memungkinkan pemulihan kerugian secara terprogram. Kelayakan operasional: agunan rendah (25\%) memungkinkan akses pinjaman bagi anggota bermodal kecil yang tidak mampu memenuhi \textit{overcollateralization} 150\%; dikombinasikan dengan LTV bertingkat (30\%/50\%/70\%), sistem memberikan insentif bagi anggota untuk meningkatkan kontribusi simpanan tanpa menghalangi akses pinjaman dasar.
 
@@ -317,10 +317,10 @@ LakomiGovern mengimplementasikan model tata kelola demokratis di mana setiap ang
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}[
-  box/.style={rectangle, draw, rounded corners=4pt, minimum width=3.8cm, minimum height=0.8cm, font=\footnotesize, align=center, inner sep=6pt, fill=black!4},
-  endbox/.style={box, fill=black!14},
-  arr/.style={->, >=stealth, thick, black!60, shorten >=3pt, shorten <=3pt},
-  lbl/.style={font=\scriptsize, fill=white, inner sep=1pt, text=black!70},
+ box/.style={rectangle, draw, rounded corners=4pt, minimum width=3.8cm, minimum height=0.8cm, font=\footnotesize, align=center, inner sep=6pt, fill=black!4},
+ endbox/.style={box, fill=black!14},
+ arr/.style={->, >=stealth, thick, black!60, shorten >=3pt, shorten <=3pt},
+ lbl/.style={font=\scriptsize, fill=white, inner sep=1pt, text=black!70},
 ]
 \node[box] (create) at (0,9.0) {Dibuat (oleh anggota)};
 \node[box] (voting) at (0,7.0) {Aktif: pemungutan suara\\selama 7 hari};
@@ -551,7 +551,7 @@ Insentif Kontribusi & Tidak ada mekanisme formal & \textit{Staking} memengaruhi 
 \end{tabular}}
 \end{table}
 
-Arsitektur Lakomi menjembatani kesenjangan antara koperasi konvensional dan DAO dengan pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara sesuai Pasal 24(3) UU 25/1992, dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan prinsip kesetaraan suara. Pemisahan ini merupakan kontribusi desain utama yang membedakan Lakomi dari DAO berbasis token (\textit{token-weighted voting}) yang cenderung menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
+Arsitektur Lakomi menjembatani kesenjangan antara koperasi konvensional dan DAO dengan pendekatan \textit{dual-track}: (1) \textit{track} demokratis yang memastikan setiap anggota memiliki hak suara setara sesuai Pasal 24(3) UU 25/1992, dan (2) \textit{track} kontribusi yang memberikan insentif finansial melalui \textit{tier} LTV berbasis simpanan tanpa mengompromikan prinsip kesetaraan suara. Pemisahan ini merupakan kontribusi desain utama yang membedakan Lakomi dari DAO berbasis token (\textit{token-weighted voting}) yang berpotensi menghasilkan plutokrasi, serta dari koperasi konvensional yang tidak memiliki mekanisme insentif kontribusi terstruktur.
 
 Dibandingkan dengan \textit{blockchain cooperative} yang diusulkan dalam literatur, seperti El Amine dan Sari (2024) yang berfokus pada registri properti dan Saito dan Rose (2023) yang menggunakan reputasi untuk tata kelola, Lakomi adalah sistem pertama yang secara sistematis memetakan seluruh ketentuan UU 25/1992 ke dalam \textit{smart contract} yang dapat dieksekusi. Pendekatan pemetaan regulasi langsung ini memastikan bahwa kepatuhan bukan merupakan fitur tambahan (\textit{afterthought}) properti bawaan dari arsitektur sistem.
 
@@ -586,21 +586,21 @@ Sebagai ilustrasi, Penggalan Kode~\ref{lst:test-register} dan~\ref{lst:test-vote
 \begin{lstlisting}[language={}, caption={Skrip Pengujian: Pendaftaran Anggota (Pasal 5(1) UU 25/1992)}, label={lst:test-register}, basicstyle=\ttfamily\scriptsize, breaklines=true]
 describe("Pasal 5(1): Open & Voluntary Membership", function () {
  it("should allow self-registration", async function () {
-  await token.connect(alice).registerMember();
-  expect(await token.isRegisteredMember(alice.address)).to.be.true;
-  expect(await token.memberCount()).to.equal(1);
+ await token.connect(alice).registerMember();
+ expect(await token.isRegisteredMember(alice.address)).to.be.true;
+ expect(await token.memberCount()).to.equal(1);
  });
 
  it("should mint 100 LAK tokens on registration", async function () {
-  await token.connect(alice).registerMember();
-  expect(await token.balanceOf(alice.address)).to.equal(LAK(100));
+ await token.connect(alice).registerMember();
+ expect(await token.balanceOf(alice.address)).to.equal(LAK(100));
  });
 
  it("should not allow duplicate registration", async function () {
-  await token.connect(alice).registerMember();
-  await expect(
-   token.connect(alice).registerMember()
-  ).to.be.revertedWith("Already registered");
+ await token.connect(alice).registerMember();
+ await expect(
+  token.connect(alice).registerMember()
+ ).to.be.revertedWith("Already registered");
  });
 });
 \end{lstlisting}
@@ -608,15 +608,15 @@ describe("Pasal 5(1): Open & Voluntary Membership", function () {
 \begin{lstlisting}[language={}, caption={Skrip Pengujian: Satu Anggota Satu Suara (Pasal 24(3) UU 25/1992)}, label={lst:test-vote}, basicstyle=\ttfamily\scriptsize, breaklines=true]
 describe("Pasal 24(3): One Member One Vote", function () {
  it("each member has 1 voting power", async function () {
-  expect(await token.getVotingPower(alice.address)).to.equal(1);
-  expect(await token.getVotingPower(bob.address)).to.equal(1);
-  expect(await token.getVotingPower(dave.address)).to.equal(0);
+ expect(await token.getVotingPower(alice.address)).to.equal(1);
+ expect(await token.getVotingPower(bob.address)).to.equal(1);
+ expect(await token.getVotingPower(dave.address)).to.equal(0);
  });
 
  it("non-members cannot vote", async function () {
-  await expect(
-   govern.connect(dave).castVote(0, 1)
-  ).to.be.reverted;
+ await expect(
+  govern.connect(dave).castVote(0, 1)
+ ).to.be.reverted;
  });
 });
 \end{lstlisting}
@@ -624,24 +624,24 @@ describe("Pasal 24(3): One Member One Vote", function () {
 \begin{lstlisting}[language={}, caption={Skrip Pengujian: Simpanan (Pasal 41(2) UU 25/1992)}, label={lst:test-simpanan}, basicstyle=\ttfamily\scriptsize, breaklines=true]
 describe("Pasal 41: Simpanan (Deposits)", function () {
  it("should pay Simpanan Pokok (one-time join fee)", async function () {
-  await usdc.connect(alice).approve(await vault.getAddress(), USDC(100));
-  await vault.paySimpananPokok(alice.address);
-  expect(await vault.simpananPokok(alice.address)).to.equal(USDC(100));
-  expect(await vault.hasPaidSimpananPokok(alice.address)).to.be.true;
+ await usdc.connect(alice).approve(await vault.getAddress(), USDC(100));
+ await vault.paySimpananPokok(alice.address);
+ expect(await vault.simpananPokok(alice.address)).to.equal(USDC(100));
+ expect(await vault.hasPaidSimpananPokok(alice.address)).to.be.true;
  });
 
  it("should not pay Simpanan Pokok twice", async function () {
-  await usdc.connect(alice).approve(await vault.getAddress(), USDC(200));
-  await vault.paySimpananPokok(alice.address);
-  await expect(vault.paySimpananPokok(alice.address)).to.be.reverted;
+ await usdc.connect(alice).approve(await vault.getAddress(), USDC(200));
+ await vault.paySimpananPokok(alice.address);
+ await expect(vault.paySimpananPokok(alice.address)).to.be.reverted;
  });
 
  it("should pay Simpanan Wajib (periodic mandatory)", async function () {
-  await usdc.connect(alice).approve(await vault.getAddress(), USDC(200));
-  await vault.paySimpananPokok(alice.address);
-  await usdc.connect(alice).approve(await vault.getAddress(), USDC(10));
-  await vault.connect(alice).paySimpananWajib();
-  expect(await vault.simpananWajibTotal(alice.address)).to.equal(USDC(10));
+ await usdc.connect(alice).approve(await vault.getAddress(), USDC(200));
+ await vault.paySimpananPokok(alice.address);
+ await usdc.connect(alice).approve(await vault.getAddress(), USDC(10));
+ await vault.connect(alice).paySimpananWajib();
+ expect(await vault.simpananWajibTotal(alice.address)).to.equal(USDC(10));
  });
 });
 \end{lstlisting}
@@ -649,22 +649,22 @@ describe("Pasal 41: Simpanan (Deposits)", function () {
 \begin{lstlisting}[language={}, caption={Skrip Pengujian: Pengawas (Pasal 38 UU 25/1992)}, label={lst:test-pengawas}, basicstyle=\ttfamily\scriptsize, breaklines=true]
 describe("Pasal 38: Pengawas (Supervisor)", function () {
  it("pengawas can veto a proposal", async function () {
-  await token.connect(alice).registerMember();
-  await token.connect(bob).registerMember();
-  await govern.connect(alice).createProposal(
-   "Test proposal", 0, await vault.getAddress(), 0, "0x"
-  );
-  await govern.vetoProposal(0);
-  const state = await govern.state(0);
-  expect(state).to.equal(8);
+ await token.connect(alice).registerMember();
+ await token.connect(bob).registerMember();
+ await govern.connect(alice).createProposal(
+  "Test proposal", 0, await vault.getAddress(), 0, "0x"
+ );
+ await govern.vetoProposal(0);
+ const state = await govern.state(0);
+ expect(state).to.equal(8);
  });
 
  it("non-pengawas cannot veto", async function () {
-  await token.connect(alice).registerMember();
-  await govern.connect(alice).createProposal(
-   "Test", 0, await vault.getAddress(), 0, "0x"
-  );
-  await expect(govern.connect(alice).vetoProposal(0)).to.be.reverted;
+ await token.connect(alice).registerMember();
+ await govern.connect(alice).createProposal(
+  "Test", 0, await vault.getAddress(), 0, "0x"
+ );
+ await expect(govern.connect(alice).vetoProposal(0)).to.be.reverted;
  });
 });
 \end{lstlisting}
@@ -672,20 +672,20 @@ describe("Pasal 38: Pengawas (Supervisor)", function () {
 \begin{lstlisting}[language={}, caption={Skrip Pengujian: Distribusi SHU (Pasal 45(1--2) UU 25/1992)}, label={lst:test-shu}, basicstyle=\ttfamily\scriptsize, breaklines=true]
 describe("Pasal 45: SHU Distribution", function () {
  it("should distribute SHU by shares", async function () {
-  await usdc.connect(alice).approve(await vault.getAddress(), USDC(1000));
-  await vault.connect(alice).receiveRevenue(USDC(1000));
-  await vault.distributeSHU();
-  expect(await vault.shuDistributionCount()).to.equal(1);
-  const dist = await vault.shuDistributions(0);
-  expect(dist.totalAmount).to.be.gt(0);
+ await usdc.connect(alice).approve(await vault.getAddress(), USDC(1000));
+ await vault.connect(alice).receiveRevenue(USDC(1000));
+ await vault.distributeSHU();
+ expect(await vault.shuDistributionCount()).to.equal(1);
+ const dist = await vault.shuDistributions(0);
+ expect(dist.totalAmount).to.be.gt(0);
  });
 
  it("should not claim SHU twice", async function () {
-  await usdc.connect(alice).approve(await vault.getAddress(), USDC(1000));
-  await vault.connect(alice).receiveRevenue(USDC(1000));
-  await vault.distributeSHU();
-  await vault.connect(alice).claimSHU(0);
-  await expect(vault.connect(alice).claimSHU(0)).to.be.reverted;
+ await usdc.connect(alice).approve(await vault.getAddress(), USDC(1000));
+ await vault.connect(alice).receiveRevenue(USDC(1000));
+ await vault.distributeSHU();
+ await vault.connect(alice).claimSHU(0);
+ await expect(vault.connect(alice).claimSHU(0)).to.be.reverted;
  });
 });
 \end{lstlisting}
@@ -693,25 +693,25 @@ describe("Pasal 45: SHU Distribution", function () {
 \begin{lstlisting}[language={}, caption={Skrip Pengujian: Pinjaman (Pasal 44 UU 25/1992 dan Permenkop 8/2023)}, label={lst:test-loan}, basicstyle=\ttfamily\scriptsize, breaklines=true]
 describe("LakomiLoans: Basic Flow", function () {
  it("should request and auto-approve small loan", async function () {
-  await usdc.connect(alice).approve(await loans.getAddress(), USDC(1000));
-  await loans.connect(alice).requestLoan(
-   USDC(100), 30n * 24n * 3600n, "Emergency"
-  );
-  const loan = await loans.getLoan(0);
-  expect(loan.status).to.equal(1);
+ await usdc.connect(alice).approve(await loans.getAddress(), USDC(1000));
+ await loans.connect(alice).requestLoan(
+  USDC(100), 30n * 24n * 3600n, "Emergency"
+ );
+ const loan = await loans.getLoan(0);
+ expect(loan.status).to.equal(1);
  });
 
  it("should repay loan and unlock collateral", async function () {
-  await usdc.connect(alice).approve(await loans.getAddress(), USDC(1000));
-  await loans.connect(alice).requestLoan(
-   USDC(100), 30n * 24n * 3600n, "Emergency"
-  );
-  await loans.disburse(0);
-  const loan = await loans.getLoan(0);
-  const totalOwed = loan.principal + loan.interest;
-  await usdc.connect(alice).approve(await loans.getAddress(), totalOwed);
-  await loans.connect(alice).repayInFull(0);
-  expect((await loans.getLoan(0)).status).to.equal(3);
+ await usdc.connect(alice).approve(await loans.getAddress(), USDC(1000));
+ await loans.connect(alice).requestLoan(
+  USDC(100), 30n * 24n * 3600n, "Emergency"
+ );
+ await loans.disburse(0);
+ const loan = await loans.getLoan(0);
+ const totalOwed = loan.principal + loan.interest;
+ await usdc.connect(alice).approve(await loans.getAddress(), totalOwed);
+ await loans.connect(alice).repayInFull(0);
+ expect((await loans.getLoan(0)).status).to.equal(3);
  });
 });
 \end{lstlisting}

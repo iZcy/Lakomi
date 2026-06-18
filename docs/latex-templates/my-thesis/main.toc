@@ -131,12 +131,12 @@
 \contentsline {subsection}{\numberline {4.7.2}Validasi Formula Kuorum}{91}{subsection.4.7.2}%
 \contentsline {subsection}{\numberline {4.7.3}Validasi Formula Distribusi SHU}{91}{subsection.4.7.3}%
 \contentsline {section}{\numberline {4.8}Pencapaian Tujuan dan Perbandingan Sistem}{92}{section.4.8}%
-\contentsline {chapter}{\numberline {V}Penutup}{94}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kesimpulan}{94}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Saran}{94}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Berdasarkan Batasan Penelitian}{95}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Berdasarkan Temuan Pembahasan}{95}{subsection.5.2.2}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{96}{section*.58}%
+\contentsline {chapter}{\numberline {V}Penutup}{93}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kesimpulan}{93}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Saran}{93}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Berdasarkan Batasan Penelitian}{94}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Berdasarkan Temuan Pembahasan}{94}{subsection.5.2.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{95}{section*.58}%
 \contentsline {chapter}{LAMPIRAN}{L-1}{section*.60}%
 \contentsline {section}{\numberline {L.1}Daftar Smart Contract Lakomi}{L-1}{section.Alph0.1}%
 \contentsline {section}{\numberline {L.2}Struktur Data Utama}{L-1}{section.Alph0.2}%

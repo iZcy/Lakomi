@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  19 JUN 2026 10:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.6.2)  19 JUN 2026 10:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -236,6 +236,14 @@ File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
 \Gin@req@height=\dimen173
 \Gin@req@width=\dimen174
 )
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 11
+2.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+))
 (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
@@ -875,24 +883,24 @@ File: microtype.cfg 2023/03/13 v3.1a microtype main configuration file (RS)
 )) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 20.
-LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 -- Lines per column: 56 (exact).
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -916,25 +924,25 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 20.
+Package hyperref Info: Link coloring OFF on input line 21.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 20.
-Package microtype Info: Applying patch `item' on input line 20.
-Package microtype Info: Applying patch `toc' on input line 20.
-Package microtype Info: Applying patch `eqnum' on input line 20.
-Package microtype Info: Applying patch `footnote' on input line 20.
-Package microtype Info: Applying patch `verbatim' on input line 20.
+LaTeX Info: Redefining \microtypecontext on input line 21.
+Package microtype Info: Applying patch `item' on input line 21.
+Package microtype Info: Applying patch `toc' on input line 21.
+Package microtype Info: Applying patch `eqnum' on input line 21.
+Package microtype Info: Applying patch `footnote' on input line 21.
+Package microtype Info: Applying patch `verbatim' on input line 21.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 20.
+LaTeX Info: Redefining \showhyphens on input line 21.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -942,13 +950,13 @@ Package microtype Info: No adjustment of character kerning.
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 38.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 39.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -957,7 +965,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 38.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 39.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -970,164 +978,160 @@ f-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-04.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 10
+5.
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `pcr' (encoding: OT1).
+(microtype)             `pcr' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 4291) in paragraph at lines 159--160
-[]\OT1/ptm/m/n/10 (+20) Five roles gov-ern the sys-tem: PEN-GAWAS[]ROLE
+Underfull \hbox (badness 4242) in paragraph at lines 160--161
+[]\T1/ptm/m/n/10 (+20) Five roles gov-ern the sys-tem: PEN-GAWAS_ROLE
  []
 
 [2]
-Underfull \hbox (badness 2253) in paragraph at lines 237--238
-[]\OT1/ptm/m/n/10 (+20) Each con-tract is ini-tial-ized with five role ac-count
-s:
+Underfull \hbox (badness 2253) in paragraph at lines 238--239
+[]\T1/ptm/m/n/10 (+20) Each con-tract is ini-tial-ized with five role ac-counts
+:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-\OT1/ptm/m/n/10 (+20) PEN-GAWAS[]ROLE (su-per-vi-sor), AP-PROVER[]ROLE
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+\T1/ptm/m/n/10 (+20) PEN-GAWAS_ROLE (su-per-vi-sor), AP-PROVER_ROLE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-\OT1/ptm/m/n/10 (+20) (loan ap-proval), MEM-BER-SHIP[]ROLE (mem-ber
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+\T1/ptm/m/n/10 (+20) (loan ap-proval), MEM-BER-SHIP_ROLE (mem-ber
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
-\OT1/ptm/m/n/10 (+20) man-age-ment), TREA-SURER[]ROLE (vault op-er-a-tions),
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+\T1/ptm/m/n/10 (+20) man-age-ment), TREA-SURER_ROLE (vault op-er-a-tions),
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-[]\OT1/ptm/m/n/8 (+20) Member self-registers
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/m/n/8 (+20) Member self-registers
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-\OT1/ptm/m/n/8 (+20) with sim-panan pokok $\OMS/cmsy/m/n/8 !$
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+\T1/ptm/m/n/8 (+20) with sim-panan pokok $\OMS/cmsy/m/n/8 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-\OT1/pcr/m/n/8 isRegisteredMember
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+\T1/pcr/m/n/8 isRegisteredMember
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-[]\OT1/ptm/m/n/8 (+20) Simpanan pokok paid $\OMS/cmsy/m/n/8 !$
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/m/n/8 (+20) Simpanan pokok paid $\OMS/cmsy/m/n/8 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-[]\OT1/pcr/m/n/8 scheduleAnnualRAT()
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/pcr/m/n/8 scheduleAnnualRAT()
  []
 
 
-Underfull \hbox (badness 6284) in paragraph at lines 265--265
-\OMS/cmsy/m/n/8 !$ \OT1/ptm/m/n/8 (+20) RAT pro-posal cre-ated;
+Underfull \hbox (badness 6284) in paragraph at lines 266--266
+\OMS/cmsy/m/n/8 !$ \T1/ptm/m/n/8 (+20) RAT pro-posal cre-ated;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-[]\OT1/ptm/m/n/8 (+20) Governance pro-posal
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/m/n/8 (+20) Governance pro-posal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-\OMS/cmsy/m/n/8 !$ \OT1/ptm/m/n/8 (+20) vote $\OMS/cmsy/m/n/8 !$ \OT1/ptm/m/n/8
- (+20) ex-e-cute
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+\OMS/cmsy/m/n/8 !$ \T1/ptm/m/n/8 (+20) vote $\OMS/cmsy/m/n/8 !$ \T1/ptm/m/n/8 (
++20) ex-e-cute
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-[]\OT1/ptm/m/n/8 (+20) PENGAWAS[]ROLE
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/m/n/8 (+20) PENGAWAS_ROLE
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-\OT1/ptm/m/n/8 (+20) ve-toes pro-posal $\OMS/cmsy/m/n/8 !$
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+\T1/ptm/m/n/8 (+20) ve-toes pro-posal $\OMS/cmsy/m/n/8 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-\OT1/pcr/m/n/8 proposalVetoed ==
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+\T1/pcr/m/n/8 proposalVetoed ==
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-[]\OT1/ptm/m/n/8 (+20) Revenue ac-cu-mu-lated $\OMS/cmsy/m/n/8 !$
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+[]\T1/ptm/m/n/8 (+20) Revenue ac-cu-mu-lated $\OMS/cmsy/m/n/8 !$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 265--265
-\OT1/pcr/m/n/8 distributeSHU() $\OMS/cmsy/m/n/8 !$ \OT1/ptm/m/n/8 (+20) 6
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 2
-82.
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Underfull \hbox (badness 2343) in paragraph at lines 322--322
-[]\OT1/ptm/b/n/8 (+20) Traditional Kop-
+Underfull \hbox (badness 10000) in paragraph at lines 266--266
+\T1/pcr/m/n/8 distributeSHU() $\OMS/cmsy/m/n/8 !$ \T1/ptm/m/n/8 (+20) 6
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Token-weighted
+Underfull \hbox (badness 2343) in paragraph at lines 323--323
+[]\T1/ptm/b/n/8 (+20) Traditional Kop-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Limited, in-ter-nal
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Token-weighted
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Public ledger,
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Limited, in-ter-nal
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Regulatory
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Public ledger,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Simpanan
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Regulatory
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Smart con-tract
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Simpanan
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Collateralized,
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Smart con-tract
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) On-chain
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Collateralized,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) On-chain au-dit
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) On-chain
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 322--322
-[]\OT1/ptm/m/n/8 (+20) Protocol-defined
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) On-chain au-dit
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+[]\T1/ptm/m/n/8 (+20) Protocol-defined
  []
 
 [4] (./main.bbl)
@@ -1151,13 +1155,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 10DADC273DD284462357C94BF363FA60;2805.
  ) 
 Here is how much of TeX's memory you used:
- 25278 strings out of 475597
- 468882 string characters out of 5783340
- 1958975 words of memory out of 5000000
- 46649 multiletter control sequences out of 15000+600000
- 617022 words of font info for 317 fonts, out of 8000000 for 9000
+ 25504 strings out of 475597
+ 472072 string characters out of 5783340
+ 1957975 words of memory out of 5000000
+ 46866 multiletter control sequences out of 15000+600000
+ 693538 words of font info for 358 fonts, out of 8000000 for 9000
  309 hyphenation exceptions out of 8191
- 84i,12n,93p,1384b,838s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,93p,1383b,838s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texliv
@@ -1169,7 +1173,7 @@ pe1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
 usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/urw/times/utmri8a.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (5 pages, 167814 bytes).
+Output written on main.pdf (5 pages, 167743 bytes).
 PDF statistics:
  231 PDF objects out of 1000 (max. 8388607)
  198 compressed objects within 2 object streams
